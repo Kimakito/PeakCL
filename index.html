@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeJBL | Développement Web sur-mesure</title>
+    <link rel="stylesheet" href="assets/css/output.css" />
+    <!-- Favicons classiques -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon/favicon-256x256.png">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+
+    <!-- Android + Chrome -->
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
+
+    <!-- Windows (Tile) -->
+    <meta name="msapplication-TileColor" content="#1e3a8a">
+    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="assets/favicon/manifest.json">
+
+    <!-- Couleur de thème navigateur mobile -->
+    <meta name="theme-color" content="#1e3a8a">
+
+</head>
+
+<body class="bg-blue-950 text-white font-sans">
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 bg-blue-900 shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white flex gap-2 justify-center items-center">
+                <img src="/assets/logo/logoCJB_V2.png" alt="logo CodeJBL"
+                    class="w-12 h-auto mx-auto mb-6 animate-fade-in delay-100 rounded-xl shadow-lg">
+                CodeJBL
+            </h1>
+            <nav class="space-x-4 hidden md:block">
+                <a href="#hero" class="hover:text-yellow-300">Accueil</a>
+                <a href="#services" class="hover:text-yellow-300">Services</a>
+                <a href="#portfolio" class="hover:text-yellow-300">Portfolio</a>
+                <a href="#contact" class="hover:text-yellow-300">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center text-center px-4 pt-20 overflow-hidden"
+        style="background-image: url('./assets/images/violet_computer.webp'); background-size: cover; background-position: center;">
+
+        <!-- Overlay flouté + dégradé -->
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-950/80 to-black/90 backdrop-blur-sm z-0">
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="relative z-10 text-white max-w-4xl px-6">
+            <img src="/assets/logo/logoCJB_V2.png" alt="logo CodeJBL"
+                class="w-28 h-auto mx-auto mb-6 rounded-xl shadow-[0_0_25px_#facc15] animate-fade-in delay-100" />
+
+            <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg animate-fade-in delay-150">
+                Développement Web<br class="hidden sm:inline" />
+                <span class="text-yellow-400">Sur-Mesure & Moderne</span>
+            </h2>
+
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 opacity-90 animate-fade-in delay-200">
+                CodeJBL, votre partenaire pour créer des sites <span class="font-semibold text-yellow-300">fun,
+                    performants</span> et 100% adaptés à vos besoins.
+            </p>
+
+            <a href="#contact"
+                class="inline-block bg-yellow-400 text-black font-bold px-8 py-3 rounded-full shadow-lg hover:bg-yellow-300 transition-all duration-300 animate-fade-in delay-300">
+                Discutons de votre projet 🚀
+            </a>
+        </div>
+    </section>
+
+
+
+    <section id="services" class="py-24 px-6 bg-gradient-to-br from-blue-900 via-blue-950 to-blue-900 text-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h3 class="text-4xl md:text-5xl font-extrabold mb-6 text-yellow-400 drop-shadow-md animate-fade-in">Ce que
+                nous vous proposons</h3>
+            <p class="text-lg md:text-xl text-gray-200 mb-16 max-w-3xl mx-auto animate-fade-in delay-100">
+                Du site vitrine aux applis sur-mesure, en passant par votre image de marque : tout pour booster votre
+                présence digitale.
+            </p>
+
+            <div class="flex flex-col-reverse lg:flex-row gap-12 items-center">
+
+                <!-- Zone textes / services -->
+                <div class="w-full lg:w-1/2 grid sm:grid-cols-2 gap-8 text-left animate-fade-in delay-200">
+                    <div
+                        class="bg-blue-800/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:scale-105 transition hover:shadow-yellow-300/50">
+                        <h4 class="text-xl font-bold text-yellow-300 mb-2">Sites Web Modernes</h4>
+                        <p>Des sites rapides, esthétiques, responsives et pensés pour vos utilisateurs.</p>
+                    </div>
+                    <div
+                        class="bg-blue-800/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:scale-105 transition hover:shadow-yellow-300/50">
+                        <h4 class="text-xl font-bold text-yellow-300 mb-2">Applications Web</h4>
+                        <p>Des apps interactives, fluides et performantes pour vos besoins métier.</p>
+                    </div>
+                    <div
+                        class="bg-blue-800/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:scale-105 transition hover:shadow-yellow-300/50">
+                        <h4 class="text-xl font-bold text-yellow-300 mb-2">Identité Visuelle</h4>
+                        <p>Création de logos, flyers, cartes de visite, le tout avec cohérence et style.</p>
+                    </div>
+                    <div
+                        class="bg-blue-800/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:scale-105 transition hover:shadow-yellow-300/50">
+                        <h4 class="text-xl font-bold text-yellow-300 mb-2">Présence Digitale</h4>
+                        <p>Pages Facebook, Google Business, emails pro, et lancement efficace.</p>
+                    </div>
+                </div>
+
+                <!-- Image fun -->
+                <div class="w-full lg:w-1/2 relative animate-fade-in delay-300">
+                    <div class="relative z-10">
+                        <img src="/assets/images/tree-appli.webp" alt="arbre applicatif"
+                            class="rounded-2xl shadow-[0_0_60px_rgba(255,255,255,0.1)] hover:scale-105 transition duration-500" />
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-20 h-20 bg-yellow-400 rounded-full blur-3xl opacity-30 z-0">
+                    </div>
+                    <div class="absolute bottom-0 right-0 w-24 h-24 bg-blue-300 rounded-full blur-2xl opacity-20 z-0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA doux -->
+            <div class="mt-16 animate-fade-in delay-500 text-center">
+                <a href="#contact"
+                    class="inline-block px-8 py-4 bg-yellow-400 text-blue-950 font-bold text-lg rounded-full shadow-lg hover:bg-yellow-300 transition-all duration-300">
+                    Envie d’un site qui vous ressemble ? Parlons-en !
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Portfolio -->
+    <section id="portfolio"
+        class="py-24 px-6 bg-gradient-to-br from-blue-950 to-blue-900 relative overflow-hidden text-white">
+        <div
+            class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[60rem] h-[60rem] bg-yellow-400/10 rounded-full blur-3xl animate-pulse z-0">
+        </div>
+
+        <div
+            class="absolute inset-0 z-0 pointer-events-none before:absolute before:inset-0 before:bg-[url('/assets/images/scanlines.png')] before:opacity-5 after:absolute after:inset-0 after:bg-[url('/assets/images/noise.png')] after:opacity-5">
+        </div>
+
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <h3 class="text-4xl md:text-5xl font-extrabold text-white mb-4 animate-fade-in">✨ Portfolio ✨</h3>
+            <p class="text-lg text-blue-100 mb-12 animate-fade-in delay-200">
+                Quelques créations codées sur-mesure signées <span class="font-semibold text-yellow-300">CodeJBL</span>
+            </p>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 animate-fade-in delay-300">
+                <a href="https://jb-lacroix.fr/" target="_blank"
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 p-4">
+                    <img src="assets/logo/Logo.jbl.png" alt="jb-lacroix.fr"
+                        class="w-full h-52 object-contain rounded-xl">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <p class="text-yellow-300 text-lg font-semibold">Site vitrine sur mesure</p>
+                    </div>
+                    <div class="absolute top-2 right-2 text-yellow-300 opacity-60 group-hover:opacity-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 3h7m0 0v7m0-7L10 14"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a href="https://lavieilleroue.fr/" target="_blank"
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 p-4">
+                    <img src="assets/logo/lavieilleroue.png" alt="lavieilleroue.fr"
+                        class="w-full h-52 object-contain rounded-xl">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <p class="text-yellow-300 text-lg font-semibold">Site vitrine sur mesure</p>
+                    </div>
+                    <div class="absolute top-2 right-2 text-yellow-300 opacity-60 group-hover:opacity-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 3h7m0 0v7m0-7L10 14"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a href="https://doodleidoo.com/" target="_blank"
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 p-4">
+                    <img src="assets/logo/logo_doodleIdoo.png" alt="doodleidoo.fr"
+                        class="w-full h-52 object-contain rounded-xl">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <p class="text-yellow-300 text-lg font-semibold">Site vitrine sur mesure</p>
+                    </div>
+                    <div class="absolute top-2 right-2 text-yellow-300 opacity-60 group-hover:opacity-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 3h7m0 0v7m0-7L10 14"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <div class="col-span-full text-blue-100 text-center text-md italic mt-8">Mais aussi des sites web et
+                    boutiques en ligne réalisés avec Wordpress :</div>
+
+                <a href="https://www.naturalriders.fr/" target="_blank"
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 p-4">
+                    <img src="assets/logo/natural_riders.avif" alt="naturalriders.fr/"
+                        class="w-full h-52 object-contain rounded-xl">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <p class="text-yellow-300 text-lg font-semibold">Boutique e-commerce</p>
+                    </div>
+                    <div class="absolute top-2 right-2 text-yellow-300 opacity-60 group-hover:opacity-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 3h7m0 0v7m0-7L10 14"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a href="https://lejusteplan.fr/" target="_blank"
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 p-4">
+                    <img src="assets/logo/le_juste_plan.png" alt="lejusteplan.fr"
+                        class="w-full h-52 object-contain rounded-xl">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <p class="text-yellow-300 text-lg font-semibold">Site d'un architecte</p>
+                    </div>
+                    <div class="absolute top-2 right-2 text-yellow-300 opacity-60 group-hover:opacity-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 3h7m0 0v7m0-7L10 14"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a href="https://bonebreaker.fr/" target="_blank"
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 p-4">
+                    <img src="assets/logo/bone_breaker.png" alt="bonebreaker.fr"
+                        class="w-full h-52 object-contain rounded-xl">
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <p class="text-yellow-300 text-lg font-semibold">Site web association sportive</p>
+                    </div>
+                    <div class="absolute top-2 right-2 text-yellow-300 opacity-60 group-hover:opacity-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 3h7m0 0v7m0-7L10 14"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valeur ajoutée -->
+    <section class="py-24 px-6 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-950">
+        <div class="max-w-5xl mx-auto text-center">
+            <h3 class="text-4xl font-extrabold mb-8 text-yellow-400 drop-shadow-lg">Notre valeur ajoutée</h3>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12">
+                Notre approche est centrée sur l'écoute de vos besoins, la clarté technique et un suivi personnalisé
+                pour transformer vos idées en réalité digitale.
+            </p>
+            <img src="/assets/images/desktop.webp" alt="bureau de travail"
+                class="mx-auto rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-500 border-4 border-yellow-400" />
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 px-6 bg-gradient-to-r from-blue-950 via-blue-900 to-blue-800">
+        <div class="max-w-4xl mx-auto bg-blue-900 bg-opacity-80 rounded-3xl p-12 shadow-2xl">
+            <h3 class="text-4xl font-extrabold mb-10 text-yellow-400 text-center drop-shadow-md">Contactez-nous</h3>
+            <form class="space-y-8">
+                <input type="text" placeholder="Votre nom"
+                    class="w-full p-4 rounded-lg bg-blue-800 text-white placeholder-yellow-300 focus:outline-none focus:ring-4 focus:ring-yellow-400 transition" />
+                <input type="email" placeholder="Votre email"
+                    class="w-full p-4 rounded-lg bg-blue-800 text-white placeholder-yellow-300 focus:outline-none focus:ring-4 focus:ring-yellow-400 transition" />
+                <textarea rows="6" placeholder="Votre message"
+                    class="w-full p-4 rounded-lg bg-blue-800 text-white placeholder-yellow-300 focus:outline-none focus:ring-4 focus:ring-yellow-400 transition resize-none"></textarea>
+                <button type="submit"
+                    class="w-full bg-yellow-400 text-black font-extrabold py-4 rounded-full hover:bg-yellow-300 shadow-lg transition-all duration-300">
+                    Envoyer
+                </button>
+            </form>
+        </div>
+    </section>
+    <!-- Section Liens CodeJBL -->
+<section class="py-12 bg-blue-950">
+  <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-10 items-center">
+    <a href="https://www.malt.fr/profile/codejbl" target="_blank" rel="noopener" class="flex flex-col items-center text-yellow-400 hover:text-yellow-300 transition">
+      <!-- Exemple d'icône Malt simplifiée -->
+      <img src="/assets/logo/maltLogo.webp" alt="malt logo" class="w-auto h-10 mb-2">
+      Malt
+    </a>
+    <a href="https://fr.fiverr.com/s/99W6WYa" target="_blank" rel="noopener" class="flex flex-col items-center text-yellow-400 hover:text-yellow-300 transition">
+      <!-- Icône Fiverr simplifiée -->
+      <svg width="89" height="27" viewBox="0 0 89 27" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="#404145"><path d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z"></path></g><g fill="#1dbf73"><path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z"></path></g></svg>
+      Fiverr
+    </a>
+    <a href="https://comeup.com/fr/@codejbl" target="_blank" rel="noopener" class="flex flex-col items-center text-yellow-400 hover:text-yellow-300 transition">
+      <!-- Icône ComeUp simplifiée -->
+      <svg fill="currentColor" viewBox="0 0 98 27" width="98" height="27" aria-hidden="true" focusable="false"><path d="M0 22.41h97.962V27H0zm83.685-5.062h4.7v-4.86h2.324c4.215 0 7.291-2.115 7.291-6.124v-.049C98 2.55 95.239.337 90.952.337h-7.267v17.01Zm4.7-8.554V4.298h2.203c1.696 0 2.713.778 2.713 2.236v.049c0 1.336-1.017 2.21-2.689 2.21h-2.228ZM74.3 17.663c4.82 0 7.945-2.405 7.945-7.897V.338h-4.771v9.574c0 2.381-1.236 3.499-3.125 3.499-1.89 0-3.124-1.166-3.124-3.62V.336h-4.772v9.55c0 5.322 3.028 7.776 7.848 7.776Zm-22.44-.315h13.76v-4.01h-9.11v-2.697h8.139V6.923H56.51V4.347h8.987V.337H51.86zm-19.678 0h4.602v-9.72l4.312 6.61h.097l4.335-6.66v9.77h4.675V.337h-4.965l-4.045 6.585L37.148.338h-4.966zM22.068 0c4.905 0 8.882 3.99 8.882 8.91s-3.977 8.91-8.882 8.91c-4.905 0-8.88-3.99-8.88-8.91S17.162 0 22.067 0Zm0 4.59a4.313 4.313 0 0 0-4.306 4.32 4.313 4.313 0 0 0 4.306 4.32 4.313 4.313 0 0 0 4.306-4.32 4.313 4.313 0 0 0-4.306-4.32Z"></path><path d="M17.762 8.91c0 4.92-3.976 8.91-8.88 8.91C3.975 17.82 0 13.83 0 8.91S3.976 0 8.881 0v4.59a4.313 4.313 0 0 0-4.306 4.32 4.313 4.313 0 0 0 4.306 4.32 4.313 4.313 0 0 0 4.306-4.32Z"></path></svg>
+      ComeUp
+    </a>
+    <a href="https://www.linkedin.com/company/codejbl/" target="_blank" rel="noopener" class="flex flex-col items-center text-yellow-400 hover:text-yellow-300 transition">
+      <!-- Icône LinkedIn simplifiée -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+      <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+    </svg>
+      LinkedIn
+    </a>
+  </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer class="py-6 text-center bg-blue-900 text-sm text-gray-300">
+        &copy; 2025 CodeJBL. Tous droits réservés.
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+            max: 10,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2
+        });
+    </script>
+</body>
+
+</html>
