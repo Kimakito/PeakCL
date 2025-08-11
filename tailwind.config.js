@@ -5,9 +5,9 @@ module.exports = {
     extend: {
       colors: {
         // Ajout de ma palette de couleurs
-        'primary-blue': '#1a237e', // Un bleu foncé (comme l'était ton blue-950) pour le fond
+        'primary-blue': '#00bcd4', // Un bleu foncé (comme l'était ton blue-950) pour le fond
         'secondary-violet': '#5e35b1', // Un violet plus clair
-        'accent-turquoise': '#00bcd4', // Ton turquoise vif
+        'accent-blue': '#1a237e', // Ton turquoise vif
         'accent-yellow': '#ffc107', // Un jaune doré
         'gray-light': '#e5e7eb', // Un gris clair pour les textes secondaires
         'gray-dark': '#374151', // Un gris foncé pour les contrastes
