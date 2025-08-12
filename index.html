@@ -53,12 +53,14 @@
     </header>
 
     <main id="main-content">
-        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-4 pt-20 overflow-hidden 
-        bg-gradient-to-br from-peak-blue-dark via-peak-blue-light to-peak-violet bg-[length:200%_200%] animate-bg-gradient-shift" role="region" aria-label="Présentation de l'entreprise">
-            <div class="absolute w-96 h-96 bg-peak-blue-light rounded-full blur-[100px] opacity-20 animate-pulse top-1/4 left-1/4 z-0" aria-hidden="true"></div>
-            <div class="absolute w-80 h-80 bg-peak-violet rounded-full blur-[120px] opacity-20 animate-pulse bottom-1/4 right-1/4 z-0" aria-hidden="true"></div>
+        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-4 pt-20 overflow-hidden" role="region" aria-label="Présentation de l'entreprise">
+            <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full z-0 opacity-50"></canvas>
+            
+            <div class="absolute inset-0 bg-gradient-to-br from-peak-blue-dark via-peak-blue-light to-peak-violet bg-[length:200%_200%] animate-bg-gradient-shift z-10 opacity-70"></div>
+            <div class="absolute w-96 h-96 bg-peak-blue-light rounded-full blur-[100px] opacity-20 animate-pulse top-1/4 left-1/4 z-20" aria-hidden="true"></div>
+            <div class="absolute w-80 h-80 bg-peak-violet rounded-full blur-[120px] opacity-20 animate-pulse bottom-1/4 right-1/4 z-20" aria-hidden="true"></div>
 
-            <div class="relative z-10 text-peak-gray max-w-4xl px-6">
+            <div class="relative z-30 text-peak-gray max-w-4xl px-6">
                 <img src="/assets/logo/PeakCL.logo.png" alt="Logo de PeakCL, une entreprise de développement web" class="w-40 h-auto mx-auto mb-6 shadow-2xl border-4 animate-fade-in delay-100" />
                 <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 drop-shadow-lg animate-fade-in delay-150">
                     Développeur Web Freelance en Savoie<br class="hidden sm:inline" />
@@ -281,6 +283,7 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/matrix.js"></script>
 </body>
 
 </html>
