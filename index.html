@@ -32,86 +32,68 @@
     <link rel="manifest" href="assets/favicon/manifest.json">
 
     <meta name="theme-color" content="#1a237e">
-
 </head>
 
-<body class="bg-primary-blue text-white font-sans overflow-x-hidden">
-    <header class="fixed top-0 left-0 right-0 bg-primary-blue/80 backdrop-blur-sm shadow-lg z-50 transition-all duration-300">
+<body class="bg-peak-blue-dark text-peak-gray font-sans overflow-x-hidden">
+    <header class="fixed top-0 left-0 right-0 bg-peak-blue-dark/80 backdrop-blur-sm shadow-lg z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-white flex gap-2 items-center justify-center">
-                <img src="/assets/logo/PeakCL.logo.png" alt="logo PeakCL"
-                    class="w-12 h-auto shadow-lg transition-transform hover:scale-110">
-                <span class="text-accent-yellow">Peak<span class="text-violet-700">CL</span></span>
+            <h1 class="text-2xl font-bold flex gap-2 items-center">
+                <img src="/assets/logo/PeakCL.logo.png" alt="logo PeakCL" class="w-12 h-auto transition-transform hover:scale-110">
+                <span class="text-peak-blue-light">Peak<span class="text-peak-violet">CL</span></span>
             </h1>
             <nav class="space-x-6 hidden md:flex items-center">
-                <a href="#hero" class="text-gray-light hover:text-accent-blue transition-colors duration-300">Accueil</a>
-                <a href="#services" class="text-gray-light hover:text-accent-blue transition-colors duration-300">Services</a>
-                <a href="#portfolio" class="text-gray-light hover:text-accent-blue transition-colors duration-300">Portfolio</a>
-                <a href="#contact" class="text-gray-light hover:text-accent-blue transition-colors duration-300">Contact</a>
+                <a href="#hero" class="text-peak-gray hover:text-peak-blue-light transition-colors duration-300">Accueil</a>
+                <a href="#services" class="text-peak-gray hover:text-peak-blue-light transition-colors duration-300">Services</a>
+                <a href="#portfolio" class="text-peak-gray hover:text-peak-blue-light transition-colors duration-300">Portfolio</a>
+                <a href="#contact" class="text-peak-gray hover:text-peak-blue-light transition-colors duration-300">Contact</a>
             </nav>
         </div>
     </header>
 
-    <section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-4 pt-20 overflow-hidden bg-cover bg-center"
-        style="background-image: url('./assets/images/peakClIA.jpg');">
+    <section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-4 pt-20 overflow-hidden 
+    bg-gradient-to-br from-peak-blue-dark via-peak-blue-light to-peak-violet bg-[length:200%_200%] animate-bg-gradient-shift">
+        <div class="absolute w-96 h-96 bg-peak-blue-light rounded-full blur-[100px] opacity-20 animate-pulse top-1/4 left-1/4 z-0"></div>
+        <div class="absolute w-80 h-80 bg-peak-violet rounded-full blur-[120px] opacity-20 animate-pulse bottom-1/4 right-1/4 z-0"></div>
 
-        <div class="absolute inset-0 bg-gradient-to-br from-primary-blue/80 via-secondary-violet/70 to-black/90 backdrop-blur-sm z-0">
-        </div>
-        <div class="absolute w-96 h-96 bg-accent-blue rounded-full blur-[100px] opacity-20 animate-pulse top-1/4 left-1/4 z-0"></div>
-        <div class="absolute w-80 h-80 bg-secondary-violet rounded-full blur-[120px] opacity-20 animate-pulse bottom-1/4 right-1/4 z-0"></div>
-
-
-        <div class="relative z-10 text-white max-w-4xl px-6">
-            <img src="/assets/logo/PeakCL.logo.png" alt="logo PeakCL"
-                class="w-40 h-auto mx-auto mb-6 shadow-2xl border-4 animate-fade-in delay-100" />
-
+        <div class="relative z-10 text-peak-gray max-w-4xl px-6">
+            <img src="/assets/logo/PeakCL.logo.png" alt="logo PeakCL" class="w-40 h-auto mx-auto mb-6 shadow-2xl border-4 animate-fade-in delay-100" />
             <h2 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 drop-shadow-lg animate-fade-in delay-150">
                 Développement Web<br class="hidden sm:inline" />
-                <span class="text-accent-yellow">Sur-Mesure & Moderne</span>
+                <span class="text-peak-yellow">Sur-Mesure & Moderne</span>
             </h2>
-
-            <p class="text-lg shadow-primary-blue/50 md:text-xl max-w-2xl mx-auto mb-8 opacity-90 animate-fade-in delay-200">
-                <span class="text-accent-yellow">Peak<span class="text-violet-700">CL</span></span>, votre partenaire pour créer des sites <span class="font-semibold text-accent-blue">fun,
-                    performants</span> et 100% adaptés à vos besoins.
+            <p class="text-lg shadow-peak-blue-light/50 md:text-xl max-w-2xl mx-auto mb-8 opacity-90 animate-fade-in delay-200">
+                <span class="text-peak-blue-light font-bold">Peak<span class="text-peak-violet">CL</span></span>, le "Pixel" de la création Web, fusionnant créativité et précision technique pour des sites uniques qui vous ressemblent.
             </p>
-
-            <a href="#contact"
-                class="inline-block bg-accent-yellow text-accent-blue font-bold px-10 py-4 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 animate-fade-in delay-300">
+            <a href="#contact" class="inline-block bg-peak-yellow text-peak-blue-dark font-bold px-10 py-4 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 animate-fade-in delay-300">
                 Discutons de votre projet 🚀
             </a>
         </div>
     </section>
 
-    <section id="services" class="py-24 px-6 bg-gradient-to-br from-primary-blue via-secondary-violet to-primary-blue text-white">
-        <div class="max-w-7xl mx-auto text-center">
-            <h3 class="text-4xl md:text-5xl font-extrabold mb-6 text-accent-yellow drop-shadow-md animate-fade-in">Ce que
-                nous vous proposons</h3>
-            <p class="text-lg md:text-xl text-gray-light mb-16 max-w-3xl mx-auto animate-fade-in delay-100">
-                Du site vitrine aux applis sur-mesure, en passant par votre image de marque : tout pour booster votre
-                présence digitale.
+    <section id="services" class="relative py-24 px-6 text-peak-gray overflow-hidden bg-peak-blue-dark">
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-peak-violet/80 to-transparent z-0"></div>
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <h3 class="text-4xl md:text-5xl font-extrabold mb-6 text-peak-blue-light drop-shadow-md animate-fade-in">Ce que nous vous proposons</h3>
+            <p class="text-lg md:text-xl text-peak-gray mb-16 max-w-3xl mx-auto animate-fade-in delay-100">
+                Du site vitrine aux applis sur-mesure, en passant par votre image de marque : tout pour booster votre présence digitale.
             </p>
 
             <div class="flex flex-col-reverse lg:flex-row gap-12 items-center">
-
                 <div class="w-full lg:w-1/2 grid sm:grid-cols-2 gap-8 text-left animate-fade-in delay-200">
-                    <div
-                        class="bg-secondary-violet/60 p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-primary-blue/50 border border-secondary-violet/50">
-                        <h4 class="text-xl font-bold text-accent-yellow mb-2">Sites Web Modernes</h4>
+                    <div class="bg-peak-violet/60 p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
+                        <h4 class="text-xl font-bold text-peak-yellow mb-2">Sites Web Modernes</h4>
                         <p>Des sites rapides, esthétiques, responsives et pensés pour vos utilisateurs.</p>
                     </div>
-                    <div
-                        class="bg-secondary-violet/60 p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-primary-blue/50 border border-secondary-violet/50">
-                        <h4 class="text-xl font-bold text-accent-yellow mb-2">Applications Web</h4>
+                    <div class="bg-peak-violet/60 p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
+                        <h4 class="text-xl font-bold text-peak-yellow mb-2">Applications Web</h4>
                         <p>Des apps interactives, fluides et performantes pour vos besoins métier.</p>
                     </div>
-                    <div
-                        class="bg-secondary-violet/60 p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-primary-blue/50 border border-secondary-violet/50">
-                        <h4 class="text-xl font-bold text-accent-yellow mb-2">Identité Visuelle</h4>
+                    <div class="bg-peak-violet/60 p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
+                        <h4 class="text-xl font-bold text-peak-yellow mb-2">Identité Visuelle</h4>
                         <p>Création de logos, flyers, cartes de visite, le tout avec cohérence et style.</p>
                     </div>
-                    <div
-                        class="bg-secondary-violet/60 p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-primary-blue/50 border border-secondary-violet/50">
-                        <h4 class="text-xl font-bold text-accent-yellow mb-2">Présence Digitale</h4>
+                    <div class="bg-peak-violet/60 p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
+                        <h4 class="text-xl font-bold text-peak-yellow mb-2">Présence Digitale</h4>
                         <p>Pages Facebook, Google Business, emails pro, et lancement efficace.</p>
                     </div>
                 </div>
@@ -119,229 +101,215 @@
                 <div class="w-full lg:w-1/2 relative animate-fade-in delay-300">
                     <div class="relative z-10">
                         <img src="/assets/images/tree-appli.webp" alt="arbre applicatif"
-                            class="rounded-2xl shadow-2xl hover:scale-105 transition duration-500 border-4 border-accent-blue" />
+                            class="rounded-2xl shadow-2xl hover:scale-105 transition duration-500 border-4 border-peak-blue-light" />
                     </div>
-                    <div class="absolute -top-6 -left-6 w-20 h-20 bg-accent-yellow rounded-full blur-3xl opacity-30 z-0">
-                    </div>
-                    <div class="absolute bottom-0 right-0 w-24 h-24 bg-accent-blue rounded-full blur-2xl opacity-20 z-0">
-                    </div>
+                    <div class="absolute -top-6 -left-6 w-20 h-20 bg-peak-yellow rounded-full blur-3xl opacity-30 z-0"></div>
+                    <div class="absolute bottom-0 right-0 w-24 h-24 bg-peak-blue-light rounded-full blur-2xl opacity-20 z-0"></div>
                 </div>
             </div>
 
             <div class="mt-16 animate-fade-in delay-500 text-center">
                 <a href="#contact"
-                    class="inline-block px-10 py-4 bg-accent-yellow text-accent-blue font-bold text-lg rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300">
+                    class="inline-block px-10 py-4 bg-peak-yellow text-peak-blue-dark font-bold text-lg rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300">
                     Envie d’un site qui vous ressemble ? Parlons-en !
                 </a>
             </div>
-
         </div>
     </section>
 
-    <section id="portfolio" class="py-24 px-6 bg-gradient-to-br from-primary-blue to-secondary-violet relative overflow-hidden text-white">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[60rem] h-[60rem] bg-accent-blue/10 rounded-full blur-3xl animate-pulse z-0">
-        </div>
+    <section id="portfolio" class="relative py-24 px-6 bg-peak-violet text-peak-gray overflow-hidden">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[60rem] h-[60rem] bg-peak-blue-light/10 rounded-full blur-3xl animate-pulse z-0"></div>
         <div class="absolute inset-0 z-0 pointer-events-none bg-[url('/assets/images/scanlines.png')] opacity-5"></div>
         <div class="absolute inset-0 z-0 pointer-events-none bg-[url('/assets/images/noise.png')] opacity-5"></div>
 
-
         <div class="max-w-7xl mx-auto text-center relative z-10">
-            <h3 class="text-4xl md:text-5xl font-extrabold text-white mb-4 animate-fade-in">✨ Portfolio ✨</h3>
-            <p class="text-lg text-gray-light mb-12 animate-fade-in delay-200">
-                Quelques créations codées sur-mesure signées <span class="font-semibold text-accent-yellow">Peak<span class="text-violet-700">CL</span></span>
+            <h3 class="text-4xl md:text-5xl font-extrabold text-peak-yellow mb-4 animate-fade-in">✨ Portfolio ✨</h3>
+            <p class="text-lg text-peak-gray mb-12 animate-fade-in delay-200">
+                Quelques créations codées sur-mesure signées <span class="font-semibold text-peak-blue-light">Peak<span class="text-peak-violet">CL</span></span>
             </p>
 
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 animate-fade-in delay-300">
                 <a href="https://jb-lacroix.fr/" target="_blank"
-                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-secondary-violet/50 border border-secondary-violet p-4">
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4">
                     <img src="assets/logo/Logo.jbl.png" alt="jb-lacroix.fr"
                         class="w-full h-52 object-contain rounded-xl transition-transform duration-300 group-hover:scale-100">
                     <div
-                        class="absolute inset-0 bg-accent-blue/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <p class="text-accent-yellow text-lg font-semibold">Site vitrine sur mesure pour l'écrivain de romans fantasy Jean-Baptiste Lacroix</p>
+                        class="absolute inset-0 bg-peak-violet/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+                        <p class="text-peak-yellow text-lg font-semibold">Site vitrine sur mesure pour l'écrivain de romans fantasy Jean-Baptiste Lacroix</p>
                     </div>
                 </a>
                 <a href="https://lavieilleroue.fr/" target="_blank"
-                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-secondary-violet/50 border border-secondary-violet p-4">
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4">
                     <img src="assets/logo/lavieilleroue.png" alt="lavieilleroue.fr"
                         class="w-full h-52 object-contain rounded-xl transition-transform duration-300 group-hover:scale-100">
                     <div
-                        class="absolute inset-0 bg-accent-blue/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <p class="text-accent-yellow text-lg font-semibold">Site vitrine pour l'entreprise la Vieille Roue : réparation et remplacement de jantes et de voitures de collection</p>
+                        class="absolute inset-0 bg-peak-violet/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+                        <p class="text-peak-yellow text-lg font-semibold">Site vitrine pour l'entreprise la Vieille Roue : réparation et remplacement de jantes et de voitures de collection</p>
                     </div>
                 </a>
                 <a href="https://doodleidoo.com/" target="_blank"
-                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-secondary-violet/50 border border-secondary-violet p-4">
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4">
                     <img src="assets/logo/logo_doodleIdoo.png" alt="doodleidoo.fr"
                         class="w-full h-52 object-contain rounded-xl transition-transform duration-300 group-hover:scale-100">
                     <div
-                        class="absolute inset-0 bg-accent-blue/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <p class="text-accent-yellow text-lg font-semibold">Site vitrine sur mesure pour une artiste</p>
+                        class="absolute inset-0 bg-peak-violet/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+                        <p class="text-peak-yellow text-lg font-semibold">Site vitrine sur mesure pour une artiste</p>
                     </div>
                 </a>
 
-                <div class="col-span-full text-gray-light text-center text-md italic mt-8">Mais aussi des sites web et
+                <div class="col-span-full text-peak-gray text-center text-md italic mt-8">Mais aussi des sites web et
                     boutiques en ligne réalisés avec Wordpress :</div>
 
                 <a href="https://osteo-animalcare.com/" target="_blank"
-                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-secondary-violet/50 border border-secondary-violet p-4">
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4">
                     <img src="assets/logo/osteoanimalcare.webp" alt="osteo-animalcare.com/"
                         class="w-full h-52 object-contain rounded-xl transition-transform duration-300 group-hover:scale-100">
                     <div
-                        class="absolute inset-0 bg-accent-blue/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <p class="text-accent-yellow text-lg font-semibold">Site vitrine des ostéopathes animalières Ostéo'Animal Care</p>
+                        class="absolute inset-0 bg-peak-violet/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+                        <p class="text-peak-yellow text-lg font-semibold">Site vitrine des ostéopathes animalières Ostéo'Animal Care</p>
                     </div>
                 </a>
                 <a href="https://www.naturalriders.fr/" target="_blank"
-                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-secondary-violet/50 border border-secondary-violet p-4">
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4">
                     <img src="assets/logo/natural_riders.avif" alt="naturalriders.fr/"
                         class="w-full h-52 object-contain rounded-xl transition-transform duration-300 group-hover:scale-100">
                     <div
-                        class="absolute inset-0 bg-accent-blue/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <p class="text-accent-yellow text-lg font-semibold">Boutique e-commerce pour de la création de matériel en corde et biothane pour chevaux et chiens. </p>
+                        class="absolute inset-0 bg-peak-violet/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+                        <p class="text-peak-yellow text-lg font-semibold">Boutique e-commerce pour de la création de matériel en corde et biothane pour chevaux et chiens. </p>
                     </div>
                 </a>
                 <a href="https://lejusteplan.fr/" target="_blank"
-                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-secondary-violet/50 border border-secondary-violet p-4">
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4">
                     <img src="assets/logo/le_juste_plan.png" alt="lejusteplan.fr"
                         class="w-full h-52 object-contain rounded-xl transition-transform duration-300 group-hover:scale-100">
                     <div
-                        class="absolute inset-0 bg-accent-blue/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <p class="text-accent-yellow text-lg font-semibold">Site vitrine pour un architecte</p>
+                        class="absolute inset-0 bg-peak-violet/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+                        <p class="text-peak-yellow text-lg font-semibold">Site vitrine pour un architecte</p>
                     </div>
                 </a>
                 <a href="https://bonebreaker.fr/" target="_blank"
-                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-secondary-violet/50 border border-secondary-violet p-4">
+                    class="tilt-card group relative overflow-hidden rounded-xl shadow-xl hover:scale-105 transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4">
                     <img src="assets/logo/bone_breaker.png" alt="bonebreaker.fr"
                         class="w-full h-52 object-contain rounded-xl transition-transform duration-300 group-hover:scale-100">
                     <div
-                        class="absolute inset-0 bg-accent-blue/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <p class="text-accent-yellow text-lg font-semibold">Site web d'une association sportive</p>
+                        class="absolute inset-0 bg-peak-violet/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
+                        <p class="text-peak-yellow text-lg font-semibold">Site web d'une association sportive</p>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-gradient-to-r from-primary-blue via-secondary-violet to-primary-blue is-visible">
-        <div class="max-w-5xl flex gap-8 mx-auto text-center">
+    <section class="relative py-24 px-6 bg-peak-blue-dark text-peak-gray overflow-hidden">
+        <div class="max-w-5xl flex flex-col md:flex-row gap-8 mx-auto text-center md:text-left">
             <div class="w-full md:w-1/2 flex flex-col justify-center">
-                <h3 class="text-4xl font-extrabold mb-6 text-accent-yellow drop-shadow-lg">Pourquoi choisir Peak<span class="text-violet-600">CL</span> ?</h3>
-                <p class="text-lg text-gray-light max-w-3xl mx-auto leading-relaxed mb-8">
-                    Chez <span class="text-accent-yellow">Peak<span class="text-violet-700">CL</span></span>, nous croyons que chaque projet est unique. Notre équipe passionnée met son expertise à
-                    votre service pour créer des solutions digitales qui vous ressemblent.<br>
-                    Notre approche est centrée sur l'écoute de vos besoins, la clarté technique et un suivi personnalisé
-                pour transformer vos idées en réalité digitale.
+                <h3 class="text-4xl font-extrabold mb-6 text-peak-blue-light drop-shadow-lg">Pourquoi choisir Peak<span class="text-peak-violet">CL</span> ?</h3>
+                <p class="text-lg text-peak-gray max-w-3xl mx-auto leading-relaxed mb-8">
+                    Chez <span class="text-peak-blue-light">Peak<span class="text-peak-violet">CL</span></span>, nous croyons que chaque projet est unique. Notre équipe passionnée met son expertise à votre service pour créer des solutions digitales qui vous ressemblent.<br>
+                    Notre approche est centrée sur l'écoute de vos besoins, la clarté technique et un suivi personnalisé pour transformer vos idées en réalité digitale.
                 </p>
             </div>
             <img src="/assets/images/desktop.webp" alt="bureau de travail"
-                class="w-full md:w-1/2 mx-auto rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-500 border-4 border-accent-blue" />
+                class="w-full md:w-1/2 mx-auto rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-500 border-4 border-peak-blue-light" />
         </div>
     </section>
 
-    <section id="contact" class="py-24 px-6 bg-gradient-to-r from-secondary-violet via-primary-blue to-secondary-violet is-visible">
-        <div class="max-w-4xl mx-auto bg-secondary-violet rounded-3xl p-12 shadow-2xl border-4 border-accent-yellow">
-            <h3 class="text-4xl font-extrabold mb-10 text-white text-center drop-shadow-md">Contactez-nous</h3>
+    <section id="contact" class="py-24 px-6 bg-peak-violet text-peak-gray">
+        <div class="max-w-4xl mx-auto bg-peak-blue-dark rounded-3xl p-12 shadow-2xl border-4 border-peak-yellow">
+            <h3 class="text-4xl font-extrabold mb-10 text-peak-gray text-center drop-shadow-md">Contactez-nous</h3>
             <form class="space-y-8">
                 <input type="text" placeholder="Votre nom"
-                    class="w-full p-4 rounded-lg bg-gray-dark/50 text-white placeholder-gray-light focus:outline-none focus:ring-4 focus:ring-accent-yellow transition" />
+                    class="w-full p-4 rounded-lg bg-peak-gray-dark/50 text-peak-gray placeholder-peak-gray focus:outline-none focus:ring-4 focus:ring-peak-yellow transition" />
                 <input type="email" placeholder="Votre email"
-                    class="w-full p-4 rounded-lg bg-gray-dark/50 text-white placeholder-gray-light focus:outline-none focus:ring-4 focus:ring-accent-yellow transition" />
+                    class="w-full p-4 rounded-lg bg-peak-gray-dark/50 text-peak-gray placeholder-peak-gray focus:outline-none focus:ring-4 focus:ring-peak-yellow transition" />
                 <textarea rows="6" placeholder="Votre message"
-                    class="w-full p-4 rounded-lg bg-gray-dark/50 text-white placeholder-gray-light focus:outline-none focus:ring-4 focus:ring-accent-yellow transition resize-none"></textarea>
+                    class="w-full p-4 rounded-lg bg-peak-gray-dark/50 text-peak-gray placeholder-peak-gray focus:outline-none focus:ring-4 focus:ring-peak-yellow transition resize-none"></textarea>
                 <button type="submit"
-                    class="w-full bg-accent-yellow text-accent-blue font-extrabold py-4 rounded-full hover:bg-yellow-300 shadow-lg transform hover:scale-105 transition-all duration-300">
+                    class="w-full bg-peak-yellow text-peak-blue-dark font-extrabold py-4 rounded-full hover:bg-yellow-300 shadow-lg transform hover:scale-105 transition-all duration-300">
                     Envoyer
                 </button>
             </form>
         </div>
     </section>
 
-    <section class="py-12 bg-accent-blue">
-      <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-10 items-center">
-          <a href="https://www.malt.fr/profile/PeakCL" target="_blank" rel="noopener" class="flex flex-col items-center text-accent-yellow hover:text-accent-blue transition-colors">
-              <img src="/assets/logo/maltLogo.webp" alt="logo Malt" class="w-auto h-10 mb-2 filter grayscale hover:grayscale-0 transition-all duration-300">
-              Malt
-          </a>
-          <a href="https://fr.fiverr.com/s/99W6WYa" target="_blank" rel="noopener" class="flex flex-col items-center text-accent-yellow hover:text-accent-blue transition-colors">
-              <svg width="89" height="27" viewBox="0 0 89 27" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-auto h-10 mb-2">
-                  <g fill="currentColor">
-                      <path d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z"></path>
-                  </g>
-                  <g fill="#00bcd4">
-                      <path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z"></path>
-                  </g>
-              </svg>
-              Fiverr
-          </a>
-          <a href="https://comeup.com/fr/@PeakCL" target="_blank" rel="noopener" class="flex flex-col items-center text-accent-yellow hover:text-accent-blue transition-colors">
-              <svg fill="currentColor" viewBox="0 0 98 27" width="98" height="27" aria-hidden="true" focusable="false" class="w-auto h-10 mb-2">
-                  <path d="M0 22.41h97.962V27H0zm83.685-5.062h4.7v-4.86h2.324c4.215 0 7.291-2.115 7.291-6.124v-.049C98 2.55 95.239.337 90.952.337h-7.267v17.01Zm4.7-8.554V4.298h2.203c1.696 0 2.713.778 2.713 2.236v.049c0 1.336-1.017 2.21-2.689 2.21h-2.228ZM74.3 17.663c4.82 0 7.945-2.405 7.945-7.897V.338h-4.771v9.574c0 2.381-1.236 3.499-3.125 3.499-1.89 0-3.124-1.166-3.124-3.62V.336h-4.772v9.55c0 5.322 3.028 7.776 7.848 7.776Zm-22.44-.315h13.76v-4.01h-9.11v-2.697h8.139V6.923H56.51V4.347h8.987V.337H51.86zm-19.678 0h4.602v-9.72l4.312 6.61h.097l4.335-6.66v9.77h4.675V.337h-4.965l-4.045 6.585L37.148.338h-4.966zM22.068 0c4.905 0 8.882 3.99 8.882 8.91s-3.977 8.91-8.882 8.91c-4.905 0-8.88-3.99-8.88-8.91S17.162 0 22.067 0Zm0 4.59a4.313 4.313 0 0 0-4.306 4.32 4.313 4.313 0 0 0 4.306 4.32 4.313 4.313 0 0 0 4.306-4.32 4.313 4.313 0 0 0-4.306-4.32Z"></path>
-                  <path d="M17.762 8.91c0 4.92-3.976 8.91-8.88 8.91C3.975 17.82 0 13.83 0 8.91S3.976 0 8.881 0v4.59a4.313 4.313 0 0 0-4.306 4.32 4.313 4.313 0 0 0 4.306 4.32 4.313 4.313 0 0 0 4.306-4.32Z"></path>
-              </svg>
-              ComeUp
-          </a>
-          <a href="https://www.linkedin.com/company/PeakCL/" target="_blank" rel="noopener" class="flex flex-col items-center text-accent-yellow hover:text-accent-blue transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="w-10 h-10 mb-2">
-                  <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
-              </svg>
-              LinkedIn
-          </a>
-      </div>
+    <section class="py-12 bg-peak-blue-dark text-peak-gray">
+        <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-10 items-center">
+            <a href="https://www.malt.fr/profile/PeakCL" target="_blank" rel="noopener" class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
+                <img src="/assets/logo/maltLogo.webp" alt="logo Malt" class="w-auto h-10 mb-2 filter grayscale hover:grayscale-0 transition-all duration-300">
+                Malt
+            </a>
+            <a href="https://fr.fiverr.com/s/99W6WYa" target="_blank" rel="noopener" class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
+                <svg width="89" height="27" viewBox="0 0 89 27" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-auto h-10 mb-2">
+                    <g fill="currentColor">
+                        <path d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z"></path>
+                    </g>
+                    <g fill="#00BDBF">
+                        <path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z"></path>
+                    </g>
+                </svg>
+                Fiverr
+            </a>
+            <a href="https://comeup.com/fr/@PeakCL" target="_blank" rel="noopener" class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
+                <svg fill="currentColor" viewBox="0 0 98 27" width="98" height="27" aria-hidden="true" focusable="false" class="w-auto h-10 mb-2">
+                    <path d="M0 22.41h97.962V27H0zm83.685-5.062h4.7v-4.86h2.324c4.215 0 7.291-2.115 7.291-6.124v-.049C98 2.55 95.239.337 90.952.337h-7.267v17.01Zm4.7-8.554V4.298h2.203c1.696 0 2.713.778 2.713 2.236v.049c0 1.336-1.017 2.21-2.689 2.21h-2.228ZM74.3 17.663c4.82 0 7.945-2.405 7.945-7.897V.338h-4.771v9.574c0 2.381-1.236 3.499-3.125 3.499-1.89 0-3.124-1.166-3.124-3.62V.336h-4.772v9.55c0 5.322 3.028 7.776 7.848 7.776Zm-22.44-.315h13.76v-4.01h-9.11v-2.697h8.139V6.923H56.51V4.347h8.987V.337H51.86zm-19.678 0h4.602v-9.72l4.312 6.61h.097l4.335-6.66v9.77h4.675V.337h-4.965l-4.045 6.585L37.148.338h-4.966zM22.068 0c4.905 0 8.882 3.99 8.882 8.91s-3.977 8.91-8.882 8.91c-4.905 0-8.88-3.99-8.88-8.91S17.162 0 22.067 0Zm0 4.59a4.313 4.313 0 0 0-4.306 4.32 4.313 4.313 0 0 0 4.306 4.32 4.313 4.313 0 0 0 4.306-4.32 4.313 4.313 0 0 0-4.306-4.32Z"></path>
+                    <path d="M17.762 8.91c0 4.92-3.976 8.91-8.88 8.91C3.975 17.82 0 13.83 0 8.91S3.976 0 8.881 0v4.59a4.313 4.313 0 0 0-4.306 4.32 4.313 4.313 0 0 0 4.306 4.32 4.313 4.313 0 0 0 4.306-4.32Z"></path>
+                </svg>
+                ComeUp
+            </a>
+            <a href="https://www.linkedin.com/company/PeakCL/" target="_blank" rel="noopener" class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="w-10 h-10 mb-2">
+                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
     </section>
 
-    <footer class="py-6 text-center bg-primary-blue text-sm text-gray-light border-t border-gray-dark">
-        &copy; 2025 <span class="text-accent-yellow">Peak<span class="text-violet-700">CL</span></span>. Tous droits réservés.
+    <footer class="py-6 text-center bg-peak-blue-dark text-sm text-peak-gray border-t border-peak-gray-dark">
+        &copy; 2025 <span class="text-peak-yellow">Peak<span class="text-peak-violet">CL</span></span>. Tous droits réservés.
     </footer>
     <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
     <script>
-        VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
-            max: 10,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.2
-        });
         document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1, // Déclenche l'animation dès que 10% de l'élément est visible
-    };
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1, // Déclenche l'animation dès que 10% de l'élément est visible
+            };
 
-    const sections = document.querySelectorAll('section');
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Effet de la barre de navigation au scroll
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-opacity-80', 'backdrop-blur-sm');
+                } else {
+                    header.classList.remove('bg-opacity-80', 'backdrop-blur-sm');
+                }
+            });
+
+            // Code pour les cartes Tilt.js
+            VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+                max: 10,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.2
+            });
         });
-    }, observerOptions);
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-
-    // Effet de la barre de navigation au scroll
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('bg-opacity-80', 'backdrop-blur-sm');
-        } else {
-            header.classList.remove('bg-opacity-80', 'backdrop-blur-sm');
-        }
-    });
-
-    // Code pour les cartes Tilt.js
-    VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
-        max: 10,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.2
-    });
-});
     </script>
 </body>
 
