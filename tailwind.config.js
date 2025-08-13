@@ -5,21 +5,24 @@ module.exports = {
     extend: {
       colors: {
         // Nouvelle palette de couleurs basée sur le logo PeakCL
-        'peak-blue-light': '#00BDBF', // Le turquoise du logo
-        'peak-blue-dark': '#011526', // Un bleu très foncé, presque noir pour le fond
-        'peak-yellow': '#F9CD00', // Le jaune vif
-        'peak-violet': '#522A80', // Le violet du logo
-        'peak-gray': '#F3F4F6', // Un gris clair pour les textes
-        'peak-gray-dark': '#1F2937', // Un gris foncé pour les contrastes
+        'peak-blue-light': '#00BDBF', 
+        'peak-blue-dark': '#011526', 
+        'peak-yellow': '#F9CD00', 
+        'peak-violet': '#522A80', 
+        'peak-gray': '#F3F4F6', 
+        'peak-gray-dark': '#1F2937', 
       },
-      // Ajout d'une animation custom pour les dégradés
+      fontFamily: {
+        // Polices personnalisées
+        'title': ['"Exo 2"', 'sans-serif'], // Pour les titres
+        'body': ['Nunito', 'sans-serif'],   // Pour le texte courant
+      },
       animation: {
         'gradient-pulse': 'gradient-pulse 4s ease infinite',
         'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
         'fade-in': 'fade-in 0.6s ease-out forwards',
-        'bg-gradient-shift': 'bg-gradient-shift 10s ease infinite', // Nouvelle animation pour le fond
+        'bg-gradient-shift': 'bg-gradient-shift 10s ease infinite',
       },
-      // Définition de l'animation
       keyframes: {
         'gradient-pulse': {
           '0%, 100%': { backgroundPosition: '0% 50%' },
