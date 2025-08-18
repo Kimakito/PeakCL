@@ -1,14 +1,16 @@
 [build]
-  command = "bundle install && npm install && npm run build"
+  # installer gems, dépendances node de façon reproductible, mettre à jour caniuse-lite (si besoin),
+  # build des CSS/JS puis build Jekyll
+  command = "bundle install --jobs=4 --retry=3 --path vendor/bundle && npm ci --no-audit --prefer-offline && npx browserslist@latest --update-db || true && npm run build && bundle exec jekyll build --destination _site"
   publish = "_site"
 
 [build.environment]
-  RUBY_VERSION = "3.4.0"
-  NODE_VERSION = "18"
+  RUBY_VERSION = "3.4.4"
+  NODE_VERSION = "20.18.0"
   BUNDLER_VERSION = "2.7.1"
 
 [context.deploy-preview]
-  command = "bundle install && npm install && npm run build"
+  command = "bundle install --jobs=4 --retry=3 --path vendor/bundle && npm ci --no-audit --prefer-offline && npx browserslist@latest --update-db || true && npm run build && bundle exec jekyll build --destination _site"
 
 [[redirects]]
   from = "/old-page"
