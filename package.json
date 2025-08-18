@@ -9,6 +9,7 @@
         "jekyll:serve": "bundle exec jekyll serve",
         "jekyll:build": "bundle exec jekyll build",
         "start": "npm-run-all --parallel watch:tailwind jekyll:serve",
+        "prebuild": "npx update-browserslist-db@latest --update-db || true",
         "build": "npm run build:tailwind && npm run jekyll:build"
     },
     "repository": {
