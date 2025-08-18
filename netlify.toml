@@ -5,7 +5,7 @@
 [build.environment]
   RUBY_VERSION = "3.4.0"
   NODE_VERSION = "18"
-  BUNDLER_VERSION = "2.5.6"
+  BUNDLER_VERSION = "2.7.1"
 
 [context.deploy-preview]
   command = "bundle install && npm install && npm run build"
