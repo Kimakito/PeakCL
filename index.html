@@ -1,553 +1,376 @@
-<!DOCTYPE html>
-<html lang="fr">
+---
+layout: default
+title: PeakCL | Création et intégration web
+description: Développeur Web en Savoie
+keywords:
+- Albertville
+- Savoie
+- Isère
+- Haute-Savoie
+- Suisse
+- Développeur Web
+- Création de sites web
+- Applications web
+- Identité visuelle
+- Freelance
+- PeakCL
+image_share: /assets/logo/logo-vieille-roue.png
+---
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Développeur Web | Création de Sites sur-mesure - PeakCL</title>
-    <meta name="description"
-        content="Développeur web freelance en Savoie (Albertville, Chambéry, Annecy) et à distance. Je crée des sites internet, des applications web et votre identité visuelle sur-mesure. Contactez PeakCL pour un devis gratuit et personnalisé.">
+<section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-4 py-20 overflow-hidden"
+    role="region" aria-label="Présentation de l'entreprise et de ses services">
+    <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full z-0 opacity-50"></canvas>
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-peak-blue-dark via-peak-blue-light to-peak-violet bg-[length:200%_200%] animate-bg-gradient-shift z-10 opacity-70">
+    </div>
+    <div class="absolute w-60 h-60 sm:w-96 sm:h-96 bg-peak-blue-light rounded-full blur-[80px] sm:blur-[100px] opacity-20 animate-pulse top-1/4 left-1/4 z-20"
+        aria-hidden="true"></div>
+    <div class="absolute w-52 h-52 sm:w-80 sm:h-80 bg-peak-violet rounded-full blur-[100px] sm:blur-[120px] opacity-20 animate-pulse bottom-1/4 right-1/4 z-20"
+        aria-hidden="true"></div>
 
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "PeakCL",
-          "description": "Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.",
-          "url": "https://www.peakcl.com",
-          "image": "https://www.peakcl.com/assets/logo/PeakCL.logo.png",
-          "founder": "Votre Nom ou Nom du Fondateur",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Savoie",
-            "addressRegion": "Auvergne-Rhône-Alpes",
-            "addressCountry": "FR"
-          },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "contact@peakcl.com",
-            "contactType": "customer service"
-          },
-          "sameAs": [
-            "https://www.linkedin.com/company/PeakCL/",
-            "https://www.malt.fr/profile/PeakCL"
-          ]
-        }
-    </script>
+    <div class="max-w-7xl relative z-30 text-peak-gray px-4 flex flex-col items-center">
+        <img src="/assets/logo/PeakCL.logo.png" alt="Logo de PeakCL, une entreprise de développement web"
+            class="w-32 sm:w-40 h-auto mx-auto mb-4 sm:mb-6 shadow-2xl border-2 animate-fade-in delay-100" />
+        <p class="text-5xl sm:text-7xl font-title font-extrabold text-peak-yellow py-4">Peak<span
+                class="text-peak-violet">CL</span></p>
+        <h1
+            class="text-4xl sm:text-5xl font-extrabold font-title leading-tight py-4 drop-shadow-lg animate-fade-in delay-150">
+            Développeur Web en Savoie<br class="hidden sm:inline" />
+            <span class="text-peak-yellow">Création de Sites sur-mesure</span>
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 sm:mb-8 opacity-90 animate-fade-in delay-200">
+            Basé en Savoie et travaillant à distance, <span class="text-peak-yellow font-bold">Peak<span
+                    class="text-peak-violet">CL</span></span> est votre partenaire pour des sites internet
+            performants et des solutions digitales uniques.
+        </p>
+        <img src="/assets/images/peakClIA.jpg"
+            alt="Illustration 3D d'une montagne stylisée symbolisant un pic, avec un ordinateur sur le côté. Représente le travail de développement web au sein de la région savoyarde."
+            class="w-full max-w-sm sm:max-w-md mx-auto rounded-tr-2xl rounded-bl-2xl shadow-2xl hover:scale-105 transition-transform duration-500 animate-fade-in delay-250 my-6"
+            loading="lazy" />
+        <a href="#contact"
+            class="inline-block bg-peak-yellow text-peak-blue-dark font-bold px-8 sm:px-10 py-3 sm:py-4 mt-6 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 animate-fade-in delay-300">
+            Discutons de votre projet 🚀
+        </a>
+    </div>
+</section>
+<section class="h-28 peak-section bg-gradient-to-b from-white/80 to-peak-blue-dark"></section>
+<section id="services" class="relative py-12 md:py-24 px-4 sm:px-6 text-peak-gray overflow-hidden bg-peak-blue-dark"
+    role="region" aria-label="Nos services de développement et de création web">
+    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-peak-blue-light/80 to-transparent z-0"
+        aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto text-center relative z-10">
+        <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold mb-4 sm:mb-6 text-peak-blue-light drop-shadow-md animate-fade-in">
+            Ce que nous vous proposons</h2>
+        <p
+            class="text-base sm:text-lg md:text-xl text-peak-gray mb-10 sm:mb-16 max-w-3xl mx-auto animate-fade-in delay-100">
+            De la création de sites vitrine à la conception d'applications web sur-mesure, en passant par votre
+            identité de marque.
+        </p>
 
-    <link rel="stylesheet" href="assets/css/output.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Nunito:wght@400;600&display=swap"
-        rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon/favicon-256x256.png">
-    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
-    <meta name="msapplication-TileColor" content="#1a237e">
-    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
-    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
-    <link rel="manifest" href="assets/favicon/manifest.json">
-    <meta name="theme-color" content="#1a237e">
-</head>
-
-<body class="bg-peak-blue-dark text-peak-gray font-body overflow-x-hidden">
-    <a href="#main-content"
-        class="sr-only focus:not-sr-only text-white bg-peak-blue-light p-2 absolute top-0 left-2 z-[9999]">Aller au
-        contenu principal</a>
-
-    <header class="fixed top-0 left-0 right-0 bg-peak-blue-dark shadow-lg z-50 transition-all duration-300"
-        role="banner">
-        <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <a href="#hero" class="flex items-center gap-2" aria-label="Retour à l'accueil de PeakCL">
-                <img src="/assets/logo/PeakCL.logo.png" alt="Logo de l'entreprise PeakCL"
-                    class="w-16 sm:w-20 h-auto border border-peak-yellow transition-transform hover:scale-110">
-            </a>
-
-            <!-- Menu de navigation pour grand écran -->
-            <nav class="hidden md:flex items-center space-x-6" role="navigation" aria-label="Menu principal">
-                <a href="#hero"
-                    class="text-peak-gray hover:text-peak-blue-light transition-colors duration-300">Accueil</a>
-                <a href="#services"
-                    class="text-peak-gray hover:text-peak-blue-light transition-colors duration-300">Services</a>
-                <a href="#portfolio"
-                    class="text-peak-gray hover:text-peak-blue-light transition-colors duration-300">Portfolio</a>
-                <a href="#contact"
-                    class="text-peak-gray hover:text-peak-blue-light transition-colors duration-300">Contact</a>
-            </nav>
-
-            <!-- Bouton du menu Hamburger pour mobile -->
-            <button id="hamburger-button" class="md:hidden text-peak-gray hover:text-peak-blue-light transition-colors"
-                aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
-
-            <!-- Menu de navigation mobile (caché par défaut) -->
-            <nav id="mobile-menu"
-                class="absolute top-full left-0 right-0 bg-peak-blue-dark shadow-lg transition-all duration-300 md:hidden hidden"
-                role="navigation">
-                <ul class="flex flex-col items-center py-4">
-                    <li><a href="#hero"
-                            class="block w-full text-center py-2 px-4 hover:bg-peak-blue-light transition-colors">Accueil</a>
-                    </li>
-                    <li><a href="#services"
-                            class="block w-full text-center py-2 px-4 hover:bg-peak-blue-light transition-colors">Services</a>
-                    </li>
-                    <li><a href="#portfolio"
-                            class="block w-full text-center py-2 px-4 hover:bg-peak-blue-light transition-colors">Portfolio</a>
-                    </li>
-                    <li><a href="#contact"
-                            class="block w-full text-center py-2 px-4 hover:bg-peak-blue-light transition-colors">Contact</a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="flex flex-col-reverse lg:flex-row gap-8 sm:gap-12 items-center">
+            <div class="w-full lg:w-1/2 grid sm:grid-cols-2 gap-6 sm:gap-8 text-left animate-fade-in delay-200">
+                <article
+                    class="bg-peak-violet/60 p-5 sm:p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
+                    <h3 class="text-lg sm:text-xl font-bold text-peak-yellow mb-2">Sites Web Modernes</h3>
+                    <p class="text-sm sm:text-base">Des sites rapides, esthétiques, optimisés pour le
+                        référencement (SEO) et conçus pour une
+                        expérience utilisateur idéale.</p>
+                </article>
+                <article
+                    class="bg-peak-violet/60 p-5 sm:p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
+                    <h3 class="text-lg sm:text-xl font-bold text-peak-yellow mb-2">Applications Web</h3>
+                    <p class="text-sm sm:text-base">Des applications métier ou des outils en ligne interactifs,
+                        fluides et performants pour
+                        répondre à vos besoins spécifiques.</p>
+                </article>
+                <article
+                    class="bg-peak-violet/60 p-5 sm:p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
+                    <h3 class="text-lg sm:text-xl font-bold text-peak-yellow mb-2">Identité Visuelle</h3>
+                    <p class="text-sm sm:text-base">Création ou refonte de votre logo, conception de flyers,
+                        cartes de visite, et charte
+                        graphique cohérente.</p>
+                </article>
+                <article
+                    class="bg-peak-violet/60 p-5 sm:p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
+                    <h3 class="text-lg sm:text-xl font-bold text-peak-yellow mb-2">Présence Digitale</h3>
+                    <p class="text-sm sm:text-base">Mise en place de votre page Google Business, profils de
+                        réseaux sociaux, emails
+                        professionnels, et conseils pour un lancement réussi.</p>
+                </article>
+            </div>
+            <div class="w-full lg:w-1/2 relative animate-fade-in delay-300">
+                <div class="relative z-10">
+                    <img src="/assets/images/montagne digitale.png"
+                        alt="Illustration d'un arbre numérique en forme de montagne représentant le développement web en Savoie."
+                        class="rounded-2xl shadow-2xl transition duration-500 border-4 border-peak-blue-light w-full"
+                        loading="lazy" />
+                </div>
+                <div class="absolute -top-6 -left-6 w-20 h-20 bg-peak-yellow rounded-full blur-3xl opacity-30 z-0"
+                    aria-hidden="true"></div>
+                <div class="absolute bottom-0 right-0 w-24 h-24 bg-peak-blue-light rounded-full blur-2xl opacity-20 z-0"
+                    aria-hidden="true"></div>
+            </div>
         </div>
-    </header>
 
-    <main id="main-content">
-        <section id="hero"
-            class="relative min-h-screen flex items-center justify-center text-center px-4 py-20 overflow-hidden"
-            role="region" aria-label="Présentation de l'entreprise et de ses services">
-            <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full z-0 opacity-50"></canvas>
-            <div
-                class="absolute inset-0 bg-gradient-to-br from-peak-blue-dark via-peak-blue-light to-peak-violet bg-[length:200%_200%] animate-bg-gradient-shift z-10 opacity-70">
-            </div>
-            <div class="absolute w-60 h-60 sm:w-96 sm:h-96 bg-peak-blue-light rounded-full blur-[80px] sm:blur-[100px] opacity-20 animate-pulse top-1/4 left-1/4 z-20"
-                aria-hidden="true"></div>
-            <div class="absolute w-52 h-52 sm:w-80 sm:h-80 bg-peak-violet rounded-full blur-[100px] sm:blur-[120px] opacity-20 animate-pulse bottom-1/4 right-1/4 z-20"
-                aria-hidden="true"></div>
+        <div class="mt-12 sm:mt-16 animate-fade-in delay-500 text-center">
+            <a href="#contact"
+                class="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-peak-yellow text-peak-blue-dark font-bold text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                Envie d’un site qui vous ressemble ? Parlons-en !
+            </a>
+        </div>
+    </div>
+</section>
 
-            <div class="max-w-7xl relative z-30 text-peak-gray max-w-4xl px-4 flex flex-col items-center">
-                <img src="/assets/logo/PeakCL.logo.png" alt="Logo de PeakCL, une entreprise de développement web"
-                    class="w-32 sm:w-40 h-auto mx-auto mb-4 sm:mb-6 shadow-2xl border-2 animate-fade-in delay-100" />
-                <p class="text-5xl sm:text-7xl font-title font-extrabold text-peak-yellow py-4">Peak<span
-                        class="text-peak-violet">CL</span></p>
-                <h1
-                    class="text-4xl sm:text-5xl font-extrabold font-title leading-tight py-4 drop-shadow-lg animate-fade-in delay-150">
-                    Développeur Web en Savoie<br class="hidden sm:inline" />
-                    <span class="text-peak-yellow">Création de Sites sur-mesure</span>
-                </h1>
-                <p
-                    class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 sm:mb-8 opacity-90 animate-fade-in delay-200">
-                    Basé en Savoie et travaillant à distance, <span class="text-peak-yellow font-bold">Peak<span
-                            class="text-peak-violet">CL</span></span> est votre partenaire pour des sites internet
-                    performants et des solutions digitales uniques.
-                </p>
-                <img src="/assets/images/peakClIA.jpg"
-                    alt="Illustration 3D d'une montagne stylisée symbolisant un pic, avec un ordinateur sur le côté. Représente le travail de développement web au sein de la région savoyarde."
-                    class="w-full max-w-sm sm:max-w-md mx-auto rounded-tr-2xl rounded-bl-2xl shadow-2xl hover:scale-105 transition-transform duration-500 animate-fade-in delay-250 my-6"
-                    loading="lazy" />
-                <a href="#contact"
-                    class="inline-block bg-peak-yellow text-peak-blue-dark font-bold px-8 sm:px-10 py-3 sm:py-4 mt-6 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 animate-fade-in delay-300">
-                    Discutons de votre projet 🚀
+<section id="portfolio"
+    class="relative py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-blue-light/80 to-peak-violet text-peak-gray overflow-hidden"
+    role="region" aria-label="Portfolio de nos réalisations">
+    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[30rem] h-[30rem] sm:w-[60rem] sm:h-[60rem] bg-peak-blue-light/10 rounded-full blur-3xl animate-pulse z-0"
+        aria-hidden="true"></div>
+    <div class="absolute inset-0 z-0 pointer-events-none bg-[url('/assets/images/scanlines.png')] opacity-5"
+        aria-hidden="true"></div>
+    <div class="absolute inset-0 z-0 pointer-events-none bg-[url('/assets/images/noise.png')] opacity-5"
+        aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto text-center relative z-10">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-peak-yellow mb-4 animate-fade-in">
+            ✨ Notre
+            Portfolio ✨</h2>
+        <p class="text-base sm:text-lg text-peak-gray mb-8 sm:mb-12 animate-fade-in delay-200">
+            Découvrez quelques-unes de nos réalisations de sites web sur-mesure et de projets réalisés pour des
+            clients en Savoie et ailleurs.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 animate-fade-in delay-300">
+            <article
+                class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
+                aria-label="Projet jb-lacroix.fr">
+                <a href="https://jb-lacroix.fr/" target="_blank" rel="noopener noreferrer"
+                    class="w-full flex items-center justify-center h-40 sm:h-52">
+                    <figure class="w-full h-full flex items-center justify-center">
+                        <img src="assets/logo/Logo.jbl.png"
+                            alt="Logo du site jb-lacroix.fr, un site d'écrivain de romans fantasy"
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                        <figcaption
+                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
+                            <p>Site vitrine sur mesure pour l'écrivain de romans fantasy Jean-Baptiste Lacroix.
+                            </p>
+                        </figcaption>
+                    </figure>
                 </a>
-            </div>
-        </section>
-        <section class="h-28 peak-section bg-gradient-to-b from-white/80 to-peak-blue-dark"></section>
-        <section id="services"
-            class="relative py-12 md:py-24 px-4 sm:px-6 text-peak-gray overflow-hidden bg-peak-blue-dark" role="region"
-            aria-label="Nos services de développement et de création web">
-            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-peak-blue-light/80 to-transparent z-0"
-                aria-hidden="true"></div>
-            <div class="max-w-7xl mx-auto text-center relative z-10">
-                <h2
-                    class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold mb-4 sm:mb-6 text-peak-blue-light drop-shadow-md animate-fade-in">
-                    Ce que nous vous proposons</h2>
-                <p
-                    class="text-base sm:text-lg md:text-xl text-peak-gray mb-10 sm:mb-16 max-w-3xl mx-auto animate-fade-in delay-100">
-                    De la création de sites vitrine à la conception d'applications web sur-mesure, en passant par votre
-                    identité de marque.
-                </p>
-
-                <div class="flex flex-col-reverse lg:flex-row gap-8 sm:gap-12 items-center">
-                    <div class="w-full lg:w-1/2 grid sm:grid-cols-2 gap-6 sm:gap-8 text-left animate-fade-in delay-200">
-                        <article
-                            class="bg-peak-violet/60 p-5 sm:p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
-                            <h3 class="text-lg sm:text-xl font-bold text-peak-yellow mb-2">Sites Web Modernes</h3>
-                            <p class="text-sm sm:text-base">Des sites rapides, esthétiques, optimisés pour le
-                                référencement (SEO) et conçus pour une
-                                expérience utilisateur idéale.</p>
-                        </article>
-                        <article
-                            class="bg-peak-violet/60 p-5 sm:p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
-                            <h3 class="text-lg sm:text-xl font-bold text-peak-yellow mb-2">Applications Web</h3>
-                            <p class="text-sm sm:text-base">Des applications métier ou des outils en ligne interactifs,
-                                fluides et performants pour
-                                répondre à vos besoins spécifiques.</p>
-                        </article>
-                        <article
-                            class="bg-peak-violet/60 p-5 sm:p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
-                            <h3 class="text-lg sm:text-xl font-bold text-peak-yellow mb-2">Identité Visuelle</h3>
-                            <p class="text-sm sm:text-base">Création ou refonte de votre logo, conception de flyers,
-                                cartes de visite, et charte
-                                graphique cohérente.</p>
-                        </article>
-                        <article
-                            class="bg-peak-violet/60 p-5 sm:p-6 rounded-2xl shadow-xl hover:scale-105 transition hover:shadow-peak-blue-light/50 border border-peak-violet/50">
-                            <h3 class="text-lg sm:text-xl font-bold text-peak-yellow mb-2">Présence Digitale</h3>
-                            <p class="text-sm sm:text-base">Mise en place de votre page Google Business, profils de
-                                réseaux sociaux, emails
-                                professionnels, et conseils pour un lancement réussi.</p>
-                        </article>
-                    </div>
-                    <div class="w-full lg:w-1/2 relative animate-fade-in delay-300">
-                        <div class="relative z-10">
-                            <img src="/assets/images/montagne digitale.png"
-                                alt="Illustration d'un arbre numérique en forme de montagne représentant le développement web en Savoie."
-                                class="rounded-2xl shadow-2xl transition duration-500 border-4 border-peak-blue-light w-full"
-                                loading="lazy" />
-                        </div>
-                        <div class="absolute -top-6 -left-6 w-20 h-20 bg-peak-yellow rounded-full blur-3xl opacity-30 z-0"
-                            aria-hidden="true"></div>
-                        <div class="absolute bottom-0 right-0 w-24 h-24 bg-peak-blue-light rounded-full blur-2xl opacity-20 z-0"
-                            aria-hidden="true"></div>
-                    </div>
-                </div>
-
-                <div class="mt-12 sm:mt-16 animate-fade-in delay-500 text-center">
-                    <a href="#contact"
-                        class="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-peak-yellow text-peak-blue-dark font-bold text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
-                        Envie d’un site qui vous ressemble ? Parlons-en !
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="portfolio"
-            class="relative py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-blue-light/80 to-peak-violet text-peak-gray overflow-hidden"
-            role="region" aria-label="Portfolio de nos réalisations">
-            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[30rem] h-[30rem] sm:w-[60rem] sm:h-[60rem] bg-peak-blue-light/10 rounded-full blur-3xl animate-pulse z-0"
-                aria-hidden="true"></div>
-            <div class="absolute inset-0 z-0 pointer-events-none bg-[url('/assets/images/scanlines.png')] opacity-5"
-                aria-hidden="true"></div>
-            <div class="absolute inset-0 z-0 pointer-events-none bg-[url('/assets/images/noise.png')] opacity-5"
-                aria-hidden="true"></div>
-
-            <div class="max-w-7xl mx-auto text-center relative z-10">
-                <h2
-                    class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-peak-yellow mb-4 animate-fade-in">
-                    ✨ Notre
-                    Portfolio ✨</h2>
-                <p class="text-base sm:text-lg text-peak-gray mb-8 sm:mb-12 animate-fade-in delay-200">
-                    Découvrez quelques-unes de nos réalisations de sites web sur-mesure et de projets réalisés pour des
-                    clients en Savoie et ailleurs.
-                </p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 animate-fade-in delay-300">
-                    <article
-                        class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
-                        aria-label="Projet jb-lacroix.fr">
-                        <a href="https://jb-lacroix.fr/" target="_blank" rel="noopener noreferrer"
-                            class="w-full flex items-center justify-center h-40 sm:h-52">
-                            <figure class="w-full h-full flex items-center justify-center">
-                                <img src="assets/logo/Logo.jbl.png"
-                                    alt="Logo du site jb-lacroix.fr, un site d'écrivain de romans fantasy"
-                                    class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                                <figcaption
-                                    class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                                    <p>Site vitrine sur mesure pour l'écrivain de romans fantasy Jean-Baptiste Lacroix.
-                                    </p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article
-                        class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
-                        aria-label="Projet lavieilleroue.fr">
-                        <a href="https://lavieilleroue.fr/" target="_blank" rel="noopener noreferrer"
-                            class="w-full flex items-center justify-center h-40 sm:h-52">
-                            <figure class="w-full h-full flex items-center justify-center">
-                                <img src="assets/logo/lavieilleroue.png"
-                                    alt="Logo du site lavieilleroue.fr, entreprise de réparation et remplacement de jantes"
-                                    class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                                <figcaption
-                                    class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                                    <p>Site vitrine pour l'entreprise la Vieille Roue, spécialisée en réparation et
-                                        remplacement de jantes
-                                        et de voitures de collection.</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article
-                        class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
-                        aria-label="Projet doodleidoo.com">
-                        <a href="https://doodleidoo.com/" target="_blank" rel="noopener noreferrer"
-                            class="w-full flex items-center justify-center h-40 sm:h-52">
-                            <figure class="w-full h-full flex items-center justify-center">
-                                <img src="assets/logo/logo_doodleIdoo.png"
-                                    alt="Logo du site doodleidoo.com, un site d'artiste"
-                                    class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                                <figcaption
-                                    class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                                    <p>Site vitrine sur mesure pour une artiste, portfolio en ligne.</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-
-                    <div class="col-span-full text-peak-gray text-center text-sm sm:text-md italic mt-4 sm:mt-8">Mais
-                        aussi des sites web
-                        et boutiques en ligne réalisés avec Wordpress :</div>
-
-                    <article
-                        class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
-                        aria-label="Projet osteo-animalcare.com">
-                        <a href="https://osteo-animalcare.com/" target="_blank" rel="noopener noreferrer"
-                            class="w-full flex items-center justify-center h-40 sm:h-52">
-                            <figure class="w-full h-full flex items-center justify-center">
-                                <img src="assets/logo/osteoanimalcare.webp"
-                                    alt="Logo du site osteo-animalcare.com, ostéopathie animale"
-                                    class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                                <figcaption
-                                    class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                                    <p>Site vitrine pour les ostéopathes animalières Ostéo'Animal Care.</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article
-                        class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
-                        aria-label="Projet naturalriders.fr">
-                        <a href="https://www.naturalriders.fr/" target="_blank" rel="noopener noreferrer"
-                            class="w-full flex items-center justify-center h-40 sm:h-52">
-                            <figure class="w-full h-full flex items-center justify-center">
-                                <img src="assets/logo/natural_riders.avif"
-                                    alt="Logo du site naturalriders.fr, boutique en ligne de matériel pour chevaux et chiens"
-                                    class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                                <figcaption
-                                    class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                                    <p>Boutique e-commerce pour
-                                        la création de matériel en corde et biothane pour chevaux et chiens.</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article
-                        class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
-                        aria-label="Projet lejusteplan.fr">
-                        <a href="https://lejusteplan.fr/" target="_blank" rel="noopener noreferrer"
-                            class="w-full flex items-center justify-center h-40 sm:h-52">
-                            <figure class="w-full h-full flex items-center justify-center">
-                                <img src="assets/logo/le_juste_plan.png"
-                                    alt="Logo du site lejusteplan.fr, un site d'architecte"
-                                    class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                                <figcaption
-                                    class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                                    <p>Site vitrine pour un
-                                        architecte du cabinet Le Juste Plan.</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article
-                        class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
-                        aria-label="Projet bonebreaker.fr">
-                        <a href="https://bonebreaker.fr/" target="_blank" rel="noopener noreferrer"
-                            class="w-full flex items-center justify-center h-40 sm:h-52">
-                            <figure class="w-full h-full flex items-center justify-center">
-                                <img src="assets/logo/bone_breaker.png"
-                                    alt="Logo du site bonebreaker.fr, une association sportive"
-                                    class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                                <figcaption
-                                    class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                                    <p>Site web d'une association
-                                        sportive, avec des fonctionnalités pour l'affichage des événements et résultats.
-                                    </p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section
-            class="relative py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-violet to-peak-violet/70 text-peak-gray overflow-hidden"
-            role="region" aria-label="Nos atouts et notre philosophie">
-            <div class="max-w-5xl flex flex-col md:flex-row gap-8 mx-auto text-center md:text-left">
-                <div class="w-full md:w-1/2 flex flex-col justify-center">
-                    <h2
-                        class="text-3xl sm:text-4xl font-title font-extrabold mb-4 sm:mb-6 text-peak-blue-light drop-shadow-lg">
-                        Pourquoi
-                        choisir <span class="text-peak-yellow font-bold">Peak<span class="text-white">CL</span></span> ?
-                    </h2>
-                    <p class="text-sm sm:text-lg text-peak-gray max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8">
-                        Chez <span class="text-peak-yellow font-bold">Peak<span class="text-white">CL</span></span>,
-                        nous croyons que chaque projet est unique. Notre équipe passionnée met son expertise à votre
-                        service pour créer des solutions digitales qui vous ressemblent.
-                        Notre approche est centrée sur l'écoute de vos besoins, la clarté technique et un suivi
-                        personnalisé pour transformer vos idées en réalité digitale.
-                    </p>
-                </div>
-                <img src="/assets/images/desktop.webp"
-                    alt="Image d'un bureau de travail, avec un ordinateur et un carnet de notes. Symbolise l'environnement de travail et la collaboration."
-                    class="w-full md:w-1/2 mx-auto rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-500 border-4 border-peak-blue-light"
-                    loading="lazy" />
-            </div>
-        </section>
-
-        <section id="contact"
-            class="py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-violet/70 to-peak-peak-blue-dark text-peak-gray"
-            role="region" aria-label="Formulaire de contact">
-            <div
-                class="max-w-4xl mx-auto bg-peak-blue-light rounded-3xl p-6 sm:p-12 shadow-2xl border-4 border-peak-yellow">
-                <h2
-                    class="text-2xl sm:text-3xl font-title font-extrabold mb-6 sm:mb-10 text-peak-gray text-center drop-shadow-md">
-                    Contactez-nous pour votre projet !</h2>
-                <form name="contact" method="POST" data-netlify="true" class="space-y-6 sm:space-y-8"
-                    aria-label="Formulaire pour nous contacter">
-                    <label for="nom" class="sr-only">Votre nom</label>
-                    <input type="text" id="nom" name="nom" placeholder="Votre nom" required
-                        class="w-full p-3 sm:p-4 rounded-lg bg-peak-gray-dark/50 text-peak-gray placeholder-peak-gray focus:outline-none focus:ring-4 focus:ring-peak-yellow transition" />
-
-                    <label for="email" class="sr-only">Votre email</label>
-                    <input type="email" id="email" name="email" placeholder="Votre email" required
-                        class="w-full p-3 sm:p-4 rounded-lg bg-peak-gray-dark/50 text-peak-gray placeholder-peak-gray focus:outline-none focus:ring-4 focus:ring-peak-yellow transition" />
-
-                    <label for="message" class="sr-only">Votre message</label>
-                    <textarea id="message" name="message" rows="4" sm:rows="6" placeholder="Votre message" required
-                        class="w-full p-3 sm:p-4 rounded-lg bg-peak-gray-dark/50 text-peak-gray placeholder-peak-gray focus:outline-none focus:ring-4 focus:ring-peak-yellow transition resize-none"></textarea>
-
-                    <button type="submit"
-                        class="w-full bg-peak-yellow text-peak-blue-dark font-extrabold py-3 sm:py-4 rounded-full hover:bg-yellow-300 shadow-lg transform hover:scale-105 transition-all duration-300">
-                        Envoyer
-                    </button>
-                </form>
-            </div>
-        </section>
-
-        <section class="py-8 sm:py-12 bg-peak-blue-dark text-peak-gray" role="region"
-            aria-label="Liens vers les plateformes professionnelles">
-            <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 sm:gap-10 items-center">
-                <a href="https://www.malt.fr/profile/PeakCL" target="_blank" rel="noopener noreferrer"
-                    class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
-                    <img src="/assets/logo/maltLogo.webp" alt="Logo de Malt"
-                        class="w-auto h-8 sm:h-10 mb-1 sm:mb-2 filter grayscale hover:grayscale-0 transition-all duration-300"
-                        loading="lazy">
-                    Malt
+            </article>
+            <article
+                class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
+                aria-label="Projet lavieilleroue.fr">
+                <a href="https://lavieilleroue.fr/" target="_blank" rel="noopener noreferrer"
+                    class="w-full flex items-center justify-center h-40 sm:h-52">
+                    <figure class="w-full h-full flex items-center justify-center">
+                        <img src="assets/logo/lavieilleroue.png"
+                            alt="Logo du site lavieilleroue.fr, entreprise de réparation et remplacement de jantes"
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                        <figcaption
+                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
+                            <p>Site vitrine pour l'entreprise la Vieille Roue, spécialisée en réparation et
+                                remplacement de jantes
+                                et de voitures de collection.</p>
+                        </figcaption>
+                    </figure>
                 </a>
-                <a href="https://fr.fiverr.com/s/99W6WYa" target="_blank" rel="noopener noreferrer"
-                    class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
-                    <svg width="89" height="27" viewBox="0 0 89 27" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg" class="w-auto h-8 sm:h-10 mb-1 sm:mb-2" role="img"
-                        aria-label="Logo de Fiverr">
-                        <g>
-                            <path
-                                d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z">
-                            </path>
-                        </g>
-                        <g fill="#00BDBF">
-                            <path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z">
-                            </path>
-                        </g>
-                    </svg>
-                    Fiverr
+            </article>
+            <article
+                class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
+                aria-label="Projet doodleidoo.com">
+                <a href="https://doodleidoo.com/" target="_blank" rel="noopener noreferrer"
+                    class="w-full flex items-center justify-center h-40 sm:h-52">
+                    <figure class="w-full h-full flex items-center justify-center">
+                        <img src="assets/logo/logo_doodleIdoo.png" alt="Logo du site doodleidoo.com, un site d'artiste"
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                        <figcaption
+                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
+                            <p>Site vitrine sur mesure pour une artiste, portfolio en ligne.</p>
+                        </figcaption>
+                    </figure>
                 </a>
-                <a href="https://comeup.com/fr/@PeakCL" target="_blank" rel="noopener noreferrer"
-                    class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
-                    <svg fill="currentColor" viewBox="0 0 98 27" width="98" height="27" aria-hidden="true"
-                        focusable="false" class="w-auto h-8 sm:h-10 mb-1 sm:mb-2" role="img"
-                        aria-label="Logo de ComeUp">
-                        <path
-                            d="M0 22.41h97.962V27H0zm83.685-5.062h4.7v-4.86h2.324c4.215 0 7.291-2.115 7.291-6.124v-.049C98 2.55 95.239.337 90.952.337h-7.267v17.01Zm4.7-8.554V4.298h2.203c1.696 0 2.713.778 2.713 2.236v.049c0 1.336-1.017 2.21-2.689 2.21h-2.228ZM74.3 17.663c4.82 0 7.945-2.405 7.945-7.897V.338h-4.771v9.574c0 2.381-1.236 3.499-3.125 3.499-1.89 0-3.124-1.166-3.124-3.62V.336h-4.772v9.55c0 5.322 3.028 7.776 7.848 7.776Zm-22.44-.315h13.76v-4.01h-9.11v-2.697h8.139V6.923H56.51V4.347h8.987V.337H51.86zm-19.678 0h4.602v-9.72l4.312 6.61h.097l4.335-6.66v9.77h4.675V.337h-4.965l-4.045 6.585L37.148.338h-4.966zM22.068 0c4.905 0 8.882 3.99 8.882 8.91s-3.977 8.91-8.882 8.91c-4.905 0-8.88-3.99-8.88-8.91S17.162 0 22.067 0Zm0 4.59a4.313 4.313 0 0 0-4.306 4.32 4.313 4.313 0 0 0 4.306 4.32 4.313 4.313 0 0 0 4.306-4.32 4.313 4.313 0 0 0-4.306-4.32Z">
-                        </path>
-                        <path
-                            d="M17.762 8.91c0 4.92-3.976 8.91-8.88 8.91C3.975 17.82 0 13.83 0 8.91S3.976 0 8.881 0v4.59a4.313 4.313 0 0 0-4.306 4.32 4.313 4.313 0 0 0 4.306 4.32 4.313 4.313 0 0 0 4.306-4.32Z">
-                        </path>
-                    </svg>
-                    ComeUp
+            </article>
+
+            <div class="col-span-full text-peak-gray text-center text-sm sm:text-md italic mt-4 sm:mt-8">Mais
+                aussi des sites web
+                et boutiques en ligne réalisés avec Wordpress :</div>
+
+            <article
+                class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
+                aria-label="Projet osteo-animalcare.com">
+                <a href="https://osteo-animalcare.com/" target="_blank" rel="noopener noreferrer"
+                    class="w-full flex items-center justify-center h-40 sm:h-52">
+                    <figure class="w-full h-full flex items-center justify-center">
+                        <img src="assets/logo/osteoanimalcare.webp"
+                            alt="Logo du site osteo-animalcare.com, ostéopathie animale"
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                        <figcaption
+                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
+                            <p>Site vitrine pour les ostéopathes animalières Ostéo'Animal Care.</p>
+                        </figcaption>
+                    </figure>
                 </a>
-                <a href="https://www.linkedin.com/company/PeakCL/" target="_blank" rel="noopener noreferrer"
-                    class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24"
-                        fill="currentColor" class="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2" role="img"
-                        aria-label="Logo de LinkedIn">
-                        <path
-                            d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z">
-                        </path>
-                    </svg>
-                    LinkedIn
+            </article>
+            <article
+                class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
+                aria-label="Projet naturalriders.fr">
+                <a href="https://www.naturalriders.fr/" target="_blank" rel="noopener noreferrer"
+                    class="w-full flex items-center justify-center h-40 sm:h-52">
+                    <figure class="w-full h-full flex items-center justify-center">
+                        <img src="assets/logo/natural_riders.avif"
+                            alt="Logo du site naturalriders.fr, boutique en ligne de matériel pour chevaux et chiens"
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                        <figcaption
+                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
+                            <p>Boutique e-commerce pour
+                                la création de matériel en corde et biothane pour chevaux et chiens.</p>
+                        </figcaption>
+                    </figure>
                 </a>
-            </div>
-        </section>
-    </main>
+            </article>
+            <article
+                class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
+                aria-label="Projet lejusteplan.fr">
+                <a href="https://lejusteplan.fr/" target="_blank" rel="noopener noreferrer"
+                    class="w-full flex items-center justify-center h-40 sm:h-52">
+                    <figure class="w-full h-full flex items-center justify-center">
+                        <img src="assets/logo/le_juste_plan.png" alt="Logo du site lejusteplan.fr, un site d'architecte"
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                        <figcaption
+                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
+                            <p>Site vitrine pour un
+                                architecte du cabinet Le Juste Plan.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </article>
+            <article
+                class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
+                aria-label="Projet bonebreaker.fr">
+                <a href="https://bonebreaker.fr/" target="_blank" rel="noopener noreferrer"
+                    class="w-full flex items-center justify-center h-40 sm:h-52">
+                    <figure class="w-full h-full flex items-center justify-center">
+                        <img src="assets/logo/bone_breaker.png"
+                            alt="Logo du site bonebreaker.fr, une association sportive"
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                        <figcaption
+                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
+                            <p>Site web d'une association
+                                sportive, avec des fonctionnalités pour l'affichage des événements et résultats.
+                            </p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </article>
+        </div>
+    </div>
+</section>
 
-    <footer
-        class="py-4 sm:py-6 text-center bg-peak-blue-dark text-xs sm:text-sm text-peak-gray border-t border-peak-gray-dark"
-        role="contentinfo">
-        &copy; 2025 <span class="text-peak-yellow">Peak<span class="text-peak-violet">CL</span></span>. Tous droits
-        réservés.
-    </footer>
-    <style>
-        .peak-section {
-            clip-path: polygon(0 40%, 3% 15%, 7% 45%, 12% 10%, 18% 50%, 23% 20%, 28% 55%, 33% 12%, 38% 48%,
-                    43% 18%, 48% 52%, 53% 25%, 58% 50%, 63% 15%, 68% 45%, 73% 20%, 78% 55%, 83% 10%,
-                    88% 48%, 93% 22%, 97% 50%, 100% 30%, 100% 100%, 0 100%);
-            background: linear-gradient(to bottom, #ffffff 0%, #527048 60%, #011526 100%);
-        }
+<section
+    class="relative py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-violet to-peak-violet/70 text-peak-gray overflow-hidden"
+    role="region" aria-label="Nos atouts et notre philosophie">
+    <div class="max-w-5xl flex flex-col md:flex-row gap-8 mx-auto text-center md:text-left">
+        <div class="w-full md:w-1/2 flex flex-col justify-center">
+            <h2 class="text-3xl sm:text-4xl font-title font-extrabold mb-4 sm:mb-6 text-peak-blue-light drop-shadow-lg">
+                Pourquoi
+                choisir <span class="text-peak-yellow font-bold">Peak<span class="text-white">CL</span></span> ?
+            </h2>
+            <p class="text-sm sm:text-lg text-peak-gray max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8">
+                Chez <span class="text-peak-yellow font-bold">Peak<span class="text-white">CL</span></span>,
+                nous croyons que chaque projet est unique. Notre équipe passionnée met son expertise à votre
+                service pour créer des solutions digitales qui vous ressemblent.
+                Notre approche est centrée sur l'écoute de vos besoins, la clarté technique et un suivi
+                personnalisé pour transformer vos idées en réalité digitale.
+            </p>
+        </div>
+        <img src="/assets/images/desktop.webp"
+            alt="Image d'un bureau de travail, avec un ordinateur et un carnet de notes. Symbolise l'environnement de travail et la collaboration."
+            class="w-full md:w-1/2 mx-auto rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-500 border-4 border-peak-blue-light"
+            loading="lazy" />
+    </div>
+</section>
 
-        .animate-bg-gradient-shift {
-            background-size: 200% 200%;
-            animation: bgGradientShift 10s ease infinite;
-        }
+<section id="contact"
+    class="py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-violet/70 to-peak-peak-blue-dark text-peak-gray"
+    role="region" aria-label="Formulaire de contact">
+    <div class="max-w-4xl mx-auto bg-peak-blue-light rounded-3xl p-6 sm:p-12 shadow-2xl border-4 border-peak-yellow">
+        <h2
+            class="text-2xl sm:text-3xl font-title font-extrabold mb-6 sm:mb-10 text-peak-gray text-center drop-shadow-md">
+            Contactez-nous pour votre projet !</h2>
+        <form name="contact" method="POST" data-netlify="true" class="space-y-6 sm:space-y-8"
+            aria-label="Formulaire pour nous contacter">
+            <label for="nom" class="sr-only">Votre nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required
+                class="w-full p-3 sm:p-4 rounded-lg bg-peak-gray-dark/50 text-peak-gray placeholder-peak-gray focus:outline-none focus:ring-4 focus:ring-peak-yellow transition" />
 
-        @keyframes bgGradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
+            <label for="email" class="sr-only">Votre email</label>
+            <input type="email" id="email" name="email" placeholder="Votre email" required
+                class="w-full p-3 sm:p-4 rounded-lg bg-peak-gray-dark/50 text-peak-gray placeholder-peak-gray focus:outline-none focus:ring-4 focus:ring-peak-yellow transition" />
 
-            50% {
-                background-position: 100% 50%;
-            }
+            <label for="message" class="sr-only">Votre message</label>
+            <textarea id="message" name="message" rows="4" sm:rows="6" placeholder="Votre message" required
+                class="w-full p-3 sm:p-4 rounded-lg bg-peak-gray-dark/50 text-peak-gray placeholder-peak-gray focus:outline-none focus:ring-4 focus:ring-peak-yellow transition resize-none"></textarea>
 
-            100% {
-                background-position: 0% 50%;
-            }
-        }
+            <button type="submit"
+                class="w-full bg-peak-yellow text-peak-blue-dark font-extrabold py-3 sm:py-4 rounded-full hover:bg-yellow-300 shadow-lg transform hover:scale-105 transition-all duration-300">
+                Envoyer
+            </button>
+        </form>
+    </div>
+</section>
 
-        .animate-fade-in {
-            opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards;
-        }
-
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .portfolio-card:hover img {
-            transform: scale(1.05);
-            transition: transform 0.5s;
-        }
-
-        @media (max-width: 640px) {
-            .peak-section {
-                clip-path: polygon(0 35%, 25% 15%, 50% 40%, 75% 20%, 100% 35%, 100% 100%, 0 100%);
-            }
-        }
-    </style>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/matrix.js"></script>
-</body>
-
-</html>
+<section class="py-8 sm:py-12 bg-peak-blue-dark text-peak-gray" role="region"
+    aria-label="Liens vers les plateformes professionnelles">
+    <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 sm:gap-10 items-center">
+        <a href="https://www.malt.fr/profile/PeakCL" target="_blank" rel="noopener noreferrer"
+            class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
+            <img src="/assets/logo/maltLogo.webp" alt="Logo de Malt"
+                class="w-auto h-8 sm:h-10 mb-1 sm:mb-2 filter grayscale hover:grayscale-0 transition-all duration-300"
+                loading="lazy">
+            Malt
+        </a>
+        <a href="https://fr.fiverr.com/s/99W6WYa" target="_blank" rel="noopener noreferrer"
+            class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
+            <svg width="89" height="27" viewBox="0 0 89 27" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                class="w-auto h-8 sm:h-10 mb-1 sm:mb-2" role="img" aria-label="Logo de Fiverr">
+                <g>
+                    <path
+                        d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z">
+                    </path>
+                </g>
+                <g fill="#00BDBF">
+                    <path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z">
+                    </path>
+                </g>
+            </svg>
+            Fiverr
+        </a>
+        <a href="https://comeup.com/fr/@PeakCL" target="_blank" rel="noopener noreferrer"
+            class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
+            <svg fill="currentColor" viewBox="0 0 98 27" width="98" height="27" aria-hidden="true" focusable="false"
+                class="w-auto h-8 sm:h-10 mb-1 sm:mb-2" role="img" aria-label="Logo de ComeUp">
+                <path
+                    d="M0 22.41h97.962V27H0zm83.685-5.062h4.7v-4.86h2.324c4.215 0 7.291-2.115 7.291-6.124v-.049C98 2.55 95.239.337 90.952.337h-7.267v17.01Zm4.7-8.554V4.298h2.203c1.696 0 2.713.778 2.713 2.236v.049c0 1.336-1.017 2.21-2.689 2.21h-2.228ZM74.3 17.663c4.82 0 7.945-2.405 7.945-7.897V.338h-4.771v9.574c0 2.381-1.236 3.499-3.125 3.499-1.89 0-3.124-1.166-3.124-3.62V.336h-4.772v9.55c0 5.322 3.028 7.776 7.848 7.776Zm-22.44-.315h13.76v-4.01h-9.11v-2.697h8.139V6.923H56.51V4.347h8.987V.337H51.86zm-19.678 0h4.602v-9.72l4.312 6.61h.097l4.335-6.66v9.77h4.675V.337h-4.965l-4.045 6.585L37.148.338h-4.966zM22.068 0c4.905 0 8.882 3.99 8.882 8.91s-3.977 8.91-8.882 8.91c-4.905 0-8.88-3.99-8.88-8.91S17.162 0 22.067 0Zm0 4.59a4.313 4.313 0 0 0-4.306 4.32 4.313 4.313 0 0 0 4.306 4.32 4.313 4.313 0 0 0 4.306-4.32 4.313 4.313 0 0 0-4.306-4.32Z">
+                </path>
+                <path
+                    d="M17.762 8.91c0 4.92-3.976 8.91-8.88 8.91C3.975 17.82 0 13.83 0 8.91S3.976 0 8.881 0v4.59a4.313 4.313 0 0 0-4.306 4.32 4.313 4.313 0 0 0 4.306 4.32 4.313 4.313 0 0 0 4.306-4.32Z">
+                </path>
+            </svg>
+            ComeUp
+        </a>
+        <a href="https://www.linkedin.com/company/PeakCL/" target="_blank" rel="noopener noreferrer"
+            class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor"
+                class="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2" role="img" aria-label="Logo de LinkedIn">
+                <path
+                    d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z">
+                </path>
+            </svg>
+            LinkedIn
+        </a>
+    </div>
+</section>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/matrix.js"></script>

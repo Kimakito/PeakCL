@@ -6,6 +6,10 @@ dist/
 build/
 out/
 
+# Ruby / Jekyll
+vendor/
+.bundle/
+
 # Dossier généré par Jekyll
 _site/
 .jekyll-cache/

@@ -1,14 +1,10 @@
 # _config.yml
 
-title: PeakCL - Développement web
-author: Charlotte Lacroix
-description: Développement web, design et graphisme
+title: PeakCL
+author: PeakCL
+description: Développement web, création de sites web, applications web, identité visuelle, freelance
 url: "https://peakcl.com"
 baseurl: ""
-twitter:
-  username: Charlotte Lacroix
-  card: summary_large_image
-  social_image: /assets/logo/Logo.jbl.png
 
 plugins:
   - jekyll-feed

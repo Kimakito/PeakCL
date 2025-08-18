@@ -3,5 +3,58 @@
 @tailwind utilities;
 
 html {
-        scroll-behavior: smooth;
-      }
+    scroll-behavior: smooth;
+}
+
+.peak-section {
+    clip-path: polygon(0 40%, 3% 15%, 7% 45%, 12% 10%, 18% 50%, 23% 20%, 28% 55%, 33% 12%, 38% 48%,
+            43% 18%, 48% 52%, 53% 25%, 58% 50%, 63% 15%, 68% 45%, 73% 20%, 78% 55%, 83% 10%,
+            88% 48%, 93% 22%, 97% 50%, 100% 30%, 100% 100%, 0 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #527048 60%, #011526 100%);
+}
+
+.animate-bg-gradient-shift {
+    background-size: 200% 200%;
+    animation: bgGradientShift 10s ease infinite;
+}
+
+@keyframes bgGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+}
+
+@media (max-width: 640px) {
+    .peak-section {
+        clip-path: polygon(0 35%, 25% 15%, 50% 40%, 75% 20%, 100% 35%, 100% 100%, 0 100%);
+    }
+}
