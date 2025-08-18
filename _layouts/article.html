@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+{% include header.html %}
+
+<body class="bg-peak-blue-dark text-peak-gray antialiased">
+    {% include navbar.html %}
+
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <article class="prose lg:prose-xl mx-auto">
+            <header class="mb-8 text-center">
+                {% if page.cover %}
+                <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}"
+                    class="w-full rounded-2xl shadow-xl mb-6 object-cover h-64 sm:h-96" loading="lazy">
+                {% endif %}
+
+                <h1 class="text-4xl sm:text-5xl font-title font-extrabold text-peak-yellow mb-2">{{ page.title }}</h1>
+                <p class="text-sm text-peak-gray/80 mb-4">
+                    {{ page.date | date: "%-d %B %Y" }}{% if page.author %} — {{ page.author }}{% endif %}
+                </p>
+
+                {% if page.excerpt %}
+                <p class="text-lg text-peak-gray/90 italic max-w-2xl mx-auto">{{ page.excerpt }}</p>
+                {% endif %}
+            </header>
+
+            <div class="prose-lg prose-invert">
+                {{ content }}
+            </div>
+
+            <footer
+                class="mt-12 border-t border-peak-blue-light/20 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div class="text-sm text-peak-gray">
+                    <p>Partagez cet article :</p>
+                    <div class="flex gap-3 mt-2">
+                        <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url }}"
+                            target="_blank" rel="noopener"
+                            class="px-3 py-2 bg-peak-blue-light text-peak-blue-dark rounded-full shadow-sm">Twitter</a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}"
+                            target="_blank" rel="noopener"
+                            class="px-3 py-2 bg-peak-violet text-white rounded-full shadow-sm">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="text-sm text-peak-gray">
+                    <a href="{{ '/blog' | relative_url }}"
+                        class="inline-block px-4 py-2 bg-peak-yellow text-peak-blue-dark rounded-full font-bold">Retour
+                        au blog</a>
+                </div>
+            </footer>
+        </article>
+
+        <section class="mt-12">
+            <h3 class="text-xl font-semibold text-peak-blue-light mb-4">Articles récents</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {% for post in site.posts limit:4 %}
+                {% if post.url != page.url %}
+                <a href="{{ post.url | relative_url }}"
+                    class="block p-4 bg-peak-blue-dark/50 rounded-lg hover:scale-105 transition-transform">
+                    <h4 class="text-sm font-bold text-peak-yellow">{{ post.title }}</h4>
+                    <p class="text-xs text-peak-gray/80">{{ post.date | date: "%-d %b %Y" }}</p>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    {% include footer.html %}
+</body>
+
+</html>

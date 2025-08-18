@@ -1,0 +1,55 @@
+---
+layout: default
+title: PeakCL | Création et intégration web
+description: Développeur Web en Savoie
+keywords:
+- Albertville
+- Savoie
+- Isère
+- Haute-Savoie
+- Suisse
+- Développeur Web
+- Création de sites web
+- Applications web
+- Identité visuelle
+- Freelance
+- PeakCL
+image_share: /assets/logo/logo-vieille-roue.png
+---
+
+<h3>Entrez votre nom :</h3>
+<input type="text" id="playerName" placeholder="Votre prénom">
+<button onclick="startGame()">Commencer</button>
+
+<div id="gameArea" style="display:none;">
+  <h2>Bonjour <span id="currentPlayer"></span> !</h2>
+  <div id="board"></div>
+  <div id="status"></div>
+  <p>Score : <span id="score">0</span></p>
+</div>
+
+<script>
+  let player = "";
+  let score = 0;
+
+  function startGame() {
+    player = document.getElementById("playerName").value;
+    if (player.trim() === "") return alert("Entrez un nom !");
+    
+    document.getElementById("currentPlayer").innerText = player;
+    document.getElementById("gameArea").style.display = "block";
+  }
+
+  function onDrop(source, target) {
+    var move = game.move({ from: source, to: target, promotion: 'q' });
+    if (move === null) return 'snapback';
+
+    if (game.in_checkmate()) {
+      score++;
+      document.getElementById('score').innerText = score;
+      document.getElementById('status').innerHTML = "✅ Bravo " + player + " !";
+    } else {
+      document.getElementById('status').innerHTML = "❌ Mauvais coup, réessaie.";
+    }
+  }
+</script>

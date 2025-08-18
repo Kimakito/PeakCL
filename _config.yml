@@ -5,7 +5,11 @@ author: PeakCL
 description: Développement web, création de sites web, applications web, identité visuelle, freelance
 url: "https://peakcl.com"
 baseurl: ""
-
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  parse_block_html: true
 plugins:
   - jekyll-feed
   - jekyll-sitemap
