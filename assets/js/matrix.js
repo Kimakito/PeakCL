@@ -1,46 +1,71 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('matrix-canvas');
-    const ctx = canvas.getContext('2d');
+  const canvas = document.getElementById('matrix-canvas');
+  if (!canvas) return; // quitte si pas de canvas sur la page
 
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
+  const ctx = (canvas.getContext && canvas.getContext('2d'));
+  if (!ctx) return;
 
-    let columns = Math.floor(width / 20) + 1;
-    let drops = [];
+  const fontSize = 20;
+  const characters = '01';
+  let columns = 0;
+  let drops = [];
+  let rafId;
+
+  function setSize() {
+    const dpr = window.devicePixelRatio || 1;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    columns = Math.floor(w / fontSize) + 1;
+    drops = new Array(columns).fill(0);
+  }
+
+  function draw() {
+    // traînée
+    ctx.fillStyle = 'rgba(26,35,126,0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#65a30d';
+    ctx.font = `${fontSize}px monospace`;
+
     for (let i = 0; i < columns; i++) {
-        drops.push(0);
+      const text = characters[Math.floor(Math.random() * characters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > window.innerHeight && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
     }
 
-    const characters = '01';
-    
-    function drawMatrix() {
-        ctx.fillStyle = 'rgba(26, 35, 126, 0.05)'; // Couleur semi-transparente pour l'effet de traînée
-        ctx.fillRect(0, 0, width, height);
+    rafId = requestAnimationFrame(draw);
+  }
 
-        ctx.fillStyle = '#65a30d'; // Couleur verte (daltonien-friendly)
-        ctx.font = '20px monospace';
-
-        for (let i = 0; i < drops.length; i++) {
-            const text = characters[Math.floor(Math.random() * characters.length)];
-            ctx.fillText(text, i * 20, drops[i] * 20);
-
-            if (drops[i] * 20 > height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
-            drops[i]++;
-        }
+  function start() {
+    if (!rafId) rafId = requestAnimationFrame(draw);
+  }
+  function stop() {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
     }
+  }
 
-    function handleResize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-        columns = Math.floor(width / 20) + 1;
-        drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops.push(0);
-        }
-    }
-    window.addEventListener('resize', handleResize);
+  setSize();
+  start();
 
-    setInterval(drawMatrix, 50); // Ajuste la vitesse de l'animation ici (50ms = 20 images/seconde)
+  window.addEventListener('resize', () => {
+    setSize();
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop();
+    else start();
+  });
 });

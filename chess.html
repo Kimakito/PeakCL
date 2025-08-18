@@ -1,55 +1,95 @@
 ---
 layout: default
-title: PeakCL | Création et intégration web
-description: Développeur Web en Savoie
-keywords:
-- Albertville
-- Savoie
-- Isère
-- Haute-Savoie
-- Suisse
-- Développeur Web
-- Création de sites web
-- Applications web
-- Identité visuelle
-- Freelance
-- PeakCL
+title: PeakCL | Jeu d'échecs (test)
+description: Petit test de plateau d'échecs
 image_share: /assets/logo/logo-vieille-roue.png
 ---
 
-<h3>Entrez votre nom :</h3>
-<input type="text" id="playerName" placeholder="Votre prénom">
-<button onclick="startGame()">Commencer</button>
+<section class="max-w-3xl mx-auto p-6">
+  <h3>Entrez votre nom :</h3>
+  <input type="text" id="playerName" placeholder="Votre prénom" class="border px-2 py-1">
+  <button id="startBtn" class="ml-2 px-3 py-1 bg-peak-yellow text-peak-blue-dark">Commencer</button>
 
-<div id="gameArea" style="display:none;">
-  <h2>Bonjour <span id="currentPlayer"></span> !</h2>
-  <div id="board"></div>
-  <div id="status"></div>
-  <p>Score : <span id="score">0</span></p>
-</div>
+  <div id="gameArea" style="display:none; margin-top:1rem; text-align:center;">
+    <h2>Bonjour <span id="currentPlayer"></span> !</h2>
+    <div id="board" style="width: 400px; margin: 0.5rem auto;"></div>
+    <div id="status" class="mt-2"></div>
+    <p>Score : <span id="score">0</span></p>
+  </div>
+
+  <!-- debug simple pour vérifier si le contenu est rendu -->
+  <div id="debug" class="mt-4 text-sm text-peak-gray/70">Debug : contenu chargé</div>
+</section>
+
+<!-- Chessboard.js CSS (CDN) -->
+<link rel="stylesheet" href="https://unpkg.com/chessboardjs@1.0.0/www/css/chessboard-1.0.0.min.css">
+
+<!-- Bibliothèques (CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0/chess.min.js"></script>
+<script src="https://unpkg.com/chessboardjs@1.0.0/www/js/chessboard-1.0.0.min.js"></script>
 
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // debug rapide : existe-t-il un contenu ?
+  const dbg = document.getElementById('debug');
+  if (dbg) dbg.textContent = 'Debug : DOM ready';
+
   let player = "";
   let score = 0;
+  let game = new Chess();
+  let board = null;
 
-  function startGame() {
-    player = document.getElementById("playerName").value;
-    if (player.trim() === "") return alert("Entrez un nom !");
-    
-    document.getElementById("currentPlayer").innerText = player;
-    document.getElementById("gameArea").style.display = "block";
-  }
+  const startBtn = document.getElementById('startBtn');
+  const playerNameInput = document.getElementById('playerName');
+  const gameArea = document.getElementById('gameArea');
+  const currentPlayerSpan = document.getElementById('currentPlayer');
+  const statusEl = document.getElementById('status');
+  const scoreEl = document.getElementById('score');
 
-  function onDrop(source, target) {
-    var move = game.move({ from: source, to: target, promotion: 'q' });
-    if (move === null) return 'snapback';
+  startBtn.addEventListener('click', () => {
+    player = playerNameInput.value || 'Joueur';
+    if (player.trim() === "") { alert("Entrez un nom !"); return; }
 
+    currentPlayerSpan.textContent = player;
+    gameArea.style.display = 'block';
+    statusEl.textContent = '';
+    scoreEl.textContent = score;
+
+    // init board si pas déjà
+    if (!board) {
+      board = Chessboard('board', {
+        draggable: true,
+        position: 'start',
+        onDrop: (source, target, piece, newPos, oldPos, orientation) => {
+          const move = game.move({ from: source, to: target, promotion: 'q' });
+          if (move === null) return 'snapback';
+          updateStatus();
+        }
+      });
+    } else {
+      board.start();
+      game.reset();
+    }
+  });
+
+  function updateStatus() {
     if (game.in_checkmate()) {
       score++;
-      document.getElementById('score').innerText = score;
-      document.getElementById('status').innerHTML = "✅ Bravo " + player + " !";
+      scoreEl.textContent = score;
+      statusEl.innerHTML = "✅ Échec et mat — Bravo " + player + " !";
+    } else if (game.in_draw()) {
+      statusEl.innerHTML = "⚖️ Match nul.";
     } else {
-      document.getElementById('status').innerHTML = "❌ Mauvais coup, réessaie.";
+      const turn = game.turn() === 'w' ? 'Blancs' : 'Noirs';
+      statusEl.innerHTML = "À jouer : " + turn + (game.in_check() ? " — échec !" : "");
     }
   }
+
+  // debug réseau / existence des librairies
+  setTimeout(() => {
+    const libStatus = `chess.js: ${typeof Chess !== 'undefined'}, chessboard: ${typeof Chessboard !== 'undefined'}`;
+    if (dbg) dbg.textContent = 'Debug : ' + libStatus;
+    console.log(libStatus);
+  }, 200);
+});
 </script>
