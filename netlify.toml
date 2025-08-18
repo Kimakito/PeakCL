@@ -1,5 +1,5 @@
 [build]
-  command = "gem install bundler -v 2.5.6 && bundle install && npm install && npm run build"
+  command = "bundle install && npm install && npm run build"
   publish = "_site"
 
 [build.environment]
@@ -8,7 +8,7 @@
   BUNDLER_VERSION = "2.5.6"
 
 [context.deploy-preview]
-  command = "gem install bundler -v 2.5.6 && bundle install && npm install && npm run build"
+  command = "bundle install && npm install && npm run build"
 
 [[redirects]]
   from = "/old-page"
