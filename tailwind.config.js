@@ -5,6 +5,8 @@ module.exports = {
   "./_includes/**/*.html",
   "./_layouts/**/*.html",
   "./_posts/**/*.md",
+  "./blog/**/*.md",
+  "./blog/**/*.html",
   "./assets/**/*.js"
 ],
   theme: {
@@ -50,5 +52,11 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+    plugins: [
+    require('@tailwindcss/typography'),
+  ],
+  // évite que "prose" soit purgé si ta chaîne de build est stricte
+  safelist: [
+    'prose', 'prose-sm', 'prose-lg', 'prose-xl', 'prose-invert'
+  ]
 };

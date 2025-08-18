@@ -75,4 +75,3 @@ Le choix d'un nom de domaine est une étape cruciale dans la création de votre 
 Le choix d'un nom de domaine est un investissement à long terme. Prenez le temps de bien réfléchir et n'hésitez pas à vous faire accompagner par des professionnels pour cette étape stratégique.
 
 N'oubliez pas : votre nom de domaine sera votre identité en ligne pour les années à venir. Un choix réfléchi aujourd'hui vous évitera bien des complications demain.
-```

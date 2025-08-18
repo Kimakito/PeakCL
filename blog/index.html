@@ -23,7 +23,7 @@ image_share: /assets/logo/PeakCL.svg
           {% if post.cover or post.image %}
             <img src="{{ post.cover | default: post.image | relative_url }}" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           {% else %}
-            <img src="/assets/images/blog/default.jpg" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="{{ '/assets/images/desktop.webp' | relative_url }}" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           {% endif %}
         </div>
 
