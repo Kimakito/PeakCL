@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            if (window.location.pathname !== '/') {
+                window.location.href = '/' + this.getAttribute('href');
+                e.preventDefault();
+            }
+        });
+    });
     // --- Gestion de la barre de navigation au scroll ---
     const header = document.querySelector('header');
     const heroSection = document.getElementById('hero');
