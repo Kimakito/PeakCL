@@ -19,63 +19,62 @@ pagination:
   sort_reverse: true
 ---
 
-<section
-    class="relative py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-blue-dark to-peak-violet text-peak-gray min-h-screen">
+<section class="relative py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-blue-dark to-peak-violet text-peak-gray min-h-screen">
     <div class="max-w-7xl mx-auto relative z-10">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-center text-peak-yellow py-12">📚 Le
-            Blog 📚</h1>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-center text-peak-yellow py-12">📚 Le Blog 📚</h1>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {% for post in site.posts limit:6 %}
-            <article
-                class="group bg-peak-blue-dark/40 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-peak-yellow/20 transform hover:-translate-y-2 transition-all duration-300 border border-peak-violet/30">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for post in paginator.posts %}
+            <article class="group bg-peak-blue-dark/40 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-peak-yellow/20 transform hover:-translate-y-2 transition-all duration-300 border border-peak-violet/30">
                 <div class="relative h-48 overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-peak-yellow/20 to-peak-violet/20 group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-br from-peak-yellow/20 to-peak-violet/20 group-hover:scale-110 transition-transform duration-500">
                     </div>
                     {% if post.cover %}
-                    <img src="{{ post.cover | relative_url }}" alt="{{ post.title }}"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="{{ post.cover | relative_url }}" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     {% else %}
-                    <img src="/assets/images/blog/default.jpg" alt="{{ post.title }}"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="/assets/images/blog/default.jpg" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     {% endif %}
                 </div>
                 <div class="p-6">
-                    {% assign tag = post.categories | first %}
-                    {% if tag %}
-                    <span
-                        class="inline-block px-3 py-1 text-xs font-semibold text-peak-yellow bg-peak-violet/30 rounded-full mb-3">{{ tag }}</span>
+                    {% if post.categories.size > 0 %}
+                    <span class="inline-block px-3 py-1 text-xs font-semibold text-peak-yellow bg-peak-violet/30 rounded-full mb-3">{{ post.categories | first }}</span>
                     {% endif %}
-                    <h3
-                        class="text-xl font-bold text-peak-yellow mb-2 group-hover:text-peak-blue-light transition-colors">
+                    <h3 class="text-xl font-bold text-peak-yellow mb-2 group-hover:text-peak-blue-light transition-colors">
                         <a href="{{ post.url | relative_url }}" class="block">{{ post.title }}</a>
                     </h3>
                     <p class="text-sm text-peak-gray/90 mb-4">{{ post.excerpt | strip_html | truncate: 120 }}</p>
                     <div class="flex items-center justify-between">
                         <span class="text-xs text-peak-gray/70">{{ post.date | date: "%-d %b %Y" }}</span>
-                        <a href="{{ post.url | relative_url }}"
-                            class="text-peak-yellow hover:text-peak-blue-light font-medium text-sm transition-colors">Lire
-                            plus →</a>
+                        <a href="{{ post.url | relative_url }}" class="text-peak-yellow hover:text-peak-blue-light font-medium text-sm transition-colors">Lire plus →</a>
                     </div>
                 </div>
             </article>
             {% endfor %}
         </div>
 
+        {% if paginator.total_pages > 1 %}
+        <nav class="mt-8 flex justify-center gap-2">
+            {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path | relative_url }}" class="px-3 py-1 bg-peak-blue-light text-peak-blue-dark rounded">←</a>
+            {% endif %}
+
+            {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                <span class="px-3 py-1 bg-peak-yellow text-peak-blue-dark font-bold rounded">{{ page }}</span>
+                {% else %}
+                <a href="{% if page == 1 %}{{ '/blog' | relative_url }}{% else %}{{ site.paginate_path | relative_url | replace: ':num', page }}{% endif %}" class="px-3 py-1 bg-peak-violet/50 text-peak-yellow rounded hover:bg-peak-violet">{{ page }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path | relative_url }}" class="px-3 py-1 bg-peak-blue-light text-peak-blue-dark rounded">→</a>
+            {% endif %}
+        </nav>
+        {% endif %}
+
         <div class="mt-12 text-center">
             <h2>Délais de réalisation</h2>
-            <p>Nous avançons ensemble, à votre rythme, avec un planning clair pour que votre site voie le jour sans
-                stress..
-                Un site peut nécessiter au minimum 30 heures de travail, en fonction de la complexité des
-                fonctionnalités
-                attendues.
-                Nous sommes là pour vous !
-                Pas d’inquiétude, notre rôle est de vous accompagner du début à la fi n. Vous n’avez pas à gérer seul
-                toutes
-                ces étapes, nous nous occupons de tout !
-                Ensemble, nous allons créer un site qui vous ressemble,qui met en valeur votre activité et qui facilite
-                votre présence en ligne.</p>
+            <p>Nous avançons ensemble, à votre rythme, avec un planning clair pour que votre site voie le jour sans stress. Un site peut nécessiter au minimum 30 heures de travail, en fonction de la complexité des fonctionnalités attendues. Nous sommes là pour vous ! Pas d'inquiétude, notre rôle est de vous accompagner du début à la fin. Vous n'avez pas à gérer seul toutes ces étapes, nous nous occupons de tout ! Ensemble, nous allons créer un site qui vous ressemble, qui met en valeur votre activité et qui facilite votre présence en ligne.</p>
         </div>
     </div>
 </section>

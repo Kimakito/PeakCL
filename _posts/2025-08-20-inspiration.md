@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Exemples de sites : inspiration et attentes"
-date: 2025-08-18
+date: 2025-08-15
 author: PeakCL
 categories: blog
 tag: "Conseils pour réaliser votre site web"
