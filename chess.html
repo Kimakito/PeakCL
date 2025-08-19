@@ -148,9 +148,6 @@ canonical: https://peakcl.com/chess
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 <script src="https://cdn.rawgit.com/lhartikk/simple-chess-ai/master/lib/js/chess.js"></script>
 <script src="https://chessboardjs.com/js/chessboard.js"></script>
-<div id="board" class="board"></div>
-<div id="move-history" class="move-history"></div>
-
 <script>
 var board,
     game = new Chess(),
@@ -238,7 +235,7 @@ board = ChessBoard('board', cfg);
 
 // Mode clic pour mobile
 if (isTouchDevice) {
-    $('#board .square-55d63').on('click', function() {
+    $('#board').on('click', '.square-55d63', function() {
         var square = $(this).attr('data-square');
         var piece = game.get(square);
 
