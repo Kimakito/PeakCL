@@ -3,6 +3,8 @@ layout: article
 title: "Exemples de sites : inspiration et attentes"
 date: 2025-08-18
 author: PeakCL
+categories: blog
+tag: "Conseils pour réaliser votre site web"
 cover: /assets/images/hebergement.webp
 ---
 

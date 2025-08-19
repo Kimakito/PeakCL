@@ -14,3 +14,26 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-paginate-v2
+
+pagination:
+  enabled: true
+  per_page: 6
+  permalink: '/blog/page:num/'
+  sort_field: 'date'
+  sort_reverse: true
+
+# Noms des mois en français
+months_fr:
+- Janvier
+- Février
+- Mars
+- Avril
+- Mai
+- Juin
+- Juillet
+- Août
+- Septembre
+- Octobre
+- Novembre
+- Décembre
