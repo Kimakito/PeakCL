@@ -1,0 +1,31 @@
+---
+layout: article
+title: "Exemples de sites : inspiration et attentes"
+date: 2025-08-18
+author: PeakCL
+cover: /assets/images/hebergement.webp
+---
+
+# Exemples de sites : inspiration et attentes
+
+Analyser des sites dans le même domaine d’activité est une **excellente manière de comprendre ce qui fonctionne** et de clarifier vos attentes pour votre propre projet. Cette démarche vous aide à définir le style, la structure et les fonctionnalités que vous souhaitez intégrer.  
+
+## Pourquoi regarder des exemples est utile
+
+- **Identifier les bonnes pratiques** : navigation intuitive, design moderne, hiérarchie des informations, types de contenus mis en avant.  
+- **Définir vos préférences** : design épuré, moderne, original ou plus traditionnel.  
+- **Éviter les erreurs** : comprendre ce qui peut perturber l’expérience utilisateur ou nuire à l’image du site.  
+
+## Comment s’y prendre
+
+Pour que cette étape soit vraiment efficace :  
+1. **Explorez plusieurs sites** dans votre secteur ou dans des secteurs similaires.  
+2. **Notez ce que vous aimez** : couleurs, typographies, structure des pages, fonctionnalités interactives.  
+3. **Notez ce que vous n’aimez pas** : éléments trop chargés, navigation compliquée, visuels peu attrayants.  
+4. **Regroupez vos observations** pour créer une liste claire de vos attentes et inspirations à partager avec votre équipe ou votre concepteur de site.  
+
+## Astuce
+
+Vous pouvez également créer un **tableau d’inspiration** avec les liens des sites analysés et des commentaires sur les éléments à reproduire ou à éviter. Cela facilitera la communication et garantira que votre futur site correspond exactement à vos besoins et à vos goûts.  
+
+Prendre le temps de bien définir vos inspirations est une étape clé pour obtenir un site **esthétique, fonctionnel et aligné avec votre image de marque**.
