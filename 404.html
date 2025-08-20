@@ -2,24 +2,61 @@
 permalink: /404.html
 layout: default
 ---
+    <div class="bg-gradient-peak text-peak-gray min-h-screen flex items-center justify-center font-body overflow-hidden relative">
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+        <!-- Éléments décoratifs en arrière-plan pour un effet subtil -->
+        <div class="absolute top-0 left-0 w-32 h-32 bg-peak-yellow opacity-10 rounded-full mix-blend-lighten animate-pulse-slow-1"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-48 h-48 bg-peak-blue-light opacity-10 rounded-full mix-blend-lighten animate-pulse-slow-2"></div>
+        <div class="absolute top-1/2 left-1/2 w-24 h-24 bg-peak-violet opacity-10 rounded-full mix-blend-lighten animate-pulse-slow-3"></div>
 
-<div class="container">
-  <h1>404</h1>
+        <div class="relative z-10 text-center p-8 max-w-2xl mx-auto bg-peak-blue-dark/50 backdrop-blur-sm rounded-3xl shadow-2xl animate-fade-in-up border border-peak-violet/40">
+            <h1 class="text-8xl sm:text-9xl font-title font-extrabold text-peak-yellow mb-4 leading-none animate-gradient-pulse">
+                404
+            </h1>
+            <p class="text-2xl sm:text-3xl font-body text-peak-blue-light mb-6 animate-fade-in-up" style="animation-delay: 0.2s;">
+                Oups ! Cette page est introuvable.
+            </p>
+            <p class="text-lg text-peak-gray/80 mb-8 animate-fade-in-up" style="animation-delay: 0.4s;">
+                Il semble que vous ayez suivi un lien brisé ou tapé une adresse qui n'existe pas.
+                Ne vous inquiétez pas, cela arrive aux meilleurs d'entre nous !
+            </p>
+            <a href="/" class="inline-block bg-peak-yellow text-peak-blue-dark font-title font-bold py-3 px-8 rounded-full shadow-lg hover:bg-peak-blue-light hover:text-peak-blue-dark transition duration-300 transform hover:scale-105 animate-fade-in-up" style="animation-delay: 0.6s;">
+                Retourner à l'accueil
+            </a>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+            <!-- Message de redirection automatique (JavaScript) -->
+            <p id="redirect-message" class="mt-8 text-sm text-peak-gray/60 animate-fade-in-up" style="animation-delay: 0.8s;">
+                Vous serez redirigé automatiquement dans <span id="countdown" class="font-bold text-peak-yellow">5</span> secondes.
+            </p>
+        </div>
+
+        <script>
+            // JavaScript pour la redirection automatique et le compte à rebours
+            document.addEventListener('DOMContentLoaded', () => {
+                let countdownElement = document.getElementById('countdown');
+                let timeLeft = 10; // Temps en secondes avant la redirection
+
+                // Fonction pour mettre à jour le compte à rebours
+                function updateCountdown() {
+                    countdownElement.textContent = timeLeft;
+                    if (timeLeft <= 0) {
+                        // Utilise window.location.origin pour une URL absolue, plus robuste
+                        window.location.href = window.location.origin; 
+                    } else {
+                        timeLeft--;
+                    }
+                }
+
+                // Mettre à jour le compte à rebours toutes les secondes
+                let countdownInterval = setInterval(updateCountdown, 1000);
+
+                // Optionnel : Annuler la redirection si l'utilisateur clique sur le bouton
+                document.querySelector('a[href="/"]').addEventListener('click', (event) => {
+                    event.preventDefault(); // Empêche la navigation par défaut du lien
+                    clearInterval(countdownInterval); // Arrêter le compte à rebours
+                    // Utilise window.location.origin pour une URL absolue, plus robuste
+                    window.location.href = window.location.origin; 
+                });
+            });
+        </script>
+    </div>

@@ -2,18 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base styles */
 html {
     scroll-behavior: smooth;
 }
 
+:root {
+    --color-peak-blue-light: #00BDBF;
+    --color-peak-blue-dark: #011526;
+    --color-peak-yellow: #F9CD00;
+    --color-peak-violet: #522A80;
+    --color-peak-gray: #F3F4F6;
+    --color-peak-gray-dark: #1F2937;
+}
+
+/* Components */
 .transition-wave {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px; /* Ajustez la hauteur de la vague */
+    height: 100px;
     z-index: 10;
-    /* La propriété clip-path est magique pour créer des formes */
     -webkit-clip-path: ellipse(70% 50% at 50% 100%);
     clip-path: ellipse(70% 50% at 50% 100%);
 }
@@ -25,39 +35,10 @@ html {
     background: linear-gradient(to bottom, #ffffff 0%, #527048 60%, #011526 100%);
 }
 
-.animate-bg-gradient-shift {
+.bg-gradient-peak {
+    background-image: linear-gradient(to bottom right, var(--color-peak-blue-dark), var(--color-peak-violet));
     background-size: 200% 200%;
-    animation: bgGradientShift 10s ease infinite;
-}
-
-@keyframes bgGradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.animate-fade-in {
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in-out forwards;
-}
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    animation: bg-gradient-shift 10s ease infinite;
 }
 
 .portfolio-card:hover img {
@@ -65,6 +46,75 @@ html {
     transition: transform 0.5s;
 }
 
+/* Typography */
+.font-title {
+    font-family: 'Exo 2', sans-serif;
+}
+
+.font-body {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Animations */
+.animate-bg-gradient-shift {
+    background-size: 200% 200%;
+    animation: bgGradientShift 10s ease infinite;
+}
+
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-pulse-slow-1 { 
+    animation: pulse-slow-1 12s ease-in-out infinite; 
+}
+
+.animate-pulse-slow-2 { 
+    animation: pulse-slow-2 10s ease-in-out infinite; 
+}
+
+.animate-pulse-slow-3 { 
+    animation: pulse-slow-3 14s ease-in-out infinite; 
+}
+
+/* Keyframes */
+@keyframes bgGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-slow-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(10px, 10px) scale(1.1); }
+}
+
+@keyframes pulse-slow-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-15px, -15px) scale(1.05); }
+}
+
+@keyframes pulse-slow-3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -5px) scale(1.15); }
+}
+
+/* Media Queries */
 @media (max-width: 640px) {
     .peak-section {
         clip-path: polygon(0 35%, 25% 15%, 50% 40%, 75% 20%, 100% 35%, 100% 100%, 0 100%);
