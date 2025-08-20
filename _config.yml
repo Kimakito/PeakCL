@@ -16,10 +16,12 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate-v2
 
+locale: fr_FR.UTF-8
+
 pagination:
   enabled: true
   per_page: 6
-  permalink: '/page:num/'
+  permalink: 'blog/page:num/'
   title: ':title - page :num'
   sort_field: 'date'
   sort_reverse: true

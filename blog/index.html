@@ -12,9 +12,9 @@ keywords:
 image_share: /assets/logo/PeakCL.svg
 pagination:
   enabled: true
-  collection: posts
   per_page: 6
   permalink: '/blog/page:num/'
+  title: ':title - page :num'
   sort_field: 'date'
   sort_reverse: true
 ---
@@ -58,11 +58,17 @@ pagination:
             <a href="{{ paginator.previous_page_path | relative_url }}" class="px-3 py-1 bg-peak-blue-light text-peak-blue-dark rounded">←</a>
             {% endif %}
 
-            {% for page in (1..paginator.total_pages) %}
-                {% if page == paginator.page %}
-                <span class="px-3 py-1 bg-peak-yellow text-peak-blue-dark font-bold rounded">{{ page }}</span>
+            {% for page_num in (1..paginator.total_pages) %}
+                {% assign is_current_page = (page_num == paginator.page) %}
+                {% assign page_path = '/blog' %}
+                {% if page_num > 1 %}
+                    {% assign page_path = page_path | append: '/page' | append: page_num %}
+                {% endif %}
+
+                {% if is_current_page %}
+                <span class="px-3 py-1 bg-peak-yellow text-peak-blue-dark font-bold rounded">{{ page_num }}</span>
                 {% else %}
-                <a href="{% if page == 1 %}{{ '/blog' | relative_url }}{% else %}{{ site.paginate_path | relative_url | replace: ':num', page }}{% endif %}" class="px-3 py-1 bg-peak-violet/50 text-peak-yellow rounded hover:bg-peak-violet">{{ page }}</a>
+                <a href="{{ page_path | relative_url }}" class="px-3 py-1 bg-peak-violet/50 text-peak-yellow rounded hover:bg-peak-violet">{{ page_num }}</a>
                 {% endif %}
             {% endfor %}
 

@@ -5,7 +5,7 @@ date: 2025-08-15
 author: PeakCL
 categories: blog
 tag: "Conseils pour réaliser votre site web"
-cover: /assets/images/hebergement.webp
+cover: /assets/images/theme.webp
 ---
 
 # Exemples de sites : inspiration et attentes
