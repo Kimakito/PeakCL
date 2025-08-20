@@ -2,10 +2,19 @@
 layout: article
 title: "Le nom de domaine"
 date: 2025-08-18
-categories: blog
+last_modified_at: 2025-08-18
 author: PeakCL
+categories: blog
 tag: "Conseils pour réaliser votre site web"
 cover: /assets/images/domaine.webp
+image_share: /assets/images/domaine.webp
+description: "Tout savoir sur le nom de domaine : comment le choisir, pourquoi il est important et son rôle dans l’identité de votre site web."
+keywords:
+  - nom de domaine
+  - choisir domaine site
+  - identité en ligne
+  - url site internet
+  - conseils site web
 ---
 
 # Comment choisir le nom de domaine parfait pour votre site web ?

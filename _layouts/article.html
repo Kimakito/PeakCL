@@ -1,5 +1,34 @@
 <!doctype html>
 <html lang="fr">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "headline": "{{ page.title | escape }}",
+  "description": "{{ page.description | escape }}",
+  "image": [
+    "{% if page.image %}{{ page.image | absolute_url }}{% elsif page.cover %}{{ page.cover | absolute_url }}{% endif %}"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: site.author }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/logo/PeakCL.svg"
+    }
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}"
+}
+</script>
 {% include header.html %}
 
 <body class="bg-peak-blue-dark text-peak-gray antialiased">

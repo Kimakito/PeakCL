@@ -2,10 +2,19 @@
 layout: article
 title: "Exemples de sites : inspiration et attentes"
 date: 2025-08-15
+last_modified_at: 2025-08-15
 author: PeakCL
 categories: blog
 tag: "Conseils pour réaliser votre site web"
 cover: /assets/images/theme.webp
+image_share: /assets/images/theme.webp
+description: "Trouvez de l’inspiration grâce à des exemples de sites réussis et définissez vos attentes pour un projet web à votre image."
+keywords:
+  - exemples sites web
+  - inspiration design
+  - attentes site internet
+  - idées création site
+  - conseils site web
 ---
 
 # Exemples de sites : inspiration et attentes

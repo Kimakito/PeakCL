@@ -1,61 +1,84 @@
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <title>Développeur Web | Création de Sites sur-mesure - PeakCL</title> -->
-    <title>{{ page.title }} | {{ site.title }}</title>
-    <meta name="description"
-        content="Développeur web freelance en Savoie (Albertville, Chambéry, Annecy) et à distance. Je crée des sites internet, des applications web et votre identité visuelle sur-mesure. Contactez PeakCL pour un devis gratuit et personnalisé.">
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "PeakCL",
-          "description": "Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.",
-          "url": "https://www.peakcl.com",
-          "image": "https://www.peakcl.com/assets/logo/PeakCL.svg",
-          "founder": "Charlotte Lacroix",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Savoie",
-            "addressRegion": "Auvergne-Rhône-Alpes",
-            "addressCountry": "FR"
-          },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "contact@peakcl.com",
-            "contactType": "customer service"
-          },
-          "sameAs": [
-            "https://www.linkedin.com/company/PeakCL/",
-            "https://www.malt.fr/profile/PeakCL"
-          ]
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="{{ '/assets/css/output.css' | relative_url }}" />
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Nunito:wght@400;600&display=swap"
-        rel="stylesheet">
+  <!-- Title & SEO -->
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="author" content="Charlotte Lacroix">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Développeur web freelance en Savoie (Albertville, Chambéry, Annecy) et à distance. Je crée des sites internet, des applications web et votre identité visuelle sur-mesure. Contactez PeakCL pour un devis gratuit et personnalisé.">
+  <meta name="keywords" content="développeur web, création site internet, freelance Savoie, PeakCL, Charlotte Lacroix, applications web, identité visuelle, applications web, Chambéry, Albertville, Annecy">
 
-    <!-- Favicons & manifest using relative_url -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon/favicon-16x16.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon/favicon-32x32.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ '/assets/favicon/favicon-96x96.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="256x256" href="{{ '/assets/favicon/favicon-256x256.png' | relative_url }}">
-    <link rel="shortcut icon" href="{{ '/assets/favicon/favicon.ico' | relative_url }}" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/favicon/apple-icon-57x57.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ '/assets/favicon/apple-icon-60x60.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ '/assets/favicon/apple-icon-72x72.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ '/assets/favicon/apple-icon-76x76.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ '/assets/favicon/apple-icon-114x114.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ '/assets/favicon/apple-icon-120x120.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ '/assets/favicon/apple-icon-144x144.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ '/assets/favicon/apple-icon-152x152.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/favicon/apple-icon-180x180.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="192x192"
-        href="{{ '/assets/favicon/android-icon-192x192.png' | relative_url }}">
-    <meta name="msapplication-TileColor" content="#1a237e">
-    <meta name="msapplication-TileImage" content="{{ '/assets/favicon/ms-icon-144x144.png' | relative_url }}">
-    <meta name="msapplication-config" content="{{ '/assets/favicon/browserconfig.xml' | relative_url }}">
-    <link rel="manifest" href="{{ '/assets/favicon/manifest.json' | relative_url }}">
-    <meta name="theme-color" content="#1a237e">
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Styles & Fonts -->
+  <link rel="stylesheet" href="{{ '/assets/css/output.css' | relative_url }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+  <meta property="og:description" content="Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/logo/PeakCL.png' | absolute_url }}">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title }} | {{ site.title }}">
+  <meta name="twitter:description" content="Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.">
+  <meta name="twitter:image" content="{{ '/assets/logo/PeakCL.png' | absolute_url }}">
+
+  <!-- Favicons & Manifest -->
+  <link rel="icon" type="image/png" href="{{ '/favicon-96x96.png' | relative_url }}" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" />
+  <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}" />
+  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}" />
+  <meta name="apple-mobile-web-app-title" content="PeakCL" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#1a237e">
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="fr">
+
+  <!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "WebDevelopmentService"],
+    "name": "PeakCL",
+    "description": "Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.",
+    "url": "https://www.peakcl.com",
+    "image": "https://www.peakcl.com/assets/logo/PeakCL.svg",
+    "founder": {
+        "@type": "Person",
+        "name": "Charlotte Lacroix"
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Albertville",
+        "addressRegion": "Auvergne-Rhône-Alpes",
+        "addressCountry": "FR"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@peakcl.com",
+        "contactType": "Customer Service"
+    },
+    "serviceType": "Web Development",
+    "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Savoie"
+    },
+    "sameAs": [
+        "https://www.linkedin.com/company/PeakCL/",
+        "https://www.malt.fr/profile/PeakCL",
+        "https://fr.fiverr.com/s/99W6WYa",
+        "https://comeup.com/fr/@PeakCL"
+    ]
+    }
+</script>
 </head>

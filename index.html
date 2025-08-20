@@ -1,7 +1,7 @@
 ---
 layout: default
-title: PeakCL | Création et intégration web
-description: Développeur Web en Savoie
+title: Création de sites web et applications sur-mesure en Savoie - PeakCL
+description: PeakCL, votre développeur web freelance en Savoie. Spécialisé en création de sites sur-mesure, applications web, et identité visuelle.
 keywords:
 - Albertville
 - Savoie
@@ -44,10 +44,10 @@ image_share: /assets/logo/PeakCL.svg
             performants et des solutions digitales uniques.
         </p>
         <img src="/assets/images/peakClIA.jpg"
-            alt="Illustration 3D d'une montagne stylisée symbolisant un pic, avec un ordinateur sur le côté. Représente le travail de développement web au sein de la région savoyarde."
+            alt="Illustration d'une montagne et d'un ordinateur symbolisant le développement web en Savoie."
             class="w-full max-w-sm sm:max-w-md mx-auto rounded-tr-2xl rounded-bl-2xl shadow-2xl hover:scale-105 transition-transform duration-500 animate-fade-in delay-250 my-6"
             loading="lazy" />
-        <a href="#contact"
+        <a href="#contact" aria-current="page"
             class="inline-block bg-peak-yellow text-peak-blue-dark font-bold px-8 sm:px-10 py-3 sm:py-4 mt-6 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 animate-fade-in delay-300">
             Discutons de votre projet 🚀
         </a>
@@ -114,7 +114,7 @@ image_share: /assets/logo/PeakCL.svg
         </div>
 
         <div class="mt-12 sm:mt-16 animate-fade-in delay-500 text-center">
-            <a href="#contact"
+            <a href="#contact" aria-current="page"
                 class="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-peak-yellow text-peak-blue-dark font-bold text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
                 Envie d’un site qui vous ressemble ? Parlons-en !
             </a>
@@ -131,11 +131,11 @@ image_share: /assets/logo/PeakCL.svg
     <div class="max-w-7xl mx-auto relative z-10">
         <h2
             class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-center text-peak-yellow mb-8 sm:mb-12 animate-fade-in">
-            📚 <a href="/blog">Le Blog</a> 📚
+            📚 <a aria-current="page" href="/blog">Le Blog</a> 📚
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {% for post in site.posts limit:6 %}
+            {% for post in site.posts limit:3 %}
             <article
                 class="group bg-peak-blue-dark/40 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-peak-yellow/20 transform hover:-translate-y-2 transition-all duration-300 border border-peak-violet/30">
                 <div class="relative h-48 overflow-hidden">
@@ -158,18 +158,19 @@ image_share: /assets/logo/PeakCL.svg
                     {% endif %}
                     <h3
                         class="text-xl font-bold text-peak-yellow mb-2 group-hover:text-peak-blue-light transition-colors">
-                        <a href="{{ post.url | relative_url }}" class="block">{{ post.title }}</a>
+                        <a aria-current="page" href="{{ post.url | relative_url }}" class="block">{{ post.title }}</a>
                     </h3>
                     <p class="text-sm text-peak-gray/90 mb-4">{{ post.excerpt | strip_html | truncate: 120 }}</p>
                     <div class="flex items-center justify-between">
                         <span class="text-xs text-peak-gray/70">{{ post.date | date: "%-d %b %Y" }}</span>
-                        <a href="{{ post.url | relative_url }}"
+                        <a aria-current="page" href="{{ post.url | relative_url }}"
                             class="text-peak-yellow hover:text-peak-blue-light font-medium text-sm transition-colors">Lire
                             plus →</a>
                     </div>
                 </div>
             </article>
             {% endfor %}
+            <a aria-current="page" class="inline-block bg-peak-yellow text-peak-blue-dark font-bold px-8 sm:px-10 py-3 sm:py-4 mt-6 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 animate-fade-in delay-300" href="/blog">Voir tous les articles</a>
         </div>
     </div>
 </section>
@@ -186,8 +187,7 @@ image_share: /assets/logo/PeakCL.svg
 
     <div class="max-w-7xl mx-auto text-center relative z-10">
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-peak-yellow mb-4 animate-fade-in">
-            ✨ Notre
-            Portfolio ✨</h2>
+            ✨ Portfolio : Découvrez nos créations de sites web ✨</h2>
         <p class="text-base sm:text-lg text-peak-gray mb-8 sm:mb-12 animate-fade-in delay-200">
             Découvrez quelques-unes de nos réalisations de sites web sur-mesure et de projets réalisés pour des
             clients en Savoie et ailleurs.
@@ -197,7 +197,7 @@ image_share: /assets/logo/PeakCL.svg
             <article
                 class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
                 aria-label="Projet jb-lacroix.fr">
-                <a href="https://jb-lacroix.fr/" target="_blank" rel="noopener noreferrer"
+                <a href="https://jb-lacroix.fr/" target="_blank" aria-current="page" rel="noopener noreferrer"
                     class="w-full flex items-center justify-center h-40 sm:h-52">
                     <figure class="w-full h-full flex items-center justify-center">
                         <img src="assets/logo/Logo.jbl.png"
@@ -214,7 +214,7 @@ image_share: /assets/logo/PeakCL.svg
             <article
                 class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
                 aria-label="Projet lavieilleroue.fr">
-                <a href="https://lavieilleroue.fr/" target="_blank" rel="noopener noreferrer"
+                <a href="https://lavieilleroue.fr/" target="_blank" aria-current="page" rel="noopener noreferrer"
                     class="w-full flex items-center justify-center h-40 sm:h-52">
                     <figure class="w-full h-full flex items-center justify-center">
                         <img src="assets/logo/lavieilleroue.png"
@@ -232,7 +232,7 @@ image_share: /assets/logo/PeakCL.svg
             <article
                 class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
                 aria-label="Projet doodleidoo.com">
-                <a href="https://doodleidoo.com/" target="_blank" rel="noopener noreferrer"
+                <a href="https://doodleidoo.com/" target="_blank" aria-current="page" rel="noopener noreferrer"
                     class="w-full flex items-center justify-center h-40 sm:h-52">
                     <figure class="w-full h-full flex items-center justify-center">
                         <img src="assets/logo/logo_doodleIdoo.png" alt="Logo du site doodleidoo.com, un site d'artiste"
@@ -252,7 +252,7 @@ image_share: /assets/logo/PeakCL.svg
             <article
                 class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
                 aria-label="Projet osteo-animalcare.com">
-                <a href="https://osteo-animalcare.com/" target="_blank" rel="noopener noreferrer"
+                <a href="https://osteo-animalcare.com/" target="_blank" aria-current="page" rel="noopener noreferrer"
                     class="w-full flex items-center justify-center h-40 sm:h-52">
                     <figure class="w-full h-full flex items-center justify-center">
                         <img src="assets/logo/osteoanimalcare.webp"
@@ -268,7 +268,7 @@ image_share: /assets/logo/PeakCL.svg
             <article
                 class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
                 aria-label="Projet naturalriders.fr">
-                <a href="https://www.naturalriders.fr/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.naturalriders.fr/" target="_blank" aria-current="page" rel="noopener noreferrer"
                     class="w-full flex items-center justify-center h-40 sm:h-52">
                     <figure class="w-full h-full flex items-center justify-center">
                         <img src="assets/logo/natural_riders.avif"
@@ -285,7 +285,7 @@ image_share: /assets/logo/PeakCL.svg
             <article
                 class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
                 aria-label="Projet lejusteplan.fr">
-                <a href="https://lejusteplan.fr/" target="_blank" rel="noopener noreferrer"
+                <a href="https://lejusteplan.fr/" target="_blank" aria-current="page" rel="noopener noreferrer"
                     class="w-full flex items-center justify-center h-40 sm:h-52">
                     <figure class="w-full h-full flex items-center justify-center">
                         <img src="assets/logo/le_juste_plan.png" alt="Logo du site lejusteplan.fr, un site d'architecte"
@@ -301,7 +301,7 @@ image_share: /assets/logo/PeakCL.svg
             <article
                 class="portfolio-card group relative overflow-hidden rounded-xl shadow-xl transition-all duration-500 flex flex-col items-center justify-center bg-peak-blue-dark/50 border border-peak-blue-dark p-4 cursor-pointer"
                 aria-label="Projet bonebreaker.fr">
-                <a href="https://bonebreaker.fr/" target="_blank" rel="noopener noreferrer"
+                <a href="https://bonebreaker.fr/" target="_blank" aria-current="page" rel="noopener noreferrer"
                     class="w-full flex items-center justify-center h-40 sm:h-52">
                     <figure class="w-full h-full flex items-center justify-center">
                         <img src="assets/logo/bone_breaker.png"
@@ -376,14 +376,14 @@ image_share: /assets/logo/PeakCL.svg
 <section class="py-8 sm:py-12 bg-peak-blue-dark text-peak-gray" role="region"
     aria-label="Liens vers les plateformes professionnelles">
     <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 sm:gap-10 items-center">
-        <a href="https://www.malt.fr/profile/PeakCL" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.malt.fr/profile/PeakCL" target="_blank" aria-current="page" rel="noopener noreferrer"
             class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
             <img src="/assets/logo/maltLogo.webp" alt="Logo de Malt"
                 class="w-auto h-8 sm:h-10 mb-1 sm:mb-2 filter grayscale hover:grayscale-0 transition-all duration-300"
                 loading="lazy">
             Malt
         </a>
-        <a href="https://fr.fiverr.com/s/99W6WYa" target="_blank" rel="noopener noreferrer"
+        <a href="https://fr.fiverr.com/s/99W6WYa" target="_blank" aria-current="page" rel="noopener noreferrer"
             class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
             <svg width="89" height="27" viewBox="0 0 89 27" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                 class="w-auto h-8 sm:h-10 mb-1 sm:mb-2" role="img" aria-label="Logo de Fiverr">
@@ -399,7 +399,7 @@ image_share: /assets/logo/PeakCL.svg
             </svg>
             Fiverr
         </a>
-        <a href="https://comeup.com/fr/@PeakCL" target="_blank" rel="noopener noreferrer"
+        <a href="https://comeup.com/fr/@PeakCL" target="_blank" aria-current="page" rel="noopener noreferrer"
             class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
             <svg fill="currentColor" viewBox="0 0 98 27" width="98" height="27" aria-hidden="true" focusable="false"
                 class="w-auto h-8 sm:h-10 mb-1 sm:mb-2" role="img" aria-label="Logo de ComeUp">
@@ -412,7 +412,7 @@ image_share: /assets/logo/PeakCL.svg
             </svg>
             ComeUp
         </a>
-        <a href="https://www.linkedin.com/company/PeakCL/" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.linkedin.com/company/PeakCL/" target="_blank" aria-current="page" rel="noopener noreferrer"
             class="flex flex-col items-center text-peak-gray hover:text-peak-blue-light transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor"
                 class="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2" role="img" aria-label="Logo de LinkedIn">
