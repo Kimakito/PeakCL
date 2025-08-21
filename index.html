@@ -56,14 +56,16 @@ image_share: /assets/logo/PeakCL.svg
         <section class="h-28 peak-section bg-gradient-to-b from-white via-green-400 to-peak-blue-dark"></section>
     </div>
 </section>
-<section id="presentation" class="py-16 px-6 md:px-12 bg-peak-blue-dark lg:px-24" role="region"
-    aria-label="Présentation de l'entreprise et de ses services">
-    <div class="max-w-6xl mx-auto space-y-12">
+<section id="presentation"
+    class="py-16 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-peak-blue-dark/95 via-peak-blue-dark to-peak-blue-dark/95 relative overflow-hidden"
+    role="region" aria-label="Présentation de l'entreprise et de ses services">
+
+    <div class="max-w-6xl mx-auto space-y-12 relative z-10">
         <!-- Titre -->
-        <h2 class="text-3xl md:text-4xl font-bold text-peak-blue-light text-center p-3">
+        <h2 class="text-3xl md:text-4xl font-bold text-peak-blue-light text-center p-3 drop-shadow-lg">
             Qui suis-je ?
         </h2>
-        <h3 class="text-xl md:text-2xl font-bold italic text-peak-blue-light text-center">
+        <h3 class="text-xl md:text-2xl font-bold italic text-peak-blue-light text-center drop-shadow">
             De la biologie à la création de sites web
         </h3>
 
@@ -76,7 +78,8 @@ image_share: /assets/logo/PeakCL.svg
         <!-- Cartes -->
         <div class="grid gap-8 md:grid-cols-2 pt-8">
             <!-- Parcours académique -->
-            <div class="bg-yellow-50 p-6 rounded-xl shadow-md space-y-4">
+            <div
+                class="bg-yellow-50 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-500 transform hover:-translate-y-2 space-y-4">
                 <h3 class="text-2xl font-semibold text-gray-900">Mes débuts</h3>
                 <p class="text-peak-blue-dark">
                     Mon aventure a commencé avec un <strong>master en biologie</strong>. J'étudiais les espèces
@@ -90,7 +93,8 @@ image_share: /assets/logo/PeakCL.svg
             </div>
 
             <!-- Formation & freelance -->
-            <div class="bg-yellow-50 p-6 rounded-xl shadow-md space-y-4">
+            <div
+                class="bg-yellow-50 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-500 transform hover:-translate-y-2 space-y-4">
                 <h3 class="text-2xl font-semibold text-gray-900">Formation et premiers projets</h3>
                 <p class="text-peak-blue-dark">
                     J'ai suivi des formations en ligne pour maîtriser les langages de développement et j'ai découvert un
@@ -107,7 +111,8 @@ image_share: /assets/logo/PeakCL.svg
             </div>
 
             <!-- Expériences pro -->
-            <div class="bg-yellow-50 p-6 rounded-xl shadow-md space-y-4">
+            <div
+                class="bg-yellow-50 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-500 transform hover:-translate-y-2 space-y-4">
                 <h3 class="text-2xl font-semibold text-gray-900">Expériences professionnelles</h3>
                 <p class="text-peak-blue-dark">
                     En décembre 2021, j'ai rejoint <strong>I&T Automotive</strong> comme développeuse front-end. Ma
@@ -125,7 +130,8 @@ image_share: /assets/logo/PeakCL.svg
             </div>
 
             <!-- Conclusion / Call to action -->
-            <div class="bg-yellow-50 p-6 rounded-xl space-y-4">
+            <div
+                class="bg-yellow-50 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-500 transform hover:-translate-y-2 space-y-4">
                 <h3 class="text-xl font-semibold text-gray-900">Pourquoi me contacter ?</h3>
                 <p class="text-gray-800">
                     Qu'il s'agisse d'étudier la nature ou de construire un site web, la logique reste la même :
@@ -133,34 +139,45 @@ image_share: /assets/logo/PeakCL.svg
                 </p>
                 <p class="text-gray-800">
                     Si vous avez un projet, une idée, ou simplement envie d'échanger sur le métier et les mises en
-                    applications potentiellesn n'hésitez pas à me contacter !
+                    applications potentielles, n'hésitez pas à me contacter !
                 </p>
             </div>
         </div>
     </div>
-    <div class="flex justify-center mt-8">
-        <img src="/assets/images/dauphins.jpg" alt="un rêve devient réalité"
-            class="w-3/4 md:w-1/2 lg:w-1/3 h-auto rounded-lg shadow-lg" loading="lazy">
-    </div>
-    <div class="mt-12 sm:mt-16 animate-fade-in delay-500 text-center">
-        <a href="#contact" aria-current="page"
-            class="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-peak-blue-light text-peak-blue-dark font-bold text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
-            Mon parcours vous intrigue? On peut en parler ! </a>
-    </div>
-</section>
 
+    <!-- Image centrale -->
+    <div class="flex justify-center mt-12">
+        <img src="/assets/images/dauphins.jpg" alt="un rêve devient réalité"
+            class="w-3/4 md:w-1/2 lg:w-1/3 h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+            loading="lazy">
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 sm:mt-16 text-center relative z-10">
+        <a href="#contact" aria-current="page"
+            class="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-peak-blue-light text-peak-blue-dark font-bold text-base sm:text-lg rounded-full shadow-xl transform hover:scale-105 hover:shadow-2xl transition-all duration-300">
+            Mon parcours vous intrigue ? On peut en parler !
+        </a>
+    </div>
+
+    <!-- Décor subtil (optionnel) -->
+    <div class="absolute top-0 left-0 w-full h-full bg-peak-blue-light/5 pointer-events-none"></div>
+</section>
 
 
 <section id="services" class="relative py-12 md:py-24 px-4 sm:px-6 text-peak-gray overflow-hidden bg-peak-blue-dark"
     role="region" aria-label="services de développement et de création web"
     style="background-image: url(/assets/images/oronaye.jpg); background-size: contain; background-position: center; background-repeat: no-repeat;">
+    
     <div class="absolute inset-0 bg-black/30 z-0" aria-hidden="true"></div>
     <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-peak-blue-light to-transparent z-0"
         aria-hidden="true"></div>
+
     <div class="max-w-7xl mx-auto text-center relative z-10">
         <h2
             class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold mb-4 sm:mb-6 text-peak-blue-dark drop-shadow-md animate-fade-in">
-            Mon travail</h2>
+            Mon travail
+        </h2>
         <p
             class="text-base sm:text-lg md:text-xl text-peak-gray mb-10 sm:mb-16 max-w-3xl mx-auto animate-fade-in delay-100">
             De la création de sites vitrine à la conception d'applications web sur-mesure, en passant par votre
@@ -200,6 +217,36 @@ image_share: /assets/logo/PeakCL.svg
             </div>
         </div>
 
+        <!-- Bloc Technologies -->
+        <div class="mt-12 sm:mt-16 animate-fade-in delay-400 text-center">
+            <h3 class="text-xl sm:text-2xl font-semibold text-peak-yellow mb-4">Technologies maîtrisées & utilisées</h3>
+            <div class="mt-8 grid sm:grid-cols-2 gap-8">
+                <!-- Compétences maîtrisées -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Utilisées</h4>
+                    <div class="flex flex-wrap gap-4 justify-center items-center">
+                    <img src="/assets/logo/html5.svg" alt="HTML" class="w-10 h-10">
+                    <img src="/assets/logo/css.svg" alt="CSS" class="w-10 h-10">
+                    <img src="/assets/logo/tailwindcss.svg" alt="Tailwind" class="w-10 h-10">
+                    <img src="/assets/logo/javascript.svg" alt="JavaScript" class="w-10 h-10">
+                    <img src="/assets/logo/wordpress.svg" alt="WordPress" class="w-10 h-10">
+                    <img src="/assets/logo/git.svg" alt="Git" class="w-10 h-10">
+                    </div>
+                </div>
+
+                <!-- Compétences connues / en pratique -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Connues / en pratique</h4>
+                    <div class="flex flex-wrap gap-4 justify-center items-center">
+                    <img src="/assets/logo/react.svg" alt="React" class="w-10 h-10">
+                    <img src="/assets/logo/php.svg" alt="PHP" class="w-10 h-10">
+                    <img src="/assets/logo/jekyll.svg" alt="Jekyll" class="w-10 h-10">
+                    <img src="/assets/logo/docker.svg" alt="Docker" class="w-10 h-10">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="mt-12 sm:mt-16 animate-fade-in delay-500 text-center">
             <a href="#contact" aria-current="page"
                 class="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-peak-yellow text-peak-blue-dark font-bold text-base sm:text-lg rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
@@ -207,8 +254,10 @@ image_share: /assets/logo/PeakCL.svg
             </a>
         </div>
     </div>
+
     <div class="fade-transition to-peak-blue-light"></div>
 </section>
+
 
 <section id="portfolio"
     class="relative py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-blue-light to-peak-blue-dark text-peak-gray overflow-hidden"
