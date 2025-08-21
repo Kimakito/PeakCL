@@ -29,9 +29,9 @@ Concrètement, l'hébergement web consiste à fournir :
 - **Des services de sécurité et de sauvegarde** : protection contre les attaques et possibilité de restaurer vos données en cas de problème.  
 - **Une maintenance technique continue** : mises à jour régulières, surveillance du serveur et optimisation des performances.  
 
-## Notre accompagnement personnalisé
+## L'accompagnement personnalisé
 
-Chez PeakCL, nous savons qu’un hébergement adapté à vos besoins fait toute la différence. C’est pourquoi nous vous proposons un accompagnement complet :  
+Chez PeakCL, je sais qu’un hébergement adapté à vos besoins fait toute la différence. C’est pourquoi je propose un accompagnement complet :  
 - Analyse de vos besoins spécifiques et de votre trafic attendu  
 - Conseil sur la solution d’hébergement la plus adaptée (mutualisé, VPS, dédié, cloud…)  
 - Gestion complète de l’installation technique et de la configuration  
@@ -39,11 +39,11 @@ Chez PeakCL, nous savons qu’un hébergement adapté à vos besoins fait toute 
 
 ## Votre rôle simplifié
 
-Grâce à notre accompagnement, vous n’avez à vous soucier que de l’essentiel :  
+Grâce à mon accompagnement, vous n’avez à vous soucier que de l’essentiel :  
 1. Valider l’option d’hébergement recommandée  
 2. Renouveler votre abonnement selon vos besoins annuels  
 
-Nous nous occupons du reste pour que vous puissiez vous concentrer sur votre contenu et votre stratégie digitale.  
+Je m'occupe du reste pour que vous puissiez vous concentrer sur votre contenu et votre stratégie digitale.  
 
 ## Pourquoi un hébergement professionnel est crucial ?
 
@@ -57,6 +57,6 @@ Investir dans un hébergement professionnel, c’est garantir la pérennité et 
 
 ## Besoin de conseils ?
 
-Chaque projet est unique. Contactez-nous dès maintenant pour discuter de la solution d’hébergement la plus adaptée à vos besoins et assurer la réussite de votre site web.  
+Chaque projet est unique. Contactez-moi dès maintenant pour discuter de la solution d’hébergement la plus adaptée à vos besoins et assurer la réussite de votre site web.  
 
 
