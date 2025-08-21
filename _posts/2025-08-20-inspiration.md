@@ -17,8 +17,6 @@ keywords:
   - conseils site web
 ---
 
-# Exemples de sites : inspiration et attentes
-
 Analyser des sites dans le même domaine d’activité est une **excellente manière de comprendre ce qui fonctionne** et de clarifier vos attentes pour votre propre projet. Cette démarche vous aide à définir le style, la structure et les fonctionnalités que vous souhaitez intégrer.  
 
 ## Pourquoi regarder des exemples est utile

@@ -17,8 +17,6 @@ keywords:
   - conseils site web
 ---
 
-# Comment choisir le nom de domaine parfait pour votre site web ?
-
 Le choix d'un nom de domaine est une étape cruciale dans la création de votre présence en ligne. C'est votre identité numérique, votre adresse sur le web, et souvent la première impression que les visiteurs auront de votre entreprise. Voici un guide complet pour vous aider à faire le bon choix.
 
 ## 1. Les fondamentaux d'un bon nom de domaine
