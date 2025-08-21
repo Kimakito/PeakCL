@@ -31,7 +31,7 @@
 </script>
 {% include header.html %}
 
-<body class="bg-peak-blue-dark text-peak-gray antialiased">
+<body class="bg-peak-blue-dark font-k2d bg-primary-medium text-text-dark min-h-screen flex flex-col pt-28">
     {% include navbar.html %}
 
     <main class="max-w-4xl mx-auto px-4 py-12">
@@ -43,7 +43,7 @@
                 {% endif %}
 
                 <h1 class="text-4xl sm:text-5xl font-title font-extrabold text-peak-yellow mb-2">{{ page.title }}</h1>
-                <p class="text-sm text-peak-gray/80 mb-4">
+                <p class="text-sm text-white mb-4">
                     {{ page.date | date: "%-d %B %Y" }}{% if page.author %} — {{ page.author }}{% endif %}
                 </p>
 
@@ -52,7 +52,7 @@
                 {% endif %}
             </header>
 
-            <div class="prose-lg prose-invert">
+            <div class="prose-lg prose-invert flex flex-col gap-6">
                 {{ content }}
             </div>
 
@@ -86,7 +86,7 @@
                 <a href="{{ post.url | relative_url }}"
                     class="block p-4 bg-peak-blue-dark/50 rounded-lg hover:scale-105 transition-transform">
                     <h4 class="text-sm font-bold text-peak-yellow">{{ post.title }}</h4>
-                    <p class="text-xs text-peak-gray/80">{{ post.date | date: "%-d %b %Y" }}</p>
+                    <p class="text-xs text-white">{{ post.date | date: "%-d %b %Y" }}</p>
                 </a>
                 {% endif %}
                 {% endfor %}

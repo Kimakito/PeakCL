@@ -55,13 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Parallax effect plus performant sur la section hero ---
-    const parallaxHero = document.getElementById('hero');
-    if (parallaxHero) {
-        window.addEventListener('scroll', () => {
-            const offset = window.scrollY;
-            parallaxHero.style.transform = `translateY(${offset * 0.5}px)`;
-        });
-    }
+    // const parallaxHero = document.getElementById('hero');
+    // if (parallaxHero) {
+    //     window.addEventListener('scroll', () => {
+    //         const offset = window.scrollY;
+    //         parallaxHero.style.transform = `translateY(${offset * 0.5}px)`;
+    //     });
+    // }
 
     // --- Gestion du menu hamburger ---
     const hamburgerButton = document.getElementById('hamburger-button');

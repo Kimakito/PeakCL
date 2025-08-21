@@ -51,6 +51,26 @@ module.exports = {
         },
       },
     },
+    typography: (theme) => ({
+      DEFAULT: {
+        css: {
+          color: theme('colors.peak-gray'),
+          a: { color: theme('colors.peak-yellow') },
+          h1: { color: theme('colors.peak-yellow') },
+          h2: { color: theme('colors.peak-yellow') },
+          h3: { color: theme('colors.peak-yellow') },
+          strong: { color: theme('colors.peak-gray') },
+        },
+      },
+      invert: {
+        css: {
+          color: theme('colors.peak-gray'),
+          a: { color: theme('colors.peak-yellow') },
+          h1: { color: theme('colors.peak-yellow') },
+          h2: { color: theme('colors.peak-yellow') },
+        },
+      },
+    }),
   },
     plugins: [
     require('@tailwindcss/typography'),

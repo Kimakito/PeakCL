@@ -32,8 +32,16 @@ html {
     clip-path: polygon(0 40%, 3% 15%, 7% 45%, 12% 10%, 18% 50%, 23% 20%, 28% 55%, 33% 12%, 38% 48%,
             43% 18%, 48% 52%, 53% 25%, 58% 50%, 63% 15%, 68% 45%, 73% 20%, 78% 55%, 83% 10%,
             88% 48%, 93% 22%, 97% 50%, 100% 30%, 100% 100%, 0 100%);
-    background: linear-gradient(to bottom, #ffffff 0%, #527048 60%, #011526 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #74c476 50%, #0a1f3d 100%);
 }
+.peak-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(0,0,0,0));
+    z-index: -1;
+}
+
 
 .bg-gradient-peak {
     background-image: linear-gradient(to bottom right, var(--color-peak-blue-dark), var(--color-peak-violet));
