@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Point to your sitemap
-Sitemap: https://peakcl.com//sitemap.xml
+Sitemap: https://peakcl.com/sitemap.xml
