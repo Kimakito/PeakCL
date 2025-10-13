@@ -287,7 +287,7 @@ image_share: /assets/logo/PeakCL.svg
 
 
 <section id="portfolio"
-    class="relative py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-blue-light to-peak-blue-dark text-peak-gray overflow-hidden"
+    class="relative py-16 md:py-28 px-4 sm:px-6 bg-gradient-to-b from-peak-blue-light to-peak-blue-dark text-peak-gray overflow-hidden"
     role="region" aria-label="Portfolio des réalisations">
     <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-peak-violet to-transparent z-0"
         aria-hidden="true"></div>
@@ -300,113 +300,193 @@ image_share: /assets/logo/PeakCL.svg
 
     <div class="max-w-7xl mx-auto text-center relative z-10">
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-peak-yellow mb-4 animate-fade-in">
-            ✨ Portfolio : Découvrez les créations de sites web ✨</h2>
-        <p class="text-base sm:text-lg text-peak-gray mb-8 sm:mb-12 animate-fade-in delay-200">
-            Découvrez quelques-unes de mes réalisations de sites web sur-mesure et de projets réalisés pour des
-            clients en Savoie et ailleurs.
+            ✨ Portfolio : Découvrez mes créations web ✨
+        </h2>
+        <p class="text-base sm:text-lg text-peak-gray mb-12 animate-fade-in delay-200">
+            Un aperçu de sites web et projets réalisés pour des clients passionnés, en Savoie et ailleurs.<br>
+            <span class="text-peak-yellow font-semibold">Cliquez sur une carte pour en savoir plus !</span>
         </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 animate-fade-in delay-300">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 animate-fade-in delay-300">
+            <!-- Projet 1 -->
             <article
-                class="portfolio-card group relative overflow-hidden transition-all duration-500 flex flex-col items-center justify-center p-4 cursor-pointer"
-                aria-label="Projet jb-lacroix.fr">
-                <a href="https://jb-lacroix.fr/" target="_blank" aria-current="page" rel="noopener noreferrer"
-                    class="w-full flex items-center justify-center h-40 sm:h-52">
-                    <figure class="w-full h-full flex items-center justify-center">
+                class="group relative bg-white/5 rounded-2xl shadow-2xl border border-peak-violet/30 overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-peak-yellow/30 focus-within:ring-4 focus-within:ring-peak-yellow/40"
+                tabindex="0" aria-label="Projet jb-lacroix.fr">
+                <a href="https://jb-lacroix.fr/" target="_blank" rel="noopener noreferrer"
+                    class="block w-full h-full outline-none">
+                    <figure class="relative w-full h-48 flex items-center justify-center">
                         <img src="assets/logo/Logo.jbl.png"
                             alt="Logo du site jb-lacroix.fr, un site d'écrivain de romans fantasy"
-                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105 shadow-xl rounded-xl">
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-110 group-focus:scale-110 shadow-xl rounded-xl" />
+                        <!-- Overlay -->
                         <figcaption
-                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                            <p>Site vitrine sur mesure pour l'écrivain de romans fantasy Jean-Baptiste Lacroix.
-                            </p>
+                            class="absolute inset-0 flex flex-col items-center justify-center bg-peak-violet/90 bg-opacity-90 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 p-6 text-peak-yellow text-center">
+                            <h4 class="text-lg font-bold mb-2">jb-lacroix.fr</h4>
+                            <p class="text-sm mb-3">Site vitrine sur mesure pour l'écrivain de romans fantasy Jean-Baptiste Lacroix.</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-2">
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">HTML</span>
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">CSS</span>
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">Jekyll</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1 text-peak-yellow font-bold text-sm mt-2">
+                                Voir le site
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M14 3h7v7" />
+                                    <path d="M5 19l16-16" />
+                                </svg>
+                            </span>
                         </figcaption>
                     </figure>
                 </a>
             </article>
+            <!-- Projet 2 -->
             <article
-                class="portfolio-card group relative overflow-hidden transition-all duration-500 flex flex-col items-center justify-center p-4 cursor-pointer"
-                aria-label="Projet lavieilleroue.fr">
-                <a href="https://lavieilleroue.fr/" target="_blank" aria-current="page" rel="noopener noreferrer"
-                    class="w-full flex items-center justify-center h-40 sm:h-52">
-                    <figure class="w-full h-full flex items-center justify-center">
+                class="group relative bg-white/5 rounded-2xl shadow-2xl border border-peak-violet/30 overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-peak-yellow/30 focus-within:ring-4 focus-within:ring-peak-yellow/40"
+                tabindex="0" aria-label="Projet lavieilleroue.fr">
+                <a href="https://lavieilleroue.fr/" target="_blank" rel="noopener noreferrer"
+                    class="block w-full h-full outline-none">
+                    <figure class="relative w-full h-48 flex items-center justify-center">
                         <img src="assets/logo/lavieilleroue.png"
                             alt="Logo du site lavieilleroue.fr, entreprise de réparation et remplacement de jantes"
-                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105 shadow-xl rounded-xl">
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-110 group-focus:scale-110 shadow-xl rounded-xl" />
                         <figcaption
-                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                            <p>Site vitrine pour l'entreprise la Vieille Roue, spécialisée en réparation et
-                                remplacement de jantes
-                                et de voitures de collection.</p>
+                            class="absolute inset-0 flex flex-col items-center justify-center bg-peak-violet/90 bg-opacity-90 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 p-6 text-peak-yellow text-center">
+                            <h4 class="text-lg font-bold mb-2">lavieilleroue.fr</h4>
+                            <p class="text-sm mb-3">Site vitrine pour l'entreprise la Vieille Roue, spécialisée en réparation et remplacement de jantes et de voitures de collection.</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-2">
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">WordPress</span>
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">SEO</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1 text-peak-yellow font-bold text-sm mt-2">
+                                Voir le site
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M14 3h7v7" />
+                                    <path d="M5 19l16-16" />
+                                </svg>
+                            </span>
                         </figcaption>
                     </figure>
                 </a>
             </article>
+            <!-- Projet 3 -->
             <article
-                class="portfolio-card group relative overflow-hidden transition-all duration-500 flex flex-col items-center justify-center p-4 cursor-pointer"
-                aria-label="Projet doodleidoo.com">
-                <a href="https://doodleidoo.com/" target="_blank" aria-current="page" rel="noopener noreferrer"
-                    class="w-full flex items-center justify-center h-40 sm:h-52">
-                    <figure class="w-full h-full flex items-center justify-center">
-                        <img src="assets/logo/logo_doodleIdoo.png" alt="Logo du site doodleidoo.com, un site d'artiste"
-                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105 shadow-xl rounded-xl">
+                class="group relative bg-white/5 rounded-2xl shadow-2xl border border-peak-violet/30 overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-peak-yellow/30 focus-within:ring-4 focus-within:ring-peak-yellow/40"
+                tabindex="0" aria-label="Projet doodleidoo.com">
+                <a href="https://doodleidoo.com/" target="_blank" rel="noopener noreferrer"
+                    class="block w-full h-full outline-none">
+                    <figure class="relative w-full h-48 flex items-center justify-center">
+                        <img src="assets/logo/logo_doodleIdoo.png"
+                            alt="Logo du site doodleidoo.com, un site d'artiste"
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-110 group-focus:scale-110 shadow-xl rounded-xl" />
                         <figcaption
-                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                            <p>Site vitrine sur mesure pour une artiste, portfolio en ligne.</p>
+                            class="absolute inset-0 flex flex-col items-center justify-center bg-peak-violet/90 bg-opacity-90 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 p-6 text-peak-yellow text-center">
+                            <h4 class="text-lg font-bold mb-2">doodleidoo.com</h4>
+                            <p class="text-sm mb-3">Site vitrine sur mesure pour une artiste, portfolio en ligne.</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-2">
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">HTML</span>
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">CSS</span>
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">WordPress</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1 text-peak-yellow font-bold text-sm mt-2">
+                                Voir le site
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M14 3h7v7" />
+                                    <path d="M5 19l16-16" />
+                                </svg>
+                            </span>
                         </figcaption>
                     </figure>
                 </a>
             </article>
 
-            <div class="col-span-full text-peak-gray text-center text-sm sm:text-md italic mt-4 sm:mt-8">Mais
-                aussi des sites web
-                et boutiques en ligne réalisés avec Wordpress :</div>
+            <!-- Légende WordPress -->
+            <div class="col-span-full text-peak-gray text-center text-sm sm:text-md italic mt-4 sm:mt-8">
+                Mais aussi des sites web et boutiques en ligne réalisés avec WordPress :
+            </div>
 
+            <!-- Projet 4 -->
             <article
-                class="portfolio-card group relative overflow-hidden transition-all duration-500 flex flex-col items-center justify-center p-4 cursor-pointer"
-                aria-label="Projet osteo-animalcare.com">
-                <a href="https://osteo-animalcare.com/" target="_blank" aria-current="page" rel="noopener noreferrer"
-                    class="w-full flex items-center justify-center h-40 sm:h-52">
-                    <figure class="w-full h-full flex items-center justify-center">
+                class="group relative bg-white/5 rounded-2xl shadow-2xl border border-peak-violet/30 overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-peak-yellow/30 focus-within:ring-4 focus-within:ring-peak-yellow/40"
+                tabindex="0" aria-label="Projet osteo-animalcare.com">
+                <a href="https://osteo-animalcare.com/" target="_blank" rel="noopener noreferrer"
+                    class="block w-full h-full outline-none">
+                    <figure class="relative w-full h-48 flex items-center justify-center">
                         <img src="assets/logo/osteoanimalcare.webp"
                             alt="Logo du site osteo-animalcare.com, ostéopathie animale"
-                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105 shadow-xl rounded-xl">
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-110 group-focus:scale-110 shadow-xl rounded-xl" />
                         <figcaption
-                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                            <p>Site vitrine pour les ostéopathes animalières Ostéo'Animal Care.</p>
+                            class="absolute inset-0 flex flex-col items-center justify-center bg-peak-violet/90 bg-opacity-90 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 p-6 text-peak-yellow text-center">
+                            <h4 class="text-lg font-bold mb-2">osteo-animalcare.com</h4>
+                            <p class="text-sm mb-3">Site vitrine pour les ostéopathes animalières Ostéo'Animal Care.</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-2">
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">WordPress</span>
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">SEO</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1 text-peak-yellow font-bold text-sm mt-2">
+                                Voir le site
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M14 3h7v7" />
+                                    <path d="M5 19l16-16" />
+                                </svg>
+                            </span>
                         </figcaption>
                     </figure>
                 </a>
             </article>
+            <!-- Projet 5 -->
             <article
-                class="portfolio-card group relative overflow-hidden transition-all duration-500 flex flex-col items-center justify-center p-4 cursor-pointer"
-                aria-label="Projet naturalriders.fr">
-                <a href="https://www.naturalriders.fr/" target="_blank" aria-current="page" rel="noopener noreferrer"
-                    class="w-full flex items-center justify-center h-40 sm:h-52">
-                    <figure class="w-full h-full flex items-center justify-center">
+                class="group relative bg-white/5 rounded-2xl shadow-2xl border border-peak-violet/30 overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-peak-yellow/30 focus-within:ring-4 focus-within:ring-peak-yellow/40"
+                tabindex="0" aria-label="Projet naturalriders.fr">
+                <a href="https://www.naturalriders.fr/" target="_blank" rel="noopener noreferrer"
+                    class="block w-full h-full outline-none">
+                    <figure class="relative w-full h-48 flex items-center justify-center">
                         <img src="assets/logo/natural_riders.avif"
                             alt="Logo du site naturalriders.fr, boutique en ligne de matériel pour chevaux et chiens"
-                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105 shadow-xl rounded-xl">
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-110 group-focus:scale-110 shadow-xl rounded-xl" />
                         <figcaption
-                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                            <p>Boutique e-commerce pour
-                                la création de matériel en corde et biothane pour chevaux et chiens.</p>
+                            class="absolute inset-0 flex flex-col items-center justify-center bg-peak-violet/90 bg-opacity-90 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 p-6 text-peak-yellow text-center">
+                            <h4 class="text-lg font-bold mb-2">naturalriders.fr</h4>
+                            <p class="text-sm mb-3">Boutique e-commerce pour la création de matériel en corde et biothane pour chevaux et chiens.</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-2">
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">WordPress</span>
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">WooCommerce</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1 text-peak-yellow font-bold text-sm mt-2">
+                                Voir le site
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M14 3h7v7" />
+                                    <path d="M5 19l16-16" />
+                                </svg>
+                            </span>
                         </figcaption>
                     </figure>
                 </a>
             </article>
+            <!-- Projet 6 -->
             <article
-                class="portfolio-card group relative overflow-hidden transition-all duration-500 flex flex-col items-center justify-center p-4 cursor-pointer"
-                aria-label="Projet lejusteplan.fr">
-                <a href="https://lejusteplan.fr/" target="_blank" aria-current="page" rel="noopener noreferrer"
-                    class="w-full flex items-center justify-center h-40 sm:h-52">
-                    <figure class="w-full h-full flex items-center justify-center">
-                        <img src="assets/logo/le_juste_plan.png" alt="Logo du site lejusteplan.fr, un site d'architecte"
-                            class="h-full object-contain transition-transform duration-300 group-hover:scale-105 shadow-xl rounded-xl">
+                class="group relative bg-white/5 rounded-2xl shadow-2xl border border-peak-violet/30 overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-peak-yellow/30 focus-within:ring-4 focus-within:ring-peak-yellow/40"
+                tabindex="0" aria-label="Projet lejusteplan.fr">
+                <a href="https://lejusteplan.fr/" target="_blank" rel="noopener noreferrer"
+                    class="block w-full h-full outline-none">
+                    <figure class="relative w-full h-48 flex items-center justify-center">
+                        <img src="assets/logo/le_juste_plan.png"
+                            alt="Logo du site lejusteplan.fr, un site d'architecte"
+                            class="h-full object-contain transition-transform duration-300 group-hover:scale-110 group-focus:scale-110 shadow-xl rounded-xl" />
                         <figcaption
-                            class="absolute inset-0 bg-peak-violet/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-peak-yellow text-sm sm:text-lg font-semibold text-center">
-                            <p>Site vitrine pour un
-                                architecte du cabinet Le Juste Plan.</p>
+                            class="absolute inset-0 flex flex-col items-center justify-center bg-peak-violet/90 bg-opacity-90 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 p-6 text-peak-yellow text-center">
+                            <h4 class="text-lg font-bold mb-2">lejusteplan.fr</h4>
+                            <p class="text-sm mb-3">Site vitrine pour un architecte du cabinet Le Juste Plan.</p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-2">
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">WordPress</span>
+                                <span class="bg-peak-yellow/80 text-peak-blue-dark text-xs px-2 py-1 rounded-full font-semibold">SEO</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1 text-peak-yellow font-bold text-sm mt-2">
+                                Voir le site
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M14 3h7v7" />
+                                    <path d="M5 19l16-16" />
+                                </svg>
+                            </span>
                         </figcaption>
                     </figure>
                 </a>
