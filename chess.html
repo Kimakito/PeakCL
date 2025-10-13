@@ -1,269 +1,530 @@
 ---
 layout: default
-title: Jeu d'échecs en ligne gratuit contre une IA | PeakCL
-description: Testez vos compétences aux échecs contre une intelligence artificielle simple. Jeu d'échecs gratuit en ligne développé par PeakCL, développeur web en Savoie.
+title: "Jeu d'Échecs en Ligne - Affrontez l'IA | PeakCL"
+description: "Jouez aux échecs contre une intelligence artificielle. Jeu d'échecs gratuit développé en JavaScript vanilla. Testez vos compétences stratégiques en ligne."
 keywords:
-- Jeu d'échecs en ligne
-- Échecs contre IA
-- Jeu d'échecs gratuit
-- Développeur web Albertville
-- Développeur web Savoie
-- Développeur web Isère
-- Développeur web Haute-Savoie
-- Développeur web Suisse
-- Création sites web
-- Applications web
-- Identité visuelle
-- Freelance
-- PeakCL
+- jeu échecs gratuit
+- échecs contre IA
+- chess game online
+- javascript chess
+- développeur web Savoie
+- PeakCL échecs
 image_share: /assets/logo/PeakCL.svg
-canonical: https://peakcl.com/chess
+canonical: https://peakcl.com/chess/
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-4 py-20 overflow-hidden"
-    role="region" aria-label="Présentation de l'entreprise et de ses services">
-    <div
-        class="absolute inset-0 bg-gradient-to-br from-peak-blue-dark via-peak-blue-light to-peak-violet bg-[length:200%_200%] animate-bg-gradient-shift z-10 opacity-70">
-    </div>
-    <div class="absolute w-60 h-60 sm:w-96 sm:h-96 bg-peak-blue-light rounded-full blur-[80px] sm:blur-[100px] opacity-20 animate-pulse top-1/4 left-1/4 z-20"
-        aria-hidden="true"></div>
-    <div class="absolute w-52 h-52 sm:w-80 sm:h-80 bg-peak-violet rounded-full blur-[100px] sm:blur-[120px] opacity-20 animate-pulse bottom-1/4 right-1/4 z-20"
-        aria-hidden="true"></div>
+<main class="chess-game">
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-peak-blue-dark via-peak-violet to-peak-blue-dark overflow-hidden">
+    <!-- Éléments décoratifs -->
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-peak-yellow/5 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/3 right-1/3 w-48 h-48 bg-peak-blue-light/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+    
+    <div class="max-w-6xl mx-auto relative z-10">
+      <!-- Header -->
+      <header class="text-center mb-12">
+        <h1 class="text-4xl md:text-6xl font-title font-bold text-peak-yellow mb-4 drop-shadow-lg">
+          ♚ Échecs vs IA ♛
+        </h1>
+        <p class="text-lg md:text-xl text-peak-gray/90 max-w-2xl mx-auto leading-relaxed">
+          Testez vos compétences stratégiques contre une intelligence artificielle. 
+          Développé en <strong>JavaScript vanilla</strong> pour une expérience fluide et rapide.
+        </p>
+      </header>
 
-    <div class="max-w-7xl relative z-30 text-peak-gray px-4 flex flex-col items-center">
-        <img src="/assets/logo/PeakCL.svg" alt="Logo de PeakCL, une entreprise de développement web"
-            class="w-32 sm:w-40 h-auto mx-auto mb-4 sm:mb-6 shadow-2xl border-2 animate-fade-in delay-100" />
-        <base href="https://chessboardjs.com/" />
-        <h2 class="board py-8 text-2xl sm:text-3xl font-bold text-peak-blue-dark animate-fade-in delay-200">
-            Testez vos compétences aux échecs contre une IA simple
-        </h3>
-        <div id="board" class="board"></div>
-        <br>
-        <div class="info">
-            <div id="move-history" class="move-history">
+      <!-- Game Container -->
+      <div class="bg-peak-blue-light/10 backdrop-blur-sm rounded-2xl border border-peak-blue-light/20 p-6 md:p-8 shadow-2xl">
+        
+        <!-- Player Setup -->
+        <div id="playerSetup" class="text-center mb-8">
+          <div class="max-w-md mx-auto">
+            <label for="playerName" class="block text-peak-gray font-semibold mb-3 text-lg">
+              🎯 Entrez votre nom de joueur
+            </label>
+            <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <input 
+                type="text" 
+                id="playerName" 
+                placeholder="Votre pseudonyme" 
+                maxlength="20"
+                class="px-4 py-3 rounded-lg border-2 border-peak-blue-light/30 bg-white/95 text-peak-blue-dark font-medium focus:outline-none focus:ring-2 focus:ring-peak-yellow focus:border-peak-yellow transition-all duration-200 flex-1 min-w-0"
+                autocomplete="nickname">
+              <button 
+                id="startBtn" 
+                class="px-8 py-3 bg-gradient-to-r from-peak-yellow to-yellow-400 text-peak-blue-dark font-bold rounded-lg hover:from-yellow-400 hover:to-peak-yellow transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap">
+                🚀 Commencer
+              </button>
             </div>
+          </div>
         </div>
-        <p class="text-sm font-bold italic text-gray-500 mt-4">Source du code : <a href="https://codepen.io/deinman/pen/OpdVaL" class="hover:text-peak-blue-dark underline">CodePen</a></p>
 
-        <a href="/"
-            class="inline-block bg-peak-yellow text-peak-blue-dark font-bold px-8 sm:px-10 py-3 sm:py-4 mt-6 rounded-full shadow-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 animate-fade-in delay-300">
-            Retour à la page d'accueil
-        </a>
+        <!-- Game Area -->
+        <div id="gameArea" class="hidden">
+          <!-- Player Info -->
+          <div class="text-center mb-6">
+            <h2 class="text-2xl md:text-3xl font-semibold text-peak-yellow mb-2">
+              Bonne chance <span id="currentPlayer" class="font-bold"></span> ! 
+            </h2>
+            <div class="flex justify-center items-center gap-6 text-peak-gray">
+              <div class="bg-peak-blue-light/20 px-4 py-2 rounded-lg">
+                <span class="text-sm font-medium">Score : </span>
+                <span id="score" class="text-peak-yellow font-bold text-lg">0</span>
+              </div>
+              <div class="bg-peak-blue-light/20 px-4 py-2 rounded-lg">
+                <span class="text-sm font-medium">Parties : </span>
+                <span id="gamesPlayed" class="text-peak-yellow font-bold text-lg">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chess Board Container -->
+          <div class="flex flex-col lg:flex-row gap-8 items-start justify-center">
+            
+            <!-- Board -->
+            <div class="flex-shrink-0">
+              <div id="boardContainer" class="bg-white/10 p-4 rounded-xl border border-peak-blue-light/30 shadow-xl">
+                <div id="board" class="mx-auto" style="width: 400px; max-width: 100%;"></div>
+              </div>
+            </div>
+
+            <!-- Game Controls & Status -->
+            <div class="flex-1 max-w-md">
+              
+              <!-- Status -->
+              <div class="bg-peak-blue-light/20 rounded-xl p-6 mb-6 border border-peak-blue-light/30">
+                <h3 class="text-lg font-semibold text-peak-yellow mb-3">📊 État de la partie</h3>
+                <div id="status" class="text-peak-gray text-center p-4 bg-peak-blue-dark/50 rounded-lg min-h-[3rem] flex items-center justify-center">
+                  Prêt à jouer
+                </div>
+              </div>
+
+              <!-- Game Controls -->
+              <div class="space-y-4">
+                <button 
+                  id="newGameBtn" 
+                  class="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                  🔄 Nouvelle partie
+                </button>
+                
+                <button 
+                  id="resignBtn" 
+                  class="w-full px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-lg hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                  🏳️ Abandonner
+                </button>
+
+                <div class="text-center pt-4 border-t border-peak-blue-light/30">
+                  <label class="flex items-center justify-center gap-2 text-peak-gray">
+                    <input type="checkbox" id="aiDifficulty" class="rounded">
+                    <span class="text-sm">IA difficile (plus de réflexion)</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Move History -->
+              <div class="mt-6 bg-peak-blue-light/20 rounded-xl p-4 border border-peak-blue-light/30">
+                <h4 class="text-md font-semibold text-peak-yellow mb-2">📋 Historique</h4>
+                <div id="moveHistory" class="text-sm text-peak-gray max-h-32 overflow-y-auto bg-peak-blue-dark/50 rounded p-2">
+                  Aucun coup joué
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="hidden text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-peak-yellow mb-4"></div>
+          <p class="text-peak-gray">Chargement des librairies d'échecs...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="hidden text-center py-12">
+          <div class="text-6xl mb-4">😞</div>
+          <h3 class="text-xl font-semibold text-red-400 mb-2">Erreur de chargement</h3>
+          <p class="text-peak-gray mb-4">Impossible de charger les librairies nécessaires au jeu d'échecs.</p>
+          <button 
+            onclick="window.location.reload()" 
+            class="px-6 py-2 bg-peak-yellow text-peak-blue-dark font-semibold rounded-lg hover:bg-yellow-400 transition">
+            🔄 Recharger la page
+          </button>
+        </div>
+      </div>
+
+      <!-- Info Section -->
+      <div class="mt-12 text-center">
+        <div class="bg-peak-blue-light/10 backdrop-blur-sm rounded-xl p-6 border border-peak-blue-light/20">
+          <h3 class="text-xl font-semibold text-peak-yellow mb-3">💡 Comment jouer</h3>
+          <div class="grid md:grid-cols-3 gap-4 text-sm text-peak-gray">
+            <div class="bg-peak-blue-dark/30 p-4 rounded-lg">
+              <strong>1. Déplacer</strong><br>
+              Cliquez et glissez vos pièces blanches
+            </div>
+            <div class="bg-peak-blue-dark/30 p-4 rounded-lg">
+              <strong>2. Stratégie</strong><br>
+              L'IA joue automatiquement après vous
+            </div>
+            <div class="bg-peak-blue-dark/30 p-4 rounded-lg">
+              <strong>3. Victoire</strong><br>
+              Faites échec et mat pour gagner
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+</main>
 
-
-<style>
-    .board {
-        width: 400px;
-        margin: auto
-    }
-
-    .info {
-        width: 400px;
-        margin: auto;
-    }
-
-    .move-history {
-        max-height: 100px;
-        overflow-y: scroll;
-    }
-
-    /*!
- * chessboard.js $version$
- *
- * Copyright 2013 Chris Oakman
- * Released under the MIT license
- * https://github.com/oakmac/chessboardjs/blob/master/LICENSE
- *
- * Date: $date$
- */
-
-    /* clearfix */
-    .clearfix-7da63 {
-        clear: both;
-    }
-
-    /* board */
-    .board-b72b1 {
-        border: 2px solid #1430A8;
-        -moz-box-sizing: content-box;
-        box-sizing: content-box;
-    }
-
-    /* square */
-    .square-55d63 {
-        float: left;
-        position: relative;
-        touch-action: manipulation; /* active le drag sur mobile */
-
-        /* disable any native browser highlighting */
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    /* white square */
-    .white-1e1d7 {
-        background-color: #E3CE05;
-        color: #731501;
-    }
-
-    /* black square */
-    .black-3c85d {
-        background-color: #731501;
-        color: #E3CE05;
-    }
-
-    /* highlighted square */
-    .highlight1-32417,
-    .highlight2-9c5d2 {
-        -webkit-box-shadow: inset 0 0 3px 3px yellow;
-        -moz-box-shadow: inset 0 0 3px 3px yellow;
-        box-shadow: inset 0 0 3px 3px yellow;
-    }
-
-    /* notation */
-    .notation-322f9 {
-        cursor: default;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        position: absolute;
-    }
-
-    .alpha-d2270 {
-        bottom: 1px;
-        right: 3px;
-    }
-
-    .numeric-fc462 {
-        top: 2px;
-        left: 2px;
-    }
-</style>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-<script src="https://cdn.rawgit.com/lhartikk/simple-chess-ai/master/lib/js/chess.js"></script>
-<script src="https://chessboardjs.com/js/chessboard.js"></script>
 <script>
-var board,
-    game = new Chess(),
-    selectedSquare = null;
+document.addEventListener('DOMContentLoaded', () => {
+  // État du jeu
+  const gameState = {
+    player: "",
+    score: 0,
+    gamesPlayed: 0,
+    board: null,
+    game: null,
+    moveHistory: [],
+    isGameActive: false
+  };
 
-// Détecte si c'est un appareil tactile
-var isTouchDevice = 'ontouchstart' in document.documentElement;
+  // Éléments DOM
+  const elements = {
+    playerSetup: document.getElementById('playerSetup'),
+    gameArea: document.getElementById('gameArea'),
+    loadingState: document.getElementById('loadingState'),
+    errorState: document.getElementById('errorState'),
+    playerNameInput: document.getElementById('playerName'),
+    startBtn: document.getElementById('startBtn'),
+    currentPlayer: document.getElementById('currentPlayer'),
+    status: document.getElementById('status'),
+    score: document.getElementById('score'),
+    gamesPlayed: document.getElementById('gamesPlayed'),
+    newGameBtn: document.getElementById('newGameBtn'),
+    resignBtn: document.getElementById('resignBtn'),
+    aiDifficulty: document.getElementById('aiDifficulty'),
+    moveHistory: document.getElementById('moveHistory')
+  };
 
-// AI simple
-function calculateBestMove(game) {
-    var newGameMoves = game.ugly_moves();
-    return newGameMoves[Math.floor(Math.random() * newGameMoves.length)];
-}
+  // Vérification des librairies
+  const checkLibraries = () => {
+    return typeof window.jQuery !== 'undefined' && 
+           typeof window.Chess !== 'undefined' && 
+           typeof window.Chessboard !== 'undefined';
+  };
 
-function makeBestMove() {
-    var bestMove = getBestMove(game);
-    game.ugly_move(bestMove);
-    board.position(game.fen());
-    renderMoveHistory(game.history());
-    if (game.game_over()) alert('Game over');
-}
+  // Initialisation du jeu
+  const initializeGame = () => {
+    try {
+      if (!checkLibraries()) {
+        throw new Error('Librairies manquantes');
+      }
 
-function getBestMove(game) {
-    if (game.game_over()) alert('Game over');
-    return calculateBestMove(game);
-}
+      // Événements
+      elements.startBtn.addEventListener('click', startNewGame);
+      elements.newGameBtn.addEventListener('click', startNewGame);
+      elements.resignBtn.addEventListener('click', resignGame);
+      elements.playerNameInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') startNewGame();
+      });
 
-function renderMoveHistory(moves) {
-    var historyElement = $('#move-history').empty();
-    for (var i = 0; i < moves.length; i += 2) {
-        historyElement.append('<span>' + moves[i] + ' ' + (moves[i+1]?moves[i+1]:'') + '</span><br>');
+      // Focus sur le champ nom
+      elements.playerNameInput.focus();
+      
+      console.log('✅ Jeu d\'échecs initialisé avec succès');
+    } catch (error) {
+      console.error('❌ Erreur d\'initialisation:', error);
+      showErrorState();
     }
-    historyElement.scrollTop(historyElement[0].scrollHeight);
-}
+  };
 
-// Drag & drop callbacks
-function onDragStart(source, piece, position, orientation) {
-    if (game.in_checkmate() || game.in_draw() || piece.search(/^b/) !== -1) return false;
-}
+  // Démarrer une nouvelle partie
+  const startNewGame = () => {
+    const playerName = elements.playerNameInput.value.trim();
+    
+    if (!playerName) {
+      elements.playerNameInput.focus();
+      elements.playerNameInput.classList.add('ring-2', 'ring-red-400');
+      setTimeout(() => {
+        elements.playerNameInput.classList.remove('ring-2', 'ring-red-400');
+      }, 2000);
+      return;
+    }
 
-function onDrop(source, target) {
-    var move = game.move({ from: source, to: target, promotion: 'q' });
-    removeGreySquares();
-    if (move === null) return 'snapback';
-    renderMoveHistory(game.history());
-    window.setTimeout(makeBestMove, 250);
-}
+    if (playerName.length > 20) {
+      alert('Le nom ne peut pas dépasser 20 caractères');
+      return;
+    }
 
-function onSnapEnd() { board.position(game.fen()); }
-function onMouseoverSquare(square, piece) {
-    var moves = game.moves({ square: square, verbose: true });
-    if (moves.length === 0) return;
-    greySquare(square);
-    for (var i = 0; i < moves.length; i++) greySquare(moves[i].to);
-}
-function onMouseoutSquare(square, piece) { removeGreySquares(); }
-function removeGreySquares() { $('#board .square-55d63').css('background', ''); }
-function greySquare(square) {
-    var squareEl = $('#board .square-' + square);
-    var background = squareEl.hasClass('black-3c85d') ? '#696969' : '#a9a9a9';
-    squareEl.css('background', background);
-}
+    gameState.player = playerName;
+    gameState.isGameActive = true;
+    gameState.moveHistory = [];
 
-// Configuration ChessBoard.js
-var cfg = {
-    draggable: !isTouchDevice, // draggable sur desktop uniquement
-    position: 'start',
-    onDragStart: onDragStart,
-    onDrop: onDrop,
-    onMouseoutSquare: onMouseoutSquare,
-    onMouseoverSquare: onMouseoverSquare,
-    onSnapEnd: onSnapEnd
-};
-board = ChessBoard('board', cfg);
+    // Interface
+    elements.playerSetup.classList.add('hidden');
+    elements.gameArea.classList.remove('hidden');
+    elements.currentPlayer.textContent = gameState.player;
+    elements.score.textContent = gameState.score;
+    elements.gamesPlayed.textContent = gameState.gamesPlayed;
 
-// ======== Mode clic pour mobile =========
-if (isTouchDevice) {
-    var $board = $('#board');
+    // Initialiser le plateau
+    initializeBoard();
+    updateStatus('🎯 À vous de jouer ! Déplacez une pièce blanche.');
+    updateMoveHistory('Nouvelle partie commencée');
+  };
 
-    $board.on('click', function(e) {
-        var offset = $board.offset();
-        var boardSize = $board.width();
-        var squareSize = boardSize / 8;
+  // Initialiser le plateau d'échecs
+  const initializeBoard = () => {
+    try {
+      gameState.game = new Chess();
+      
+      if (gameState.board) {
+        gameState.board.destroy();
+      }
 
-        // Calcul des coordonnées du clic
-        var x = e.pageX - offset.left;
-        var y = e.pageY - offset.top;
+      gameState.board = Chessboard('board', {
+        draggable: true,
+        position: 'start',
+        onDrop: handleMove,
+        onSnapEnd: onSnapEnd,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-        // Conversion en index de case (0-7)
-        var fileIndex = Math.floor(x / squareSize);
-        var rankIndex = Math.floor(y / squareSize);
+      // Responsive
+      if (window.innerWidth < 480) {
+        document.getElementById('board').style.width = '320px';
+      }
+    } catch (error) {
+      console.error('❌ Erreur création plateau:', error);
+      showErrorState();
+    }
+  };
 
-        // Chessboard.js commence la rangée du haut à "8"
-        var files = ['a','b','c','d','e','f','g','h'];
-        var ranks = ['8','7','6','5','4','3','2','1'];
+  // Gérer un coup du joueur
+  const handleMove = (source, target) => {
+    if (!gameState.isGameActive) return 'snapback';
 
-        var square = files[fileIndex] + ranks[rankIndex];
+    try {
+      const move = gameState.game.move({
+        from: source,
+        to: target,
+        promotion: 'q' // Auto-promotion en dame
+      });
 
-        var piece = game.get(square);
+      if (move === null) {
+        return 'snapback'; // Coup invalide
+      }
 
-        if (!selectedSquare) {
-            if (piece && piece.color === 'w') { // pièces blanches
-                selectedSquare = square;
-                greySquare(square);
-            }
-        } else {
-            var move = game.move({ from: selectedSquare, to: square, promotion: 'q' });
-            removeGreySquares();
-            selectedSquare = null;
-            if (!move) return;
-            board.position(game.fen());
-            renderMoveHistory(game.history());
-            window.setTimeout(makeBestMove, 250);
-        }
-    });
-}
+      // Ajouter à l'historique
+      updateMoveHistory(`${gameState.player}: ${move.san}`);
+      
+      // Vérifier l'état du jeu
+      if (checkGameEnd()) return;
+
+      // Tour de l'IA
+      updateStatus('🤖 L\'IA réfléchit...');
+      elements.resignBtn.disabled = true;
+      
+      setTimeout(makeAIMove, elements.aiDifficulty.checked ? 1500 : 500);
+      
+    } catch (error) {
+      console.error('❌ Erreur coup joueur:', error);
+      return 'snapback';
+    }
+  };
+
+  // Animation après déplacement
+  const onSnapEnd = () => {
+    gameState.board.position(gameState.game.fen());
+  };
+
+  // IA joue
+  const makeAIMove = () => {
+    if (!gameState.isGameActive) return;
+
+    try {
+      const moves = gameState.game.moves();
+      if (moves.length === 0) return;
+
+      // Algorithme simple : coups agressifs en priorité
+      let selectedMove;
+      const captureMoves = moves.filter(move => move.includes('x'));
+      const checkMoves = moves.filter(move => move.includes('+'));
+      
+      if (captureMoves.length > 0) {
+        selectedMove = captureMoves[Math.floor(Math.random() * captureMoves.length)];
+      } else if (checkMoves.length > 0) {
+        selectedMove = checkMoves[Math.floor(Math.random() * checkMoves.length)];
+      } else {
+        selectedMove = moves[Math.floor(Math.random() * moves.length)];
+      }
+
+      const move = gameState.game.move(selectedMove);
+      gameState.board.position(gameState.game.fen());
+      
+      updateMoveHistory(`IA: ${move.san}`);
+      elements.resignBtn.disabled = false;
+      
+      if (!checkGameEnd()) {
+        updateStatus('🎯 À vous de jouer !');
+      }
+      
+    } catch (error) {
+      console.error('❌ Erreur coup IA:', error);
+      updateStatus('❌ Erreur IA - Nouvelle partie recommandée');
+    }
+  };
+
+  // Vérifier fin de partie
+  const checkGameEnd = () => {
+    if (gameState.game.in_checkmate()) {
+      gameState.isGameActive = false;
+      gameState.gamesPlayed++;
+      elements.gamesPlayed.textContent = gameState.gamesPlayed;
+      
+      if (gameState.game.turn() === 'b') {
+        // Joueur gagne
+        gameState.score++;
+        elements.score.textContent = gameState.score;
+        updateStatus(`🎉 Victoire ${gameState.player} ! Échec et mat ! 🏆`);
+        updateMoveHistory('🏆 Victoire du joueur !');
+      } else {
+        // IA gagne
+        updateStatus('💀 Défaite ! L\'IA vous a battu... 🤖');
+        updateMoveHistory('💀 Victoire de l\'IA');
+      }
+      return true;
+    }
+    
+    if (gameState.game.in_draw()) {
+      gameState.isGameActive = false;
+      gameState.gamesPlayed++;
+      elements.gamesPlayed.textContent = gameState.gamesPlayed;
+      updateStatus('⚖️ Match nul - Partie égale');
+      updateMoveHistory('⚖️ Match nul');
+      return true;
+    }
+    
+    if (gameState.game.in_check()) {
+      const player = gameState.game.turn() === 'w' ? 'Vous' : 'L\'IA';
+      updateStatus(`⚠️ ${player} êtes en échec !`);
+    }
+    
+    return false;
+  };
+
+  // Abandonner la partie
+  const resignGame = () => {
+    if (!gameState.isGameActive) return;
+    
+    if (confirm('Êtes-vous sûr de vouloir abandonner cette partie ?')) {
+      gameState.isGameActive = false;
+      gameState.gamesPlayed++;
+      elements.gamesPlayed.textContent = gameState.gamesPlayed;
+      updateStatus('🏳️ Partie abandonnée');
+      updateMoveHistory('🏳️ Abandon du joueur');
+    }
+  };
+
+  // Mettre à jour le statut
+  const updateStatus = (message) => {
+    elements.status.innerHTML = message;
+  };
+
+  // Mettre à jour l'historique
+  const updateMoveHistory = (move) => {
+    gameState.moveHistory.push(move);
+    const maxHistory = 10;
+    if (gameState.moveHistory.length > maxHistory) {
+      gameState.moveHistory = gameState.moveHistory.slice(-maxHistory);
+    }
+    elements.moveHistory.innerHTML = gameState.moveHistory.join('<br>') || 'Aucun coup joué';
+    elements.moveHistory.scrollTop = elements.moveHistory.scrollHeight;
+  };
+
+  // Afficher l'état d'erreur
+  const showErrorState = () => {
+    elements.playerSetup.classList.add('hidden');
+    elements.gameArea.classList.add('hidden');
+    elements.loadingState.classList.add('hidden');
+    elements.errorState.classList.remove('hidden');
+  };
+
+  // Afficher l'état de chargement
+  const showLoadingState = () => {
+    elements.playerSetup.classList.add('hidden');
+    elements.loadingState.classList.remove('hidden');
+  };
+
+  // Initialisation principale
+  if (checkLibraries()) {
+    initializeGame();
+  } else {
+    showLoadingState();
+    
+    let attempts = 0;
+    const maxAttempts = 50; // 5 secondes
+    
+    const checkInterval = setInterval(() => {
+      attempts++;
+      
+      if (checkLibraries()) {
+        clearInterval(checkInterval);
+        elements.loadingState.classList.add('hidden');
+        elements.playerSetup.classList.remove('hidden');
+        initializeGame();
+      } else if (attempts >= maxAttempts) {
+        clearInterval(checkInterval);
+        console.error('❌ Timeout: Librairies non chargées après 5 secondes');
+        showErrorState();
+      }
+    }, 100);
+  }
+
+  // Responsive
+  window.addEventListener('resize', () => {
+    if (gameState.board) {
+      setTimeout(() => {
+        gameState.board.resize();
+      }, 100);
+    }
+  });
+});
 </script>
 
+<style>
+/* Styles spécifiques au jeu d'échecs */
+.chess-game .line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
+/* Animation pour les pièces */
+.chess-game #board .square-55d63 {
+  transition: all 0.2s ease;
+}
+
+.chess-game #board .piece-417db {
+  transition: all 0.3s ease;
+  cursor: grab;
+}
+
+.chess-game #board .piece-417db:active {
+  cursor: grabbing;
+  transform: scale(1.1);
+}
+
+/* Responsive du plateau */
+@media (max-width: 480px) {
+  .chess-game #board {
+    width: 320px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .chess-game #board {
+    width: 280px !important;
+  }
+}
+</style>
