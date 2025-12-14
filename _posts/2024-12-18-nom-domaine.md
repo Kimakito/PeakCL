@@ -11,7 +11,7 @@ tags:
   - seo
   - strategie-web
   - entrepreneuriat
-image: /assets/images/articles/nom-domaine-strategique.webp
+image: /assets/images/domaines.webp
 canonical: https://peakcl.com/blog/choisir-nom-domaine-strategique/
 reading_time: 12
 excerpt: "Votre nom de domaine détermine 60% de votre crédibilité en ligne. Découvrez la méthode en 7 étapes pour choisir un nom de domaine qui booste votre business."
