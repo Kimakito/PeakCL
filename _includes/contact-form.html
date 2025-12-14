@@ -1,0 +1,23 @@
+<section id="contact" class="relative py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-violet to-peak-blue-dark overflow-hidden" role="region" aria-label="Contact et devis">
+    <div class="relative z-10 max-w-4xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl p-6 sm:p-12 border border-peak-violet/30">
+        <h2 class="text-2xl sm:text-3xl font-title font-extrabold mb-6 sm:mb-8 text-white text-center drop-shadow-md">Prêt à démarrer votre projet ?</h2>
+        <p class="text-white text-center mb-6">
+            <strong>Demandez votre devis gratuit</strong> et recevez un plan d'action personnalisé pour votre site web ou votre identité visuelle.
+        </p>
+
+        <form name="contact" method="POST" data-netlify="true" class="space-y-6 sm:space-y-8" aria-label="Formulaire de contact PeakCL">
+            <input type="hidden" name="form-name" value="contact">
+
+            <label for="nom" class="sr-only">Nom / Entreprise</label>
+            <input type="text" id="nom" name="nom" placeholder="Nom / Entreprise" required class="w-full p-3 sm:p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl" />
+
+            <label for="email" class="sr-only">Email professionnel</label>
+            <input type="email" id="email" name="email" placeholder="Email professionnel" required class="w-full p-3 sm:p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl" />
+
+            <label for="message" class="sr-only">Décrivez votre projet</label>
+            <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet, vos objectifs et vos besoins" required class="w-full p-3 sm:p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl resize-none"></textarea>
+
+            <button type="submit" class="w-full bg-peak-yellow text-peak-blue-dark font-extrabold py-3 sm:py-4 rounded-full hover:bg-yellow-300 shadow-xl transform hover:scale-105 transition-all duration-300">Envoyer ma demande</button>
+        </form>
+    </div>
+</section>

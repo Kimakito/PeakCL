@@ -1,0 +1,49 @@
+---
+layout: default
+title: Blog - PeakCL
+description: Articles sur le développement web, le design, l'IA et les bonnes pratiques digitales.
+keywords:
+- blog
+- développement web
+- design
+- IA
+- tutoriels
+- PeakCL
+image_share: /assets/logo/PeakCL.svg
+---
+
+<section class="relative py-20 px-6 bg-gradient-to-b from-peak-blue-dark to-peak-blue-light">
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-4xl sm:text-5xl font-title font-extrabold text-peak-yellow text-center mb-8">Blog</h1>
+        
+        <p class="text-lg text-peak-gray text-center max-w-3xl mx-auto mb-12">
+            Conseils, tutoriels et actualités sur le <strong>développement web</strong>, le <strong>design</strong> et l'<strong>intelligence artificielle</strong>.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for post in site.posts %}
+            <article class="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-peak-violet/30 hover:scale-105 transition-all duration-300">
+                <a href="{{ post.url }}" class="block p-6">
+                    {% if post.image %}
+                    <img src="{{ post.image }}" alt="{{ post.title }}" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" />
+                    {% endif %}
+                    <h2 class="text-xl font-bold text-peak-yellow mb-3">{{ post.title }}</h2>
+                    <p class="text-peak-gray text-sm mb-4">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+                    <div class="flex justify-between items-center text-xs text-peak-blue-light">
+                        <span>{{ post.date | date: "%d %B %Y" }}</span>
+                        <span class="bg-peak-yellow text-peak-blue-dark px-3 py-1 rounded-full font-semibold">Lire →</span>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+
+        {% if site.posts.size == 0 %}
+        <div class="text-center py-12">
+            <p class="text-peak-gray text-lg">Aucun article pour le moment. Revenez bientôt !</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% include contact-form.html %}

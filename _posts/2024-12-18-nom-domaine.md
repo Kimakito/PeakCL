@@ -2,7 +2,7 @@
 layout: article
 title: "Choisir son nom de domaine en 2025 : Guide stratégique pour entrepreneurs"
 description: "Méthodologie complète pour sélectionner le nom de domaine parfait. Impact SEO, aspects juridiques, stratégies de branding et erreurs à éviter absolument."
-date: 2025-07-18
+date: 2024-12-18
 author: Charlotte Lacroix
 category: Web Strategy
 tags:
