@@ -1027,6 +1027,10 @@ video {
   height: 2rem;
 }
 
+.h-\[85vh\] {
+  height: 85vh;
+}
+
 .h-auto {
   height: auto;
 }
@@ -1543,14 +1547,6 @@ video {
   border-radius: 0.25rem;
 }
 
-.rounded-2xl {
-  border-radius: 1rem;
-}
-
-.rounded-3xl {
-  border-radius: 1.5rem;
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1571,8 +1567,16 @@ video {
   border-bottom-left-radius: 1rem;
 }
 
+.rounded-bl-3xl {
+  border-bottom-left-radius: 1.5rem;
+}
+
 .rounded-tr-2xl {
   border-top-right-radius: 1rem;
+}
+
+.rounded-tr-3xl {
+  border-top-right-radius: 1.5rem;
 }
 
 .border {

@@ -12,7 +12,7 @@ keywords:
 image_share: /assets/logo/PeakCL.svg
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-4 pt-20 overflow-hidden"
+<section id="hero" class="relative h-[85vh] flex items-center justify-center text-center px-4 pt-20 overflow-hidden"
     role="region" aria-label="Gagnez des clients grâce à votre site web">
     <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full z-0 opacity-50"></canvas>
     <div class="absolute inset-0 bg-gradient-to-br from-peak-blue-dark via-peak-blue-light to-peak-violet bg-[length:200%_200%] animate-bg-gradient-shift z-10 opacity-70"></div>
@@ -44,7 +44,7 @@ image_share: /assets/logo/PeakCL.svg
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Création de site web -->
-            <a href="/developpement-web.html" class="group relative bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-peak-violet/30 hover:scale-105 transition-all duration-300 p-8 text-center">
+            <a href="/developpement-web.html" class="group relative bg-white/10 backdrop-blur-sm rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-2xl border border-peak-violet/30 hover:scale-105 transition-all duration-300 p-8 text-center">
                 <div class="mb-6">
                     <svg class="w-20 h-20 mx-auto text-peak-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -56,7 +56,7 @@ image_share: /assets/logo/PeakCL.svg
             </a>
 
             <!-- Création de logo / identité -->
-            <a href="/graphisme.html" class="group relative bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-peak-violet/30 hover:scale-105 transition-all duration-300 p-8 text-center">
+            <a href="/graphisme.html" class="group relative bg-white/10 backdrop-blur-sm rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-2xl border border-peak-violet/30 hover:scale-105 transition-all duration-300 p-8 text-center">
                 <div class="mb-6">
                     <svg class="w-20 h-20 mx-auto text-peak-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
@@ -68,7 +68,7 @@ image_share: /assets/logo/PeakCL.svg
             </a>
 
             <!-- Qui suis-je -->
-            <a href="/qui-suis-je.html" class="group relative bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-peak-violet/30 hover:scale-105 transition-all duration-300 p-8 text-center">
+            <a href="/qui-suis-je.html" class="group relative bg-white/10 backdrop-blur-sm rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-2xl border border-peak-violet/30 hover:scale-105 transition-all duration-300 p-8 text-center">
                 <div class="mb-6">
                     <svg class="w-20 h-20 mx-auto text-peak-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -96,7 +96,7 @@ image_share: /assets/logo/PeakCL.svg
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {% assign latest_posts = site.posts | slice: 0, 3 %}
             {% for post in latest_posts %}
-            <article class="group bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl border border-peak-violet/30 hover:scale-105 transition-all duration-300">
+            <article class="group bg-white/10 backdrop-blur-sm rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-xl border border-peak-violet/30 hover:scale-105 transition-all duration-300">
                 <a href="{{ post.url | relative_url }}" class="block">
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-4">

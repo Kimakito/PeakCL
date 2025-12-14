@@ -39,7 +39,7 @@
             <header class="mb-8 text-center">
                 {% if page.cover %}
                 <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}"
-                    class="w-full rounded-2xl shadow-xl mb-6 object-cover h-64 sm:h-96" loading="lazy">
+                    class="w-full rounded-tr-2xl rounded-bl-2xl shadow-xl mb-6 object-cover h-64 sm:h-96" loading="lazy">
                 {% endif %}
 
                 <h1 class="text-4xl sm:text-5xl font-title font-extrabold text-peak-yellow mb-2">{{ page.title }}</h1>
@@ -84,7 +84,7 @@
                 {% for post in site.posts limit:4 %}
                 {% if post.url != page.url %}
                 <a href="{{ post.url | relative_url }}"
-                    class="block p-4 bg-peak-blue-dark/50 rounded-lg hover:scale-105 transition-transform">
+                    class="block p-4 bg-peak-blue-dark/50 rounded-tr-2xl rounded-bl-2xl hover:scale-105 transition-transform">
                     <h4 class="text-sm font-bold text-peak-yellow">{{ post.title }}</h4>
                     <p class="text-xs text-white">{{ post.date | date: "%-d %b %Y" }}</p>
                 </a>
