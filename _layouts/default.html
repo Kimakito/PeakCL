@@ -1,6 +1,40 @@
 <!DOCTYPE html>
+
 <html lang="fr">
-{% include header.html %}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="author" content="Charlotte Lacroix">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Développeur web Savoie, développeur web Albertville, création de sites internet, applications web, identité visuelle, SEO, accompagnement digital. PeakCL, Charlotte Lacroix.">
+    <meta name="keywords" content="développeur web, développeur web Savoie, développeur web Albertville, création site internet, freelance Savoie, PeakCL, Charlotte Lacroix, applications web, identité visuelle, Chambéry, Albertville, Annecy, SEO, accompagnement digital">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/output.css' | relative_url }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Nunito:wght@400;600&display=swap"
+        rel="stylesheet">
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+    <meta property="og:description" content="Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ '/assets/images/avatar-left.png' | absolute_url }}">
+    <meta property="og:locale" content="fr_FR">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }} | {{ site.title }}">
+    <meta name="twitter:description" content="Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.">
+    <meta name="twitter:image" content="{{ '/assets/images/avatar-left.png' | absolute_url }}">
+    <!-- Favicons & Manifest -->
+    <link rel="icon" type="image/png" href="{{ '/assets/favicon/favicon-96x96.png' | relative_url }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon//favicon.svg' | relative_url }}" />
+    <link rel="shortcut icon" href="{{ '/assets/favicon//favicon.ico' | relative_url }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/favicon//apple-touch-icon.png' | relative_url }}" />
+    <link rel="manifest" href="{{ '/assets/favicon//site.webmanifest' | relative_url }}" />
+    <meta name="apple-mobile-web-app-title" content="PeakCL" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
 
 <body class="font-k2d bg-primary-medium text-text-dark min-h-screen flex flex-col">
     {% include navbar.html %}
@@ -11,8 +45,9 @@
 
     {% include footer.html %}
     {% include scroll-top.html %}
-    
+
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/matrix.js' | relative_url }}"></script>
 </body>
+
 </html>
