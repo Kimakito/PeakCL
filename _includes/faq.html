@@ -1,0 +1,43 @@
+<h2 class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-center text-peak-yellow mb-12 animate-fade-in" id="faq-title">
+  FAQ : Questions fréquentes sur la création de site web
+</h2>
+
+<!-- Données structurées FAQPage pour le SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in site.data.faq %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.question | escape }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ faq.answer | strip_newlines | escape }}"
+      }
+    }{% if forloop.last == false %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<div class="rounded-2xl shadow-2xl bg-white/20 backdrop-blur-md border border-peak-yellow/40 p-2 sm:p-6" aria-labelledby="faq-title">
+  <div class="divide-y divide-peak-yellow/30">
+    {% for faq in site.data.faq %}
+    <div class="faq-item group">
+      <button type="button" class="w-full flex items-center justify-between py-4 px-2 sm:px-4 focus:outline-none transition-colors hover:bg-peak-yellow/10" aria-expanded="false" aria-controls="faq{{ forloop.index }}" onclick="this.nextElementSibling.classList.toggle('hidden');this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true');this.querySelector('svg').classList.toggle('rotate-45')">
+        <span class="flex items-center gap-2 text-lg sm:text-xl font-bold text-peak-yellow">
+          <svg class="w-6 h-6 transition-transform duration-200 mr-2" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+          </svg>
+          {{ faq.question }}
+        </span>
+      </button>
+      <div id="faq{{ forloop.index }}" class="hidden px-2 sm:px-6 pb-6 text-peak-gray" role="region">
+        {{ faq.answer }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
