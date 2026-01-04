@@ -135,37 +135,96 @@ image_share: /assets/logo/PeakCL.svg
 
 
 <!-- Section FAQ -->
-<section id="faq" class="relative py-20 px-6 bg-gradient-to-b from-peak-blue-dark to-peak-blue-light" role="region" aria-label="FAQ création de site web">
-    <div class="max-w-4xl mx-auto">
+
+<section id="faq" class="relative py-20 px-2 sm:px-6" role="region" aria-label="FAQ création de site web">
+    <div class="max-w-3xl mx-auto">
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-center text-peak-yellow mb-12 animate-fade-in">FAQ : Questions fréquentes sur la création de site web</h2>
-        <div class="space-y-8">
-            <div>
-                <h3 class="text-xl font-bold text-peak-yellow mb-2">Combien coûte la création d’un site internet&nbsp;?</h3>
-                <p class="text-peak-gray">Le prix dépend du type de site (vitrine, e-commerce, sur-mesure) et des fonctionnalités. <a href="/developpement-web.html#processus" class="text-peak-violet underline">Voir le détail des étapes et du devis</a> ou <a href="#contact" class="text-peak-violet underline">demandez un devis personnalisé</a>.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold text-peak-yellow mb-2">En combien de temps mon site sera-t-il prêt&nbsp;?</h3>
-                <p class="text-peak-gray">Un site vitrine simple peut être livré en 2 à 4 semaines. Les projets plus complexes prennent plus de temps. <a href="/developpement-web.html#processus" class="text-peak-violet underline">Voir les étapes et délais</a>.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold text-peak-yellow mb-2">Mon site sera-t-il visible sur Google&nbsp;?</h3>
-                <p class="text-peak-gray">Oui, tous nos sites sont optimisés pour le référencement naturel (SEO). <a href="/developpement-web.html#seo" class="text-peak-violet underline">En savoir plus sur le référencement SEO</a>.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold text-peak-yellow mb-2">Puis-je modifier mon site moi-même&nbsp;?</h3>
-                <p class="text-peak-gray">Oui, nous proposons des solutions administrables (WordPress, Jekyll, etc.) et une formation à la prise en main. <a href="/developpement-web.html#administrable" class="text-peak-violet underline">Voir nos solutions administrables</a>.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold text-peak-yellow mb-2">Comment choisir le bon type de site&nbsp;?</h3>
-                <p class="text-peak-gray">Nous vous conseillons selon vos besoins&nbsp;: site vitrine, e-commerce, blog, etc. <a href="/developpement-web.html#type-site" class="text-peak-violet underline">Découvrir les types de site</a>.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold text-peak-yellow mb-2">Avez-vous des exemples de réalisations&nbsp;?</h3>
-                <p class="text-peak-gray">Oui, consultez notre <a href="/portfolio.html" class="text-peak-violet underline">portfolio</a> pour voir des sites créés pour nos clients.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold text-peak-yellow mb-2">Comment se passe le suivi après la mise en ligne&nbsp;?</h3>
-                <p class="text-peak-gray">Nous proposons un accompagnement et une maintenance selon vos besoins. <a href="/developpement-web.html#accompagnement" class="text-peak-violet underline">Voir l’accompagnement et la maintenance</a> ou <a href="#contact" class="text-peak-violet underline">Contactez-nous pour en savoir plus</a>.</p>
+        <div class="rounded-2xl shadow-2xl bg-white/20 backdrop-blur-md border border-peak-yellow/40 p-2 sm:p-6">
+            <div class="divide-y divide-peak-yellow/30">
+                <!-- FAQ Item -->
+                <div class="faq-item group">
+                    <button type="button" class="w-full flex items-center justify-between py-4 px-2 sm:px-4 focus:outline-none transition-colors hover:bg-peak-yellow/10" onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-45')">
+                        <span class="flex items-center gap-2 text-lg sm:text-xl font-bold text-peak-yellow">
+                            <svg class="w-6 h-6 transition-transform duration-200 mr-2" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                            Combien coûte la création d’un site internet ?
+                        </span>
+                    </button>
+                    <div class="hidden px-2 sm:px-6 pb-6 text-peak-gray">
+                        Le prix dépend du type de site (vitrine, e-commerce, sur-mesure) et des fonctionnalités. <a href="/developpement-web.html#processus" class="text-peak-violet underline">Voir le détail des étapes et du devis</a> ou <a href="#contact" class="text-peak-violet underline">demandez un devis personnalisé</a>.
+                    </div>
+                </div>
+                <!-- FAQ Item -->
+                <div class="faq-item group">
+                    <button type="button" class="w-full flex items-center justify-between py-4 px-2 sm:px-4 focus:outline-none transition-colors hover:bg-peak-yellow/10" onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-45')">
+                        <span class="flex items-center gap-2 text-lg sm:text-xl font-bold text-peak-yellow">
+                            <svg class="w-6 h-6 transition-transform duration-200 mr-2" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                            En combien de temps mon site sera-t-il prêt ?
+                        </span>
+                    </button>
+                    <div class="hidden px-2 sm:px-6 pb-6 text-peak-gray">
+                        Un site vitrine simple peut être livré en 2 à 4 semaines. Les projets plus complexes prennent plus de temps. <a href="/developpement-web.html#delais" class="text-peak-violet underline">Voir les étapes et délais</a>.
+                    </div>
+                </div>
+                <!-- FAQ Item -->
+                <div class="faq-item group">
+                    <button type="button" class="w-full flex items-center justify-between py-4 px-2 sm:px-4 focus:outline-none transition-colors hover:bg-peak-yellow/10" onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-45')">
+                        <span class="flex items-center gap-2 text-lg sm:text-xl font-bold text-peak-yellow">
+                            <svg class="w-6 h-6 transition-transform duration-200 mr-2" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                            Mon site sera-t-il visible sur Google ?
+                        </span>
+                    </button>
+                    <div class="hidden px-2 sm:px-6 pb-6 text-peak-gray">
+                        Oui, tous nos sites sont optimisés pour le référencement naturel (SEO). <a href="/developpement-web.html#seo" class="text-peak-violet underline">En savoir plus sur le référencement SEO</a>.
+                    </div>
+                </div>
+                <!-- FAQ Item -->
+                <div class="faq-item group">
+                    <button type="button" class="w-full flex items-center justify-between py-4 px-2 sm:px-4 focus:outline-none transition-colors hover:bg-peak-yellow/10" onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-45')">
+                        <span class="flex items-center gap-2 text-lg sm:text-xl font-bold text-peak-yellow">
+                            <svg class="w-6 h-6 transition-transform duration-200 mr-2" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                            Puis-je modifier mon site moi-même ?
+                        </span>
+                    </button>
+                    <div class="hidden px-2 sm:px-6 pb-6 text-peak-gray">
+                        Oui, nous proposons des solutions administrables (WordPress, Jekyll, etc.) et une formation à la prise en main. <a href="/developpement-web.html#type-site" class="text-peak-violet underline">Voir nos solutions administrables</a>.
+                    </div>
+                </div>
+                <!-- FAQ Item -->
+                <div class="faq-item group">
+                    <button type="button" class="w-full flex items-center justify-between py-4 px-2 sm:px-4 focus:outline-none transition-colors hover:bg-peak-yellow/10" onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-45')">
+                        <span class="flex items-center gap-2 text-lg sm:text-xl font-bold text-peak-yellow">
+                            <svg class="w-6 h-6 transition-transform duration-200 mr-2" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                            Comment choisir le bon type de site ?
+                        </span>
+                    </button>
+                    <div class="hidden px-2 sm:px-6 pb-6 text-peak-gray">
+                        Nous vous conseillons selon vos besoins : site vitrine, e-commerce, blog, etc. <a href="/developpement-web.html#type-site" class="text-peak-violet underline">Découvrir les types de site</a>.
+                    </div>
+                </div>
+                <!-- FAQ Item -->
+                <div class="faq-item group">
+                    <button type="button" class="w-full flex items-center justify-between py-4 px-2 sm:px-4 focus:outline-none transition-colors hover:bg-peak-yellow/10" onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-45')">
+                        <span class="flex items-center gap-2 text-lg sm:text-xl font-bold text-peak-yellow">
+                            <svg class="w-6 h-6 transition-transform duration-200 mr-2" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                            Avez-vous des exemples de réalisations ?
+                        </span>
+                    </button>
+                    <div class="hidden px-2 sm:px-6 pb-6 text-peak-gray">
+                        Oui, consultez notre <a href="/portfolio.html" class="text-peak-violet underline">portfolio</a> pour voir des sites créés pour nos clients.
+                    </div>
+                </div>
+                <!-- FAQ Item -->
+                <div class="faq-item group">
+                    <button type="button" class="w-full flex items-center justify-between py-4 px-2 sm:px-4 focus:outline-none transition-colors hover:bg-peak-yellow/10" onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-45')">
+                        <span class="flex items-center gap-2 text-lg sm:text-xl font-bold text-peak-yellow">
+                            <svg class="w-6 h-6 transition-transform duration-200 mr-2" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                            Comment se passe le suivi après la mise en ligne ?
+                        </span>
+                    </button>
+                    <div class="hidden px-2 sm:px-6 pb-6 text-peak-gray">
+                        Nous proposons un accompagnement et une maintenance selon vos besoins. <a href="/developpement-web.html#accompagnement" class="text-peak-violet underline">Voir l’accompagnement et la maintenance</a> ou <a href="#contact" class="text-peak-violet underline">Contactez-nous pour en savoir plus</a>.
+                    </div>
+                </div>
             </div>
         </div>
     </div>
