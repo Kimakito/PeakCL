@@ -109,8 +109,13 @@ image_share: /assets/logo/PeakCL.svg
     </div>
 </section>
 
+<!-- Section FAQ -->
+<section id="faq" class="relative py-20 px-2 sm:px-6 bg-gradient-to-b from-peak-blue-light to-peak-blue-dark" role="region" aria-label="FAQ création de site web">
+  {% include faq.html %}
+</section>
+
 <!-- Section Blog -->
-<section id="blog" class="relative py-20 px-6 bg-gradient-to-b from-peak-blue-light to-peak-violet" role="region" aria-label="Derniers articles du blog">
+<section id="blog" class="relative py-20 px-6 bg-gradient-to-b from-peak-blue-dark to-peak-violet" role="region" aria-label="Derniers articles du blog">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-peak-yellow mb-4">Blog : Conseils & Actualités Web</h2>
@@ -151,11 +156,5 @@ image_share: /assets/logo/PeakCL.svg
             </article>
             {% endfor %}
         </div>
-
-
-<!-- Section FAQ -->
-<section id="faq" class="relative py-20 px-2 sm:px-6" role="region" aria-label="FAQ création de site web">
-  {% include faq.html %}
 </section>
-
 {% include contact-form.html %}
