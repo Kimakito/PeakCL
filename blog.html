@@ -18,6 +18,30 @@ keywords:
 image_share: /assets/logo/PeakCL.svg
 ---
 
+<!-- Données structurées Schema.org pour un article de blog -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title | escape }}",
+  "description": "{{ page.description | escape }}",
+  "image": ["{{ page.image_share | absolute_url }}"],
+  "author": {
+    "@type": "Person",
+    "name": "Charlotte Lacroix"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PeakCL",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://peakcl.com/assets/logo/PeakCL.svg"
+    }
+  },
+  "datePublished": "{{ page.date }}"
+}
+</script>
+
 <section class="relative py-20 px-6 bg-gradient-to-b from-peak-blue-dark to-peak-blue-light">
     <div class="max-w-5xl mx-auto">
         <h1 class="text-4xl sm:text-5xl font-title font-extrabold text-peak-yellow text-center mb-8">Blog</h1>
