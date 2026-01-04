@@ -39,8 +39,22 @@
 <body class="font-k2d bg-primary-medium text-text-dark min-h-screen flex flex-col">
     {% include navbar.html %}
 
+
     <main class="flex-grow pt-20 md:pt-24">
         {{ content }}
+        <div class="w-full text-center py-6">
+            <span class="text-peak-gray text-sm">Contact&nbsp;: <span id="email-protect" class="font-bold text-peak-yellow"></span></span>
+        </div>
+        <script>
+        // Protection anti-bots pour l'email
+        document.addEventListener('DOMContentLoaded', function() {
+            var user = 'peakcl73';
+            var domain = 'gmail.com';
+            var email = user + '@' + domain;
+            var el = document.getElementById('email-protect');
+            if (el) { el.textContent = email; }
+        });
+        </script>
     </main>
 
     {% include footer.html %}
