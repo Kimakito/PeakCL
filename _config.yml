@@ -18,3 +18,4 @@ plugins:
 locale: fr_FR.UTF-8
 timezone: Europe/Paris
 google_analytics: G-ZCYTT94MMH
+future: true
