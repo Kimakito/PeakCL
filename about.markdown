@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About - Développeur web Savoie, Albertville
+title: About - Création site web Savoie, Albertville
 description: 'À propos de PeakCL, développeur web Savoie, développeur web Albertville. Création de sites internet, accompagnement digital et optimisation SEO.'
 permalink: /about/
 ---

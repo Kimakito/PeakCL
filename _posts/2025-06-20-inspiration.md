@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "Exemples de sites : inspiration et attentes | Développeur web Savoie, Albertville"
+title: "Exemples de sites : inspiration et attentes | Création site web Savoie, Albertville"
 date: 2025-06-20
 last_modified_at: 2025-06-20
 author: PeakCL

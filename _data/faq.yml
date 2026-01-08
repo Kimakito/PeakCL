@@ -1,41 +1,59 @@
-- question: "Comment créer un site web facilement sans compétences techniques ?"
-  answer: "Vous pouvez créer un site web facilement sans compétences techniques grâce à des CMS comme WordPress, Wix ou Squarespace. Je propose également un accompagnement complet pour un site clé en main, adapté à vos besoins et optimisé SEO. <a href='/developpement-web.html#processus' class='underline text-peak-yellow'>Voir les étapes détaillées</a>."
+- question: "Combien coûte un site internet professionnel ?"
+  answer: "Entre 1500-3000€ pour un site vitrine, 4000-15000€ pour un e-commerce. Prix honnêtes, transparents, sans mauvaise surprise. <a href='/conseils/2026/01/08/budget-site-web.html' class='underline text-peak-yellow'>📖 Guide complet prix & budget →</a>"
 
-- question: "Quels sont les meilleurs outils pour créer un site web en France ?"
-  answer: "Les outils les plus populaires sont WordPress, Wix, Squarespace, Shopify pour l’e-commerce, et Jekyll pour les sites statiques. Le choix dépend de vos besoins, de votre budget et de votre autonomie. <a href='/developpement-web.html#type-site' class='underline text-peak-yellow'>Découvrir les types de sites</a>."
+- question: "Combien de temps pour créer un site web ?"
+  answer: "3-4 semaines pour un site vitrine, 6-12 semaines pour un e-commerce. Le délai dépend aussi de votre disponibilité pour le contenu. <a href='/conseils/2026/01/08/delais-creation-site-web.html' class='underline text-peak-yellow'>📖 Délais détaillés →</a>"
 
-- question: "Comment choisir une plateforme pour créer un site e-commerce ?"
-  answer: "Le choix d’une plateforme e-commerce dépend du nombre de produits, de la facilité de gestion et des fonctionnalités nécessaires. Shopify et WooCommerce sont recommandés pour leur simplicité et performance. <a href='/developpement-web.html#type-site' class='underline text-peak-yellow'>En savoir plus sur les solutions e-commerce</a>."
+- question: "Pourquoi avoir un site web si j'ai déjà Facebook ?"
+  answer: "Facebook = location. Site web = propriété. Vous possédez 100% de votre site, pas votre page Facebook. 68% des recherches se font sur Google, pas Facebook. <a href='/conseils/2026/01/08/pourquoi-site-web-2026.html' class='underline text-peak-yellow'>📖 Site vs Réseaux sociaux →</a>"
 
-- question: "Combien coûte la création d’un site web professionnel ?"
-  answer: "Le coût varie selon le nombre de pages, le niveau de personnalisation et l’accompagnement. Chaque projet fait l’objet d’un devis personnalisé. <a href='/developpement-web.html#delais' class='underline text-peak-yellow'>Voir les délais et budget</a>. <a href='#contact'>Demandez un devis</a>."
+- question: "Comment choisir un bon développeur web / une bonne agence ?"
+  answer: "15 questions à poser, signaux d'alerte à éviter, comparaison freelance vs agence. Ne vous faites pas avoir ! <a href='/conseils/2026/01/08/choisir-prestataire-web.html' class='underline text-peak-yellow'>📖 Guide pour choisir →</a>"
 
-- question: "Quels services proposent la création de site web clé en main ?"
-  answer: "Je propose un service clé en main : conception, design, intégration, optimisation SEO, mise en ligne et accompagnement à la gestion du site. <a href='/developpement-web.html#accompagnement' class='underline text-peak-yellow'>Voir l'accompagnement</a>."
+- question: "Mon site sera référencé sur Google ?"
+  answer: "Oui (fondations SEO incluses), mais résultats en 3-6 mois + travail continu. Je ne suis pas spécialiste SEO, mais je pose les bases techniques solides. <a href='/conseils/2025/08/22/SEO.html' class='underline text-peak-yellow'>📖 SEO : ce que je fais vraiment →</a>"
 
-- question: "Comment créer un site web responsive adapté aux mobiles ?"
-  answer: "Tous les sites que je réalise sont responsive : ils s’adaptent à toutes les tailles d’écran pour offrir une expérience optimale sur mobile, tablette et ordinateur. <a href='/developpement-web.html#seo' class='underline text-peak-yellow'>Pourquoi le mobile est crucial pour le SEO</a>."
+- question: "Mon site sera adapté aux smartphones ?"
+  answer: "OUI, 100% responsive. 68% de vos visiteurs sont sur mobile. Un site non responsive = 70% de clients perdus. <a href='/conseils/2026/01/08/mobile-first-responsive.html' class='underline text-peak-yellow'>📖 Pourquoi le responsive est vital →</a>"
 
-- question: "Quelles sont les étapes pour créer un site web de A à Z ?"
-  answer: "Les étapes incluent : analyse des besoins, choix de la technologie, design, intégration, optimisation SEO, tests et mise en ligne. Je vous accompagne à chaque étape pour un projet sans stress. <a href='/developpement-web.html#processus' class='underline text-peak-yellow'>Voir le processus complet</a>."
+- question: "La maintenance, c'est vraiment obligatoire ?"
+  answer: "Obligatoire non, fortement recommandé OUI. 90% des sites piratés = sites non à jour. Maintenance = assurance contre catastrophe. <a href='/conseils/2026/01/08/maintenance-site-web.html' class='underline text-peak-yellow'>📖 Maintenance expliquée →</a>"
 
-- question: "Où trouver un prestataire fiable pour la création de site web ?"
-  answer: "Je propose un accompagnement personnalisé et fiable, partout en France, depuis Albertville. <a href='/developpement-web.html#accompagnement' class='underline text-peak-yellow'>Voir l'accompagnement</a>. Contactez-moi pour discuter de votre projet et obtenir des conseils adaptés."
+- question: "RGPD, mentions légales, cookies... c'est obligatoire ?"
+  answer: "OUI pour TOUS les sites. Amendes jusqu'à 20M€ (en théorie). Je fournis tous les modèles, vous n'avez qu'à remplir vos infos. <a href='/conseils/2026/01/08/rgpd-obligations-legales.html' class='underline text-peak-yellow'>📖 Obligations légales →</a>"
 
-- question: "Quels sont les avantages d’utiliser un CMS pour créer un site ?"
-  answer: "Un CMS comme WordPress permet de gérer facilement le contenu, bénéficier de thèmes et plugins, et mettre à jour votre site sans compétences techniques avancées. Idéal pour les sites vitrines simples et professionnels. <a href='/developpement-web.html#type-site' class='underline text-peak-yellow'>Voir les avantages d'un CMS</a>."
+- question: "Ai-je besoin d'un email professionnel (contact@monsite.fr) ?"
+  answer: "OUI. contact@gmail.com = amateur. contact@votresite.fr = professionnel. 75% de confiance en plus. 30-60€/an. <a href='/conseils/2026/01/08/email-professionnel.html' class='underline text-peak-yellow'>📖 Email pro expliqué →</a>"
 
-- question: "Comment créer un blog professionnel avec un site web ?"
-  answer: "Un blog professionnel peut être intégré à votre site vitrine via WordPress ou Jekyll. Je vous accompagne pour créer un blog optimisé SEO, avec navigation claire et mise en page attractive. <a href='/developpement-web.html#type-site' class='underline text-peak-yellow'>Voir la section blog</a>."
+- question: "Comment savoir si mon site fonctionne ?"
+  answer: "Google Analytics (gratuit) vous dit tout : visiteurs, d'où ils viennent, ce qu'ils font. Les 7 chiffres essentiels à surveiller. <a href='/conseils/2026/01/08/analytics-mesurer-performance-site.html' class='underline text-peak-yellow'>📖 Mesurer la performance →</a>"
 
-- question: "Puis-je modifier mon site moi-même ?"
-  answer: "Oui, si votre projet s’y prête, des sites administrables sont proposés, notamment avec WordPress. Une formation à la gestion du contenu est incluse. <a href='/developpement-web.html#type-site' class='underline text-peak-yellow'>Voir nos solutions administrables</a>."
+- question: "Quel type de site choisir (WordPress, sur-mesure, Wix...) ?"
+  answer: "WordPress pour 90% des cas (autonomie), sur-mesure si besoins spécifiques, Wix si budget ultra-serré (mais limitations). <a href='/blog/2025/05/18/type-site.html' class='underline text-peak-yellow'>📖 Types de sites comparés →</a>"
 
-- question: "À qui s’adressent vos services de création de site web ?"
-  answer: "Les services s’adressent aux indépendants, freelances, petites entreprises et associations souhaitant un site vitrine simple, professionnel et humain, avec accompagnement personnalisé. <a href='/developpement-web.html#type-site' class='underline text-peak-yellow'>Voir à qui s'adressent les services</a>."
+- question: "Comment préparer le contenu de mon site ?"
+  answer: "Textes, photos, logo, coordonnées. Checklist complète pour ne rien oublier. 60% des délais = contenu manquant. <a href='/conseils/2024/11/15/contenus.html' class='underline text-peak-yellow'>📖 Préparer le contenu →</a>"
 
-- question: "Travaillez-vous uniquement en Savoie / à Albertville ?"
-  answer: "Basée à Albertville, en Savoie, je peux accompagner des clients partout en France grâce à des échanges à distance personnalisés. <a href='/developpement-web.html#accompagnement' class='underline text-peak-yellow'>Voir l'accompagnement</a>."
+- question: "Comment choisir mon nom de domaine ?"
+  answer: "Court, mémorisable, avec mots-clés si possible. .fr pour France, .com pour international. Vérifier disponibilité. <a href='/web%20strategy/2024/12/18/nom-domaine.html' class='underline text-peak-yellow'>📖 Choisir son domaine →</a>"
 
-- question: "Est-ce possible de vous contacter juste pour un conseil ?"
-  answer: "Oui, il est possible de demander conseil même sans projet défini. Un simple échange permet souvent d’y voir plus clair et d’éviter de mauvaises décisions techniques. <a class='underline text-peak-yellow' href='mailto:contact@peakcl.com'>Contact direct</a>."
+- question: "Quelles couleurs choisir pour mon site ?"
+  answer: "Psychologie des couleurs selon votre secteur. 6 palettes prêtes à l'emploi. Éviter les erreurs classiques. <a href='/ux%20design/2025/02/16/couleurs.html' class='underline text-peak-yellow'>📖 Guide couleurs →</a>"
+
+- question: "Quelles polices/typographies utiliser ?"
+  answer: "4 combinaisons qui fonctionnent toujours. Lisibilité > Originalité. Google Fonts (gratuit) recommandé. <a href='/web%20design/2025/01/12/polices.html' class='underline text-peak-yellow'>📖 Guide typographie →</a>"
+
+- question: "Pourquoi les images/visuels sont importants ?"
+  answer: "Impact énorme sur crédibilité. Photos pros vs photos amateur = différence perception. Avant/après comparés. <a href='/ux%20design/2025/03/17/visuels.html' class='underline text-peak-yellow'>📖 Importance des visuels →</a>"
+
+- question: "Puis-je modifier mon site moi-même après ?"
+  answer: "Oui avec WordPress (90% de mes clients). Formation 1h incluse. Interface simple type Word. <a href='/blog/2025/05/18/type-site.html#wordpress' class='underline text-peak-yellow'>📖 Autonomie WordPress →</a>"
+
+- question: "Travaillez-vous uniquement en Savoie / Albertville ?"
+  answer: "Basée à Albertville, mais j'accompagne des clients partout en France (visio, téléphone, email). Rencontre possible en Savoie. <a href='/qui-suis-je.html' class='underline text-peak-yellow'>En savoir plus sur moi →</a>"
+
+- question: "Combien coûte l'hébergement et le nom de domaine ?"
+  answer: "Domaine : 10-20€/an. Hébergement : 60-150€/an. Email pro : 0-60€/an. Total : 70-230€/an minimum. <a href='/conseils/2026/01/08/budget-site-web.html#frais-récurrents' class='underline text-peak-yellow'>📖 Frais récurrents détaillés →</a>"
+
+- question: "Toutes mes questions en 1 seul endroit ?"
+  answer: "FAQ complète avec les 20 questions que TOUS les clients posent. Réponses honnêtes, sans langue de bois. <a href='/conseils/2026/01/08/faq-creation-site-web.html' class='underline text-peak-yellow'>📖 FAQ complète (20 questions) →</a>"
