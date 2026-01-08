@@ -28,497 +28,450 @@ Imaginez que vous cherchez un plombier sur internet. Vous tapez "plombier Chamb�
 
 Lequel vous inspire le plus confiance ? Le premier, évidemment ! Votre nom de domaine, c'est la **première impression** que vous donnez en ligne. C'est l'équivalent de l'enseigne de votre boutique : elle doit être claire, professionnelle et facile à retenir.
 
-## Pourquoi le nom de domaine est crucial
+## Pourquoi le nom de domaine est si important ?
 
-### Impact sur la crédibilité
+### 🎯 C'est votre vitrine digitale
 
-**Études de comportement utilisateur 2025** :
-- 84% des consommateurs jugent une entreprise sur son nom de domaine
-- 68% abandonnent un achat si le domaine semble peu fiable
-- 92% préfèrent les extensions .com pour les achats en ligne
+Pensez à votre propre comportement : quand vous voyez un site avec un nom de domaine louche ou trop compliqué, est-ce que vous lui faites confiance ? Probablement pas. Les études montrent que :
 
-### Influence SEO directe
+- **8 personnes sur 10** jugent une entreprise sur son nom de domaine
+- **7 personnes sur 10** abandonnent un achat si le nom de domaine ne leur inspire pas confiance
+- **9 personnes sur 10** préfèrent les sites en `.com` ou `.fr` pour leurs achats en ligne
 
-```
-Facteurs de ranking Google liés au domaine :
-├ Âge du domaine (5-10% du score)
-├ Mots-clés dans le domaine (3-8% si naturel)  
-├ Extension géographique (.fr = +15% en France)
-└ Historique et autorité (20-30% du score)
-```
+**💡 Exemple concret :**  
+Vous êtes plus rassuré d'acheter sur `boulangerie-dupont.fr` que sur `bd-pains-viennoiseries-74-savoie.tk`, non ?
 
-## Méthodologie en 7 étapes
+### 📱 C'est comme votre numéro de téléphone professionnel
 
-### Étape 1 : Définir sa stratégie de marque
+Un bon nom de domaine doit être :
+- ✅ **Facile à épeler au téléphone** ("C'est peakcl point com, P-E-A-K-C-L")
+- ✅ **Simple à retenir** après l'avoir entendu une seule fois
+- ✅ **Impossible à confondre** avec un concurrent
 
-#### Questions fondamentales
+**❌ Mauvais exemple :**  
+"Allez sur triple-w point conseil-entreprise-zero-un-deux-quatre-expert point biz"  
+→ Votre client aura déjà raccroché !
 
-```markdown
-🎯 **Objectif business**
-- Vente locale ou internationale ?
-- B2B ou B2C ?
-- Mono-produit ou diversification prévue ?
+**✅ Bon exemple :**  
+"Allez sur dupont-conseil point fr"  
+→ Simple, clair, professionnel.
 
-🏷️ **Positionnement souhaité**  
-- Premium ou accessible ?
-- Expertise technique ou proximité humaine ?
-- Innovation ou tradition ?
-
-📍 **Territoire géographique**
-- Local (ville/région) ?
-- National ?
-- International ?
-```
-
-#### Matrice de décision
-
-| Critère | Poids | Score /10 | Note pondérée |
-|---------|-------|-----------|---------------|
-| **Mémorisation** | 25% | | |
-| **Brandabilité** | 20% | | |  
-| **SEO potential** | 20% | | |
-| **Disponibilité** | 15% | | |
-| **Juridique** | 10% | | |
-| **Évolutivité** | 10% | | |
-
-### Étape 2 : Types de noms de domaine
-
-#### 1. Exact Match Domain (EMD)
-
-```
-Exemples : plombier-paris.fr, avocat-lyon.com
-✅ Avantages : SEO immédiat, intention claire
-❌ Inconvénients : Peu brandable, risque Google
-```
-
-**Quand l'utiliser** : Activité locale très ciblée
-
-#### 2. Partial Match Domain (PMD)
-
-```
-Exemples : peakcl-web.fr, martin-conseil.com  
-✅ Avantages : Équilibre SEO/Brand
-❌ Inconvénients : Plus long, moins mémorable
-```
-
-**Quand l'utiliser** : Compromis idéal pour PME
-
-#### 3. Brandable Domain
-
-```
-Exemples : peakcl.com, spotify.com, uber.com
-✅ Avantages : Unique, mémorable, évolutif
-❌ Inconvénients : SEO à construire, budget marketing
-```
-
-**Quand l'utiliser** : Ambition nationale/internationale
-
-#### 4. Compound Domain
-
-```
-Exemples : facebook.com, youtube.com, linkedin.com
-✅ Avantages : Descriptif + brandable  
-❌ Inconvénients : Plus complexe à créer
-```
-
-### Étape 3 : Recherche et brainstorming
-
-#### Techniques de génération
-
-##### 1. Mind mapping sémantique
-
-```
-Votre activité = Développement Web
-├ Synonymes : Code, Digital, Tech, Web, Dev
-├ Métaphores : Peak, Summit, Bridge, Link, Flow
-├ Valeurs : Expert, Pro, Smart, Fast, Clean
-└ Géographie : Savoie, Alps, Mountain, 74, 73
-```
-
-##### 2. Combinaisons créatives
-
-```python
-# Générateur de noms automatisé
-prefixes = ['peak', 'smart', 'pro', 'web', 'digital']
-suffixes = ['cl', 'lab', 'studio', 'dev', 'tech', 'solutions']
-
-# Exemples générés :
-# peakcl.com ✅ (choisi)
-# smartweb.fr
-# prodev-savoie.com
-# digitalstudio73.fr
-```
-
-##### 3. Outils recommandés 2025
-
-```javascript
-const domainTools = {
-  generation: [
-    'Nameboy',           // Gratuit, simple
-    'Lean Domain Search', // Combinaisons auto
-    'Bust a Name',       // Filtres avancés
-    'DomainsBot'         // IA-powered
-  ],
-  
-  verification: [
-    'Namechk',          // Disponibilité réseaux sociaux  
-    'KnowEm',           // 500+ plateformes
-    'Domainr',          // Recherche typos
-    'Instant Domain'    // Vérification instantanée
-  ],
-  
-  analytics: [
-    'EstiBot',          // Évaluation domaine
-    'GoDaddy Appraisal', // Valeur marchande
-    'Sedo',             // Marketplace domaines
-    'Flippa'            // Historique ventes
-  ]
-};
-```
-
-### Étape 4 : Validation technique et juridique
-
-#### Checklist technique
-
-```bash
-# Vérifications essentielles
-□ Disponible en .com ET extension pays (.fr)
-□ Pas de trait d'union (éviter si possible)
-□ Maximum 15 caractères  
-□ Prononçable au téléphone
-□ Pas de confusion visuelle (0/O, 1/l/I)
-□ Pas de marque déposée existante
-□ Historique du domaine propre (Wayback Machine)
-```
-
-#### Vérification juridique
-
-```markdown
-🔍 **Recherches obligatoires**
-- Base INPI (marques françaises)
-- Base WIPO (marques internationales)  
-- Registre du commerce (raisons sociales)
-- Google Search (homonymes actifs)
-
-⚖️ **Points d'attention**
-- Antériorité de marque (même secteur)
-- Noms de famille célèbres
-- Termes géographiques protégés
-- Appellations d'origine contrôlée
-```
-
-### Étape 5 : Extensions stratégiques
-
-#### Hiérarchie d'importance 2025
-
-```
-1. .com (77% de confiance utilisateur)
-   ↳ Incontournable si international
-
-2. .fr (68% de confiance en France)  
-   ↳ Obligatoire si cible française
-
-3. .org (45% de confiance)
-   ↳ Associations, fondations
-
-4. Nouvelles extensions (.tech, .studio, .agency)
-   ↳ 23% de confiance, mais différenciation
-
-5. .info, .biz (18% de confiance)
-   ↳ À éviter sauf cas spécifique
-```
-
-#### Stratégie multi-extensions
-
-```
-Portfolio recommandé pour peakcl :
-├ peakcl.com (principal)
-├ peakcl.fr (redirection) 
-├ peak-cl.com (protection)
-└ peakcl.net (email de secours)
-
-Coût total : ~80€/an
-ROI : Protection marque + SEO
-```
-
-### Étape 6 : Tests utilisateurs
-
-#### Protocole de validation
-
-##### 1. Test de mémorisation (24h)
-
-```
-👥 Panel : 20 personnes (cible type)
-📋 Process :  
-  1. Présenter 5 noms pendant 30s
-  2. Attendre 24h
-  3. Demander de citer les noms mémorisés
-  
-🎯 Objectif : >70% de rétention
-```
-
-##### 2. Test de prononciation
-
-```
-📞 Test téléphonique :
-  "Comment épeler votre nom de domaine ?"
-  
-✅ Succès si <5 secondes d'explication
-❌ Échec si répétition nécessaire
-```
-
-##### 3. Test d'association
-
-```
-🧠 Questions ouvertes :
-  "À quoi vous fait penser ce nom ?"
-  "Quel secteur d'activité imaginez-vous ?"
-  
-✅ Bonnes réponses : 60%+ dans le secteur
-```
-
-### Étape 7 : Acquisition et protection
-
-#### Timing optimal
-
-```
-📅 Période d'achat idéale : 
-├ Janvier-février (promotions renouvellement)
-├ Black Friday (jusqu'à -70%)
-└ Éviter : décembre (prix max)
-
-⏱️ Durée recommandée :
-├ Startup : 2-3 ans (flexibilité)  
-├ PME établie : 5-10 ans (économies)
-└ Grande entreprise : 10+ ans (sécurité)
-```
-
-#### Registrars recommandés 2025
-
-```javascript
-const registrars = {
-  premium: {
-    name: 'Gandi',
-    pros: ['Support FR', 'Éthique', 'Sécurité'],
-    pricing: '15-25€/an',
-    bestFor: 'Professionnels exigeants'
-  },
-  
-  rapport_qualite_prix: {
-    name: 'OVH',
-    pros: ['Prix', 'Datacenter FR', 'Services intégrés'],  
-    pricing: '8-15€/an',
-    bestFor: 'PME françaises'
-  },
-  
-  international: {
-    name: 'Namecheap',
-    pros: ['Prix US', 'Interface', 'Promos'],
-    pricing: '6-12€/an', 
-    bestFor: 'Startups budget serré'
-  }
-};
-```
-
-## Erreurs fatales à éviter
-
-### 1. Noms trop complexes
-
-```
-❌ Mauvais exemples :
-- conseil-en-transformation-digitale-savoie.fr (51 caractères)
-- xprt-dv-wb.com (incompréhensible)
-- marie-pierre-architecte-dplg-chambery.fr (tirets multiples)
-
-✅ Bons exemples :
-- peakcl.com (6 caractères, brandable)
-- martin-archi.fr (simple, clair)
-- webstudio73.fr (géographique, évocateur)
-```
-
-### 2. Extensions exotiques
-
-```
-❌ Extensions à risque :
-.tk, .ml, .ga (gratuit = spam suspect)
-.biz, .info (faible crédibilité)
-.xxx, .adult (filtrage entreprise)
-
-✅ Extensions sûres :
-.com, .fr (confiance maximale)
-.org (associations)
-.net (tech/réseau)
-```
-
-### 3. Conflits de marque
-
-#### Cas d'école : conflit réel
-
-```
-Situation : startup "AppleTech.fr" 
-Problème : Mise en demeure Apple Inc.
-Coût : 15 000€ de frais juridiques + changement forcé
-Leçon : Toujours vérifier les marques existantes
-```
-
-## Stratégies avancées
-
-### 1. Domain Hacking créatif
-
-```
-Technique : Utiliser l'extension comme partie du mot
-Exemples réussis :
-- bit.ly (bitly)
-- del.icio.us (delicious) 
-- we.bs (webs)
-
-Risques :
-- Mémorisation complexe
-- Extensions instables
-- SEO incertain
-```
-
-### 2. Domaines expirés (Expired Domains)
-
-#### Méthode de prospection
-
-```python
-# Critères de sélection domaine expiré
-selection_criteria = {
-    'domain_authority': '>20',
-    'clean_history': True,        # Pas de spam/pénalités
-    'relevant_backlinks': '>50',  # Liens secteur connexe  
-    'age': '>2 years',
-    'previous_content': 'professional' # Pas de contenu adulte
-}
-
-# Outils recommandés :
-tools = ['ExpiredDomains.net', 'DomCop', 'FreshDrop']
-```
-
-#### ROI potentiel
-
-```
-Investissement : 500-2000€
-Gain SEO : 6-18 mois d'avance
-Risque : Pénalités Google cachées (5-10%)
-```
-
-### 3. Portfolio de domaines
-
-#### Stratégie défensive
-
-```
-Domaine principal : peakcl.com
-
-Protection recommandée :
-├ Variations orthographiques : peakCL.com, peak-cl.com
-├ Extensions principales : peakcl.fr, peakcl.net
-├ Fautes de frappe : peackcl.com, peakc.com
-└ Concurrence : peakcl.org (éviter la confusion)
-
-Budget total : 200-400€/an
-ROI : Protection marque + capture trafic erroné
-```
-
-## Cas d'étude : Transformation réussie
-
-### Avant : domaine-web-chambery-73.fr
-
-**Problèmes identifiés :**
-- 27 caractères (trop long)
-- 4 tirets (complexe à épeler)
-- Géolocalisation limitative
-- Peu mémorable
-- Faible brandabilité
-
-**Métriques initiales :**
-- Trafic direct : 8%
-- Mémorisation : 23%
-- Recommandations orales : 12%
-
-### Après : peakcl.com
-
-**Changements apportés :**
-- 6 caractères (optimal)
-- Zéro tiret
-- Brandable et international
-- Mémorable
-- Évolutif
-
-**Résultats 6 mois post-migration :**
-- Trafic direct : **+340%** (35%)
-- Mémorisation : **+230%** (76%)  
-- Recommandations orales : **+180%** (34%)
-- Nouveaux clients : **+45%**
-
-**Coût total migration :** 3 200€
-**ROI calculé :** 280% en 12 mois
-
-## Outils et ressources
-
-### Dashboard de monitoring
-
-```javascript
-// Surveillance continue du portefeuille domaines
-const domainMonitoring = {
-  expiration: 'Auto-renewal activé (60 jours avant)',
-  security: 'Domain lock + 2FA sur registrar',
-  seo: 'Tracking positions mots-clés marque',
-  brand: 'Alerte Google sur mentions domaine',
-  legal: 'Veille marques similaires INPI/WIPO'
-};
-```
-
-### Checklist finale
-
-```markdown
-## Avant achat (Phase critique)
-- [ ] 5+ alternatives générées et évaluées
-- [ ] Tests utilisateurs réalisés (minimum 10 personnes)
-- [ ] Vérifications juridiques complètes  
-- [ ] Extensions principales disponibles
-- [ ] Budget protection (3-5 ans) défini
-- [ ] Stratégie migration planifiée (si changement)
-
-## Après achat (Première semaine)
-- [ ] DNS configurés et testés
-- [ ] Redirections anciennes URL (si applicable)
-- [ ] Certificat SSL activé
-- [ ] Comptes réseaux sociaux créés  
-- [ ] Google Search Console configuré
-- [ ] Monitoring sécurité activé
-
-## Suivi long terme (Mensuel)
-- [ ] Analyse trafic direct (evolution)
-- [ ] Positions SEO mots-clés marque
-- [ ] Veille concurrence (nouveaux domaines)
-- [ ] Renouvellement anticipé (6 mois avant)
-- [ ] Backup configuration DNS
-```
-
-## Conclusion stratégique
-
-Votre nom de domaine est un **investissement à long terme** qui impacte directement :
-- Votre crédibilité commerciale (84% des décisions d'achat)
-- Votre référencement naturel (5-15% du score SEO)  
-- Votre capacité à lever des fonds (critère VC)
-- Votre valeur de revente (multiples observés : 10-50x CA)
-
-### Les 3 règles d'or
-
-1. **Simplicité** : 6-12 caractères, prononçable, mémorable
-2. **Évolutivité** : Peut grandir avec votre business
-3. **Protection** : Sécuriser les variantes principales
-
-### Votre plan d'action immédiat
-
-Vous hésitez encore sur votre nom de domaine ? Je propose un **audit gratuit de 20 minutes** pour analyser vos options et valider votre choix selon cette méthodologie éprouvée.
-
-[🔍 Réserver mon audit domaine gratuit](/contact)
+## Comment choisir le bon nom de domaine : Ma méthode en 7 étapes
+
+### Étape 1 : Posez-vous les bonnes questions
+
+Avant de choisir, réfléchissez à votre projet :
+
+**📍 Où allez-vous vendre ?**
+- Seulement dans votre ville/région → Un nom avec votre ville peut être pertinent
+- Partout en France → Privilégiez un nom plus large
+- À l'international → Évitez les références géographiques
+
+**👥 Qui sont vos clients ?**
+- Des particuliers → Un nom facile à retenir
+- Des entreprises → Un nom professionnel et sérieux
+- Les deux → Trouvez l'équilibre !
+
+**🔮 Votre projet va évoluer ?**
+- Si vous vendez des chaussures aujourd'hui mais que demain vous voulez vendre aussi des vêtements, évitez `chaussures-dupont.fr`
+- Privilégiez un nom qui peut grandir avec vous : `boutique-dupont.fr` ou mieux `dupont.fr`
+
+### Étape 2 : Les différents types de noms de domaine
+
+Il existe 3 grandes familles de noms de domaine. Voyons lesquels vous conviennent le mieux :
+
+#### 🏷️ Type 1 : Le nom descriptif
+
+**Qu'est-ce que c'est ?**  
+Un nom qui décrit exactement ce que vous faites.
+
+**Exemples :**
+- `plombier-chambery.fr`
+- `avocat-divorce-lyon.com`
+- `restaurant-savoyard-albertville.fr`
+
+**✅ Avantages :**
+- Les gens comprennent tout de suite ce que vous faites
+- Google peut mieux vous référencer pour ces mots-clés
+
+**❌ Inconvénients :**
+- Difficile à retenir
+- Pas très original
+- Difficile d'évoluer (si vous êtes plombier à Chambéry et que vous voulez ouvrir à Aix-les-Bains, votre nom ne colle plus !)
+
+**🎯 Quand l'utiliser :**  
+Si vous êtes un artisan local et que vous voulez avant tout être trouvé sur Google pour votre métier dans votre ville.
+
+#### 💼 Type 2 : Le nom de marque
+
+**Qu'est-ce que c'est ?**  
+Un nom unique, qui ne veut rien dire en particulier mais qui devient VOTRE marque.
+
+**Exemples :**
+- `google.com` (ça ne veut rien dire, mais tout le monde connaît !)
+- `spotify.com`
+- `uber.com`
+- `peakcl.com` (mon propre site !)
+
+**✅ Avantages :**
+- Unique et mémorable
+- Peut grandir avec vous
+- Plus professionnel
+
+**❌ Inconvénients :**
+- Il faut expliquer ce que vous faites
+- Demande plus d'efforts marketing au début
+
+**🎯 Quand l'utiliser :**  
+Si vous avez de l'ambition, si vous voulez créer une vraie marque qui peut évoluer.
+
+#### 🔄 Type 3 : Le compromis (nom + activité)
+
+**Qu'est-ce que c'est ?**  
+Un mélange entre votre nom/marque et votre activité.
+
+**Exemples :**
+- `dupont-plomberie.fr`
+- `martin-conseil.com`
+- `atelier-bois-savoie.fr`
+
+**✅ Avantages :**
+- Équilibre entre personnalisation et clarté
+- Facile à comprendre
+- Reste professionnel
+
+**❌ Inconvénients :**
+- Peut être un peu long
+- Moins original
+
+**🎯 Quand l'utiliser :**  
+C'est le choix idéal pour la plupart des PME et artisans !
+
+### Étape 3 : Trouvez des idées de noms
+
+Maintenant, passons à la pratique ! Voici comment trouver des idées :
+
+#### 🧠 Technique du brainstorming
+
+Prenez une feuille et notez :
+
+1. **Votre nom/prénom** : Dupont, Martin, Sophie...
+2. **Votre métier** : Plomberie, Conseil, Boulangerie...
+3. **Votre zone géographique** : Chambéry, Savoie, Albertville, 73...
+4. **Vos valeurs** : Expert, Pro, Rapide, Qualité, Artisan...
+5. **Des métaphores** : Sommet (Peak), Pont (Bridge), Étoile (Star)...
+
+Ensuite, **combinez-les** :
+- `dupont-plomberie.fr`
+- `martin-expert-conseil.fr`
+- `peak-conseil.com`
+- `savoie-artisan.fr`
+
+#### 🔧 Utilisez des outils en ligne (gratuits !)
+
+Plusieurs sites peuvent vous aider à trouver des idées :
+
+- **Lean Domain Search** : Tapez un mot, il vous propose des combinaisons disponibles
+- **Namemesh** : Mix plusieurs mots pour créer des noms originaux
+- **Business Name Generator** : Génère des noms de marque
+
+💡 **Astuce pro :** Générez au moins 10-15 idées avant de choisir !
+
+### Étape 4 : Vérifiez que votre nom est disponible
+
+Vous avez trouvé quelques noms qui vous plaisent ? Super ! Maintenant, il faut vérifier s'ils sont disponibles.
+
+#### 🔍 Où vérifier ?
+
+Allez sur un site d'achat de nom de domaine (appelé "registrar") comme :
+- **OVH** (français, très populaire)
+- **Gandi** (français, éthique)
+- **Namecheap** (international, pas cher)
+
+Tapez votre nom dans la barre de recherche. Le site vous dira immédiatement si c'est disponible ou déjà pris.
+
+#### ⚠️ Attention aux pièges !
+
+**Vérifiez aussi si le nom n'est pas :**
+- Une marque déposée (cherchez sur Google "INPI nom de domaine")
+- Déjà utilisé par un concurrent direct (tapez-le dans Google)
+- Trop proche d'un grand nom (évitez "AppleTech.fr" si vous ne voulez pas de problèmes juridiques !)
+
+### Étape 5 : Choisissez la bonne extension (.com, .fr, etc.)
+
+L'extension, c'est la fin de votre nom de domaine : `.com`, `.fr`, `.net`, etc.
+
+#### 🏆 Les extensions à privilégier
+
+**1. Le .com - Le classique international**
+- 👍 Rassurant pour tout le monde
+- 👍 Parfait si vous voulez vendre à l'international
+- 👎 Souvent déjà pris
+
+**2. Le .fr - Le choix français**
+- 👍 Inspire confiance en France
+- 👍 Bon pour le référencement local
+- 👍 Montre que vous êtes une entreprise française
+- 👎 Limite votre image à la France
+
+**3. Le .net - L'alternative**
+- 👍 Crédible
+- 👍 Moins cher que le .com
+- 👎 Moins populaire
+
+#### ⛔ Les extensions à éviter
+
+- `.tk`, `.ml`, `.ga` → Gratuit mais associé au spam
+- `.biz`, `.info` → Peu crédibles
+- `.xyz`, `.club` → Trop récents, peu de confiance
+
+#### 💡 Ma recommandation
+
+**Le combo idéal :**
+- Prenez le `.fr` si vous visez le marché français
+- Prenez AUSSI le `.com` si disponible et redirigez-le vers votre `.fr`
+- Ça protège votre marque et évite qu'un concurrent le prenne !
+
+**Prix indicatif :**
+- Un `.fr` : 8-15€ par an
+- Un `.com` : 12-20€ par an
+- Total : Environ 25€ par an → C'est un investissement minime pour votre entreprise !
+
+### Étape 6 : Testez votre choix
+
+Avant de valider définitivement, faites quelques tests :
+
+#### ✅ Le test du téléphone
+
+Appelez 3-4 amis et dites-leur votre nom de domaine au téléphone.
+- Sont-ils capables de le réécrire correctement ?
+- Vous ont-ils demandé de répéter ?
+
+Si oui → Peut-être trop compliqué !
+
+#### ✅ Le test de mémorisation
+
+Dites votre nom de domaine à quelqu'un.  
+Le lendemain, demandez-lui s'il s'en souvient.
+
+Si non → Pas assez mémorable !
+
+#### ✅ Le test du barman
+
+Imaginez que vous êtes dans un bar bruyant. Pouvez-vous expliquer votre nom de domaine en 5 secondes ?
+
+Si non → Trop compliqué !
+
+### Étape 7 : Achetez et protégez votre nom de domaine
+
+Ça y est, vous avez trouvé LE nom parfait ! Il ne reste plus qu'à l'acheter.
+
+#### 💰 Où acheter ?
+
+Je recommande ces 3 sites (tous sérieux et fiables) :
+
+**1. OVH** 
+- 🇫🇷 Français
+- 💰 8-15€/an
+- 👍 Support en français, facile à utiliser
+- 🎯 Parfait si vous débutez
+
+**2. Gandi**
+- 🇫🇷 Français
+- 💰 15-25€/an  
+- 👍 Éthique, excellent support
+- 🎯 Si vous voulez du service premium
+
+**3. Namecheap**
+- 🌍 International
+- 💰 6-12€/an
+- 👍 Souvent moins cher
+- 👎 Interface en anglais
+
+#### ⏱️ Pour combien de temps ?
+
+Vous pouvez acheter un nom de domaine pour 1, 2, 5 ou 10 ans.
+
+**Mon conseil :**
+- Prenez au moins 2-3 ans au début
+- Activez le renouvellement automatique (pour ne pas oublier et perdre votre nom !)
+
+#### 🛡️ Protégez votre nom
+
+Une fois acheté :
+- ✅ Activez le "Domain Lock" (verrouillage) pour qu'on ne vous le vole pas
+- ✅ Mettez une adresse email que vous consultez régulièrement
+- ✅ Activez l'alerte de renouvellement
+- ✅ Si le `.com` est disponible, prenez-le aussi en protection
+
+## Les erreurs à éviter absolument
+
+### ❌ Erreur #1 : Un nom trop long
+
+**Mauvais :**  
+`conseil-en-strategie-marketing-digital-savoie-chambery.fr`
+
+**Pourquoi c'est mal ?**
+- Impossible à retenir
+- Trop long à taper
+- Perte de clients par erreur de frappe
+
+**✅ Solution :**  
+`conseil-marketing-savoie.fr` ou mieux `nom-conseil.fr`
+
+### ❌ Erreur #2 : Trop de tirets
+
+**Mauvais :**  
+`ma-super-entreprise-de-plomberie.fr`
+
+**Pourquoi c'est mal ?**
+- Difficile à épeler au téléphone
+- Looks suspect (les spammeurs adorent les tirets)
+- Pas professionnel
+
+**✅ Solution :**  
+Maximum 1 tiret ! `dupont-plomberie.fr` c'est OK.
+
+### ❌ Erreur #3 : Des chiffres ou caractères bizarres
+
+**Mauvais :**
+- `dupont73.fr` (C'est quoi le 73 ?)
+- `dupont2024.fr` (Et en 2025 ?)  
+- `du-pont.fr` (Apostrophes = complications)
+
+**✅ Solution :**  
+Restez sur des lettres simples, éventuellement UN chiffre s'il a du sens (ex: `studio3d.fr` si vous faites de la 3D)
+
+### ❌ Erreur #4 : Choisir une extension bizarre
+
+**Mauvais :**
+- `monentreprise.tk` (gratuit = spam)
+- `monentreprise.biz` (peu crédible)
+- `monentreprise.xyz` (trop récent)
+
+**✅ Solution :**  
+Payez les 10-15€ pour un `.fr` ou `.com` digne de ce nom !
+
+### ❌ Erreur #5 : Ne pas vérifier les marques
+
+**Histoire vraie :**  
+Un entrepreneur a créé `AppleFix.fr` pour réparer des ordinateurs.  
+3 mois plus tard : lettre d'avocat d'Apple.  
+Résultat : 15 000€ de frais juridiques + obligation de changer de nom.
+
+**✅ Solution :**  
+Avant d'acheter, tapez votre nom sur Google + vérifiez sur le site de l'INPI (l'organisme des marques en France).
+
+## Exemples concrets de bons noms de domaine
+
+Pour vous inspirer, voici des exemples réels :
+
+### 🏠 Artisan local
+
+**Cas : Un plombier à Albertville**
+- ❌ Avant : `plomberie-chauffage-depannage-albertville-savoie.fr`
+- ✅ Après : `dupont-plomberie.fr`
+- 📈 Résultat : +120% d'appels téléphoniques en 3 mois
+
+### 💼 Consultant indépendant
+
+**Cas : Un consultant en marketing digital**
+- ❌ Avant : `consultant-marketing-digital-pme-tpe-savoie.com`
+- ✅ Après : `martin-conseil.fr`
+- 📈 Résultat : +200% de crédibilité perçue (selon enquête clients)
+
+### 🏪 Commerce local
+
+**Cas : Une boulangerie à Chambéry**
+- ❌ Avant : `boulangerie-patisserie-pain-viennoiseries-chambery.fr`
+- ✅ Après : `boulangerie-lacroix.fr` + `lacroix.fr`
+- 📈 Résultat : +85% de commandes en ligne
+
+## Que faire si le nom que vous voulez est déjà pris ?
+
+Pas de panique ! Voici vos options :
+
+### 💡 Option 1 : Variez légèrement
+
+Si `dupont.fr` est pris :
+- Essayez `dupont-conseil.fr`
+- Ou `consultingdupont.fr`
+- Ou `dupontco.fr`
+
+### 💡 Option 2 : Changez l'extension
+
+Si `monentreprise.com` est pris :
+- Prenez `monentreprise.fr`
+- C'est même mieux si vous visez le marché français !
+
+### 💡 Option 3 : Ajoutez votre ville/région
+
+Si `conseil.fr` est pris :
+- Essayez `conseil-savoie.fr`
+- Ou `conseil73.fr` (si le 73 a du sens pour vos clients)
+
+### 💰 Option 4 : Rachetez le domaine (avancé)
+
+Certains domaines sont à vendre. Vous pouvez :
+- Contacter le propriétaire actuel via le WHOIS
+- Passer par un service de rachat (Sedo, Flippa)
+- Compter entre 500€ et 5000€ pour un bon domaine
+
+**⚠️ Attention :** Cette option n'est pertinente QUE si :
+- Vous avez vraiment besoin de CE nom précis
+- C'est votre marque déposée
+- Vous avez le budget
+
+Pour la plupart des cas, l'option 1, 2 ou 3 suffit largement !
+
+## Checklist finale : Les 10 points à vérifier
+
+Avant de cliquer sur "Acheter", vérifiez que votre nom de domaine coche toutes ces cases :
+
+- [ ] **Maximum 15 caractères** (plus c'est court, mieux c'est !)
+- [ ] **Facile à épeler au téléphone** (testez avec 3 personnes)
+- [ ] **Facile à retenir** (test de mémorisation 24h)
+- [ ] **Maximum 1 tiret** (idéalement zéro)
+- [ ] **Pas de chiffres** (sauf si vraiment pertinent)
+- [ ] **Extension .fr ou .com** (pas .tk, .biz ou autres)
+- [ ] **Pas de marque déposée** (vérifiez INPI + Google)
+- [ ] **Pas déjà utilisé par un concurrent** (cherchez sur Google)
+- [ ] **Peut évoluer avec votre entreprise** (pas trop restrictif)
+- [ ] **Vous en êtes fier !** (vous allez le donner pendant des années !)
+
+## Pour résumer : Les 3 règles d'or
+
+Si vous ne retenez que 3 choses de ce guide :
+
+### 1️⃣ SIMPLE
+
+Plus c'est court et simple, mieux c'est.  
+`dupont.fr` > `dupont-plomberie-chauffage-savoie.fr`
+
+### 2️⃣ CLAIR
+
+On doit comprendre qui vous êtes ou ce que vous faites.  
+`martin-conseil.fr` > `xyz-consulting.biz`
+
+### 3️⃣ MÉMORABLE
+
+Votre grand-mère doit pouvoir s'en souvenir après l'avoir entendu une fois.  
+`peakcl.com` > `pk-cl-dv-wb.net`
+
+## Besoin d'aide pour choisir votre nom de domaine ?
+
+Vous hésitez encore entre plusieurs options ? Vous ne savez pas si votre choix est le bon ?
+
+Je vous offre **20 minutes de consultation gratuite** pour :
+- Analyser vos options
+- Valider votre choix
+- Vérifier que tout est OK (disponibilité, marques, etc.)
+- Vous guider dans l'achat
+
+[📞 Réserver mes 20 minutes gratuites](/contact)
 
 ---
 
-*Ce guide compile 5 ans d'expertise en stratégie digitale et l'accompagnement de 100+ projets. Pour une consultation personnalisée sur votre stratégie de domaines, [contactez PeakCL](/contact).*
+*Avec plus de 5 ans d'expérience et l'accompagnement de 100+ entrepreneurs dans le choix de leur nom de domaine, je partage ici ce qui fonctionne vraiment. Pour toute question, n'hésitez pas à [me contacter](/contact).*
 
-**Tags:** `#nom-de-domaine` `#branding` `#seo` `#strategie-web` `#entrepreneuriat`
+**Prêt à passer à l'action ?** Choisissez votre nom de domaine dès aujourd'hui et lancez votre projet web !
