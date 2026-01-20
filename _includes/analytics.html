@@ -1,16 +1,25 @@
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) - Load after user interaction -->
 {% if site.google_analytics %}
-<script async defer src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{ site.google_analytics }}', {
-    'send_page_view': false
+  // Lazy load GA4 after user interaction
+  var gaLoaded = false;
+  function loadGA() {
+    if (gaLoaded) return;
+    gaLoaded = true;
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}';
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  }
+  // Load on first interaction (scroll, click, touch)
+  ['scroll', 'click', 'touchstart'].forEach(function(event) {
+    window.addEventListener(event, loadGA, { once: true, passive: true });
   });
-  // Send pageview after page load
-  window.addEventListener('load', function() {
-    gtag('event', 'page_view');
-  });
+  // Fallback: load after 5s if no interaction
+  setTimeout(loadGA, 5000);
 </script>
 {% endif %}

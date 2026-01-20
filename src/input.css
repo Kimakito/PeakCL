@@ -16,6 +16,16 @@ html {
     --color-peak-gray-dark: #1F2937;
 }
 
+/* Performance optimizations */
+.hover\:scale-105:hover,
+.hover\:scale-110:hover {
+    will-change: transform;
+}
+
+.animate-fade-in {
+    will-change: opacity;
+}
+
 /* Components */
 .transition-wave {
     position: absolute;
