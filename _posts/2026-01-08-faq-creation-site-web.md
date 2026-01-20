@@ -11,7 +11,7 @@ tags:
   - création site web
   - développeur web Savoie
   - développeur web Albertville
-image: /assets/images/content.webp
+image: /assets/images/faq.webp
 canonical: https://peakcl.com/conseils/2026/01/08/faq-creation-site-web.html
 reading_time: 15
 excerpt: "Combien coûte un site ? Combien de temps ça prend ? Ai-je besoin d'un site si j'ai Facebook ? Les 20 questions que TOUS mes clients posent avant de créer leur site."

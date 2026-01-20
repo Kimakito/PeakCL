@@ -10,7 +10,7 @@ tags:
   - crédibilité
   - nom de domaine
   - développeur web Savoie
-image: /assets/images/violet_computer.webp
+image: /assets/images/email.webp
 canonical: https://peakcl.com/conseils/2026/01/08/email-professionnel.html
 reading_time: 10
 excerpt: "contact@gmail.com vs contact@votreentreprise.fr : lequel inspire le plus confiance ? Je vous explique pourquoi un email professionnel est un investissement de 30€/an qui change tout."

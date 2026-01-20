@@ -13,7 +13,7 @@ tags:
   - site web
   - développeur web Savoie
   - développeur web Albertville
-image: /assets/images/web.avif
+image: /assets/images/web.webp
 canonical: https://peakcl.com/blog/budget-cout-site-web/
 reading_time: 15
 excerpt: "La question que tout le monde se pose : combien coûte vraiment un site web ? Découvrez les tarifs réels en 2026, ce qui est inclus, et comment éviter les mauvaises surprises."

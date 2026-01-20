@@ -11,7 +11,7 @@ tags:
   - smartphone
   - design
   - développeur web Savoie
-image: /assets/images/desktop.webp
+image: /assets/images/responsive.webp
 canonical: https://peakcl.com/conseils/2026/01/08/site-responsive-mobile-first.html
 reading_time: 11
 excerpt: "68% des visites web se font sur smartphone. Si votre site n'est pas adapté mobile, vous perdez 7 clients sur 10. Je vous explique le responsive design simplement."

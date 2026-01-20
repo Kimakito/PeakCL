@@ -11,7 +11,7 @@ tags:
   - mises à jour
   - site web
   - développeur web Savoie
-image: /assets/images/code.webp
+image: /assets/images/maintenance.webp
 canonical: https://peakcl.com/conseils/2026/01/08/maintenance-site-web.html
 reading_time: 12
 excerpt: "Un site web, ce n'est pas 'créer et oublier'. Comme une voiture, ça s'entretient. Je vous explique pourquoi, combien ça coûte, et ce qui se passe si vous ne le faites pas."
