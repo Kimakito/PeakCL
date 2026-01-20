@@ -81,7 +81,7 @@ Pour des besoins spécifiques :
 
 <div class="bg-peak-yellow/10 p-6 rounded-lg my-8 border border-peak-yellow/30">
   <h3 class="text-xl font-bold text-peak-yellow mb-3">📩 Besoin d'un devis personnalisé ?</h3>
-  <p class="mb-4">Chaque projet est unique. Je vous propose un devis gratuit sous 24h après analyse de vos besoins.</p>
+  <p class="mb-4">Chaque projet est unique. Je vous propose un devis gratuit sous 24 à 48h après analyse de vos besoins.</p>
   <a href="#contact" class="inline-block bg-peak-yellow text-peak-blue-dark font-bold px-6 py-3 rounded-full hover:bg-yellow-300 transition-all">Demander mon devis gratuit →</a>
 </div>
 
@@ -266,7 +266,7 @@ Maintenant que vous savez **combien coûte un site web**, **combien de temps ça
 
 1. **Contact** : Vous me contactez via le formulaire ci-dessous
 2. **Entretien découverte** : On discute de votre projet (30 min, gratuit)
-3. **Devis personnalisé** : Je vous envoie un devis détaillé sous 24h
+3. **Devis personnalisé** : Je vous envoie un devis détaillé sous 24 à 48h
 4. **Validation** : Vous validez, on lance le projet
 5. **Suivi régulier** : Points d'étape toutes les semaines
 6. **Livraison** : Formation + mise en ligne
@@ -277,18 +277,18 @@ Maintenant que vous savez **combien coûte un site web**, **combien de temps ça
 ✅ **Transparence tarifaire** : Devis détaillé, pas de coûts cachés  
 ✅ **Délais respectés** : Planning clair dès le départ  
 ✅ **Formation incluse** : Vous êtes autonome sur votre site  
-✅ **Support réactif** : Réponse sous 24h en semaine  
+✅ **Support réactif** : Réponse sous 24 à 48h en semaine  
 ✅ **Qualité professionnelle** : Code propre, SEO optimisé, design moderne
 
 ---
 
 <div class="bg-peak-yellow/10 p-8 rounded-lg my-12 border border-peak-yellow/30 text-center">
   <h2 class="text-3xl font-bold text-peak-yellow mb-4">Prêt à créer votre site web à Albertville ?</h2>
-  <p class="text-xl mb-6">Recevez votre devis personnalisé gratuit sous 24h</p>
+  <p class="text-xl mb-6">Recevez votre devis personnalisé gratuit sous 24 à 48h</p>
   <a href="#contact" class="inline-block bg-peak-yellow text-peak-blue-dark font-extrabold px-10 py-5 rounded-full hover:bg-yellow-300 transition-all shadow-2xl transform hover:scale-105 text-xl">
     📩 Demander mon devis gratuit
   </a>
-  <p class="mt-4 text-sm text-peak-gray">Sans engagement • Réponse sous 24h • Développeur local en Savoie</p>
+  <p class="mt-4 text-sm text-peak-gray">Sans engagement • Réponse sous 24 à 48h • Développeur local en Savoie</p>
 </div>
 
 ---
