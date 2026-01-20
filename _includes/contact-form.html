@@ -8,16 +8,29 @@
         <form name="contact" method="POST" data-netlify="true" class="space-y-6 sm:space-y-8" aria-label="Formulaire de contact PeakCL">
             <input type="hidden" name="form-name" value="contact">
 
-            <label for="nom" class="sr-only">Nom / Entreprise</label>
-            <input type="text" id="nom" name="nom" placeholder="Nom / Entreprise" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base" />
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label for="nom" class="sr-only">Nom / Entreprise</label>
+                    <input type="text" id="nom" name="nom" placeholder="Nom / Entreprise *" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base" />
+                </div>
+
+                <div>
+                    <label for="telephone" class="sr-only">Téléphone pour vous rappeler</label>
+                    <input type="tel" id="telephone" name="telephone" placeholder="Téléphone (pour vous rappeler) *" required pattern="[0-9\s\-\+\(\)]{10,}" class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base" />
+                </div>
+            </div>
 
             <label for="email" class="sr-only">Email professionnel</label>
-            <input type="email" id="email" name="email" placeholder="Email professionnel" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base" />
+            <input type="email" id="email" name="email" placeholder="Email professionnel *" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base" />
 
             <label for="message" class="sr-only">Décrivez votre projet</label>
-            <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet, vos objectifs et vos besoins" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl resize-none text-base"></textarea>
+            <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet, vos objectifs et vos besoins *" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl resize-none text-base"></textarea>
 
-            <button type="submit" class="w-full bg-peak-yellow text-peak-blue-dark font-extrabold py-4 sm:py-5 px-6 rounded-full hover:bg-yellow-300 shadow-xl transform hover:scale-105 transition-all duration-300 min-h-[48px] text-base sm:text-lg">Envoyer ma demande</button>
+            <div class="text-peak-gray/80 text-sm text-center">
+                En soumettant ce formulaire, vous acceptez d'être recontacté par PeakCL pour discuter de votre projet.
+            </div>
+
+            <button type="submit" class="w-full bg-peak-yellow text-peak-blue-dark font-extrabold py-4 sm:py-5 px-6 rounded-full hover:bg-yellow-300 shadow-xl transform hover:scale-105 transition-all duration-300 min-h-[48px] text-base sm:text-lg">📞 Demander à être rappelé(e)</button>
         </form>
     </div>
 </section>
