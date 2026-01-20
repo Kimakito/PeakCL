@@ -29,6 +29,9 @@
   "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}"
 }
 </script>
+
+{% include schema-breadcrumb.html %}
+
 {% include header.html %}
 
 <body class="bg-peak-blue-dark font-k2d bg-primary-medium text-text-dark min-h-screen flex flex-col pt-28">

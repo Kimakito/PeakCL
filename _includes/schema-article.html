@@ -1,0 +1,29 @@
+<!-- Schema.org Article pour articles de blog -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ page.title | escape }}",
+  "description": "{{ page.description | escape }}",
+  "image": "{{ page.image | absolute_url }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: 'Charlotte Lacroix' }}",
+    "url": "https://peakcl.com/qui-suis-je.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PeakCL",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://peakcl.com/assets/logo/PeakCL.svg"
+    }
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  }
+}
+</script>
