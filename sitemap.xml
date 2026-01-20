@@ -5,233 +5,222 @@
   <url>
     <loc>https://peakcl.com/</loc>
     <lastmod>2026-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <url>
-    <loc>https://peakcl.com/about</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://peakcl.com/qui-suis-je.html</loc>
     <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://peakcl.com/portfolio.html</loc>
     <lastmod>2026-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://peakcl.com/developpement-web.html</loc>
     <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://peakcl.com/graphisme.html</loc>
     <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://peakcl.com/blog.html</loc>
     <lastmod>2026-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://peakcl.com/chess.html</loc>
+    <loc>https://peakcl.com/creation-site-vitrine.html</loc>
     <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://peakcl.com/creation-site-ecommerce.html</loc>
+    <lastmod>2026-01-20</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://peakcl.com/maintenance-site-web.html</loc>
+    <lastmod>2026-01-20</lastmod>
   </url>
   
   <!-- Articles de blog -->
   <url>
     <loc>https://peakcl.com/2024/11/15/contenus.html</loc>
     <lastmod>2024-11-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2024/12/18/nom-domaine.html</loc>
     <lastmod>2024-12-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/01/12/polices.html</loc>
     <lastmod>2025-01-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/02/16/couleurs.html</loc>
     <lastmod>2025-02-16</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/03/17/visuels.html</loc>
     <lastmod>2025-03-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/04/18/hebergement.html</loc>
     <lastmod>2025-04-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/05/18/type-site.html</loc>
     <lastmod>2025-05-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/06/20/inspiration.html</loc>
     <lastmod>2025-06-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/07/16/jquery.html</loc>
     <lastmod>2025-07-16</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/08/22/SEO.html</loc>
     <lastmod>2025-08-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/09/10/github.html</loc>
     <lastmod>2025-09-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/10/12/css.html</loc>
     <lastmod>2025-10-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/11/13/react.html</loc>
     <lastmod>2025-11-13</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2025/12/14/javascript-vanilla.html</loc>
     <lastmod>2025-12-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2026/01/04/outils-creation-site-france.html</loc>
     <lastmod>2026-01-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2026/01/08/analytics-mesurer-performance-site.html</loc>
     <lastmod>2026-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2026/01/08/budget-site-web.html</loc>
     <lastmod>2026-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2026/01/08/choisir-prestataire-web.html</loc>
     <lastmod>2026-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2026/01/08/delais-creation-site-web.html</loc>
     <lastmod>2026-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2026/01/08/email-professionnel.html</loc>
     <lastmod>2026-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2026/01/08/faq-creation-site-web.html</loc>
     <lastmod>2026-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2026/01/08/maintenance-site-web.html</loc>
     <lastmod>2026-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2026/01/08/mobile-first-responsive.html</loc>
     <lastmod>2026-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2026/01/08/pourquoi-site-web-2026.html</loc>
     <lastmod>2026-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
   <url>
     <loc>https://peakcl.com/2026/01/08/rgpd-obligations-legales.html</loc>
     <lastmod>2026-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    
+    
   </url>
   
 </urlset>
