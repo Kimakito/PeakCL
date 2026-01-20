@@ -11,7 +11,7 @@ tags:
   - CMS
   - design
   - SEO
-image: /assets/images/outils-web.webp
+image: /assets/images/programmation.webp
 canonical: https://peakcl.com/blog/outils-creation-site-france/
 reading_time: 8
 excerpt: "Quels sont les meilleurs outils pour créer un site web en France ? Tour d’horizon des solutions adaptées aux entrepreneurs, PME et freelances : WordPress, Wix, Webflow, Jekyll, hébergeurs, outils de design et SEO."

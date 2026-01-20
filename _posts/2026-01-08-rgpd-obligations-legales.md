@@ -12,7 +12,7 @@ tags:
   - mentions légales
   - cookies
   - développeur web Savoie
-image: /assets/images/legal.webp
+image: /assets/images/violet_computer.webp
 canonical: https://peakcl.com/conseils/2026/01/08/rgpd-obligations-legales.html
 reading_time: 13
 excerpt: "Un site internet, c'est AUSSI des obligations légales. RGPD, mentions légales, cookies... Je vous explique ce qui est obligatoire, ce qui ne l'est pas, et comment être en règle facilement."

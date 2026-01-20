@@ -11,7 +11,7 @@ tags:
   - performance
   - Google Analytics
   - développeur web Savoie
-image: /assets/images/analytics.webp
+image: /assets/images/SEO.webp
 canonical: https://peakcl.com/conseils/2026/01/08/analytics-mesurer-performance-site.html
 reading_time: 11
 excerpt: "Combien de visiteurs ? D'où viennent-ils ? Que font-ils ? Google Analytics répond à ces questions. Je vous explique comment l'installer et comprendre les chiffres qui comptent (sans devenir data analyst)."
