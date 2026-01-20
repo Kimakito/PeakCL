@@ -60,6 +60,8 @@ Si vous ne respectez pas la loi :
 Pour un petit site vitrine, l'amende sera plutôt de quelques milliers d'euros.  
 Mais QUAND MÊME. Autant être en règle.
 
+👉 **Votre site respecte-t-il le RGPD ?** Je vous aide à être en conformité lors de la [création de votre site en Savoie](/creation-site-vitrine-albertville.html)
+
 ---
 
 ## Les 5 obligations LÉGALES pour votre site

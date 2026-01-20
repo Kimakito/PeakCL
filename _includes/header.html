@@ -14,30 +14,33 @@
     <!-- Canonical -->
     <link rel="canonical" href="{{ page.url | absolute_url }}">
 
-    <!-- Preload critical fonts -->
+    <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Nunito:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{ '/assets/css/output.css' | relative_url }}" as="style">
+    {% if page.image %}
+    <link rel="preload" href="{{ page.image | relative_url }}" as="image">
+    {% endif %}
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Nunito:wght@400;600&display=swap"></noscript>
     
     <!-- Styles & Fonts -->
     <link rel="stylesheet" href="{{ '/assets/css/output.css' | relative_url }}" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
-    <meta property="og:description"
-        content="Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.">
-    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.{% endif %}">
+    <meta property="og:type" content="{% if page.layout == 'article' %}article{% else %}website{% endif %}">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:image" content="{{ '/assets/images/avatar-left.png' | absolute_url }}">
+    <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/logo/PeakCL.svg' | absolute_url }}{% endif %}">
     <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="PeakCL - Agence Web Savoie">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ page.title }} | {{ site.title }}">
-    <meta name="twitter:description"
-        content="Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.">
-    <meta name="twitter:image" content="{{ '/assets/images/avatar-left.png' | absolute_url }}">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.{% endif %}">
+    <meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/logo/PeakCL.svg' | absolute_url }}{% endif %}">
 
     <!-- Favicons & Manifest -->
     <link rel="icon" type="image/png" href="{{ '/assets/favicon/favicon-96x96.png' | relative_url }}" sizes="96x96" />

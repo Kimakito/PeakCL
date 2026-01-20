@@ -78,6 +78,8 @@ Un site de 5-10 pages pour présenter votre activité, vos services et vos coord
 Cabinet d'avocat avec 7 pages : Accueil, Domaines d'intervention (3 pages), À propos, Contact, Mentions légales  
 **→ Budget : 2 200€**
 
+👉 **Besoin d'un site vitrine en Savoie ?** Découvrez mon [offre création site vitrine à Albertville](/creation-site-vitrine-albertville.html)
+
 ---
 
 ### 🏢 Site vitrine avancé (3 000 - 6 000 €)

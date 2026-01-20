@@ -1,6 +1,15 @@
-# Allow all crawlers to access all pages
+# robots.txt optimisé pour PeakCL
 User-agent: *
 Allow: /
 
-# Point to your sitemap
+# Bloquer les ressources inutiles au crawl
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /_site/
+Disallow: /node_modules/
+
+# Crawl delay (optionnel, pour économiser la bande passante)
+# Crawl-delay: 1
+
+# Sitemap principal
 Sitemap: https://peakcl.com/sitemap.xml
