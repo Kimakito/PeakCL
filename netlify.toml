@@ -13,8 +13,13 @@
   command = "bundle install --jobs=4 --retry=3 --path vendor/bundle && npm ci --no-audit --prefer-offline && npx browserslist@latest --update-db || true && npm run build && bundle exec jekyll build --destination _site"
 
 [[redirects]]
-  from = "/old-page"
-  to = "/new-page"
+  from = "/about.html"
+  to = "/qui-suis-je.html"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/qui-suis-je.html"
   status = 301
 
 [[redirects]]

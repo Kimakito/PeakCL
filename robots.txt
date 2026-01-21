@@ -2,6 +2,10 @@
 User-agent: *
 Allow: /
 
+# Bloquer les pages inutiles
+Disallow: /404.html
+Disallow: /about.html
+
 # Bloquer les ressources inutiles au crawl
 Disallow: /assets/js/
 Disallow: /assets/css/
