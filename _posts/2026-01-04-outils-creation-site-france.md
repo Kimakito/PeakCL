@@ -4,7 +4,7 @@ title: "Quels sont les meilleurs outils pour la création de site web en France 
 description: "Découvrez les outils incontournables pour créer un site web professionnel en France : CMS, constructeurs, hébergement, design et SEO. Conseils pour entrepreneurs, PME et freelances."
 date: 2026-01-04
 author: Charlotte Lacroix
-category: Conseils
+categories: [conseils]
 tags:
   - création-site-web
   - outils-web

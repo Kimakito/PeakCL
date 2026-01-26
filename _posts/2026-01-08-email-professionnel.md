@@ -4,7 +4,7 @@ title: "Email professionnel (contact@votresite.fr) : pourquoi c'est indispensabl
 description: "Email professionnel vs Gmail : pourquoi contact@votresite.fr est 10x plus crédible que prenom@gmail.com. Prix, configuration, avantages expliqués simplement."
 date: 2026-01-08
 author: Charlotte Lacroix
-category: Conseils
+categories: [conseils]
 tags:
   - email professionnel
   - crédibilité

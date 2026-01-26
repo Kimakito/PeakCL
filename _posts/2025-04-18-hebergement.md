@@ -4,7 +4,7 @@ title: "L'hébergement web : Un élément crucial pour votre présence en ligne 
 date: 2025-04-18
 last_modified_at: 2025-04-18
 author: PeakCL
-categories: blog
+categories: [conseils]
 tag: "Conseils pour réaliser votre site web"
 cover: /assets/images/hebergement.webp
 image_share: /assets/images/hebergement.webp

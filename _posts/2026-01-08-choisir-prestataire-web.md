@@ -4,7 +4,7 @@ title: "Comment choisir son créateur de site web ? Guide complet 2026 | Dévelo
 description: "Freelance, agence, plateforme DIY ? Découvrez comment choisir le bon prestataire pour créer votre site web. Questions à poser, red flags, et critères de sélection."
 date: 2026-01-08
 author: Charlotte Lacroix
-category: Conseils
+categories: [web-strategy]
 tags:
   - choisir
   - prestataire

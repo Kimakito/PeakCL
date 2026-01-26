@@ -4,7 +4,7 @@ title: "JavaScript Vanilla vs Frameworks : Quand choisir la simplicité en 2025"
 description: "Analyse approfondie des avantages du JavaScript vanilla face aux frameworks modernes. Guide pour développeurs expérimentés sur le choix technologique optimal."
 date: 2025-12-14
 author: Charlotte Lacroix
-category: JavaScript
+categories: [developpement]
 tags:
   - javascript
   - vanilla-js

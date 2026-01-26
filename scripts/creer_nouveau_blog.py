@@ -1,4 +1,9 @@
----
+#!/usr/bin/env python3
+"""
+Création du nouveau blog.html avec UI moderne, filtres et recherche
+"""
+
+nouveau_blog = """---
 layout: default
 title: Blog - Création site web Savoie, Albertville | PeakCL
 description: Articles et guides sur le développement web, SEO, design et stratégie digitale. Conseils pratiques pour entrepreneurs en Savoie.
@@ -293,3 +298,10 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 {% include contact-form.html %}
+"""
+
+# Écriture du fichier
+with open('../blog.html', 'w', encoding='utf-8') as f:
+    f.write(nouveau_blog)
+
+print("✅ Nouveau blog.html créé avec succès!")

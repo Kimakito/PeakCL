@@ -4,7 +4,7 @@ title: "Exemples de sites : inspiration et attentes | Création site web Savoie,
 date: 2025-06-20
 last_modified_at: 2025-06-20
 author: PeakCL
-categories: blog
+categories: [web-strategy]
 tag: "Conseils pour réaliser votre site web"
 cover: /assets/images/theme.webp
 image_share: /assets/images/theme.webp

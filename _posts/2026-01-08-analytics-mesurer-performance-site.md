@@ -4,7 +4,7 @@ title: "Google Analytics / Mesurer performance site : comprendre si votre site f
 description: "Google Analytics expliqué simplement : installer, comprendre les chiffres qui comptent VRAIMENT, prendre des décisions. Guide pratique pour entrepreneurs."
 date: 2026-01-08
 author: Charlotte Lacroix
-category: Conseils
+categories: [conseils]
 tags:
   - analytics
   - statistiques

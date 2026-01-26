@@ -4,7 +4,7 @@ title: "RGPD, mentions légales, CGV : les obligations légales de votre site we
 description: "Ce qui est OBLIGATOIRE par la loi sur votre site internet : RGPD, mentions légales, cookies, CGV. Guide pratique pour être en règle sans se prendre la tête."
 date: 2026-01-08
 author: Charlotte Lacroix
-category: Conseils
+categories: [conseils]
 tags:
   - RGPD
   - légal

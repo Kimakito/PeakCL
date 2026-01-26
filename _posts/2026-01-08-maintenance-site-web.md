@@ -4,7 +4,7 @@ title: "Maintenance site web : pourquoi votre site a besoin d'entretien (et comb
 description: "Maintenance site web expliquée simplement : pourquoi c'est indispensable, ce qui se passe si vous ne le faites pas, combien ça coûte. Guide pratique 2026."
 date: 2026-01-08
 author: Charlotte Lacroix
-category: Conseils
+categories: [conseils]
 tags:
   - maintenance
   - sécurité

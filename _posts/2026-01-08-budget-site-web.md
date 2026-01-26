@@ -4,7 +4,7 @@ title: "Budget site web : combien coûte un site internet en 2026 ? | Création 
 description: "Combien prévoir pour créer un site internet professionnel ? Découvrez les prix détaillés selon vos besoins : site vitrine, e-commerce, sur-mesure. Guide complet des tarifs 2026."
 date: 2026-01-08
 author: Charlotte Lacroix
-category: Conseils
+categories: [web-strategy]
 tags:
   - budget
   - tarif

@@ -2,7 +2,8 @@
 layout: article
 title: "Bien choisir son nom de domaine : Guide pratique pour entrepreneurs | Création site web Savoie, Albertville"
 description: "Comment choisir le bon nom de domaine pour votre entreprise ? Guide complet avec exemples concrets, conseils pratiques et erreurs à éviter. Par un développeur web Savoie, développeur web Albertville."
-date: 2024-12-18
+date: 2025-02-10
+categories: [web-strategy]
 author: Charlotte Lacroix
 category: web-strategy
 tags:

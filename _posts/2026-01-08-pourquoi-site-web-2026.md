@@ -4,7 +4,7 @@ title: "Pourquoi avoir un site web en 2026 ? ROI et bénéfices pour votre entre
 description: "Site web ou réseaux sociaux ? Marketplace ou site perso ? Découvrez pourquoi un site internet reste indispensable en 2026 et comment il fait gagner de l'argent."
 date: 2026-01-08
 author: Charlotte Lacroix
-category: Conseils
+categories: [web-strategy]
 tags:
   - pourquoi
   - site web
