@@ -1,6 +1,10 @@
-<h2 class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-center text-peak-yellow mb-12 animate-fade-in" id="faq-title">
+<h2 class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-center text-peak-yellow mb-6 animate-fade-in" id="faq-title">
   FAQ : Questions fréquentes sur la création de site web
 </h2>
+
+<p class="text-center text-peak-gray text-lg mb-12 max-w-2xl mx-auto">
+  Les réponses aux questions que vous vous posez, organisées par thème
+</p>
 
 <!-- Données structurées FAQPage pour le SEO -->
 <script type="application/ld+json">
@@ -8,36 +12,70 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {% for faq in site.data.faq %}
-    {
-      "@type": "Question",
-      "name": "{{ faq.question | escape }}",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "{{ faq.answer | strip_newlines | escape }}"
-      }
-    }{% if forloop.last == false %},{% endif %}
+    {% for theme_group in site.data.faq-themes %}
+      {% for faq in theme_group.questions %}
+        {
+          "@type": "Question",
+          "name": "{{ faq.question | escape }}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{ faq.answer | strip_newlines | escape }}"
+          }
+        }{% unless forloop.last and forloop.parentloop.last %},{% endunless %}
+      {% endfor %}
     {% endfor %}
   ]
 }
 </script>
 
-<div class="rounded-2xl shadow-2xl bg-white/20 backdrop-blur-md border border-peak-yellow/40 p-2 sm:p-6" aria-labelledby="faq-title">
-  <div class="divide-y divide-peak-yellow/30">
-    {% for faq in site.data.faq %}
-    <div class="faq-item group">
-      <button type="button" class="w-full flex items-center justify-between py-4 px-2 sm:px-4 focus:outline-none transition-colors hover:bg-peak-yellow/10" aria-expanded="false" aria-controls="faq{{ forloop.index }}" onclick="this.nextElementSibling.classList.toggle('hidden');this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true');this.querySelector('svg').classList.toggle('rotate-45')">
-        <span class="flex items-center gap-2 text-lg sm:text-xl font-bold text-peak-yellow">
-          <svg class="w-6 h-6 transition-transform duration-200 mr-2" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-          </svg>
-          {{ faq.question }}
-        </span>
-      </button>
-      <div id="faq{{ forloop.index }}" class="hidden px-2 sm:px-6 pb-6 text-peak-gray" role="region">
-        {{ faq.answer }}
-      </div>
+<!-- Grille de cartes thématiques -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6" aria-labelledby="faq-title">
+  {% for theme_group in site.data.faq-themes %}
+  
+  <!-- Carte thématique -->
+  <div class="bg-white/10 backdrop-blur-md border-2 border-peak-{{ theme_group.theme_color }}/40 rounded-2xl shadow-xl overflow-hidden hover:border-peak-{{ theme_group.theme_color }} transition-all">
+    
+    <!-- En-tête de la carte -->
+    <div class="bg-gradient-to-r from-peak-{{ theme_group.theme_color }}/20 to-peak-{{ theme_group.theme_color }}/10 p-4 border-b border-peak-{{ theme_group.theme_color }}/30">
+      <h3 class="text-xl sm:text-2xl font-bold text-peak-yellow flex items-center gap-2">
+        {{ theme_group.theme_title }}
+      </h3>
+      <p class="text-sm text-peak-gray mt-1">{{ theme_group.questions.size }} question{% if theme_group.questions.size > 1 %}s{% endif %}</p>
     </div>
-    {% endfor %}
+    
+    <!-- Questions du thème -->
+    <div class="divide-y divide-peak-{{ theme_group.theme_color }}/20">
+      {% for faq in theme_group.questions %}
+      <div class="faq-item group">
+        <button type="button" 
+                class="w-full flex items-start justify-between py-4 px-4 focus:outline-none transition-colors hover:bg-peak-{{ theme_group.theme_color }}/10" 
+                aria-expanded="false" 
+                aria-controls="faq-{{ theme_group.theme }}-{{ forloop.index }}" 
+                onclick="this.nextElementSibling.classList.toggle('hidden');this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true');this.querySelector('svg').classList.toggle('rotate-45')">
+          <span class="flex items-start gap-2 text-left text-base sm:text-lg font-semibold text-peak-yellow pr-2">
+            <svg class="w-5 h-5 mt-0.5 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+            </svg>
+            {{ faq.question }}
+          </span>
+        </button>
+        <div id="faq-{{ theme_group.theme }}-{{ forloop.index }}" 
+             class="hidden px-4 pb-4 text-peak-gray text-sm sm:text-base leading-relaxed" 
+             role="region">
+          {{ faq.answer }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
+  
+  {% endfor %}
+</div>
+
+<!-- CTA vers FAQ complète -->
+<div class="mt-12 text-center">
+  <a href="/web-strategy/2026/01/08/faq-creation-site-web.html" 
+     class="inline-block bg-peak-yellow text-peak-blue-dark font-bold px-8 py-4 rounded-full hover:bg-yellow-300 transition-all shadow-xl transform hover:scale-105">
+    📖 Voir la FAQ complète détaillée
+  </a>
 </div>

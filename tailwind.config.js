@@ -77,6 +77,9 @@ module.exports = {
   ],
   // évite que "prose" soit purgé si ta chaîne de build est stricte
   safelist: [
-    'prose', 'prose-sm', 'prose-lg', 'prose-xl', 'prose-invert'
+    'prose', 'prose-sm', 'prose-lg', 'prose-xl', 'prose-invert',
+    'bg-yellow-200', 'bg-yellow-100', 'bg-yellow-300',
+    'bg-violet-200', 'bg-violet-100', 'bg-violet-300',
+    'bg-blue-200', 'bg-blue-100', 'bg-blue-300'
   ]
 };
