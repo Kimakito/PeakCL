@@ -603,10 +603,10 @@ Vous voulez un audit gratuit ?
 - Devis pour rendre votre site responsive (si nécessaire)
 - Conseils personnalisés
 
-**[📞 Demander mon audit responsive gratuit](/contact)**
+**[📞 Demander mon audit responsive gratuit](/contact.html)**
 
 ---
 
 *Développeur web basée à Albertville en Savoie, je crée des sites 100% responsive, testés sur 20+ appareils. Mobile-first, rapide, optimisé SEO.*
 
-**Votre site n'est pas adapté mobile ? [Contactez-moi](/contact), je vous fais un devis en 24h !**
+**Votre site n'est pas adapté mobile ? [Contactez-moi](/contact.html), je vous fais un devis en 24h !**

@@ -78,7 +78,7 @@ Un site de 5-10 pages pour présenter votre activité, vos services et vos coord
 Cabinet d'avocat avec 7 pages : Accueil, Domaines d'intervention (3 pages), À propos, Contact, Mentions légales  
 **→ Budget : 2 200€**
 
-👉 **Besoin d'un site vitrine en Savoie ?** Découvrez mon [offre création site vitrine à Albertville](/creation-site-vitrine-albertville.html)
+👉 **Besoin d'un site vitrine en Savoie ?** Découvrez mon [offre création site vitrine à Albertville](/creation-site-vitrine.html)
 
 ---
 
@@ -850,10 +850,10 @@ Vous voulez un devis personnalisé pour VOTRE projet ?
 - Vous conseiller sur la meilleure solution
 - Vous donner un tarif exact, sans surprise
 
-**[📞 Réserver mes 30 minutes gratuites](/contact)**
+**[📞 Réserver mes 30 minutes gratuites](/contact.html)**
 
 ---
 
 *Développeur web basée à Albertville en Savoie, j'accompagne les entrepreneurs partout en France pour créer des sites web qui fonctionnent vraiment. Tarifs transparents, pas de mauvaise surprise, juste un travail de qualité.*
 
-**Des questions sur le budget de votre projet ? [Contactez-moi](/contact), je réponds en moins de 24h !**
+**Des questions sur le budget de votre projet ? [Contactez-moi](/contact.html), je réponds en moins de 24h !**

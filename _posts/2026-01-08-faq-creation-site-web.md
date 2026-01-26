@@ -212,8 +212,8 @@ Design personnalisé ≠ Design totalement libre.
 Je vous guide pour éviter les erreurs (lisibilité, UX, conversion).
 
 **👉 Articles complets :**  
-- [Choisir les couleurs](/ux%20design/2025/02/16/couleurs.html)
-- [Choisir les polices](/web%20design/2025/01/12/polices.html)
+- [Choisir les couleurs](/ux-design/2025/02/16/couleurs.html)
+- [Choisir les polices](/web-design/2025/01/12/polices.html)
 
 ---
 
@@ -732,7 +732,7 @@ Un bon template personnalisé > Un mauvais site custom.
 - Vous conseiller (même si vous ne signez pas)
 - Vous donner un devis personnalisé
 
-**[📞 Réserver mes 30 minutes gratuites](/contact)**
+**[📞 Réserver mes 30 minutes gratuites](/contact.html)**
 
 ---
 
@@ -743,4 +743,4 @@ Un bon template personnalisé > Un mauvais site custom.
 
 *Développeur web basée à Albertville en Savoie, je réponds à toutes vos questions sur la création de site web. Consultation gratuite, devis sous 48h, prix transparents.*
 
-**Une question sur votre projet de site web ? [Contactez-moi](/contact), je réponds en moins de 24h !**
+**Une question sur votre projet de site web ? [Contactez-moi](/contact.html), je réponds en moins de 24h !**

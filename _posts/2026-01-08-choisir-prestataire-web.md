@@ -898,10 +898,10 @@ Maintenant vous savez exactement comment choisir.
 - Une estimation réaliste
 - Une vision claire de votre projet
 
-**[📞 Réserver mes 30 minutes gratuites](/contact)**
+**[📞 Réserver mes 30 minutes gratuites](/contact.html)**
 
 ---
 
 *Développeur web freelance basée à Albertville en Savoie, je crée des sites web professionnels depuis 5 ans. Transparence, qualité, et relation de confiance sont mes priorités.*
 
-**Une question sur le choix de votre prestataire ? [Contactez-moi](/contact), je réponds en moins de 24h !**
+**Une question sur le choix de votre prestataire ? [Contactez-moi](/contact.html), je réponds en moins de 24h !**

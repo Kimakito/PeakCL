@@ -859,10 +859,10 @@ Vous voulez calculer le ROI potentiel d'un site pour VOTRE activité ?
 - Calculer le ROI sur 1 an
 - Vous montrer comment ça marche concrètement
 
-**[📞 Réserver mes 30 minutes gratuites](/contact)**
+**[📞 Réserver mes 30 minutes gratuites](/contact.html)**
 
 ---
 
 *Développeur web basée à Albertville en Savoie, j'aide les entrepreneurs à développer leur activité grâce à un site web qui génère des clients. Parlons de votre projet !*
 
-**Une question sur l'intérêt d'un site pour votre activité ? [Contactez-moi](/contact), je réponds en moins de 24h !**
+**Une question sur l'intérêt d'un site pour votre activité ? [Contactez-moi](/contact.html), je réponds en moins de 24h !**

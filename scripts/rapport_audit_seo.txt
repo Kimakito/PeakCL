@@ -1,0 +1,343 @@
+================================================================================
+RAPPORT D'AUDIT SEO
+================================================================================
+Date: 26/01/2026 09:44
+Pages analysées: 22
+
+
+================================================================================
+Page: 404.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: 404
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: about.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: None
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+  ❌ Pas de balise <h1>
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: agence-web-aix-les-bains.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Agence Web Aix-les-Bains 🌊
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: agence-web-albertville.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Agence Web Albertville 🏔️
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: agence-web-annecy.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Agence Web à Annecy 🏔️
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: agence-web-chambery.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Agence Web Chambéry 🏔️
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: blog.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Blog
+Robots: index, follow
+Schema.org: Oui
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+================================================================================
+Page: blog/index.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: 📚 Le Blog 📚
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: chess.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: ♚ Échecs vs IA ♛
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: combien-coute-site-web.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Combien Coûte un Site Web en 2026 ?
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: contact.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Contactez-nous
+Robots: index, follow
+Schema.org: Oui
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+================================================================================
+Page: creation-site-ecommerce.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Création de site e-commerce professionnel
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: creation-site-vitrine.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Création de site vitrine professionnel
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: developpement-web.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Mise en place d'un site internet
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: google95bcbb54dea27959.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: None
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+  ❌ Pas de balise <h1>
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: graphisme.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Création de logo et identité visuelle
+Robots: index, follow
+Schema.org: Oui
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+================================================================================
+Page: index.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Agence Web Albertville
+Votre partenaire digital en Savoie
+Robots: index, follow
+Schema.org: Oui
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+================================================================================
+Page: maintenance-site-web.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Maintenance de site web professionnel
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: mentions-legales.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Mentions légales
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: politique-confidentialite.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Politique de confidentialité
+Robots: index, follow
+Schema.org: Non
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+AVERTISSEMENTS:
+  ⚠️  Pas de données structurées (Schema.org)
+
+================================================================================
+Page: portfolio.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Ils nous ont fait confiance
+Robots: index, follow
+Schema.org: Oui
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description
+
+================================================================================
+Page: qui-suis-je.html
+Status: ❌ Erreurs critiques
+Title: None (0 car.)
+Description: None (0 car.)
+H1: Charlotte Lacroix
+Robots: index, follow
+Schema.org: Oui
+
+ERREURS:
+  ❌ Pas de balise <title>
+  ❌ Pas de meta description

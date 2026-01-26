@@ -4,7 +4,7 @@ title: "Bien choisir son nom de domaine : Guide pratique pour entrepreneurs | Cr
 description: "Comment choisir le bon nom de domaine pour votre entreprise ? Guide complet avec exemples concrets, conseils pratiques et erreurs à éviter. Par un développeur web Savoie, développeur web Albertville."
 date: 2024-12-18
 author: Charlotte Lacroix
-category: Web Strategy
+category: web-strategy
 tags:
   - nom-de-domaine
   - branding
@@ -468,10 +468,10 @@ Je vous offre **20 minutes de consultation gratuite** pour :
 - Vérifier que tout est OK (disponibilité, marques, etc.)
 - Vous guider dans l'achat
 
-[📞 Réserver mes 20 minutes gratuites](/contact)
+[📞 Réserver mes 20 minutes gratuites](/contact.html)
 
 ---
 
-*Avec plus de 5 ans d'expérience et l'accompagnement de 100+ entrepreneurs dans le choix de leur nom de domaine, je partage ici ce qui fonctionne vraiment. Pour toute question, n'hésitez pas à [me contacter](/contact).*
+*Avec plus de 5 ans d'expérience et l'accompagnement de 100+ entrepreneurs dans le choix de leur nom de domaine, je partage ici ce qui fonctionne vraiment. Pour toute question, n'hésitez pas à [me contacter](/contact.html).*
 
 **Prêt à passer à l'action ?** Choisissez votre nom de domaine dès aujourd'hui et lancez votre projet web !

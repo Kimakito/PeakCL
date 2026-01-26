@@ -736,10 +736,10 @@ Vous avez un projet avec une deadline précise ?
 - Vous donner un planning précis et réaliste
 - Vous expliquer comment préparer votre contenu
 
-**[📞 Réserver mes 30 minutes gratuites](/contact)**
+**[📞 Réserver mes 30 minutes gratuites](/contact.html)**
 
 ---
 
 *Développeur web basée à Albertville en Savoie, je crée des sites web dans les délais annoncés. Planning clair, communication transparente, livraison à temps.*
 
-**Une question sur les délais de votre projet ? [Contactez-moi](/contact), je réponds en moins de 24h !**
+**Une question sur les délais de votre projet ? [Contactez-moi](/contact.html), je réponds en moins de 24h !**

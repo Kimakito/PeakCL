@@ -3,11 +3,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Title & SEO -->
-    <title>{{ page.title }}</title>
+    <title>{% if page.title %}{{ page.title }}{% else %}PeakCL - Agence Web Albertville & Savoie{% endif %}</title>
     <meta name="author" content="Charlotte Lacroix">
     <meta name="robots" content="index, follow">
     <meta name="description"
-        content="Développeur web Savoie, développeur web Albertville, création de sites internet, applications web, identité visuelle, SEO, accompagnement digital. PeakCL, Charlotte Lacroix.">
+        content="{% if page.description %}{{ page.description }}{% else %}Développeur web Savoie, développeur web Albertville, création de sites internet, applications web, identité visuelle, SEO, accompagnement digital. PeakCL, Charlotte Lacroix.{% endif %}">
     <meta name="keywords"
         content="développeur web, développeur web Savoie, développeur web Albertville, création site internet, freelance Savoie, PeakCL, Charlotte Lacroix, applications web, identité visuelle, Chambéry, Albertville, Annecy, SEO, accompagnement digital">
 

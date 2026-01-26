@@ -711,10 +711,10 @@ Vous l'avez mais ne comprenez rien aux chiffres ?
 - Formation personnalisée (30 min)
 - Dashboard simplifié
 
-**[📞 Demander l'installation de Google Analytics](/contact)**
+**[📞 Demander l'installation de Google Analytics](/contact.html)**
 
 ---
 
 *Développeur web basée à Albertville en Savoie, j'installe et configure Google Analytics sur tous mes sites. Formation incluse pour comprendre vos statistiques et prendre les bonnes décisions !*
 
-**Besoin d'Analytics sur votre site ? [Contactez-moi](/contact), installation en 24h !**
+**Besoin d'Analytics sur votre site ? [Contactez-moi](/contact.html), installation en 24h !**

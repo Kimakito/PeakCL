@@ -594,10 +594,10 @@ Vous voulez dormir tranquille sans vous soucier de la technique ?
 - Détection des problèmes/risques
 - Devis maintenance sur mesure
 
-**[📞 Demander mon audit gratuit](/contact)**
+**[📞 Demander mon audit gratuit](/contact.html)**
 
 ---
 
 *Développeur web basée à Albertville en Savoie, je propose des contrats de maintenance à partir de 45€/mois. Sécurité, sauvegardes, mises à jour : je m'occupe de tout !*
 
-**Une question sur la maintenance de votre site ? [Contactez-moi](/contact), je réponds en moins de 24h !**
+**Une question sur la maintenance de votre site ? [Contactez-moi](/contact.html), je réponds en moins de 24h !**

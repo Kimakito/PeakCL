@@ -26,7 +26,7 @@ Mais face à la multitude d’outils disponibles, une question revient souvent :
 
 **Quelle est la meilleure solution pour créer un site web en France ?**
 
-La réponse honnête est qu’il n’existe pas un outil unique, mais **des solutions adaptées à des besoins différents**. En tant que [développeuse web basée en Savoie, à Albertville](/qui-suis-je), j’accompagne des projets partout en France (et au-delà) pour faire **le bon choix technique dès le départ**.
+La réponse honnête est qu’il n’existe pas un outil unique, mais **des solutions adaptées à des besoins différents**. En tant que [développeuse web basée en Savoie, à Albertville](/qui-suis-je.html), j’accompagne des projets partout en France (et au-delà) pour faire **le bon choix technique dès le départ**.
 
 ---
 
@@ -48,7 +48,7 @@ WordPress est un CMS **open-source** qui propulse plus de **40 % des sites web d
 **Point important**
 Un site WordPress est réellement performant **lorsqu’il est bien conçu** : structure propre, plugins utiles uniquement, optimisation des performances.
 
-👉 C’est pourquoi WordPress donne les meilleurs résultats lorsqu’il est réalisé par une [développeuse web](/qui-suis-je) plutôt qu’assemblé rapidement sans réflexion technique.
+👉 C’est pourquoi WordPress donne les meilleurs résultats lorsqu’il est réalisé par une [développeuse web](/qui-suis-je.html) plutôt qu’assemblé rapidement sans réflexion technique.
 
 ---
 
@@ -61,7 +61,7 @@ Jekyll permet de créer des **sites statiques** très rapides, sécurisés et l�
 - Portfolios
 - Projets nécessitant performance et sobriété
 
-👉 Jekyll est particulièrement pertinent lorsque le contenu évolue peu et que la priorité est la vitesse et la fiabilité. [En savoir plus sur Jekyll](/developpement-web#type-site)
+👉 Jekyll est particulièrement pertinent lorsque le contenu évolue peu et que la priorité est la vitesse et la fiabilité. [En savoir plus sur Jekyll](/developpement-web.html#type-site)
 
 ---
 
@@ -87,7 +87,7 @@ Ces outils permettent de créer un site rapidement via des interfaces visuelles.
 - Difficultés d’évolution à long terme
 - SEO parfois contraint par la structure imposée
 
-👉 Ces solutions peuvent convenir à des projets très simples, mais montrent vite leurs limites dès que le site doit évoluer ou gagner en visibilité. [Voir nos conseils pour bien choisir](/developpement-web#type-site)
+👉 Ces solutions peuvent convenir à des projets très simples, mais montrent vite leurs limites dès que le site doit évoluer ou gagner en visibilité. [Voir nos conseils pour bien choisir](/developpement-web.html#type-site)
 
 ---
 
@@ -102,7 +102,7 @@ Créer un site codé sur-mesure permet une **maîtrise totale** du rendu, des pe
 - Aucune dépendance à une plateforme externe
 
 **À savoir**
-Cette solution est idéale pour les **sites vitrines professionnels**, landing pages et projets nécessitant un contrôle précis du design et des performances. [Découvrez nos réalisations](/portfolio)
+Cette solution est idéale pour les **sites vitrines professionnels**, landing pages et projets nécessitant un contrôle précis du design et des performances. [Découvrez nos réalisations](/portfolio.html)
 
 ---
 
@@ -134,7 +134,7 @@ Le choix de l’hébergement est essentiel pour la performance et la sécurité.
 
 ## Mon approche en tant que développeuse web
 
-Je suis [développeuse web à Albertville (Savoie)](/qui-suis-je) et je travaille avec des clients **partout en France**.  
+Je suis [développeuse web à Albertville (Savoie)](/qui-suis-je.html) et je travaille avec des clients **partout en France**.  
 Mon rôle n’est pas de vendre un outil, mais de proposer **la solution la plus adaptée à votre projet**.
 
 Je conçois :

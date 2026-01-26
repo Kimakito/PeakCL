@@ -663,10 +663,10 @@ Vous voulez créer votre site avec email professionnel inclus ?
 - Configuration complète (vous n'avez rien à faire)
 - Formation utilisation (15 min)
 
-**[📞 Demander mon email professionnel](/contact)**
+**[📞 Demander mon email professionnel](/contact.html)**
 
 ---
 
 *Développeur web basée à Albertville en Savoie, je configure votre email professionnel inclus dans chaque création de site. Configuration smartphone, signature HTML, redirection Gmail : je m'occupe de tout !*
 
-**Besoin d'un email professionnel ? [Contactez-moi](/contact), configuration en 24h !**
+**Besoin d'un email professionnel ? [Contactez-moi](/contact.html), configuration en 24h !**

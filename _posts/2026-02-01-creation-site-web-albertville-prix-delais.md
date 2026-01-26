@@ -3,7 +3,7 @@ layout: article
 title: "Création site web Albertville : prix, délais, erreurs à éviter en 2026"
 description: "Guide complet pour créer un site web à Albertville : tarifs réels (1500€-8000€), délais de création, et les 5 erreurs à éviter. Développeur web local en Savoie."
 date: 2026-02-01
-categories: [web strategy]
+categories: [web-strategy]
 keywords:
   - création site web Albertville
   - développeur web Savoie
@@ -153,7 +153,7 @@ Voici le **planning réaliste** pour créer un site vitrine professionnel :
 
 **✅ La bonne approche :** Intégrer le SEO dès la conception (titres, descriptions, structure, vitesse). C'est inclus dans mes prestations.
 
-→ [Pourquoi le SEO est essentiel pour votre site](/blog/wordpress-mal-optimise-seo/)
+→ [Pourquoi le SEO est essentiel pour votre site](/conseils/2026/01/20/wordpress-mal-optimise-seo.html)
 
 ### 3. Vouloir tout faire soi-même pour économiser
 
@@ -298,7 +298,7 @@ Maintenant que vous savez **combien coûte un site web**, **combien de temps ça
 **Articles recommandés :**
 - [Créer un site vitrine : guide complet](/creation-site-vitrine.html)
 - [Créer une boutique en ligne en Savoie](/creation-site-ecommerce.html)
-- [Comment choisir un développeur web en Savoie ?](/blog/choisir-developpeur-web-savoie/) *(à venir)*
+- [Comment choisir un développeur web en Savoie ?](/web-strategy/2026/01/15/choisir-developpeur-web-savoie.html)
 - [Maintenance de site : le coût de ne rien faire](/maintenance-site-web.html)
 
 **Mes services :**
