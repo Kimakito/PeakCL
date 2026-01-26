@@ -4,7 +4,7 @@ title: "FAQ Création Site Web : 20 questions que vous vous posez (réponses hon
 description: "Les 20 questions les plus fréquentes sur la création d'un site internet : prix, délais, maintenance, référencement. Réponses claires et honnêtes."
 date: 2026-01-08
 author: Charlotte Lacroix
-categories: [conseils]
+categories: [web-strategy]
 tags:
   - FAQ
   - questions fréquentes

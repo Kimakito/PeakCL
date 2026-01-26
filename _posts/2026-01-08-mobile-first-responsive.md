@@ -4,7 +4,7 @@ title: "Site responsive / Mobile-first : pourquoi votre site DOIT s'adapter aux 
 description: "Responsive design expliqué simplement : pourquoi c'est OBLIGATOIRE en 2026, comment ça marche, ce que ça coûte. 68% de vos visiteurs sont sur mobile !"
 date: 2026-01-08
 author: Charlotte Lacroix
-categories: [design-ux]
+categories: [conseils]
 tags:
   - responsive
   - mobile

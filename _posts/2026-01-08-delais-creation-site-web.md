@@ -4,7 +4,7 @@ title: "Délais de création d'un site web : combien de temps prévoir en 2026 ?
 description: "Combien de temps pour créer un site internet ? Découvrez les délais réalistes selon le type de site, les étapes du projet et comment accélérer la livraison."
 date: 2026-01-08
 author: Charlotte Lacroix
-categories: [conseils]
+categories: [web-strategy]
 tags:
   - délais
   - planning
