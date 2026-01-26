@@ -1,0 +1,22 @@
+<!-- Bannière cookies simple RGPD -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-gray-900 text-white p-4 z-50 flex flex-col md:flex-row items-center justify-between shadow-lg" style="display:none;">
+  <span class="mb-2 md:mb-0">Ce site utilise des cookies pour améliorer votre expérience et mesurer l’audience. <a href="/politique-confidentialite.html" class="underline text-blue-300">En savoir plus</a></span>
+  <div class="flex gap-2">
+    <button id="cookie-accept" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Accepter</button>
+    <button id="cookie-refuse" class="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded">Refuser</button>
+  </div>
+</div>
+<script>
+  // Affichage de la bannière si consentement non donné
+  if (!localStorage.getItem('cookieConsent')) {
+    document.getElementById('cookie-banner').style.display = 'flex';
+  }
+  document.getElementById('cookie-accept').onclick = function() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+  };
+  document.getElementById('cookie-refuse').onclick = function() {
+    localStorage.setItem('cookieConsent', 'refused');
+    document.getElementById('cookie-banner').style.display = 'none';
+  };
+</script>
