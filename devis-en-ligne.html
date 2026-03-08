@@ -1,0 +1,519 @@
+---
+layout: default
+title: "Estimation de Prix en Ligne - Devis Site Web Interactif"
+description: "Obtenez une estimation de prix immédiate pour votre projet web. Configurateur de devis interactif pour site vitrine, e-commerce ou sur-mesure. Résultat en 2 minutes."
+sitemap: true
+---
+
+<section class="relative min-h-screen flex items-center justify-center px-4 py-24 bg-gradient-to-br from-peak-blue-dark via-peak-violet to-peak-blue-light">
+    <div class="max-w-4xl w-full mx-auto">
+        
+        <!-- Header -->
+        <div class="text-center mb-12" id="quiz-header">
+            <h1 class="text-4xl sm:text-5xl font-extrabold font-title text-peak-yellow mb-4">
+                Estimez Votre Projet Web
+            </h1>
+            <p class="text-xl text-peak-gray mb-6">
+                Répondez à quelques questions et obtenez une <strong class="text-peak-yellow">estimation de prix immédiate</strong>
+            </p>
+            <div class="bg-peak-yellow/20 border border-peak-yellow rounded-lg p-4 max-w-2xl mx-auto">
+                <p class="text-sm text-peak-gray">
+                    ⚠️ <strong>Important :</strong> Cette estimation est <strong>indicative</strong> et basée sur vos réponses. 
+                    Un devis précis et personnalisé sera établi après un échange avec vous.
+                </p>
+            </div>
+        </div>
+
+        <!-- Barre de progression -->
+        <div class="mb-8">
+            <div class="flex justify-between items-center mb-3">
+                <span class="text-peak-gray text-sm font-semibold">Étape <span id="current-step">1</span> sur 6</span>
+                <span class="text-peak-gray text-sm"><span id="progress-percent">0</span>% complété</span>
+            </div>
+            <div class="w-full bg-white/20 rounded-full h-3 overflow-hidden">
+                <div id="progress-bar" class="bg-gradient-to-r from-peak-yellow to-yellow-400 h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Container du Quiz -->
+        <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 border-2 border-peak-yellow/30">
+            
+            <!-- Étape 1 : Type de projet -->
+            <div class="quiz-step active" data-step="1">
+                <h2 class="text-2xl font-bold text-peak-blue-dark mb-2">Quel type de site souhaitez-vous ?</h2>
+                <p class="text-gray-600 mb-6">Sélectionnez l'option qui correspond le mieux à votre projet</p>
+                
+                <div class="space-y-4">
+                    <label class="quiz-option">
+                        <input type="radio" name="project_type" value="vitrine" data-price="2500" class="hidden">
+                        <div class="option-card">
+                            <div class="flex items-start gap-4">
+                                <div class="text-3xl">🌐</div>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-lg text-peak-blue-dark mb-1">Site Vitrine</h3>
+                                    <p class="text-gray-600 text-sm">Site de présentation de votre activité, services et coordonnées</p>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="project_type" value="ecommerce" data-price="5000" class="hidden">
+                        <div class="option-card">
+                            <div class="flex items-start gap-4">
+                                <div class="text-3xl">🛒</div>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-lg text-peak-blue-dark mb-1">Site E-commerce</h3>
+                                    <p class="text-gray-600 text-sm">Boutique en ligne pour vendre vos produits ou services</p>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="project_type" value="custom" data-price="8000" class="hidden">
+                        <div class="option-card">
+                            <div class="flex items-start gap-4">
+                                <div class="text-3xl">⚙️</div>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-lg text-peak-blue-dark mb-1">Application Sur-mesure</h3>
+                                    <p class="text-gray-600 text-sm">Plateforme web avec fonctionnalités spécifiques à votre métier</p>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="project_type" value="refonte" data-price="2000" class="hidden">
+                        <div class="option-card">
+                            <div class="flex items-start gap-4">
+                                <div class="text-3xl">🔄</div>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-lg text-peak-blue-dark mb-1">Refonte de Site Existant</h3>
+                                    <p class="text-gray-600 text-sm">Modernisation et amélioration d'un site déjà en ligne</p>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Étape 2 : Envergure -->
+            <div class="quiz-step" data-step="2">
+                <h2 class="text-2xl font-bold text-peak-blue-dark mb-2">Quelle est l'envergure de votre projet ?</h2>
+                <p class="text-gray-600 mb-6">Nombre de pages et fonctionnalités principales</p>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-3">Nombre de pages estimé</label>
+                    <div class="space-y-3">
+                        <label class="quiz-option">
+                            <input type="radio" name="page_count" value="small" data-price="0" class="hidden">
+                            <div class="option-card">
+                                <span class="font-semibold text-peak-blue-dark">5-10 pages</span>
+                                <span class="text-gray-600 text-sm ml-2">(Accueil, À propos, Services, Contact...)</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="page_count" value="medium" data-price="1000" class="hidden">
+                            <div class="option-card">
+                                <span class="font-semibold text-peak-blue-dark">10-20 pages</span>
+                                <span class="text-gray-600 text-sm ml-2">(+ Pages services détaillées, Équipe, Portfolio...)</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="page_count" value="large" data-price="2500" class="hidden">
+                            <div class="option-card">
+                                <span class="font-semibold text-peak-blue-dark">20+ pages</span>
+                                <span class="text-gray-600 text-sm ml-2">(Site complexe avec nombreuses sections)</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-3">Fonctionnalités souhaitées (plusieurs choix possibles)</label>
+                    <div class="space-y-2">
+                        <label class="flex items-start gap-3 p-3 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors">
+                            <input type="checkbox" name="features" value="contact_form" data-price="0" class="mt-1">
+                            <span class="text-gray-700">📋 Formulaire de contact simple</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors">
+                            <input type="checkbox" name="features" value="blog" data-price="800" class="mt-1">
+                            <span class="text-gray-700">📝 Blog / Actualités</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors">
+                            <input type="checkbox" name="features" value="booking" data-price="1500" class="mt-1">
+                            <span class="text-gray-700">📅 Système de réservation en ligne</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors">
+                            <input type="checkbox" name="features" value="member_area" data-price="2000" class="mt-1">
+                            <span class="text-gray-700">👤 Espace client / membre</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors">
+                            <input type="checkbox" name="features" value="multilingual" data-price="1200" class="mt-1">
+                            <span class="text-gray-700">🌍 Site multilingue</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-3 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors">
+                            <input type="checkbox" name="features" value="gallery" data-price="400" class="mt-1">
+                            <span class="text-gray-700">🖼️ Galerie photos / Portfolio</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Étape 3 : Design & Contenu -->
+            <div class="quiz-step" data-step="3">
+                <h2 class="text-2xl font-bold text-peak-blue-dark mb-2">Design et Contenu</h2>
+                <p class="text-gray-600 mb-6">Votre identité visuelle et vos contenus</p>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-3">Type de design</label>
+                    <div class="space-y-3">
+                        <label class="quiz-option">
+                            <input type="radio" name="design_type" value="template" data-price="0" class="hidden">
+                            <div class="option-card">
+                                <div>
+                                    <span class="font-semibold text-peak-blue-dark">Template adapté</span>
+                                    <p class="text-gray-600 text-sm mt-1">Template professionnel personnalisé à vos couleurs</p>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="design_type" value="semi_custom" data-price="1500" class="hidden">
+                            <div class="option-card">
+                                <div>
+                                    <span class="font-semibold text-peak-blue-dark">Design semi-personnalisé</span>
+                                    <p class="text-gray-600 text-sm mt-1">Design unique avec quelques éléments sur-mesure</p>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="design_type" value="full_custom" data-price="3000" class="hidden">
+                            <div class="option-card">
+                                <div>
+                                    <span class="font-semibold text-peak-blue-dark">Design 100% sur-mesure</span>
+                                    <p class="text-gray-600 text-sm mt-1">Création graphique unique et entièrement personnalisée</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-3">Logo & Identité visuelle</label>
+                    <div class="space-y-3">
+                        <label class="quiz-option">
+                            <input type="radio" name="logo" value="exists" data-price="0" class="hidden">
+                            <div class="option-card">
+                                <span class="text-gray-700">✅ J'ai déjà un logo que je souhaite conserver</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="logo" value="modernize" data-price="500" class="hidden">
+                            <div class="option-card">
+                                <span class="text-gray-700">🔄 J'ai un logo mais je veux le moderniser</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="logo" value="create" data-price="1200" class="hidden">
+                            <div class="option-card">
+                                <span class="text-gray-700">✨ Je souhaite créer un logo professionnel</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-3">Rédaction des contenus</label>
+                    <div class="space-y-3">
+                        <label class="quiz-option">
+                            <input type="radio" name="content" value="provided" data-price="0" class="hidden">
+                            <div class="option-card">
+                                <span class="text-gray-700">📝 Je fournis tous les textes</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="content" value="collaboration" data-price="600" class="hidden">
+                            <div class="option-card">
+                                <span class="text-gray-700">🤝 Collaboration (vous proposez, je révise)</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="content" value="full_writing" data-price="1500" class="hidden">
+                            <div class="option-card">
+                                <span class="text-gray-700">✍️ Rédaction complète avec SEO optimisé</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Étape 4 : Visibilité & Services -->
+            <div class="quiz-step" data-step="4">
+                <h2 class="text-2xl font-bold text-peak-blue-dark mb-2">Visibilité et Services Complémentaires</h2>
+                <p class="text-gray-600 mb-6">Optimisations et accompagnement</p>
+                
+                <div class="space-y-4">
+                    <label class="flex items-start gap-3 p-4 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors border border-gray-200">
+                        <input type="checkbox" name="services" value="seo" data-price="800" class="mt-1">
+                        <div class="flex-1">
+                            <span class="font-semibold text-peak-blue-dark block mb-1">🎯 Référencement SEO avancé</span>
+                            <span class="text-gray-600 text-sm">Optimisation technique, mots-clés, Schema.org pour être bien positionné sur Google</span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-4 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors border border-gray-200">
+                        <input type="checkbox" name="services" value="gmb" data-price="300" class="mt-1">
+                        <div class="flex-1">
+                            <span class="font-semibold text-peak-blue-dark block mb-1">📍 Fiche Google My Business</span>
+                            <span class="text-gray-600 text-sm">Création et optimisation pour la visibilité locale</span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-4 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors border border-gray-200">
+                        <input type="checkbox" name="services" value="social_media" data-price="600" class="mt-1">
+                        <div class="flex-1">
+                            <span class="font-semibold text-peak-blue-dark block mb-1">📱 Setup Réseaux Sociaux</span>
+                            <span class="text-gray-600 text-sm">Création/optimisation pages + cohérence visuelle + premiers posts</span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-4 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors border border-gray-200">
+                        <input type="checkbox" name="services" value="photos" data-price="800" class="mt-1">
+                        <div class="flex-1">
+                            <span class="font-semibold text-peak-blue-dark block mb-1">📸 Photos professionnelles</span>
+                            <span class="text-gray-600 text-sm">Shooting photo de votre activité, équipe ou produits</span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-4 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors border border-gray-200">
+                        <input type="checkbox" name="services" value="training" data-price="400" class="mt-1">
+                        <div class="flex-1">
+                            <span class="font-semibold text-peak-blue-dark block mb-1">🎓 Formation à la gestion du site</span>
+                            <span class="text-gray-600 text-sm">Apprenez à modifier textes, ajouter des articles, gérer les contenus</span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-4 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors border border-gray-200">
+                        <input type="checkbox" name="services" value="maintenance" data-price="0" class="mt-1">
+                        <div class="flex-1">
+                            <span class="font-semibold text-peak-blue-dark block mb-1">🔧 Maintenance mensuelle</span>
+                            <span class="text-gray-600 text-sm">Mises à jour, sauvegardes, assistance (50-150€/mois selon formule)</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Étape 5 : Délais & Budget -->
+            <div class="quiz-step" data-step="5">
+                <h2 class="text-2xl font-bold text-peak-blue-dark mb-2">Délais et Budget</h2>
+                <p class="text-gray-600 mb-6">Pour affiner l'estimation</p>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-3">Délai souhaité pour la mise en ligne</label>
+                    <div class="space-y-3">
+                        <label class="quiz-option">
+                            <input type="radio" name="deadline" value="urgent" data-price="1500" class="hidden">
+                            <div class="option-card">
+                                <span class="font-semibold text-peak-blue-dark">⚡ Urgent (2-4 semaines)</span>
+                                <span class="text-gray-600 text-sm ml-2">Nécessite une priorisation</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="deadline" value="normal" data-price="0" class="hidden">
+                            <div class="option-card">
+                                <span class="font-semibold text-peak-blue-dark">✅ Normal (1-2 mois)</span>
+                                <span class="text-gray-600 text-sm ml-2">Recommandé pour un projet soigné</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="deadline" value="flexible" data-price="-500" class="hidden">
+                            <div class="option-card">
+                                <span class="font-semibold text-peak-blue-dark">🕐 Flexible (2-3 mois+)</span>
+                                <span class="text-gray-600 text-sm ml-2">Pas de contrainte de temps</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-3">Budget envisagé (optionnel mais aide à l'estimation)</label>
+                    <div class="space-y-3">
+                        <label class="quiz-option">
+                            <input type="radio" name="budget" value="small" data-multiplier="0.9" class="hidden">
+                            <div class="option-card">
+                                <span class="text-gray-700">Moins de 3 000€</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="budget" value="medium" data-multiplier="1" class="hidden">
+                            <div class="option-card">
+                                <span class="text-gray-700">3 000€ - 7 000€</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="budget" value="large" data-multiplier="1" class="hidden">
+                            <div class="option-card">
+                                <span class="text-gray-700">7 000€ - 15 000€</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="budget" value="premium" data-multiplier="1.1" class="hidden">
+                            <div class="option-card">
+                                <span class="text-gray-700">Plus de 15 000€</span>
+                            </div>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="budget" value="unknown" data-multiplier="1" class="hidden">
+                            <div class="option-card">
+                                <span class="text-gray-700">Je ne sais pas encore</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Étape 6 : Résultat & Contact -->
+            <div class="quiz-step" data-step="6">
+                <div class="text-center">
+                    <div class="mb-8">
+                        <div class="inline-block bg-gradient-to-br from-peak-yellow to-yellow-400 text-peak-blue-dark rounded-full px-8 py-4 mb-4">
+                            <span class="text-lg font-semibold">Votre estimation :</span>
+                        </div>
+                        <h2 class="text-5xl font-extrabold text-peak-blue-dark mb-2">
+                            <span id="estimated-price-min">0</span>€ - <span id="estimated-price-max">0</span>€
+                        </h2>
+                        <p class="text-gray-600 text-sm mb-6">TTC • Hors maintenance mensuelle</p>
+                        
+                        <div class="bg-blue-50 border-l-4 border-peak-blue-dark p-4 rounded-lg text-left max-w-2xl mx-auto mb-8">
+                            <h3 class="font-bold text-peak-blue-dark mb-2">📋 Récapitulatif de votre projet :</h3>
+                            <div id="project-summary" class="text-gray-700 text-sm space-y-1">
+                                <!-- Rempli dynamiquement -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-peak-yellow/20 border-2 border-peak-yellow rounded-xl p-6 mb-8">
+                        <h3 class="font-bold text-peak-blue-dark mb-3 text-lg">💬 Recevez votre devis personnalisé</h3>
+                        <p class="text-gray-700 text-sm mb-6">
+                            Cette estimation est indicative. Pour un <strong>devis précis et détaillé</strong>, 
+                            laissez-moi vos coordonnées. Je vous recontacte sous 24h pour affiner votre projet.
+                        </p>
+                        
+                        <form id="quote-form" name="quote-estimate" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html" class="space-y-4">
+                            <input type="hidden" name="form-name" value="quote-estimate">
+                            <!-- Champs cachés pour l'estimation -->
+                            <input type="hidden" id="hidden-estimate-min" name="estimated-price-min" value="">
+                            <input type="hidden" id="hidden-estimate-max" name="estimated-price-max" value="">
+                            <input type="hidden" id="hidden-project-details" name="project-details" value="">
+                            <!-- Champ anti-spam caché -->
+                            <p class="hidden">
+                                <label>Ne pas remplir : <input name="bot-field" /></label>
+                            </p>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" id="quote-name" name="name" required 
+                                    class="w-full border-2 border-peak-yellow/50 focus:border-peak-yellow rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-peak-yellow" 
+                                    placeholder="Votre nom *">
+                                <input type="email" id="quote-email" name="email" required 
+                                    class="w-full border-2 border-peak-yellow/50 focus:border-peak-yellow rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-peak-yellow" 
+                                    placeholder="Votre email *">
+                            </div>
+                            <input type="tel" id="quote-phone" name="phone" required 
+                                class="w-full border-2 border-peak-yellow/50 focus:border-peak-yellow rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-peak-yellow" 
+                                placeholder="Téléphone *">
+                            <input type="text" id="quote-company" name="company" 
+                                class="w-full border-2 border-peak-yellow/50 focus:border-peak-yellow rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-peak-yellow" 
+                                placeholder="Entreprise / Activité (optionnel)">
+                            <textarea id="quote-message" name="message" rows="3" 
+                                class="w-full border-2 border-peak-yellow/50 focus:border-peak-yellow rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-peak-yellow" 
+                                placeholder="Précisions sur votre projet (optionnel)"></textarea>
+                            
+                            <button type="submit" class="w-full bg-peak-yellow hover:bg-yellow-300 text-peak-blue-dark font-bold py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">
+                                ✨ Recevoir mon devis personnalisé
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <button id="restart-quiz" class="text-peak-blue-dark hover:text-peak-violet font-semibold underline">
+                            🔄 Recommencer l'estimation
+                        </button>
+                        <a href="/contact.html" class="text-peak-blue-dark hover:text-peak-violet font-semibold underline">
+                            📞 Me contacter directement
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Boutons de navigation -->
+            <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+                <button id="prev-btn" class="hidden bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 px-6 rounded-full transition-all">
+                    ← Retour
+                </button>
+                <div class="flex-1"></div>
+                <button id="next-btn" class="bg-peak-yellow hover:bg-yellow-300 text-peak-blue-dark font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all opacity-50 cursor-not-allowed" disabled>
+                    Suivant →
+                </button>
+            </div>
+        </div>
+
+        <!-- Informations complémentaires -->
+        <div class="mt-8 text-center">
+            <p class="text-peak-gray text-sm">
+                🔒 Vos données sont strictement confidentielles • ❌ Aucune prospection • ✅ Réponse sous 24h
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- CSS spécifique pour le quiz -->
+<style>
+.quiz-step {
+    display: none;
+    animation: fadeIn 0.4s ease-in;
+}
+
+.quiz-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.option-card {
+    padding: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.option-card:hover {
+    border-color: #FFC107;
+    background: #FFC10710;
+    transform: translateX(4px);
+}
+
+.quiz-option input:checked + .option-card {
+    border-color: #FFC107;
+    background: #FFC10720;
+    box-shadow: 0 0 0 3px #FFC10730;
+}
+
+.quiz-option {
+    display: block;
+    cursor: pointer;
+}
+</style>
+
+<!-- Script du quiz -->
+<script src="/assets/js/quote-calculator.js"></script>

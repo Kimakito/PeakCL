@@ -17,12 +17,28 @@
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Nunito:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preconnect" href="https://elfsightcdn.com" crossorigin>
+    <link rel="dns-prefetch" href="https://elfsightcdn.com">
+    
+    <!-- Premium Fonts (Playfair Display, Poppins, Raleway, Caveat) -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Fallback for old fonts (Exo 2 compatibility) -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Animations CSS -->
+    <link rel="preload" href="{{ '/assets/css/animations-premium.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Main Output CSS -->
     <link rel="preload" href="{{ '/assets/css/output.css' | relative_url }}" as="style">
+    
     {% if page.image %}
     <link rel="preload" href="{{ page.image | relative_url }}" as="image">
     {% endif %}
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Nunito:wght@400;600&display=swap"></noscript>
+    
+    <!-- Fallback noScript for fonts -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap"></noscript>
+    <noscript><link rel="stylesheet" href="{{ '/assets/css/animations-premium.css' | relative_url }}"></noscript>
     
     <!-- Styles & Fonts -->
     <link rel="stylesheet" href="{{ '/assets/css/output.css' | relative_url }}" />

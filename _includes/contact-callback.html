@@ -1,5 +1,10 @@
 <!-- Formulaire de rappel client -->
-<form class="bg-gradient-to-br from-peak-blue-dark to-peak-violet rounded-2xl shadow-2xl p-8 max-w-md mx-auto my-12 border-2 border-peak-yellow" method="POST" action="/contact.html">
+<form class="bg-gradient-to-br from-peak-blue-dark to-peak-violet rounded-2xl shadow-2xl p-8 max-w-md mx-auto my-12 border-2 border-peak-yellow" name="callback-inline" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html">
+  <input type="hidden" name="form-name" value="callback-inline">
+  <!-- Champ anti-spam caché -->
+  <p class="hidden">
+    <label>Ne pas remplir : <input name="bot-field" /></label>
+  </p>
   <h2 class="text-3xl font-extrabold mb-3 text-center text-peak-yellow">📞 Être Rappelé</h2>
   <p class="text-center text-peak-gray mb-6 text-sm">Vous choisissez comment être contacté, c'est simple, rapide et confidentiel. <span class="font-semibold text-peak-yellow">Aucune prospection, juste un échange humain !</span></p>
   <div class="mb-4">

@@ -15,9 +15,14 @@ sitemap: true
             Guide complet et transparent par un développeur web
         </p>
         
-        <a href="#prix-detailles" class="inline-block bg-peak-yellow text-peak-blue-dark font-extrabold px-8 py-4 rounded-full hover:bg-yellow-300 transition-all shadow-2xl transform hover:scale-105 text-lg min-h-[48px]">
-            📊 Voir les tarifs détaillés
-        </a>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="/devis-en-ligne.html" class="inline-block bg-gradient-to-r from-peak-yellow to-yellow-400 text-peak-blue-dark font-extrabold px-10 py-5 rounded-full hover:from-yellow-300 hover:to-yellow-500 transition-all shadow-2xl transform hover:scale-105 text-xl min-h-[56px]">
+                💰 Estimez votre projet maintenant
+            </a>
+            <a href="#prix-detailles" class="inline-block bg-peak-violet text-peak-yellow font-bold px-10 py-5 rounded-full hover:bg-purple-700 transition-all shadow-2xl transform hover:scale-105 text-xl border-2 border-peak-yellow min-h-[56px]">
+                📊 Voir les tarifs détaillés
+            </a>
+        </div>
     </div>
 </section>
 
@@ -393,28 +398,15 @@ sitemap: true
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <a href="#contact" class="bg-peak-yellow text-peak-blue-dark font-extrabold px-10 py-5 rounded-full hover:bg-yellow-300 transition-all shadow-2xl transform hover:scale-105 text-xl min-h-[56px]">
-                📩 Demander un devis gratuit
-            </a>
-            <a href="/portfolio.html" class="bg-transparent border-2 border-peak-yellow text-peak-yellow font-bold px-10 py-5 rounded-full hover:bg-peak-yellow hover:text-peak-blue-dark transition-all shadow-xl transform hover:scale-105 text-xl min-h-[56px]">
-                🎯 Voir nos réalisations
-            </a>
+            {% include cta-buttons.html %}
         </div>
 
         <!-- CTA contact -->
-        <div class="text-peak-gray/80 text-base mb-6 space-y-3">
-            <p>
-                Besoin d'un conseil immédiat ?
-            </p>
-            <div class="flex flex-wrap gap-4 justify-center">
-                <a href="#contact" class="text-peak-yellow hover:text-yellow-300 font-bold underline inline-flex items-center gap-2">
-                    📞 Être rappelé(e) gratuitement
-                </a>
-                <span class="text-peak-gray/60">•</span>
-                <a href="mailto:peakcl73@gmail.com" class="text-peak-yellow hover:text-yellow-300 font-bold underline inline-flex items-center gap-2">
-                    ✉️ peakcl73@gmail.com
-                </a>
-            </div>
+        <div class="text-peak-gray/80 text-base mb-6">
+            <p class="mb-3">Besoin d'un conseil immédiat ?</p>
+            <a href="mailto:peakcl73@gmail.com" class="text-peak-yellow hover:text-yellow-300 font-bold underline inline-flex items-center gap-2">
+                ✉️ peakcl73@gmail.com
+            </a>
         </div>
 
         <div class="flex flex-wrap gap-3 justify-center text-sm text-peak-gray">

@@ -1,0 +1,73 @@
+<!-- Barre sticky en bas - Premium CTA avec animations -->
+<div id="sticky-bottom-cta" class="fixed bottom-0 left-0 right-0 z-40 hidden md:block">
+    <!-- Gradient animated background -->
+    <div class="absolute inset-0 bg-gradient-to-r from-peak-rose via-peak-yellow to-peak-purple animate-bg-gradient-shift opacity-90"></div>
+    
+    <!-- Contenu -->
+    <div class="relative max-w-7xl mx-auto px-6 py-4 md:py-5 flex items-center justify-between gap-4">
+        <!-- Message + Emoji pulse -->
+        <div class="flex-1 flex items-center gap-4">
+            <div class="animate-pulse-attention text-2xl hidden sm:block">🎯</div>
+            <div>
+                <p class="font-bold text-peak-blue-dark text-sm md:text-base">
+                    <span class="hidden lg:inline">Besoin d'une réponse maintenant ?</span>
+                    <span class="lg:hidden">Contactez-moi !</span>
+                </p>
+                <p class="text-xs text-peak-blue-darker hidden lg:block">Expert disponible pour discuter de votre projet</p>
+            </div>
+        </div>
+        
+        <!-- Actions with premium animations -->
+        <div class="flex items-center gap-2 md:gap-3 flex-shrink-0">
+            <!-- Appel direct - Glow animation -->
+            <a href="tel:+33673XXXXXX"
+               class="inline-flex items-center gap-2 bg-peak-blue-dark text-peak-yellow font-bold px-4 py-2 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 text-xs md:text-sm animate-glow-pulse"
+               aria-label="Appeler directement">
+                📞 <span class="hidden sm:inline">Appeler</span>
+            </a>
+            
+            <!-- Conseil rapide -->
+            <button class="inline-flex items-center gap-2 bg-peak-purple text-white font-bold px-4 py-2 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 text-xs md:text-sm open-callback-modal"
+                    aria-label="Conseil rapide">
+                💬 <span class="hidden sm:inline">Conseil</span>
+            </button>
+            
+            <!-- Fermer -->
+            <button id="close-sticky-cta" 
+                    class="text-peak-blue-dark hover:scale-125 hover:rotate-90 transition-all duration-300 ml-1"
+                    aria-label="Fermer">
+                ✕
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Gestion Premium de la barre sticky
+document.addEventListener('DOMContentLoaded', function() {
+    const stickyCTA = document.getElementById('sticky-bottom-cta');
+    const closeBtn = document.getElementById('close-sticky-cta');
+    
+    // Afficher après 1000px scroll
+    let hasShown = false;
+    window.addEventListener('scroll', function() {
+        if (!hasShown && window.scrollY > 1000) {
+            stickyCTA.classList.remove('hidden');
+            hasShown = true;
+            localStorage.setItem('peakcl-sticky-shown', 'true');
+        }
+    });
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            stickyCTA.classList.add('hidden');
+            localStorage.setItem('peakcl-sticky-closed', 'true');
+        });
+    }
+    
+    // Respecter la préférence utilisateur
+    if (localStorage.getItem('peakcl-sticky-closed') === 'true') {
+        stickyCTA.classList.add('hidden');
+    }
+});
+</script>

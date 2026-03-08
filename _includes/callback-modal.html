@@ -1,0 +1,168 @@
+<!-- Modal de rappel client -->
+<div id="callback-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+  <div class="relative bg-gradient-to-br from-peak-blue-dark to-peak-violet rounded-2xl shadow-2xl p-8 max-w-md w-full mx-auto border-2 border-peak-yellow transform transition-all scale-95 opacity-0" id="callback-modal-content">
+    
+    <!-- Bouton de fermeture -->
+    <button id="close-callback-modal" class="absolute top-4 right-4 text-peak-gray hover:text-peak-yellow transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-peak-yellow rounded-full p-2" aria-label="Fermer">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Formulaire de rappel -->
+    <form class="w-full" name="callback" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html" id="callback-form">
+      <input type="hidden" name="form-name" value="callback">
+      <!-- Champ anti-spam caché -->
+      <p class="hidden">
+        <label>Ne pas remplir : <input name="bot-field" /></label>
+      </p>
+      <h2 class="text-3xl font-extrabold mb-3 text-center text-peak-yellow">📞 Être Rappelé</h2>
+      
+      <!-- Affichage du service sélectionné si existant -->
+      <div id="selected-service-banner" class="hidden bg-peak-yellow/20 border border-peak-yellow/50 rounded-lg p-3 mb-4 text-center">
+        <p class="text-peak-yellow font-semibold text-sm">
+          Service sélectionné: <span id="service-name">-</span>
+        </p>
+      </div>
+      
+      <p class="text-center text-peak-gray mb-6 text-sm">Vous choisissez comment être contacté, c'est simple, rapide et confidentiel. <span class="font-semibold text-peak-yellow">Aucune prospection, juste un échange humain !</span></p>
+      
+      <div class="mb-4">
+        <label for="callback-name" class="block text-peak-gray font-semibold mb-1">Votre nom</label>
+        <input type="text" id="callback-name" name="name" required class="w-full border-2 border-peak-yellow/50 focus:border-peak-yellow rounded-lg px-4 py-3 bg-white text-peak-blue-dark focus:outline-none focus:ring-2 focus:ring-peak-yellow" placeholder="Nom et prénom">
+      </div>
+      
+      <!-- Champ service caché -->
+      <input type="hidden" name="service" id="callback-service" value="Pas de service spécifié">
+      
+      <div class="mb-4">
+        <label for="callback-email" class="block text-peak-gray font-semibold mb-1">Email</label>
+        <input type="email" id="callback-email" name="email" required class="w-full border-2 border-peak-yellow/50 focus:border-peak-yellow rounded-lg px-4 py-3 bg-white text-peak-blue-dark focus:outline-none focus:ring-2 focus:ring-peak-yellow" placeholder="Votre email">
+      </div>
+      
+      <div class="mb-4">
+        <label for="callback-phone" class="block text-peak-gray font-semibold mb-1">Téléphone</label>
+        <input type="tel" id="callback-phone" name="phone" required class="w-full border-2 border-peak-yellow/50 focus:border-peak-yellow rounded-lg px-4 py-3 bg-white text-peak-blue-dark focus:outline-none focus:ring-2 focus:ring-peak-yellow" placeholder="06 12 34 56 78">
+      </div>
+      
+      <div class="mb-5">
+        <label class="block text-peak-gray font-semibold mb-2">Préférence de contact</label>
+        <div class="flex gap-6 flex-wrap">
+          <label class="inline-flex items-center cursor-pointer">
+            <input type="radio" name="contact_mode" value="email" checked class="form-radio text-peak-yellow focus:ring-peak-yellow">
+            <span class="ml-2 text-peak-gray">📧 Mail</span>
+          </label>
+          <label class="inline-flex items-center cursor-pointer">
+            <input type="radio" name="contact_mode" value="sms" class="form-radio text-peak-yellow focus:ring-peak-yellow">
+            <span class="ml-2 text-peak-gray">💬 SMS</span>
+          </label>
+          <label class="inline-flex items-center cursor-pointer">
+            <input type="radio" name="contact_mode" value="appel" class="form-radio text-peak-yellow focus:ring-peak-yellow">
+            <span class="ml-2 text-peak-gray">📞 Appel</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="mb-6">
+        <label for="callback-message" class="block text-peak-gray font-semibold mb-1">Message (optionnel)</label>
+        <textarea id="callback-message" name="message" class="w-full border-2 border-peak-yellow/50 focus:border-peak-yellow rounded-lg px-4 py-3 bg-white text-peak-blue-dark focus:outline-none focus:ring-2 focus:ring-peak-yellow" rows="3" placeholder="Votre demande..."></textarea>
+      </div>
+      
+      <button type="submit" class="w-full bg-peak-yellow hover:bg-yellow-300 text-peak-blue-dark font-bold py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">✨ Être Rappelé</button>
+      
+      <p class="text-xs text-peak-gray/80 mt-4 text-center">✅ Simple et sans engagement • ❌ Aucune prospection • 🔒 Données sécurisées</p>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Gestion de la modal de rappel avec service sélectionné
+  (function() {
+    const modal = document.getElementById('callback-modal');
+    const modalContent = document.getElementById('callback-modal-content');
+    const openBtn = document.getElementById('callback-float-btn');
+    const closeBtn = document.getElementById('close-callback-modal');
+    const serviceInput = document.getElementById('callback-service');
+    const serviceBanner = document.getElementById('selected-service-banner');
+    const serviceName = document.getElementById('service-name');
+
+    // Ouvrir la modal
+    function openModal(e) {
+      if (e) e.preventDefault();
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      // Animation d'ouverture
+      setTimeout(() => {
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+      }, 10);
+      // Empêcher le scroll de la page
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Fermer la modal
+    function closeModal() {
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+        // Réactiver le scroll de la page
+        document.body.style.overflow = '';
+      }, 200);
+    }
+
+    // Afficher le service sélectionné
+    function showServiceBanner(service) {
+      if (service && service !== 'Pas de service spécifié') {
+        serviceInput.value = service;
+        serviceName.textContent = service;
+        serviceBanner.classList.remove('hidden');
+      } else {
+        serviceBanner.classList.add('hidden');
+      }
+    }
+
+    // Événements pour le bouton flottant
+    if (openBtn) {
+      openBtn.addEventListener('click', openModal);
+    }
+    
+    // Événements pour tous les liens avec la classe "open-callback-modal"
+    document.querySelectorAll('.open-callback-modal').forEach(link => {
+      link.addEventListener('click', openModal);
+    });
+
+    // Gestion des boutons service avec data-service attribute
+    document.querySelectorAll('[data-service]').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const service = this.getAttribute('data-service');
+        
+        // Mettre à jour le service
+        showServiceBanner(service);
+        
+        // Ouvrir la modal
+        openModal();
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Fermer en cliquant en dehors de la modal
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Fermer avec la touche Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    // Laisser Netlify gérer la soumission du formulaire
+    // (pas de preventDefault, pas de fermeture automatique)
+  })();
+</script>

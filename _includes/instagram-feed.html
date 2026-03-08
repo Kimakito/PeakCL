@@ -1,0 +1,51 @@
+<!-- Instagram Feed Widget Elfsight - Optimisé pour performances et accessibilité -->
+<div class="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-peak-violet/30 p-4 sm:p-6">
+    <div class="relative">
+        <!-- Placeholder pour meilleure UX pendant le chargement -->
+        <div class="min-h-[600px] flex items-center justify-center bg-gradient-to-br from-peak-violet/20 to-peak-blue-light/20 rounded-lg mb-4" id="instagram-placeholder">
+            <div class="text-center">
+                <div class="inline-block text-5xl mb-4 animate-bounce">📸</div>
+                <p class="text-peak-gray">Chargement de nos publications...</p>
+            </div>
+        </div>
+        
+        <!-- Widget Instagram avec lazy loading -->
+        <script src="https://elfsightcdn.com/platform.js" async defer></script>
+        <div class="elfsight-app-562a0aa7-3065-445f-bb96-cba40fe65b41" 
+             data-elfsight-app-lazy
+             id="instagram-widget"
+             role="complementary" 
+             aria-label="Flux Instagram PeakCL - Nos derniers travaux et inspirations"
+             data-onload="removeInstagramPlaceholder">
+        </div>
+    </div>
+</div>
+
+<script>
+    // Retire le placeholder quand le widget est chargé
+    function removeInstagramPlaceholder() {
+        const placeholder = document.getElementById('instagram-placeholder');
+        if (placeholder) {
+            placeholder.style.display = 'none';
+        }
+    }
+    
+    // Optionnel : Observer pour détecter quand le widget est réellement chargé
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new MutationObserver(function() {
+            const widget = document.querySelector('.elfsight-app-562a0aa7-3065-445f-bb96-cba40fe65b41');
+            if (widget && widget.innerHTML.trim()) {
+                removeInstagramPlaceholder();
+                observer.disconnect();
+            }
+        });
+        
+        const placeholder = document.getElementById('instagram-placeholder');
+        if (placeholder) {
+            observer.observe(placeholder.parentElement, { 
+                childList: true, 
+                subtree: true 
+            });
+        }
+    });
+</script>

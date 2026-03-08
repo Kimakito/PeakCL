@@ -1,0 +1,72 @@
+<!-- Barre de contact flottante - Premium Design avec animations -->
+<div id="floating-contact-bar" class="fixed top-0 left-0 right-0 z-40 hidden md:block">
+    <!-- Background gradient premium avec animation -->
+    <div class="absolute inset-0 bg-gradient-to-r from-peak-yellow via-peak-yellow-light to-peak-yellow-dark animate-bg-gradient-shift opacity-90"></div>
+    
+    <!-- Contenu avec superposition -->
+    <div class="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <!-- Message d'urgence -->
+        <div class="flex items-center gap-4">
+            <div class="animate-pulse-attention">
+                <span class="text-2xl">🚀</span>
+            </div>
+            <div>
+                <p class="font-title font-bold text-peak-blue-dark text-sm">
+                    <span class="hidden lg:inline">Pas de disponibilité immédiate ?</span>
+                    <span class="lg:hidden">Nous vous rappelons !</span>
+                </p>
+                <p class="text-xs text-peak-blue-darker hidden lg:block opacity-80">
+                    Laissez-nous vous contacter rapidement
+                </p>
+            </div>
+        </div>
+        
+        <!-- Actions (mobile + desktop) -->
+        <div class="flex items-center gap-3">
+            <!-- WhatsApp - Vert chaud -->
+            <a href="https://wa.me/33673XXXXXX?text=Bonjour%20PeakCL%2C%20j'aimerais%20discuter%20de%20mon%20projet%20web" 
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 bg-white text-green-600 font-bold px-4 py-2 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
+               aria-label="Contacter par WhatsApp">
+                <span class="hidden sm:inline">💬</span> WhatsApp
+            </a>
+            
+            <!-- Appel - Bleu foncé avec hover golden -->
+            <a href="tel:+33673XXXXXX"
+               class="inline-flex items-center gap-2 bg-peak-blue-dark text-peak-yellow font-bold px-4 py-2 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 text-xs sm:text-sm animate-glow-pulse"
+               aria-label="Appeler PeakCL">
+                <span class="hidden sm:inline">📞</span> 
+                <span class="hidden md:inline">Appeler</span>
+            </a>
+            
+            <!-- Fermer -->
+            <button id="close-floating-bar" 
+                    class="text-peak-blue-dark hover:scale-125 hover:rotate-90 transition-all duration-300 ml-2"
+                    aria-label="Fermer">
+                ✕
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Gestion de la barre flottante avec localStorage
+document.addEventListener('DOMContentLoaded', function() {
+    const floatingBar = document.getElementById('floating-contact-bar');
+    const closeBtn = document.getElementById('close-floating-bar');
+    
+    if (closeBtn && floatingBar) {
+        closeBtn.addEventListener('click', function() {
+            floatingBar.style.display = 'none';
+            document.body.style.paddingTop = '0';
+            localStorage.setItem('peakcl-floating-bar-closed', 'true');
+        });
+    }
+    
+    // Afficher la barre si non fermée
+    if (!localStorage.getItem('peakcl-floating-bar-closed') && floatingBar) {
+        floatingBar.classList.remove('hidden');
+        document.body.style.paddingTop = '72px'; // Compensate for sticky bar
+    }
+});
+</script>

@@ -46,7 +46,7 @@ image: /assets/images/avatar-share.png
 
     <div class="w-full max-w-7xl relative z-30 text-peak-gray flex flex-col items-center px-2 sm:px-4">
         <img src="/assets/logo/PeakCL.svg" alt="Développeur web Savoie, développeur web Albertville, agence web PeakCL"
-            width="200" height="200"
+            width="200" height="200" loading="eager"
             class="w-24 xs:w-28 sm:w-36 md:w-40 h-auto mx-auto mb-3 xs:mb-4 sm:mb-6 shadow-2xl border-2 animate-fade-in delay-100" />
         <p class="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-title font-extrabold text-peak-yellow py-2 xs:py-3 sm:py-4">Peak<span class="text-peak-violet">CL</span></p>
 
@@ -63,8 +63,8 @@ image: /assets/images/avatar-share.png
         
         <!-- CTAs principaux -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 animate-fade-in delay-250">
-            <a href="#contact" class="bg-peak-yellow text-peak-blue-dark font-extrabold px-8 py-4 rounded-full hover:bg-yellow-300 transition-all shadow-2xl transform hover:scale-105 text-lg min-h-[48px] flex items-center">
-                📩 Demander un devis gratuit
+            <a href="/devis-en-ligne.html" class="bg-gradient-to-r from-peak-yellow to-yellow-400 text-peak-blue-dark font-extrabold px-8 py-4 rounded-full hover:from-yellow-300 hover:to-yellow-500 transition-all shadow-2xl transform hover:scale-105 text-lg min-h-[48px] flex items-center gap-2">
+                💰 Estimez votre projet en 2 min
             </a>
             <a href="/portfolio.html" class="bg-peak-violet text-peak-yellow font-bold px-8 py-4 rounded-full hover:bg-purple-700 transition-all shadow-2xl border-2 border-peak-yellow transform hover:scale-105 text-lg min-h-[48px] flex items-center">
                 🎯 Voir nos réalisations
@@ -73,10 +73,16 @@ image: /assets/images/avatar-share.png
 
         <!-- CTA téléphone discret -->
         <p class="text-peak-gray/80 text-sm mb-6 animate-fade-in delay-300">
-            ou <a href="#contact" class="text-peak-yellow hover:text-yellow-300 font-bold underline">demandez à être rappelé(e)</a> • <a href="mailto:peakcl73@gmail.com" class="text-peak-yellow hover:text-yellow-300 font-bold underline">peakcl73@gmail.com</a>
+            ou <a href="#" class="text-peak-yellow hover:text-yellow-300 font-bold underline open-callback-modal">demandez à être rappelé(e)</a> • <a href="mailto:peakcl73@gmail.com" class="text-peak-yellow hover:text-yellow-300 font-bold underline">peakcl73@gmail.com</a>
         </p>
     </div>
 </section>
+
+<!-- Section Pourquoi Un Conseil? -->
+{% include conseil-why.html %}
+
+<!-- Section Ultra-Conversion : Les 3 Services -->
+{% include services-rapides.html %}
 
 <!-- Section Bénéfices clés -->
 <section id="benefices" class="relative py-20 px-6 bg-gradient-to-b from-peak-violet via-peak-blue-dark to-peak-blue-light" role="region" aria-label="Ce que vous gagnez">
@@ -143,6 +149,9 @@ image: /assets/images/avatar-share.png
         </div>
     </div>
 </section>
+
+<!-- Section Objections & Garanties -->
+{% include pourquoi-expert.html %}
 
 <!-- Section À qui ça s'adresse -->
 <section id="pour-qui" class="relative py-20 px-6 bg-gradient-to-b from-peak-blue-light via-peak-violet to-peak-violet" role="region" aria-label="Pour qui">
@@ -220,6 +229,11 @@ image: /assets/images/avatar-share.png
         </div>
     </div>
 </section>
+
+<!-- Mini CTA après "À qui ça s'adresse" -->
+<div class="px-6 py-8 max-w-6xl mx-auto">
+    {% include mini-cta.html %}
+</div>
 
 <!-- Section Comment ça fonctionne (processus) -->
 {% include processus.html %}
@@ -368,10 +382,8 @@ image: /assets/images/avatar-share.png
         </div>
 
         <!-- CTA -->
-        <div class="mt-12 text-center">
-            <a href="#contact" class="inline-block bg-peak-yellow text-peak-blue-dark font-extrabold px-10 py-5 rounded-full hover:bg-yellow-300 transition-all shadow-2xl transform hover:scale-105 text-xl">
-                🤝 Je veux un partenaire, pas juste un prestataire
-            </a>
+        <div class="mt-12">
+            {% include cta-buttons.html %}
         </div>
     </div>
 </section>
@@ -579,9 +591,7 @@ FIN SECTION MASQUÉE -->
                 Je vous envoie un devis détaillé sous 24-48h. <strong>Sans engagement.</strong>
             </p>
             
-            <a href="#contact" class="inline-block bg-peak-yellow text-peak-blue-dark font-extrabold px-10 py-5 rounded-full hover:bg-yellow-300 transition-all shadow-2xl transform hover:scale-105 text-xl min-h-[56px]">
-                💬 Demander mon devis gratuit
-            </a>
+            {% include cta-buttons.html %}
         </div>
     </div>
 </section>
@@ -646,6 +656,50 @@ FIN SECTION MASQUÉE -->
         </div>
     </div>
 </section>
+
+<!-- Section Instagram Feed - Galerie visuelle -->
+<section id="instagram" class="relative py-20 px-6 bg-gradient-to-b from-peak-violet via-peak-blue-dark to-peak-blue-light" role="region" aria-label="Galerie Instagram - Nos derniers travaux et inspiration">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-peak-yellow mb-4 animate-fade-in">
+                📸 Nos derniers projets & inspirations
+            </h2>
+            <p class="text-lg text-peak-gray max-w-3xl mx-auto mb-6 animate-fade-in delay-100">
+                Découvrez nos réalisations web, nos conseils digitaux et les coulisses de l'agence en photos et vidéos
+            </p>
+            <a href="https://instagram.com/peakcl_dev" target="_blank" rel="noopener noreferrer" 
+               class="inline-block bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:from-pink-600 hover:via-red-600 hover:to-yellow-600 text-white font-bold px-8 py-4 rounded-full transition-all shadow-xl transform hover:scale-105 text-lg min-h-[48px] flex items-center gap-2 justify-center"
+               aria-label="Suivez PeakCL sur Instagram - Ouvre dans une nouvelle fenêtre">
+                👉 @peakcl_dev • Suivez-nous
+            </a>
+        </div>
+
+        <!-- Instagram Feed Widget Elfsight -->
+        {% include instagram-feed.html %}
+
+        <!-- CTA supplémentaire pour interagir -->
+        <div class="mt-12 bg-gradient-to-r from-peak-yellow/90 via-yellow-400/80 to-peak-yellow/70 p-8 rounded-2xl border-4 border-peak-yellow shadow-2xl text-center">
+            <h3 class="text-xl sm:text-2xl font-bold text-peak-blue-dark mb-4">
+                💬 Une question sur votre projet web ?
+            </h3>
+            <p class="text-peak-blue-dark font-medium mb-6">
+                Envoyez-nous un message sur Instagram, appelez-nous ou demandez à être rappelé(e) gratuitement
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://instagram.com/peakcl_dev" target="_blank" rel="noopener noreferrer"
+                   class="bg-gradient-to-r from-pink-500 to-orange-500 text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-all shadow-lg">
+                    📱 Message sur Instagram
+                </a>
+                <button class="bg-peak-violet text-peak-yellow font-bold px-6 py-3 rounded-full hover:bg-purple-700 transition-all shadow-lg border-2 border-peak-yellow open-callback-modal">
+                    📞 Être rappelé(e)
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Logos Clients - Slider "Ils nous ont fait confiance" -->
+{% include clients-logos-slider.html %}
 
 <!-- Section Contact (CTA final) -->
 {% include contact-form.html %}

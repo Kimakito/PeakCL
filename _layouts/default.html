@@ -5,6 +5,7 @@
 {% include header.html %}
 
 <body class="font-k2d bg-primary-medium text-text-dark min-h-screen flex flex-col">
+    {% include floating-contact-bar.html %}
     {% include navbar.html %}
 
     <main class="flex-grow pt-20 md:pt-24">
@@ -21,10 +22,11 @@
         </script>
     </main>
 
+    {% include sticky-bottom-cta.html %}
     {% include footer.html %}
     {% include scroll-top.html %}
 
-        <!-- Bouton flottant pour rappel client - Remplace WhatsApp -->
+        <!-- Bouton flottant pour rappel client - Ouvre une popup -->
         <button id="callback-float-btn" aria-label="Être rappelé gratuitement" class="fixed z-50 bottom-6 right-6 bg-gradient-to-r from-peak-yellow to-yellow-400 hover:from-yellow-300 hover:to-peak-yellow text-peak-blue-dark font-extrabold py-4 px-6 rounded-full shadow-2xl flex items-center gap-3 transition-all transform hover:scale-110 group animate-pulse-slow">
                 <!-- Bulle d'information au survol -->
                 <div class="absolute bottom-full right-0 mb-3 hidden group-hover:block animate-fade-in">
@@ -40,19 +42,8 @@
                 <span class="hidden sm:inline">Être rappelé</span>
         </button>
 
-        <script>
-            // Scroll vers le formulaire de rappel client avec highlight
-            document.getElementById('callback-float-btn').addEventListener('click', function() {
-                const callbackForm = document.querySelector('form[action="/contact.html"]');
-                if (callbackForm) {
-                    callbackForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    callbackForm.classList.add('ring-4', 'ring-peak-yellow', 'scale-105');
-                    setTimeout(() => {
-                        callbackForm.classList.remove('ring-4', 'ring-peak-yellow', 'scale-105');
-                    }, 2000);
-                }
-            });
-        </script>
+        <!-- Modal de rappel -->
+        {% include callback-modal.html %}
 
     <script defer src="{{ '/assets/js/main.js' | relative_url }}"></script>
     <script defer src="{{ '/assets/js/matrix.js' | relative_url }}"></script>
