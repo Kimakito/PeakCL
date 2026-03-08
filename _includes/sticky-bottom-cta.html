@@ -1,41 +1,41 @@
 <!-- Barre sticky en bas - Premium CTA avec animations -->
-<div id="sticky-bottom-cta" class="fixed bottom-0 left-0 right-0 z-40 hidden md:block">
+<div id="sticky-bottom-cta" class="fixed bottom-0 left-0 right-0 z-40 hidden md:flex opacity-0 transition-opacity duration-300">
     <!-- Gradient animated background -->
-    <div class="absolute inset-0 bg-gradient-to-r from-peak-rose via-peak-yellow to-peak-purple animate-bg-gradient-shift opacity-90"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-peak-rose via-peak-yellow to-peak-violet animate-bg-gradient-shift opacity-90"></div>
     
     <!-- Contenu -->
-    <div class="relative max-w-7xl mx-auto px-6 py-4 md:py-5 flex items-center justify-between gap-4">
+    <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 py-3 md:py-4 flex items-center justify-between gap-3 md:gap-4">
         <!-- Message + Emoji pulse -->
-        <div class="flex-1 flex items-center gap-4">
-            <div class="animate-pulse-attention text-2xl hidden sm:block">🎯</div>
-            <div>
-                <p class="font-bold text-peak-blue-dark text-sm md:text-base">
+        <div class="flex-1 flex items-center gap-3">
+            <div class="animate-pulse text-xl sm:text-2xl hidden sm:block flex-shrink-0">🎯</div>
+            <div class="min-w-0">
+                <p class="font-bold text-peak-blue-dark text-xs sm:text-sm md:text-base truncate">
                     <span class="hidden lg:inline">Besoin d'une réponse maintenant ?</span>
                     <span class="lg:hidden">Contactez-moi !</span>
                 </p>
-                <p class="text-xs text-peak-blue-darker hidden lg:block">Expert disponible pour discuter de votre projet</p>
+                <p class="text-xs text-peak-blue-darker hidden lg:block truncate">Expert disponible pour discuter de votre projet</p>
             </div>
         </div>
         
         <!-- Actions with premium animations -->
-        <div class="flex items-center gap-2 md:gap-3 flex-shrink-0">
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             <!-- Appel direct - Glow animation -->
             <a href="tel:+33673XXXXXX"
-               class="inline-flex items-center gap-2 bg-peak-blue-dark text-peak-yellow font-bold px-4 py-2 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 text-xs md:text-sm animate-glow-pulse"
+               class="inline-flex items-center gap-1 sm:gap-2 bg-peak-blue-dark text-peak-yellow font-bold px-3 sm:px-4 py-2 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 text-xs sm:text-sm whitespace-nowrap"
                aria-label="Appeler directement">
                 📞 <span class="hidden sm:inline">Appeler</span>
             </a>
             
             <!-- Conseil rapide -->
-            <button class="inline-flex items-center gap-2 bg-peak-purple text-white font-bold px-4 py-2 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 text-xs md:text-sm open-callback-modal"
+            <button class="inline-flex items-center gap-1 sm:gap-2 bg-peak-violet text-white font-bold px-3 sm:px-4 py-2 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 text-xs sm:text-sm open-callback-modal whitespace-nowrap"
                     aria-label="Conseil rapide">
                 💬 <span class="hidden sm:inline">Conseil</span>
             </button>
             
             <!-- Fermer -->
             <button id="close-sticky-cta" 
-                    class="text-peak-blue-dark hover:scale-125 hover:rotate-90 transition-all duration-300 ml-1"
-                    aria-label="Fermer">
+                    class="text-peak-blue-dark hover:text-peak-blue-light hover:scale-125 hover:rotate-90 transition-all duration-300 ml-1 flex-shrink-0 text-lg"
+                    aria-label="Fermer la barre">
                 ✕
             </button>
         </div>
@@ -43,24 +43,33 @@
 </div>
 
 <script>
-// Gestion Premium de la barre sticky
+// Gestion Premium de la barre sticky avec animations fluides
 document.addEventListener('DOMContentLoaded', function() {
     const stickyCTA = document.getElementById('sticky-bottom-cta');
     const closeBtn = document.getElementById('close-sticky-cta');
     
-    // Afficher après 1000px scroll
+    // Afficher après 1000px scroll avec animation
     let hasShown = false;
     window.addEventListener('scroll', function() {
         if (!hasShown && window.scrollY > 1000) {
+            // Afficher avec animation fade-in
             stickyCTA.classList.remove('hidden');
-            hasShown = true;
+            setTimeout(() => {
+                stickyCTA.classList.remove('opacity-0');
+                hasShown = true;
+            }, 10);
             localStorage.setItem('peakcl-sticky-shown', 'true');
         }
     });
     
     if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            stickyCTA.classList.add('hidden');
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Fermer avec animation fade-out
+            stickyCTA.classList.add('opacity-0');
+            setTimeout(() => {
+                stickyCTA.classList.add('hidden');
+            }, 300);
             localStorage.setItem('peakcl-sticky-closed', 'true');
         });
     }

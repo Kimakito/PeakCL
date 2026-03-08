@@ -13,19 +13,21 @@ module.exports = {
     extend: {
       colors: {
         // Palette Premium 2026 - Psychologie des couleurs pour conversion
-        'peak-yellow': '#FFD700',           // Or pur - Urgence & Action
+        'peak-yellow': '#f9cd00',           // Or pur - Urgence & Action
         'peak-yellow-light': '#FFF44F',     // Or clair - Accents secondaires
         'peak-yellow-dark': '#FFA500',      // Or foncé - Hover states
         
         'peak-teal': '#00BCD4',             // Cyan-blue - Confiance & Accessibilité
         'peak-teal-light': '#4DD0E1',       // Cyan clair
         
+        'peak-blue-light': '#00bdbf',       // Cyan luminux - Confiance & Accessibilité
+        'peak-blue-dark': '#011526',        // Bleu foncé Navy - Trust base
+        'peak-blue-darker': '#060A11',      // Bleu très foncé
+        
+        'peak-violet': '#522a80',           // Violet profond - Premium & Créativité
         'peak-purple': '#6B46C1',           // Violet profond - Premium & Créativité
         'peak-purple-light': '#9F7AEA',     // Violet clair
         'peak-purple-dark': '#5A2D82',      // Violet très foncé
-        
-        'peak-blue-dark': '#0F1428',        // Bleu foncé - Trust base (contrast amélioré)
-        'peak-blue-darker': '#060A11',      // Bleu très foncé
         
         'peak-rose': '#F87171',             // Rose/Coral - Humanité & Approche
         'peak-rose-light': '#FCA5A5',       // Rose clair
