@@ -5,21 +5,21 @@ description: "Obtenez une estimation de prix immédiate pour votre projet web. C
 sitemap: true
 ---
 
-<section class="relative min-h-screen flex items-center justify-center px-4 py-24 bg-gradient-to-br from-peak-blue-dark via-peak-violet to-peak-blue-light">
+<section class="relative -mt-20 md:-mt-24 min-h-screen flex items-center justify-center px-4 py-24 bg-gradient-to-br from-peak-blue-darker via-peak-blue-dark to-peak-violet">
     <div class="max-w-4xl w-full mx-auto">
         
         <!-- Header -->
         <div class="text-center mb-12" id="quiz-header">
             <h1 class="text-4xl sm:text-5xl font-extrabold font-title text-peak-yellow mb-4">
-                Estimez Votre Projet Web
+                Estimez le prix de votre site internet
             </h1>
             <p class="text-xl text-peak-gray mb-6">
-                Répondez à quelques questions et obtenez une <strong class="text-peak-yellow">estimation de prix immédiate</strong>
+                Répondez à quelques questions et obtenez une <strong class="text-peak-yellow">estimation immédiate et réaliste</strong> de votre projet web
             </p>
-            <div class="bg-peak-yellow/20 border border-peak-yellow rounded-lg p-4 max-w-2xl mx-auto">
+            <div class="bg-white/5 border border-peak-yellow/40 rounded-lg p-4 max-w-2xl mx-auto backdrop-blur-sm">
                 <p class="text-sm text-peak-gray">
                     ⚠️ <strong>Important :</strong> Cette estimation est <strong>indicative</strong> et basée sur vos réponses. 
-                    Un devis précis et personnalisé sera établi après un échange avec vous.
+                    Vous recevez ensuite un devis précis, expliqué simplement, après un échange avec un expert.
                 </p>
             </div>
         </div>
@@ -36,7 +36,7 @@ sitemap: true
         </div>
 
         <!-- Container du Quiz -->
-        <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 border-2 border-peak-yellow/30">
+        <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 border border-peak-yellow/30">
             
             <!-- Étape 1 : Type de projet -->
             <div class="quiz-step active" data-step="1">
@@ -45,7 +45,7 @@ sitemap: true
                 
                 <div class="space-y-4">
                     <label class="quiz-option">
-                        <input type="radio" name="project_type" value="vitrine" data-price="2500" class="hidden">
+                        <input type="radio" name="project_type" value="vitrine" data-price="1500" class="hidden">
                         <div class="option-card">
                             <div class="flex items-start gap-4">
                                 <div class="text-3xl">🌐</div>
@@ -265,16 +265,16 @@ sitemap: true
                     <label class="flex items-start gap-3 p-4 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors border border-peak-yellow/20">
                         <input type="checkbox" name="services" value="gmb" data-price="300" class="mt-1">
                         <div class="flex-1">
-                            <span class="font-semibold text-peak-blue-dark block mb-1">📍 Fiche Google My Business</span>
-                            <span class="text-peak-gray text-sm">Création et optimisation pour la visibilité locale</span>
+                            <span class="font-semibold text-peak-blue-dark block mb-1">📍 Lancement Google Business Profile</span>
+                            <span class="text-peak-gray text-sm">Création et mise en ligne de votre fiche locale (base propre et complète)</span>
                         </div>
                     </label>
 
                     <label class="flex items-start gap-3 p-4 hover:bg-peak-yellow/10 rounded-lg cursor-pointer transition-colors border border-peak-yellow/20">
                         <input type="checkbox" name="services" value="social_media" data-price="600" class="mt-1">
                         <div class="flex-1">
-                            <span class="font-semibold text-peak-blue-dark block mb-1">📱 Setup Réseaux Sociaux</span>
-                            <span class="text-peak-gray text-sm">Création/optimisation pages + cohérence visuelle + premiers posts</span>
+                            <span class="font-semibold text-peak-blue-dark block mb-1">📱 Pages Sociales: création + lancement</span>
+                            <span class="text-peak-gray text-sm">Création des pages, branding et premiers contenus de démarrage</span>
                         </div>
                     </label>
 
@@ -490,24 +490,24 @@ sitemap: true
 
 .option-card {
     padding: 1rem;
-    border: 1px solid rgba(255,205,0,0.2);
+    border: 1px solid rgba(200,169,107,0.28);
     border-radius: 0.75rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: rgba(255,205,0,0.08);
+    background: rgba(8,16,27,0.03);
     backdrop-filter: blur(8px);
 }
 
 .option-card:hover {
-    border-color: #FFC107;
-    background: #FFC10710;
+    border-color: #c8a96b;
+    background: rgba(200,169,107,0.08);
     transform: translateX(4px);
 }
 
 .quiz-option input:checked + .option-card {
-    border-color: #FFC107;
-    background: #FFC10720;
-    box-shadow: 0 0 0 3px #FFC10730;
+    border-color: #c8a96b;
+    background: rgba(200,169,107,0.16);
+    box-shadow: 0 0 0 3px rgba(200,169,107,0.2);
 }
 
 .quiz-option {

@@ -41,7 +41,7 @@
                     <select id="service-type" name="service" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base">
                         <option value="" disabled selected>Sélectionnez votre besoin principal</option>
                         <option value="Site Web" class="bg-peak-blue-dark">🌐 Site Web</option>
-                        <option value="Réseaux Sociaux" class="bg-peak-blue-dark">📱 Réseaux Sociaux</option>
+                        <option value="Pages Sociales" class="bg-peak-blue-dark">📱 Pages Sociales (création + lancement)</option>
                         <option value="Graphisme" class="bg-peak-blue-dark">🎨 Graphisme</option>
                         <option value="Autre" class="bg-peak-blue-dark">❓ Autre / Plusieurs services</option>
                     </select>
@@ -68,16 +68,24 @@
         <div class="bg-gradient-to-r from-peak-blue-dark to-peak-violet rounded-b-2xl p-6 text-center border-t border-peak-violet/30">
             <p class="text-peak-gray mb-4">
                 <strong>Pas sûr(e) de quel service choisir?</strong> Commencez par un 
-                <a href="/conseil-gratuit.html" class="text-purple-400 hover:text-purple-300 font-bold underline">conseil gratuit (30 min)</a>
+                <a href="/conseil-gratuit.html" class="text-peak-yellow hover:text-peak-yellow-light font-bold underline">conseil gratuit (30 min)</a>
             </p>
             <p class="text-peak-gray mb-4">
-                Ou préférez appeler directement?
+                Ou contactez-moi directement par SMS ou WhatsApp (je préfère les textos) :
             </p>
-            <a href="tel:+33673XXXXXX"
-               class="inline-block bg-gradient-to-r from-peak-yellow to-yellow-400 text-peak-blue-dark font-extrabold px-8 py-4 rounded-full hover:from-yellow-300 hover:to-peak-yellow shadow-xl transform hover:scale-105 transition-all text-lg"
-               aria-label="Appeler directement">
-                ☎️ 06 73 XX XX XX
-            </a>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/33743517627?text=Bonjour%20PeakCL%2C%20j'aimerais%20discuter%20de%20mon%20projet%20web"
+                   target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-green-500 text-white font-extrabold px-8 py-4 rounded-full hover:bg-green-600 shadow-xl transform hover:scale-105 transition-all text-lg"
+                   aria-label="Contacter par WhatsApp">
+                    💬 WhatsApp
+                </a>
+                <a href="sms:0743517627?body=Bonjour%20PeakCL%2C%20j'aimerais%20discuter%20de%20mon%20projet%20web"
+                   class="inline-block bg-gradient-to-r from-peak-yellow to-yellow-400 text-peak-blue-dark font-extrabold px-8 py-4 rounded-full hover:from-yellow-300 hover:to-peak-yellow shadow-xl transform hover:scale-105 transition-all text-lg"
+                   aria-label="Envoyer un SMS">
+                    📱 SMS: 07 43 51 76 27
+                </a>
+            </div>
         </div>
     </div>
 </section>

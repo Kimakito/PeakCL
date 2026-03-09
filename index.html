@@ -39,41 +39,42 @@ image: /assets/images/avatar-share.png
 }
 </script>
 
-<section id="hero" class="relative min-h-[70vh] flex items-center justify-center text-center px-2 sm:px-4 pt-4 sm:pt-8 overflow-hidden"
+<section id="hero" class="relative -mt-20 md:-mt-24 min-h-[78vh] flex items-center justify-center text-center px-2 sm:px-4 pt-24 sm:pt-36 md:pt-44 overflow-hidden bg-luxe-hero"
     role="region" aria-label="Gagnez des clients grâce à votre site web">
-    <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full z-0 opacity-50"></canvas>
-    <div class="absolute inset-0 bg-gradient-to-br from-peak-blue-dark via-peak-blue-light to-peak-violet bg-[length:200%_200%] animate-bg-gradient-shift z-10 opacity-70"></div>
+    <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full z-0 opacity-15"></canvas>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#070f19]/95 via-[#0f1c2e]/92 to-[#131f31]/94 z-10"></div>
+    <div class="absolute inset-0 z-20 bg-[radial-gradient(circle_at_top,rgba(200,169,107,0.16),transparent_45%)]"></div>
 
-    <div class="w-full max-w-7xl relative z-30 text-peak-gray flex flex-col items-center px-2 sm:px-4">
+    <div class="w-full max-w-7xl relative z-30 text-white flex flex-col items-center px-2 sm:px-4">
         <img src="/assets/logo/PeakCL.svg" alt="Développeur web Savoie, développeur web Albertville, agence web PeakCL"
             width="200" height="200" loading="eager"
-            class="w-24 xs:w-28 sm:w-36 md:w-40 h-auto mx-auto mb-3 xs:mb-4 sm:mb-6 shadow-2xl border-2 animate-fade-in delay-100" />
-        <p class="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-title font-extrabold text-peak-yellow py-2 xs:py-3 sm:py-4">Peak<span class="text-peak-violet">CL</span></p>
+            class="w-24 xs:w-28 sm:w-36 md:w-40 h-auto mx-auto mb-3 xs:mb-4 sm:mb-6 shadow-2xl border border-[#c8a96b]/70 animate-fade-in delay-100" />
+        <p class="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-title font-extrabold text-[#e8edf4] py-2 xs:py-3 sm:py-4 tracking-wide">Peak<span class="text-[#c8a96b]">CL</span></p>
 
         <h1 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold font-title leading-tight py-2 xs:py-3 sm:py-4 drop-shadow-lg animate-fade-in delay-150">
-            <span class="text-peak-yellow">Transformez vos visiteurs en clients</span><br>
-            <span class="text-peak-gray text-xl xs:text-2xl sm:text-3xl md:text-4xl">avec un site web qui vend vraiment</span>
+            <span class="text-[#e3cc9a] drop-shadow-lg">Transformez vos visiteurs en clients</span><br>
+            <span class="text-white text-xl xs:text-2xl sm:text-3xl md:text-4xl drop-shadow-md">avec un site internet professionnel, clair et rassurant</span>
         </h1>
 
-        <p class="text-sm xs:text-base sm:text-lg md:text-xl max-w-md xs:max-w-lg sm:max-w-xl md:max-w-2xl mx-auto mb-4 xs:mb-5 sm:mb-8 opacity-90 animate-fade-in delay-200 px-1 xs:px-2">
-            Sites internet <strong>sur-mesure</strong> pour entrepreneurs et PME en Savoie.<br>
-            Design professionnel, référencement Google, maintenance incluse.
+        <p class="text-sm xs:text-base sm:text-lg md:text-xl max-w-md xs:max-w-lg sm:max-w-xl md:max-w-2xl mx-auto mb-5 xs:mb-6 sm:mb-9 text-luxe-muted opacity-100 animate-fade-in delay-200 px-1 xs:px-2 leading-relaxed">
+            Agence web à Albertville et en Savoie: création de sites internet <strong>sur-mesure</strong> pour entrepreneurs et PME.<br>
+            Design professionnel, référencement Google local et accompagnement humain à chaque étape.
         </p>
         
         
         <!-- CTAs principaux -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 animate-fade-in delay-250">
-            <a href="/devis-en-ligne.html" class="bg-gradient-to-r from-peak-yellow to-yellow-400 text-peak-blue-dark font-extrabold px-8 py-4 rounded-full hover:from-yellow-300 hover:to-yellow-500 transition-all shadow-2xl transform hover:scale-105 text-lg min-h-[48px] flex items-center gap-2">
-                💰 Estimez votre projet en 2 min
+            <a href="/devis-en-ligne.html" class="btn-luxe-primary font-extrabold px-8 py-4 rounded-full transition-all shadow-2xl transform hover:scale-105 text-lg min-h-[48px] flex items-center tracking-wide">
+                Estimez votre projet
             </a>
-            <a href="/portfolio.html" class="bg-peak-violet text-peak-yellow font-bold px-8 py-4 rounded-full hover:bg-purple-700 transition-all shadow-2xl border-2 border-peak-yellow transform hover:scale-105 text-lg min-h-[48px] flex items-center">
-                🎯 Voir nos réalisations
+            <a href="/portfolio.html" class="btn-luxe-secondary font-bold px-8 py-4 rounded-full hover:bg-white/5 transition-all shadow-2xl transform hover:scale-105 text-lg min-h-[48px] flex items-center tracking-wide">
+                Voir nos réalisations
             </a>
         </div>
 
         <!-- CTA téléphone discret -->
-        <p class="text-peak-gray/80 text-sm mb-6 animate-fade-in delay-300">
-            ou <a href="#" class="text-peak-yellow hover:text-yellow-300 font-bold underline open-callback-modal">demandez à être rappelé(e)</a> • <a href="mailto:peakcl73@gmail.com" class="text-peak-yellow hover:text-yellow-300 font-bold underline">peakcl73@gmail.com</a>
+        <p class="text-white/75 text-sm mb-6 animate-fade-in delay-300">
+            ou <a href="#" class="text-[#e3cc9a] hover:text-[#f0ddb4] font-semibold underline open-callback-modal">demandez à être rappelé(e)</a> pour parler de votre projet • <a href="mailto:peakcl73@gmail.com" class="text-[#e3cc9a] hover:text-[#f0ddb4] font-semibold underline">peakcl73@gmail.com</a>
         </p>
     </div>
 </section>
@@ -89,7 +90,7 @@ image: /assets/images/avatar-share.png
     <div class="max-w-6xl mx-auto">
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-title font-extrabold text-center text-peak-yellow mb-4 animate-fade-in">Ce que vous gagnez concrètement</h2>
         <p class="text-center text-peak-gray text-lg mb-12 max-w-2xl mx-auto">
-            Pas de jargon technique. Juste des résultats concrets pour votre entreprise.
+            Pas de jargon technique, pas de promesses floues: des résultats concrets pour développer votre activité en ligne.
         </p>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -165,11 +166,11 @@ image: /assets/images/avatar-share.png
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <!-- Pour qui c'est fait -->
-            <div class="group bg-yellow-100 p-8 rounded-2xl border-4 border-peak-yellow shadow-2xl hover:shadow-peak-yellow/50 hover:scale-105 transition-all duration-500 backdrop-blur-sm">
-                <h3 class="text-2xl sm:text-3xl font-bold text-peak-blue-dark mb-6 flex items-center gap-2">
+            <div class="group bg-white/10 p-8 rounded-2xl border border-peak-yellow/40 shadow-2xl hover:shadow-peak-yellow/30 hover:scale-105 transition-all duration-500 backdrop-blur-sm">
+                <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center gap-2">
                     <span class="text-3xl sm:text-4xl">✅</span> Vous êtes au bon endroit si :
                 </h3>
-                <ul class="space-y-4 text-peak-blue-dark font-medium">
+                <ul class="space-y-4 text-peak-gray font-medium">
                     <li class="flex items-start gap-3">
                         <span class="text-peak-yellow text-xl font-bold">•</span>
                         <span>Vous êtes <strong>entrepreneur</strong>, <strong>artisan</strong>, <strong>commerçant</strong> ou <strong>profession libérale</strong> en Savoie</span>
@@ -198,11 +199,11 @@ image: /assets/images/avatar-share.png
             </div>
 
             <!-- Pour qui ce n'est PAS fait -->
-            <div class="group bg-red-200 p-8 rounded-2xl border-4 border-peak-violet shadow-2xl hover:shadow-peak-violet/50 hover:scale-105 transition-all duration-500 backdrop-blur-sm">
-                <h3 class="text-2xl sm:text-3xl font-bold text-peak-blue-dark mb-6 flex items-center gap-2">
+            <div class="group bg-white/5 p-8 rounded-2xl border border-peak-violet/40 shadow-2xl hover:shadow-peak-violet/30 hover:scale-105 transition-all duration-500 backdrop-blur-sm">
+                <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center gap-2">
                     <span class="text-3xl sm:text-4xl">❌</span> Ce n'est pas pour vous si :
                 </h3>
-                <ul class="space-y-4 text-gray-700 font-medium">
+                <ul class="space-y-4 text-peak-gray/90 font-medium">
                     <li class="flex items-start gap-3">
                         <span class="text-peak-yellow text-xl font-bold">•</span>
                         <span>Vous cherchez un site "gratuit" ou à 200€</span>
@@ -220,8 +221,8 @@ image: /assets/images/avatar-share.png
                         <span>Vous cherchez une grosse agence avec des bureaux de 500m²</span>
                     </li>
                 </ul>
-                <div class="mt-6 p-4 bg-white/95 backdrop-blur-md rounded-lg border-l-4 border-peak-yellow shadow-xl">
-                    <p class="text-sm text-peak-blue-dark font-semibold italic">
+                <div class="mt-6 p-4 bg-white/10 backdrop-blur-md rounded-lg border-l-4 border-peak-yellow shadow-xl">
+                    <p class="text-sm text-white/90 font-semibold italic">
                         <strong class="text-peak-violet">Et c'est OK !</strong> Il existe d'autres solutions adaptées à vos besoins. Moi, je me concentre sur la qualité et l'accompagnement personnalisé.
                     </p>
                 </div>
@@ -231,9 +232,11 @@ image: /assets/images/avatar-share.png
 </section>
 
 <!-- Mini CTA après "À qui ça s'adresse" -->
-<div class="px-6 py-8 max-w-6xl mx-auto">
-    {% include mini-cta.html %}
-</div>
+<section class="relative px-6 py-10 bg-gradient-to-b from-peak-violet via-peak-blue-dark to-peak-blue-dark" aria-label="CTA intermediaire">
+    <div class="max-w-6xl mx-auto">
+        {% include mini-cta.html %}
+    </div>
+</section>
 
 <!-- Section Comment ça fonctionne (processus) -->
 {% include processus.html %}
@@ -429,7 +432,7 @@ image: /assets/images/avatar-share.png
                 <p class="text-peak-gray mb-4">
                     <strong class="text-peak-yellow">Fonctionnement :</strong> Évaluation gratuite de 20-30 min → Devis transparent → Intervention rapide
                 </p>
-                <a href="#contact" class="inline-block bg-peak-violet text-peak-yellow font-bold px-8 py-4 rounded-full hover:bg-purple-700 transition-all shadow-xl border-2 border-peak-yellow transform hover:scale-105">
+                <a href="#contact" class="inline-block bg-peak-violet text-peak-yellow font-bold px-8 py-4 rounded-full hover:bg-peak-purple-dark transition-all shadow-xl border-2 border-peak-yellow transform hover:scale-105">
                     🔧 Améliorer mon site existant
                 </a>
             </div>
@@ -481,32 +484,32 @@ FIN SECTION MASQUÉE -->
             Combien coûte un site adapté à VOTRE entreprise ?
         </h2>
         <p class="text-center text-peak-gray text-lg mb-12 max-w-2xl mx-auto">
-            Transparence totale sur ma façon de travailler et mes tarifs
+            Tarifs transparents, méthode claire et accompagnement personnalisé du cadrage à la mise en ligne.
         </p>
 
         <!-- Pourquoi pas de prix fixes -->
-        <div class="group bg-gradient-to-br from-peak-yellow/90 via-yellow-400/80 to-peak-yellow/70 p-10 rounded-2xl border-4 border-peak-yellow shadow-2xl hover:shadow-peak-yellow/60 hover:scale-105 transition-all duration-500 mb-8">
-            <h3 class="text-2xl sm:text-3xl font-bold text-peak-blue-dark mb-6 flex items-center gap-3">
+        <div class="group bg-gradient-to-br from-peak-yellow/20 via-peak-yellow/10 to-peak-violet/20 p-10 rounded-2xl border border-peak-yellow/40 shadow-2xl hover:shadow-peak-yellow/40 hover:scale-105 transition-all duration-500 mb-8">
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center gap-3">
                 <span class="text-3xl sm:text-4xl">❌</span> Je ne propose PAS de "pack standard" à 999€
             </h3>
             
-            <div class="space-y-4 text-peak-blue-dark font-medium mb-6">
+            <div class="space-y-4 text-peak-gray font-medium mb-6">
                 <p class="flex items-start gap-3">
-                    <span class="text-peak-blue-dark text-2xl font-bold mt-1">→</span>
+                    <span class="text-peak-yellow text-2xl font-bold mt-1">→</span>
                     <span><strong>Un menuisier</strong> n'a pas les mêmes besoins qu'un <strong>e-commerce de cosmétiques</strong></span>
                 </p>
                 <p class="flex items-start gap-3">
-                    <span class="text-peak-blue-dark text-2xl font-bold mt-1">→</span>
+                    <span class="text-peak-yellow text-2xl font-bold mt-1">→</span>
                     <span>Votre site doit refléter <strong>VOTRE activité</strong>, pas un template générique</span>
                 </p>
                 <p class="flex items-start gap-3">
-                    <span class="text-peak-blue-dark text-2xl font-bold mt-1">→</span>
+                    <span class="text-peak-yellow text-2xl font-bold mt-1">→</span>
                     <span>Chaque projet est <strong>construit sur-mesure</strong> après avoir compris vos objectifs</span>
                 </p>
             </div>
 
-            <div class="bg-white/95 p-6 rounded-xl border-l-4 border-peak-violet shadow-2xl backdrop-blur-md">
-                <p class="text-peak-blue-dark font-semibold">
+            <div class="bg-white/10 p-6 rounded-xl border-l-4 border-peak-yellow shadow-2xl backdrop-blur-md">
+                <p class="text-peak-gray font-semibold">
                     <strong class="text-peak-violet text-lg">Ma philosophie :</strong> Je préfère prendre le temps de comprendre votre projet et vous faire un devis précis, plutôt que vous vendre un pack qui ne correspond pas à vos besoins.
                 </p>
             </div>
@@ -515,30 +518,31 @@ FIN SECTION MASQUÉE -->
         <!-- Fourchette indicative -->
         <div class="group bg-gradient-to-br from-peak-violet/80 via-purple-400/70 to-peak-blue-light/80 p-10 rounded-2xl border-4 border-peak-violet shadow-2xl hover:shadow-peak-violet/60 hover:scale-105 transition-all duration-500 mb-8">
             <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 text-center drop-shadow-lg">
-                💰 Fourchette indicative
+                💰 Tarifs Simples et Transparents
             </h3>
             
-            <div class="text-center mb-6">
-                <p class="text-5xl sm:text-6xl font-extrabold text-peak-yellow mb-2 drop-shadow-xl">1 200 - 4 000 €</p>
-                <p class="text-white font-semibold">Selon vos besoins, fonctionnalités, nombre de pages...</p>
+            <div class="text-center mb-8">
+                <p class="text-5xl sm:text-6xl font-extrabold text-peak-yellow mb-2 drop-shadow-xl">À partir de 1 500€</p>
+                <p class="text-white font-semibold text-lg">Site web onepage professionnel</p>
+                <p class="text-peak-gray text-sm mt-3"><strong>Plus de pages</strong> = augmentation progressive du prix</p>
             </div>
 
             <div class="grid md:grid-cols-4 gap-4 text-center text-sm font-medium">
-                <div class="bg-white/95 p-4 rounded-xl border-2 border-green-400 shadow-lg hover:shadow-green-400/50 transition-all duration-300 hover:scale-110 backdrop-blur-md">
-                    <p class="font-bold text-peak-blue-dark mb-2 text-base">Services ponctuels</p>
-                    <p class="text-gray-700">Audit, améliorations, coup de pouce</p>
+                <div class="bg-white/95 p-4 rounded-xl border-2 border-peak-yellow shadow-lg hover:shadow-peak-yellow/50 transition-all duration-300 hover:scale-110 backdrop-blur-md">
+                    <p class="font-bold text-peak-blue-dark mb-2 text-base">1 Page</p>
+                    <p class="text-gray-700"><strong>1 500€</strong> minimum</p>
                 </div>
                 <div class="bg-white/95 p-4 rounded-xl border-2 border-peak-yellow shadow-lg hover:shadow-peak-yellow/50 transition-all duration-300 hover:scale-110 backdrop-blur-md">
-                    <p class="font-bold text-peak-blue-dark mb-2 text-base">Site vitrine simple</p>
-                    <p class="text-gray-700">5-7 pages, design pro, SEO de base</p>
+                    <p class="font-bold text-peak-blue-dark mb-2 text-base">5-7 Pages</p>
+                    <p class="text-gray-700">1 500€ - 2 500€</p>
                 </div>
                 <div class="bg-white/95 p-4 rounded-xl border-2 border-peak-violet shadow-lg hover:shadow-peak-violet/50 transition-all duration-300 hover:scale-110 backdrop-blur-md">
-                    <p class="font-bold text-peak-blue-dark mb-2 text-base">Site vitrine complet</p>
-                    <p class="text-gray-700">10-15 pages, blog, formulaires avancés</p>
+                    <p class="font-bold text-peak-blue-dark mb-2 text-base">10+ Pages</p>
+                    <p class="text-gray-700">2 500€ - 4 000€+</p>
                 </div>
                 <div class="bg-white/95 p-4 rounded-xl border-2 border-peak-blue-light shadow-lg hover:shadow-peak-blue-light/50 transition-all duration-300 hover:scale-110 backdrop-blur-md">
-                    <p class="font-bold text-peak-blue-dark mb-2 text-base">E-commerce / Sur-mesure</p>
-                    <p class="text-gray-700">Boutique en ligne, fonctionnalités spécifiques</p>
+                    <p class="font-bold text-peak-blue-dark mb-2 text-base">E-commerce</p>
+                    <p class="text-gray-700">À partir de 3 500€</p>
                 </div>
             </div>
         </div>
@@ -582,11 +586,11 @@ FIN SECTION MASQUÉE -->
         </div>
 
         <!-- CTA Devis -->
-        <div class="text-center bg-gradient-to-r from-peak-yellow/90 via-yellow-400/80 to-peak-yellow/70 p-8 rounded-2xl border-4 border-peak-yellow shadow-2xl">
-            <h3 class="text-2xl sm:text-3xl font-bold text-peak-blue-dark mb-4">
+        <div class="text-center bg-gradient-to-r from-peak-yellow/15 via-peak-violet/20 to-peak-yellow/15 p-8 rounded-2xl border border-peak-yellow/40 shadow-2xl">
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">
                 📞 Obtenez votre devis personnalisé gratuit
             </h3>
-            <p class="text-peak-blue-dark font-semibold mb-6">
+            <p class="text-peak-gray font-semibold mb-6">
                 On échange sur <strong>VOTRE projet</strong> (par téléphone, visio ou WhatsApp).<br>
                 Je vous envoie un devis détaillé sous 24-48h. <strong>Sans engagement.</strong>
             </p>
@@ -608,10 +612,10 @@ FIN SECTION MASQUÉE -->
 <section id="blog" class="relative py-16 px-6 bg-gradient-to-b from-peak-blue-dark via-peak-violet to-peak-violet" role="region" aria-label="Derniers articles du blog">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
-            <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-peak-yellow mb-4">
+            <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-peak-yellow mb-4 drop-shadow-lg">
                 📚 Ressources gratuites pour votre projet web
             </h2>
-            <p class="text-lg text-peak-gray max-w-3xl mx-auto">
+            <p class="text-lg text-white/85 max-w-3xl mx-auto drop-shadow-md">
                 Conseils, guides et bonnes pratiques pour réussir votre présence en ligne
             </p>
         </div>
@@ -690,7 +694,7 @@ FIN SECTION MASQUÉE -->
                    class="bg-gradient-to-r from-pink-500 to-orange-500 text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-all shadow-lg">
                     📱 Message sur Instagram
                 </a>
-                <button class="bg-peak-violet text-peak-yellow font-bold px-6 py-3 rounded-full hover:bg-purple-700 transition-all shadow-lg border-2 border-peak-yellow open-callback-modal">
+                <button class="bg-peak-violet text-peak-yellow font-bold px-6 py-3 rounded-full hover:bg-peak-purple-dark transition-all shadow-lg border-2 border-peak-yellow open-callback-modal">
                     📞 Être rappelé(e)
                 </button>
             </div>

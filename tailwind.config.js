@@ -12,31 +12,31 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Palette Premium 2026 - Psychologie des couleurs pour conversion
-        'peak-yellow': '#f9cd00',           // Or pur - Urgence & Action
-        'peak-yellow-light': '#FFF44F',     // Or clair - Accents secondaires
-        'peak-yellow-dark': '#FFA500',      // Or foncé - Hover states
-        
-        'peak-teal': '#00BCD4',             // Cyan-blue - Confiance & Accessibilité
-        'peak-teal-light': '#4DD0E1',       // Cyan clair
-        
-        'peak-blue-light': '#00bdbf',       // Cyan luminux - Confiance & Accessibilité
-        'peak-blue-dark': '#011526',        // Bleu foncé Navy - Trust base
-        'peak-blue-darker': '#060A11',      // Bleu très foncé
-        
-        'peak-violet': '#522a80',           // Violet profond - Premium & Créativité
-        'peak-purple': '#6B46C1',           // Violet profond - Premium & Créativité
-        'peak-purple-light': '#9F7AEA',     // Violet clair
-        'peak-purple-dark': '#5A2D82',      // Violet très foncé
-        
-        'peak-rose': '#F87171',             // Rose/Coral - Humanité & Approche
-        'peak-rose-light': '#FCA5A5',       // Rose clair
-        
-        'peak-white': '#FFFFFF',            // Blanc - Pureté
-        'peak-gray': '#F3F4F6',             // Gris très clair
-        'peak-gray-light': '#F9FAFB',       // Gris ultra-clair
-        'peak-gray-dark': '#1F2937',        // Gris foncé
-        'peak-gray-darker': '#111827',      // Gris très foncé
+        // Palette Luxe Minimal - sobre, haut de gamme, rassurante
+        'peak-yellow': '#c8a96b',
+        'peak-yellow-light': '#e3cc9a',
+        'peak-yellow-dark': '#a9854c',
+
+        'peak-teal': '#8ea4c0',
+        'peak-teal-light': '#b5c3d6',
+
+        'peak-blue-light': '#1b2a3e',
+        'peak-blue-dark': '#08101b',
+        'peak-blue-darker': '#050b14',
+
+        'peak-violet': '#1e2d42',
+        'peak-purple': '#2b3d58',
+        'peak-purple-light': '#3f587b',
+        'peak-purple-dark': '#1a2739',
+
+        'peak-rose': '#b98b7a',
+        'peak-rose-light': '#d5b2a7',
+
+        'peak-white': '#FFFFFF',
+        'peak-gray': '#e8edf4',
+        'peak-gray-light': '#f3f6fb',
+        'peak-gray-dark': '#1a2433',
+        'peak-gray-darker': '#0f1724',
       },
       fontFamily: {
         // Polices Premium 2026

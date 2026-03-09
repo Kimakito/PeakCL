@@ -7,19 +7,19 @@ description: Articles et guides sur le développement web, SEO, design et strat�
 {% include schema-breadcrumb.html %}
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-b from-peak-blue-dark to-peak-blue-light py-16 px-4">
+<section class="-mt-20 md:-mt-24 bg-gradient-to-b from-peak-blue-dark to-peak-blue-light py-16 px-4">
     <div class="max-w-6xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl font-title font-extrabold text-peak-yellow mb-4">
             📚 Blog Web & Digital
         </h1>
-        <p class="text-xl text-peak-gray max-w-2xl mx-auto">
+        <p class="text-xl text-white max-w-2xl mx-auto">
             Guides pratiques, conseils et actualités sur le développement web, le SEO et la stratégie digitale
         </p>
     </div>
 </section>
 
 <!-- Filtres par catégorie -->
-<section class="bg-white py-8 sticky top-20 z-40 shadow-md">
+<section class="bg-gradient-to-b from-peak-blue-dark via-peak-violet to-peak-blue-dark py-8 sticky top-20 z-40 shadow-xl border-b border-peak-yellow/20">
     <div class="max-w-6xl mx-auto px-4">
         <!-- Barre de recherche -->
         <div class="mb-6">
@@ -27,7 +27,7 @@ description: Articles et guides sur le développement web, SEO, design et strat�
                 type="text" 
                 id="search-articles" 
                 placeholder="🔍 Rechercher un article..." 
-                class="w-full px-6 py-4 rounded-full border-2 border-peak-violet/30 focus:border-peak-yellow focus:outline-none text-lg"
+                class="w-full px-6 py-4 rounded-full border-2 border-peak-yellow/30 bg-white/10 backdrop-blur-sm text-white placeholder:text-white/70 focus:border-peak-yellow focus:outline-none focus:ring-2 focus:ring-peak-yellow/50 text-lg"
             >
         </div>
 
@@ -53,22 +53,22 @@ description: Articles et guides sur le développement web, SEO, design et strat�
 </section>
 
 <!-- Articles Grid -->
-<section class="py-12 px-4 bg-gradient-to-b from-white to-peak-blue-light/20">
+<section class="py-20 px-4 bg-gradient-to-b from-peak-blue-dark via-peak-violet to-peak-blue-dark">
     <div class="max-w-6xl mx-auto">
         <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
             {% for post in sorted_posts %}
-            <article class="article-card group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" 
+            <article class="article-card group relative bg-gradient-to-br from-peak-blue-dark/80 to-peak-violet/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl hover:shadow-peak-yellow/30 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-peak-yellow/20 hover:border-peak-yellow/60" 
                      data-category="{{ post.categories | first }}"
                      data-title="{{ post.title | downcase }}"
                      data-description="{{ post.description | downcase }}">
                 
                 <!-- Image -->
-                <div class="relative overflow-hidden h-48 bg-gradient-to-br from-peak-violet/20 to-peak-yellow/20">
+                <div class="relative overflow-hidden h-48 bg-gradient-to-br from-peak-yellow/30 to-peak-purple/30">
                     {% if post.image %}
-                    <img src="{{ post.image }}" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <img src="{{ post.image }}" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70">
                     {% else %}
-                    <div class="w-full h-full flex items-center justify-center text-6xl">
+                    <div class="w-full h-full flex items-center justify-center text-6xl bg-gradient-to-br from-peak-yellow/20 to-peak-purple/20">
                         {% if post.categories contains 'web-strategy' %}🎯
                         {% elsif post.categories contains 'conseils' %}💡
                         {% elsif post.categories contains 'design-ux' %}🎨
@@ -92,25 +92,25 @@ description: Articles et guides sur le développement web, SEO, design et strat�
                 <!-- Contenu -->
                 <div class="p-6">
                     <!-- Date et temps de lecture -->
-                    <div class="flex items-center gap-4 text-sm text-peak-gray mb-3">
+                    <div class="flex items-center gap-4 text-sm text-white mb-3">
                         <span>📅 {{ post.date | date: "%d %B %Y" }}</span>
                         <span>⏱️ {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min</span>
                     </div>
 
                     <!-- Titre -->
-                    <h2 class="text-xl font-bold text-peak-blue-dark mb-3 line-clamp-2 group-hover:text-peak-violet transition-colors">
+                    <h2 class="text-xl font-bold text-peak-yellow mb-3 line-clamp-2 group-hover:text-yellow-300 transition-colors">
                         <a href="{{ post.url }}" class="hover:underline">
                             {{ post.title | remove: '| Création site web Savoie, Albertville - PeakCL' | remove: '| Création site web Savoie, Albertville' | remove: '| PeakCL' | truncate: 80 }}
                         </a>
                     </h2>
 
                     <!-- Description -->
-                    <p class="text-peak-gray mb-4 line-clamp-3">
+                    <p class="text-white mb-4 line-clamp-3">
                         {{ post.description | truncate: 120 }}
                     </p>
 
                     <!-- Lien -->
-                    <a href="{{ post.url }}" class="inline-flex items-center gap-2 text-peak-violet font-bold hover:text-peak-yellow transition-colors group/link">
+                    <a href="{{ post.url }}" class="inline-flex items-center gap-2 text-peak-yellow font-bold hover:text-yellow-300 transition-colors group/link">
                         Lire l'article 
                         <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
                     </a>
@@ -122,8 +122,8 @@ description: Articles et guides sur le développement web, SEO, design et strat�
         <!-- Message si aucun résultat -->
         <div id="no-results" class="hidden text-center py-16">
             <div class="text-6xl mb-4">🔍</div>
-            <h3 class="text-2xl font-bold text-peak-blue-dark mb-2">Aucun article trouvé</h3>
-            <p class="text-peak-gray">Essayez une autre recherche ou catégorie</p>
+            <h3 class="text-2xl font-bold text-peak-yellow mb-2">Aucun article trouvé</h3>
+            <p class="text-white">Essayez une autre recherche ou catégorie</p>
         </div>
     </div>
 </section>
@@ -134,7 +134,7 @@ description: Articles et guides sur le développement web, SEO, design et strat�
         <h2 class="text-3xl md:text-4xl font-bold text-peak-yellow mb-4">
             📬 Restez informé
         </h2>
-        <p class="text-xl text-peak-gray mb-8">
+        <p class="text-xl text-white mb-8">
             Recevez nos derniers articles et conseils directement dans votre boîte mail
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
@@ -147,7 +147,7 @@ description: Articles et guides sur le développement web, SEO, design et strat�
                 S'abonner
             </button>
         </div>
-        <p class="text-sm text-peak-gray/70 mt-4">
+        <p class="text-sm text-white/70 mt-4">
             ✅ 1 email par mois • ❌ Pas de spam • 🔒 Désabonnement facile
         </p>
     </div>
@@ -156,32 +156,32 @@ description: Articles et guides sur le développement web, SEO, design et strat�
 <!-- Styles et JavaScript -->
 <style>
 .category-filter {
-    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300 border-2 border-transparent;
-    @apply bg-white text-peak-blue-dark hover:border-peak-violet hover:bg-peak-violet/10;
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300 border-2 border-peak-yellow/30;
+    @apply bg-white/10 backdrop-blur-sm text-white hover:border-peak-yellow hover:bg-peak-yellow/20 hover:text-peak-yellow;
 }
 
 .category-filter.active {
-    @apply bg-peak-yellow text-peak-blue-dark border-peak-yellow shadow-lg transform scale-105;
+    @apply bg-peak-yellow text-peak-blue-dark border-peak-yellow shadow-xl shadow-peak-yellow/40 transform scale-105;
 }
 
 .category-badge {
-    @apply px-4 py-2 rounded-full text-sm font-bold shadow-md;
+    @apply px-4 py-2 rounded-full text-sm font-bold shadow-lg backdrop-blur-sm bg-white/20 text-peak-yellow border border-peak-yellow/50;
 }
 
 .category-badge.web-strategy {
-    @apply bg-blue-500 text-white;
+    @apply bg-peak-yellow/20 text-peak-yellow border-peak-yellow/50;
 }
 
 .category-badge.conseils {
-    @apply bg-green-500 text-white;
+    @apply bg-peak-yellow/20 text-peak-yellow border-peak-yellow/50;
 }
 
 .category-badge.design-ux {
-    @apply bg-pink-500 text-white;
+    @apply bg-peak-violet/20 text-peak-yellow border-peak-violet/50;
 }
 
 .category-badge.developpement {
-    @apply bg-purple-500 text-white;
+    @apply bg-peak-yellow/20 text-peak-yellow border-peak-yellow/50;
 }
 
 .line-clamp-2 {
