@@ -6,7 +6,7 @@
   theme_color: "yellow"
   questions:
     - question: "Combien coûte un site internet professionnel ?"
-      answer: "Entre 1200€ et 4000€ selon vos besoins. Chaque projet est sur-mesure car chaque entreprise est unique. <a href='/web-strategy/2026/01/08/budget-site-web.html' class='underline text-peak-yellow'>📖 Guide complet prix & budget →</a>"
+      answer: "Le tarif s'adapte à votre projet : nombre de pages nécessaires, fonctionnalités demandées, et complexité de mise en place. Chaque projet est sur-mesure car chaque entreprise est unique. <a href='/web-strategy/2026/01/08/budget-site-web.html' class='underline text-peak-yellow'>📖 Guide complet prix & budget →</a>"
     
     - question: "Combien coûte l'hébergement et le nom de domaine ?"
       answer: "Domaine : 10-20€/an. Hébergement : 60-150€/an. Email pro : 0-60€/an. Total : 70-230€/an minimum. <a href='/web-strategy/2026/01/08/budget-site-web.html#frais-récurrents' class='underline text-peak-yellow'>📖 Frais récurrents détaillés →</a>"
