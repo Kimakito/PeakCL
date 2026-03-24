@@ -13,7 +13,7 @@
                 🎯 Quel est votre besoin ?
             </h2>
             <p class="text-lg text-peak-gray max-w-3xl mx-auto">
-                Choisissez votre service et soyez mis en contact avec un expert en <strong>moins de 24h</strong>
+                Choisissez votre situation actuelle. Je vous aide a clarifier la meilleure prochaine etape en <strong>moins de 24h</strong>.
             </p>
         </div>
 
@@ -42,21 +42,21 @@
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-peak-yellow font-bold flex-shrink-0">✓</span>
-                            <span><strong>SEO Google</strong> - Clients près de chez vous</span>
+                            <span><strong>Message clair</strong> pour rassurer et donner envie de vous contacter</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-peak-yellow font-bold flex-shrink-0">✓</span>
-                            <span><strong>Mobile-first</strong> - Parfait partout</span>
+                            <span><strong>Parcours simple</strong> avec appels a l'action visibles et formulaire utile</span>
                         </li>
                     </ul>
                     
                     <div class="bg-peak-yellow/10 p-4 rounded-lg mb-6 border border-peak-yellow/20 group-hover:border-peak-yellow/60 transition-colors">
-                        <p class="text-peak-yellow font-bold text-center text-sm">💡 Tarif adapté à votre projet</p>
+                        <p class="text-peak-yellow font-bold text-center text-sm">Ideal si votre site doit enfin vous aider a generer des demandes</p>
                     </div>
                     
                     <button class="w-full bg-gradient-to-r from-peak-yellow to-peak-yellow-dark hover:from-peak-yellow-light hover:to-peak-yellow text-peak-blue-dark font-bold py-3 rounded-full shadow-xl transform hover:shadow-2xl transition-all duration-300 text-sm font-title open-callback-modal-with-service animate-glow-pulse"
                             data-service="Site Web">
-                        � Demander un devis
+                        Parlons de ce besoin
                     </button>
                 </div>
             </div>
@@ -88,12 +88,12 @@
                     </ul>
                     
                     <div class="bg-peak-rose/10 p-4 rounded-lg mb-6 border border-peak-rose/20 group-hover:border-peak-rose/60 transition-colors">
-                        <p class="text-peak-rose font-bold text-center">À partir de 600€</p>
+                        <p class="text-peak-rose font-bold text-center">Ideal pour harmoniser votre image entre site, LinkedIn et Instagram</p>
                     </div>
                     
                     <button class="w-full bg-gradient-to-r from-peak-rose to-peak-rose-light hover:from-peak-rose-light hover:to-peak-rose text-white font-bold py-3 rounded-full shadow-xl transform hover:shadow-2xl transition-all duration-300 text-sm font-title open-callback-modal-with-service"
                             data-service="Pages Sociales">
-                        � Demander un devis
+                        Je veux clarifier ma presence en ligne
                     </button>
                 </div>
             </div>
@@ -125,12 +125,12 @@
                     </ul>
                     
                     <div class="bg-peak-teal/10 p-4 rounded-lg mb-6 border border-peak-teal/20 group-hover:border-peak-teal/60 transition-colors">
-                        <p class="text-peak-teal font-bold text-center">Sur devis</p>
+                        <p class="text-peak-teal font-bold text-center">Ideal si votre image actuelle manque de clarte ou de credibilite</p>
                     </div>
                     
                     <button class="w-full bg-gradient-to-r from-peak-teal to-peak-teal-light hover:from-peak-teal-light hover:to-peak-teal text-peak-blue-dark font-bold py-3 rounded-full shadow-xl transform hover:shadow-2xl transition-all duration-300 text-sm font-title open-callback-modal-with-service"
                             data-service="Graphisme">
-                        � Demander un devis
+                        Je veux une image plus pro
                     </button>
                 </div>
             </div>
@@ -162,7 +162,7 @@
                     </ul>
                     
                     <div class="bg-peak-purple/10 p-4 rounded-lg mb-6 border border-peak-purple/20 group-hover:border-peak-purple/60 transition-colors">
-                        <p class="text-peak-purple font-bold text-center text-sm">GRATUIT ou 100€</p>
+                        <p class="text-peak-purple font-bold text-center text-sm">Ideal si vous hésitez encore entre plusieurs options</p>
                     </div>
                     
                     <a href="/conseil-gratuit.html"
@@ -185,12 +185,12 @@
                     🚀 Vous hésitez encore ?
                 </h3>
                 <p class="text-peak-gray mb-8 max-w-2xl mx-auto">
-                    Commencez par un <strong>conseil gratuit</strong> • 30 min pour analyser votre situation et définir votre feuille de route
+                    Commencez par un <strong>conseil clair</strong> : 30 min pour analyser votre situation et definir la meilleure prochaine etape.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="mailto:peakcl73@gmail.com?subject=Demande%20de%20conseil%20gratuit"
                        class="inline-block bg-gradient-to-r from-peak-purple to-peak-purple-dark hover:from-peak-purple-light hover:to-peak-purple text-white font-bold px-8 py-4 rounded-full shadow-xl transform hover:scale-105 transition-all text-lg font-title">
-                        📧 Envoyer un e-mail
+                        📧 Poser ma question
                     </a>
                     <a href="https://wa.me/33743517627?text=Bonjour%20PeakCL%2C%20j'aimerais%20discuter%20de%20mon%20projet" 
                        target="_blank" rel="noopener noreferrer"
@@ -205,35 +205,5 @@
 </section>
 
 <script>
-// Gestion des boutons de services
-document.addEventListener('DOMContentLoaded', function() {
-    const serviceButtons = document.querySelectorAll('[data-service]');
-    
-    serviceButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const service = this.getAttribute('data-service');
-            const modal = document.getElementById('callback-modal');
-            
-            const form = modal.querySelector('form');
-            const existingInput = form.querySelector('input[name="service"]');
-            if (existingInput) existingInput.remove();
-            
-            const serviceInput = document.createElement('input');
-            serviceInput.type = 'hidden';
-            serviceInput.name = 'service';
-            serviceInput.value = service;
-            form.appendChild(serviceInput);
-            
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            const modalContent = modal.querySelector('#callback-modal-content');
-            setTimeout(() => {
-                modalContent.classList.remove('scale-95', 'opacity-0');
-                modalContent.classList.add('scale-100', 'opacity-100');
-            }, 10);
-            document.body.style.overflow = 'hidden';
-        });
-    });
-});
+// Le script de la modal partagée gere deja les boutons data-service.
 </script>

@@ -16,7 +16,7 @@
       <p class="hidden">
         <label>Ne pas remplir : <input name="bot-field" /></label>
       </p>
-      <h2 class="text-3xl font-extrabold mb-3 text-center text-peak-yellow">📞 Être Rappelé</h2>
+      <h2 class="text-3xl font-extrabold mb-3 text-center text-peak-yellow">📞 Etre rappele(e)</h2>
       
       <!-- Affichage du service sélectionné si existant -->
       <div id="selected-service-banner" class="hidden bg-peak-yellow/20 border border-peak-yellow/50 rounded-lg p-3 mb-4 text-center">
@@ -25,7 +25,7 @@
         </p>
       </div>
       
-      <p class="text-center text-peak-gray mb-6 text-sm">Vous choisissez comment être contacté, c'est simple, rapide et confidentiel. <span class="font-semibold text-peak-yellow">Aucune prospection, juste un échange humain !</span></p>
+      <p class="text-center text-peak-gray mb-6 text-sm">Expliquez-moi votre situation. Vous choisissez comment etre contacte(e), c'est simple, rapide et confidentiel. <span class="font-semibold text-peak-yellow">Aucune prospection, juste un echange utile.</span></p>
       
       <div class="mb-4">
         <label for="callback-name" class="block text-peak-gray font-semibold mb-1">Votre nom</label>
@@ -65,10 +65,10 @@
       
       <div class="mb-6">
         <label for="callback-message" class="block text-peak-gray font-semibold mb-1">Message (optionnel)</label>
-        <textarea id="callback-message" name="message" class="w-full border-2 border-peak-yellow/50 focus:border-peak-yellow rounded-lg px-4 py-3 bg-white text-peak-blue-dark focus:outline-none focus:ring-2 focus:ring-peak-yellow" rows="3" placeholder="Votre demande..."></textarea>
+        <textarea id="callback-message" name="message" class="w-full border-2 border-peak-yellow/50 focus:border-peak-yellow rounded-lg px-4 py-3 bg-white text-peak-blue-dark focus:outline-none focus:ring-2 focus:ring-peak-yellow" rows="3" placeholder="Exemple : mon site ne me ramene pas de contacts, je veux clarifier mon offre."></textarea>
       </div>
       
-      <button type="submit" class="w-full bg-peak-yellow hover:bg-yellow-300 text-peak-blue-dark font-bold py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">✨ Être Rappelé</button>
+      <button type="submit" class="w-full bg-peak-yellow hover:bg-yellow-300 text-peak-blue-dark font-bold py-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">✨ Recevoir mon rappel</button>
       
       <p class="text-xs text-peak-gray/80 mt-4 text-center">✅ Simple et sans engagement • ❌ Aucune prospection • 🔒 Données sécurisées</p>
     </form>
@@ -76,7 +76,7 @@
 </div>
 
 <script>
-  // Gestion de la modal de rappel avec service sélectionné
+  // Gestion de la modal de rappel avec service selectionne
   (function() {
     const modal = document.getElementById('callback-modal');
     const modalContent = document.getElementById('callback-modal-content');
@@ -86,33 +86,31 @@
     const serviceBanner = document.getElementById('selected-service-banner');
     const serviceName = document.getElementById('service-name');
 
-    // Ouvrir la modal
+    if (!modal || !modalContent || !serviceInput || !serviceBanner || !serviceName) {
+      return;
+    }
+
     function openModal(e) {
       if (e) e.preventDefault();
       modal.classList.remove('hidden');
       modal.classList.add('flex');
-      // Animation d'ouverture
       setTimeout(() => {
         modalContent.classList.remove('scale-95', 'opacity-0');
         modalContent.classList.add('scale-100', 'opacity-100');
       }, 10);
-      // Empêcher le scroll de la page
       document.body.style.overflow = 'hidden';
     }
 
-    // Fermer la modal
     function closeModal() {
       modalContent.classList.remove('scale-100', 'opacity-100');
       modalContent.classList.add('scale-95', 'opacity-0');
       setTimeout(() => {
         modal.classList.remove('flex');
         modal.classList.add('hidden');
-        // Réactiver le scroll de la page
         document.body.style.overflow = '';
       }, 200);
     }
 
-    // Afficher le service sélectionné
     function showServiceBanner(service) {
       if (service && service !== 'Pas de service spécifié') {
         serviceInput.value = service;
@@ -123,46 +121,37 @@
       }
     }
 
-    // Événements pour le bouton flottant
     if (openBtn) {
       openBtn.addEventListener('click', openModal);
     }
     
-    // Événements pour tous les liens avec la classe "open-callback-modal"
     document.querySelectorAll('.open-callback-modal').forEach(link => {
       link.addEventListener('click', openModal);
     });
 
-    // Gestion des boutons service avec data-service attribute
     document.querySelectorAll('[data-service]').forEach(btn => {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
         const service = this.getAttribute('data-service');
-        
-        // Mettre à jour le service
         showServiceBanner(service);
-        
-        // Ouvrir la modal
         openModal();
+      });
+    });
+
     if (closeBtn) {
       closeBtn.addEventListener('click', closeModal);
     }
 
-    // Fermer en cliquant en dehors de la modal
     modal.addEventListener('click', function(e) {
       if (e.target === modal) {
         closeModal();
       }
     });
 
-    // Fermer avec la touche Escape
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
         closeModal();
       }
     });
-
-    // Laisser Netlify gérer la soumission du formulaire
-    // (pas de preventDefault, pas de fermeture automatique)
   })();
 </script>

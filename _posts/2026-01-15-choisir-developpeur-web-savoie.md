@@ -51,7 +51,7 @@ Choisir le mauvais prestataire peut vous coûter **très cher** :
 - Délais non respectés
 - Pas de suivi après livraison
 
-**💰 Coût réel d'une mauvaise décision** : Un entrepreneur de Chambéry a perdu 5 000€ avec un développeur peu sérieux. Il a dû tout refaire avec moi pour 2 500€ supplémentaires → **Coût total : 7 500€** au lieu de 2 500€ dès le départ.
+**Conséquence réelle d'une mauvaise décision** : Un entrepreneur de Chambery a perdu plusieurs mois, a vu son image degradee et a du reprendre son projet presque a zero avec un nouveau cadre de travail.
 
 ---
 
@@ -125,28 +125,23 @@ Les avis ne mentent pas.
 
 ---
 
-### 4. 💰 TARIFS clairs et transparents
+### 4. 📋 Cadrage clair et accompagnement transparent
 
-Méfiez-vous des offres trop vagues ou trop alléchantes.
+Mefiez-vous des offres trop vagues, des promesses floues et des prestations mal cadrees.
 
-**Ce qui DOIT être détaillé dans le devis** :
-- Prix par prestation (design, développement, SEO, formation)
+**Ce qui doit etre clarifie des le depart** :
+- Ce qui est pris en charge (design, developpement, SEO, formation)
 - Nombre de **pages incluses**
 - **Fonctionnalités** comprises (formulaire, blog, e-commerce...)
-- Hébergement et nom de domaine : inclus ou non ?
-- Maintenance : comprise ou en supplément ?
+- Hebergement et nom de domaine : pris en charge ou a prevoir ?
+- Maintenance : prevue des le depart ou a organiser ensuite ?
 - Délais de livraison
 - Nombre d'allers-retours / modifications inclus
 
-**Fourchettes de prix réalistes en Savoie** :
-- Site vitrine (5-10 pages) : **1 500€ - 3 000€**
-- Site e-commerce : **3 000€ - 8 000€**
-- Site sur-mesure : **à partir de 5 000€**
+**✅ Bon signe** : une recommandation claire, un perimetre bien explique, aucune zone floue sur ce qui sera fait.  
+**❌ Red flag** : "On verra en cours de route", perimetre incertain, supplements jamais expliques, reponses evasives.
 
-**✅ Bon signe** : Devis détaillé ligne par ligne, prix transparent, pas de coûts cachés.  
-**❌ Red flag** : "On verra en cours de route", "À partir de 500€", coûts flous, suppléments non annoncés.
-
-→ [Voir nos tarifs transparents](/combien-coute-site-web.html)
+→ [Voir comment cadrer votre projet web](/combien-coute-site-web.html)
 
 ---
 
@@ -215,12 +210,7 @@ Un site web n'est **jamais terminé**.
 - Proposez-vous des forfaits de maintenance ?
 - Restez-vous disponible pour faire évoluer le site ?
 
-**Tarifs maintenance réalistes** :
-- Maintenance de base : **50€ - 100€/mois**
-- Maintenance complète : **100€ - 300€/mois**
-- Support ponctuel : **60€ - 80€/h**
-
-**✅ Bon signe** : Garantie incluse, forfaits maintenance clairs, disponible sur le long terme.  
+**✅ Bon signe** : garantie incluse, niveau de suivi explique, disponibilite sur le long terme.  
 **❌ Red flag** : "Vous vous débrouillez après livraison", pas de maintenance proposée, disparition après livraison.
 
 → [Découvrez nos forfaits maintenance](/maintenance-site-web.html)
@@ -232,7 +222,6 @@ Un site web n'est **jamais terminé**.
 ### Développeur Freelance
 
 **✅ Avantages** :
-- Prix plus accessibles (1 500€ - 5 000€)
 - Contact direct avec le créateur du site
 - Flexibilité et personnalisation
 - Relation humaine de proximité
@@ -242,7 +231,7 @@ Un site web n'est **jamais terminé**.
 - Moins de ressources qu'une agence
 - Dépendance à une seule personne
 
-**👉 Idéal pour** : TPE, artisans, professions libérales, budgets < 5 000€
+**👉 Idéal pour** : TPE, artisans, professions liberales, projets qui ont besoin d'un interlocuteur direct et d'un accompagnement souple.
 
 ### Agence Web
 
@@ -252,12 +241,11 @@ Un site web n'est **jamais terminé**.
 - Continuité assurée (plusieurs employés)
 
 **❌ Inconvénients** :
-- Prix élevés (5 000€ - 50 000€)
 - Moins de flexibilité
 - Contact indirect (chef de projet)
 - Process parfois lourd
 
-**👉 Idéal pour** : PME, e-commerce ambitieux, budgets > 10 000€
+**👉 Idéal pour** : PME, projets impliquant plusieurs expertises ou des organisations plus structurees.
 
 ### Ma recommandation
 
@@ -265,7 +253,7 @@ Pour un **projet de site vitrine ou e-commerce classique** en Savoie :
 → **Privilégiez un développeur freelance local expérimenté**
 
 Vous aurez :
-- Un **rapport qualité/prix imbattable**
+- Un **cadre plus direct et plus humain**
 - Un **contact direct et personnalisé**
 - Une **connaissance du terrain local**
 - Un **suivi sur le long terme**
@@ -276,16 +264,16 @@ Vous aurez :
 
 Voici les **signaux d'alarme** qui doivent vous faire fuir :
 
-❌ **Prix beaucoup trop bas** (500€ pour un site vitrine professionnel)  
+❌ **Promesse trop belle pour etre serieuse**  
 ❌ **Promesses irréalistes** ("N°1 sur Google en 1 semaine")  
 ❌ **Pas de portfolio vérifiable** (sites non en ligne)  
-❌ **Devis flou** (pas de détail des prestations)  
+❌ **Proposition floue** (pas de detail des prestations)  
 ❌ **Paiement 100% à l'avance** (normal : acompte 30-50%)  
-❌ **Pas de contrat écrit** (CGV, devis signé obligatoires)  
+❌ **Pas de contrat écrit** (CGV et proposition signee obligatoires)  
 ❌ **Localisation douteuse** (fausse adresse, pas de SIRET)  
 ❌ **Communication difficile** (réponse après 1 semaine)  
 ❌ **Aucun avis client** (ni Google, ni témoignage vérifiable)  
-❌ **Offre "tout compris à vie"** pour 999€ (arnaque garantie)
+❌ **Offre "tout compris a vie"** sans cadre serieux ni limites claires
 
 **💡 Règle d'or** : Si c'est trop beau pour être vrai, c'est que c'est faux.
 
@@ -307,7 +295,7 @@ Utilisez cette grille pour **évaluer un prestataire** :
 - [ ] Compétences SEO vérifiables
 
 **Transparence et confiance** :
-- [ ] Devis détaillé et transparent
+- [ ] Recommandation detaillee et perimetre clair
 - [ ] Avis clients vérifiables (Google, LinkedIn)
 - [ ] SIRET visible, entreprise légale
 - [ ] Contrat et CGV clairs
@@ -335,9 +323,9 @@ Utilisez cette grille pour **évaluer un prestataire** :
 
 En tant que **développeur web à Albertville depuis plusieurs années**, voici mon conseil :
 
-> **Ne choisissez pas uniquement sur le prix.**
+> **Ne choisissez pas uniquement sur une promesse ou une impression de facilite.**
 
-Un site web est un **investissement**, pas une dépense. Un site bien fait vous rapportera des clients pendant des années. Un site raté vous coûtera le double en refonte.
+Un site web est un outil de confiance et de conversion. Un site bien cadre vous aide pendant des annees. Un site mal pense vous ralentit, brouille votre image et vous fait perdre des prises de contact.
 
 ### Les 3 piliers d'un bon choix
 
@@ -358,16 +346,16 @@ Vous savez maintenant **comment choisir le bon développeur web** pour votre pro
 ✅ **Basé à Albertville** : rencontre physique possible  
 ✅ **Portfolio vérifiable** : sites réels en ligne  
 ✅ **Avis Google** : clients satisfaits témoignent  
-✅ **Tarifs transparents** : devis détaillé, pas de surprise  
+✅ **Cadrage transparent** : perimetre clair, suite logique, pas de flou  
 ✅ **Expertise SEO** : sites optimisés Google dès le départ  
 ✅ **Formation incluse** : vous êtes autonome sur votre site  
 ✅ **Suivi long terme** : maintenance et évolutions disponibles
 
 <div class="bg-peak-yellow/10 p-8 rounded-lg my-12 border border-peak-yellow/30 text-center">
   <h2 class="text-3xl font-bold text-peak-yellow mb-4">Discutons de votre projet web</h2>
-  <p class="text-xl mb-6">Entretien découverte gratuit (30 min) + Devis personnalisé sous 24 à 48h</p>
+  <p class="text-xl mb-6">Entretien decouverte pour clarifier votre besoin, votre priorite et la suite la plus pertinente.</p>
   <a href="/contact.html" class="inline-block bg-peak-yellow text-peak-blue-dark font-extrabold px-10 py-5 rounded-full hover:bg-yellow-300 transition-all shadow-2xl transform hover:scale-105 text-xl">
-    📩 Demander mon devis gratuit
+    📩 Parler de mon projet
   </a>
   <p class="mt-4 text-sm text-peak-gray">Sans engagement • Développeur web local à Albertville, Savoie</p>
 </div>
@@ -376,8 +364,8 @@ Vous savez maintenant **comment choisir le bon développeur web** pour votre pro
 
 ## 📚 Articles complémentaires
 
-- [Création site web Albertville : prix, délais, erreurs à éviter](/web-strategy/2026/02/01/creation-site-web-albertville-prix-delais.html)
-- [Combien coûte un site web en 2026 ?](/combien-coute-site-web.html)
+- [Creation site web Albertville : comment bien lancer son projet](/web-strategy/2026/02/01/creation-site-web-albertville-prix-delais.html)
+- [Comment cadrer un projet de site web en 2026 ?](/combien-coute-site-web.html)
 - [Création de site vitrine professionnel](/creation-site-vitrine.html)
 - [Pourquoi avoir un site web en 2026 ?](/conseils/2026/01/08/pourquoi-site-web-2026.html)
 

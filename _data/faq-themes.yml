@@ -1,18 +1,18 @@
 # FAQ organisée par thématiques
 
-# 💰 PRIX & BUDGET
-- theme: "budget"
-  theme_title: "💰 Prix & Budget"
+# 🎯 CADRAGE & CLARTE
+- theme: "cadrage"
+  theme_title: "🎯 Cadrage & Clarte"
   theme_color: "yellow"
   questions:
-    - question: "Combien coûte un site internet professionnel ?"
-      answer: "Le tarif s'adapte à votre projet : nombre de pages nécessaires, fonctionnalités demandées, et complexité de mise en place. Chaque projet est sur-mesure car chaque entreprise est unique. <a href='/web-strategy/2026/01/08/budget-site-web.html' class='underline text-peak-yellow'>📖 Guide complet prix & budget →</a>"
+    - question: "Comment savoir quel site internet est adapte a mon activite ?"
+      answer: "Je commence toujours par votre activite, votre cible et l'action attendue. Un bon site sert d'abord a inspirer confiance, clarifier votre offre et faciliter la prise de contact."
     
-    - question: "Combien coûte l'hébergement et le nom de domaine ?"
-      answer: "Domaine : 10-20€/an. Hébergement : 60-150€/an. Email pro : 0-60€/an. Total : 70-230€/an minimum. <a href='/web-strategy/2026/01/08/budget-site-web.html#frais-récurrents' class='underline text-peak-yellow'>📖 Frais récurrents détaillés →</a>"
+    - question: "Que faut-il prevoir pour l'hebergement et le nom de domaine ?"
+      answer: "Je vous guide sur les bons choix pour l'hebergement, le nom de domaine et l'email professionnel afin d'avoir un site fiable, rapide et credibile."
     
     - question: "Ai-je besoin d'un email professionnel (contact@monsite.fr) ?"
-      answer: "OUI. contact@gmail.com = amateur. contact@votresite.fr = professionnel. 75% de confiance en plus. 30-60€/an. <a href='/conseils/2026/01/08/email-professionnel.html' class='underline text-peak-yellow'>📖 Email pro expliqué →</a>"
+      answer: "Oui. Un email professionnel renforce tout de suite la confiance et la qualite percue de votre activite. <a href='/conseils/2026/01/08/email-professionnel.html' class='underline text-peak-yellow'>📖 Email pro explique →</a>"
 
 # ⏱️ DÉLAIS & PROCESSUS
 - theme: "processus"
@@ -82,7 +82,7 @@
   theme_color: "blue"
   questions:
     - question: "RGPD, mentions légales, cookies... c'est obligatoire ?"
-      answer: "OUI pour TOUS les sites. Amendes jusqu'à 20M€ (en théorie). Je fournis tous les modèles, vous n'avez qu'à remplir vos infos. <a href='/web-strategy/2026/01/08/rgpd-obligations-legales.html' class='underline text-peak-yellow'>📖 Obligations légales →</a>"
+      answer: "Oui, ces elements sont indispensables pour un site professionnel. Je fournis les bases et les modeles utiles pour vous aider a les mettre en place sereinement. <a href='/web-strategy/2026/01/08/rgpd-obligations-legales.html' class='underline text-peak-yellow'>📖 Obligations légales →</a>"
 
 # 📍 QUESTIONS PRATIQUES
 - theme: "pratique"

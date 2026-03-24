@@ -1,7 +1,7 @@
 ---
 layout: article
-title: "Comment choisir son créateur de site web ? Guide complet 2026 | Développeur web Savoie"
-description: "Freelance, agence, plateforme DIY ? Découvrez comment choisir le bon prestataire pour créer votre site web. Questions à poser, red flags, et critères de sélection."
+title: "Comment choisir son createur de site web ? Guide complet 2026"
+description: "Freelance, agence, plateforme DIY : comment choisir le bon prestataire pour creer ou refondre votre site web. Questions a poser, red flags et criteres de selection."
 date: 2026-01-08
 author: Charlotte Lacroix
 categories: [web-strategy]
@@ -15,893 +15,300 @@ tags:
 image: /assets/images/team.avif
 canonical: https://peakcl.com/blog/choisir-createur-site-web/
 reading_time: 16
-excerpt: "Freelance, agence, étudiant, plateforme... Comment choisir celui qui créera votre site ? Les questions à poser, les pièges à éviter, et les critères pour faire le bon choix."
+excerpt: "Freelance, agence, etudiant, plateforme : comment choisir le bon prestataire pour creer ou refondre votre site, sans vous tromper sur le cadre et l'accompagnement."
 toc: true
 featured: true
 ---
 
 # Comment choisir son créateur de site web ? Le guide complet 2026
 
-**Vous avez décidé de créer votre site web. Bravo !**
+Choisir la bonne personne pour créer ou refondre votre site ne se résume pas à comparer des promesses ou un joli portfolio.
 
-Maintenant, la grande question :  
-**"Qui va le faire ?"**
+Si vous êtes indépendant, freelance, consultant, coach, artisan ou petite entreprise, la vraie question est plutôt celle-ci :
 
-Freelance ? Agence ? Étudiant ? Faire soi-même avec Wix ?
+**qui va vous aider à clarifier votre offre, renforcer votre crédibilité et transformer votre site en vrai point d'appui commercial ?**
 
-**Dans cet article, je vais vous donner TOUTES les clés pour faire le bon choix.**  
-Sans langue de bois, en toute transparence.
+Un site peut être techniquement correct et pourtant ne rien vous apporter. Le bon prestataire est celui qui comprend votre activité, vos blocages actuels et le niveau d'accompagnement dont vous avez besoin.
 
-## Les différentes options pour créer votre site
+## Ce que vous devez vraiment attendre d'un prestataire web
 
-Voici les 5 grandes options qui s'offrent à vous :
+Avant de comparer les profils, posez le cadre.
 
-### Option 1 : Faire soi-même (Wix, Squarespace, WordPress.com...)
+Un bon créateur de site doit être capable de vous aider à :
 
-**Profil :**  
-Vous êtes débrouillard, vous aimez apprendre, vous avez du temps.
-
-**✅ Avantages :**
-- Coût mensuel faible (10-40€/mois)
-- Vous gardez le contrôle total
-- Vous apprenez des choses
+- clarifier ce que vous proposez vraiment
+- structurer un message compréhensible en quelques secondes
+- rassurer vos visiteurs avec un site propre, lisible et cohérent
+- orienter le parcours vers la prise de contact
+- prévoir la suite: autonomie, suivi, maintenance, évolutions
 
-**❌ Inconvénients :**
-- Courbe d'apprentissage (20-50h pour un résultat correct)
-- Résultat souvent "amateur"
-- SEO limité
-- Pas d'aide si problème
-- Votre temps a un coût (que vous ne comptez pas)
+Si la discussion démarre uniquement sur l'outil, le design ou une réponse trop rapide, vous risquez de partir sur un site joli mais peu utile.
 
-**💰 Coût réel :**
-- Abonnement : 30€/mois = 360€/an
-- Votre temps : 40h × votre taux horaire
-- Extensions/thèmes premium : 100-300€/an
+## Les principales options pour créer votre site
 
-**🎯 Recommandé si :**
-- Budget ultra-serré (< 500€)
-- Site temporaire (test d'idée)
-- Vous AIMEZ vraiment le faire
+### Faire soi-même
 
-**⚠️ Pas recommandé si :**
-- Votre site est crucial pour votre business
-- Vous voulez un résultat professionnel
-- Vous n'avez pas de temps
+Cette option peut convenir si vous aimez apprendre, si votre activité démarre à peine et si votre site n'est pas encore un levier essentiel.
 
-**📊 Verdict : 4/10** (sauf si vous adorez bidouiller)
+Les avantages :
 
----
-
-### Option 2 : L'ami/copain/neveu "qui s'y connaît"
+- vous avancez à votre rythme
+- vous gardez la main sur tous les choix
+- vous comprenez mieux le fonctionnement de votre site
 
-**Profil :**  
-"Mon neveu fait de l'informatique, il peut me faire ça pour pas cher."
+Les limites :
 
-**✅ Avantages :**
-- Prix d'ami (200-500€)
-- Proximité / confiance
+- le message reste souvent flou sans regard extérieur
+- le rendu donne facilement une impression amateur
+- le SEO, la structure et la conversion sont rarement bien pensés au départ
+- vous y passez beaucoup d'énergie au lieu de la consacrer à votre activité
 
-**❌ Inconvénients :**
-- ❌ Rarement professionnel
-- ❌ Souvent jamais terminé
-- ❌ Pas de suivi / SAV
-- ❌ Qualité très variable
-- ❌ Difficile de réclamer si problème (c'est la famille...)
-- ❌ Peut disparaître ou abandonner
+Cette solution reste acceptable pour un test, mais elle devient vite limitée si vous voulez inspirer confiance et générer des demandes qualifiées.
 
-**💀 Scénario classique du désastre :**
+### Faire appel à une connaissance
 
-```
-┌────────────────────────────────────────┐
-│ TIMELINE DU PROJET "NEVEU"             │
-├────────────────────────────────────────┤
-│ Semaine 1 : "Je commence ce week-end" │
-│ Semaine 3 : "J'ai eu des cours, dsl"  │
-│ Semaine 6 : "C'est bientôt fini !"    │
-│ Semaine 12 : Plus de nouvelles...     │
-│ Mois 6 : Messagerie non lue           │
-│                                        │
-│ → Vous payez un vrai pro pour REFAIRE │
-│ → Vous payez DEUX FOIS                 │
-└────────────────────────────────────────┘
-```
+Sur le papier, cela paraît rassurant. Dans la pratique, le cadre est souvent flou.
 
-**📊 Verdict : 2/10** (sauf exception rarissime)
+Les risques sont connus :
 
-**💡 Mon conseil :**  
-Ne mélangez JAMAIS affaires et famille/amis. Ça finit mal dans 80% des cas.
+- pas de vraie méthode
+- délais qui glissent
+- manque de suivi une fois le site livré
+- difficulté à demander des corrections ou à recadrer le projet
 
----
+Le principal problème n'est pas technique. C'est le manque d'engagement clair sur les objectifs, les responsabilités et la suite.
 
-### Option 3 : Freelance / Développeur indépendant
+### Travailler avec un freelance
 
-**Profil :**  
-Un professionnel qui travaille seul, expert dans son domaine.
+Pour beaucoup d'indépendants et de petites structures, c'est souvent l'option la plus pertinente.
 
-**✅ Avantages :**
-- Tarifs raisonnables (1 500-5 000€ selon projet)
-- Relation directe (pas d'intermédiaire)
-- Réactivité
-- Flexibilité
-- Souvent plus investi personnellement
+Les points forts :
 
-**❌ Inconvénients possibles :**
-- Si malade/indisponible, projet en pause
-- Compétences limitées à son domaine
-- Capacité limitée (pas une équipe)
+- relation directe avec la personne qui réalise le projet
+- compréhension plus fine du contexte métier
+- souplesse dans les échanges
+- accompagnement souvent plus humain et plus concret
 
-**💰 Coût moyen :**
-- Site vitrine : 1 500-3 000€
-- Site avancé : 3 000-6 000€
-- E-commerce : 4 500-10 000€
+Les points à vérifier :
 
-**🎯 Recommandé si :**
-- Budget raisonnable (1 500-10 000€)
-- Projet clair et défini
-- Vous voulez un interlocuteur unique
-- Relation de confiance importante pour vous
+- la capacité à cadrer le projet, pas seulement à produire des pages
+- la qualité du suivi après mise en ligne
+- l'aisance à travailler sur le fond: offre, structure, textes, appels à l'action
 
-**📊 Verdict : 8/10** (excellent rapport qualité/prix/relation)
+Un bon freelance ne vous vend pas seulement un site. Il vous aide à mieux présenter votre activité.
 
----
+### Passer par une agence
 
-### Option 4 : Agence web
+Une agence peut être adaptée si vous avez un projet plus large, plusieurs décideurs, ou un besoin coordonné entre stratégie, contenu, design et technique.
 
-**Profil :**  
-Entreprise avec plusieurs salariés (développeurs, designers, chefs de projet).
+Les avantages :
 
-**✅ Avantages :**
-- Équipe complète (dev + design + marketing)
-- Capacité pour gros projets
-- Processus rodé
-- Ressources multiples
+- organisation plus structurée
+- compétences variées dans la même équipe
+- capacité à absorber des projets plus lourds
 
-**❌ Inconvénients :**
-- Prix élevés (3x-5x plus cher qu'un freelance)
-- Communication parfois compliquée (plusieurs intermédiaires)
-- Standardisation (effet "usine")
-- Moins de flexibilité
+Les points de vigilance :
 
-**💰 Coût moyen :**
-- Site vitrine : 5 000-15 000€
-- Site avancé : 15 000-40 000€
-- E-commerce : 20 000-100 000€+
+- plus d'interlocuteurs
+- relation parfois moins directe
+- approche parfois standardisée si votre projet est simple
 
-**🎯 Recommandé si :**
-- Gros budget (> 10 000€)
-- Projet très complexe
-- Entreprise de taille importante
-- Besoin d'une équipe pluridisciplinaire
+Une agence n'est pas automatiquement meilleure. Tout dépend du niveau de personnalisation et de compréhension de votre enjeu réel.
 
-**📊 Verdict : 7/10** (excellent pour gros projets, overkill pour petits)
+### Passer par une marketplace
 
----
+Ces plateformes peuvent sembler pratiques, mais elles créent souvent un décalage avec les besoins d'un professionnel qui veut un site fiable et crédible.
 
-### Option 5 : Marketplace de freelances (Fiverr, 5euros.com, Upwork...)
+Les risques les plus fréquents :
 
-**Profil :**  
-Plateformes mettant en relation clients et prestataires du monde entier.
+- communication imprécise
+- compréhension partielle de votre activité
+- livrable peu pensé pour votre positionnement
+- autonomie et suivi insuffisants
 
-**✅ Avantages :**
-- Prix très compétitifs (50-500€)
-- Beaucoup de choix
-- Avis clients visibles
+Si votre enjeu est d'améliorer votre image et d'obtenir plus de contacts pertinents, ce n'est généralement pas la voie la plus solide.
 
-**❌ Inconvénients :**
-- ❌ Qualité TRÈS variable
-- ❌ Communication difficile (barrière de langue)
-- ❌ Pas de suivi post-livraison
-- ❌ Propriété floue (qui possède le code ?)
-- ❌ Travail souvent bâclé
+## Comment comparer intelligemment deux prestataires
 
-**⚠️ Attention aux arnaques :**
-- Templates revendus 100 fois
-- Traduction Google pour les textes
-- Code copié-collé de mauvaise qualité
-- Délais non respectés
+Ne comparez pas seulement une maquette, une liste de fonctionnalités ou un discours commercial. Comparez surtout la qualité du cadrage.
 
-**📊 Verdict : 3/10** (trop de risques pour économiser 1000€)
+Voici les bons critères.
 
----
+### 1. La compréhension de votre activité
 
-## Tableau comparatif
+Un bon prestataire reformule votre situation avec justesse.
 
-| Critère | DIY (Wix) | Ami/Neveu | Freelance Pro | Agence | Marketplace |
-|---------|-----------|-----------|---------------|--------|-------------|
-| **Prix** | 💰 | 💰 | 💰💰 | 💰💰💰💰 | 💰 |
-| **Qualité** | ⭐⭐ | ⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐ |
-| **Délais** | Lent | Aléatoire | ⚡⚡⚡ | ⚡⚡ | Aléatoire |
-| **SAV/Support** | ❌ | ❌ | ✅✅ | ✅✅✅ | ❌ |
-| **Relation** | - | 😬 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐ |
-| **Flexibilité** | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
-| **Fiabilité** | ⭐⭐⭐ | ⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐ |
+Par exemple :
 
-**🏆 Recommandation générale :**  
-Pour **90% des PME/artisans/freelances** → **Freelance professionnel** = meilleur rapport qualité/prix/relation
+- votre offre est difficile à comprendre
+- votre site actuel n'inspire pas assez confiance
+- vous avez des visites mais peu de demandes
+- vous n'osez pas envoyer vos prospects vers votre site
 
----
+S'il comprend ces enjeux dès les premiers échanges, c'est un très bon signal.
 
-## Les 15 questions CRUCIALES à poser avant de choisir
+### 2. La qualité des questions posées
 
-Que vous choisissiez freelance ou agence, voici les questions à poser OBLIGATOIREMENT :
+Les bonnes questions ressemblent à ceci :
 
-### 📋 Partie 1 : Expérience et compétences
+- qui voulez-vous attirer exactement ?
+- qu'est-ce qui bloque aujourd'hui dans votre site ou votre communication ?
+- quelles pages sont indispensables ?
+- que doit faire un visiteur après 30 secondes sur votre site ?
+- de quel niveau d'autonomie avez-vous besoin ?
 
-#### ❓ 1. "Depuis combien de temps créez-vous des sites web professionnellement ?"
+Plus les questions sont précises, plus le projet a des chances d'aboutir à un site utile.
 
-**Ce qu'on cherche :**
-- Minimum 2-3 ans pour un freelance
-- Minimum 5 ans pour une agence
+### 3. La capacité à simplifier
 
-**🚩 Red flag :**
-- "J'ai commencé il y a 6 mois"
-- Réponse évasive
+Votre futur site n'a pas besoin d'être complexe. Il doit être clair.
 
----
+Le bon prestataire sait prioriser :
 
-#### ❓ 2. "Pouvez-vous me montrer 3-5 sites similaires au mien que vous avez réalisés ?"
+- ce qu'il faut montrer en premier
+- ce qu'on peut retirer pour rendre le message plus lisible
+- comment rassurer sans surcharger
+- comment guider vers le contact sans forcer
 
-**Ce qu'on cherche :**
-- Portfolio avec sites RÉELLEMENT en ligne
-- Sites dans votre secteur d'activité
+### 4. Les références montrées
 
-**Comment vérifier :**
-- Cliquez sur les liens
-- Vérifiez que le site fonctionne
-- Testez sur mobile
-- Demandez les noms des clients (pour vérifier les témoignages)
+Un portfolio n'est utile que si vous savez quoi regarder.
 
-**🚩 Red flags :**
-- "Je ne peux pas vous les montrer" (confidentialité mon œil !)
-- Sites hors ligne ou qui ne fonctionnent pas
-- Que des captures d'écran (facile de tricher)
-- Aucun site dans votre domaine
+Vérifiez :
 
----
+- la clarté des messages
+- la cohérence visuelle
+- la qualité mobile
+- la simplicité du parcours
+- la crédibilité perçue en quelques secondes
 
-#### ❓ 3. "Quelles technologies utilisez-vous ?"
+Un site peut être esthétique sans être convaincant. Cherchez des exemples où l'offre est comprise rapidement.
 
-**Réponses acceptables (selon projet) :**
-- WordPress (CMS le plus utilisé)
-- Shopify / WooCommerce (e-commerce)
-- React / Vue / frameworks modernes (sites complexes)
-- Jekyll / Hugo (sites vitrines rapides)
+### 5. Le cadre de collaboration
 
-**🚩 Red flags :**
-- "Je code tout en HTML pur" (dépassé)
-- Technologies obscures ou trop old-school
-- Ne sait pas expliquer simplement
+Vous devez savoir :
 
-**💡 Bon signe :**
-Capable de vous expliquer EN FRANÇAIS pourquoi cette techno pour votre projet.
+- comment le projet démarre
+- quelles informations vous devez fournir
+- comment les validations se passent
+- ce qui est inclus dans l'accompagnement
+- ce qu'il se passe après la mise en ligne
 
----
+Un prestataire sérieux rend le parcours lisible. Vous n'avez pas à deviner la suite.
 
-### 📋 Partie 2 : Processus et méthodologie
+## Les questions à poser avant de choisir
 
-#### ❓ 4. "Comment se déroule un projet de A à Z ?"
+Voici les questions les plus utiles à poser pendant un premier échange.
 
-**Ce qu'on attend :**
-- Description claire des étapes
-- Timeline approximative
-- Qui fait quoi à chaque étape
+### Sur le fond du projet
 
-**Exemple de bonne réponse :**
-```
-1. Rendez-vous découverte (gratuit)
-2. Devis détaillé sous 48h
-3. Signature + acompte 30%
-4. Maquette dans 1 semaine → validation
-5. Développement 2-3 semaines
-6. Intégration contenu
-7. Tests + corrections
-8. Formation
-9. Mise en ligne + solde
-```
+- comment m'aideriez-vous à clarifier mon offre ?
+- comment décideriez-vous entre création, refonte ou amélioration de l'existant ?
+- que mettriez-vous en avant sur la page d'accueil pour mon activité ?
+- comment travailleriez-vous la crédibilité et la prise de contact ?
 
-**🚩 Red flag :**
-- Réponse floue
-- "On verra au fur et à mesure"
-- Pas de processus clair
+### Sur la méthode
 
----
+- quelles sont les grandes étapes du projet ?
+- de quoi avez-vous besoin de ma part pour avancer correctement ?
+- comment se passent les retours et les ajustements ?
+- comment préparez-vous le site pour le mobile et le référencement ?
 
-#### ❓ 5. "Qui sera mon interlocuteur principal ?"
+### Sur l'autonomie et la suite
 
-**Ce qu'on cherche :**
-- 1 interlocuteur unique (idéalement)
-- Disponibilité précisée
+- serai-je autonome pour modifier certains contenus ?
+- que se passe-t-il après la mise en ligne ?
+- proposez-vous un accompagnement pour les évolutions ou la maintenance ?
+- comment suivre si le site commence à mieux convertir ?
 
-**🚩 Red flag (surtout en agence) :**
-- "Vous aurez plusieurs contacts selon l'étape"
-- "On vous enverra un email générique"
-- Pas de contact direct
+Ces questions vous donnent une vision beaucoup plus utile qu'un simple comparatif théorique.
 
----
+## Les red flags à repérer
 
-#### ❓ 6. "Combien de temps pour créer mon site ?"
+Certains signaux doivent vous faire ralentir immédiatement.
 
-**Réponses réalistes :**
-- Site vitrine simple : 3-4 semaines
-- Site vitrine avancé : 5-8 semaines
-- E-commerce : 8-12 semaines
+### Red flag 1 : le prestataire parle beaucoup mais écoute peu
 
-**🚩 Red flags :**
-- "Prêt en 1 semaine !" (mensonge ou bâclé)
-- "Ça dépend, peut-être 6 mois" (trop flou)
+S'il déroule sa solution avant d'avoir compris votre activité, votre cible et vos blocages, il y a un vrai risque de site générique.
 
-**💡 Bon signe :**
-Délai réaliste + explication des facteurs (votre contenu, validations, etc.)
+### Red flag 2 : la proposition reste floue
 
----
+Si vous ne comprenez pas ce qui sera réellement travaillé, comment les pages seront structurées ou quelle logique guidera les visiteurs, le cadrage n'est pas assez solide.
 
-### 📋 Partie 3 : Propriété et technique
+### Red flag 3 : tout repose sur l'outil
 
-#### ❓ 7. "Serai-je propriétaire de mon site à 100% ?"
+Un site ne devient pas efficace parce qu'il est fait avec tel CMS ou telle technologie. Si l'échange reste bloqué sur l'outil, on passe à côté du vrai sujet.
 
-**RÉPONSE ATTENDUE : "OUI, à 100%"**
+### Red flag 4 : aucun mot sur la conversion
 
-**Ce qui doit vous être livré :**
-- ✅ Code source
-- ✅ Fichiers du site
-- ✅ Accès administration
-- ✅ Accès hébergement
-- ✅ Nom de domaine à votre nom
+Si personne ne vous parle de clarté, réassurance, hiérarchie de l'information ou appels à l'action, le site risque d'être vitrine au mauvais sens du terme: visible, mais peu utile.
 
-**🚩🚩🚩 RED FLAG ABSOLU :**
-- "Vous aurez accès mais les fichiers restent chez nous"
-- "Il faut rester chez nous pour l'hébergement"
-- "Le site est en location"
+### Red flag 5 : aucune vision après la mise en ligne
 
-**→ FUYEZ ! C'est une arnaque.**
+Un site est rarement parfait dès le premier jour. Il faut prévoir la suite: ajustements, contenus, maintenance, petites améliorations.
 
----
+## Quel type de prestataire convient le mieux à votre profil ?
 
-#### ❓ 8. "Le site sera-t-il responsive (adapté mobile/tablette) ?"
+### Vous êtes indépendant ou freelance
 
-**RÉPONSE ATTENDUE : "Oui, évidemment"**
+Vous avez souvent besoin d'un site simple, crédible, rassurant, avec un message clair et une prise de contact fluide.
 
-En 2026, c'est la BASE. Si ce n'est pas inclus, ce n'est pas un pro.
+Dans ce cas, cherchez surtout :
 
-**🚩 Red flag :**
-- "C'est en option" (WHAT ?!)
-- "Pas nécessaire pour votre secteur" (FAUX)
+- un interlocuteur direct
+- une bonne compréhension de votre activité
+- une capacité à vous aider sur le fond, pas seulement sur la technique
 
----
+### Vous êtes une petite entreprise ou un artisan
 
-#### ❓ 9. "Le site sera-t-il optimisé pour Google (SEO) ?"
+Votre enjeu principal est souvent d'inspirer confiance localement, de mieux présenter vos services et de rendre le contact plus naturel.
 
-**Bonne réponse :**
-"Oui, optimisation technique de base incluse :
-- Structure propre
-- Balises SEO
-- Vitesse optimisée
-- Sitemap XML
-- Connexion Google Search Console"
+Le bon prestataire est celui qui sait :
 
-**🚩 Red flag :**
-- "Le SEO, c'est un autre métier, faut payer en plus"
-- Aucune optimisation SEO de base
+- simplifier votre discours
+- structurer les preuves de sérieux
+- mettre en valeur vos réalisations ou votre savoir-faire
+- travailler le référencement local proprement
 
-**💡 À savoir :**
-SEO de base = inclus  
-SEO avancé (stratégie, contenus, backlinks) = prestation à part (normal)
+### Vous avez un projet plus large ou plus complexe
 
----
+Si plusieurs personnes interviennent dans les décisions, si vous avez plusieurs offres ou un besoin de coordination plus important, une agence peut être pertinente à condition que la relation reste claire et personnalisée.
 
-### 📋 Partie 4 : Prix et paiement
+## Ma recommandation simple
 
-#### ❓ 10. "Quel est le prix TOTAL, tout compris ?"
+Pour la plupart des indépendants, freelances, consultants, coachs, artisans et petites entreprises, le meilleur choix n'est pas forcément la structure la plus grosse ou l'outil le plus à la mode.
 
-**Ce qu'on attend :**
-- Prix fixe, pas de surprise
-- Liste de ce qui est inclus
-- Liste de ce qui est en option
+Le meilleur choix, c'est le prestataire qui :
 
-**Exemple de bon devis :**
-```
-┌──────────────────────────────────────────┐
-│ DEVIS SITE VITRINE                       │
-├──────────────────────────────────────────┤
-│ INCLUS :                                 │
-│ ✅ Site 8 pages                          │
-│ ✅ Design responsive                     │
-│ ✅ Formulaire contact                    │
-│ ✅ Intégration contenu (fourni par vous) │
-│ ✅ SEO de base                           │
-│ ✅ Formation 2h                          │
-│ ✅ Hébergement 1 an                      │
-│ ✅ Support 3 mois                        │
-│                                          │
-│ TOTAL : 2 500€ TTC                       │
-│                                          │
-│ OPTIONS (non incluses) :                 │
-│ - Rédaction contenu : 100€/page         │
-│ - Blog : +400€                           │
-│ - Multilingue : +800€/langue            │
-└──────────────────────────────────────────┘
-```
+- vous écoute vraiment
+- comprend ce qui bloque aujourd'hui
+- sait simplifier votre message
+- construit un site crédible et lisible
+- vous accompagne avant, pendant et après la mise en ligne
 
-**🚩 Red flags :**
-- "À partir de 500€" (prix d'appel)
-- Pas de détail de ce qui est inclus
-- "On verra selon vos besoins" (trop flou)
+Autrement dit: choisissez la qualité du cadrage et de la relation avant de choisir la vitrine commerciale.
 
----
+## Checklist avant de vous décider
 
-#### ❓ 11. "Comment se passe le paiement ?"
+Avant de dire oui, vérifiez ces points :
 
-**Réponses standards :**
-- Acompte 30% à la commande
-- Solde à la livraison
-- Ou paiement en 2-3 fois
+- je me sens compris
+- la méthode de travail est claire
+- les étapes du projet sont compréhensibles
+- le prestataire parle aussi du fond, pas seulement de technique
+- je sais comment le site m'aidera à obtenir des contacts plus qualifiés
+- je comprends ce qui se passera après la mise en ligne
 
-**🚩 Red flags :**
-- 100% d'avance (JAMAIS !)
-- Virement à l'étranger
-- Paiement en crypto / Western Union
+Si plusieurs cases restent floues, il vaut mieux continuer à comparer.
 
----
+## Conclusion
 
-### 📋 Partie 5 : Après-vente et maintenance
+Créer un site n'est pas le vrai objectif. Le vrai objectif, c'est d'avoir un site qui présente mieux votre activité, inspire confiance et vous aide à avancer commercialement.
 
-#### ❓ 12. "Que se passe-t-il après la mise en ligne ?"
+Le bon prestataire n'est donc pas celui qui promet le plus. C'est celui qui vous aide à faire les bons choix dès le départ.
 
-**Bonne réponse :**
-"
-- Support gratuit pendant X mois (3 mois minimum)
-- Corrections de bugs incluses
-- Formation pour gérer le site vous-même
-- Contrat de maintenance optionnel disponible
-"
+Si vous voulez clarifier votre projet avant de choisir la bonne formule, vous pouvez aussi lire :
 
-**🚩 Red flag :**
-- "Après livraison, vous vous débrouillez"
-- "Toute modif sera facturée"
-
----
-
-#### ❓ 13. "Proposez-vous la maintenance ?"
-
-**Ce qu'on attend :**
-- Oui, avec un forfait annuel OU
-- Oui, tarif horaire pour interventions ponctuelles
-
-**Détails à demander :**
-- Qu'est-ce qui est inclus dans la maintenance ?
-- Quel est le délai d'intervention ?
-- Quel est le tarif ?
-
----
-
-#### ❓ 14. "Que se passe-t-il si vous disparaissez / arrêtez votre activité ?"
-
-**Question délicate mais ESSENTIELLE.**
-
-**Bonne réponse :**
-"
-- Vous recevez tous les fichiers sources
-- Vous pouvez faire appel à n'importe qui d'autre
-- Pas de dépendance technique
-"
-
-**🚩 Red flag :**
-- Réponse évasive
-- "Ça n'arrivera pas" (si, ça arrive)
-
----
-
-### 📋 Partie 6 : Légal et admin
-
-#### ❓ 15. "Avez-vous un SIRET / Êtes-vous déclaré ?"
-
-**OBLIGATOIRE !**
-
-Un professionnel doit :
-- ✅ Avoir un SIRET
-- ✅ Émettre des factures
-- ✅ Avoir une assurance pro (RC Pro)
-
-**🚩🚩🚩 Red flag ABSOLU :**
-- "Je travaille au black, c'est moins cher"
-- Pas de facture
-
-**→ FUYEZ ! Risques :**
-- Vous êtes complice de travail dissimulé
-- Aucun recours si problème
-- Aucune garantie
-
----
-
-## Les RED FLAGS qui doivent vous faire fuir
-
-Voici les signaux d'alarme qui doivent vous faire dire NON immédiatement :
-
-### 🚩 Red Flag #1 : Aucun portfolio vérifiable
-
-**Le problème :**
-- Pas de sites en ligne à montrer
-- Que des captures d'écran
-- "Tout est sous NDA"
-
-**→ Débutant ou arnaqueur.**
-
----
-
-### 🚩 Red Flag #2 : Prix trop bas pour être vrai
-
-**Le problème :**
-- "Site complet pour 299€"
-- "Site e-commerce pour 500€"
-
-**→ Arnaque ou template bas de gamme.**
-
-**Calcul simple :**  
-Un site vitrine = 20-40h de travail minimum.  
-À 299€, ça fait... 7-15€/heure.  
-**Aucun professionnel ne travaille à ce tarif.**
-
----
-
-### 🚩 Red Flag #3 : Pression commerciale
-
-**Le problème :**
-- "Cette offre expire ce soir"
-- "Si vous signez maintenant, -50%"
-- Insistance lourde
-
-**→ Technique de vente agressive = pas confiance.**
-
-Un bon professionnel ne force jamais la main.
-
----
-
-### 🚩 Red Flag #4 : Promesses irréalistes
-
-**Exemples :**
-- "1ère page Google garanti en 1 mois !"
-- "Site prêt en 3 jours !"
-- "100 000 visiteurs la première semaine !"
-
-**→ Mensonge éhonté.**
-
----
-
-### 🚩 Red Flag #5 : Mauvaise communication dès le début
-
-**Le problème :**
-- Ne répond pas aux emails
-- Rendez-vous annulés plusieurs fois
-- Imprécis / flou
-
-**→ Si c'est déjà compliqué AVANT le projet...**
-
-Imaginez PENDANT le projet ! Fuyez.
-
----
-
-### 🚩 Red Flag #6 : Pas de contrat / devis écrit
-
-**Le problème :**
-- "On se fait confiance, pas besoin de paperasse"
-- Devis oral uniquement
-
-**→ Aucune garantie, aucun recours.**
-
-**TOUJOURS un devis écrit et signé.**
-
----
-
-### 🚩 Red Flag #7 : Vous ne possédez pas le site
-
-**Le problème :**
-- "Le site reste chez nous"
-- "Abonnement à vie obligatoire"
-- "Si vous partez, on supprime tout"
-
-**→ ARNAQUE totale. Vous êtes prisonnier.**
-
----
-
-## Comment vérifier la crédibilité d'un prestataire ?
-
-Voici votre checklist de vérification :
-
-### ✅ Étape 1 : Cherchez sur Google
-
-**Tapez : "[Nom du prestataire] avis"**
-
-**Regardez :**
-- Google My Business (avis)
-- Pages Facebook (avis)
-- Forums / Reddit
-- Trustpilot
-
-**🚩 Attention :**
-- Que des avis 5 étoiles super enthousiastes = souvent faux
-- Avis trop négatifs = vérifiez la réponse du prestataire
-
----
-
-### ✅ Étape 2 : Vérifiez le SIRET
-
-**Allez sur :** [societe.com](https://www.societe.com) ou [infogreffe.fr](https://www.infogreffe.fr)
-
-**Vérifiez :**
-- Le SIRET existe
-- L'activité correspond
-- Pas de procédure judiciaire en cours
-
----
-
-### ✅ Étape 3 : Testez les sites du portfolio
-
-**Pour chaque site montré :**
-- ✅ Cliquez et naviguez
-- ✅ Testez sur mobile (responsive ?)
-- ✅ Vérifiez la vitesse (Google PageSpeed Insights)
-- ✅ Si possible, contactez le client (témoignage vérifiable)
-
----
-
-### ✅ Étape 4 : Analysez la communication
-
-**Un bon prestataire :**
-- ✅ Répond sous 24-48h
-- ✅ Pose des questions pertinentes
-- ✅ Vous conseille (pas juste vendre)
-- ✅ Explique clairement
-
-**Un mauvais :**
-- ❌ Répond au bout de 1 semaine
-- ❌ Donne un prix sans comprendre vos besoins
-- ❌ Jargon technique sans explication
-
----
-
-### ✅ Étape 5 : Premier rendez-vous
-
-**Ce qu'un bon pro fait :**
-- Vous écoute
-- Pose plein de questions sur votre activité
-- Vous conseille (parfois contre ses intérêts)
-- Vous explique clairement le processus
-- Vous donne des exemples concrets
-
-**Ce qu'un mauvais fait :**
-- Parle 90% du temps
-- Ne pose pas de questions
-- Veut juste vous vendre
-- Jargon technique à gogo
-
----
-
-## Freelance VS Agence : Lequel choisir ?
-
-**Réponse simple :**  
-Ça dépend de votre projet et budget.
-
-### 👤 Choisissez un FREELANCE si :
-
-**✅ Budget : 1 500 - 10 000€**
-
-**✅ Vous voulez :**
-- Relation directe et personnalisée
-- Réactivité
-- Prix raisonnables
-- Flexibilité
-
-**✅ Votre projet :**
-- Site vitrine
-- Site e-commerce jusqu'à 500 produits
-- Application web standard
-
-**✅ Vous êtes :**
-- PME
-- Artisan
-- Freelance / Consultant
-- Association
-- Commerçant
-
----
-
-### 🏢 Choisissez une AGENCE si :
-
-**✅ Budget : > 10 000€**
-
-**✅ Vous voulez :**
-- Équipe complète (dev + design + marketing)
-- Gros projet complexe
-- Plusieurs intervenants spécialisés
-
-**✅ Votre projet :**
-- Site e-commerce > 1000 produits
-- Application web très complexe
-- Marketplace
-- Plateforme sur-mesure
-
-**✅ Vous êtes :**
-- Grosse entreprise
-- Startup avec gros budget
-- Projet d'envergure
-
----
-
-## Mon avis de professionnelle (sans langue de bois)
-
-Après 5 ans dans le métier et 100+ sites créés, voici ce que j'ai observé :
-
-### 💡 Pour 90% des PME/artisans/freelances :
-
-**→ Freelance professionnel = meilleur choix**
-
-**Pourquoi ?**
-- Tarifs justes (pas de marge agence)
-- Relation directe (gain de temps énorme)
-- Investi personnellement (c'est sa réputation)
-- Flexible et réactif
-
----
-
-### 💡 La taille ne fait pas la qualité
-
-**J'ai vu :**
-- Des agences à 50 000€ faire des sites médiocres
-- Des freelances à 2 500€ faire des sites exceptionnels
-
-**Ce qui compte :**
-- Portfolio
-- Compétences
-- Communication
-- Méthodologie
-
-**Pas :**
-- Nombre de salariés
-- Bureaux fancy
-- Jargon marketing
-
----
-
-### 💡 Méfiez-vous des "généralistes"
-
-**Exemples :**
-- Graphiste qui fait "aussi des sites"
-- Community manager qui "code un peu"
-- Imprimeur qui propose "la création web en plus"
-
-**Le web, c'est un métier.**  
-Il faut quelqu'un dont c'est LE métier, pas un "à-côté".
-
----
-
-### 💡 La géographie ne compte plus
-
-**Vous êtes à Marseille, le prestataire à Lille ?**
-
-**Aucun problème !**
-
-En 2026, tout se fait à distance :
-- Visio pour les rendez-vous
-- Partage d'écran pour la formation
-- Email / téléphone pour le suivi
-
-**Choisissez la COMPÉTENCE, pas la proximité.**
-
----
-
-## Checklist finale : Suis-je prêt à choisir ?
-
-Avant de signer avec un prestataire, vérifiez :
-
-### ✅ Recherche et comparaison
-
-- [ ] J'ai contacté au moins 3 prestataires
-- [ ] J'ai comparé leurs portfolios
-- [ ] J'ai vérifié leurs avis en ligne
-- [ ] J'ai checké leur SIRET
-
----
-
-### ✅ Communication et feeling
-
-- [ ] La communication est fluide
-- [ ] Mes questions ont des réponses claires
-- [ ] Je me sens écouté et compris
-- [ ] J'ai confiance
-
----
-
-### ✅ Devis et contrat
-
-- [ ] Devis écrit détaillé reçu
-- [ ] Prix fixe, tout compris
-- [ ] Liste de ce qui est inclus/exclu
-- [ ] Délais précisés
-- [ ] Modalités de paiement claires
-
----
-
-### ✅ Technique et propriété
-
-- [ ] Je serai propriétaire à 100% du site
-- [ ] Site responsive (mobile) inclus
-- [ ] SEO de base inclus
-- [ ] Hébergement 1ère année inclus
-- [ ] Formation incluse
-
----
-
-### ✅ Après-vente
-
-- [ ] Support post-livraison précisé
-- [ ] Maintenance disponible (optionnelle)
-- [ ] Je peux modifier le site moi-même
-- [ ] Je peux changer de prestataire si besoin
-
----
-
-**Si vous cochez tout :**  
-**→ Vous pouvez signer en confiance !**
-
-**Si vous avez des doutes :**  
-**→ Continuez à chercher.**
-
----
-
-## Pour résumer : Le bon prestataire, c'est...
-
-### 1️⃣ Quelqu'un de COMPÉTENT
-
-Portfolio solide + plusieurs années d'expérience
-
----
-
-### 2️⃣ Quelqu'un de TRANSPARENT
-
-Prix clairs, pas de surprise, communication fluide
-
----
-
-### 3️⃣ Quelqu'un qui VOUS ÉCOUTE
-
-Pose des questions, comprend vos besoins, vous conseille
-
----
-
-### 4️⃣ Quelqu'un de FIABLE
-
-SIRET, factures, contrat, assurance pro
-
----
-
-### 5️⃣ Quelqu'un avec qui LE FEELING PASSE
-
-Vous allez travailler ensemble 1-3 mois. L'humain compte !
-
----
-
-## Vous cherchez un prestataire de confiance ?
-
-Maintenant vous savez exactement comment choisir.
-
-**Et si on discutait de VOTRE projet ?**
-
-### 🎯 Consultation gratuite de 30 minutes
-
-**Je vous offre un échange pour :**
-- Comprendre vos besoins
-- Vous conseiller sur la meilleure approche
-- Vous donner un devis transparent
-
-**Même si vous ne travaillez pas avec moi, vous repartirez avec :**
-- Des conseils personnalisés
-- Une estimation réaliste
-- Une vision claire de votre projet
-
-**[📞 Réserver mes 30 minutes gratuites](/contact.html)**
-
----
-
-*Développeur web freelance basée à Albertville en Savoie, je crée des sites web professionnels depuis 5 ans. Transparence, qualité, et relation de confiance sont mes priorités.*
-
-**Une question sur le choix de votre prestataire ? [Contactez-moi](/contact.html), je réponds en moins de 24h !**
+- [Comment cadrer un projet de site web en 2026 ?](/combien-coute-site-web.html)
+- [Creation site web Albertville : comment bien lancer son projet](/web-strategy/2026/02/01/creation-site-web-albertville-prix-delais.html)
+- [Pourquoi un site internet reste essentiel en 2026](/web-strategy/2026/01/08/pourquoi-site-web-2026.html)

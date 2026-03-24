@@ -2,7 +2,6 @@
 (function() {
     let currentStep = 1;
     const totalSteps = 6;
-    let estimatedPrice = 0;
     let projectData = {};
 
     // Éléments DOM
@@ -70,9 +69,8 @@
         // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // Si on arrive à la dernière étape, calculer et afficher l'estimation
+        // Si on arrive à la dernière étape, afficher le récapitulatif
         if (step === totalSteps) {
-            calculateEstimate();
             displayResults();
         }
     }
@@ -133,7 +131,7 @@
                 break;
             case 5:
                 isValid = document.querySelector('input[name="deadline"]:checked') !== null;
-                // Budget est optionnel
+                // Les choix complementaires restent optionnels a cette etape
                 break;
             case 6:
                 isValid = true;
@@ -199,95 +197,45 @@
                 if (deadline) {
                     projectData.deadline = deadline.value;
                 }
-                
-                const budget = document.querySelector('input[name="budget"]:checked');
-                if (budget) {
-                    projectData.budget = budget.value;
+
+                const priority = document.querySelector('input[name="priority"]:checked');
+                if (priority) {
+                    projectData.priority = priority.value;
                 }
                 break;
         }
     }
 
-    function calculateEstimate() {
-        let basePrice = 0;
-        let additionalCosts = 0;
-        let multiplier = 1;
-
-        // Prix de base selon le type de projet
-        const projectType = document.querySelector('input[name="project_type"]:checked');
-        if (projectType) {
-            basePrice = parseInt(projectType.getAttribute('data-price')) || 0;
-        }
-
-        // Nombre de pages
-        const pageCount = document.querySelector('input[name="page_count"]:checked');
-        if (pageCount) {
-            additionalCosts += parseInt(pageCount.getAttribute('data-price')) || 0;
-        }
-
-        // Fonctionnalités
-        document.querySelectorAll('input[name="features"]:checked').forEach(checkbox => {
-            additionalCosts += parseInt(checkbox.getAttribute('data-price')) || 0;
-        });
-
-        // Design
-        const designType = document.querySelector('input[name="design_type"]:checked');
-        if (designType) {
-            additionalCosts += parseInt(designType.getAttribute('data-price')) || 0;
-        }
-
-        // Logo
-        const logo = document.querySelector('input[name="logo"]:checked');
-        if (logo) {
-            additionalCosts += parseInt(logo.getAttribute('data-price')) || 0;
-        }
-
-        // Contenu
-        const content = document.querySelector('input[name="content"]:checked');
-        if (content) {
-            additionalCosts += parseInt(content.getAttribute('data-price')) || 0;
-        }
-
-        // Services
-        document.querySelectorAll('input[name="services"]:checked').forEach(checkbox => {
-            additionalCosts += parseInt(checkbox.getAttribute('data-price')) || 0;
-        });
-
-        // Délais
-        const deadline = document.querySelector('input[name="deadline"]:checked');
-        if (deadline) {
-            additionalCosts += parseInt(deadline.getAttribute('data-price')) || 0;
-        }
-
-        // Multiplicateur budget
-        const budget = document.querySelector('input[name="budget"]:checked');
-        if (budget && budget.hasAttribute('data-multiplier')) {
-            multiplier = parseFloat(budget.getAttribute('data-multiplier')) || 1;
-        }
-
-        // Calcul final
-        const totalPrice = (basePrice + additionalCosts) * multiplier;
-        
-        // Fourchette : -15% / +20%
-        const minPrice = Math.round(totalPrice * 0.85 / 100) * 100; // Arrondi à 100€
-        const maxPrice = Math.round(totalPrice * 1.20 / 100) * 100;
-
-        projectData.estimatedMin = minPrice;
-        projectData.estimatedMax = maxPrice;
-
-        return { min: minPrice, max: maxPrice };
-    }
-
     function displayResults() {
-        const estimate = calculateEstimate();
-        
-        // Afficher les prix
-        document.getElementById('estimated-price-min').textContent = estimate.min.toLocaleString('fr-FR');
-        document.getElementById('estimated-price-max').textContent = estimate.max.toLocaleString('fr-FR');
-
         // Générer le récapitulatif
         const summary = generateSummary();
         document.getElementById('project-summary').innerHTML = summary;
+
+        const recommendation = generateRecommendation();
+        document.getElementById('project-recommendation-title').textContent = recommendation.title;
+        document.getElementById('project-recommendation-body').textContent = recommendation.body;
+    }
+
+    function generateRecommendation() {
+        const projectTypeTitles = {
+            vitrine: 'Un site clair oriente confiance et contact',
+            ecommerce: 'Une boutique a structurer pour rassurer et convertir',
+            custom: 'Un projet sur-mesure a cadrer avec precision',
+            refonte: 'Une refonte pour remettre votre site au niveau de votre business'
+        };
+
+        const priorityBodies = {
+            lack_of_credibility: 'Votre priorite semble etre l image percue. Il faudra travailler le positionnement, la clarte de l offre et une presentation plus professionnelle.',
+            no_leads: 'Votre priorite semble etre la conversion. Il faudra simplifier le parcours, renforcer les CTA et rendre la prise de contact plus evidente.',
+            unclear_offer: 'Votre priorite semble etre la clarte. Il faudra reformuler la promesse, les offres et l enchainement des informations.',
+            need_visibility: 'Votre priorite semble etre la visibilite. Il faudra poser de bonnes bases SEO et relier le site a votre presence locale ou sociale.',
+            need_guidance: 'Votre priorite semble etre le cadrage. Il faudra d abord clarifier la meilleure option entre creation, refonte, image de marque et accompagnement.'
+        };
+
+        return {
+            title: projectTypeTitles[projectData.projectType] || 'Projet a cadrer ensemble',
+            body: priorityBodies[projectData.priority] || 'Vos reponses montrent surtout un besoin de clarte, de priorisation et d accompagnement pour passer a la bonne prochaine etape.'
+        };
     }
 
     function generateSummary() {
@@ -376,6 +324,17 @@
             html += `<div><strong>Délai :</strong> ${deadlineLabels[projectData.deadline]}</div>`;
         }
 
+        const priorityLabels = {
+            'lack_of_credibility': 'Ameliorer la credibilite percue',
+            'no_leads': 'Obtenir plus de prises de contact',
+            'unclear_offer': 'Mieux expliquer l offre',
+            'need_visibility': 'Etre plus visible sur Google',
+            'need_guidance': 'Savoir par quoi commencer'
+        };
+        if (projectData.priority) {
+            html += `<div><strong>Priorite :</strong> ${priorityLabels[projectData.priority]}</div>`;
+        }
+
         return html;
     }
 
@@ -383,12 +342,8 @@
         e.preventDefault();
         
         // Remplir les champs cachés avec les données du projet
-        const hiddenMinField = document.getElementById('hidden-estimate-min');
-        const hiddenMaxField = document.getElementById('hidden-estimate-max');
         const hiddenDetailsField = document.getElementById('hidden-project-details');
-        
-        if (hiddenMinField) hiddenMinField.value = projectData.estimatedMin || 0;
-        if (hiddenMaxField) hiddenMaxField.value = projectData.estimatedMax || 0;
+
         if (hiddenDetailsField) {
             hiddenDetailsField.value = JSON.stringify(projectData, null, 2);
         }
@@ -406,7 +361,6 @@
     function restartQuiz() {
         currentStep = 1;
         projectData = {};
-        estimatedPrice = 0;
         
         // Reset tous les inputs
         document.querySelectorAll('input[type="radio"]').forEach(input => {

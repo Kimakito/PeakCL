@@ -3,22 +3,25 @@
         <!-- Barre d'urgence -->
         <div class="bg-gradient-to-r from-peak-yellow/80 to-yellow-400/80 text-peak-blue-dark rounded-t-2xl p-4 sm:p-6 text-center">
             <p class="font-bold text-lg sm:text-xl">
-                🚀 Seulement 2 places ouvertes ce mois-ci pour nouveaux clients
+                🚀 Vous voulez un site qui inspire confiance et pousse a la prise de contact ?
             </p>
-            <p class="text-sm mt-2">Votre projet sera lancé avant mai si vous contactez cette semaine</p>
+            <p class="text-sm mt-2">Dites-moi ou vous en etes. Je vous reponds avec une recommandation claire sous 24h.</p>
         </div>
 
         <!-- Formulaire -->
         <div class="bg-white/10 backdrop-blur-md rounded-b-2xl p-6 sm:p-12 border border-peak-violet/30">
             <h2 class="text-2xl sm:text-3xl font-title font-extrabold mb-4 sm:mb-6 text-white text-center drop-shadow-md">
-                📞 Demandez votre devis gratuit
+                📞 Parlons de votre projet
             </h2>
             <p class="text-white text-center mb-8">
-                <strong>30 minutes de conseil gratuit</strong> pour décortiquer votre projet et vous faire une proposition sur-mesure adapée à votre budget.
+                <strong>Expliquez-moi votre situation</strong> : je vous aide a clarifier le bon message, le bon format de site et la bonne prochaine etape pour attirer plus de clients.
             </p>
 
-            <form name="contact" method="POST" data-netlify="true" action="/merci.html" class="space-y-6 sm:space-y-8" aria-label="Formulaire de contact PeakCL">
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html" class="space-y-6 sm:space-y-8" aria-label="Formulaire de contact PeakCL">
                 <input type="hidden" name="form-name" value="contact">
+                <p class="hidden">
+                    <label>Ne pas remplir : <input name="bot-field"></label>
+                </p>
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
@@ -35,31 +38,32 @@
                 <label for="email" class="sr-only">Email professionnel</label>
                 <input type="email" id="email" name="email" placeholder="Email professionnel *" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base" />
 
-                <!-- Sélection du service -->
+                <!-- Sélection du besoin -->
                 <div>
-                    <label for="service-type" class="block text-white font-semibold mb-2">Quel service vous intéresse ? *</label>
+                    <label for="service-type" class="block text-white font-semibold mb-2">Quelle est votre situation aujourd'hui ? *</label>
                     <select id="service-type" name="service" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base">
-                        <option value="" disabled selected>Sélectionnez votre besoin principal</option>
-                        <option value="Site Web" class="bg-peak-blue-dark">🌐 Site Web</option>
-                        <option value="Pages Sociales" class="bg-peak-blue-dark">📱 Pages Sociales (création + lancement)</option>
-                        <option value="Graphisme" class="bg-peak-blue-dark">🎨 Graphisme</option>
-                        <option value="Autre" class="bg-peak-blue-dark">❓ Autre / Plusieurs services</option>
+                        <option value="" disabled selected>Selectionnez votre besoin principal</option>
+                        <option value="Je n'ai pas encore de site" class="bg-peak-blue-dark">🌐 Je n'ai pas encore de site</option>
+                        <option value="Mon site ne genere pas de demandes" class="bg-peak-blue-dark">📉 Mon site ne genere pas de demandes</option>
+                        <option value="Mon image manque de credibilite" class="bg-peak-blue-dark">🎨 Mon image manque de credibilite</option>
+                        <option value="J'ai besoin d'etre visible sur Google" class="bg-peak-blue-dark">🔎 J'ai besoin d'etre visible sur Google</option>
+                        <option value="J'hesite encore" class="bg-peak-blue-dark">❓ J'hesite encore sur la meilleure option</option>
                     </select>
                 </div>
 
                 <label for="message" class="sr-only">Décrivez votre projet</label>
-                <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet, vos objectifs et vos besoins *" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl resize-none text-base"></textarea>
+                <textarea id="message" name="message" rows="5" placeholder="Exemple : je suis coach / consultant, mon site actuel ne me ressemble plus, je veux mieux presenter mon offre et obtenir plus de prises de contact. *" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl resize-none text-base"></textarea>
 
                 <div class="text-peak-gray/80 text-sm text-center">
-                    En soumettant ce formulaire, vous acceptez d'être recontacté par PeakCL pour discuter de votre projet.
+                    En soumettant ce formulaire, vous acceptez d'etre recontacte(e) par PeakCL pour discuter de votre projet.
                 </div>
 
                 <button type="submit" class="w-full bg-peak-yellow text-peak-blue-dark font-extrabold py-4 sm:py-5 px-6 rounded-full hover:bg-yellow-300 shadow-xl transform hover:scale-105 transition-all duration-300 min-h-[50px] text-lg sm:text-lg">
-                    📞 Demander à être rappelé(e)
+                    📞 Recevoir une reponse personnalisee
                 </button>
                 
                 <p class="text-xs text-peak-gray/80 text-center">
-                    ✅ Réponse garantie en moins de 24h • 🔒 Données sécurisées • 🚀 Pas de frais cachés
+                    ✅ Reponse en moins de 24h • 🔒 Donnees securisees • 🤝 Echange simple et humain
                 </p>
             </form>
         </div>
@@ -67,11 +71,11 @@
         <!-- Alternative CTA téléphone -->
         <div class="bg-gradient-to-r from-peak-blue-dark to-peak-violet rounded-b-2xl p-6 text-center border-t border-peak-violet/30">
             <p class="text-peak-gray mb-4">
-                <strong>Pas sûr(e) de quel service choisir?</strong> Commencez par un 
+                <strong>Pas sur(e) de quoi demander exactement ?</strong> Commencez par un 
                 <a href="/conseil-gratuit.html" class="text-peak-yellow hover:text-peak-yellow-light font-bold underline">conseil gratuit (30 min)</a>
             </p>
             <p class="text-peak-gray mb-4">
-                Ou contactez-moi directement par SMS ou WhatsApp (je préfère les textos) :
+                Une question rapide ? Ecrivez-moi directement par WhatsApp, SMS ou mail :
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="https://wa.me/33743517627?text=Bonjour%20PeakCL%2C%20j'aimerais%20discuter%20de%20mon%20projet%20web"
@@ -84,6 +88,11 @@
                    class="inline-block bg-gradient-to-r from-peak-yellow to-yellow-400 text-peak-blue-dark font-extrabold px-8 py-4 rounded-full hover:from-yellow-300 hover:to-peak-yellow shadow-xl transform hover:scale-105 transition-all text-lg"
                    aria-label="Envoyer un SMS">
                     📱 SMS: 07 43 51 76 27
+                </a>
+                <a href="mailto:peakcl73@gmail.com?subject=Question%20sur%20mon%20projet%20web"
+                   class="inline-block bg-white text-peak-blue-dark font-extrabold px-8 py-4 rounded-full hover:bg-peak-gray-light shadow-xl transform hover:scale-105 transition-all text-lg"
+                   aria-label="Envoyer un email">
+                    📧 Mail
                 </a>
             </div>
         </div>

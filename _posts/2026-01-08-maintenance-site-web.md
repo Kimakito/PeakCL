@@ -1,7 +1,7 @@
 ---
 layout: article
-title: "Maintenance site web : pourquoi votre site a besoin d'entretien (et combien ça coûte)"
-description: "Maintenance site web expliquée simplement : pourquoi c'est indispensable, ce qui se passe si vous ne le faites pas, combien ça coûte. Guide pratique 2026."
+title: "Maintenance site web : pourquoi votre site a besoin d'entretien"
+description: "Maintenance site web expliquee simplement : pourquoi c'est indispensable, ce qui se passe si vous ne le faites pas et comment choisir le bon niveau de suivi."
 date: 2026-01-08
 author: Charlotte Lacroix
 categories: [conseils]
@@ -14,7 +14,7 @@ tags:
 image: /assets/images/maintenance.webp
 canonical: https://peakcl.com/conseils/2026/01/08/maintenance-site-web.html
 reading_time: 12
-excerpt: "Un site web, ce n'est pas 'créer et oublier'. Comme une voiture, ça s'entretient. Je vous explique pourquoi, combien ça coûte, et ce qui se passe si vous ne le faites pas."
+excerpt: "Un site web, ce n'est pas creer et oublier. Comme une voiture, ca s'entretient. Je vous explique pourquoi et comment choisir un suivi adapte."
 toc: true
 featured: true
 ---
@@ -191,11 +191,11 @@ Page d'accueil remplacée par de la pub pour Viagra.
 Données emails volées.
 
 **Solution :**  
-Recréation complète du site = 2500€ + 3 semaines.
+Reprise complete du site, plusieurs semaines de travail et beaucoup de stress evitable.
 
 **Si maintenance faite :**  
-Mise à jour mensuelle = 30€/mois = 1080€ sur 3 ans.  
-**→ Économie de 1420€ + éviter le désastre.**
+Suivi regulier, risques limites et bien moins de chances de vivre ce type d'incident.  
+**→ Vous evitez surtout l'urgence, la perte de temps et l'impact sur votre image.**
 
 ---
 
@@ -213,7 +213,7 @@ Mise à jour mensuelle = 30€/mois = 1080€ sur 3 ans.
 - Perte de référencement Google
 
 **Temps de récupération :**  
-1-4 semaines + coût 500-3000€.
+de quelques jours a plusieurs semaines selon l'etat du site.
 
 ---
 
@@ -230,7 +230,7 @@ Mise à jour mensuelle = 30€/mois = 1080€ sur 3 ans.
 - Vous paniquez
 
 **Solution :**  
-Appel d'urgence à un développeur = 100-200€ + stress.
+Appel d'urgence a un developpeur, interruption d'activite et stress inutile.
 
 ---
 
@@ -243,7 +243,7 @@ Appel d'urgence à un développeur = 100-200€ + stress.
 
 **Impact :**
 - **Site perdu définitivement**
-- Recréation complète = 1500-5000€
+- Reprise complete du site possible
 - 3-6 semaines de travail
 - Perte contenu (articles, images, avis clients)
 
@@ -263,7 +263,7 @@ Appel d'urgence à un développeur = 100-200€ + stress.
 - Perte de clients
 
 **Solution :**  
-Optimisation = 200-500€ + 1 journée.
+Optimisation technique et nettoyage du site.
 
 ---
 
@@ -280,8 +280,8 @@ Optimisation = 200-500€ + 1 journée.
 **Fréquence :**  
 1x/mois
 
-**Prix moyen :**  
-**30-60€/mois**
+**Niveau de suivi :**  
+leger et regulier.
 
 **Pour qui ?**  
 Sites vitrines simples, peu de trafic.
@@ -301,8 +301,8 @@ Sites vitrines simples, peu de trafic.
 **Fréquence :**  
 2x/mois
 
-**Prix moyen :**  
-**80-150€/mois**
+**Niveau de suivi :**  
+plus soutenu, avec davantage de controle et de prevention.
 
 **Pour qui ?**  
 Sites e-commerce, sites avec trafic important, sites critiques pour l'activité.
@@ -324,8 +324,8 @@ Sites e-commerce, sites avec trafic important, sites critiques pour l'activité.
 **Fréquence :**  
 Hebdomadaire + monitoring 24/7
 
-**Prix moyen :**  
-**200-500€/mois**
+**Niveau de suivi :**  
+renforce, pour les sites plus critiques.
 
 **Pour qui ?**  
 Gros e-commerce, sites générant du CA important, sites d'entreprises.
@@ -376,43 +376,34 @@ Gros e-commerce, sites générant du CA important, sites d'entreprises.
 
 ---
 
-## Combien coûte la maintenance (récapitulatif)
+## Comment choisir le bon niveau de maintenance
 
 ```
 ┌──────────────────────────────────────────────┐
-│ TARIFS MAINTENANCE SITE WEB                  │
+│ NIVEAUX DE MAINTENANCE SITE WEB             │
 ├──────────────────────────────────────────────┤
-│ 🟢 Basique (1x/mois)                         │
-│    30-60€/mois (360-720€/an)                 │
-│    → Sites vitrines simples                  │
+│ 🟢 Basique                                   │
+│    → Pour garder un site simple a jour      │
 │                                              │
-│ 🟡 Standard (2x/mois)                        │
-│    80-150€/mois (960-1800€/an)               │
-│    → Sites e-commerce, sites importants      │
+│ 🟡 Standard                                  │
+│    → Pour les sites plus actifs ou plus      │
+│      importants dans votre activite          │
 │                                              │
-│ 🔴 Premium (hebdo + 24/7)                    │
-│    200-500€/mois (2400-6000€/an)             │
-│    → Gros e-commerce, entreprises            │
+│ 🔴 Renforce                                  │
+│    → Pour les sites critiques, e-commerce    │
+│      ou ceux qui demandent un suivi serre    │
 │                                              │
-│ 💡 DIY (vous le faites)                      │
-│    0€ (mais votre temps + risques)           │
+│ 💡 DIY                                       │
+│    → Possible si vous etes a l'aise, mais    │
+│      avec plus de vigilance et de risques    │
 └──────────────────────────────────────────────┘
 ```
 
-**💡 Mon offre PeakCL :**
+**💡 Mon approche PeakCL :**
 
-**Maintenance BASIQUE : 45€/mois**
-- Mises à jour mensuelles
-- Sauvegarde hebdomadaire
-- Surveillance uptime
-- Intervention en cas de problème
-
-**Maintenance STANDARD : 120€/mois**
-- Tout du basique
-- Sauvegarde quotidienne
-- Optimisation mensuelle
-- Rapport de performance
-- Support prioritaire
+- Niveau essentiel pour garder le site sain et a jour
+- Niveau renforce pour les sites plus sensibles
+- Accompagnement adapte selon votre rythme de publication et vos enjeux
 
 ---
 
@@ -420,41 +411,31 @@ Gros e-commerce, sites générant du CA important, sites d'entreprises.
 
 **Scénario sur 3 ans :**
 
-### 🚫 SANS maintenance
+### 🚫 Sans maintenance
 
 ```
-Année 1-3 : 0€
-Année 3 : Site piraté
-  → Nettoyage : 800€
-  → Temps d'arrêt : 2 semaines
-  → Clients perdus : ?€
+Au fil du temps : failles non corrigees
+Puis un incident arrive
+  → site inaccessible
+  → contenu perdu ou casse
+  → stress et urgence
+  → image abimee
 
-Année 3 : Mise à jour ratée
-  → Intervention développeur : 300€
-
-Année 3 : Pas de sauvegarde
-  → Recréation site : 2000€
-
-TOTAL 3 ANS : 3100€ + stress + clients perdus
+Resultat : intervention en urgence, activite perturbee, temps perdu
 ```
 
 ---
 
-### ✅ AVEC maintenance (45€/mois)
+### ✅ Avec maintenance
 
 ```
-Année 1 : 540€
-Année 2 : 540€
-Année 3 : 540€
-
-Incidents : 0
-Stress : 0
-Clients perdus : 0
-
-TOTAL 3 ANS : 1620€
+Mises a jour regulieres
+Sauvegardes disponibles
+Surveillance plus sereine
+Problemes traites avant qu'ils ne deviennent critiques
 ```
 
-**ÉCONOMIE : 1480€ + tranquillité d'esprit.**
+**Benefice :** plus de tranquillite, moins de risques et un site plus fiable dans le temps.
 
 ---
 
@@ -531,12 +512,12 @@ Un site piraté affiché "Site dangereux" → Vous perdez toute crédibilité.
 
 ## Ce que JE fais pour mes clients (maintenance PeakCL)
 
-**Formule BASIQUE (45€/mois) inclut :**
+**Ce que je mets en place pour mes clients :**
 
-✅ **Mises à jour mensuelles**  
+✅ **Mises a jour regulieres**  
 CMS, plugins, thème, PHP si nécessaire
 
-✅ **Sauvegarde hebdomadaire**  
+✅ **Sauvegarde reguliere**  
 Stockée sur serveur externe (Google Drive)
 
 ✅ **Surveillance 24/7**  
@@ -552,7 +533,7 @@ Restauration, correction bug, résolution piratage
 Performance, sécurité, recommandations
 
 **💡 Bonus :**  
-30 minutes/mois de modifications de contenu incluses.
+petites modifications de contenu possibles selon le niveau de suivi choisi.
 
 ---
 
@@ -567,20 +548,20 @@ Performance, sécurité, recommandations
 
 ---
 
-### 💰 Combien ça coûte ?
+### Comment choisir le bon cadre ?
 
-**DIY (gratuit) :** Vous le faites → Risqué si pas compétent  
-**Basique (30-60€/mois) :** Minimum vital  
-**Standard (80-150€/mois) :** Recommandé pour sites importants
+**DIY :** Vous le faites → possible si vous etes autonome et rigoureux  
+**Basique :** Minimum vital pour garder un site sain  
+**Standard :** Recommande pour les sites plus importants dans l'activite
 
 ---
 
 ### ⚠️ Que risquez-vous SANS maintenance ?
 
-- Site piraté (800-3000€ pour nettoyer)
-- Site perdu (1500-5000€ pour recréer)
-- Site lent (perte de clients + pénalité Google)
-- Failles de sécurité (données volées)
+- Site pirate ou inaccessible
+- Site perdu ou partiellement casse
+- Site lent qui fait fuir les visiteurs
+- Failles de securite et image degradee
 
 ---
 
@@ -590,14 +571,14 @@ Votre site n'a pas été mis à jour depuis des mois (ou années) ?
 Vous voulez dormir tranquille sans vous soucier de la technique ?
 
 **Je vous offre :**
-- Audit gratuit de votre site actuel
-- Détection des problèmes/risques
-- Devis maintenance sur mesure
+- Diagnostic de votre site actuel
+- Detection des problemes et risques
+- Recommandation sur le niveau de suivi adapte
 
-**[📞 Demander mon audit gratuit](/contact.html)**
+**[📞 Demander un diagnostic maintenance](/contact.html)**
 
 ---
 
-*Développeur web basée à Albertville en Savoie, je propose des contrats de maintenance à partir de 45€/mois. Sécurité, sauvegardes, mises à jour : je m'occupe de tout !*
+*Developpeur web basee a Albertville en Savoie, j'accompagne mes clients sur la securite, les sauvegardes, les mises a jour et le suivi technique pour garder un site fiable dans le temps.*
 
 **Une question sur la maintenance de votre site ? [Contactez-moi](/contact.html), je réponds en moins de 24h !**

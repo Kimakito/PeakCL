@@ -1,5 +1,5 @@
-- question: "Combien coûte un site internet professionnel ?"
-  answer: "Le tarif est personnalisé selon vos besoins réels : nombre de pages (une seule avec l'essentiel ou un site complet), fonctionnalités souhaitées, et complexité technique. Devis transparent gratuit sous 24-48h. <a href='/web-strategy/2026/01/08/budget-site-web.html' class='underline text-peak-yellow'>📖 Guide complet prix & budget →</a>"
+- question: "Comment savoir quel type de site est adapte a mon activite ?"
+  answer: "Je regarde surtout votre offre, votre cible et l'action que vous voulez obtenir. Un bon site ne commence pas par la technique, mais par un message clair et un parcours simple vers la prise de contact."
 
 - question: "Combien de temps pour créer un site web ?"
   answer: "3-4 semaines pour un site vitrine, 6-12 semaines pour un e-commerce. Le délai dépend aussi de votre disponibilité pour le contenu. <a href='/web-strategy/2026/01/08/delais-creation-site-web.html' class='underline text-peak-yellow'>📖 Délais détaillés →</a>"
@@ -20,16 +20,16 @@
   answer: "Obligatoire non, fortement recommandé OUI. 90% des sites piratés = sites non à jour. Maintenance = assurance contre catastrophe. <a href='/conseils/2026/01/08/maintenance-site-web.html' class='underline text-peak-yellow'>📖 Maintenance expliquée →</a>"
 
 - question: "RGPD, mentions légales, cookies... c'est obligatoire ?"
-  answer: "OUI pour TOUS les sites. Amendes jusqu'à 20M€ (en théorie). Je fournis tous les modèles, vous n'avez qu'à remplir vos infos. <a href='/web-strategy/2026/01/08/rgpd-obligations-legales.html' class='underline text-peak-yellow'>📖 Obligations légales →</a>"
+  answer: "Oui, ces elements sont indispensables pour un site professionnel. Je fournis les bases et les modeles utiles pour vous aider a les mettre en place sereinement. <a href='/web-strategy/2026/01/08/rgpd-obligations-legales.html' class='underline text-peak-yellow'>📖 Obligations légales →</a>"
 
 - question: "Ai-je besoin d'un email professionnel (contact@monsite.fr) ?"
-  answer: "OUI. contact@gmail.com = amateur. contact@votresite.fr = professionnel. 75% de confiance en plus. 30-60€/an. <a href='/conseils/2026/01/08/email-professionnel.html' class='underline text-peak-yellow'>📖 Email pro expliqué →</a>"
+  answer: "Oui. Une adresse comme contact@votresite.fr renforce tout de suite la credibilite de votre activite et rassure davantage qu'une adresse generique. <a href='/conseils/2026/01/08/email-professionnel.html' class='underline text-peak-yellow'>📖 Email pro explique →</a>"
 
 - question: "Comment savoir si mon site fonctionne ?"
   answer: "Google Analytics (gratuit) vous dit tout : visiteurs, d'où ils viennent, ce qu'ils font. Les 7 chiffres essentiels à surveiller. <a href='/conseils/2026/01/08/analytics-mesurer-performance-site.html' class='underline text-peak-yellow'>📖 Mesurer la performance →</a>"
 
 - question: "Quel type de site choisir (WordPress, sur-mesure, Wix...) ?"
-  answer: "WordPress pour 90% des cas (autonomie), sur-mesure si besoins spécifiques, Wix si budget ultra-serré (mais limitations). <a href='/web-strategy/2025/05/18/type-site.html' class='underline text-peak-yellow'>📖 Types de sites comparés →</a>"
+  answer: "Le choix depend de votre besoin reel d'autonomie, de votre ambition de croissance et du niveau de personnalisation attendu. L'important est surtout d'eviter une solution qui vous bloque ou qui donne une image trop amateur. <a href='/web-strategy/2025/05/18/type-site.html' class='underline text-peak-yellow'>📖 Types de sites compares →</a>"
 
 - question: "Comment préparer le contenu de mon site ?"
   answer: "Textes, photos, logo, coordonnées. Checklist complète pour ne rien oublier. 60% des délais = contenu manquant. <a href='/conseils/2025/01/10/contenus.html' class='underline text-peak-yellow'>📖 Préparer le contenu →</a>"
@@ -52,8 +52,8 @@
 - question: "Travaillez-vous uniquement en Savoie / Albertville ?"
   answer: "Basée à Albertville, mais j'accompagne des clients partout en France (visio, téléphone, email). Rencontre possible en Savoie. <a href='/qui-suis-je.html' class='underline text-peak-yellow'>En savoir plus sur moi →</a>"
 
-- question: "Combien coûte l'hébergement et le nom de domaine ?"
-  answer: "Domaine : 10-20€/an. Hébergement : 60-150€/an. Email pro : 0-60€/an. Total : 70-230€/an minimum. <a href='/web-strategy/2026/01/08/budget-site-web.html#frais-récurrents' class='underline text-peak-yellow'>📖 Frais récurrents détaillés →</a>"
+- question: "Que faut-il prevoir pour l'hebergement et le nom de domaine ?"
+  answer: "Je vous explique simplement ce qu'il faut prevoir pour l'hebergement, le nom de domaine et l'email professionnel, afin que votre site reste stable, rapide et credibile sur la duree."
 
 - question: "Toutes mes questions en 1 seul endroit ?"
   answer: "FAQ complète avec les 20 questions que TOUS les clients posent. Réponses honnêtes, sans langue de bois. <a href='/web-strategy/2026/01/08/faq-creation-site-web.html' class='underline text-peak-yellow'>📖 FAQ complète (20 questions) →</a>"

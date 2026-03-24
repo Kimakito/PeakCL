@@ -2,17 +2,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    {% assign canonical_url = page.canonical | default: page.url | absolute_url %}
+    {% assign social_image = page.image | default: page.cover %}
+    {% if social_image == nil or social_image == '' or social_image == '/assets/images/avatar-share.png' %}
+    {% assign social_image = '/assets/logo/PeakCL.logo.png' %}
+    {% endif %}
+
     <!-- Title & SEO -->
     <title>{% if page.title %}{{ page.title }}{% else %}PeakCL - Agence Web Albertville & Savoie{% endif %}</title>
     <meta name="author" content="Charlotte Lacroix">
     <meta name="robots" content="index, follow">
     <meta name="description"
-        content="{% if page.description %}{{ page.description }}{% else %}Développeur web Savoie, développeur web Albertville, création de sites internet, applications web, identité visuelle, SEO, accompagnement digital. PeakCL, Charlotte Lacroix.{% endif %}">
+      content="{% if page.description %}{{ page.description }}{% else %}Agence web a Albertville en Savoie : creation, refonte et amelioration de sites internet pour independants, freelances et petites entreprises qui veulent plus de credibilite et plus de contacts qualifies.{% endif %}">
     <meta name="keywords"
-        content="développeur web, développeur web Savoie, développeur web Albertville, création site internet, freelance Savoie, PeakCL, Charlotte Lacroix, applications web, identité visuelle, Chambéry, Albertville, Annecy, SEO, accompagnement digital">
+      content="{% if page.keywords %}{{ page.keywords | join: ', ' }}{% else %}agence web Albertville, developpeur web Savoie, creation site internet, refonte site web, site internet pour independant, site internet pour freelance, site internet professionnel, accompagnement digital, SEO local, PeakCL{% endif %}">
 
     <!-- Canonical -->
-    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="canonical" href="{{ canonical_url }}">
 
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,11 +38,6 @@
     <!-- Main Output CSS -->
     <link rel="preload" href="{{ '/assets/css/output.css' | relative_url }}" as="style">
     
-    {% assign social_image = page.image %}
-    {% if social_image == nil or social_image == '' or social_image == '/assets/images/avatar-share.png' %}
-    {% assign social_image = '/assets/logo/PeakCL.logo.png' %}
-    {% endif %}
-
     <link rel="preload" href="{{ social_image | relative_url }}" as="image">
     
     <!-- Fallback noScript for fonts -->
@@ -48,9 +49,9 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}PeakCL - Agence Web Albertville & Savoie{% endif %}">
-    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}Agence web a Albertville en Savoie : creation, refonte et amelioration de sites internet pour independants, freelances et petites entreprises.{% endif %}">
     <meta property="og:type" content="{% if page.layout == 'article' %}article{% else %}website{% endif %}">
-    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:url" content="{{ canonical_url }}">
     <meta property="og:image" content="{{ social_image | absolute_url }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -60,7 +61,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}PeakCL - Agence Web Albertville & Savoie{% endif %}">
-    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.{% endif %}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}Agence web a Albertville en Savoie : creation, refonte et amelioration de sites internet pour independants, freelances et petites entreprises.{% endif %}">
     <meta name="twitter:image" content="{{ social_image | absolute_url }}">
 
     <!-- Favicons & Manifest -->
@@ -79,84 +80,19 @@
 
     {% include schema-organization.html %}
 
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "WebDevelopmentService"],
-    "name": "PeakCL",
-    "description": "Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.",
-    "url": "https://www.peakcl.com",
-    "image": "https://www.peakcl.com/assets/logo/PeakCL.svg",
-    "founder": {
-        "@type": "Person",
-        "name": "Charlotte Lacroix"
-    },
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Albertville",
-        "addressRegion": "Auvergne-Rhône-Alpes",
-        "addressCountry": "FR"
-    },
-    "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "peakcl73@gmail.com",
-        "contactType": "Customer Service"
-    },
-    "serviceType": "Web Development",
-    "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Savoie"
-    },
-    "sameAs": [
-        "https://www.linkedin.com/company/PeakCL/",
-        "https://www.malt.fr/profile/PeakCL",
-        "https://fr.fiverr.com/s/99W6WYa",
-        "https://comeup.com/fr/@PeakCL"
-    ]
-    }
-</script>
-    <!-- Schema.org JSON-LD global pour PeakCL -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": ["LocalBusiness", "WebDevelopmentService"],
+      "@type": "WebSite",
       "name": "PeakCL",
-      "description": "Développeur web freelance en Savoie, création de sites internet, applications web et identité visuelle sur-mesure.",
       "url": "https://peakcl.com",
-      "image": "https://peakcl.com/assets/logo/PeakCL.svg",
-      "founder": {
-        "@type": "Person",
-        "name": "Charlotte Lacroix"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Albertville",
-        "addressRegion": "Auvergne-Rhône-Alpes",
-        "addressCountry": "FR"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "peakcl73@gmail.com",
-        "contactType": "Customer Service"
-      },
-      "serviceType": [
-        "Création de site web",
-        "Développement web sur-mesure",
-        "SEO",
-        "Identité visuelle",
-        "Accompagnement digital"
-      ],
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Savoie, Albertville, France"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/PeakCL/",
-        "https://www.malt.fr/profile/PeakCL",
-        "https://fr.fiverr.com/s/99W6WYa",
-        "https://comeup.com/fr/@PeakCL"
-      ]
+      "description": "Creation, refonte et amelioration de sites internet pour independants, freelances et petites entreprises en Savoie.",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PeakCL",
+        "url": "https://peakcl.com"
+      }
     }
     </script>
   {% include analytics.html %}

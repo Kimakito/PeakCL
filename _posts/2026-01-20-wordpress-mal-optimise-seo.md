@@ -67,7 +67,7 @@ Votre site s'affiche avec l'adresse `http://` au lieu de `https://`. Google affi
 2. Installez le plugin **Really Simple SSL**
 3. Forcez la redirection HTTP → HTTPS
 
-**💰 Coût** : 0€ (certificat SSL Let's Encrypt gratuit)
+**Complexite** : faible. Cette correction est souvent rapide a mettre en place avec un hebergeur correct.
 
 ---
 
@@ -87,7 +87,7 @@ Votre site WordPress met **8, 10, voire 15 secondes** à s'afficher. Les visiteu
 
 1. **Images non optimisées** (photos de 5 Mo non compressées)
 2. **Trop de plugins** (20, 30, voire 50 plugins installés)
-3. **Hébergement de mauvaise qualité** (offre à 2€/mois)
+3. **Hebergement de mauvaise qualite** (serveur lent ou mal configure)
 4. **Thème lourd** (template avec 100 fonctionnalités inutiles)
 5. **Pas de cache** (chaque page recalculée à chaque visite)
 
@@ -102,13 +102,13 @@ Testez votre site sur : <https://pagespeed.web.dev/>
 ### Solution
 
 1. **Compressez vos images** : plugin **ShortPixel** ou **Imagify**
-2. **Installez un plugin de cache** : **WP Rocket** (payant, 59$/an) ou **W3 Total Cache** (gratuit)
-3. **Changez d'hébergement** : passez à **o2switch** ou **Hostinger** (5-10€/mois)
+2. **Installez un plugin de cache** : **WP Rocket** ou **W3 Total Cache**
+3. **Changez d'hebergement** : passez a une solution plus stable et plus rapide
 4. **Supprimez les plugins inutiles** : gardez < 15 plugins
 5. **Activez la compression GZIP**
 6. **Utilisez un CDN** : Cloudflare (gratuit)
 
-**💰 Coût** : 0€ (solutions gratuites) à 150€/an (WP Rocket + hébergement)
+**Complexite** : variable selon l'etat du site, mais cette correction a un impact direct sur l'experience utilisateur et le SEO.
 
 ---
 
@@ -147,7 +147,7 @@ Sans plugin SEO correctement configuré :
 
 **💡 Astuce** : Ne visez pas le **"100% vert"** sur Yoast/Rank Math. Visez **70-80%**. Le vert parfait peut rendre vos textes artificiels.
 
-**💰 Coût** : 0€ (version gratuite largement suffisante)
+**Complexite** : faible si vous partez d'une configuration propre.
 
 ---
 
@@ -182,7 +182,7 @@ Google ne sait pas **quelle version indexer** et **pénalise votre site**.
 3. **Utilisez des redirections 301** pour les anciennes URL
 4. **Désindexez les pages inutiles** : archives, tags, pages d'auteur
 
-**💰 Coût** : 0€ (configuration dans le plugin SEO)
+**Complexite** : faible a moderee selon l'historique du site.
 
 ---
 
@@ -221,7 +221,7 @@ Votre site est **magnifique sur ordinateur**, mais **illisible sur smartphone** 
 
 2. **Testez votre site** sur tous les appareils (smartphone, tablette, desktop)
 
-**💰 Coût** : 0€ (thèmes gratuits) à 60€ (version PRO)
+**Complexite** : moderee si le theme doit etre change ou fortement ajuste.
 
 ---
 
@@ -256,7 +256,7 @@ Vous uploadez vos photos **directement depuis votre appareil photo** sans les co
 2. Activez la **compression automatique**
 3. Convertissez toutes vos anciennes images
 
-**💰 Coût** : 0€ (versions gratuites) à 10€/mois (version PRO)
+**Complexite** : faible a moderee selon votre bibliotheque d'images et votre configuration.
 
 ---
 
@@ -294,14 +294,14 @@ Vos pages contiennent **50 mots** et **2 images**. Google n'a **rien à indexer*
 > Vous êtes entrepreneur à Albertville, Chambéry ou Aix-les-Bains et vous cherchez à créer votre site internet ? PeakCL, agence web basée en Savoie, vous accompagne de A à Z dans votre projet digital.
 >
 > **Nos services** :
-> - Création de site vitrine professionnel (dès 1500€)
+> - Creation de site vitrine professionnel
 > - Développement de boutique en ligne (e-commerce)
 > - Optimisation SEO pour Google
 > - Maintenance et support technique
 >
 > Avec plus de X sites créés en Savoie, nous connaissons les spécificités de votre marché local..."
 
-**💰 Coût** : 0€ (votre temps) ou 100-300€ (rédacteur web)
+**Complexite** : moderee. Le plus important est d'avoir un message utile, clair et bien structure.
 
 ---
 
@@ -342,7 +342,7 @@ Google **n'aime pas** les URL complexes.
 - **Tirets** : séparez avec des tirets `-` (pas d'underscore `_`)
 - **Pas de date** : évitez `/2025/01/`
 
-**💰 Coût** : 0€ (juste une configuration)
+**Complexite** : faible si la structure du site est saine.
 
 ---
 
@@ -371,7 +371,7 @@ Vous n'avez **aucun sitemap XML**, ou il est **mal configuré**. Google ne sait 
 3. Allez dans **Google Search Console**
 4. Sitemaps → Ajouter `votresite.com/sitemap.xml`
 
-**💰 Coût** : 0€ (inclus dans les plugins SEO)
+**Complexite** : faible.
 
 ---
 
@@ -417,7 +417,7 @@ Vous avez installé **40 plugins** :
 3. **Supprimez** les plugins désactivés
 4. Cherchez des **alternatives tout-en-un** (1 plugin = plusieurs fonctions)
 
-**💰 Coût** : 0€ (gagnez même de l'argent en résiliant des plugins payants inutiles)
+**Complexite** : faible a moderee selon le nombre de plugins a auditer.
 
 ---
 
@@ -430,7 +430,7 @@ Vérifiez les 10 points essentiels :
 - [ ] Vitesse < 3 secondes (test PageSpeed)
 - [ ] Site responsive (test mobile-friendly)
 - [ ] < 15 plugins installés
-- [ ] Hébergement de qualité (> 5€/mois)
+- [ ] Hebergement de qualite et suffisamment stable
 
 **SEO** :
 - [ ] Plugin SEO installé et configuré (Rank Math/Yoast)
@@ -456,7 +456,7 @@ Vérifiez les 10 points essentiels :
 ### Option 1 : Optimisation DIY (Faites-le vous-même)
 
 **Avantages** :
-- Gratuit (juste votre temps)
+- Vous gardez la main sur les corrections
 - Vous apprenez
 
 **Inconvénients** :
@@ -464,7 +464,7 @@ Vérifiez les 10 points essentiels :
 - Risque de **casser le site** si erreur technique
 - Résultats **non garantis**
 
-**👉 Pour qui ?** : Vous êtes à l'aise avec WordPress, vous avez du temps, budget serré.
+**👉 Pour qui ?** : Vous etes a l'aise avec WordPress, vous avez du temps et vous voulez avancer pas a pas.
 
 ### Option 2 : Audit SEO professionnel
 
@@ -473,7 +473,7 @@ Vérifiez les 10 points essentiels :
 - Liste d'actions concrètes
 - Évite les erreurs coûteuses
 
-**Tarif** : **300€ - 800€** selon la taille du site
+**Niveau d'accompagnement** : pertinent si vous voulez un diagnostic clair avant de toucher au site.
 
 **👉 Pour qui ?** : Vous voulez savoir exactement ce qui ne va pas avant d'agir.
 
@@ -484,7 +484,7 @@ Vérifiez les 10 points essentiels :
 - Résultats **garantis**
 - Gain de temps **énorme**
 
-**Tarif** : **800€ - 2000€** selon l'ampleur des problèmes
+**Niveau d'accompagnement** : pertinent si vous voulez deleguer la remise a niveau technique et SEO.
 
 **👉 Pour qui ?** : Vous voulez des résultats rapides, vous n'avez pas le temps, vous avez besoin de clients.
 
@@ -492,7 +492,7 @@ Vérifiez les 10 points essentiels :
 
 Si votre site WordPress est **vraiment catastrophique**, parfois il vaut mieux **repartir de zéro**.
 
-**Tarif** : **1500€ - 5000€** (site vitrine neuf, optimisé SEO dès le départ)
+**Niveau d'accompagnement** : pertinent si le site est trop ancien, trop casse ou trop confus pour etre simplement corrige.
 
 **👉 Pour qui ?** : Site très ancien (> 5 ans), thème obsolète, architecture cassée.
 
@@ -509,7 +509,7 @@ Si votre site génère **0 contact en 6 mois**, c'est qu'il y a un **problème S
 ### Les 3 actions prioritaires (à faire MAINTENANT)
 
 1. **Testez la vitesse** : <https://pagespeed.web.dev/>
-2. **Installez un plugin SEO** : Rank Math (gratuit)
+2. **Installez un plugin SEO** : Rank Math
 3. **Vérifiez Google Search Console** : voyez les erreurs remontées par Google
 
 Ces 3 actions prennent **15 minutes** et vous diront si votre site a besoin d'une optimisation urgente.
@@ -522,18 +522,18 @@ Vous avez un site WordPress invisible sur Google et vous ne savez pas par où co
 
 ### Mes services d'optimisation WordPress
 
-✅ **Audit SEO complet** (300€ - 500€)
+✅ **Audit SEO complet**
 - Analyse des 10 erreurs SEO
 - Rapport détaillé avec actions prioritaires
 - Recommandations personnalisées
 
-✅ **Optimisation SEO WordPress** (800€ - 1500€)
+✅ **Optimisation SEO WordPress**
 - Correction de toutes les erreurs SEO
 - Optimisation de la vitesse
 - Configuration complète (HTTPS, sitemap, meta tags)
 - Formation incluse
 
-✅ **Refonte site WordPress** (dès 1500€)
+✅ **Refonte site WordPress**
 - Nouveau site WordPress moderne
 - SEO optimisé dès le départ
 - Design responsive
@@ -541,9 +541,9 @@ Vous avez un site WordPress invisible sur Google et vous ne savez pas par où co
 
 <div class="bg-peak-yellow/10 p-8 rounded-lg my-12 border border-peak-yellow/30 text-center">
   <h2 class="text-3xl font-bold text-peak-yellow mb-4">Votre site WordPress est invisible sur Google ?</h2>
-  <p class="text-xl mb-6">Audit SEO gratuit (30 min) + Devis personnalisé sous 24h</p>
+  <p class="text-xl mb-6">Diagnostic SEO pour comprendre ce qui bloque vraiment et prioriser les bonnes corrections.</p>
   <a href="/contact.html" class="inline-block bg-peak-yellow text-peak-blue-dark font-extrabold px-10 py-5 rounded-full hover:bg-yellow-300 transition-all shadow-2xl transform hover:scale-105 text-xl">
-    📩 Demander mon audit SEO
+    📩 Demander un diagnostic WordPress
   </a>
   <p class="mt-4 text-sm text-peak-gray">Développeur web à Albertville, Savoie • Expert WordPress & SEO</p>
 </div>
@@ -553,8 +553,8 @@ Vous avez un site WordPress invisible sur Google et vous ne savez pas par où co
 ## 📚 Articles complémentaires
 
 - [Référencement Google (SEO) : ce que je fais pour votre site](/conseils/2025/08/22/SEO.html)
-- [Création site web Albertville : prix, délais, erreurs](/web-strategy/2026/02/01/creation-site-web-albertville-prix-delais.html)
-- [Combien coûte un site web en 2026 ?](/combien-coute-site-web.html)
+- [Creation site web Albertville : comment bien lancer son projet](/web-strategy/2026/02/01/creation-site-web-albertville-prix-delais.html)
+- [Comment cadrer un projet de site web en 2026 ?](/combien-coute-site-web.html)
 - [Maintenance site web : pourquoi c'est indispensable](/maintenance-site-web.html)
 
 ---
