@@ -1,12 +1,91 @@
-<!-- Section Services Premium - Psychologie des couleurs + Animations -->
-<section id="services-rapides" class="relative py-20 px-6 bg-peak-blue-dark overflow-hidden" role="region" aria-label="Nos services premium">
-    <!-- Background animated gradient -->
-    <div class="absolute inset-0 opacity-20">
-        <div class="absolute top-20 right-10 w-72 h-72 bg-peak-yellow rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-        <div class="absolute bottom-20 left-10 w-72 h-72 bg-peak-purple rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+<!-- Section Services -->
+<section id="services-rapides" class="relative py-20 px-6 bg-peak-blue-dark overflow-hidden" role="region" aria-label="Ce que je peux créer avec vous">
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-20 right-10 w-72 h-72 bg-peak-yellow rounded-full mix-blend-multiply filter blur-3xl"></div>
+        <div class="absolute bottom-20 left-10 w-72 h-72 bg-peak-purple rounded-full mix-blend-multiply filter blur-3xl"></div>
     </div>
     
-    <div class="relative max-w-6xl mx-auto">
+    <div class="relative max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-title font-bold text-peak-yellow mb-4">
+                Ce que je peux créer avec vous
+            </h2>
+            <p class="text-base text-peak-gray max-w-2xl mx-auto">
+                Identité visuelle, site internet ou présence complète — on construit ensemble ce qui correspond vraiment à votre activité.
+            </p>
+        </div>
+
+        <!-- Services : 3 cartes simples -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+
+            <!-- Identité Visuelle -->
+            <div class="group relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105">
+                <div class="absolute inset-0 bg-white/5 backdrop-blur-md border border-peak-teal/20 group-hover:border-peak-teal/50 transition-colors"></div>
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-peak-teal to-teal-300"></div>
+                <div class="relative p-8 h-full flex flex-col">
+                    <div class="text-5xl mb-4 text-center">🎨</div>
+                    <h3 class="text-xl font-bold text-peak-teal mb-3 text-center font-title">Identité visuelle</h3>
+                    <p class="text-peak-gray/80 text-sm mb-6 flex-grow text-center">
+                        Logo sur-mesure, charte graphique, palette de couleurs et typographies. Une image qui vous ressemble.
+                    </p>
+                    <a href="/graphisme.html" class="block w-full text-center bg-gradient-to-r from-peak-teal to-teal-300 text-peak-blue-dark font-bold py-3 rounded-full text-sm transition-all hover:opacity-90">
+                        En savoir plus
+                    </a>
+                </div>
+            </div>
+
+            <!-- Site Vitrine -->
+            <div class="group relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105">
+                <div class="absolute inset-0 bg-white/5 backdrop-blur-md border border-peak-yellow/30 group-hover:border-peak-yellow/70 transition-colors"></div>
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-peak-yellow to-peak-yellow-dark"></div>
+                <div class="relative p-8 h-full flex flex-col">
+                    <div class="text-5xl mb-4 text-center">🌐</div>
+                    <h3 class="text-xl font-bold text-peak-yellow mb-3 text-center font-title">Site vitrine</h3>
+                    <p class="text-peak-gray/80 text-sm mb-6 flex-grow text-center">
+                        Un site clair et professionnel pour présenter votre activité et donner envie à vos visiteurs de vous contacter.
+                    </p>
+                    <a href="/creation-site-vitrine.html" class="block w-full text-center bg-gradient-to-r from-peak-yellow to-peak-yellow-dark text-peak-blue-dark font-bold py-3 rounded-full text-sm transition-all hover:opacity-90">
+                        En savoir plus
+                    </a>
+                </div>
+            </div>
+
+            <!-- Présence complète -->
+            <div class="group relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105">
+                <div class="absolute inset-0 bg-white/5 backdrop-blur-md border border-peak-rose/20 group-hover:border-peak-rose/50 transition-colors"></div>
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-peak-rose to-peak-rose-light"></div>
+                <div class="relative p-8 h-full flex flex-col">
+                    <div class="text-5xl mb-4 text-center">🚀</div>
+                    <h3 class="text-xl font-bold text-peak-rose mb-3 text-center font-title">Présence complète</h3>
+                    <p class="text-peak-gray/80 text-sm mb-6 flex-grow text-center">
+                        Identité visuelle + site internet + configuration de votre présence en ligne. Pour démarrer sereinement.
+                    </p>
+                    <a href="/offres.html" class="block w-full text-center bg-gradient-to-r from-peak-rose to-peak-rose-light text-white font-bold py-3 rounded-full text-sm transition-all hover:opacity-90">
+                        Voir cette offre
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vous avez déjà un site ? -->
+        <div class="bg-white/5 rounded-2xl border border-white/10 p-8 text-center mb-12">
+            <p class="text-white font-semibold mb-2">Vous avez déjà un site mais souhaitez l'améliorer ?</p>
+            <p class="text-white/60 text-sm mb-4">Audit, retouches, ajout de contenu ou refonte partielle — je peux aussi intervenir ponctuellement.</p>
+            <a href="/conseil-gratuit.html" class="inline-block text-peak-yellow underline text-sm font-semibold hover:text-peak-yellow-light transition-colors">
+                En discuter
+            </a>
+        </div>
+
+        <!-- CTA final discret -->
+        <div class="text-center">
+            <p class="text-peak-gray mb-4 text-sm">Pas encore sûr(e) de ce dont vous avez besoin ?</p>
+            <a href="/conseil-gratuit.html"
+               class="inline-block bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-6 py-3 rounded-full transition-all text-sm">
+                Commençons par un échange
+            </a>
+        </div>
+    </div>
+</section>
         <!-- Heading Premium avec animations -->
         <div class="text-center mb-16 animate-slide-in-up">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-title font-bold text-peak-yellow mb-4">
