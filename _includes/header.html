@@ -11,7 +11,7 @@
     <!-- Title & SEO -->
     <title>{% if page.title %}{{ page.title }}{% else %}PeakCL - Agence Web Albertville & Savoie{% endif %}</title>
     <meta name="author" content="Charlotte Lacroix">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="{% if page.sitemap == false %}noindex, nofollow{% else %}index, follow{% endif %}">
     <meta name="description"
       content="{% if page.description %}{{ page.description }}{% else %}Agence web a Albertville en Savoie : creation, refonte et amelioration de sites internet pour independants, freelances et petites entreprises qui veulent plus de credibilite et plus de contacts qualifies.{% endif %}">
     <meta name="keywords"
