@@ -1,18 +1,20 @@
 ---
 layout: minimal
-title: "Votre appel est confirmé — PeakCL"
-description: "Félicitations, votre appel stratégique est bien enregistré."
+title: "Ton appel est confirmé — PeakCL"
+description: "Ton appel est bien enregistré. Regarde cette vidéo avant notre échange."
 sitemap: false
 ---
 
 <!-- ==========================================
      PAGE POST-BOOKING — BIENVENUE STRATÉGIE
      URL : /bienvenue-strategie
-     Envoyer uniquement après le booking.
-     Structure : confirmation → VSL → PDF → rappel.
+     Page de confirmation post-booking.
+     Structure : hero → VSL → transition → ressource → projection → rassurance → rappel
+     ⚠️ NE PAS ajouter : témoignages, FAQ, services, menu, CTA secondaires.
 ========================================== -->
 
-<!-- SECTION 1 — Confirmation -->
+
+<!-- SECTION 1 — HERO -->
 <section class="bg-peak-blue-darker px-6 pt-16 pb-10 text-center">
   <div class="max-w-xl mx-auto">
 
@@ -20,15 +22,15 @@ sitemap: false
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
       </svg>
-      Votre appel est confirmé
+      Appel confirmé ✅
     </div>
 
-    <!-- REPLACE: titre et sous-titre -->
-    <h1 class="font-title text-3xl sm:text-4xl md:text-5xl font-bold text-peak-gray leading-snug mb-4">
-      Regardez cette vidéo<br><span class="text-peak-yellow">avant notre échange.</span>
+    <h1 class="font-title text-3xl sm:text-4xl md:text-5xl font-bold text-peak-gray leading-snug mb-6">
+      Regarde cette vidéo<br><span class="text-peak-yellow">avant notre échange.</span>
     </h1>
-    <p class="text-peak-gray/50 text-sm sm:text-base">
-      Important — elle vous permettra d'arriver préparé(e) et de tirer le maximum de nos 30 minutes.
+
+    <p class="text-peak-gray/60 text-sm sm:text-base leading-relaxed">
+      <strong class="text-peak-gray/90">C'est important.</strong> Elle va te permettre de comprendre exactement ce qui bloque aujourd'hui… et de tirer un maximum de valeur de notre appel.
     </p>
 
   </div>
@@ -38,41 +40,82 @@ sitemap: false
 <!-- SECTION 2 — VSL -->
 <section class="bg-peak-blue-darker px-6 pb-16">
   <div class="max-w-2xl mx-auto">
-    <!-- Vidéo 16:9 responsive -->
+
+    <p class="text-center text-peak-gray/40 text-xs uppercase tracking-widest font-semibold mb-6">À regarder avant notre appel</p>
+
+    <!-- Vidéo 16:9 responsive — remplace VIDEO_ID par ton ID YouTube ou Loom -->
     <div class="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl" style="padding-bottom:56.25%;">
-      <!-- REPLACE: remplacez "dQw4w9WgXcQ" par votre ID YouTube ou Loom -->
       <iframe
         class="absolute inset-0 w-full h-full"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
+        src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1"
         title="Vidéo à regarder avant l'appel"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
     </div>
+
   </div>
 </section>
 
 
-<!-- SECTION 3 — PDF / Ressource -->
+<!-- SECTION 3 — TRANSITION PSYCHOLOGIQUE -->
 <section class="bg-peak-blue-dark px-6 py-16">
+  <div class="max-w-xl mx-auto text-center">
+
+    <p class="text-peak-gray/80 text-base sm:text-lg leading-relaxed mb-5">
+      <strong class="text-peak-gray">La plupart des personnes que j'accompagne pensent que leur problème vient du design…</strong>
+    </p>
+
+    <p class="text-peak-gray/60 text-sm sm:text-base leading-relaxed mb-5">
+      Mais en réalité, le problème est presque toujours ailleurs :
+    </p>
+
+    <p class="text-peak-yellow font-bold text-lg sm:text-xl mb-6">
+      Leur site n'est pas pensé pour convertir.
+    </p>
+
+    <p class="text-peak-gray/50 text-sm leading-relaxed">
+      C'est exactement ce que je t'explique juste en dessous 👇
+    </p>
+
+  </div>
+</section>
+
+
+<!-- SECTION 4 — RESSOURCE -->
+<section class="bg-peak-blue-darker px-6 py-16">
   <div class="max-w-2xl mx-auto">
     <div class="bg-white/5 border border-peak-yellow/20 rounded-2xl p-8 sm:p-10">
 
-      <p class="text-peak-yellow/60 text-xs font-semibold uppercase tracking-widest mb-5">Guide exclusif</p>
+      <p class="text-peak-yellow/60 text-xs font-semibold uppercase tracking-widest mb-5">Document préparé pour toi</p>
 
-      <!-- REPLACE: titre de la ressource -->
-      <h2 class="font-title text-xl sm:text-2xl font-bold text-peak-gray mb-3 leading-snug">
-        Le système que j'utilise pour transformer<br class="hidden sm:block"> un site en machine à clients.
+      <h2 class="font-title text-xl sm:text-2xl font-bold text-peak-gray mb-4 leading-snug">
+        Le système pour transformer ton site<br class="hidden sm:block"> en machine à clients
       </h2>
 
-      <p class="text-peak-gray/55 text-sm sm:text-base leading-relaxed mb-8">
-        Lisez ce guide avant notre appel — vous comprendrez exactement ce qui bloque votre site aujourd'hui et ce que l'on va corriger ensemble.
+      <p class="text-peak-gray/55 text-sm sm:text-base leading-relaxed mb-6">
+        Je t'ai préparé un document simple pour t'aider à comprendre :
       </p>
 
-      <!-- Lien PDF -->
-      <a href="/assets/peakcl_ressource_conversion.pdf" target="_blank" rel="noopener noreferrer" download="PeakCL-Ressource-Conversion.pdf"
+      <ul class="space-y-3 mb-8 text-sm sm:text-base text-peak-gray/70">
+        <li class="flex items-start gap-3">
+          <span class="text-peak-yellow mt-0.5">→</span>
+          Pourquoi ton site ne te ramène pas de clients
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-peak-yellow mt-0.5">→</span>
+          Les erreurs les plus fréquentes (et invisibles)
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-peak-yellow mt-0.5">→</span>
+          Le système que j'utilise pour créer des sites qui convertissent
+        </li>
+      </ul>
+
+      <!-- REPLACE: mets le bon chemin vers ton PDF -->
+      <a href="/assets/peakcl_ressource_conversion.pdf" target="_blank" rel="noopener noreferrer"
         class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold px-7 py-3.5 rounded-full hover:bg-peak-yellow-light transition-all duration-200 shadow-lg hover:scale-105 transform text-sm sm:text-base">
-        Télécharger le guide
+        👉 Accéder au document
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
         </svg>
@@ -83,18 +126,87 @@ sitemap: false
 </section>
 
 
-<!-- SECTION 4 — Rappel appel -->
-<section class="bg-peak-blue-darker px-6 py-16">
-  <div class="max-w-2xl mx-auto text-center">
+<!-- SECTION 5 — PROJECTION -->
+<section class="bg-peak-blue-dark px-6 py-16">
+  <div class="max-w-xl mx-auto">
 
-    <p class="text-2xl mb-4" aria-hidden="true">📅</p>
-    <!-- REPLACE: texte du rappel -->
-    <h2 class="font-title text-lg sm:text-xl font-bold text-peak-gray mb-3">
-      Pensez à être présent(e) à l'heure prévue.
+    <p class="text-peak-gray font-bold text-base sm:text-lg mb-6 text-center">
+      Imagine que ton site :
+    </p>
+
+    <ul class="space-y-4 mb-8 text-sm sm:text-base text-peak-gray/75">
+      <li class="flex items-start gap-3">
+        <span class="text-green-400 font-bold mt-0.5">✓</span>
+        Explique clairement ce que tu fais dès les premières secondes
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="text-green-400 font-bold mt-0.5">✓</span>
+        Donne envie de te contacter
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="text-green-400 font-bold mt-0.5">✓</span>
+        Travaille pour toi 24h/24
+      </li>
+    </ul>
+
+    <p class="text-center text-peak-gray/60 text-sm sm:text-base leading-relaxed">
+      C'est exactement ce qu'on va chercher à mettre en place.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- SECTION 6 — RASSURANCE + INTENTION -->
+<section class="bg-peak-blue-darker px-6 py-16">
+  <div class="max-w-xl mx-auto">
+
+    <h2 class="font-title text-xl sm:text-2xl font-bold text-peak-gray mb-6 text-center">
+      À propos de notre appel
     </h2>
-    <p class="text-peak-gray/45 text-sm leading-relaxed">
-      On va analyser votre situation ensemble et voir exactement ce qui bloque aujourd'hui.<br>
-      Le lien de connexion vous a été envoyé par e-mail.
+
+    <p class="text-peak-gray/60 text-sm sm:text-base leading-relaxed mb-6 text-center">
+      Le but de cet échange n'est pas de te vendre quelque chose à tout prix.
+    </p>
+
+    <p class="text-peak-gray/55 text-sm sm:text-base mb-4">On va surtout :</p>
+
+    <ul class="space-y-3 mb-8 text-sm sm:text-base text-peak-gray/70">
+      <li class="flex items-start gap-3">
+        <span class="text-peak-yellow mt-0.5">→</span>
+        Comprendre ta situation actuelle
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="text-peak-yellow mt-0.5">→</span>
+        Identifier ce qui bloque aujourd'hui
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="text-peak-yellow mt-0.5">→</span>
+        Voir ce qui peut être amélioré concrètement
+      </li>
+    </ul>
+
+    <p class="text-center text-peak-gray font-bold text-sm sm:text-base">
+      Et repartir avec une direction claire.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- SECTION 7 — RAPPEL FINAL -->
+<section class="bg-peak-blue-dark px-6 py-16">
+  <div class="max-w-xl mx-auto text-center">
+
+    <p class="text-3xl mb-5" aria-hidden="true">📅</p>
+
+    <h2 class="font-title text-lg sm:text-xl font-bold text-peak-gray mb-4">
+      Pense à être présent(e) à l'heure
+    </h2>
+
+    <p class="text-peak-gray/50 text-sm leading-relaxed">
+      Les appels sont limités, donc assure-toi d'être disponible au moment prévu.<br><br>
+      On voit ça ensemble très bientôt.
     </p>
 
   </div>
