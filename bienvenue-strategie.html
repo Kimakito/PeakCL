@@ -5,13 +5,6 @@ description: "Ton appel est bien enregistré. Regarde cette vidéo avant notre �
 sitemap: false
 ---
 
-<!-- ==========================================
-     PAGE POST-BOOKING — BIENVENUE STRATÉGIE
-     URL : /bienvenue-strategie
-     Page de confirmation post-booking.
-     Structure : hero → VSL → transition → ressource → projection → rassurance → rappel
-     ⚠️ NE PAS ajouter : témoignages, FAQ, services, menu, CTA secondaires.
-========================================== -->
 
 
 <!-- SECTION 1 — HERO -->
@@ -30,11 +23,29 @@ sitemap: false
       <span class="text-peak-yellow">Réalise les 4 étapes ci-dessous</span>
     </h1>
 
-    <p class="text-white/85 text-sm sm:text-base leading-relaxed">
-      <strong class="text-white">Prends 3 minutes pour la regarder.</strong> Si tu ne complètes pas ces étapes, je serai obligé d'annuler notre appel.
-
-
+    <p class="text-white/85 text-sm sm:text-base leading-relaxed mb-10">
+      <strong class="text-white">Prends quelques minutes pour les compléter.</strong> Si tu ne réalises pas ces étapes, je serai obligé d'annuler notre appel.
     </p>
+
+    <!-- Récapitulatif des 4 étapes -->
+    <ol class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
+      <li class="bg-white/5 border border-white/10 rounded-xl p-3">
+        <span class="block text-peak-yellow font-bold text-lg leading-none mb-1">01</span>
+        <span class="text-white text-xs font-semibold leading-snug">Regarde la vidéo</span>
+      </li>
+      <li class="bg-white/5 border border-white/10 rounded-xl p-3">
+        <span class="block text-peak-yellow font-bold text-lg leading-none mb-1">02</span>
+        <span class="text-white text-xs font-semibold leading-snug">Ajoute à ton agenda</span>
+      </li>
+      <li class="bg-white/5 border border-white/10 rounded-xl p-3">
+        <span class="block text-peak-yellow font-bold text-lg leading-none mb-1">03</span>
+        <span class="text-white text-xs font-semibold leading-snug">Récupère la ressource</span>
+      </li>
+      <li class="bg-white/5 border border-white/10 rounded-xl p-3">
+        <span class="block text-peak-yellow font-bold text-lg leading-none mb-1">04</span>
+        <span class="text-white text-xs font-semibold leading-snug">Sois présent(e) à l'heure</span>
+      </li>
+    </ol>
 
   </div>
 </section>
@@ -44,7 +55,13 @@ sitemap: false
 <section class="bg-peak-blue-darker px-6 pb-16">
   <div class="max-w-2xl mx-auto">
 
-    <p class="text-center text-white/60 text-xs uppercase tracking-widest font-semibold mb-6">À regarder avant notre appel</p>
+    <div class="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
+      <span class="flex-shrink-0 w-12 h-12 rounded-full bg-peak-yellow text-peak-blue-dark font-bold text-lg flex items-center justify-center shadow-lg">1</span>
+      <div>
+        <p class="text-peak-yellow text-xs font-semibold uppercase tracking-widest mb-0.5">Étape 1 sur 4</p>
+        <h2 class="font-title text-base sm:text-lg font-bold text-white">Regarde la vidéo avant l'appel</h2>
+      </div>
+    </div>
 
     <!-- Vidéo 16:9 responsive — remplace VIDEO_ID par ton ID YouTube ou Loom -->
     <div class="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl" style="padding-bottom:56.25%;">
@@ -60,42 +77,55 @@ sitemap: false
   </div>
 </section>
 
-<!-- Etape 2: Ajoute le rendez vous à ton agenda
-Clique sur "Je connais cet expéditeur" puis sur "Oui" pour l'ajouter à ton agenda -->
-
-
-<!-- SECTION 3 — BLOC DE TENSION -->
-<!-- <section class="bg-peak-blue-dark px-6 py-16">
+<!-- SECTION — ÉTAPE 2 : AGENDA -->
+<section class="bg-peak-blue-dark px-6 py-12">
   <div class="max-w-2xl mx-auto">
 
-    <p class="text-white/90 text-base sm:text-lg font-semibold leading-relaxed mb-8 text-center">
-      Aujourd'hui, la majorité des sites internet ne servent à rien.
-    </p>
-
-    <div class="space-y-4 mb-8 text-white/80 text-sm sm:text-base leading-relaxed">
-      <p>Ils sont en ligne.<br>Ils sont "propres".</p>
-      <p>Mais ils ne génèrent <strong class="text-white">aucun client</strong>.</p>
-      <p>Et pendant ce temps, d'autres sites — parfois beaucoup plus simples — tournent tous les jours et génèrent des demandes.</p>
+    <div class="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
+      <span class="flex-shrink-0 w-12 h-12 rounded-full bg-peak-yellow text-peak-blue-dark font-bold text-lg flex items-center justify-center shadow-lg">2</span>
+      <div>
+        <p class="text-peak-yellow text-xs font-semibold uppercase tracking-widest mb-0.5">Étape 2 sur 4</p>
+        <h2 class="font-title text-base sm:text-lg font-bold text-white">Ajoute le rendez-vous à ton agenda</h2>
+      </div>
     </div>
 
-    <div class="border-l-2 border-peak-yellow pl-5 mb-8">
-      <p class="text-white/85 text-sm sm:text-base italic mb-3">La différence ?</p>
-      <p class="text-white/75 text-sm mb-1">Ce n'est pas le design.</p>
-      <p class="text-peak-yellow font-bold text-base sm:text-lg">C'est la structure.</p>
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8">
+      <p class="text-white/80 text-sm sm:text-base leading-relaxed mb-5">
+        Tu as reçu un e-mail de confirmation de Calendly. Ajoute-le à ton agenda maintenant pour ne pas l'oublier.
+      </p>
+      <ol class="space-y-3 text-sm sm:text-base text-white/90">
+        <li class="flex items-start gap-3">
+          <span class="text-peak-yellow font-bold mt-0.5">1.</span>
+          Ouvre l'e-mail de confirmation
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-peak-yellow font-bold mt-0.5">2.</span>
+          Clique sur <strong class="text-white">« Je connais cet expéditeur »</strong>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-peak-yellow font-bold mt-0.5">3.</span>
+          Clique sur <strong class="text-white">« Oui »</strong> pour l'ajouter à ton agenda
+        </li>
+      </ol>
     </div>
-
-    <p class="text-white/65 text-sm text-center">
-      Juste en dessous, je t'ai préparé un document pour t'aider à voir ça concrètement 👇
-    </p>
 
   </div>
-</section> -->
+</section>
 
 
-<!-- SECTION 4 — RESSOURCE Récupère la ressource gratuite
-Récupère la ressource gratuite et visionne-la avant notre rendez-vous. -->
+
+<!-- SECTION 4 — RESSOURCE : ÉTAPE 3 -->
 <section class="bg-peak-blue-darker px-6 py-16">
   <div class="max-w-2xl mx-auto">
+
+    <div class="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
+      <span class="flex-shrink-0 w-12 h-12 rounded-full bg-peak-yellow text-peak-blue-dark font-bold text-lg flex items-center justify-center shadow-lg">3</span>
+      <div>
+        <p class="text-peak-yellow text-xs font-semibold uppercase tracking-widest mb-0.5">Étape 3 sur 4</p>
+        <h2 class="font-title text-base sm:text-lg font-bold text-white">Récupère la ressource et visionne-la</h2>
+      </div>
+    </div>
+
     <div class="bg-white/5 border border-peak-yellow/20 rounded-2xl p-8 sm:p-10">
 
       <p class="text-peak-yellow/80 text-xs font-semibold uppercase tracking-widest mb-5">Document préparé pour toi</p>
@@ -169,46 +199,17 @@ Récupère la ressource gratuite et visionne-la avant notre rendez-vous. -->
 </section>
 
 
-<!-- SECTION 6 — RASSURANCE + INTENTION -->
-<!-- <section class="bg-peak-blue-darker px-6 py-16">
-  <div class="max-w-2xl mx-auto">
-
-    <h2 class="font-title text-xl sm:text-2xl font-bold text-white mb-6 text-center">
-      À propos de notre appel
-    </h2>
-
-    <p class="text-white/85 text-sm sm:text-base leading-relaxed mb-6 text-center">
-      Le but de cet échange n'est pas de te vendre quelque chose à tout prix, mais de regarder ta situation avec recul et de voir ce qui mérite vraiment d'être amélioré.
-    </p>
-
-    <p class="text-white/80 text-sm sm:text-base mb-4">On va surtout :</p>
-
-    <ul class="space-y-3 mb-8 text-sm sm:text-base text-white/90">
-      <li class="flex items-start gap-3">
-        <span class="text-peak-yellow mt-0.5">→</span>
-        Comprendre ta situation actuelle
-      </li>
-      <li class="flex items-start gap-3">
-        <span class="text-peak-yellow mt-0.5">→</span>
-        Identifier ce qui bloque aujourd'hui
-      </li>
-      <li class="flex items-start gap-3">
-        <span class="text-peak-yellow mt-0.5">→</span>
-        Voir ce qui peut être amélioré concrètement
-      </li>
-    </ul>
-
-    <p class="text-center text-white font-bold text-sm sm:text-base">
-      Et repartir avec une direction claire.
-    </p>
-
-  </div>
-</section> -->
-
-
-<!-- SECTION 7 — RAPPEL FINAL -->
+<!-- SECTION 7 — RAPPEL FINAL : ÉTAPE 4 -->
 <section class="bg-peak-blue-dark px-6 py-16">
   <div class="max-w-2xl mx-auto text-center">
+
+    <div class="flex items-center justify-center gap-4 mb-8 pb-6 border-b border-white/10">
+      <span class="flex-shrink-0 w-12 h-12 rounded-full bg-peak-yellow text-peak-blue-dark font-bold text-lg flex items-center justify-center shadow-lg">4</span>
+      <div class="text-left">
+        <p class="text-peak-yellow text-xs font-semibold uppercase tracking-widest mb-0.5">Étape 4 sur 4</p>
+        <h2 class="font-title text-base sm:text-lg font-bold text-white">Sois présent(e) à l'heure</h2>
+      </div>
+    </div>
 
     <p class="text-3xl mb-5" aria-hidden="true">📅</p>
 
