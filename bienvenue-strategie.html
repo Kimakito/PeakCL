@@ -9,33 +9,38 @@ sitemap: false
      PAGE POST-BOOKING — BIENVENUE STRATÉGIE
      URL : /bienvenue-strategie
      Envoyer uniquement après le booking.
-     Deux éléments : vidéo → ressource → appel.
+     Structure : confirmation → VSL → PDF → rappel.
 ========================================== -->
 
-<!-- HERO — confirmation en une ligne -->
+<!-- SECTION 1 — Confirmation -->
 <section class="bg-peak-blue-darker px-6 pt-16 pb-10 text-center">
   <div class="max-w-xl mx-auto">
-    <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+
+    <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-8">
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
       </svg>
-      <!-- REPLACE: texte du badge -->
-      Appel confirmé
+      Votre appel est confirmé
     </div>
-    <!-- REPLACE: titre -->
-    <h1 class="font-title text-3xl sm:text-4xl font-bold text-peak-gray leading-snug">
-      Regardez cette vidéo<br><span class="text-peak-yellow">avant notre appel.</span>
+
+    <!-- REPLACE: titre et sous-titre -->
+    <h1 class="font-title text-3xl sm:text-4xl md:text-5xl font-bold text-peak-gray leading-snug mb-4">
+      Regardez cette vidéo<br><span class="text-peak-yellow">avant notre échange.</span>
     </h1>
+    <p class="text-peak-gray/50 text-sm sm:text-base">
+      Important — elle vous permettra d'arriver préparé(e) et de tirer le maximum de nos 30 minutes.
+    </p>
+
   </div>
 </section>
 
 
-<!-- VIDÉO — élément 1 -->
+<!-- SECTION 2 — VSL -->
 <section class="bg-peak-blue-darker px-6 pb-16">
   <div class="max-w-2xl mx-auto">
     <!-- Vidéo 16:9 responsive -->
     <div class="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl" style="padding-bottom:56.25%;">
-      <!-- REPLACE: remplacez "dQw4w9WgXcQ" par votre ID YouTube -->
+      <!-- REPLACE: remplacez "dQw4w9WgXcQ" par votre ID YouTube ou Loom -->
       <iframe
         class="absolute inset-0 w-full h-full"
         src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
@@ -48,36 +53,49 @@ sitemap: false
 </section>
 
 
-<!-- RESSOURCE — élément 2 -->
+<!-- SECTION 3 — PDF / Ressource -->
 <section class="bg-peak-blue-dark px-6 py-16">
   <div class="max-w-2xl mx-auto">
     <div class="bg-white/5 border border-peak-yellow/20 rounded-2xl p-8 sm:p-10">
 
-      <p class="text-peak-yellow/60 text-xs font-semibold uppercase tracking-widest mb-4">Ressource exclusive</p>
+      <p class="text-peak-yellow/60 text-xs font-semibold uppercase tracking-widest mb-5">Guide exclusif</p>
 
       <!-- REPLACE: titre de la ressource -->
-      <h2 class="font-title text-xl sm:text-2xl font-bold text-peak-gray mb-3">
-        Téléchargez le guide avant notre appel.
+      <h2 class="font-title text-xl sm:text-2xl font-bold text-peak-gray mb-3 leading-snug">
+        Le système que j'utilise pour transformer<br class="hidden sm:block"> un site en machine à clients.
       </h2>
 
-      <!-- REPLACE: description (2 lignes max) -->
-      <p class="text-peak-gray/60 text-sm sm:text-base leading-relaxed mb-8">
-        Pour arriver avec les bonnes questions et tirer le maximum de nos 30 minutes ensemble.
+      <p class="text-peak-gray/55 text-sm sm:text-base leading-relaxed mb-8">
+        Lisez ce guide avant notre appel — vous comprendrez exactement ce qui bloque votre site aujourd'hui et ce que l'on va corriger ensemble.
       </p>
 
+      <!-- Lien PDF -->
       <a href="/assets/peakcl_ressource_conversion.pdf" target="_blank" rel="noopener noreferrer" download="PeakCL-Ressource-Conversion.pdf"
         class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold px-7 py-3.5 rounded-full hover:bg-peak-yellow-light transition-all duration-200 shadow-lg hover:scale-105 transform text-sm sm:text-base">
-        Accéder à la ressource
+        Télécharger le guide
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
         </svg>
       </a>
 
-      <!-- REPLACE: rappel discret sous le bouton -->
-      <p class="mt-6 text-peak-gray/35 text-xs">
-        Un lien de connexion vous a été envoyé par e-mail. Rejoignez l'appel à l'heure prévue.
-      </p>
-
     </div>
+  </div>
+</section>
+
+
+<!-- SECTION 4 — Rappel appel -->
+<section class="bg-peak-blue-darker px-6 py-16">
+  <div class="max-w-2xl mx-auto text-center">
+
+    <p class="text-2xl mb-4" aria-hidden="true">📅</p>
+    <!-- REPLACE: texte du rappel -->
+    <h2 class="font-title text-lg sm:text-xl font-bold text-peak-gray mb-3">
+      Pensez à être présent(e) à l'heure prévue.
+    </h2>
+    <p class="text-peak-gray/45 text-sm leading-relaxed">
+      On va analyser votre situation ensemble et voir exactement ce qui bloque aujourd'hui.<br>
+      Le lien de connexion vous a été envoyé par e-mail.
+    </p>
+
   </div>
 </section>
