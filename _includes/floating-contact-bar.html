@@ -23,6 +23,13 @@
         
         <!-- Actions (mobile + desktop) -->
         <div class="flex items-center gap-3">
+            <!-- Appeler -->
+            <a href="tel:+33743517627"
+               class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold px-4 py-2 rounded-full hover:brightness-105 hover:scale-105 transition-all duration-300 text-xs sm:text-sm"
+               aria-label="Appeler PeakCL">
+                <span class="hidden sm:inline">📞</span> Appeler
+            </a>
+
             <!-- WhatsApp - Vert chaud -->
             <a href="https://wa.me/33743517627?text=Bonjour%20PeakCL%2C%20j'aimerais%20discuter%20de%20mon%20projet%20web" 
                target="_blank" rel="noopener noreferrer"
@@ -63,10 +70,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Afficher la barre si non fermée
+    // Afficher la barre après 60s si non fermée, ou immédiatement sur exit intent
     if (!localStorage.getItem('peakcl-floating-bar-closed') && floatingBar) {
-        floatingBar.classList.remove('hidden');
-        document.body.style.paddingTop = '72px'; // Compensate for sticky bar
+        function showBar() {
+            if (floatingBar.classList.contains('hidden')) {
+                floatingBar.classList.remove('hidden');
+                document.body.style.paddingTop = '72px';
+            }
+        }
+        // Délai 60 secondes
+        setTimeout(showBar, 60000);
+        // Exit intent (curseur qui quitte la page vers le haut)
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0) showBar();
+        }, { once: true });
     }
 });
 </script>
