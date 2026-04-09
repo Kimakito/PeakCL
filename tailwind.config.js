@@ -24,6 +24,10 @@ module.exports = {
         'peak-blue-dark': '#08101b',
         'peak-blue-darker': '#050b14',
 
+        // Couleurs page bienvenue (bleu marine profond)
+        'peak-navy': '#0c1d3e',
+        'peak-navy-alt': '#0a1830',
+
         'peak-violet': '#1e2d42',
         'peak-purple': '#2b3d58',
         'peak-purple-light': '#3f587b',
@@ -129,6 +133,7 @@ module.exports = {
     'bg-peak-teal', 'bg-peak-teal-light',
     'bg-peak-rose', 'bg-peak-rose-light',
     'bg-peak-blue-dark', 'bg-peak-blue-darker',
+    'bg-peak-navy', 'bg-peak-navy-alt',
     'text-peak-yellow', 'text-peak-purple', 'text-peak-teal', 'text-peak-rose',
     'border-peak-yellow', 'border-peak-purple', 'border-peak-teal',
     'shadow-peak-yellow', 'shadow-peak-purple',
