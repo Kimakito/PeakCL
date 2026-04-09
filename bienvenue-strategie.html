@@ -14,7 +14,7 @@ sitemap: false
 
     <!-- Salutation personnalisée — affichée par JS si param Calendly présent -->
     <p id="js-greeting" class="hidden text-white/70 text-base sm:text-lg mb-4">
-      Bonjour <strong id="js-prenom" class="text-white"></strong> 👋
+      Bonjour <strong id="js-prenom" class="text-white"></strong> <span role="img" aria-label="signe de la main">👋</span>
     </p>
 
     <h1 class="font-title text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-snug mb-4">
@@ -41,14 +41,14 @@ sitemap: false
 
 
 <!-- SECTION 2 — VSL Etape 1 : regarde la vidéo-->
-<section class="bg-peak-blue-darker px-6 pb-16">
+<section class="bg-peak-blue-darker px-6 pb-16" aria-labelledby="titre-etape-1">
   <div class="max-w-2xl mx-auto">
 
     <div class="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
-      <span class="flex-shrink-0 w-12 h-12 rounded-full bg-peak-yellow text-peak-blue-dark font-bold text-lg flex items-center justify-center shadow-lg">1</span>
+      <span class="flex-shrink-0 w-12 h-12 rounded-full bg-peak-yellow text-peak-blue-dark font-bold text-lg flex items-center justify-center shadow-lg" aria-hidden="true">1</span>
       <div>
         <p class="text-peak-yellow text-xs font-semibold uppercase tracking-widest mb-0.5">Étape 1 sur 3</p>
-        <h2 class="font-title text-base sm:text-lg font-bold text-white">Regarde la vidéo avant l'appel</h2>
+        <h2 id="titre-etape-1" class="font-title text-base sm:text-lg font-bold text-white">Regarde la vidéo avant l'appel</h2>
       </div>
     </div>
 
@@ -67,14 +67,14 @@ sitemap: false
 </section>
 
 <!-- SECTION — ÉTAPE 2 : AGENDA -->
-<section class="bg-peak-blue-dark px-6 py-12">
+<section class="bg-peak-blue-dark px-6 py-12" aria-labelledby="titre-etape-2">
   <div class="max-w-2xl mx-auto">
 
     <div class="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
-      <span class="flex-shrink-0 w-12 h-12 rounded-full bg-peak-yellow text-peak-blue-dark font-bold text-lg flex items-center justify-center shadow-lg">2</span>
+      <span class="flex-shrink-0 w-12 h-12 rounded-full bg-peak-yellow text-peak-blue-dark font-bold text-lg flex items-center justify-center shadow-lg" aria-hidden="true">2</span>
       <div>
         <p class="text-peak-yellow text-xs font-semibold uppercase tracking-widest mb-0.5">Étape 2 sur 3</p>
-        <h2 class="font-title text-base sm:text-lg font-bold text-white">Ajoute le rendez-vous à ton agenda</h2>
+        <h2 id="titre-etape-2" class="font-title text-base sm:text-lg font-bold text-white">Ajoute le rendez-vous à ton agenda</h2>
       </div>
     </div>
 
@@ -155,14 +155,14 @@ sitemap: false
 
 
 <!-- SECTION 4 — RESSOURCE : ÉTAPE 3 -->
-<section class="bg-peak-blue-darker px-6 py-16">
+<section class="bg-peak-blue-darker px-6 py-16" aria-labelledby="titre-etape-3">
   <div class="max-w-2xl mx-auto">
 
     <div class="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
-      <span class="flex-shrink-0 w-12 h-12 rounded-full bg-peak-yellow text-peak-blue-dark font-bold text-lg flex items-center justify-center shadow-lg">3</span>
+      <span class="flex-shrink-0 w-12 h-12 rounded-full bg-peak-yellow text-peak-blue-dark font-bold text-lg flex items-center justify-center shadow-lg" aria-hidden="true">3</span>
       <div>
         <p class="text-peak-yellow text-xs font-semibold uppercase tracking-widest mb-0.5">Étape 3 sur 3</p>
-        <h2 class="font-title text-base sm:text-lg font-bold text-white">Télécharge tes 3 guides offerts</h2>
+        <h2 id="titre-etape-3" class="font-title text-base sm:text-lg font-bold text-white">Télécharge tes 3 guides offerts</h2>
       </div>
     </div>
 
@@ -178,6 +178,7 @@ sitemap: false
           <p class="text-white/55 text-xs sm:text-sm leading-relaxed">Même si tu fais tout « comme il faut » — Ce guide t'explique pourquoi la visibilité seule ne suffit pas.</p>
         </div>
         <a href="/assets/ressources/peakcl_guide01_systeme.pdf" download
+          aria-label="Télécharger le guide 01 — Pourquoi tu n'as pas de clients"
           class="flex-shrink-0 inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold px-5 py-2.5 rounded-full hover:bg-peak-yellow-light transition-all duration-200 shadow text-sm whitespace-nowrap">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
@@ -196,6 +197,7 @@ sitemap: false
           <p class="text-white/55 text-xs sm:text-sm leading-relaxed">Et comment le transformer en outil de vente — Les 3 piliers qui font qu'un site travaille vraiment pour toi.</p>
         </div>
         <a href="/assets/ressources/peakcl_guide02_site.pdf" download
+          aria-label="Télécharger le guide 02 — Pourquoi ton site ne convertit pas"
           class="flex-shrink-0 inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold px-5 py-2.5 rounded-full hover:bg-peak-yellow-light transition-all duration-200 shadow text-sm whitespace-nowrap">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
@@ -214,6 +216,7 @@ sitemap: false
           <p class="text-white/55 text-xs sm:text-sm leading-relaxed">Et comment changer ça rapidement — Ce guide t'explique comment la confiance se construit en ligne.</p>
         </div>
         <a href="/assets/ressources/peakcl_guide03_confiance.pdf" download
+          aria-label="Télécharger le guide 03 — Pourquoi tes prospects ne te font pas confiance"
           class="flex-shrink-0 inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold px-5 py-2.5 rounded-full hover:bg-peak-yellow-light transition-all duration-200 shadow text-sm whitespace-nowrap">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
