@@ -3,9 +3,9 @@
         <!-- Barre d'urgence -->
         <div class="bg-gradient-to-r from-peak-yellow/80 to-yellow-400/80 text-peak-blue-dark rounded-t-2xl p-4 sm:p-6 text-center">
             <p class="font-bold text-lg sm:text-xl">
-                🚀 Vous voulez un site qui inspire confiance et pousse a la prise de contact ?
+                🚀 Dites-moi où vous en êtes.
             </p>
-            <p class="text-sm mt-2">Dites-moi ou vous en etes. Je vous reponds avec une recommandation claire sous 24h.</p>
+            <p class="text-sm mt-2">Je vous réponds avec une recommandation claire et adaptée à votre projet sous 24h ouvrées.</p>
         </div>
 
         <!-- Formulaire -->
@@ -51,6 +51,30 @@
                     </select>
                 </div>
 
+                <!-- Budget -->
+                <div>
+                    <label for="budget" class="block text-white font-semibold mb-2">Quel niveau d'investissement envisagez-vous ? *</label>
+                    <select id="budget" name="budget" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base">
+                        <option value="" disabled selected>Sélectionnez une fourchette</option>
+                        <option value="1500-2500" class="bg-peak-blue-dark">1 500€ à 2 500€</option>
+                        <option value="2500-4000" class="bg-peak-blue-dark">2 500€ à 4 000€</option>
+                        <option value="4000+" class="bg-peak-blue-dark">4 000€ et plus</option>
+                        <option value="a-discuter" class="bg-peak-blue-dark">J'ai besoin d'être conseillé(e)</option>
+                    </select>
+                </div>
+
+                <!-- Délai -->
+                <div>
+                    <label for="delai" class="block text-white font-semibold mb-2">Quand souhaitez-vous avancer ? *</label>
+                    <select id="delai" name="delai" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base">
+                        <option value="" disabled selected>Sélectionnez un délai</option>
+                        <option value="des-que-possible" class="bg-peak-blue-dark">Dès que possible</option>
+                        <option value="dans-le-mois" class="bg-peak-blue-dark">Dans le mois</option>
+                        <option value="1-3-mois" class="bg-peak-blue-dark">Dans 1 à 3 mois</option>
+                        <option value="flexible" class="bg-peak-blue-dark">Je suis flexible</option>
+                    </select>
+                </div>
+
                 <label for="message" class="sr-only">Décrivez votre projet</label>
                 <textarea id="message" name="message" rows="5" placeholder="Exemple : je suis coach / consultant, mon site actuel ne me ressemble plus, je veux mieux presenter mon offre et obtenir plus de prises de contact. *" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl resize-none text-base"></textarea>
 
@@ -59,7 +83,7 @@
                 </div>
 
                 <button type="submit" class="w-full bg-peak-yellow text-peak-blue-dark font-extrabold py-4 sm:py-5 px-6 rounded-full hover:bg-yellow-300 shadow-xl transform hover:scale-105 transition-all duration-300 min-h-[50px] text-lg sm:text-lg">
-                    📞 Recevoir une reponse personnalisee
+                    � Recevoir ma recommandation
                 </button>
                 
                 <p class="text-xs text-peak-gray/80 text-center">

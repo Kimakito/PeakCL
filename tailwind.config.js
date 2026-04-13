@@ -13,9 +13,9 @@ module.exports = {
     extend: {
       colors: {
         // Palette Luxe Minimal - sobre, haut de gamme, rassurante
-        'peak-yellow': '#c8a96b',
-        'peak-yellow-light': '#e3cc9a',
-        'peak-yellow-dark': '#a9854c',
+        'peak-yellow': '#d4a82e',
+        'peak-yellow-light': '#e8c96a',
+        'peak-yellow-dark': '#a98020',
 
         'peak-teal': '#8ea4c0',
         'peak-teal-light': '#b5c3d6',
@@ -28,10 +28,10 @@ module.exports = {
         'peak-navy': '#0c1d3e',
         'peak-navy-alt': '#0a1830',
 
-        'peak-violet': '#1e2d42',
-        'peak-purple': '#2b3d58',
-        'peak-purple-light': '#3f587b',
-        'peak-purple-dark': '#1a2739',
+        'peak-violet': '#2a1a40',
+        'peak-purple': '#3d2460',
+        'peak-purple-light': '#5a3480',
+        'peak-purple-dark': '#1c1030',
 
         'peak-rose': '#b98b7a',
         'peak-rose-light': '#d5b2a7',
