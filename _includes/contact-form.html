@@ -1,124 +1,234 @@
 <section id="contact" class="relative py-12 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-peak-violet to-peak-blue-dark overflow-hidden" role="region" aria-label="Contact et devis">
-    <div class="relative z-10 max-w-4xl mx-auto">
-        <!-- Barre d'urgence -->
-        <div class="bg-gradient-to-r from-peak-yellow/80 to-yellow-400/80 text-peak-blue-dark rounded-t-2xl p-4 sm:p-6 text-center">
-            <p class="font-bold text-lg sm:text-xl">
-                🚀 Dites-moi où vous en êtes.
-            </p>
-            <p class="text-sm mt-2">Je vous réponds avec une recommandation claire et adaptée à votre projet sous 24h ouvrées.</p>
-        </div>
+  <div class="relative z-10 max-w-2xl mx-auto">
 
-        <!-- Formulaire -->
-        <div class="bg-white/10 backdrop-blur-md rounded-b-2xl p-6 sm:p-12 border border-peak-violet/30">
-            <h2 class="text-2xl sm:text-3xl font-title font-extrabold mb-4 sm:mb-6 text-white text-center drop-shadow-md">
-                📞 Parlons de votre projet
-            </h2>
-            <p class="text-white text-center mb-8">
-                <strong>Expliquez-moi votre situation</strong> : je vous aide a clarifier le bon message, le bon format de site et la bonne prochaine etape pour attirer plus de clients.
-            </p>
-
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html" class="space-y-6 sm:space-y-8" aria-label="Formulaire de contact PeakCL">
-                <input type="hidden" name="form-name" value="contact">
-                <p class="hidden">
-                    <label>Ne pas remplir : <input name="bot-field"></label>
-                </p>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="nom" class="sr-only">Nom / Entreprise</label>
-                        <input type="text" id="nom" name="nom" placeholder="Nom / Entreprise *" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base" />
-                    </div>
-
-                    <div>
-                        <label for="telephone" class="sr-only">Téléphone pour vous rappeler</label>
-                        <input type="tel" id="telephone" name="telephone" placeholder="Téléphone (pour vous rappeler) *" required pattern="[0-9\s\-\+\(\)]{10,}" class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base" />
-                    </div>
-                </div>
-
-                <label for="email" class="sr-only">Email professionnel</label>
-                <input type="email" id="email" name="email" placeholder="Email professionnel *" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base" />
-
-                <!-- Sélection du besoin -->
-                <div>
-                    <label for="service-type" class="block text-white font-semibold mb-2">Quelle est votre situation aujourd'hui ? *</label>
-                    <select id="service-type" name="service" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base">
-                        <option value="" disabled selected>Selectionnez votre besoin principal</option>
-                        <option value="Je n'ai pas encore de site" class="bg-peak-blue-dark">🌐 Je n'ai pas encore de site</option>
-                        <option value="Mon site ne genere pas de demandes" class="bg-peak-blue-dark">📉 Mon site ne genere pas de demandes</option>
-                        <option value="Mon image manque de credibilite" class="bg-peak-blue-dark">🎨 Mon image manque de credibilite</option>
-                        <option value="J'ai besoin d'etre visible sur Google" class="bg-peak-blue-dark">🔎 J'ai besoin d'etre visible sur Google</option>
-                        <option value="J'hesite encore" class="bg-peak-blue-dark">❓ J'hesite encore sur la meilleure option</option>
-                    </select>
-                </div>
-
-                <!-- Budget -->
-                <div>
-                    <label for="budget" class="block text-white font-semibold mb-2">Quel niveau d'investissement envisagez-vous ? *</label>
-                    <select id="budget" name="budget" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base">
-                        <option value="" disabled selected>Sélectionnez une fourchette</option>
-                        <option value="1500-2500" class="bg-peak-blue-dark">1 500€ à 2 500€</option>
-                        <option value="2500-4000" class="bg-peak-blue-dark">2 500€ à 4 000€</option>
-                        <option value="4000+" class="bg-peak-blue-dark">4 000€ et plus</option>
-                        <option value="a-discuter" class="bg-peak-blue-dark">J'ai besoin d'être conseillé(e)</option>
-                    </select>
-                </div>
-
-                <!-- Délai -->
-                <div>
-                    <label for="delai" class="block text-white font-semibold mb-2">Quand souhaitez-vous avancer ? *</label>
-                    <select id="delai" name="delai" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl min-h-[48px] text-base">
-                        <option value="" disabled selected>Sélectionnez un délai</option>
-                        <option value="des-que-possible" class="bg-peak-blue-dark">Dès que possible</option>
-                        <option value="dans-le-mois" class="bg-peak-blue-dark">Dans le mois</option>
-                        <option value="1-3-mois" class="bg-peak-blue-dark">Dans 1 à 3 mois</option>
-                        <option value="flexible" class="bg-peak-blue-dark">Je suis flexible</option>
-                    </select>
-                </div>
-
-                <label for="message" class="sr-only">Décrivez votre projet</label>
-                <textarea id="message" name="message" rows="5" placeholder="Exemple : je suis coach / consultant, mon site actuel ne me ressemble plus, je veux mieux presenter mon offre et obtenir plus de prises de contact. *" required class="w-full p-4 sm:p-5 rounded-tr-2xl rounded-bl-2xl bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder:text-gray-300 focus:outline-none focus:border-peak-yellow focus:ring-peak-yellow focus:ring-2 transition-all duration-300 shadow-lg hover:shadow-xl resize-none text-base"></textarea>
-
-                <div class="text-peak-gray/80 text-sm text-center">
-                    En soumettant ce formulaire, vous acceptez d'etre recontacte(e) par PeakCL pour discuter de votre projet.
-                </div>
-
-                <button type="submit" class="w-full bg-peak-yellow text-peak-blue-dark font-extrabold py-4 sm:py-5 px-6 rounded-full hover:bg-yellow-300 shadow-xl transform hover:scale-105 transition-all duration-300 min-h-[50px] text-lg sm:text-lg">
-                    � Recevoir ma recommandation
-                </button>
-                
-                <p class="text-xs text-peak-gray/80 text-center">
-                    ✅ Reponse en moins de 24h • 🔒 Donnees securisees • 🤝 Echange simple et humain
-                </p>
-            </form>
-        </div>
-
-        <!-- Alternative CTA téléphone -->
-        <div class="bg-gradient-to-r from-peak-blue-dark to-peak-violet rounded-b-2xl p-6 text-center border-t border-peak-violet/30">
-            <p class="text-peak-gray mb-4">
-                <strong>Pas sur(e) de quoi demander exactement ?</strong> Commencez par un 
-                <a href="/conseil-gratuit.html" class="text-peak-yellow hover:text-peak-yellow-light font-bold underline">conseil gratuit (30 min)</a>
-            </p>
-            <p class="text-peak-gray mb-4">
-                Une question rapide ? Ecrivez-moi directement par WhatsApp, SMS ou mail :
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/33743517627?text=Bonjour%20PeakCL%2C%20j'aimerais%20discuter%20de%20mon%20projet%20web"
-                   target="_blank" rel="noopener noreferrer"
-                   class="inline-block bg-green-500 text-white font-extrabold px-8 py-4 rounded-full hover:bg-green-600 shadow-xl transform hover:scale-105 transition-all text-lg"
-                   aria-label="Contacter par WhatsApp">
-                    💬 WhatsApp
-                </a>
-                <a href="sms:0743517627?body=Bonjour%20PeakCL%2C%20j'aimerais%20discuter%20de%20mon%20projet%20web"
-                   class="inline-block bg-gradient-to-r from-peak-yellow to-yellow-400 text-peak-blue-dark font-extrabold px-8 py-4 rounded-full hover:from-yellow-300 hover:to-peak-yellow shadow-xl transform hover:scale-105 transition-all text-lg"
-                   aria-label="Envoyer un SMS">
-                    📱 SMS: 07 43 51 76 27
-                </a>
-                <a href="mailto:peakcl73@gmail.com?subject=Question%20sur%20mon%20projet%20web"
-                   class="inline-block bg-white text-peak-blue-dark font-extrabold px-8 py-4 rounded-full hover:bg-peak-gray-light shadow-xl transform hover:scale-105 transition-all text-lg"
-                   aria-label="Envoyer un email">
-                    📧 Mail
-                </a>
-            </div>
-        </div>
+    <!-- En-tête -->
+    <div class="text-center mb-8">
+      <span class="inline-block bg-[#c8a96b]/15 border border-[#c8a96b]/40 text-[#e3cc9a] font-bold text-sm px-5 py-2 rounded-full mb-5">
+        Réponse garantie sous 24h · Sans engagement
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-white mb-3">
+        Dites-moi où vous en êtes.
+      </h2>
+      <p class="text-white/70 text-base max-w-lg mx-auto leading-relaxed">
+        Pas besoin de savoir exactement ce que vous voulez. Je lis votre message, je réfléchis à votre situation et je vous réponds avec une recommandation claire.
+      </p>
     </div>
+
+    <!-- Toggle simple / qualifié -->
+    <div class="flex justify-center mb-8">
+      <div class="bg-white/10 rounded-full p-1 flex gap-1 border border-white/20" role="tablist" aria-label="Choisir le type de formulaire">
+        <button type="button" id="tab-simple" role="tab" aria-selected="true" aria-controls="form-simple"
+          onclick="switchForm('simple')"
+          class="form-tab active-tab px-5 py-2 rounded-full text-sm font-bold transition-all">
+          ⚡ En 30 secondes
+        </button>
+        <button type="button" id="tab-qualifie" role="tab" aria-selected="false" aria-controls="form-qualifie"
+          onclick="switchForm('qualifie')"
+          class="form-tab px-5 py-2 rounded-full text-sm font-bold transition-all text-white/60 hover:text-white">
+          📋 Détailler mon projet
+        </button>
+      </div>
+    </div>
+
+    <!-- ======================== -->
+    <!-- FORMULAIRE SIMPLE        -->
+    <!-- ======================== -->
+    <div id="form-simple" role="tabpanel" aria-labelledby="tab-simple" class="bg-white/10 backdrop-blur-md rounded-3xl p-7 sm:p-10 border border-white/15 shadow-2xl">
+
+      <p class="text-white/60 text-sm text-center mb-7">3 champs. 30 secondes. On s'occupe du reste ensemble.</p>
+
+      <form name="contact-simple" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html" class="space-y-5" aria-label="Formulaire de contact rapide PeakCL">
+        <input type="hidden" name="form-name" value="contact-simple">
+        <p class="hidden"><label>Ne pas remplir : <input name="bot-field"></label></p>
+
+        <!-- Prénom -->
+        <div>
+          <label for="s-prenom" class="block text-white/80 text-sm font-semibold mb-1.5">Votre prénom</label>
+          <input type="text" id="s-prenom" name="prenom" placeholder="Ex : Sophie" required autocomplete="given-name"
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="s-email" class="block text-white/80 text-sm font-semibold mb-1.5">Votre email</label>
+          <input type="email" id="s-email" name="email" placeholder="vous@exemple.com" required autocomplete="email"
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+        </div>
+
+        <!-- Situation -->
+        <div>
+          <label for="s-situation" class="block text-white/80 text-sm font-semibold mb-1.5">Votre situation en ce moment</label>
+          <select id="s-situation" name="situation" required
+            class="form-input w-full p-4 rounded-xl bg-[#101b2c] border border-white/25 text-white focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px] appearance-none cursor-pointer">
+            <option value="" disabled selected class="text-white/40">Choisissez ce qui vous correspond le mieux</option>
+            <option value="pas-de-site" class="bg-[#101b2c]">🌐 Je n'ai pas encore de site</option>
+            <option value="site-sans-contact" class="bg-[#101b2c]">📉 Mon site ne génère pas de demandes</option>
+            <option value="image-a-ameliorer" class="bg-[#101b2c]">🎨 Mon image ne me ressemble plus</option>
+            <option value="refonte" class="bg-[#101b2c]">🔄 Je veux refondre mon site</option>
+            <option value="je-ne-sais-pas" class="bg-[#101b2c]">❓ Je ne sais pas encore exactement</option>
+          </select>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-[#c8a96b] hover:bg-[#e3cc9a] text-[#070f19] font-extrabold py-4 px-6 rounded-full shadow-xl transform hover:scale-105 transition-all text-lg min-h-[54px] mt-2">
+          Je veux qu'on en parle →
+        </button>
+
+        <p class="text-center text-white/45 text-xs pt-1">
+          ✅ Réponse sous 24h &nbsp;·&nbsp; 🔒 Données sécurisées &nbsp;·&nbsp; 🤝 Sans engagement
+        </p>
+      </form>
+
+      <!-- Passer au formulaire qualifié -->
+      <p class="text-center text-white/45 text-xs mt-6">
+        Vous avez un projet précis à décrire ?
+        <button type="button" onclick="switchForm('qualifie')" class="text-[#e3cc9a] hover:underline font-semibold ml-1">Remplir le formulaire complet</button>
+      </p>
+    </div>
+
+    <!-- ======================== -->
+    <!-- FORMULAIRE QUALIFIÉ      -->
+    <!-- ======================== -->
+    <div id="form-qualifie" role="tabpanel" aria-labelledby="tab-qualifie" class="hidden bg-white/10 backdrop-blur-md rounded-3xl p-7 sm:p-10 border border-white/15 shadow-2xl">
+
+      <p class="text-white/60 text-sm text-center mb-7">Pour aller plus loin — je lis tout et je reviens avec une vraie réponse.</p>
+
+      <form name="contact-qualifie" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html" class="space-y-5" aria-label="Formulaire de contact détaillé PeakCL">
+        <input type="hidden" name="form-name" value="contact-qualifie">
+        <p class="hidden"><label>Ne pas remplir : <input name="bot-field"></label></p>
+
+        <!-- Prénom + Email sur la même ligne en desktop -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="q-prenom" class="block text-white/80 text-sm font-semibold mb-1.5">Votre prénom</label>
+            <input type="text" id="q-prenom" name="prenom" placeholder="Ex : Marie" required autocomplete="given-name"
+              class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+          </div>
+          <div>
+            <label for="q-email" class="block text-white/80 text-sm font-semibold mb-1.5">Votre email</label>
+            <input type="email" id="q-email" name="email" placeholder="vous@exemple.com" required autocomplete="email"
+              class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+          </div>
+        </div>
+
+        <!-- Téléphone (optionnel) -->
+        <div>
+          <label for="q-tel" class="block text-white/80 text-sm font-semibold mb-1.5">
+            Téléphone <span class="text-white/40 font-normal">(facultatif — si vous préférez qu'on s'appelle)</span>
+          </label>
+          <input type="tel" id="q-tel" name="telephone" placeholder="06 12 34 56 78" autocomplete="tel"
+            pattern="[0-9\s\-\+\(\)]{10,}"
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+        </div>
+
+        <!-- Situation -->
+        <div>
+          <label for="q-situation" class="block text-white/80 text-sm font-semibold mb-1.5">Votre situation en ce moment</label>
+          <select id="q-situation" name="situation" required
+            class="form-input w-full p-4 rounded-xl bg-[#101b2c] border border-white/25 text-white focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px] appearance-none cursor-pointer">
+            <option value="" disabled selected class="text-white/40">Choisissez ce qui vous correspond</option>
+            <option value="pas-de-site" class="bg-[#101b2c]">🌐 Je n'ai pas encore de site</option>
+            <option value="site-sans-contact" class="bg-[#101b2c]">📉 Mon site ne génère pas de demandes</option>
+            <option value="image-a-ameliorer" class="bg-[#101b2c]">🎨 Mon image ne me ressemble plus</option>
+            <option value="refonte" class="bg-[#101b2c]">🔄 Je veux refondre mon site</option>
+            <option value="je-ne-sais-pas" class="bg-[#101b2c]">❓ Je ne sais pas encore exactement</option>
+          </select>
+        </div>
+
+        <!-- Budget -->
+        <div>
+          <label for="q-budget" class="block text-white/80 text-sm font-semibold mb-1.5">
+            Votre enveloppe budget <span class="text-white/40 font-normal">(pour que je vous propose la bonne solution)</span>
+          </label>
+          <select id="q-budget" name="budget" required
+            class="form-input w-full p-4 rounded-xl bg-[#101b2c] border border-white/25 text-white focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px] appearance-none cursor-pointer">
+            <option value="" disabled selected class="text-white/40">Sélectionnez une fourchette</option>
+            <option value="1500-2500" class="bg-[#101b2c]">1 500 € – 2 500 €</option>
+            <option value="2500-4000" class="bg-[#101b2c]">2 500 € – 4 000 €</option>
+            <option value="4000+" class="bg-[#101b2c]">4 000 € et plus</option>
+            <option value="a-discuter" class="bg-[#101b2c]">Je ne sais pas encore — conseillez-moi</option>
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="q-message" class="block text-white/80 text-sm font-semibold mb-1.5">
+            Décrivez votre situation en quelques mots <span class="text-white/40 font-normal">(facultatif)</span>
+          </label>
+          <textarea id="q-message" name="message" rows="4"
+            placeholder="Ex : je suis coach, mon site actuel ne me ressemble plus. Je voudrais quelque chose de clair et de professionnel pour obtenir plus de prises de contact…"
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all resize-none text-base"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-[#c8a96b] hover:bg-[#e3cc9a] text-[#070f19] font-extrabold py-4 px-6 rounded-full shadow-xl transform hover:scale-105 transition-all text-lg min-h-[54px] mt-2">
+          Envoyer ma demande — je vous réponds sous 24h
+        </button>
+
+        <p class="text-center text-white/45 text-xs pt-1">
+          ✅ Réponse sous 24h &nbsp;·&nbsp; 🔒 Données sécurisées &nbsp;·&nbsp; 🤝 Sans engagement
+        </p>
+      </form>
+    </div>
+
+    <!-- Alternatives de contact -->
+    <div class="mt-8 text-center">
+      <p class="text-white/50 text-sm mb-5">Vous préférez un contact direct ?</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://wa.me/33743517627?text=Bonjour%2C%20j%27aimerais%20discuter%20de%20mon%20projet%20web"
+           target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-full shadow-lg transform hover:scale-105 transition-all text-sm"
+           aria-label="Contacter par WhatsApp">
+          💬 WhatsApp
+        </a>
+        <a href="sms:0743517627?body=Bonjour%2C%20j%27aimerais%20discuter%20de%20mon%20projet%20web"
+           class="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 text-white border border-white/20 font-bold px-6 py-3 rounded-full shadow-lg transform hover:scale-105 transition-all text-sm"
+           aria-label="Envoyer un SMS">
+          📱 SMS — 07 43 51 76 27
+        </a>
+        <a href="mailto:peakcl73@gmail.com?subject=Question%20projet%20web"
+           class="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 text-white border border-white/20 font-bold px-6 py-3 rounded-full shadow-lg transform hover:scale-105 transition-all text-sm"
+           aria-label="Envoyer un email">
+          📧 Email
+        </a>
+      </div>
+    </div>
+
+  </div>
 </section>
+
+<style>
+  .active-tab {
+    background-color: #c8a96b;
+    color: #070f19;
+  }
+</style>
+
+<script>
+  function switchForm(type) {
+    const simple = document.getElementById('form-simple');
+    const qualifie = document.getElementById('form-qualifie');
+    const tabSimple = document.getElementById('tab-simple');
+    const tabQualifie = document.getElementById('tab-qualifie');
+
+    if (type === 'simple') {
+      simple.classList.remove('hidden');
+      qualifie.classList.add('hidden');
+      tabSimple.classList.add('active-tab');
+      tabSimple.classList.remove('text-white/60');
+      tabSimple.setAttribute('aria-selected', 'true');
+      tabQualifie.classList.remove('active-tab');
+      tabQualifie.classList.add('text-white/60');
+      tabQualifie.setAttribute('aria-selected', 'false');
+    } else {
+      qualifie.classList.remove('hidden');
+      simple.classList.add('hidden');
+      tabQualifie.classList.add('active-tab');
+      tabQualifie.classList.remove('text-white/60');
+      tabQualifie.setAttribute('aria-selected', 'true');
+      tabSimple.classList.remove('active-tab');
+      tabSimple.classList.add('text-white/60');
+      tabSimple.setAttribute('aria-selected', 'false');
+    }
+  }
+</script>
