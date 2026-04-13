@@ -46,31 +46,35 @@ image: /assets/logo/PeakCL.logo.png
     </p>
 
     <h1 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-extrabold font-title leading-tight py-2 xs:py-3 sm:py-4 drop-shadow-lg animate-fade-in delay-150 text-center max-w-4xl">
-      Votre site ne vous ramène pas de clients ?<br class="hidden sm:block"> On va changer ça.
+      Pas de site, ou un site qui ne vous apporte rien ?<br class="hidden sm:block"> On va changer ça.
     </h1>
 
+    <p class="text-white/60 text-sm sm:text-base italic mb-3 animate-fade-in delay-175 max-w-xl mx-auto text-center">
+      Vous n'avez pas encore de site ? Ou vous n'osez pas partager le vôtre ? Vous n'êtes pas seul(e).
+    </p>
+
     <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-3 sm:mb-4 text-luxe-muted opacity-100 animate-fade-in delay-200 leading-relaxed text-center">
-      Je crée des sites clairs et professionnels pour les indépendants qui veulent <strong class="text-white">inspirer confiance dès les premières secondes</strong> — et recevoir des demandes de contact sans effort.
+      Je crée des sites clairs et professionnels pour les indépendants — que ce soit votre premier site ou une refonte complète — pour qu'il <strong class="text-white">inspire confiance dès les premières secondes</strong> et vous apporte des demandes de contact sans effort.
     </p>
 
     <p class="text-[#e3cc9a]/80 text-sm font-semibold mb-8 animate-fade-in delay-200">
       ★★★★★ +20 projets · 5/5 sur Google · Résultat garanti ou on continue
     </p>
 
-    <div class="flex flex-col sm:flex-row gap-4 mb-5 animate-fade-in delay-250">
-      <a href="#rendez-vous" class="btn-luxe-primary font-extrabold px-10 py-4 rounded-full transition-all shadow-2xl transform hover:scale-105 text-lg min-h-[52px] flex items-center tracking-wide">
-        Clarifier mon projet — c'est gratuit
+    <div class="flex flex-col sm:flex-row gap-4 mb-4 animate-fade-in delay-250">
+      <a href="#audit" class="btn-luxe-primary font-extrabold px-10 py-4 rounded-full transition-all shadow-2xl transform hover:scale-105 text-lg min-h-[52px] flex items-center tracking-wide">
+        Recevoir mon avis gratuit →
       </a>
       <a href="/portfolio.html" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold px-8 py-4 rounded-full transition-all shadow-xl text-lg min-h-[52px] inline-flex items-center justify-center">
         Voir les réalisations
       </a>
     </div>
 
-    <p class="text-white/55 text-sm mb-2 animate-fade-in delay-300">
-      Sans engagement · échange de 45 min · annulation libre
+    <p class="text-white/40 text-sm mb-2 animate-fade-in delay-300">
+      Vous avez déjà un projet précis ? <a href="#rendez-vous" class="text-[#e3cc9a]/80 hover:text-[#e3cc9a] font-semibold">Réserver un échange de 45 min →</a>
     </p>
-    <p class="text-white/40 text-sm animate-fade-in delay-300">
-      ou appelez directement <a href="tel:+33743517627" class="text-white/70 hover:text-white font-medium">07 43 51 76 27</a>
+    <p class="text-white/30 text-sm animate-fade-in delay-300">
+      ou directement au <a href="tel:+33743517627" class="text-white/55 hover:text-white font-medium">07 43 51 76 27</a>
     </p>
   </div>
 </section>
@@ -86,6 +90,57 @@ image: /assets/logo/PeakCL.logo.png
     <span class="text-white/60">Basé en Savoie</span>
   </div>
 </div>
+
+<!-- Lead magnet - Audit rapide -->
+<section id="audit" class="relative py-14 px-6 bg-[#070f19]">
+  <div class="max-w-xl mx-auto">
+    <div class="bg-gradient-to-br from-[#c8a96b]/15 to-[#c8a96b]/5 border border-[#c8a96b]/50 rounded-3xl p-8 sm:p-10 shadow-2xl">
+      <p class="text-[#e3cc9a] font-bold text-xs uppercase tracking-widest mb-3 text-center">🧲 Conseil gratuit · Réponse sous 24h · Sans engagement</p>
+      <h2 class="text-2xl sm:text-3xl font-title font-extrabold text-white mb-2 text-center">
+        Pas de site, ou un site qui ne convertit pas ?<br>Je vous dis quoi faire.
+      </h2>
+      <p class="text-white/60 text-sm text-center mb-7">Que vous partiez de zéro ou que vous vouliez améliorer l'existant, je vous donne en 2–3 points concrets le cap à suivre.</p>
+
+      <form name="audit-gratuit" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html" class="space-y-4" aria-label="Formulaire audit gratuit PeakCL">
+        <input type="hidden" name="form-name" value="audit-gratuit">
+        <p class="hidden"><label>Ne pas remplir : <input name="bot-field"></label></p>
+
+        <div>
+          <label for="a-prenom" class="block text-white/80 text-sm font-semibold mb-1.5">Votre prénom</label>
+          <input type="text" id="a-prenom" name="prenom" placeholder="Ex : Sophie" required autocomplete="given-name"
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+        </div>
+
+        <div>
+          <label for="a-email" class="block text-white/80 text-sm font-semibold mb-1.5">Votre email</label>
+          <input type="email" id="a-email" name="email" placeholder="vous@exemple.com" required autocomplete="email"
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+        </div>
+
+        <div>
+          <label for="a-url" class="block text-white/80 text-sm font-semibold mb-1.5">L'URL de votre site <span class="font-normal text-white/40">(facultatif si vous n'en avez pas)</span></label>
+          <input type="url" id="a-url" name="url-site" placeholder="https://monsite.fr" autocomplete="url"
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+        </div>
+
+        <div>
+          <label for="a-message" class="block text-white/80 text-sm font-semibold mb-1.5">Un mot sur votre activité <span class="font-normal text-white/40">(facultatif)</span></label>
+          <textarea id="a-message" name="message" rows="3" placeholder="Ex : je suis coach, thérapeute, consultant…"
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base resize-none"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-[#c8a96b] hover:bg-[#e3cc9a] text-[#070f19] font-extrabold py-4 px-6 rounded-full shadow-xl transform hover:scale-105 transition-all text-lg min-h-[54px] mt-2">
+          Recevoir mon avis →
+        </button>
+
+        <p class="text-center text-white/35 text-xs pt-1">
+          ✅ Réponse sous 24h &nbsp;·&nbsp; 🔒 Données sécurisées &nbsp;·&nbsp; 🤝 Sans engagement
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
 
 <!-- Section Pour qui -->
 <section id="pour-qui" class="relative py-20 px-6 bg-gradient-to-b from-[#08101b] via-[#101b2c] to-[#0b1422]" role="region" aria-label="Pour qui">
@@ -122,6 +177,12 @@ image: /assets/logo/PeakCL.logo.png
           <strong class="text-white">Vous voulez un site qui travaille à votre place.</strong> Pas juste beau — un site qui convainc, rassure et donne envie de vous contacter.
         </p>
       </div>
+    </div>
+    <div class="mt-10 text-center">
+      <p class="text-[#e3cc9a] font-bold text-lg">→ Alors on doit corriger ça.</p>
+      <a href="#contact" class="inline-block mt-4 btn-luxe-primary font-extrabold px-8 py-4 rounded-full shadow-xl text-base transform hover:scale-105 transition-all">
+        Recevoir mon avis sur mon site — c'est gratuit
+      </a>
     </div>
   </div>
 </section>
@@ -345,8 +406,8 @@ image: /assets/logo/PeakCL.logo.png
           <p class="text-white/60 text-xs leading-relaxed">Prix fixé à l'avance, tout inclus, aucune mauvaise surprise.</p>
         </div>
       </div>
-      <a href="#rendez-vous" class="inline-block btn-luxe-primary font-extrabold px-10 py-4 rounded-full transition-all shadow-2xl transform hover:scale-105 text-lg min-h-[52px]">
-        Je veux en savoir plus — sans engagement
+      <a href="#contact" class="inline-block btn-luxe-primary font-extrabold px-10 py-4 rounded-full transition-all shadow-2xl transform hover:scale-105 text-lg min-h-[52px]">
+        Savoir ce qui bloque — réponse sous 24h
       </a>
       <p class="text-white/40 text-xs mt-4">Échange gratuit de 45 min · Pas de pression · Pas de jargon technique</p>
     </div>
@@ -361,6 +422,9 @@ image: /assets/logo/PeakCL.logo.png
     <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-center text-white mb-4">
       Ils ont enfin une présence en ligne à leur image
     </h2>
+    <p class="text-center text-[#e3cc9a] font-semibold text-base mb-2">
+      Ils étaient dans la même situation que vous.
+    </p>
     <p class="text-center text-white/50 text-base mb-12 max-w-xl mx-auto">
       Des entrepreneurs qui voulaient un site plus clair, plus pro et plus rassurant.
     </p>
