@@ -14,6 +14,138 @@ image: /assets/logo/PeakCL.logo.png
 ---
 
 
+<style>
+/* ─── Portfolio Premium Redesign ─── */
+
+/* Fond de la section grille */
+#portfolio-section-bg {
+  background: #050b13;
+}
+
+/* Card base */
+.portfolio-card {
+  background: linear-gradient(145deg, #0d1f35 0%, #060e18 100%);
+  border: 1px solid rgba(200,169,107,0.15);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.03);
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.34,1.2,0.64,1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+/* Ligne dorée en haut de chaque carte */
+.portfolio-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 20%; right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,169,107,0.6), transparent);
+  z-index: 5;
+  transition: left 0.4s ease, right 0.4s ease, opacity 0.4s ease;
+}
+.portfolio-card:hover::before,
+.portfolio-card.active::before {
+  left: 5%; right: 5%;
+  background: linear-gradient(90deg, transparent, rgba(227,204,154,0.9), transparent);
+}
+
+/* Lift + glow au survol */
+.portfolio-card:hover,
+.portfolio-card.active {
+  transform: translateY(-7px) scale(1.01);
+  border-color: rgba(200,169,107,0.4);
+  box-shadow: 0 35px 65px rgba(0,0,0,0.65), 0 0 45px rgba(200,169,107,0.07), inset 0 1px 0 rgba(200,169,107,0.08);
+}
+
+/* Ambiance lumière radiale sur card front */
+.portfolio-card .card-front {
+  background: radial-gradient(ellipse at 50% -10%, rgba(200,169,107,0.06) 0%, transparent 65%);
+}
+
+/* Logo stage — boîte translucide pour les logos */
+.logo-stage {
+  width: 92px;
+  height: 92px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.portfolio-card:hover .logo-stage {
+  border-color: rgba(200,169,107,0.25);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(200,169,107,0.08);
+}
+
+/* Overlay unifié — élégant et profond */
+.portfolio-card .card-overlay {
+  background: linear-gradient(160deg, rgba(4,9,16,0.97) 0%, rgba(10,18,30,0.97) 100%);
+  border-top: 1px solid rgba(200,169,107,0.12);
+}
+
+/* Ligne séparatrice dans l'overlay */
+.overlay-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,169,107,0.3), transparent);
+  margin: 10px 0;
+}
+
+/* Tags tech/catégorie */
+.tag-gold {
+  background: rgba(200,169,107,0.12);
+  color: #e3cc9a;
+  border: 1px solid rgba(200,169,107,0.25);
+}
+.tag-cyan {
+  background: rgba(6,182,212,0.1);
+  color: #67e8f9;
+  border: 1px solid rgba(6,182,212,0.2);
+}
+.tag-white {
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Logo stage via CSS — agit comme un conteneur sur tous les logos card-front */
+.portfolio-card .card-front-logo {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+  max-height: 80px !important;
+  object-fit: contain;
+}
+.portfolio-card:hover .card-front-logo,
+.portfolio-card.active .card-front-logo {
+  border-color: rgba(200,169,107,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(200,169,107,0.07);
+}
+
+/* Titre de carte élevé */
+.portfolio-card .card-front h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f0f4f8;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Badge catégorie */
+.portfolio-card .card-front span.badge-cat {
+  background: rgba(200,169,107,0.1);
+  color: #e3cc9a;
+  border: 1px solid rgba(200,169,107,0.25);
+  font-size: 0.7rem;
+  padding: 3px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+}
+</style>
+
 <!-- Schema.org -->
 <script type="application/ld+json">
 {
@@ -28,59 +160,59 @@ image: /assets/logo/PeakCL.logo.png
 </script>
 
 <!-- ───────────── HERO ───────────── -->
-<section class="relative -mt-20 md:-mt-24 pt-32 pb-16 md:pt-40 md:pb-20 px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-peak-blue-darker via-peak-blue-dark to-peak-violet">
-  <!-- Particules déco -->
+<section class="relative -mt-20 md:-mt-24 pt-32 pb-20 md:pt-44 md:pb-28 px-4 sm:px-6 overflow-hidden" style="background: linear-gradient(160deg, #050b13 0%, #0a1628 50%, #070f19 100%);">
+  <!-- Glow décoratif -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-peak-yellow/5 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-peak-teal/5 rounded-full blur-3xl animate-pulse" style="animation-delay:1.5s"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#c8a96b]/4 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-[#c8a96b]/3 rounded-full blur-3xl"></div>
+    <!-- Ligne déco dorée subtile -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c8a96b]/30 to-transparent"></div>
   </div>
   <div class="max-w-4xl mx-auto relative z-10 text-center">
-    <p class="font-accent text-peak-yellow text-xl mb-4 tracking-wide">Portfolio — Mes réalisations</p>
-    <h1 class="font-title text-4xl sm:text-5xl md:text-6xl font-extrabold text-peak-gray leading-tight mb-6">
-      Chaque site raconte<br>
-      <span class="text-peak-yellow">une vraie histoire</span>
+    <p class="text-[#c8a96b] uppercase tracking-[0.3em] text-xs font-bold mb-5 opacity-80">Portfolio · Réalisations</p>
+    <h1 class="font-title text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+      Chaque site<br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#c8a96b] to-[#e3cc9a]">raconte une vraie histoire</span>
     </h1>
-    <p class="text-peak-gray text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-      Artisans, avocates, coachs, artistes, thérapeutes, architectes d'intérieur…<br>
+    <p class="text-white/55 text-lg sm:text-xl max-w-2xl mx-auto mb-14 leading-relaxed">
+      Artisans, coachs, artistes, avocates, thérapeutes…<br class="hidden sm:block">
       J'ai aidé ces indépendants à avoir un site qui les représente — et qui leur apporte des contacts.
     </p>
-    <!-- Stats -->
-    <div class="flex flex-wrap justify-center gap-8 mb-2">
-      <div class="text-center">
-        <div class="font-title text-3xl font-bold text-peak-yellow">17+</div>
-        <div class="text-peak-gray/80 text-sm mt-1">projets livrés</div>
+    <!-- Stats premium -->
+    <div class="inline-flex flex-wrap justify-center gap-0 border border-[#c8a96b]/20 rounded-2xl overflow-hidden bg-white/3">
+      <div class="text-center px-10 py-5 border-r border-[#c8a96b]/15">
+        <div class="font-title text-3xl font-extrabold text-[#e3cc9a]">17+</div>
+        <div class="text-white/45 text-xs mt-1 uppercase tracking-widest">projets livrés</div>
       </div>
-      <div class="w-px bg-peak-gray/20 hidden sm:block"></div>
-      <div class="text-center">
-        <div class="font-title text-3xl font-bold text-peak-yellow">12+</div>
-        <div class="text-peak-gray/80 text-sm mt-1">secteurs différents</div>
+      <div class="text-center px-10 py-5 border-r border-[#c8a96b]/15">
+        <div class="font-title text-3xl font-extrabold text-[#e3cc9a]">12+</div>
+        <div class="text-white/45 text-xs mt-1 uppercase tracking-widest">secteurs</div>
       </div>
-      <div class="w-px bg-peak-gray/20 hidden sm:block"></div>
-      <div class="text-center">
-        <div class="font-title text-3xl font-bold text-peak-yellow">100%</div>
-        <div class="text-peak-gray/80 text-sm mt-1">sur-mesure</div>
+      <div class="text-center px-10 py-5">
+        <div class="font-title text-3xl font-extrabold text-[#e3cc9a]">5/5</div>
+        <div class="text-white/45 text-xs mt-1 uppercase tracking-widest">sur Google</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ───────────── GRILLE PROJETS ───────────── -->
-<section class="bg-gradient-to-b from-peak-violet to-peak-blue-dark py-16 md:py-24 px-4 sm:px-6" aria-label="Galerie des réalisations">
-  <div class="max-w-7xl mx-auto">
-    <p class="text-center text-peak-gray/70 text-sm uppercase tracking-widest mb-12">
-      Survolez (ou tapez) une carte pour découvrir l'histoire du projet
+<section id="portfolio-section-bg" class="py-16 md:py-24 px-4 sm:px-6" style="background:#050b13;" aria-label="Galerie des réalisations">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-center text-[#c8a96b]/50 text-xs uppercase tracking-[0.25em] mb-14 font-semibold">
+      Survolez une carte pour découvrir l'histoire du projet
     </p>
 
-    <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
 
       <!-- ✦ JANTES 73 - LA VIEILLE ROUE -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet Jantes 73 - La Vieille Roue">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet Jantes 73 - La Vieille Roue">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/lavieilleroue.png" alt="Logo La Vieille Roue" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'">
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Jantes 73 — La Vieille Roue</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Artisan automobile · Albertville</span>
+          <span class="mt-3 badge-cat">Artisan automobile · Albertville</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-violet/90 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Artisan automobile — Albertville</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Jantes 73 — La Vieille Roue</h3>
@@ -88,9 +220,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">SEO local</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Site vitrine</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">SEO local</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Site vitrine</span>
             </div>
             <a href="https://lavieilleroue.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -100,13 +232,13 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ JB LACROIX - ÉCRIVAIN -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet JB-Lacroix écrivain">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet JB-Lacroix écrivain">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/logo.jbl.nobg.png" alt="Logo JB-Lacroix" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'">
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Jean-Baptiste Lacroix</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Écrivain fantasy · Savoie</span>
+          <span class="mt-3 badge-cat">Écrivain fantasy · Savoie</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-purple/90 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Écrivain fantasy — Savoie</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Jean-Baptiste Lacroix</h3>
@@ -114,9 +246,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">Blog</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Portfolio auteur</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">Blog</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Portfolio auteur</span>
             </div>
             <a href="https://jb-lacroix.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -126,13 +258,13 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ DOODLEIDOO -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet DoodleIdoo">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet DoodleIdoo">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/logo_doodleIdoo.png" alt="Logo DoodleIdoo" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'">
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">DoodleIdoo</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Artiste illustratrice</span>
+          <span class="mt-3 badge-cat">Artiste illustratrice</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-rose/20 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Artiste illustratrice</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">DoodleIdoo</h3>
@@ -140,9 +272,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">Galerie</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Portfolio artiste</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">Galerie</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Portfolio artiste</span>
             </div>
             <a href="https://doodleidoo.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -152,13 +284,13 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ LM ÉQUITATION WESTERN -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet LM Équitation Western">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet LM Équitation Western">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/logo-lm-equitation.jpg" alt="Logo LM Équitation Western" class="max-h-24 w-auto object-contain mb-4 rounded-xl card-front-logo" onerror="this.style.display='none'">
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">LM Équitation Western</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Monitrice · Savoie</span>
+          <span class="mt-3 badge-cat">Monitrice · Savoie</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-violet/90 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Équitation western — Savoie</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">LM Équitation Western</h3>
@@ -166,9 +298,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">SEO local</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Site vitrine</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">SEO local</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Site vitrine</span>
             </div>
             <a href="https://lm-equitation-western.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -178,13 +310,13 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ ADELANTE VOYAGES -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet Adelante Voyages">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet Adelante Voyages">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/logo-adelante.webp" alt="Logo Adelante Voyages" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'">
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Adelante Voyages</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Agence de voyage · France</span>
+          <span class="mt-3 badge-cat">Agence de voyage · France</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-teal/20 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Conseillère voyage — Ardèche</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Adelante Voyages</h3>
@@ -192,9 +324,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">Catalogue</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Devis en ligne</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">Catalogue</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Devis en ligne</span>
             </div>
             <a href="https://adelantevoyages.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -204,13 +336,13 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ C'MIEUX COMME ÇA -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet C'mieux comme ça">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet C'mieux comme ça">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/cmieuxcommeca.webp" alt="Logo C'mieux comme ça" class="max-h-24 w-auto object-contain mb-4 rounded-xl card-front-logo" onerror="this.style.display='none'">
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">C'mieux comme ça</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Architecte d'intérieur · Albertville</span>
+          <span class="mt-3 badge-cat">Architecte d'intérieur · Albertville</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-rose/20 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Architecte d'intérieur — Albertville</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">C'mieux comme ça — Céline Gaillard</h3>
@@ -218,9 +350,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">Galerie</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Architecture intérieure</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">Galerie</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Architecture intérieure</span>
             </div>
             <a href="https://www.cmieuxcommeca.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -230,15 +362,15 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ PLUMES POILS & CIE -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet Plumes Poils et Compagnie">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet Plumes Poils et Compagnie">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <div class="bg-white rounded-2xl p-3 mb-4">
             <img src="/assets/logo/plumespoilsetcie.png" alt="Logo Plumes Poils & Cie" class="max-h-20 w-auto object-contain" onerror="this.style.display='none'">
           </div>
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Plumes Poils & Compagnie</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Ferme pédagogique · Savoie</span>
+          <span class="mt-3 badge-cat">Ferme pédagogique · Savoie</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-teal/20 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Ferme pédagogique itinérante — Savoie</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Plumes Poils & Compagnie</h3>
@@ -246,9 +378,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">Médiation animale</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Site vitrine</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">Médiation animale</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Site vitrine</span>
             </div>
             <a href="https://plumespoilscie.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -258,13 +390,13 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ LES 9 POILUS -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet Les 9 Poilus">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet Les 9 Poilus">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/9poilus.png" alt="Logo Les 9 Poilus" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'">
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Les 9 Poilus</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Communauté animaux · React + IA</span>
+          <span class="mt-3 badge-cat">Communauté animaux · React + IA</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-purple/90 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Plateforme communautaire animaux</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Les 9 Poilus</h3>
@@ -272,9 +404,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">React</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">IA SEO</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Analytics</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">React</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">IA SEO</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Analytics</span>
             </div>
             <a href="https://les9poilus.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -284,13 +416,13 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ OSTÉO ANIMAL CARE -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet Ostéo Animal Care">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet Ostéo Animal Care">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/osteoanimalcare.webp" alt="Logo Ostéo Animal Care" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'">
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Ostéo Animal Care</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Ostéopathie animale · WordPress</span>
+          <span class="mt-3 badge-cat">Ostéopathie animale · WordPress</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-teal/20 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Ostéopathie animale</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Ostéo Animal Care</h3>
@@ -298,9 +430,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">WordPress</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">Prise de RDV</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Santé animale</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">WordPress</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">Prise de RDV</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Santé animale</span>
             </div>
             <a href="https://osteo-animalcare.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -310,13 +442,13 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ LE JUSTE PLAN -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet Le Juste Plan">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet Le Juste Plan">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/le_juste_plan.png" alt="Logo Le Juste Plan" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'">
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Le Juste Plan</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Architecture · WordPress</span>
+          <span class="mt-3 badge-cat">Architecture · WordPress</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-violet/90 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Cabinet d'architecture</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Le Juste Plan</h3>
@@ -324,9 +456,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">WordPress</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">Portfolio</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Architecture</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">WordPress</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">Portfolio</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Architecture</span>
             </div>
             <a href="https://lejusteplan.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -336,13 +468,13 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ NATURAL RIDERS -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet Natural Riders">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet Natural Riders">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/natural_riders.avif" alt="Logo Natural Riders" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'">
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Natural Riders</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">E-commerce équestre · WooCommerce</span>
+          <span class="mt-3 badge-cat">E-commerce équestre · WooCommerce</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-teal/20 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Boutique en ligne équestre</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Natural Riders</h3>
@@ -350,9 +482,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">WooCommerce</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">E-commerce</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">WordPress</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">WooCommerce</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">E-commerce</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">WordPress</span>
             </div>
             <a href="https://www.naturalriders.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -362,14 +494,14 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ PEAK TRAINING -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet Peak Training">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet Peak Training">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/Peak-training.png" alt="Logo Peak Training" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
           <div class="w-20 h-20 rounded-full bg-gradient-to-br from-peak-yellow to-peak-rose items-center justify-center text-peak-blue-dark font-title font-extrabold text-2xl mb-4" style="display:none;">PT</div>
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Peak Training</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Coaching sportif · Ugine</span>
+          <span class="mt-3 badge-cat">Coaching sportif · Ugine</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-rose/20 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Coach sportive — Ugine & Albertville</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Peak Training — Mathilde Treille</h3>
@@ -377,9 +509,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">Coaching</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Site vitrine</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">Coaching</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Site vitrine</span>
             </div>
             <a href="https://peaktraining.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -389,14 +521,14 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ SETIC FLUIDES -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet SETIC Fluides">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet SETIC Fluides">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/setic.png" alt="Logo SETIC Fluides" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
           <div class="w-20 h-20 rounded-full bg-gradient-to-br from-peak-teal to-peak-blue-light items-center justify-center text-peak-gray font-title font-extrabold text-lg mb-4" style="display:none;">SF</div>
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">SETIC Fluides</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Bureau d'études · BTP · Savoie</span>
+          <span class="mt-3 badge-cat">Bureau d'études · BTP · Savoie</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-teal/20 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Bureau d'études techniques — Savoie</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">SETIC Fluides</h3>
@@ -404,9 +536,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">Institutionnel</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">BTP</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">Institutionnel</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">BTP</span>
             </div>
             <a href="https://setic-fluides.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -416,15 +548,15 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ MORDANT ÉQUIN -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet Mordant Équin">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet Mordant Équin">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <div class="bg-white rounded-2xl p-3 mb-4">
             <img src="/assets/logo/mordant-equin.png" alt="Logo Mordant Équin" class="max-h-20 w-auto object-contain" onerror="this.style.display='none'">
           </div>
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Mordant Équin</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Dentiste équin · Savoie</span>
+          <span class="mt-3 badge-cat">Dentiste équin · Savoie</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-rose/20 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Dentiste équin — Savoie</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Mordant Équin — Laura Pallotto</h3>
@@ -432,9 +564,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">SEO géolocalisé</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Santé équine</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">SEO géolocalisé</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Santé équine</span>
             </div>
             <a href="https://mordant-equin.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -444,14 +576,14 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ CABINET JOHANNA ALFONSO -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet Cabinet Johanna Alfonso">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet Cabinet Johanna Alfonso">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/ja-avocat.svg" alt="Logo Cabinet Johanna Alfonso" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
           <div class="w-20 h-20 rounded-full bg-gradient-to-br from-peak-purple-light to-peak-violet items-center justify-center text-peak-yellow font-title font-extrabold text-xl mb-4" style="display:none;">JA</div>
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Cabinet Johanna Alfonso</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Avocate · Grenoble</span>
+          <span class="mt-3 badge-cat">Avocate · Grenoble</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-peak-purple/90 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Avocate droit de la famille & pénal — Grenoble</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Cabinet Johanna Alfonso</h3>
@@ -459,9 +591,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll + React</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">Droit</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Site professionnel</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll + React</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">Droit</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Site professionnel</span>
             </div>
             <a href="https://www.alfonso-avocat.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -471,13 +603,13 @@ image: /assets/logo/PeakCL.logo.png
       </article>
 
       <!-- ✦ FIONA ESPITALLIER DICK -->
-      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-white/10 bg-peak-blue-light" style="height:380px;" tabindex="0" aria-label="Voir le projet Fiona Espitallier Dick">
-        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
+      <article class="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer" style="height:430px;" tabindex="0" aria-label="Voir le projet Fiona Espitallier Dick">
+        <div class="card-front absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0 group-[.active]:opacity-0">
           <img src="/assets/logo/fiona.png" alt="Logo Fiona Espitallier Dick" class="max-h-24 w-auto object-contain mb-4 card-front-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
           <h3 class="font-title text-peak-gray font-bold text-center text-base leading-snug">Fiona Espitallier Dick</h3>
-          <span class="mt-2 text-xs text-peak-yellow bg-peak-yellow/20 px-3 py-1 rounded-full">Artiste comédie musicale</span>
+          <span class="mt-3 badge-cat">Artiste comédie musicale</span>
         </div>
-        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-peak-blue-darker/95 to-[#025e5e]/40 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 group-[.active]:translate-y-0">
+        <div class="card-overlay absolute inset-0 flex flex-col justify-between p-7 opacity-0 group-hover:opacity-100 group-[.active]:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 group-[.active]:translate-y-0">
           <div>
             <p class="font-accent text-peak-yellow text-sm mb-1">Actrice, chanteuse, danseuse</p>
             <h3 class="font-title text-peak-gray font-bold text-lg mb-3 leading-snug">Fiona Espitallier Dick</h3>
@@ -485,9 +617,9 @@ image: /assets/logo/PeakCL.logo.png
           </div>
           <div class="mt-4 shrink-0">
             <div class="flex flex-wrap gap-1.5 mb-4">
-              <span class="text-xs bg-peak-yellow/20 text-peak-yellow px-2 py-0.5 rounded-full">Jekyll</span>
-              <span class="text-xs bg-peak-teal/20 text-peak-teal-light px-2 py-0.5 rounded-full">One-page</span>
-              <span class="text-xs bg-white/15 text-white/80 px-2 py-0.5 rounded-full">Portfolio artiste</span>
+              <span class="text-xs tag-gold px-2.5 py-0.5 rounded-full font-medium">Jekyll</span>
+              <span class="text-xs tag-cyan px-2.5 py-0.5 rounded-full font-medium">One-page</span>
+              <span class="text-xs tag-white px-2.5 py-0.5 rounded-full font-medium">Portfolio artiste</span>
             </div>
             <a href="https://fionaespitallier.fr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-peak-yellow text-peak-blue-dark font-bold text-sm px-4 py-2 rounded-full hover:bg-peak-yellow-light transition-colors" onclick="event.stopPropagation()">
               Voir le site <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>

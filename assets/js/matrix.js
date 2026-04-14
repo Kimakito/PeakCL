@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function draw() {
     frame++;
-    // On ne dessine qu'une frame sur deux (ralentit la pluie)
-    if (frame % 2 === 0) {
+    // On ne dessine qu'une frame sur cinq (pluie lente et lisible)
+    if (frame % 5 !== 0) {
       rafId = requestAnimationFrame(draw);
       return;
     }
@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const w = parseInt(canvas.style.width);
     const h = parseInt(canvas.style.height);
 
-    // Fondu sombre pour créer la traînée — couleur identique au fond hero
-    ctx.fillStyle = 'rgba(7, 15, 25, 0.18)';
+    // Fondu sombre pour créer la traînée — efface plus vite pour moins interférer avec le texte
+    ctx.fillStyle = 'rgba(7, 15, 25, 0.30)';
     ctx.fillRect(0, 0, w, h);
 
     ctx.font = `bold ${fontSize}px monospace`;
@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const y = drops[i] * fontSize;
       const text = characters[Math.floor(Math.random() * characters.length)];
 
-      // Tête de colonne : blanc doré brillant
-      ctx.fillStyle = '#fffde7';
-      ctx.shadowColor = '#f5d78e';
-      ctx.shadowBlur = 8;
+      // Tête de colonne : doré chaud
+      ctx.fillStyle = '#f0c040';
+      ctx.shadowColor = '#e8a020';
+      ctx.shadowBlur = 10;
       ctx.fillText(text, i * fontSize, y);
 
       // Corps de la colonne (chiffre précédent en doré)
