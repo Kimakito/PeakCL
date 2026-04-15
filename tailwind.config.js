@@ -43,12 +43,10 @@ module.exports = {
         'peak-gray-darker': '#0f1724',
       },
       fontFamily: {
-        // Polices Premium 2026
-        'title': ['"Playfair Display"', 'serif'],  // Titres principaux - Prestige
-        'subtitle': ['"Raleway"', 'sans-serif'],   // Sous-titres - Accessible
-        'body': ['"Poppins"', 'sans-serif'],       // Texte courant - Chaleur
-        'accent': ['"Caveat"', 'cursive'],         // Signature - Humanité
-        'exo': ['"Exo 2"', 'sans-serif'],          // Fallback pour compat
+        // Polices 2026
+        'title': ['"Exo 2"', 'sans-serif'],        // Titres — moderne, lisible, premium
+        'body': ['"Poppins"', 'sans-serif'],        // Corps de texte — chaleureux
+        'accent': ['"Exo 2"', 'sans-serif'],        // Variation accent → uppercase + tracking-widest
       },
       animation: {
         // Animations Legacy (compatible)
@@ -106,7 +104,7 @@ module.exports = {
           'a:hover': { color: theme('colors.peak-yellow-dark') },
           h1: { color: theme('colors.peak-yellow'), fontFamily: theme('fontFamily.title') },
           h2: { color: theme('colors.peak-purple'), fontFamily: theme('fontFamily.title') },
-          h3: { color: theme('colors.peak-teal'), fontFamily: theme('fontFamily.subtitle') },
+          h3: { color: theme('colors.peak-teal'), fontFamily: theme('fontFamily.title') },
           h4: { color: theme('colors.peak-purple-light') },
           strong: { color: theme('colors.peak-gray-dark'), fontWeight: '700' },
           code: { color: theme('colors.peak-rose'), backgroundColor: theme('colors.peak-gray-light'), padding: '2px 6px', borderRadius: '4px' },
@@ -140,6 +138,8 @@ module.exports = {
     'animate-glow-pulse', 'animate-glow-purple', 'animate-float-up', 'animate-scale-bounce',
     'animate-pulse-attention', 'animate-border-glow',
     'gradient-text', 'gradient-text-pulse',
-    'stagger-children'
+    'stagger-children',
+    'font-title', 'font-body', 'font-accent',
+    'uppercase', 'tracking-widest', 'tracking-wider'
   ]
 };
