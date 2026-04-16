@@ -13,12 +13,12 @@ module.exports = {
     extend: {
       colors: {
         // Palette Luxe Minimal - sobre, haut de gamme, rassurante
-        'peak-yellow': '#d4a82e',
-        'peak-yellow-light': '#e8c96a',
-        'peak-yellow-dark': '#a98020',
+        'peak-yellow': '#f5df29',
+        'peak-yellow-light': '#f9ec72',
+        'peak-yellow-dark': '#c9b510',
 
-        'peak-teal': '#8ea4c0',
-        'peak-teal-light': '#b5c3d6',
+        'peak-teal': '#0cc6c1',
+        'peak-teal-light': '#5ededa',
 
         'peak-blue-light': '#1b2a3e',
         'peak-blue-dark': '#08101b',
@@ -28,13 +28,20 @@ module.exports = {
         'peak-navy': '#0c1d3e',
         'peak-navy-alt': '#0a1830',
 
-        'peak-violet': '#2a1a40',
-        'peak-purple': '#3d2460',
-        'peak-purple-light': '#5a3480',
-        'peak-purple-dark': '#1c1030',
+        'peak-violet': '#1e0730',
+        'peak-purple': '#6d0497',
+        'peak-purple-light': '#af07d9',
+        'peak-purple-dark': '#2a0050',
 
         'peak-rose': '#b98b7a',
         'peak-rose-light': '#d5b2a7',
+
+        // Fonds sombres page (dégradés, hero, sections)
+        'peak-dark': '#070f19',
+        'peak-dark-mid': '#0b1422',
+        'peak-dark-deep': '#101b2c',
+        'peak-dark-navy': '#0f1c2e',
+        'peak-dark-alt': '#131f31',
 
         'peak-white': '#FFFFFF',
         'peak-gray': '#e8edf4',
@@ -101,9 +108,9 @@ module.exports = {
         css: {
           color: theme('colors.peak-gray'),
           a: { color: theme('colors.peak-yellow'), transition: 'color 0.3s ease' },
-          'a:hover': { color: theme('colors.peak-yellow-dark') },
+          'a:hover': { color: theme('colors.peak-teal') },
           h1: { color: theme('colors.peak-yellow'), fontFamily: theme('fontFamily.title') },
-          h2: { color: theme('colors.peak-purple'), fontFamily: theme('fontFamily.title') },
+          h2: { color: theme('colors.peak-purple-light'), fontFamily: theme('fontFamily.title') },
           h3: { color: theme('colors.peak-teal'), fontFamily: theme('fontFamily.title') },
           h4: { color: theme('colors.peak-purple-light') },
           strong: { color: theme('colors.peak-gray-dark'), fontWeight: '700' },
@@ -132,8 +139,16 @@ module.exports = {
     'bg-peak-rose', 'bg-peak-rose-light',
     'bg-peak-blue-dark', 'bg-peak-blue-darker',
     'bg-peak-navy', 'bg-peak-navy-alt',
-    'text-peak-yellow', 'text-peak-purple', 'text-peak-teal', 'text-peak-rose',
-    'border-peak-yellow', 'border-peak-purple', 'border-peak-teal',
+    'bg-peak-dark', 'bg-peak-dark-mid', 'bg-peak-dark-deep', 'bg-peak-dark-navy', 'bg-peak-dark-alt',
+    'text-peak-yellow', 'text-peak-yellow-light',
+    'text-peak-purple', 'text-peak-purple-light',
+    'text-peak-teal', 'text-peak-teal-light',
+    'text-peak-rose', 'text-peak-gray', 'text-peak-gray-dark',
+    'border-peak-yellow', 'border-peak-purple', 'border-peak-purple-light', 'border-peak-teal',
+    'from-peak-yellow', 'from-peak-yellow-light', 'from-peak-teal', 'from-peak-purple-light',
+    'from-peak-dark', 'from-peak-dark-mid', 'from-peak-dark-deep', 'from-peak-blue-dark',
+    'via-peak-dark-mid', 'via-peak-dark-deep', 'via-peak-dark', 'via-peak-blue-dark',
+    'to-peak-dark', 'to-peak-dark-mid', 'to-peak-dark-deep', 'to-peak-dark-navy', 'to-peak-dark-alt',
     'shadow-peak-yellow', 'shadow-peak-purple',
     'animate-glow-pulse', 'animate-glow-purple', 'animate-float-up', 'animate-scale-bounce',
     'animate-pulse-attention', 'animate-border-glow',

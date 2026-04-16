@@ -3,7 +3,7 @@
 
     <!-- En-tête -->
     <div class="text-center mb-8">
-      <span class="inline-block bg-[#c8a96b]/15 border border-[#c8a96b]/40 text-[#e3cc9a] font-bold text-sm px-5 py-2 rounded-full mb-5">
+      <span class="inline-block bg-peak-yellow/15 border border-peak-yellow/40 text-peak-yellow-light font-bold text-sm px-5 py-2 rounded-full mb-5">
         Réponse garantie sous 24h · Sans engagement
       </span>
       <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-white mb-3">
@@ -50,32 +50,32 @@
         <div>
           <label for="s-prenom" class="block text-white/80 text-sm font-semibold mb-1.5">Votre prénom</label>
           <input type="text" id="s-prenom" name="prenom" placeholder="Ex : Sophie" required autocomplete="given-name"
-            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-peak-yellow focus:ring-2 focus:ring-peak-yellow/40 transition-all text-base min-h-[52px]" />
         </div>
 
         <!-- Email -->
         <div>
           <label for="s-email" class="block text-white/80 text-sm font-semibold mb-1.5">Votre email</label>
           <input type="email" id="s-email" name="email" placeholder="vous@exemple.com" required autocomplete="email"
-            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-peak-yellow focus:ring-2 focus:ring-peak-yellow/40 transition-all text-base min-h-[52px]" />
         </div>
 
         <!-- Situation -->
         <div>
           <label for="s-situation" class="block text-white/80 text-sm font-semibold mb-1.5">Votre situation en ce moment</label>
           <select id="s-situation" name="situation" required
-            class="form-input w-full p-4 rounded-xl bg-[#101b2c] border border-white/25 text-white focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px] appearance-none cursor-pointer">
+            class="form-input w-full p-4 rounded-xl bg-peak-dark-deep border border-white/25 text-white focus:outline-none focus:border-peak-yellow focus:ring-2 focus:ring-peak-yellow/40 transition-all text-base min-h-[52px] appearance-none cursor-pointer">
             <option value="" disabled selected class="text-white/40">Choisissez ce qui vous correspond le mieux</option>
-            <option value="pas-de-site" class="bg-[#101b2c]">🌐 Je n'ai pas encore de site</option>
-            <option value="site-sans-contact" class="bg-[#101b2c]">📉 Mon site ne génère pas de demandes</option>
-            <option value="image-a-ameliorer" class="bg-[#101b2c]">🎨 Mon image ne me ressemble plus</option>
-            <option value="refonte" class="bg-[#101b2c]">🔄 Je veux refondre mon site</option>
-            <option value="je-ne-sais-pas" class="bg-[#101b2c]">❓ Je ne sais pas encore exactement</option>
+            <option value="pas-de-site" class="bg-peak-dark-deep">🌐 Je n'ai pas encore de site</option>
+            <option value="site-sans-contact" class="bg-peak-dark-deep">📉 Mon site ne génère pas de demandes</option>
+            <option value="image-a-ameliorer" class="bg-peak-dark-deep">🎨 Mon image ne me ressemble plus</option>
+            <option value="refonte" class="bg-peak-dark-deep">🔄 Je veux refondre mon site</option>
+            <option value="je-ne-sais-pas" class="bg-peak-dark-deep">❓ Je ne sais pas encore exactement</option>
           </select>
         </div>
 
         <button type="submit"
-          class="w-full bg-[#c8a96b] hover:bg-[#e3cc9a] text-[#070f19] font-extrabold py-4 px-6 rounded-full shadow-xl transform hover:scale-105 transition-all text-lg min-h-[54px] mt-2">
+          class="w-full bg-peak-yellow hover:bg-peak-yellow-light text-peak-dark font-extrabold py-4 px-6 rounded-full shadow-xl transform hover:scale-105 transition-all text-lg min-h-[54px] mt-2">
           Recevoir ma recommandation →
         </button>
 
@@ -87,7 +87,7 @@
       <!-- Passer au formulaire qualifié -->
       <p class="text-center text-white/45 text-xs mt-6">
         Vous avez un projet précis à décrire ?
-        <button type="button" onclick="switchForm('qualifie')" class="text-[#e3cc9a] hover:underline font-semibold ml-1">Remplir le formulaire complet</button>
+        <button type="button" onclick="switchForm('qualifie')" class="text-peak-yellow-light hover:underline font-semibold ml-1">Remplir le formulaire complet</button>
       </p>
     </div>
 
@@ -107,12 +107,12 @@
           <div>
             <label for="q-prenom" class="block text-white/80 text-sm font-semibold mb-1.5">Votre prénom</label>
             <input type="text" id="q-prenom" name="prenom" placeholder="Ex : Marie" required autocomplete="given-name"
-              class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+              class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-peak-yellow focus:ring-2 focus:ring-peak-yellow/40 transition-all text-base min-h-[52px]" />
           </div>
           <div>
             <label for="q-email" class="block text-white/80 text-sm font-semibold mb-1.5">Votre email</label>
             <input type="email" id="q-email" name="email" placeholder="vous@exemple.com" required autocomplete="email"
-              class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+              class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-peak-yellow focus:ring-2 focus:ring-peak-yellow/40 transition-all text-base min-h-[52px]" />
           </div>
         </div>
 
@@ -123,20 +123,20 @@
           </label>
           <input type="tel" id="q-tel" name="telephone" placeholder="06 12 34 56 78" autocomplete="tel"
             pattern="[0-9\s\-\+\(\)]{10,}"
-            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px]" />
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-peak-yellow focus:ring-2 focus:ring-peak-yellow/40 transition-all text-base min-h-[52px]" />
         </div>
 
         <!-- Situation -->
         <div>
           <label for="q-situation" class="block text-white/80 text-sm font-semibold mb-1.5">Votre situation en ce moment</label>
           <select id="q-situation" name="situation" required
-            class="form-input w-full p-4 rounded-xl bg-[#101b2c] border border-white/25 text-white focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px] appearance-none cursor-pointer">
+            class="form-input w-full p-4 rounded-xl bg-peak-dark-deep border border-white/25 text-white focus:outline-none focus:border-peak-yellow focus:ring-2 focus:ring-peak-yellow/40 transition-all text-base min-h-[52px] appearance-none cursor-pointer">
             <option value="" disabled selected class="text-white/40">Choisissez ce qui vous correspond</option>
-            <option value="pas-de-site" class="bg-[#101b2c]">🌐 Je n'ai pas encore de site</option>
-            <option value="site-sans-contact" class="bg-[#101b2c]">📉 Mon site ne génère pas de demandes</option>
-            <option value="image-a-ameliorer" class="bg-[#101b2c]">🎨 Mon image ne me ressemble plus</option>
-            <option value="refonte" class="bg-[#101b2c]">🔄 Je veux refondre mon site</option>
-            <option value="je-ne-sais-pas" class="bg-[#101b2c]">❓ Je ne sais pas encore exactement</option>
+            <option value="pas-de-site" class="bg-peak-dark-deep">🌐 Je n'ai pas encore de site</option>
+            <option value="site-sans-contact" class="bg-peak-dark-deep">📉 Mon site ne génère pas de demandes</option>
+            <option value="image-a-ameliorer" class="bg-peak-dark-deep">🎨 Mon image ne me ressemble plus</option>
+            <option value="refonte" class="bg-peak-dark-deep">🔄 Je veux refondre mon site</option>
+            <option value="je-ne-sais-pas" class="bg-peak-dark-deep">❓ Je ne sais pas encore exactement</option>
           </select>
         </div>
 
@@ -146,12 +146,12 @@
             Votre enveloppe budget <span class="text-white/40 font-normal">(pour que je vous propose la bonne solution)</span>
           </label>
           <select id="q-budget" name="budget" required
-            class="form-input w-full p-4 rounded-xl bg-[#101b2c] border border-white/25 text-white focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all text-base min-h-[52px] appearance-none cursor-pointer">
+            class="form-input w-full p-4 rounded-xl bg-peak-dark-deep border border-white/25 text-white focus:outline-none focus:border-peak-yellow focus:ring-2 focus:ring-peak-yellow/40 transition-all text-base min-h-[52px] appearance-none cursor-pointer">
             <option value="" disabled selected class="text-white/40">Sélectionnez une fourchette</option>
-            <option value="1500-2500" class="bg-[#101b2c]">1 500 € – 2 500 €</option>
-            <option value="2500-4000" class="bg-[#101b2c]">2 500 € – 4 000 €</option>
-            <option value="4000+" class="bg-[#101b2c]">4 000 € et plus</option>
-            <option value="a-discuter" class="bg-[#101b2c]">Je ne sais pas encore — conseillez-moi</option>
+            <option value="1500-2500" class="bg-peak-dark-deep">1 500 € – 2 500 €</option>
+            <option value="2500-4000" class="bg-peak-dark-deep">2 500 € – 4 000 €</option>
+            <option value="4000+" class="bg-peak-dark-deep">4 000 € et plus</option>
+            <option value="a-discuter" class="bg-peak-dark-deep">Je ne sais pas encore — conseillez-moi</option>
           </select>
         </div>
 
@@ -162,11 +162,11 @@
           </label>
           <textarea id="q-message" name="message" rows="4"
             placeholder="Ex : je suis coach, mon site actuel ne me ressemble plus. Je voudrais quelque chose de clair et de professionnel pour obtenir plus de prises de contact…"
-            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-[#c8a96b] focus:ring-2 focus:ring-[#c8a96b]/40 transition-all resize-none text-base"></textarea>
+            class="form-input w-full p-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-white/35 focus:outline-none focus:border-peak-yellow focus:ring-2 focus:ring-peak-yellow/40 transition-all resize-none text-base"></textarea>
         </div>
 
         <button type="submit"
-          class="w-full bg-[#c8a96b] hover:bg-[#e3cc9a] text-[#070f19] font-extrabold py-4 px-6 rounded-full shadow-xl transform hover:scale-105 transition-all text-lg min-h-[54px] mt-2">
+          class="w-full bg-peak-yellow hover:bg-peak-yellow-light text-peak-dark font-extrabold py-4 px-6 rounded-full shadow-xl transform hover:scale-105 transition-all text-lg min-h-[54px] mt-2">
           Envoyer ma demande — je vous réponds sous 24h
         </button>
 
@@ -204,7 +204,7 @@
 
 <style>
   .active-tab {
-    background-color: #c8a96b;
+    background-color: #f5df29;
     color: #070f19;
   }
 </style>

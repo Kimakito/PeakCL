@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.fillText(text, i * fontSize, y);
 
       // Corps de la colonne (chiffre précédent en doré)
-      ctx.fillStyle = '#c8a96b';
-      ctx.shadowColor = '#c8a96b';
+      ctx.fillStyle = '#f5df29';
+      ctx.shadowColor = '#f5df29';
       ctx.shadowBlur = 4;
       ctx.fillText(
         characters[Math.floor(Math.random() * characters.length)],

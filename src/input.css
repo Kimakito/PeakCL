@@ -8,28 +8,28 @@ html {
 }
 
 :root {
-    --color-peak-blue-light: #00BDBF;
+    --color-peak-blue-light: #0cc6c1;
     --color-peak-blue-dark: #011526;
-    --color-peak-yellow: #F9CD00;
-    --color-peak-violet: #522A80;
+    --color-peak-yellow: #f5df29;
+    --color-peak-violet: #af07d9;
     --color-peak-gray: #F3F4F6;
     --color-peak-gray-dark: #1F2937;
     --luxe-navy: #08101b;
     --luxe-navy-soft: #0f1c2e;
     --luxe-ink: #e8edf4;
     --luxe-muted: #b8c2d1;
-    --luxe-gold: #c8a96b;
-    --luxe-gold-soft: #e3cc9a;
+    --luxe-gold: #f5df29;
+    --luxe-gold-soft: #f9ec72;
 }
 
 .bg-luxe-hero {
-    background: radial-gradient(1200px 500px at 50% -10%, rgba(200, 169, 107, 0.18), rgba(200, 169, 107, 0) 60%),
+    background: radial-gradient(1200px 500px at 50% -10%, rgba(245, 223, 41, 0.15), rgba(175, 7, 217, 0.08) 60%),
         linear-gradient(145deg, var(--luxe-navy), var(--luxe-navy-soft) 55%, #101f33);
 }
 
 .bg-luxe-panel {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
-    border: 1px solid rgba(200, 169, 107, 0.28);
+    border: 1px solid rgba(245, 223, 41, 0.22);
     box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
 }
 
@@ -39,13 +39,13 @@ html {
 
 .btn-luxe-primary {
     background: linear-gradient(120deg, var(--luxe-gold), var(--luxe-gold-soft));
-    color: #1b2533;
+    color: #0f0f0f;
 }
 
 .btn-luxe-secondary {
     background: transparent;
     color: var(--luxe-ink);
-    border: 1px solid rgba(200, 169, 107, 0.7);
+    border: 1px solid rgba(245, 223, 41, 0.6);
 }
 
 /* Cross-site luxe refinements */
@@ -265,11 +265,11 @@ html {
 @keyframes pulse-slow {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 20px 25px -5px rgba(249, 205, 0, 0.3), 0 10px 10px -5px rgba(249, 205, 0, 0.2);
+    box-shadow: 0 20px 25px -5px rgba(245, 223, 41, 0.35), 0 10px 10px -5px rgba(175, 7, 217, 0.2);
   }
   50% {
     transform: scale(1.05);
-    box-shadow: 0 25px 50px -12px rgba(249, 205, 0, 0.5), 0 15px 15px -5px rgba(249, 205, 0, 0.4);
+    box-shadow: 0 25px 50px -12px rgba(245, 223, 41, 0.55), 0 15px 15px -5px rgba(12, 198, 193, 0.25);
   }
 }
 
