@@ -85,7 +85,10 @@ image: /assets/logo/PeakCL.logo.png
 </div>
 
 <!-- Section Vidéo de présentation -->
-<section id="video" class="relative py-16 px-6 bg-peak-dark" style="display:none">
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/26i532zvqr.js" async type="module"></script>
+<style>wistia-player[media-id='26i532zvqr']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/26i532zvqr/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+<section id="video" class="relative py-16 px-6 bg-peak-dark">
   <div class="max-w-3xl mx-auto text-center">
     <p class="text-peak-yellow-light uppercase tracking-widest text-xs font-bold mb-4">Qui suis-je, concrètement ?</p>
     <h2 class="text-2xl sm:text-3xl font-title font-extrabold text-white mb-4">
@@ -95,20 +98,8 @@ image: /assets/logo/PeakCL.logo.png
       Pas de discours. Juste moi, un projet réel, et ce qui a changé pour le client.
     </p>
 
-    <!-- Placeholder vidéo — remplacer l'URL YouTube ci-dessous quand la vidéo est prête -->
-    <!-- Pour intégrer : coller l'ID YouTube dans data-video-id, ex : data-video-id="dQw4w9WgXcQ" -->
-    <div id="video-placeholder" class="relative mx-auto max-w-2xl rounded-2xl overflow-hidden shadow-2xl border border-peak-yellow/30 bg-peak-dark-navy aspect-video flex flex-col items-center justify-center cursor-pointer group"
-         data-video-id=""
-         onclick="loadVideo(this)">
-      <!-- Icône play -->
-      <div class="w-20 h-20 rounded-full bg-peak-yellow flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300 mb-5">
-        <svg class="w-8 h-8 text-peak-dark ml-1" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-      </div>
-      <p class="text-white font-bold text-lg">▶ Regarder la présentation</p>
-      <p class="text-white/40 text-sm mt-2">Vidéo bientôt disponible</p>
-      <!-- Miniature optionnelle : remplacer le bg-peak-dark-navy par une image de fond quand disponible -->
+    <div class="relative mx-auto max-w-2xl rounded-2xl overflow-hidden shadow-2xl border border-peak-yellow/30">
+      <wistia-player media-id="26i532zvqr" aspect="1.7777777777777777"></wistia-player>
     </div>
 
     <p class="text-white/30 text-xs mt-6">
@@ -117,20 +108,7 @@ image: /assets/logo/PeakCL.logo.png
   </div>
 </section>
 
-<script>
-function loadVideo(el) {
-  var id = el.getAttribute('data-video-id');
-  if (!id) return; // pas encore de vidéo
-  var iframe = document.createElement('iframe');
-  iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
-  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-  iframe.allowFullscreen = true;
-  iframe.className = 'absolute inset-0 w-full h-full';
-  el.innerHTML = '';
-  el.appendChild(iframe);
-  el.style.cursor = 'default';
-}
-</script>
+
 
 <!-- Lead magnet - Audit rapide -->
 <section id="audit" class="relative py-14 px-6 bg-peak-dark">
