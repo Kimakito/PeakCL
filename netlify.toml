@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "dist/client"
+
+# SPA fallback so deep links work (/portfolio, /agence-web-*, /merci)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
