@@ -2,9 +2,9 @@
   command = "npm run build"
   publish = "dist/client"
 
-# SPA fallback so deep links work (/portfolio, /agence-web-*, /merci)
+# TanStack Start on Netlify runs via a serverless function.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/server"
   status = 200
 
