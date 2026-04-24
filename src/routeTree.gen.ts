@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as QuiSuisJeRouteImport } from './routes/qui-suis-je'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as MerciRouteImport } from './routes/merci'
 import { Route as AgenceWebChamberyRouteImport } from './routes/agence-web-chambery'
@@ -17,6 +18,11 @@ import { Route as AgenceWebAlbertvilleRouteImport } from './routes/agence-web-al
 import { Route as AgenceWebAixLesBainsRouteImport } from './routes/agence-web-aix-les-bains'
 import { Route as IndexRouteImport } from './routes/index'
 
+const QuiSuisJeRoute = QuiSuisJeRouteImport.update({
+  id: '/qui-suis-je',
+  path: '/qui-suis-je',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
   '/merci': typeof MerciRoute
   '/portfolio': typeof PortfolioRoute
+  '/qui-suis-je': typeof QuiSuisJeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
   '/merci': typeof MerciRoute
   '/portfolio': typeof PortfolioRoute
+  '/qui-suis-je': typeof QuiSuisJeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
   '/merci': typeof MerciRoute
   '/portfolio': typeof PortfolioRoute
+  '/qui-suis-je': typeof QuiSuisJeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/agence-web-chambery'
     | '/merci'
     | '/portfolio'
+    | '/qui-suis-je'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/agence-web-chambery'
     | '/merci'
     | '/portfolio'
+    | '/qui-suis-je'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/agence-web-chambery'
     | '/merci'
     | '/portfolio'
+    | '/qui-suis-je'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,10 +131,18 @@ export interface RootRouteChildren {
   AgenceWebChamberyRoute: typeof AgenceWebChamberyRoute
   MerciRoute: typeof MerciRoute
   PortfolioRoute: typeof PortfolioRoute
+  QuiSuisJeRoute: typeof QuiSuisJeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/qui-suis-je': {
+      id: '/qui-suis-je'
+      path: '/qui-suis-je'
+      fullPath: '/qui-suis-je'
+      preLoaderRoute: typeof QuiSuisJeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio': {
       id: '/portfolio'
       path: '/portfolio'
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   AgenceWebChamberyRoute: AgenceWebChamberyRoute,
   MerciRoute: MerciRoute,
   PortfolioRoute: PortfolioRoute,
+  QuiSuisJeRoute: QuiSuisJeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

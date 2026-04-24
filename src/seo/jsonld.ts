@@ -10,7 +10,7 @@ export function organizationJsonLd(): JsonLd {
     url: absUrl("/"),
     logo: absUrl("/peakcl/PeakCL.svg"),
     email: "peakcl73@gmail.com",
-    sameAs: ["https://www.linkedin.com"], // TODO: replace with real profile
+    sameAs: ["https://www.linkedin.com/in/charlotte-lacroix-peakcl/"],
   };
 }
 

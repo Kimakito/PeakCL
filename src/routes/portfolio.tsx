@@ -33,20 +33,45 @@ export const Route = createFileRoute("/portfolio")({
   component: PortfolioPage,
 });
 
+const CALENDLY_URL = "https://calendly.com/peakcl73/45min";
+const WHATSAPP_URL = "https://wa.me/33743517627";
+const EMAIL = "peakcl73@gmail.com";
+
 function PortfolioPage() {
   return (
     <div className="min-h-screen">
-      <header className="border-b border-white/5 bg-background/70 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+      <header className="sticky top-0 z-50 border-b border-white/5 bg-background/70 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-4">
           <a href="/" className="font-display text-lg font-bold tracking-tight">
             Peak<span className="text-gradient">CL</span>
           </a>
-          <a
-            href="/#contact"
-            className="inline-flex items-center justify-center rounded-full bg-primary-gradient px-5 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
-          >
-            Réserver un appel
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-event="cta_whatsapp"
+              className="hidden text-xs font-semibold text-muted-foreground hover:text-foreground sm:inline-flex"
+            >
+              WhatsApp
+            </a>
+            <a
+              href={`mailto:${EMAIL}`}
+              data-event="cta_email"
+              className="hidden text-xs font-semibold text-muted-foreground hover:text-foreground md:inline-flex"
+            >
+              Email
+            </a>
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-event="cta_calendly_portfolio"
+              className="inline-flex items-center justify-center rounded-full bg-primary-gradient px-5 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
+            >
+              Réserver une visio
+            </a>
+          </div>
         </div>
       </header>
 

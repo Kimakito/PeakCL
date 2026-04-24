@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import {
   ArrowRight,
   Check,
@@ -21,6 +22,7 @@ import { peakclFaq } from "@/content/peakcl/faq";
 import { peakclPortfolio } from "@/content/peakcl/portfolio";
 import { absUrl } from "@/seo/site";
 import { faqPageJsonLd } from "@/seo/jsonld";
+import { loadExternalScript } from "@/lib/loadExternalScript";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,6 +47,15 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
+const CALENDLY_URL = "https://calendly.com/peakcl73/45min";
+const WHATSAPP_URL = "https://wa.me/33743517627";
+const EMAIL = "peakcl73@gmail.com";
+const LINKEDIN_URL = "https://www.linkedin.com/in/charlotte-lacroix-peakcl/";
+const MALT_URL = "https://www.malt.fr/profile/peakcldev";
+const FIVERR_URL = "https://fr.fiverr.com/s/99W6WYa";
+const COMEUP_URL = "https://comeup.com/fr/@PeakCL";
+const CODEUR_URL = "https://www.codeur.com/-peakcl";
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
@@ -55,11 +66,13 @@ function CTAButton({
   href = "#contact",
   variant = "primary",
   className = "",
+  dataEvent,
 }: {
   children: React.ReactNode;
   href?: string;
   variant?: "primary" | "ghost";
   className?: string;
+  dataEvent?: string;
 }) {
   const base =
     "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300";
@@ -67,11 +80,43 @@ function CTAButton({
     variant === "primary"
       ? "bg-primary-gradient text-primary-foreground shadow-glow hover:scale-[1.03] hover:shadow-[0_25px_70px_-20px_color-mix(in_oklab,var(--brand-violet)_70%,transparent)]"
       : "border border-border bg-card/40 text-foreground backdrop-blur hover:bg-card/70";
+  const isExternal = /^https?:\/\//.test(href);
   return (
-    <a href={href} className={`${base} ${styles} ${className}`}>
+    <a
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      data-event={dataEvent}
+      className={`${base} ${styles} ${className}`}
+    >
       {children}
       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
     </a>
+  );
+}
+
+function ContactInline({ className = "" }: { className?: string }) {
+  return (
+    <div className={`flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground ${className}`}>
+      <span>Ou</span>
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-event="cta_whatsapp"
+        className="font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+      >
+        WhatsApp pro
+      </a>
+      <span>·</span>
+      <a
+        href={`mailto:${EMAIL}`}
+        data-event="cta_email"
+        className="font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+      >
+        {EMAIL}
+      </a>
+    </div>
   );
 }
 
@@ -92,7 +137,7 @@ function Nav() {
           <a href="#resultats" className="hover:text-foreground">Résultats</a>
           <a href="#faq" className="hover:text-foreground">FAQ</a>
         </nav>
-        <CTAButton href="#contact" className="!px-5 !py-2 text-xs">
+        <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_header" className="!px-5 !py-2 text-xs">
           Réserver un appel
         </CTAButton>
       </div>
@@ -113,13 +158,17 @@ function GeoLinks() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
-            Zones couvertes
+            Basée en Savoie, disponible partout
           </span>
           <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-            Savoie &amp; Haute‑Savoie.
+            Projets partout en France, en visio.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Pages locales pour être trouvé sur Google et convertir en demandes qualifiées.
+            Je travaille à distance (domicile) et j’accompagne des clients dans toute la France. Les pages ci‑dessous
+            existent surtout pour le SEO local.
+          </p>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Déplacements: uniquement si nécessaire autour d’Albertville / Annecy / Chambéry (et je préfère éviter).
           </p>
         </div>
 
@@ -183,8 +232,35 @@ function Hero() {
           transition={{ delay: 0.15 }}
           className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
-          <CTAButton href="#contact">Réserver un appel gratuit</CTAButton>
-          <CTAButton href="#resultats" variant="ghost">Voir les résultats</CTAButton>
+          <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_hero">
+            Réserver une visio
+          </CTAButton>
+          <CTAButton href="#contact" dataEvent="cta_audit_hero" variant="ghost">
+            Demander un audit gratuit
+          </CTAButton>
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={fadeUp}
+          transition={{ delay: 0.17 }}
+          className="mt-3"
+        >
+          <a
+            href="#resultats"
+            className="text-xs font-semibold text-muted-foreground hover:text-foreground"
+          >
+            Voir les résultats →
+          </a>
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={fadeUp}
+          transition={{ delay: 0.18 }}
+          className="mt-4"
+        >
+          <ContactInline />
         </motion.div>
 
         <motion.div
@@ -195,7 +271,7 @@ function Hero() {
           className="mx-auto mt-14 grid max-w-3xl grid-cols-3 gap-6 border-t border-white/5 pt-8 text-center"
         >
           {[
-            { k: "+120", v: "projets livrés" },
+            { k: "+20", v: "projets livrés" },
             { k: "14j", v: "délai moyen" },
             { k: "4.9/5", v: "satisfaction client" },
           ].map((s) => (
@@ -205,6 +281,49 @@ function Hero() {
             </div>
           ))}
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function VideoIntro() {
+  useEffect(() => {
+    loadExternalScript({
+      id: "wistia-embed-script",
+      src: "https://fast.wistia.com/assets/external/E-v1.js",
+    });
+  }, []);
+
+  return (
+    <section className="border-t border-white/5 py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">
+            Qui suis‑je, concrètement ?
+          </span>
+          <h2 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
+            70 secondes pour comprendre comment je travaille.
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg text-sm text-muted-foreground">
+            Pas de discours. Juste moi, qui je suis et ce que je fais.
+          </p>
+
+          <div className="relative mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-card backdrop-blur">
+            <div className="aspect-video w-full">
+              <div
+                className="wistia_embed wistia_async_26i532zvqr videoFoam=true"
+                style={{ height: "100%", width: "100%" }}
+              />
+            </div>
+          </div>
+
+          <p className="mt-6 text-xs text-muted-foreground">
+            Vous préférez lire ?{" "}
+            <a href="/qui-suis-je" className="font-semibold text-[var(--brand-yellow)]/80 hover:text-[var(--brand-yellow)] underline">
+              En savoir plus sur mon parcours →
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -458,6 +577,40 @@ function Social() {
   );
 }
 
+function Instagram() {
+  useEffect(() => {
+    loadExternalScript({
+      id: "elfsight-platform-script",
+      src: "https://elfsightcdn.com/platform.js",
+    });
+  }, []);
+
+  return (
+    <section className="border-t border-white/5 py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+            Réseaux sociaux
+          </span>
+          <h2 className="mt-4 text-4xl font-bold md:text-5xl">
+            Suivez PeakCL sur <span className="text-gradient">Instagram</span>.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Avant / après, conseils conversion, coulisses des projets.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl border border-white/5 bg-card/30 p-4 shadow-card backdrop-blur">
+          <div
+            className="elfsight-app-562a0aa7-3065-445f-bb96-cba40fe65b41"
+            data-elfsight-app-lazy
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const why = [
   {
     icon: Target,
@@ -642,9 +795,12 @@ function FinalCTA() {
               Recevoir mon audit
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
-            <CTAButton href="mailto:peakcl73@gmail.com" variant="ghost" className="js-track-email">
-              Ou écrire à peakcl73@gmail.com
+            <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_contact" variant="ghost">
+              Réserver une visio
             </CTAButton>
+          </div>
+          <div className="mt-4 text-center">
+            <ContactInline className="justify-center" />
           </div>
         </form>
 
@@ -669,12 +825,56 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="border-t border-white/5 py-10">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-sm text-muted-foreground md:flex-row">
-        <div className="flex items-center gap-3">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 text-sm text-muted-foreground md:flex-row">
+        <div className="flex flex-col items-center gap-3 md:items-start">
+          <div className="flex items-center gap-3">
           <img src={logo} alt="PeakCL" className="h-7 w-7 rounded-md object-cover" />
           <span>© {new Date().getFullYear()} PeakCL — Charlotte Lacroix</span>
         </div>
-        <div className="flex gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs md:justify-start">
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={MALT_URL}
+              target="_blank"
+              rel="noopener noreferrer nofollow sponsored"
+              className="hover:text-foreground"
+            >
+              Malt
+            </a>
+            <a
+              href={FIVERR_URL}
+              target="_blank"
+              rel="noopener noreferrer nofollow sponsored"
+              className="hover:text-foreground"
+            >
+              Fiverr
+            </a>
+            <a
+              href={COMEUP_URL}
+              target="_blank"
+              rel="noopener noreferrer nofollow sponsored"
+              className="hover:text-foreground"
+            >
+              ComeUp
+            </a>
+            <a
+              href={CODEUR_URL}
+              target="_blank"
+              rel="noopener noreferrer nofollow sponsored"
+              className="hover:text-foreground"
+            >
+              Codeur.com
+            </a>
+          </div>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
           <a href="#services" className="hover:text-foreground">Services</a>
           <a href="/portfolio" className="hover:text-foreground">Portfolio</a>
           <a href="#contact" className="hover:text-foreground">Contact</a>
@@ -690,11 +890,13 @@ function Landing() {
       <Nav />
       <main>
         <Hero />
+        <VideoIntro />
         <Problem />
         <Services />
         <GeoLinks />
         <PortfolioTeaser />
         <Social />
+        <Instagram />
         <Why />
         <FAQ />
         <FinalCTA />
