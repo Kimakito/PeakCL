@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { peakclPortfolio } from "@/content/peakcl/portfolio";
+import { absUrl } from "@/seo/site";
+import { breadcrumbJsonLd } from "@/seo/jsonld";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -11,7 +13,22 @@ export const Route = createFileRoute("/portfolio")({
         content:
           "Découvrez quelques projets livrés par PeakCL : sites vitrines, e-commerce et identités visuelles.",
       },
+      { property: "og:title", content: "Portfolio PeakCL — Réalisations" },
+      {
+        property: "og:description",
+        content:
+          "Découvrez quelques projets livrés par PeakCL : sites vitrines, e-commerce et identités visuelles.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: absUrl("/portfolio") },
+      {
+        "script:ld+json": breadcrumbJsonLd([
+          { name: "Accueil", path: "/" },
+          { name: "Portfolio", path: "/portfolio" },
+        ]),
+      },
     ],
+    links: [{ rel: "canonical", href: absUrl("/portfolio") }],
   }),
   component: PortfolioPage,
 });

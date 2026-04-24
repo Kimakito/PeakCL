@@ -1,6 +1,8 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { absUrl } from "@/seo/site";
+import { organizationJsonLd, professionalServiceJsonLd } from "@/seo/jsonld";
 
 function NotFoundComponent() {
   return (
@@ -42,14 +44,19 @@ export const Route = createRootRoute({
         content:
           "Création & refonte de sites, logos, identité visuelle et contenus pour entrepreneurs ambitieux.",
       },
+      { property: "og:locale", content: "fr_FR" },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: absUrl("/") },
       { name: "twitter:card", content: "summary_large_image" },
+      { "script:ld+json": organizationJsonLd() },
+      { "script:ld+json": professionalServiceJsonLd() },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "canonical", href: absUrl("/") },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",
@@ -79,6 +86,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){function send(n,p){try{if(window.plausible){window.plausible(n,{props:p||{}});return;}if(window.gtag){window.gtag('event',n,p||{});return;}console.log('[event]',n,p||{});}catch(e){}}document.addEventListener('submit',function(e){var f=e.target;if(!f||!f.getAttribute)return;var n=f.getAttribute('data-event');if(n)send(n,{form:f.getAttribute('name')||undefined});});document.addEventListener('click',function(e){var el=e.target&&e.target.closest?e.target.closest('[data-event],.js-track-portfolio,.js-track-email'):null;if(!el)return;var n=el.getAttribute('data-event')|| (el.classList.contains('js-track-portfolio')?'portfolio_open':'') || (el.classList.contains('js-track-email')?'email_click':'');if(n)send(n,{href:el.getAttribute('href')||undefined});});})();`,
+          }}
+        />
       </body>
     </html>
   );

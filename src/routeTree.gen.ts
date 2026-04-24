@@ -10,11 +10,41 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as MerciRouteImport } from './routes/merci'
+import { Route as AgenceWebChamberyRouteImport } from './routes/agence-web-chambery'
+import { Route as AgenceWebAnnecyRouteImport } from './routes/agence-web-annecy'
+import { Route as AgenceWebAlbertvilleRouteImport } from './routes/agence-web-albertville'
+import { Route as AgenceWebAixLesBainsRouteImport } from './routes/agence-web-aix-les-bains'
 import { Route as IndexRouteImport } from './routes/index'
 
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MerciRoute = MerciRouteImport.update({
+  id: '/merci',
+  path: '/merci',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgenceWebChamberyRoute = AgenceWebChamberyRouteImport.update({
+  id: '/agence-web-chambery',
+  path: '/agence-web-chambery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgenceWebAnnecyRoute = AgenceWebAnnecyRouteImport.update({
+  id: '/agence-web-annecy',
+  path: '/agence-web-annecy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgenceWebAlbertvilleRoute = AgenceWebAlbertvilleRouteImport.update({
+  id: '/agence-web-albertville',
+  path: '/agence-web-albertville',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgenceWebAixLesBainsRoute = AgenceWebAixLesBainsRouteImport.update({
+  id: '/agence-web-aix-les-bains',
+  path: '/agence-web-aix-les-bains',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +55,69 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agence-web-aix-les-bains': typeof AgenceWebAixLesBainsRoute
+  '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
+  '/agence-web-annecy': typeof AgenceWebAnnecyRoute
+  '/agence-web-chambery': typeof AgenceWebChamberyRoute
+  '/merci': typeof MerciRoute
   '/portfolio': typeof PortfolioRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agence-web-aix-les-bains': typeof AgenceWebAixLesBainsRoute
+  '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
+  '/agence-web-annecy': typeof AgenceWebAnnecyRoute
+  '/agence-web-chambery': typeof AgenceWebChamberyRoute
+  '/merci': typeof MerciRoute
   '/portfolio': typeof PortfolioRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agence-web-aix-les-bains': typeof AgenceWebAixLesBainsRoute
+  '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
+  '/agence-web-annecy': typeof AgenceWebAnnecyRoute
+  '/agence-web-chambery': typeof AgenceWebChamberyRoute
+  '/merci': typeof MerciRoute
   '/portfolio': typeof PortfolioRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/portfolio'
+  fullPaths:
+    | '/'
+    | '/agence-web-aix-les-bains'
+    | '/agence-web-albertville'
+    | '/agence-web-annecy'
+    | '/agence-web-chambery'
+    | '/merci'
+    | '/portfolio'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/portfolio'
-  id: '__root__' | '/' | '/portfolio'
+  to:
+    | '/'
+    | '/agence-web-aix-les-bains'
+    | '/agence-web-albertville'
+    | '/agence-web-annecy'
+    | '/agence-web-chambery'
+    | '/merci'
+    | '/portfolio'
+  id:
+    | '__root__'
+    | '/'
+    | '/agence-web-aix-les-bains'
+    | '/agence-web-albertville'
+    | '/agence-web-annecy'
+    | '/agence-web-chambery'
+    | '/merci'
+    | '/portfolio'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgenceWebAixLesBainsRoute: typeof AgenceWebAixLesBainsRoute
+  AgenceWebAlbertvilleRoute: typeof AgenceWebAlbertvilleRoute
+  AgenceWebAnnecyRoute: typeof AgenceWebAnnecyRoute
+  AgenceWebChamberyRoute: typeof AgenceWebChamberyRoute
+  MerciRoute: typeof MerciRoute
   PortfolioRoute: typeof PortfolioRoute
 }
 
@@ -56,6 +128,41 @@ declare module '@tanstack/react-router' {
       path: '/portfolio'
       fullPath: '/portfolio'
       preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/merci': {
+      id: '/merci'
+      path: '/merci'
+      fullPath: '/merci'
+      preLoaderRoute: typeof MerciRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agence-web-chambery': {
+      id: '/agence-web-chambery'
+      path: '/agence-web-chambery'
+      fullPath: '/agence-web-chambery'
+      preLoaderRoute: typeof AgenceWebChamberyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agence-web-annecy': {
+      id: '/agence-web-annecy'
+      path: '/agence-web-annecy'
+      fullPath: '/agence-web-annecy'
+      preLoaderRoute: typeof AgenceWebAnnecyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agence-web-albertville': {
+      id: '/agence-web-albertville'
+      path: '/agence-web-albertville'
+      fullPath: '/agence-web-albertville'
+      preLoaderRoute: typeof AgenceWebAlbertvilleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agence-web-aix-les-bains': {
+      id: '/agence-web-aix-les-bains'
+      path: '/agence-web-aix-les-bains'
+      fullPath: '/agence-web-aix-les-bains'
+      preLoaderRoute: typeof AgenceWebAixLesBainsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +177,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgenceWebAixLesBainsRoute: AgenceWebAixLesBainsRoute,
+  AgenceWebAlbertvilleRoute: AgenceWebAlbertvilleRoute,
+  AgenceWebAnnecyRoute: AgenceWebAnnecyRoute,
+  AgenceWebChamberyRoute: AgenceWebChamberyRoute,
+  MerciRoute: MerciRoute,
   PortfolioRoute: PortfolioRoute,
 }
 export const routeTree = rootRouteImport

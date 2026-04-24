@@ -19,6 +19,8 @@ import logo from "@/assets/peakcl-logo.png";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 import { peakclFaq } from "@/content/peakcl/faq";
 import { peakclPortfolio } from "@/content/peakcl/portfolio";
+import { absUrl } from "@/seo/site";
+import { faqPageJsonLd } from "@/seo/jsonld";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -35,7 +37,10 @@ export const Route = createFileRoute("/")({
         content:
           "Site, logo, identité visuelle et contenus pour propulser votre activité.",
       },
+      { property: "og:url", content: absUrl("/") },
+      { "script:ld+json": faqPageJsonLd(peakclFaq) },
     ],
+    links: [{ rel: "canonical", href: absUrl("/") }],
   }),
   component: Landing,
 });
@@ -92,6 +97,45 @@ function Nav() {
         </CTAButton>
       </div>
     </header>
+  );
+}
+
+function GeoLinks() {
+  const items = [
+    { name: "Albertville", href: "/agence-web-albertville" },
+    { name: "Chambéry", href: "/agence-web-chambery" },
+    { name: "Annecy", href: "/agence-web-annecy" },
+    { name: "Aix-les-Bains", href: "/agence-web-aix-les-bains" },
+  ];
+
+  return (
+    <section className="border-t border-white/5 py-20">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+            Zones couvertes
+          </span>
+          <h2 className="mt-4 text-3xl font-bold md:text-4xl">
+            Savoie &amp; Haute‑Savoie.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Pages locales pour être trouvé sur Google et convertir en demandes qualifiées.
+          </p>
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          {items.map((i) => (
+            <a
+              key={i.href}
+              href={i.href}
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-muted-foreground hover:border-white/20 hover:text-foreground"
+            >
+              {i.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -312,6 +356,7 @@ function PortfolioTeaser() {
               href={p.siteUrl}
               target="_blank"
               rel="noreferrer"
+              data-event="portfolio_click"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
@@ -362,7 +407,7 @@ function PortfolioTeaser() {
         </div>
 
         <div className="mt-10 text-center">
-          <CTAButton href="/portfolio" variant="ghost">
+          <CTAButton href="/portfolio" variant="ghost" className="js-track-portfolio">
             Voir tout le portfolio
           </CTAButton>
         </div>
@@ -530,21 +575,25 @@ function FinalCTA() {
           variants={fadeUp}
           className="text-balance text-4xl font-bold leading-tight md:text-6xl"
         >
-          Prêt·e à avoir un site qui <span className="text-gradient">vend pour vous</span> ?
+          Recevez mon <span className="text-gradient">audit gratuit</span> sous 24h
         </motion.h2>
         <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
-          20 minutes d'appel offert. On clarifie votre objectif, votre client idéal,
-          et la stratégie pour passer à l'étape supérieure. Aucun engagement.
+          Vous m’expliquez votre activité et votre objectif. Je vous réponds avec des recommandations
+          concrètes pour générer plus de prises de contact (structure, message, CTA, SEO local).
         </p>
 
         <form
           className="mx-auto mt-10 max-w-xl space-y-4 rounded-2xl border border-white/10 bg-card/40 p-6 text-left shadow-card backdrop-blur"
           name="contact"
           method="POST"
+          action="/merci"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          data-event="audit_submit"
         >
           <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="leadType" value="audit_gratuit" />
+          <input type="hidden" name="source" value="site_peakcl" />
           <p className="hidden">
             <label>
               Ne pas remplir: <input name="bot-field" />
@@ -580,19 +629,20 @@ function FinalCTA() {
               required
               rows={5}
               className="mt-2 w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-white/20"
-              placeholder="Décrivez votre activité et ce que vous voulez obtenir."
+                placeholder="Décrivez votre activité + ce que vous vendez + votre ville + votre objectif (ex: +10 demandes/mois)."
             />
           </label>
 
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <button
               type="submit"
+              data-event="audit_submit_click"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.03]"
             >
-              Envoyer
+              Recevoir mon audit
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
-            <CTAButton href="mailto:peakcl73@gmail.com" variant="ghost">
+            <CTAButton href="mailto:peakcl73@gmail.com" variant="ghost" className="js-track-email">
               Ou écrire à peakcl73@gmail.com
             </CTAButton>
           </div>
@@ -600,10 +650,10 @@ function FinalCTA() {
 
         <ul className="mx-auto mt-10 flex max-w-xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
           {[
-            "Devis sous 24h",
+            "Réponse sous 24h",
             "Sans engagement",
-            "Livraison en 14 jours",
-            "Satisfait ou ajusté",
+            "Recommandations actionnables",
+            "Optimisation SEO local",
           ].map((x) => (
             <li key={x} className="inline-flex items-center gap-2">
               <Check className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
@@ -642,6 +692,7 @@ function Landing() {
         <Hero />
         <Problem />
         <Services />
+        <GeoLinks />
         <PortfolioTeaser />
         <Social />
         <Why />
