@@ -537,12 +537,66 @@ function FinalCTA() {
           et la stratégie pour passer à l'étape supérieure. Aucun engagement.
         </p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <CTAButton href="mailto:contact@peakcl.com">Réserver mon appel offert</CTAButton>
-          <CTAButton href="https://www.linkedin.com" variant="ghost">
-            Me contacter sur LinkedIn
-          </CTAButton>
-        </div>
+        <form
+          className="mx-auto mt-10 max-w-xl space-y-4 rounded-2xl border border-white/10 bg-card/40 p-6 text-left shadow-card backdrop-blur"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p className="hidden">
+            <label>
+              Ne pas remplir: <input name="bot-field" />
+            </label>
+          </p>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <label className="block">
+              <span className="text-xs font-semibold text-muted-foreground">Nom</span>
+              <input
+                name="name"
+                required
+                className="mt-2 w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-white/20"
+                placeholder="Votre nom"
+              />
+            </label>
+            <label className="block">
+              <span className="text-xs font-semibold text-muted-foreground">Email</span>
+              <input
+                name="email"
+                type="email"
+                required
+                className="mt-2 w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-white/20"
+                placeholder="vous@exemple.com"
+              />
+            </label>
+          </div>
+
+          <label className="block">
+            <span className="text-xs font-semibold text-muted-foreground">Message</span>
+            <textarea
+              name="message"
+              required
+              rows={5}
+              className="mt-2 w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-white/20"
+              placeholder="Décrivez votre activité et ce que vous voulez obtenir."
+            />
+          </label>
+
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <button
+              type="submit"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.03]"
+            >
+              Envoyer
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
+            <CTAButton href="mailto:peakcl73@gmail.com" variant="ghost">
+              Ou écrire à peakcl73@gmail.com
+            </CTAButton>
+          </div>
+        </form>
 
         <ul className="mx-auto mt-10 flex max-w-xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
           {[
