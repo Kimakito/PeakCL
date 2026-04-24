@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Netlify Forms</title>
+  </head>
+  <body>
+    <!--
+      Netlify scans static HTML at build time to register forms.
+      This hidden page ensures the "contact" form is always detected.
+    -->
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
+      <p style="display:none">
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <p>
+        <label>Nom <input name="name" required /></label>
+      </p>
+      <p>
+        <label>Email <input name="email" type="email" required /></label>
+      </p>
+      <p>
+        <label>Message <textarea name="message" required></textarea></label>
+      </p>
+      <button type="submit">Envoyer</button>
+    </form>
+  </body>
+</html>
+
