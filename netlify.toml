@@ -2,6 +2,10 @@
   command = "npm run build"
   publish = "dist/client"
 
+# Netlify TanStack Start plugin outputs functions here
+[functions]
+  directory = ".netlify/v1/functions"
+
 # TanStack Start on Netlify runs via a serverless function.
 [[redirects]]
   from = "/*"
