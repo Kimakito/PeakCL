@@ -5,104 +5,104 @@ export type PeakclFaqItem = {
 
 export const peakclFaq: PeakclFaqItem[] = [
   {
-    question: "Comment savoir quel type de site est adapte a mon activite ?",
+    question: "Comment savoir quel type de présence en ligne est adapté à mon activité ?",
     answerHtml:
-      "Je regarde surtout votre offre, votre cible et l'action que vous voulez obtenir. Un bon site ne commence pas par la technique, mais par un message clair et un parcours simple vers la prise de contact.",
+      "On part de votre activité (ce que vous faites, pour qui, où) et de l’action que vous voulez obtenir (appel, demande de devis, réservation…). Un bon site ne commence pas par la technique, mais par un message clair et un parcours simple vers la prise de contact.",
   },
   {
-    question: "Combien de temps pour créer un site web ?",
+    question: "Combien de temps faut‑il pour créer un site (et le mettre vraiment en ligne) ?",
     answerHtml:
-      "3-4 semaines pour un site vitrine, 6-12 semaines pour un e-commerce. Le délai dépend aussi de votre disponibilité pour le contenu.",
+      "Ça dépend du périmètre (site seul vs site + logo + réseaux + Google). L’idée, c’est d’avancer vite sans bâcler : on valide la structure et le ton, puis je produis. Le délai dépend aussi de votre disponibilité pour les infos de base (services, zone, photos).",
   },
   {
-    question: "Pourquoi avoir un site web si j'ai déjà Facebook ?",
+    question: "Pourquoi avoir un site web si j’ai déjà Instagram / Facebook ?",
     answerHtml:
-      "Facebook = location. Site web = propriété. Vous possédez 100% de votre site, pas votre page Facebook. 68% des recherches se font sur Google, pas Facebook.",
+      "Les réseaux sont utiles, mais vous ne les contrôlez pas (algorithmes, restrictions, comptes). Votre site, c’est votre base : un endroit clair où l’on comprend vite ce que vous faites, avec une prise de contact simple. Et surtout, Google renvoie d’abord vers des pages web et des fiches Google, pas vers vos posts.",
   },
   {
-    question: "Comment choisir un bon développeur web / une bonne agence ?",
+    question: "Comment choisir la bonne personne pour créer mon site ?",
     answerHtml:
-      "15 questions à poser, signaux d'alerte à éviter, comparaison freelance vs agence. Ne vous faites pas avoir !",
+      "Cherchez quelqu’un qui explique simplement, qui montre des réalisations, et qui parle aussi de mise en ligne (domaine, sécurité, indexation) et pas seulement de “design”. Le plus important : avoir une méthode claire, et une communication fluide.",
   },
   {
-    question: "Mon site sera référencé sur Google ?",
+    question: "Mon site sera‑t‑il référencé sur Google ?",
     answerHtml:
-      "Oui (fondations SEO incluses), mais résultats en 3-6 mois + travail continu. Je ne suis pas spécialiste SEO, mais je pose les bases techniques solides.",
+      "Oui : j’installe les fondations (structure, titres, performance, indexation). Ensuite, la visibilité se construit dans le temps, surtout avec une fiche Google Business Profile et du contenu utile. Je vous aide à partir sur des bases propres et durables.",
   },
   {
-    question: "Mon site sera adapté aux smartphones ?",
+    question: "Mon site sera‑t‑il adapté aux smartphones ?",
     answerHtml:
-      "OUI, 100% responsive. 68% de vos visiteurs sont sur mobile. Un site non responsive = 70% de clients perdus.",
+      "Oui, 100% responsive : le mobile est la norme, pas l’option.",
   },
   {
-    question: "La maintenance, c'est vraiment obligatoire ?",
+    question: "La maintenance, c’est obligatoire ?",
     answerHtml:
-      "Obligatoire non, fortement recommandé OUI. 90% des sites piratés = sites non à jour. Maintenance = assurance contre catastrophe.",
+      "Obligatoire non. Recommandée oui : mises à jour, sécurité, petites améliorations. Si vous voulez déléguer, je propose un forfait mensuel (réseaux, mises à jour, contenu) selon votre rythme.",
   },
   {
-    question: "RGPD, mentions légales, cookies... c'est obligatoire ?",
+    question: "RGPD, mentions légales, cookies… c’est obligatoire ?",
     answerHtml:
-      "Oui, ces elements sont indispensables pour un site professionnel. Je fournis les bases et les modeles utiles pour vous aider a les mettre en place sereinement.",
+      "Oui, ce sont des éléments indispensables pour un site professionnel. Je fournis les bases et des modèles utiles pour vous aider à les mettre en place sereinement (et je vous indique ce qui relève d’un avis juridique).",
   },
   {
-    question: "Ai-je besoin d'un email professionnel (contact@monsite.fr) ?",
+    question: "Ai‑je besoin d’un email professionnel (contact@monsite.fr) ?",
     answerHtml:
-      "Oui. Une adresse comme contact@votresite.fr renforce tout de suite la credibilite de votre activite et rassure davantage qu'une adresse generique.",
+      "Oui. Une adresse comme contact@votresite.fr renforce tout de suite la crédibilité et rassure davantage qu’une adresse générique.",
   },
   {
-    question: "Comment savoir si mon site fonctionne ?",
+    question: "Comment savoir si mon site “fonctionne” ?",
     answerHtml:
-      "Google Analytics (gratuit) vous dit tout : visiteurs, d'où ils viennent, ce qu'ils font. Les 7 chiffres essentiels à surveiller.",
+      "On regarde des choses simples : prises de contact, appels, demandes de devis, réservations, clics WhatsApp. Et on peut connecter des outils (Analytics / Search Console) pour suivre la visibilité et comprendre d’où viennent les demandes.",
   },
   {
-    question: "Quel type de site choisir (WordPress, sur-mesure, Wix...) ?",
+    question: "Quel type de site choisir (sur‑mesure, WordPress, etc.) ?",
     answerHtml:
-      "Le choix depend de votre besoin reel d'autonomie, de votre ambition de croissance et du niveau de personnalisation attendu. L'important est surtout d'eviter une solution qui vous bloque ou qui donne une image trop amateur.",
+      "Le choix dépend de votre besoin réel d’autonomie, du niveau de personnalisation attendu et de votre ambition. L’important : éviter une solution qui vous bloque, qui ralentit, ou qui donne une image trop amateur.",
   },
   {
-    question: "Comment préparer le contenu de mon site ?",
+    question: "Je n’ai pas le temps de préparer le contenu. On fait comment ?",
     answerHtml:
-      "Textes, photos, logo, coordonnées. Checklist complète pour ne rien oublier. 60% des délais = contenu manquant.",
+      "C’est justement le cœur de mon approche : je vous pose les bonnes questions, je structure, et je rédige/organise avec vous. Vous n’avez pas besoin d’arriver avec un dossier parfait : on part de ce que vous avez, et on avance.",
   },
   {
     question: "Comment choisir mon nom de domaine ?",
     answerHtml:
-      "Court, mémorisable, avec mots-clés si possible. .fr pour France, .com pour international. Vérifier disponibilité.",
+      "Court, mémorisable, facile à dicter, et cohérent avec votre activité. Je vous aide à trancher et à l’acheter au bon endroit, puis je gère le branchement pour que tout fonctionne.",
   },
   {
-    question: "Quelles couleurs choisir pour mon site ?",
+    question: "Quelles couleurs / quel style choisir ?",
     answerHtml:
-      "Psychologie des couleurs selon votre secteur. 6 palettes prêtes à l'emploi. Éviter les erreurs classiques.",
+      "On ne choisit pas “au hasard” : on s’aligne sur ce que vous vendez, à qui, et l’image que vous voulez renvoyer. L’objectif : une identité simple, cohérente, et réutilisable partout.",
   },
   {
-    question: "Quelles polices/typographies utiliser ?",
+    question: "Et la typographie ?",
     answerHtml:
-      "4 combinaisons qui fonctionnent toujours. Lisibilité > Originalité. Google Fonts (gratuit) recommandé.",
+      "La règle : lisibilité d’abord. Je choisis des typographies propres, modernes et adaptées à votre activité (et cohérentes avec votre logo).",
   },
   {
-    question: "Pourquoi les images/visuels sont importants ?",
+    question: "Pourquoi les images/visuels sont si importants ?",
     answerHtml:
-      "Impact énorme sur crédibilité. Photos pros vs photos amateur = différence perception. Avant/après comparés.",
+      "Parce qu’ils créent la confiance. Un bon texte + des visuels cohérents = une présence qui rassure (et qui donne envie de vous contacter).",
   },
   {
-    question: "Puis-je modifier mon site moi-même après ?",
+    question: "Est‑ce que je serai autonome après ?",
     answerHtml:
-      "Oui avec WordPress (90% de mes clients). Formation 1h incluse. Interface simple type Word.",
+      "Oui. Et si vous préférez déléguer, je peux aussi gérer la partie “mise à jour / publications” en mensuel. L’idée : que ce soit confortable pour vous.",
   },
   {
-    question: "Travaillez-vous uniquement en Savoie / Albertville ?",
+    question: "Travaillez‑vous uniquement en Savoie / Albertville ?",
     answerHtml:
       "Basée à Albertville, mais j'accompagne des clients partout en France (visio, téléphone, email). Rencontre possible en Savoie. <a href='/qui-suis-je' class='underline'>En savoir plus sur moi →</a>",
   },
   {
-    question: "Que faut-il prevoir pour l'hebergement et le nom de domaine ?",
+    question: "Hébergement, nom de domaine, emails… je dois gérer ça ?",
     answerHtml:
-      "Je vous explique simplement ce qu'il faut prevoir pour l'hebergement, le nom de domaine et l'email professionnel, afin que votre site reste stable, rapide et credibile sur la duree.",
+      "Non : je vous explique simplement les choix, puis je m’occupe de la mise en place. Le but, c’est que votre site soit stable, rapide et crédible sur la durée.",
   },
   {
-    question: "Toutes mes questions en 1 seul endroit ?",
+    question: "L’IA peut faire un site. Pourquoi passer par vous ?",
     answerHtml:
-      "FAQ complète avec les 20 questions que TOUS les clients posent. Réponses honnêtes, sans langue de bois.",
+      "L’IA peut aider, oui. Mais un site utile, c’est aussi des choix : structure, message, confiance, mise en ligne, Google, cohérence visuelle. Si vous ne faites pas ça souvent, vous perdez du temps et vous perdez la main. Mon rôle : prendre le temps, simplifier, et livrer une présence en ligne propre — sans vous épuiser.",
   },
 ]
 

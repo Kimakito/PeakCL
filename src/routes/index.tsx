@@ -31,13 +31,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Création & refonte de sites web haut de gamme pour entrepreneurs, coachs et consultants. Plus de prospects, plus de clients, plus de crédibilité.",
+          "Je crée votre présence en ligne de A à Z (site, logo, réseaux sociaux, Google Business Profile) pour que vous soyez visible sans y passer vos soirées.",
       },
       { property: "og:title", content: "PeakCL — Sites web qui convertissent" },
       {
         property: "og:description",
         content:
-          "Site, logo, identité visuelle et contenus pour propulser votre activité.",
+          "Site, logo, réseaux sociaux et Google Business Profile pour une présence en ligne claire, cohérente et prête à attirer des clients.",
       },
       { property: "og:url", content: absUrl("/") },
       { "script:ld+json": faqPageJsonLd(peakclFaq) },
@@ -137,9 +137,18 @@ function Nav() {
           <a href="#resultats" className="hover:text-foreground">Résultats</a>
           <a href="#faq" className="hover:text-foreground">FAQ</a>
         </nav>
-        <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_header" className="!px-5 !py-2 text-xs">
-          Réserver un appel
-        </CTAButton>
+        <div className="flex items-center gap-3">
+          <a
+            href="/brief"
+            data-event="cta_brief_header"
+            className="hidden rounded-full border border-white/10 bg-card/40 px-4 py-2 text-xs font-semibold text-foreground backdrop-blur hover:border-white/20 md:inline-flex"
+          >
+            Remplir le brief
+          </a>
+          <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_header" className="!px-5 !py-2 text-xs">
+            Réserver un appel
+          </CTAButton>
+        </div>
       </div>
     </header>
   );
@@ -210,8 +219,9 @@ function Hero() {
           transition={{ delay: 0.05 }}
           className="mx-auto mt-6 max-w-4xl text-balance text-5xl font-bold leading-[1.05] md:text-7xl"
         >
-          Un site web qui vous apporte <span className="text-gradient">des clients</span>,
-          pas juste des visites.
+          Je prends le temps de faire ce que vous n’avez pas le temps de faire :
+          <br />
+          <span className="text-gradient">votre présence en ligne</span>.
         </motion.h1>
 
         <motion.p
@@ -221,8 +231,9 @@ function Hero() {
           transition={{ delay: 0.1 }}
           className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl"
         >
-          Pour entrepreneurs, coachs et consultants qui veulent enfin une présence en
-          ligne <span className="text-foreground">crédible, premium</span> et conçue pour convertir.
+          Aujourd’hui, on peut “faire un site” avec l’IA. Mais sans méthode, on perd vite du temps et on perd la main.
+          <br />
+          Je vous accompagne humainement et je m’occupe de tout : <span className="text-foreground">site, logo, réseaux sociaux, Google</span>.
         </motion.p>
 
         <motion.div
@@ -233,10 +244,10 @@ function Hero() {
           className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
           <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_hero">
-            Réserver une visio
+            Parler de votre projet
           </CTAButton>
-          <CTAButton href="#contact" dataEvent="cta_audit_hero" variant="ghost">
-            Demander un audit gratuit
+          <CTAButton href="#packs" dataEvent="cta_packs_hero" variant="ghost">
+            Voir les packs
           </CTAButton>
         </motion.div>
         <motion.div
@@ -331,10 +342,10 @@ function VideoIntro() {
 
 function Problem() {
   const pains = [
-    "Votre site ne génère aucun client (ou très peu).",
-    "Vous l'avez créé seul·e — il vous ressemble peu et inspire peu confiance.",
-    "Vous perdez des heures sur WordPress sans résultat concret.",
-    "Vos prospects ne comprennent pas, en 5 secondes, ce que vous proposez.",
+    "Vous avez tenté (IA / template) et le projet n’avance pas — ou ne ressemble pas à votre activité.",
+    "Vous n’avez ni le temps, ni l’envie de vous former des semaines pour un résultat incertain.",
+    "Votre présence en ligne manque de cohérence (site, logo, réseaux, Google) et ça se voit.",
+    "Vos futurs clients ne comprennent pas clairement qui vous êtes, ce que vous faites, et comment vous contacter.",
   ];
   return (
     <section className="border-t border-white/5 py-24">
@@ -345,13 +356,13 @@ function Problem() {
               Le vrai problème
             </span>
             <h2 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
-              Votre offre est solide.
+              Votre activité est solide.
               <br />
-              <span className="text-muted-foreground">Votre site, lui, ne suit pas.</span>
+              <span className="text-muted-foreground">Votre visibilité, elle, ne suit pas.</span>
             </h2>
             <p className="mt-6 max-w-md text-muted-foreground">
-              Vous travaillez dur, vous créez du contenu, vous attirez du trafic… mais à la
-              fin, ce sont toujours les mêmes prospects qui hésitent et ne passent jamais à l'action.
+              Quand on est entrepreneur, on est déjà partout : clients, devis, production, administratif.
+              Votre présence en ligne devient un “truc en plus” — et c’est là que je prends le relais.
             </p>
           </div>
 
@@ -377,33 +388,33 @@ function Problem() {
 const services = [
   {
     icon: Globe,
-    title: "Création & refonte de site web",
-    desc: "Un site rapide, élégant et structuré pour transformer vos visiteurs en clients qualifiés.",
+    title: "Site web (création / refonte)",
+    desc: "Un site clair, rapide et structuré, pensé pour être compris en 5 secondes et générer des prises de contact.",
   },
   {
     icon: Palette,
     title: "Création de logo & identité",
-    desc: "Une marque cohérente et mémorable qui inspire confiance dès le premier regard.",
+    desc: "Une identité simple, propre et cohérente, utilisable partout (site, réseaux, Google).",
   },
   {
     icon: ImageIcon,
-    title: "Design pour vos contenus",
-    desc: "Visuels premium pour vos posts, carrousels et stories — toujours dans votre univers.",
+    title: "Kit visuels & contenus",
+    desc: "Des visuels et textes de démarrage pour présenter votre activité (posts, bannières, sections clés).",
   },
   {
     icon: Megaphone,
-    title: "Pages pro réseaux sociaux",
-    desc: "Google Business, LinkedIn, Instagram… des profils optimisés pour être trouvé et choisi.",
+    title: "Réseaux sociaux (pages pro)",
+    desc: "Création / optimisation de vos profils + intégration du réseau social préféré sur le site.",
   },
   {
     icon: Rocket,
-    title: "Lancement de votre présence",
-    desc: "Premiers posts, ligne éditoriale et structure pour partir avec une vraie traction.",
+    title: "Google Business Profile",
+    desc: "Création et optimisation de votre fiche Google pour être trouvé localement et inspirer confiance.",
   },
   {
     icon: Sparkles,
-    title: "Stratégie de conversion",
-    desc: "Chaque pixel, chaque mot, chaque CTA pensé pour générer des prospects, pas du décor.",
+    title: "Mise en ligne & bases SEO",
+    desc: "Domaine, sécurité, indexation, structure SEO de base… pour un site propre, publiable et durable.",
   },
 ];
 
@@ -416,11 +427,11 @@ function Services() {
             Ce que je crée pour vous
           </span>
           <h2 className="mt-4 text-4xl font-bold md:text-5xl">
-            Une présence en ligne <span className="text-gradient">qui travaille pour vous</span>.
+            Une présence en ligne <span className="text-gradient">cohérente</span> et prête à servir votre activité.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Des prestations pensées pour un seul objectif : plus de prospects, plus de
-            clients, plus de revenus.
+            Pas juste “un site”. Un ensemble complet (site + identité + réseaux + Google) pour être trouvé,
+            rassurer et donner envie de vous contacter.
           </p>
         </div>
 
@@ -445,6 +456,132 @@ function Services() {
               </div>
             </motion.div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const offers = [
+  {
+    eyebrow: "À pousser en priorité",
+    title: "Pack présence en ligne (combo)",
+    price: "Sur devis",
+    highlight: true,
+    points: [
+      "Site + logo + pages réseaux sociaux",
+      "Premières publications pour présenter l’activité (selon besoin)",
+      "Intégration de votre réseau social préféré sur le site",
+      "Mise en ligne + bases SEO + parcours de contact simple",
+    ],
+  },
+  {
+    eyebrow: "Site vitrine codé",
+    title: "Site vitrine codé (500–1500€)",
+    price: "500–1500€",
+    points: [
+      "Pages essentielles (Accueil, services, à propos, contact)",
+      "Mobile, rapide, propre",
+      "Mise en ligne complète (domaine, SSL, indexation)",
+      "Bases SEO (structure, titres)",
+    ],
+  },
+  {
+    eyebrow: "Sur‑mesure / custom",
+    title: "Site sur‑mesure / custom (1500€+)",
+    price: "1500€+",
+    points: [
+      "UX/UI plus poussé, pages spécifiques, sections sur‑mesure",
+      "Intégrations et fonctionnalités adaptées à votre activité",
+      "Optimisations performance, structure, conversion",
+    ],
+  },
+  {
+    eyebrow: "Identité visuelle",
+    title: "Identité visuelle / logo",
+    price: "Sur devis",
+    points: [
+      "Logo propre et déclinable (web + réseaux)",
+      "Couleurs & typos cohérentes",
+      "Mini kit de départ pour garder une image homogène",
+    ],
+  },
+];
+
+function Packs() {
+  return (
+    <section id="packs" className="border-t border-white/5 py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">
+            4 offres simples
+          </span>
+          <h2 className="mt-4 text-4xl font-bold md:text-5xl">
+            Je m’occupe de votre visibilité, <span className="text-gradient">sans vous prendre du temps</span>.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            On part de votre situation (ce que vous avez déjà, votre zone, votre objectif) et je vous propose l’offre la plus pertinente. Pas de jargon, pas de prise de tête.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-5 md:grid-cols-2">
+          {offers.map((o, i) => (
+            <motion.div
+              key={o.title}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              transition={{ delay: i * 0.05 }}
+              className={`relative overflow-hidden rounded-2xl border bg-card/50 p-7 shadow-card backdrop-blur ${
+                o.highlight
+                  ? "border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_22%,transparent)]"
+                  : "border-white/5"
+              }`}
+            >
+              <div
+                className={`absolute -right-12 -top-12 h-32 w-32 rounded-full opacity-70 blur-2xl ${
+                  o.highlight
+                    ? "bg-[color-mix(in_oklab,var(--brand-turquoise)_28%,transparent)]"
+                    : "bg-[color-mix(in_oklab,var(--brand-yellow)_22%,transparent)]"
+                }`}
+              />
+              <div className="relative">
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]/80">
+                  {o.eyebrow}
+                </div>
+                <div className="mt-3 flex flex-wrap items-baseline justify-between gap-3">
+                  <h3 className="text-xl font-semibold">{o.title}</h3>
+                  <div className={`text-sm font-semibold ${o.highlight ? "text-[var(--brand-turquoise)]" : "text-muted-foreground"}`}>
+                    {o.price}
+                  </div>
+                </div>
+                <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+                  {o.points.map((x) => (
+                    <li key={x} className="flex items-start gap-3">
+                      <Check className="mt-0.5 h-4 w-4 text-[var(--brand-turquoise)]" />
+                      <span>{x}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-white/5 bg-card/40 p-7 text-center shadow-card backdrop-blur">
+          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+            Option mensuelle
+          </div>
+          <h3 className="mt-3 text-2xl font-semibold">Rester visible sans y penser</h3>
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
+            Si vous voulez déléguer sur la durée : publications réseaux sociaux, mises à jour du site, contenus, et suivi léger.
+          </p>
+          <div className="mt-6">
+            <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_packs">
+              Discutons de ce qui vous soulagerait
+            </CTAButton>
+          </div>
         </div>
       </div>
     </section>
@@ -614,23 +751,23 @@ function Instagram() {
 const why = [
   {
     icon: Target,
-    title: "Stratégie avant design",
-    desc: "On ne fait pas du joli pour faire joli. Chaque section sert un objectif business mesurable.",
+    title: "Clarté avant tout",
+    desc: "On structure votre message pour que vos clients comprennent vite et passent à l’action.",
   },
   {
     icon: Zap,
-    title: "Livraison rapide",
-    desc: "Site complet livré en 14 jours en moyenne. Pas de mois d'attente, pas d'excuses.",
+    title: "Simple et efficace",
+    desc: "On va à l’essentiel : un résultat en ligne, propre, et prêt à travailler pour vous.",
   },
   {
     icon: ShieldCheck,
-    title: "Image premium garantie",
-    desc: "Un design qui vous positionne comme l'expert haut de gamme que vous êtes vraiment.",
+    title: "Cohérence partout",
+    desc: "Logo, site, réseaux, Google : un ensemble aligné qui inspire confiance.",
   },
   {
     icon: Clock,
     title: "Vous gardez votre temps",
-    desc: "Vous me confiez le sujet, je m'occupe de tout. Vous validez, on lance, ça vit.",
+    desc: "Vous me confiez le sujet, je fais. Vous validez, on met en ligne, et vous passez à autre chose.",
   },
 ];
 
@@ -644,13 +781,13 @@ function Why() {
               Pourquoi PeakCL
             </span>
             <h2 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
-              Vous n'avez pas besoin d'un autre site.
+              Vous n’avez pas besoin d’un “site de plus”.
               <br />
-              <span className="text-gradient">Vous avez besoin du bon.</span>
+              <span className="text-gradient">Vous avez besoin d’une présence claire.</span>
             </h2>
             <p className="mt-6 max-w-md text-muted-foreground">
-              Construit avec vous, pour votre client idéal, avec une vraie structure
-              de conversion. Pas un template recyclé.
+              Le but n’est pas de faire compliqué. Le but, c’est que ce soit cohérent, rassurant,
+              et que ça vous apporte des prises de contact. Sans jargon, sans vous voler du temps.
             </p>
             <div className="mt-8">
               <CTAButton href="#contact">Discutons de votre projet</CTAButton>
@@ -728,11 +865,13 @@ function FinalCTA() {
           variants={fadeUp}
           className="text-balance text-4xl font-bold leading-tight md:text-6xl"
         >
-          Recevez mon <span className="text-gradient">audit gratuit</span> sous 24h
+          Dites‑moi où vous en êtes,
+          <br />
+          je vous réponds avec un <span className="text-gradient">plan clair</span> sous 24h
         </motion.h2>
         <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
-          Vous m’expliquez votre activité et votre objectif. Je vous réponds avec des recommandations
-          concrètes pour générer plus de prises de contact (structure, message, CTA, SEO local).
+          Vous m’expliquez votre activité, votre zone et votre objectif. Je vous réponds avec des recommandations concrètes
+          (site, Google, réseaux, structure, message, SEO de base) et la meilleure façon de passer à l’action.
         </p>
 
         <form
@@ -745,7 +884,7 @@ function FinalCTA() {
           data-event="audit_submit"
         >
           <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="leadType" value="audit_gratuit" />
+          <input type="hidden" name="leadType" value="plan_visibilite" />
           <input type="hidden" name="source" value="site_peakcl" />
           <p className="hidden">
             <label>
@@ -782,7 +921,7 @@ function FinalCTA() {
               required
               rows={5}
               className="mt-2 w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-white/20"
-                placeholder="Décrivez votre activité + ce que vous vendez + votre ville + votre objectif (ex: +10 demandes/mois)."
+                placeholder="Décrivez votre activité + votre ville/zone + votre objectif (ex: +10 demandes/mois) + ce que vous avez déjà (site, réseaux, Google)."
             />
           </label>
 
@@ -792,7 +931,7 @@ function FinalCTA() {
               data-event="audit_submit_click"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.03]"
             >
-              Recevoir mon audit
+              Recevoir mon plan
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
             <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_contact" variant="ghost">
@@ -809,7 +948,7 @@ function FinalCTA() {
             "Réponse sous 24h",
             "Sans engagement",
             "Recommandations actionnables",
-            "Optimisation SEO local",
+            "Clarté sur les prochaines étapes",
           ].map((x) => (
             <li key={x} className="inline-flex items-center gap-2">
               <Check className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
@@ -893,6 +1032,7 @@ function Landing() {
         <VideoIntro />
         <Problem />
         <Services />
+        <Packs />
         <GeoLinks />
         <PortfolioTeaser />
         <Social />

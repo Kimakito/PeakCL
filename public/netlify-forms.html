@@ -34,6 +34,41 @@
       </p>
       <button type="submit">Envoyer</button>
     </form>
+
+    <!--
+      Second form: "brief-projet"
+      This ensures Netlify detects the long questionnaire route (/brief).
+    -->
+    <form
+      name="brief-projet"
+      method="POST"
+      action="/merci-brief"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="brief-projet" />
+      <input type="hidden" name="leadType" value="brief_projet" />
+      <input type="hidden" name="source" value="site_peakcl" />
+      <p style="display:none">
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <p>
+        <label>Nom <input name="fullName" required /></label>
+      </p>
+      <p>
+        <label>Email <input name="email" type="email" required /></label>
+      </p>
+      <p>
+        <label>Activité <input name="businessName" required /></label>
+      </p>
+      <p>
+        <label>Ville/zone <input name="cityZone" required /></label>
+      </p>
+      <p>
+        <label>Résumé <textarea name="projectSummary" required></textarea></label>
+      </p>
+      <button type="submit">Envoyer</button>
+    </form>
   </body>
 </html>
 
