@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { peakclPortfolio } from "@/content/peakcl/portfolio";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
+import logo from "@/assets/peakcl-logo.png";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -41,24 +42,53 @@ function PortfolioPage() {
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-50 border-b border-white/5 bg-background/70 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-4">
-          <a href="/" className="font-display text-lg font-bold tracking-tight">
-            Peak<span className="text-gradient">CL</span>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <a href="/" className="flex items-center gap-3">
+            <img src={logo} alt="PeakCL logo" className="h-9 w-9 rounded-lg object-cover" />
+            <span className="font-display text-lg font-bold tracking-tight">
+              Peak<span className="text-gradient">CL</span>
+            </span>
           </a>
+
+          <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
+            <a href="/#services" className="hover:text-foreground">
+              Services
+            </a>
+            <a href="/packs" className="hover:text-foreground">
+              Offres
+            </a>
+            <a href="/#process" className="hover:text-foreground">
+              Méthode
+            </a>
+            <a href="/portfolio" className="hover:text-foreground">
+              Portfolio
+            </a>
+            <a href="/#faq" className="hover:text-foreground">
+              FAQ
+            </a>
+          </nav>
+
           <div className="flex items-center gap-3">
+            <a
+              href="/brief"
+              data-event="cta_brief_portfolio"
+              className="hidden rounded-full border border-white/10 bg-card/40 px-4 py-2 text-xs font-semibold text-foreground backdrop-blur hover:border-white/20 md:inline-flex"
+            >
+              Remplir le brief
+            </a>
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               data-event="cta_whatsapp"
-              className="hidden text-xs font-semibold text-muted-foreground hover:text-foreground sm:inline-flex"
+              className="hidden text-xs font-semibold text-muted-foreground hover:text-foreground lg:inline-flex"
             >
               WhatsApp
             </a>
             <a
               href={`mailto:${EMAIL}`}
               data-event="cta_email"
-              className="hidden text-xs font-semibold text-muted-foreground hover:text-foreground md:inline-flex"
+              className="hidden text-xs font-semibold text-muted-foreground hover:text-foreground xl:inline-flex"
             >
               Email
             </a>
@@ -69,7 +99,7 @@ function PortfolioPage() {
               data-event="cta_calendly_portfolio"
               className="inline-flex items-center justify-center rounded-full bg-primary-gradient px-5 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
             >
-              Réserver une visio
+              Réserver un appel
             </a>
           </div>
         </div>

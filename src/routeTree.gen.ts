@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as QuiSuisJeRouteImport } from './routes/qui-suis-je'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as PacksRouteImport } from './routes/packs'
+import { Route as MerciBriefRouteImport } from './routes/merci-brief'
 import { Route as MerciRouteImport } from './routes/merci'
+import { Route as BriefRouteImport } from './routes/brief'
 import { Route as AgenceWebChamberyRouteImport } from './routes/agence-web-chambery'
 import { Route as AgenceWebAnnecyRouteImport } from './routes/agence-web-annecy'
 import { Route as AgenceWebAlbertvilleRouteImport } from './routes/agence-web-albertville'
@@ -28,9 +31,24 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PacksRoute = PacksRouteImport.update({
+  id: '/packs',
+  path: '/packs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MerciBriefRoute = MerciBriefRouteImport.update({
+  id: '/merci-brief',
+  path: '/merci-brief',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MerciRoute = MerciRouteImport.update({
   id: '/merci',
   path: '/merci',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BriefRoute = BriefRouteImport.update({
+  id: '/brief',
+  path: '/brief',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AgenceWebChamberyRoute = AgenceWebChamberyRouteImport.update({
@@ -65,7 +83,10 @@ export interface FileRoutesByFullPath {
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
+  '/brief': typeof BriefRoute
   '/merci': typeof MerciRoute
+  '/merci-brief': typeof MerciBriefRoute
+  '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
 }
@@ -75,7 +96,10 @@ export interface FileRoutesByTo {
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
+  '/brief': typeof BriefRoute
   '/merci': typeof MerciRoute
+  '/merci-brief': typeof MerciBriefRoute
+  '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
 }
@@ -86,7 +110,10 @@ export interface FileRoutesById {
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
+  '/brief': typeof BriefRoute
   '/merci': typeof MerciRoute
+  '/merci-brief': typeof MerciBriefRoute
+  '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
 }
@@ -98,7 +125,10 @@ export interface FileRouteTypes {
     | '/agence-web-albertville'
     | '/agence-web-annecy'
     | '/agence-web-chambery'
+    | '/brief'
     | '/merci'
+    | '/merci-brief'
+    | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
   fileRoutesByTo: FileRoutesByTo
@@ -108,7 +138,10 @@ export interface FileRouteTypes {
     | '/agence-web-albertville'
     | '/agence-web-annecy'
     | '/agence-web-chambery'
+    | '/brief'
     | '/merci'
+    | '/merci-brief'
+    | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
   id:
@@ -118,7 +151,10 @@ export interface FileRouteTypes {
     | '/agence-web-albertville'
     | '/agence-web-annecy'
     | '/agence-web-chambery'
+    | '/brief'
     | '/merci'
+    | '/merci-brief'
+    | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
   fileRoutesById: FileRoutesById
@@ -129,7 +165,10 @@ export interface RootRouteChildren {
   AgenceWebAlbertvilleRoute: typeof AgenceWebAlbertvilleRoute
   AgenceWebAnnecyRoute: typeof AgenceWebAnnecyRoute
   AgenceWebChamberyRoute: typeof AgenceWebChamberyRoute
+  BriefRoute: typeof BriefRoute
   MerciRoute: typeof MerciRoute
+  MerciBriefRoute: typeof MerciBriefRoute
+  PacksRoute: typeof PacksRoute
   PortfolioRoute: typeof PortfolioRoute
   QuiSuisJeRoute: typeof QuiSuisJeRoute
 }
@@ -150,11 +189,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/packs': {
+      id: '/packs'
+      path: '/packs'
+      fullPath: '/packs'
+      preLoaderRoute: typeof PacksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/merci-brief': {
+      id: '/merci-brief'
+      path: '/merci-brief'
+      fullPath: '/merci-brief'
+      preLoaderRoute: typeof MerciBriefRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/merci': {
       id: '/merci'
       path: '/merci'
       fullPath: '/merci'
       preLoaderRoute: typeof MerciRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brief': {
+      id: '/brief'
+      path: '/brief'
+      fullPath: '/brief'
+      preLoaderRoute: typeof BriefRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/agence-web-chambery': {
@@ -201,7 +261,10 @@ const rootRouteChildren: RootRouteChildren = {
   AgenceWebAlbertvilleRoute: AgenceWebAlbertvilleRoute,
   AgenceWebAnnecyRoute: AgenceWebAnnecyRoute,
   AgenceWebChamberyRoute: AgenceWebChamberyRoute,
+  BriefRoute: BriefRoute,
   MerciRoute: MerciRoute,
+  MerciBriefRoute: MerciBriefRoute,
+  PacksRoute: PacksRoute,
   PortfolioRoute: PortfolioRoute,
   QuiSuisJeRoute: QuiSuisJeRoute,
 }

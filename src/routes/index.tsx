@@ -131,10 +131,10 @@ function Nav() {
           </span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="#services" className="hover:text-foreground">Services</a>
-          <a href="#process" className="hover:text-foreground">Méthode</a>
+          <a href="#method" className="hover:text-foreground">Méthode</a>
+          <a href="/packs" className="hover:text-foreground">Offres</a>
           <a href="/portfolio" className="hover:text-foreground">Portfolio</a>
-          <a href="#resultats" className="hover:text-foreground">Résultats</a>
+          <a href="#resultats" className="hover:text-foreground">Avis</a>
           <a href="#faq" className="hover:text-foreground">FAQ</a>
         </nav>
         <div className="flex items-center gap-3">
@@ -243,11 +243,11 @@ function Hero() {
           transition={{ delay: 0.15 }}
           className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
-          <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_hero">
-            Parler de votre projet
+          <CTAButton href="/brief" dataEvent="cta_brief_hero">
+            Faire le diagnostic
           </CTAButton>
-          <CTAButton href="#packs" dataEvent="cta_packs_hero" variant="ghost">
-            Voir les packs
+          <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_hero" variant="ghost">
+            Réserver un appel
           </CTAButton>
         </motion.div>
         <motion.div
@@ -297,48 +297,7 @@ function Hero() {
   );
 }
 
-function VideoIntro() {
-  useEffect(() => {
-    loadExternalScript({
-      id: "wistia-embed-script",
-      src: "https://fast.wistia.com/assets/external/E-v1.js",
-    });
-  }, []);
-
-  return (
-    <section className="border-t border-white/5 py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">
-            Qui suis‑je, concrètement ?
-          </span>
-          <h2 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
-            70 secondes pour comprendre comment je travaille.
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm text-muted-foreground">
-            Pas de discours. Juste moi, qui je suis et ce que je fais.
-          </p>
-
-          <div className="relative mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-card backdrop-blur">
-            <div className="aspect-video w-full">
-              <div
-                className="wistia_embed wistia_async_26i532zvqr videoFoam=true"
-                style={{ height: "100%", width: "100%" }}
-              />
-            </div>
-          </div>
-
-          <p className="mt-6 text-xs text-muted-foreground">
-            Vous préférez lire ?{" "}
-            <a href="/qui-suis-je" className="font-semibold text-[var(--brand-yellow)]/80 hover:text-[var(--brand-yellow)] underline">
-              En savoir plus sur mon parcours →
-            </a>
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
+// (VideoIntro removed from home — kept available via /qui-suis-je if needed)
 
 function Problem() {
   const pains = [
@@ -353,16 +312,16 @@ function Problem() {
         <div className="grid items-start gap-12 md:grid-cols-2">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
-              Le vrai problème
+              Le constat
             </span>
             <h2 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
-              Votre activité est solide.
+              Le problème, ce n’est pas l’envie.
               <br />
-              <span className="text-muted-foreground">Votre visibilité, elle, ne suit pas.</span>
+              <span className="text-muted-foreground">C’est la coordination.</span>
             </h2>
             <p className="mt-6 max-w-md text-muted-foreground">
-              Quand on est entrepreneur, on est déjà partout : clients, devis, production, administratif.
-              Votre présence en ligne devient un “truc en plus” — et c’est là que je prends le relais.
+              Site, logo, réseaux, Google… sur le papier c’est simple. Dans la réalité, ça fait souvent plusieurs prestataires à coordonner.
+              Je suis là pour enlever cette charge et livrer un ensemble cohérent.
             </p>
           </div>
 
@@ -379,6 +338,72 @@ function Problem() {
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Method() {
+  const steps = [
+    {
+      n: "01",
+      title: "Diagnostic",
+      desc:
+        "Tu remplis un formulaire de 8 minutes ou on en parle 20 minutes en visio. Je comprends ton activité, ton public, ton budget, tes contraintes.",
+    },
+    {
+      n: "02",
+      title: "Cadrage",
+      desc:
+        "Je te renvoie un devis précis sous 48h ouvrées (pas une fourchette élastique) et un planning. Tu valides ou tu ajustes.",
+    },
+    {
+      n: "03",
+      title: "Production",
+      desc:
+        "Je code, je dessine, je rédige. Tu vois le travail au fur et à mesure, pas seulement à la fin. Une révision est incluse à chaque livrable.",
+    },
+    {
+      n: "04",
+      title: "Suivi",
+      desc:
+        "Une fois en ligne, je reste disponible pour les ajustements de la première semaine. Au-delà, on peut continuer ou s’arrêter — tu décides.",
+    },
+  ];
+
+  return (
+    <section id="method" className="border-t border-white/5 py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">
+            Comment je travaille
+          </span>
+          <h2 className="mt-4 text-4xl font-bold md:text-5xl">Quatre étapes, du diagnostic à la mise en ligne</h2>
+        </div>
+
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((s, i) => (
+            <motion.div
+              key={s.n}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              transition={{ delay: i * 0.05 }}
+              className="rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card"
+            >
+              <div className="text-xs font-semibold tracking-[0.2em] text-[var(--brand-turquoise)]">{s.n}</div>
+              <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <CTAButton href="/brief" dataEvent="cta_brief_method">
+            Faire le diagnostic
+          </CTAButton>
         </div>
       </div>
     </section>
@@ -477,8 +502,8 @@ const offers = [
   },
   {
     eyebrow: "Site vitrine codé",
-    title: "Site vitrine codé (500–1500€)",
-    price: "500–1500€",
+    title: "Site vitrine codé",
+    price: "Sur devis",
     points: [
       "Pages essentielles (Accueil, services, à propos, contact)",
       "Mobile, rapide, propre",
@@ -488,8 +513,8 @@ const offers = [
   },
   {
     eyebrow: "Sur‑mesure / custom",
-    title: "Site sur‑mesure / custom (1500€+)",
-    price: "1500€+",
+    title: "Site sur‑mesure / custom",
+    price: "Sur devis",
     points: [
       "UX/UI plus poussé, pages spécifiques, sections sur‑mesure",
       "Intégrations et fonctionnalités adaptées à votre activité",
@@ -514,13 +539,13 @@ function Packs() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">
-            4 offres simples
+            Les 4 formes que prend l’accompagnement
           </span>
           <h2 className="mt-4 text-4xl font-bold md:text-5xl">
-            Je m’occupe de votre visibilité, <span className="text-gradient">sans vous prendre du temps</span>.
+            Quatre formes selon votre besoin
           </h2>
           <p className="mt-4 text-muted-foreground">
-            On part de votre situation (ce que vous avez déjà, votre zone, votre objectif) et je vous propose l’offre la plus pertinente. Pas de jargon, pas de prise de tête.
+            L’accompagnement reste le même. Ce qui change, c’est ce qu’on produit ensemble.
           </p>
         </div>
 
@@ -582,6 +607,37 @@ function Packs() {
               Discutons de ce qui vous soulagerait
             </CTAButton>
           </div>
+        </div>
+
+        <div className="mt-10 text-center">
+          <CTAButton href="/packs" dataEvent="cta_packs_detail" variant="ghost">
+            Voir les packs en détail
+          </CTAButton>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ForWho() {
+  return (
+    <section id="for-who" className="border-t border-white/5 py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+            Pour qui
+          </span>
+          <h2 className="mt-4 text-4xl font-bold md:text-5xl">À qui ça s’adresse</h2>
+        </div>
+
+        <div className="mx-auto mt-10 max-w-3xl space-y-4 text-sm text-muted-foreground">
+          <p>
+            Mon accompagnement est pensé pour les indépendants, artisans, créateurs et petites structures. Concrètement : vous portez votre activité seul·e
+            ou à quelques‑uns, vous voulez une présence en ligne propre sans embaucher une agence, et vous n’avez pas le temps de gérer plusieurs prestataires.
+          </p>
+          <p>
+            Je n’accompagne pas les grandes équipes marketing, les agences qui veulent sous‑traiter, ni les projets sans budget défini.
+          </p>
         </div>
       </div>
     </section>
@@ -773,24 +829,30 @@ const why = [
 
 function Why() {
   return (
-    <section id="process" className="border-t border-white/5 py-24">
+    <section id="why" className="border-t border-white/5 py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-start gap-12 lg:grid-cols-2">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
-              Pourquoi PeakCL
+              Pourquoi moi
             </span>
             <h2 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
-              Vous n’avez pas besoin d’un “site de plus”.
+              Une seule personne,
               <br />
-              <span className="text-gradient">Vous avez besoin d’une présence claire.</span>
+              <span className="text-gradient">deux métiers.</span>
             </h2>
             <p className="mt-6 max-w-md text-muted-foreground">
-              Le but n’est pas de faire compliqué. Le but, c’est que ce soit cohérent, rassurant,
-              et que ça vous apporte des prises de contact. Sans jargon, sans vous voler du temps.
+              Je code et je dessine. Vous n’avez pas à briefer deux fois, à payer deux marges, ni à arbitrer entre un
+              dev qui ne pense pas design et un designer qui ne sait pas coder.
+            </p>
+            <p className="mt-4 max-w-md text-muted-foreground">
+              Vous travaillez avec moi seule. Pas de sous‑traitance cachée, pas de chef de projet entre nous. Vous
+              m’écrivez, je vous réponds. Vous voyez le travail avancer.
             </p>
             <div className="mt-8">
-              <CTAButton href="#contact">Discutons de votre projet</CTAButton>
+              <CTAButton href="/brief" dataEvent="cta_brief_why">
+                Faire le diagnostic
+              </CTAButton>
             </div>
           </div>
 
@@ -865,14 +927,20 @@ function FinalCTA() {
           variants={fadeUp}
           className="text-balance text-4xl font-bold leading-tight md:text-6xl"
         >
-          Dites‑moi où vous en êtes,
-          <br />
-          je vous réponds avec un <span className="text-gradient">plan clair</span> sous 24h
+          On commence quand ?
         </motion.h2>
         <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
-          Vous m’expliquez votre activité, votre zone et votre objectif. Je vous réponds avec des recommandations concrètes
-          (site, Google, réseaux, structure, message, SEO de base) et la meilleure façon de passer à l’action.
+          Le plus simple : vous remplissez le diagnostic. C’est 8 minutes, vous aurez un devis sous 48h ouvrées. Si vous préférez en parler de vive voix, vous pouvez aussi réserver 20 minutes en visio.
         </p>
+
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <CTAButton href="/brief" dataEvent="cta_brief_final">
+            Faire le diagnostic
+          </CTAButton>
+          <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_final" variant="ghost">
+            Réserver un appel
+          </CTAButton>
+        </div>
 
         <form
           className="mx-auto mt-10 max-w-xl space-y-4 rounded-2xl border border-white/10 bg-card/40 p-6 text-left shadow-card backdrop-blur"
@@ -884,7 +952,7 @@ function FinalCTA() {
           data-event="audit_submit"
         >
           <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="leadType" value="plan_visibilite" />
+          <input type="hidden" name="leadType" value="contact" />
           <input type="hidden" name="source" value="site_peakcl" />
           <p className="hidden">
             <label>
@@ -1014,8 +1082,10 @@ function Footer() {
           </div>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-          <a href="#services" className="hover:text-foreground">Services</a>
+          <a href="#method" className="hover:text-foreground">Méthode</a>
+          <a href="/packs" className="hover:text-foreground">Offres</a>
           <a href="/portfolio" className="hover:text-foreground">Portfolio</a>
+          <a href="/brief" className="hover:text-foreground">Diagnostic</a>
           <a href="#contact" className="hover:text-foreground">Contact</a>
         </div>
       </div>
@@ -1029,11 +1099,10 @@ function Landing() {
       <Nav />
       <main>
         <Hero />
-        <VideoIntro />
         <Problem />
-        <Services />
+        <Method />
         <Packs />
-        <GeoLinks />
+        <ForWho />
         <PortfolioTeaser />
         <Social />
         <Instagram />
