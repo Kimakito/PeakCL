@@ -27,17 +27,17 @@ import { loadExternalScript } from "@/lib/loadExternalScript";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "PeakCL — Le site web qui transforme vos visiteurs en clients" },
+      { title: "PeakCL — Présence en ligne (site, logo, réseaux) | Savoie" },
       {
         name: "description",
         content:
-          "Je crée votre présence en ligne de A à Z (site, logo, réseaux sociaux, Google Business Profile) pour que vous soyez visible sans y passer vos soirées.",
+          "Site, logo, réseaux sociaux : un accompagnement complet par une seule personne. Diagnostic en quelques minutes. Pour indépendants et petites structures.",
       },
-      { property: "og:title", content: "PeakCL — Sites web qui convertissent" },
+      { property: "og:title", content: "PeakCL — Présence en ligne (site, logo, réseaux)" },
       {
         property: "og:description",
         content:
-          "Site, logo, réseaux sociaux et Google Business Profile pour une présence en ligne claire, cohérente et prête à attirer des clients.",
+          "Un seul interlocuteur pour site, logo et réseaux sociaux. Un accompagnement clair, du diagnostic à la mise en ligne.",
       },
       { property: "og:url", content: absUrl("/") },
       { "script:ld+json": faqPageJsonLd(peakclFaq) },

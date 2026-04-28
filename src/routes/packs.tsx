@@ -10,7 +10,7 @@ export const Route = createFileRoute("/packs")({
       {
         name: "description",
         content:
-          "Les 4 offres PeakCL, en détail. Site vitrine codé, site sur‑mesure, identité visuelle, pack présence en ligne.",
+          "Les 4 offres PeakCL, en détail. Site, logo, réseaux sociaux. Un seul interlocuteur.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/packs") },

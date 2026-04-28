@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { useMemo, useState } from "react";
 import { peakclPortfolio } from "@/content/peakcl/portfolio";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
@@ -8,17 +9,17 @@ import logo from "@/assets/peakcl-logo.png";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio PeakCL — Réalisations" },
+      { title: "Portfolio — PeakCL" },
       {
         name: "description",
         content:
-          "Découvrez quelques projets livrés par PeakCL : sites vitrines, e-commerce et identités visuelles.",
+          "Exemples de présence en ligne livrée par PeakCL : sites, identité et cohérence. Pour indépendants et petites structures.",
       },
-      { property: "og:title", content: "Portfolio PeakCL — Réalisations" },
+      { property: "og:title", content: "Portfolio — PeakCL" },
       {
         property: "og:description",
         content:
-          "Découvrez quelques projets livrés par PeakCL : sites vitrines, e-commerce et identités visuelles.",
+          "Exemples concrets : sites, identité et cohérence. Un seul interlocuteur.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/portfolio") },
@@ -38,6 +39,68 @@ const CALENDLY_URL = "https://calendly.com/peakcl73/45min";
 const WHATSAPP_URL = "https://wa.me/33743517627";
 const EMAIL = "peakcl73@gmail.com";
 
+type LogoBgVariant = "light" | "dark";
+
+function pickLogoBackground(img: HTMLImageElement): LogoBgVariant {
+  try {
+    const w = 32;
+    const h = 32;
+    const canvas = document.createElement("canvas");
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    if (!ctx) return "light";
+    ctx.drawImage(img, 0, 0, w, h);
+    const { data } = ctx.getImageData(0, 0, w, h);
+
+    let sum = 0;
+    let count = 0;
+    for (let i = 0; i < data.length; i += 4) {
+      const a = data[i + 3] ?? 0;
+      if (a < 16) continue; // ignore transparent pixels
+      const r = data[i] ?? 0;
+      const g = data[i + 1] ?? 0;
+      const b = data[i + 2] ?? 0;
+      // perceived luminance
+      const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      sum += lum;
+      count += 1;
+    }
+
+    if (!count) return "light";
+    const avg = sum / count;
+    // If the logo is mostly light, put it on a dark background
+    return avg > 180 ? "dark" : "light";
+  } catch {
+    return "light";
+  }
+}
+
+function AdaptiveLogo({ src, alt }: { src: string; alt: string }) {
+  const [variant, setVariant] = useState<LogoBgVariant>("light");
+  const classes = useMemo(() => {
+    return variant === "dark"
+      ? "bg-black/40 border-white/10"
+      : "bg-white/90 border-black/10";
+  }, [variant]);
+
+  return (
+    <div className={`h-14 w-14 rounded-xl border ${classes} p-2 shadow-sm`}>
+      <img
+        src={src}
+        alt={alt}
+        className="h-full w-full object-contain"
+        loading="lazy"
+        onLoad={(e) => {
+          const img = e.currentTarget;
+          const v = pickLogoBackground(img);
+          setVariant(v);
+        }}
+      />
+    </div>
+  );
+}
+
 function PortfolioPage() {
   return (
     <div className="min-h-screen">
@@ -51,18 +114,14 @@ function PortfolioPage() {
           </a>
 
           <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-            <a href="/#services" className="hover:text-foreground">
-              Services
-            </a>
+            <a href="/#method" className="hover:text-foreground">Méthode</a>
             <a href="/packs" className="hover:text-foreground">
               Offres
-            </a>
-            <a href="/#process" className="hover:text-foreground">
-              Méthode
             </a>
             <a href="/portfolio" className="hover:text-foreground">
               Portfolio
             </a>
+            <a href="/#resultats" className="hover:text-foreground">Avis</a>
             <a href="/#faq" className="hover:text-foreground">
               FAQ
             </a>
@@ -129,12 +188,7 @@ function PortfolioPage() {
                 <div className="relative">
                   <div className="flex items-start gap-4">
                     {p.logoUrl ? (
-                      <img
-                        src={p.logoUrl}
-                        alt={p.title}
-                        className="h-14 w-14 rounded-xl bg-white/5 object-contain p-2"
-                        loading="lazy"
-                      />
+                      <AdaptiveLogo src={p.logoUrl} alt={p.title} />
                     ) : (
                       <div className="h-14 w-14 rounded-xl bg-white/5" />
                     )}
