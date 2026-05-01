@@ -7,6 +7,122 @@
   directory = ".netlify/v1/functions"
 
 # TanStack Start on Netlify runs via a serverless function.
+# SEO: redirect legacy URLs (previous site/blog) so Google doesn't see 404.
+[[redirects]]
+  from = "http://www.peakcl.com/*"
+  to = "https://peakcl.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://peakcl.com/*"
+  to = "https://peakcl.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.peakcl.com/*"
+  to = "https://peakcl.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/:splat/"
+  to = "/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/developpement-web"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/developpement-web/*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/conseils/*"
+  to = "/"
+  status = 301
+  force = true
+
+# Other legacy pages spotted in Search Console export
+[[redirects]]
+  from = "/react/*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about/"
+  to = "/qui-suis-je"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/qui-suis-je.html"
+  to = "/qui-suis-je"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/chess.html"
+  to = "/portfolio"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/brief"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/graphisme"
+  to = "/packs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/creation-site-vitrine"
+  to = "/packs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/maintenance-site-web"
+  to = "/packs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/2025/*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/2026/*"
+  to = "/"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/server"

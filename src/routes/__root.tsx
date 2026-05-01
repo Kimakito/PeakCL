@@ -58,7 +58,6 @@ export const Route = createRootRoute({
       },
       { rel: "icon", type: "image/svg+xml", href: "/peakcl/PeakCL.svg" },
       { rel: "alternate icon", href: "/peakcl/PeakCL.svg" },
-      { rel: "canonical", href: absUrl("/") },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",
