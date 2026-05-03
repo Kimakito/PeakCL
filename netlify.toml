@@ -27,12 +27,6 @@
   force = true
 
 [[redirects]]
-  from = "/:splat/"
-  to = "/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/developpement-web"
   to = "/"
   status = 301
