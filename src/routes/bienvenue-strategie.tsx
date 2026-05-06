@@ -1,8 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, CheckCircle2 } from "lucide-react";
 import { absUrl } from "@/seo/site";
+import { useEffect } from "react";
 
 const CALENDLY_URL = "https://calendly.com/peakcl73/45min";
+const WISTIA_MEDIA_ID = "26i532zvqr";
+
+function WistiaVideo({ mediaId }: { mediaId: string }) {
+  useEffect(() => {
+    const ensureScript = (src: string, type?: string) => {
+      const existing = document.querySelector(`script[src="${src}"]`);
+      if (existing) return;
+      const s = document.createElement("script");
+      s.src = src;
+      s.async = true;
+      if (type) s.type = type;
+      document.head.appendChild(s);
+    };
+
+    ensureScript("https://fast.wistia.com/player.js");
+    ensureScript(`https://fast.wistia.com/embed/${mediaId}.js`, "module");
+  }, [mediaId]);
+
+  return (
+    <div className="mt-5 overflow-hidden rounded-2xl border border-white/10 bg-black/40">
+      <style>{`
+        wistia-player[media-id='${mediaId}']:not(:defined) {
+          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${mediaId}/swatch');
+          display: block;
+          filter: blur(5px);
+          padding-top: 56.25%;
+        }
+      `}</style>
+      {/* @ts-expect-error - Custom element provided by Wistia */}
+      <wistia-player media-id={mediaId} aspect="1.7777777777777777" />
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/bienvenue-strategie")({
   head: () => ({
@@ -61,6 +95,59 @@ function BienvenueStrategiePage() {
             >
               Voir le portfolio
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-white/5 py-16">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="grid gap-8 md:grid-cols-2 md:items-start">
+            <div className="rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
+              <h2 className="text-xl font-bold">Ta stratégie en vidéo</h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Regarde la vidéo ci‑dessous, puis utilise les ressources PDF pour passer à l’action.
+              </p>
+
+              <WistiaVideo mediaId={WISTIA_MEDIA_ID} />
+            </div>
+
+            <div className="rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
+              <h2 className="text-xl font-bold">Ressources PDF</h2>
+              <p className="mt-2 text-sm text-muted-foreground">Télécharge les guides et garde-les sous la main.</p>
+
+              <div className="mt-5 grid gap-3">
+                {[
+                  {
+                    title: "Guide 01 — Système",
+                    href: "/peakcl/assets/ressources/peakcl_guide01_systeme.pdf",
+                  },
+                  {
+                    title: "Guide 02 — Site",
+                    href: "/peakcl/assets/ressources/peakcl_guide02_site.pdf",
+                  },
+                  {
+                    title: "Guide 03 — Confiance",
+                    href: "/peakcl/assets/ressources/peakcl_guide03_confiance.pdf",
+                  },
+                  {
+                    title: "Ressource — Conversion",
+                    href: "/peakcl/assets/peakcl_ressource_conversion.pdf",
+                  },
+                ].map((r) => (
+                  <a
+                    key={r.href}
+                    href={r.href}
+                    className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+                    target="_blank"
+                    rel="noreferrer"
+                    data-event="resource_pdf_open"
+                  >
+                    <span>{r.title}</span>
+                    <span className="text-xs text-muted-foreground">PDF</span>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
