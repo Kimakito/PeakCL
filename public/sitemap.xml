@@ -71,6 +71,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://peakcl.com/ressources/systeme</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://peakcl.com/ressources/site</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://peakcl.com/ressources/confiance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://peakcl.com/ressources/conversion</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://peakcl.com/merci-diagnostic</loc>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>

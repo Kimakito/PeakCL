@@ -9,6 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RessourcesSystemeRouteImport } from './routes/ressources-systeme'
+import { Route as RessourcesSiteRouteImport } from './routes/ressources-site'
+import { Route as RessourcesConversionRouteImport } from './routes/ressources-conversion'
+import { Route as RessourcesConfianceRouteImport } from './routes/ressources-confiance'
 import { Route as QuiSuisJeRouteImport } from './routes/qui-suis-je'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PacksRouteImport } from './routes/packs'
@@ -26,6 +30,26 @@ import { Route as AgenceWebAlbertvilleRouteImport } from './routes/agence-web-al
 import { Route as AgenceWebAixLesBainsRouteImport } from './routes/agence-web-aix-les-bains'
 import { Route as IndexRouteImport } from './routes/index'
 
+const RessourcesSystemeRoute = RessourcesSystemeRouteImport.update({
+  id: '/ressources-systeme',
+  path: '/ressources-systeme',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RessourcesSiteRoute = RessourcesSiteRouteImport.update({
+  id: '/ressources-site',
+  path: '/ressources-site',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RessourcesConversionRoute = RessourcesConversionRouteImport.update({
+  id: '/ressources-conversion',
+  path: '/ressources-conversion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RessourcesConfianceRoute = RessourcesConfianceRouteImport.update({
+  id: '/ressources-confiance',
+  path: '/ressources-confiance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuiSuisJeRoute = QuiSuisJeRouteImport.update({
   id: '/qui-suis-je',
   path: '/qui-suis-je',
@@ -124,6 +148,10 @@ export interface FileRoutesByFullPath {
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
+  '/ressources-confiance': typeof RessourcesConfianceRoute
+  '/ressources-conversion': typeof RessourcesConversionRoute
+  '/ressources-site': typeof RessourcesSiteRoute
+  '/ressources-systeme': typeof RessourcesSystemeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -142,6 +170,10 @@ export interface FileRoutesByTo {
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
+  '/ressources-confiance': typeof RessourcesConfianceRoute
+  '/ressources-conversion': typeof RessourcesConversionRoute
+  '/ressources-site': typeof RessourcesSiteRoute
+  '/ressources-systeme': typeof RessourcesSystemeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -161,6 +193,10 @@ export interface FileRoutesById {
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
+  '/ressources-confiance': typeof RessourcesConfianceRoute
+  '/ressources-conversion': typeof RessourcesConversionRoute
+  '/ressources-site': typeof RessourcesSiteRoute
+  '/ressources-systeme': typeof RessourcesSystemeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -181,6 +217,10 @@ export interface FileRouteTypes {
     | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
+    | '/ressources-confiance'
+    | '/ressources-conversion'
+    | '/ressources-site'
+    | '/ressources-systeme'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -199,6 +239,10 @@ export interface FileRouteTypes {
     | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
+    | '/ressources-confiance'
+    | '/ressources-conversion'
+    | '/ressources-site'
+    | '/ressources-systeme'
   id:
     | '__root__'
     | '/'
@@ -217,6 +261,10 @@ export interface FileRouteTypes {
     | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
+    | '/ressources-confiance'
+    | '/ressources-conversion'
+    | '/ressources-site'
+    | '/ressources-systeme'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -236,10 +284,42 @@ export interface RootRouteChildren {
   PacksRoute: typeof PacksRoute
   PortfolioRoute: typeof PortfolioRoute
   QuiSuisJeRoute: typeof QuiSuisJeRoute
+  RessourcesConfianceRoute: typeof RessourcesConfianceRoute
+  RessourcesConversionRoute: typeof RessourcesConversionRoute
+  RessourcesSiteRoute: typeof RessourcesSiteRoute
+  RessourcesSystemeRoute: typeof RessourcesSystemeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ressources-systeme': {
+      id: '/ressources-systeme'
+      path: '/ressources-systeme'
+      fullPath: '/ressources-systeme'
+      preLoaderRoute: typeof RessourcesSystemeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ressources-site': {
+      id: '/ressources-site'
+      path: '/ressources-site'
+      fullPath: '/ressources-site'
+      preLoaderRoute: typeof RessourcesSiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ressources-conversion': {
+      id: '/ressources-conversion'
+      path: '/ressources-conversion'
+      fullPath: '/ressources-conversion'
+      preLoaderRoute: typeof RessourcesConversionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ressources-confiance': {
+      id: '/ressources-confiance'
+      path: '/ressources-confiance'
+      fullPath: '/ressources-confiance'
+      preLoaderRoute: typeof RessourcesConfianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/qui-suis-je': {
       id: '/qui-suis-je'
       path: '/qui-suis-je'
@@ -372,6 +452,10 @@ const rootRouteChildren: RootRouteChildren = {
   PacksRoute: PacksRoute,
   PortfolioRoute: PortfolioRoute,
   QuiSuisJeRoute: QuiSuisJeRoute,
+  RessourcesConfianceRoute: RessourcesConfianceRoute,
+  RessourcesConversionRoute: RessourcesConversionRoute,
+  RessourcesSiteRoute: RessourcesSiteRoute,
+  RessourcesSystemeRoute: RessourcesSystemeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

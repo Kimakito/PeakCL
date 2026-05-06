@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { ArrowRight, CheckCircle2, Download, Star, TriangleAlert } from "lucide-react";
+import { CheckCircle2, Download, Star, TriangleAlert } from "lucide-react";
 import { absUrl } from "@/seo/site";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 
-const BOOKING_URL = "https://calendly.com/peakcl73/45min";
 const WISTIA_MEDIA_ID = "26i532zvqr";
 const AGENDA_HELP_IMAGE = "/peakcl/assets/images/agenda-calendly.png";
 
@@ -76,6 +75,15 @@ function BienvenuePage() {
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             Si tu ne complètes pas ces étapes, je serai obligée d&apos;annuler notre appel.
           </p>
+          <div className="mt-8">
+            <a
+              href="#ressources"
+              className="inline-flex items-center justify-center rounded-full bg-primary-gradient px-7 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
+              data-event="cta_go_resources_bienvenue"
+            >
+              Accéder aux ressources
+            </a>
+          </div>
         </div>
       </section>
 
@@ -146,7 +154,7 @@ function BienvenuePage() {
         </section>
 
         {/* Step 4 */}
-        <section>
+        <section id="ressources">
           <div className="mb-6 flex items-start gap-4">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-gradient text-sm font-bold text-primary-foreground">
               4
@@ -164,39 +172,29 @@ function BienvenuePage() {
             <div className="relative p-6">
               <div className="grid gap-3">
                 {[
-                  { title: "Guide 01 — Système", href: "/peakcl/assets/ressources/peakcl_guide01_systeme.pdf" },
-                  { title: "Guide 02 — Site", href: "/peakcl/assets/ressources/peakcl_guide02_site.pdf" },
-                  { title: "Guide 03 — Confiance", href: "/peakcl/assets/ressources/peakcl_guide03_confiance.pdf" },
-                  { title: "Ressource — Conversion", href: "/peakcl/assets/peakcl_ressource_conversion.pdf" },
+                  { title: "Guide 01 — Système", href: "/ressources/systeme" },
+                  { title: "Guide 02 — Site", href: "/ressources/site" },
+                  { title: "Guide 03 — Confiance", href: "/ressources/confiance" },
+                  { title: "Ressource — Conversion", href: "/ressources/conversion" },
                 ].map((r) => (
                   <a
                     key={r.href}
                     href={r.href}
                     className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-foreground hover:border-white/20"
-                    target="_blank"
-                    rel="noreferrer"
-                    data-event="resource_pdf_open"
+                    data-event="resource_open"
                   >
                     <span className="flex items-center gap-2">
                       <Download className="h-4 w-4 text-muted-foreground" />
                       {r.title}
                     </span>
-                    <span className="text-xs text-muted-foreground">PDF</span>
+                    <span className="text-xs text-muted-foreground">Ouvrir</span>
                   </a>
                 ))}
               </div>
 
               <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="text-xs text-muted-foreground">45 min · visio · sans engagement</div>
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-7 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
-                  data-event="cta_booking_bienvenue_bottom"
-                >
-                  Confirmer mon appel <ArrowRight className="h-4 w-4" />
-                </a>
+                <div className="text-xs text-muted-foreground">Ressources personnalisées pour ton appel</div>
               </div>
             </div>
           </div>
