@@ -13,7 +13,7 @@ function Redirect() {
   return null;
 }
 
-export const Route = createFileRoute("/bienvenue-strategie" as any)({
+export const Route = createFileRoute("/bienvenue-strategie")({
   head: () => ({
     meta: [
       { title: "Redirection — PeakCL" },

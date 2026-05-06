@@ -3,13 +3,6 @@ import { useEffect } from "react";
 import { ArrowRight, CheckCircle2, Download, Star, TriangleAlert } from "lucide-react";
 import { absUrl } from "@/seo/site";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 const BOOKING_URL = "https://calendly.com/peakcl73/45min";
 const WISTIA_MEDIA_ID = "26i532zvqr";
@@ -134,31 +127,21 @@ function BienvenuePage() {
             </div>
           </div>
 
-          <div className="relative">
-            <Carousel opts={{ align: "start", loop: true }}>
-              <CarouselContent>
-                {peakclTestimonials.map((t) => (
-                  <CarouselItem key={t.name} className="md:basis-1/2">
-                    <div className="h-full rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card">
-                      <div className="flex gap-1 text-[var(--brand-yellow)]">
-                        {Array.from({ length: t.rating }).map((_, k) => (
-                          <Star key={k} className="h-4 w-4 fill-current" />
-                        ))}
-                      </div>
-                      <p className="mt-4 text-sm leading-relaxed text-foreground/90">“{t.quote}”</p>
-                      <div className="mt-6 border-t border-white/10 pt-4">
-                        <div className="text-sm font-semibold text-foreground">{t.name}</div>
-                        <div className="text-xs text-muted-foreground">
-                          {[t.sourceLabel, t.dateLabel].filter(Boolean).join(" · ")}
-                        </div>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="static mt-4 translate-y-0 border-white/10 bg-card text-foreground" />
-              <CarouselNext className="static mt-4 translate-y-0 border-white/10 bg-card text-foreground" />
-            </Carousel>
+          <div className="grid gap-4 md:grid-cols-2">
+            {peakclTestimonials.map((t) => (
+              <div key={t.name} className="h-full rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card">
+                <div className="flex gap-1 text-[var(--brand-yellow)]">
+                  {Array.from({ length: t.rating }).map((_, k) => (
+                    <Star key={k} className="h-4 w-4 fill-current" />
+                  ))}
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-foreground/90">“{t.quote}”</p>
+                <div className="mt-6 border-t border-white/10 pt-4">
+                  <div className="text-sm font-semibold text-foreground">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">{[t.sourceLabel, t.dateLabel].filter(Boolean).join(" · ")}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 

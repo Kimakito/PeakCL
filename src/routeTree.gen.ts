@@ -226,8 +226,8 @@ export interface RootRouteChildren {
   AgenceWebAnnecyRoute: typeof AgenceWebAnnecyRoute
   AgenceWebChamberyRoute: typeof AgenceWebChamberyRoute
   AgenceWebGillySurIsereRoute: typeof AgenceWebGillySurIsereRoute
-  BienvenueStrategieRoute: typeof BienvenueStrategieRoute
   BienvenueRoute: typeof BienvenueRoute
+  BienvenueStrategieRoute: typeof BienvenueStrategieRoute
   BriefRoute: typeof BriefRoute
   DiagnosticRoute: typeof DiagnosticRoute
   MerciRoute: typeof MerciRoute
@@ -296,18 +296,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BriefRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/bienvenue': {
-      id: '/bienvenue'
-      path: '/bienvenue'
-      fullPath: '/bienvenue'
-      preLoaderRoute: typeof BienvenueRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/bienvenue-strategie': {
       id: '/bienvenue-strategie'
       path: '/bienvenue-strategie'
       fullPath: '/bienvenue-strategie'
       preLoaderRoute: typeof BienvenueStrategieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bienvenue': {
+      id: '/bienvenue'
+      path: '/bienvenue'
+      fullPath: '/bienvenue'
+      preLoaderRoute: typeof BienvenueRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/agence-web-gilly-sur-isere': {
@@ -362,6 +362,7 @@ const rootRouteChildren: RootRouteChildren = {
   AgenceWebAnnecyRoute: AgenceWebAnnecyRoute,
   AgenceWebChamberyRoute: AgenceWebChamberyRoute,
   AgenceWebGillySurIsereRoute: AgenceWebGillySurIsereRoute,
+  BienvenueRoute: BienvenueRoute,
   BienvenueStrategieRoute: BienvenueStrategieRoute,
   BriefRoute: BriefRoute,
   DiagnosticRoute: DiagnosticRoute,
