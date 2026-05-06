@@ -157,6 +157,7 @@ function Nav() {
 function GeoLinks() {
   const items = [
     { name: "Albertville", href: "/agence-web-albertville" },
+    { name: "Gilly‑sur‑Isère", href: "/agence-web-gilly-sur-isere" },
     { name: "Chambéry", href: "/agence-web-chambery" },
     { name: "Annecy", href: "/agence-web-annecy" },
     { name: "Aix-les-Bains", href: "/agence-web-aix-les-bains" },

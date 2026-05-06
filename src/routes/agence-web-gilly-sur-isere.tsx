@@ -3,31 +3,30 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
 
-export const Route = createFileRoute("/agence-web-albertville")({
+export const Route = createFileRoute("/agence-web-gilly-sur-isere")({
   head: () => ({
     meta: [
-      { title: "Création de site web / site internet à Albertville — PeakCL" },
+      { title: "Création de site internet à Gilly‑sur‑Isère — PeakCL" },
       {
         name: "description",
         content:
-          "Création & refonte de sites web (sites internet) premium à Albertville. Un site rapide, clair et pensé pour générer des prises de contact. Audit gratuit sous 24h.",
+          "Création & refonte de sites web (sites internet) à Gilly‑sur‑Isère, près d’Albertville. Un site rapide, clair et pensé pour générer des prises de contact. Audit gratuit sous 24h.",
       },
-      { property: "og:title", content: "Création de site web à Albertville — PeakCL" },
+      { property: "og:title", content: "Création de site internet à Gilly‑sur‑Isère — PeakCL" },
       {
         property: "og:description",
-        content:
-          "Création & refonte de sites web premium à Albertville. Audit gratuit sous 24h.",
+        content: "Création & refonte de sites web à Gilly‑sur‑Isère. Audit gratuit sous 24h.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: absUrl("/agence-web-albertville") },
+      { property: "og:url", content: absUrl("/agence-web-gilly-sur-isere") },
       {
         "script:ld+json": breadcrumbJsonLd([
           { name: "Accueil", path: "/" },
-          { name: "Albertville", path: "/agence-web-albertville" },
+          { name: "Gilly‑sur‑Isère", path: "/agence-web-gilly-sur-isere" },
         ]),
       },
     ],
-    links: [{ rel: "canonical", href: absUrl("/agence-web-albertville") }],
+    links: [{ rel: "canonical", href: absUrl("/agence-web-gilly-sur-isere") }],
   }),
   component: Page,
 });
@@ -40,13 +39,15 @@ function Page() {
         <div className="mx-auto max-w-5xl px-6 text-center">
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
             <MapPin className="h-3.5 w-3.5" />
-            Albertville · Savoie
+            Gilly‑sur‑Isère · Savoie
           </div>
           <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-tight md:text-6xl">
-            Création de site web à <span className="text-gradient">Albertville</span>
+            Création de site <span className="text-gradient">internet</span> à{" "}
+            <span className="text-gradient">Gilly‑sur‑Isère</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-            Un site premium (site internet), rapide et structuré pour convertir les visiteurs locaux en prises de contact.
+            Un site premium, rapide et structuré pour convertir les visiteurs en prises de contact (localement et partout
+            en France).
           </p>
           <a
             href="/#contact"
@@ -61,18 +62,18 @@ function Page() {
       <section className="border-t border-white/5 py-20">
         <div className="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-2">
           <div>
-            <h2 className="text-2xl font-bold">Pourquoi une page Albertville ?</h2>
+            <h2 className="text-2xl font-bold">Être visible sur “création de site internet Gilly‑sur‑Isère”.</h2>
             <p className="mt-4 text-muted-foreground">
-              Pour être trouvé quand quelqu&apos;un cherche “création site web Albertville”,
-              et pour rassurer avec une offre claire, locale et orientée résultats.
+              Si tu veux remonter sur Google, il faut une page dédiée, avec une intention claire, un contenu utile (pas du
+              blabla), et des signaux de confiance (portfolio, avis, performance).
             </p>
           </div>
           <div className="rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
             <h3 className="text-base font-semibold">Ce que tu obtiens</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li>• Une structure pensée conversion (CTA, preuves, parcours simple)</li>
-              <li>• Des bases SEO locales propres (balises, performance, contenu)</li>
-              <li>• Un design premium qui inspire confiance</li>
+              <li>• Structure pensée conversion (CTA, preuves, parcours simple)</li>
+              <li>• Bases SEO locales propres (balises, maillage, performance)</li>
+              <li>• Design premium, rapide, mobile-first</li>
             </ul>
           </div>
         </div>
