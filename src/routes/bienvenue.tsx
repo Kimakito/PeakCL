@@ -1,10 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { ArrowRight, Check, CheckCircle2, Download } from "lucide-react";
+import { ArrowRight, CheckCircle2, Download, Star, TriangleAlert } from "lucide-react";
 import { absUrl } from "@/seo/site";
+import { peakclTestimonials } from "@/content/peakcl/testimonials";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const BOOKING_URL = "https://calendly.com/peakcl73/45min";
 const WISTIA_MEDIA_ID = "26i532zvqr";
+const AGENDA_HELP_IMAGE = "/peakcl/assets/images/agenda-calendly.png";
 
 function WistiaVideo({ mediaId }: { mediaId: string }) {
   useEffect(() => {
@@ -44,7 +53,8 @@ export const Route = createFileRoute("/bienvenue")({
       { title: "Bienvenue — PeakCL" },
       {
         name: "description",
-        content: "Bienvenue. Regarde la vidéo, télécharge les ressources, puis réserve ton point stratégie si tu veux qu’on avance vite.",
+        content:
+          "Pour confirmer ton appel et accéder aux ressources, suis les étapes ci‑dessous. (Vidéo + preuves + ressources)",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/bienvenue") },
@@ -56,67 +66,120 @@ export const Route = createFileRoute("/bienvenue")({
 
 function BienvenuePage() {
   return (
-    <main className="min-h-screen border-t border-white/5">
-      <section className="relative overflow-hidden bg-hero py-20">
-        <div className="grid-bg absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
-            <CheckCircle2 className="h-4 w-4 text-[var(--brand-turquoise)]" />
-            Diagnostic envoyé — merci
-          </div>
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
-            <Check className="h-4 w-4 text-[var(--brand-turquoise)]" />
-            Bienvenue
+    <main className="min-h-screen bg-background">
+      <section className="relative overflow-hidden px-6 pt-16 pb-20 text-center">
+        <div className="pointer-events-none absolute top-0 left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] blur-[120px]" />
+        <div className="relative z-10 mx-auto max-w-3xl">
+          <div className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-[var(--brand-turquoise)]">
+            <TriangleAlert className="h-4 w-4" />
+            <span>Regarde cette page jusqu&apos;au bout.</span>
+            <TriangleAlert className="h-4 w-4" />
           </div>
 
-          <h1 className="mx-auto mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">
-            Voilà la suite (simple, rapide, efficace)
+          <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl">
+            Pour confirmer ton appel et accéder aux ressources, réalise les{" "}
+            <span className="text-gradient">4 étapes</span> ci‑dessous
           </h1>
-
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            1) Regarde la vidéo (VSL) ci‑dessous.
-            <br />
-            2) Télécharge les ressources PDF.
-            <br />
-            3) Si tu veux qu’on avance vite: réserve ton point stratégie.
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+            Si tu ne complètes pas ces étapes, je serai obligée d&apos;annuler notre appel.
           </p>
-
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-7 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
-              data-event="cta_booking_bienvenue"
-            >
-              Réserver mon point stratégie <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="/portfolio"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-7 py-3 text-sm font-semibold text-foreground hover:border-white/20"
-            >
-              Voir le portfolio
-            </a>
-          </div>
         </div>
       </section>
 
-      <section className="border-t border-white/5 py-16">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="grid gap-8 md:grid-cols-2 md:items-start">
-            <div className="rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
-              <h2 className="text-xl font-bold">VSL (vidéo)</h2>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Cette vidéo pose le cadre et prétraite les objections principales. Regarde‑la avant de réserver.
-              </p>
-              <WistiaVideo mediaId={WISTIA_MEDIA_ID} />
+      <div className="mx-auto max-w-3xl space-y-16 px-6 pb-24">
+        {/* Step 1 */}
+        <section>
+          <div className="mb-6 flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-gradient text-sm font-bold text-primary-foreground">
+              1
             </div>
+            <div>
+              <h2 className="text-2xl font-bold text-foreground">Regarde la vidéo</h2>
+              <p className="mt-1 text-sm text-muted-foreground">Regarde la VSL jusqu&apos;au bout avant ton rendez‑vous.</p>
+            </div>
+          </div>
+          <WistiaVideo mediaId={WISTIA_MEDIA_ID} />
+        </section>
 
-            <div className="rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
-              <h2 className="text-xl font-bold">Ressources PDF</h2>
-              <p className="mt-2 text-sm text-muted-foreground">Télécharge les guides et garde‑les sous la main.</p>
+        {/* Step 2 */}
+        <section>
+          <div className="mb-6 flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-gradient text-sm font-bold text-primary-foreground">
+              2
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-foreground">Ajoute le rendez‑vous à ton agenda</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Quand tu reçois l&apos;invitation, clique sur “Je connais cet expéditeur” puis confirme pour l&apos;ajouter à ton calendrier.
+              </p>
+            </div>
+          </div>
 
-              <div className="mt-5 grid gap-3">
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-card">
+            <img src={AGENDA_HELP_IMAGE} alt="Aide agenda - confirmation du rendez-vous" className="h-auto w-full" />
+          </div>
+        </section>
+
+        {/* Step 3 */}
+        <section>
+          <div className="mb-6 flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-gradient text-sm font-bold text-primary-foreground">
+              3
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-foreground">Regarde des résultats clients</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Quelques retours récents de clients PeakCL (site, clarté, conversion).
+              </p>
+            </div>
+          </div>
+
+          <div className="relative">
+            <Carousel opts={{ align: "start", loop: true }}>
+              <CarouselContent>
+                {peakclTestimonials.map((t) => (
+                  <CarouselItem key={t.name} className="md:basis-1/2">
+                    <div className="h-full rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card">
+                      <div className="flex gap-1 text-[var(--brand-yellow)]">
+                        {Array.from({ length: t.rating }).map((_, k) => (
+                          <Star key={k} className="h-4 w-4 fill-current" />
+                        ))}
+                      </div>
+                      <p className="mt-4 text-sm leading-relaxed text-foreground/90">“{t.quote}”</p>
+                      <div className="mt-6 border-t border-white/10 pt-4">
+                        <div className="text-sm font-semibold text-foreground">{t.name}</div>
+                        <div className="text-xs text-muted-foreground">
+                          {[t.sourceLabel, t.dateLabel].filter(Boolean).join(" · ")}
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="static mt-4 translate-y-0 border-white/10 bg-card text-foreground" />
+              <CarouselNext className="static mt-4 translate-y-0 border-white/10 bg-card text-foreground" />
+            </Carousel>
+          </div>
+        </section>
+
+        {/* Step 4 */}
+        <section>
+          <div className="mb-6 flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-gradient text-sm font-bold text-primary-foreground">
+              4
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-foreground">Récupère les ressources</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Télécharge les guides et garde‑les sous la main avant notre rendez‑vous.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-card">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] via-transparent to-[color-mix(in_oklab,var(--brand-turquoise)_12%,transparent)]" />
+            <div className="relative p-6">
+              <div className="grid gap-3">
                 {[
                   { title: "Guide 01 — Système", href: "/peakcl/assets/ressources/peakcl_guide01_systeme.pdf" },
                   { title: "Guide 02 — Site", href: "/peakcl/assets/ressources/peakcl_guide02_site.pdf" },
@@ -139,29 +202,23 @@ function BienvenuePage() {
                   </a>
                 ))}
               </div>
-            </div>
-          </div>
 
-          <div className="mt-10 rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
-            <h2 className="text-xl font-bold">Prochaine étape</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Si tu te reconnais dans la problématique et que tu veux une reco claire, priorisée, et actionnable:
-            </p>
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-7 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
-                data-event="cta_booking_bienvenue_bottom"
-              >
-                Réserver mon point stratégie <ArrowRight className="h-4 w-4" />
-              </a>
-              <span className="text-xs text-muted-foreground">45 min · visio · sans engagement</span>
+              <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="text-xs text-muted-foreground">45 min · visio · sans engagement</div>
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-7 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
+                  data-event="cta_booking_bienvenue_bottom"
+                >
+                  Confirmer mon appel <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
   );
 }
