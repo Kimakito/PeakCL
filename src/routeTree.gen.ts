@@ -12,9 +12,14 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as QuiSuisJeRouteImport } from './routes/qui-suis-je'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PacksRouteImport } from './routes/packs'
+import { Route as MerciDiagnosticRouteImport } from './routes/merci-diagnostic'
 import { Route as MerciBriefRouteImport } from './routes/merci-brief'
 import { Route as MerciRouteImport } from './routes/merci'
+import { Route as DiagnosticRouteImport } from './routes/diagnostic'
 import { Route as BriefRouteImport } from './routes/brief'
+import { Route as BienvenueStrategieRouteImport } from './routes/bienvenue-strategie'
+import { Route as BienvenueRouteImport } from './routes/bienvenue'
+import { Route as AgenceWebGillySurIsereRouteImport } from './routes/agence-web-gilly-sur-isere'
 import { Route as AgenceWebChamberyRouteImport } from './routes/agence-web-chambery'
 import { Route as AgenceWebAnnecyRouteImport } from './routes/agence-web-annecy'
 import { Route as AgenceWebAlbertvilleRouteImport } from './routes/agence-web-albertville'
@@ -36,6 +41,11 @@ const PacksRoute = PacksRouteImport.update({
   path: '/packs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MerciDiagnosticRoute = MerciDiagnosticRouteImport.update({
+  id: '/merci-diagnostic',
+  path: '/merci-diagnostic',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MerciBriefRoute = MerciBriefRouteImport.update({
   id: '/merci-brief',
   path: '/merci-brief',
@@ -46,9 +56,29 @@ const MerciRoute = MerciRouteImport.update({
   path: '/merci',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DiagnosticRoute = DiagnosticRouteImport.update({
+  id: '/diagnostic',
+  path: '/diagnostic',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BriefRoute = BriefRouteImport.update({
   id: '/brief',
   path: '/brief',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BienvenueStrategieRoute = BienvenueStrategieRouteImport.update({
+  id: '/bienvenue-strategie',
+  path: '/bienvenue-strategie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BienvenueRoute = BienvenueRouteImport.update({
+  id: '/bienvenue',
+  path: '/bienvenue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgenceWebGillySurIsereRoute = AgenceWebGillySurIsereRouteImport.update({
+  id: '/agence-web-gilly-sur-isere',
+  path: '/agence-web-gilly-sur-isere',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AgenceWebChamberyRoute = AgenceWebChamberyRouteImport.update({
@@ -83,9 +113,14 @@ export interface FileRoutesByFullPath {
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
+  '/agence-web-gilly-sur-isere': typeof AgenceWebGillySurIsereRoute
+  '/bienvenue': typeof BienvenueRoute
+  '/bienvenue-strategie': typeof BienvenueStrategieRoute
   '/brief': typeof BriefRoute
+  '/diagnostic': typeof DiagnosticRoute
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
+  '/merci-diagnostic': typeof MerciDiagnosticRoute
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
@@ -96,9 +131,14 @@ export interface FileRoutesByTo {
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
+  '/agence-web-gilly-sur-isere': typeof AgenceWebGillySurIsereRoute
+  '/bienvenue': typeof BienvenueRoute
+  '/bienvenue-strategie': typeof BienvenueStrategieRoute
   '/brief': typeof BriefRoute
+  '/diagnostic': typeof DiagnosticRoute
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
+  '/merci-diagnostic': typeof MerciDiagnosticRoute
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
@@ -110,9 +150,14 @@ export interface FileRoutesById {
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
+  '/agence-web-gilly-sur-isere': typeof AgenceWebGillySurIsereRoute
+  '/bienvenue': typeof BienvenueRoute
+  '/bienvenue-strategie': typeof BienvenueStrategieRoute
   '/brief': typeof BriefRoute
+  '/diagnostic': typeof DiagnosticRoute
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
+  '/merci-diagnostic': typeof MerciDiagnosticRoute
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
@@ -125,9 +170,14 @@ export interface FileRouteTypes {
     | '/agence-web-albertville'
     | '/agence-web-annecy'
     | '/agence-web-chambery'
+    | '/agence-web-gilly-sur-isere'
+    | '/bienvenue'
+    | '/bienvenue-strategie'
     | '/brief'
+    | '/diagnostic'
     | '/merci'
     | '/merci-brief'
+    | '/merci-diagnostic'
     | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
@@ -138,9 +188,14 @@ export interface FileRouteTypes {
     | '/agence-web-albertville'
     | '/agence-web-annecy'
     | '/agence-web-chambery'
+    | '/agence-web-gilly-sur-isere'
+    | '/bienvenue'
+    | '/bienvenue-strategie'
     | '/brief'
+    | '/diagnostic'
     | '/merci'
     | '/merci-brief'
+    | '/merci-diagnostic'
     | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
@@ -151,9 +206,14 @@ export interface FileRouteTypes {
     | '/agence-web-albertville'
     | '/agence-web-annecy'
     | '/agence-web-chambery'
+    | '/agence-web-gilly-sur-isere'
+    | '/bienvenue'
+    | '/bienvenue-strategie'
     | '/brief'
+    | '/diagnostic'
     | '/merci'
     | '/merci-brief'
+    | '/merci-diagnostic'
     | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
@@ -165,9 +225,14 @@ export interface RootRouteChildren {
   AgenceWebAlbertvilleRoute: typeof AgenceWebAlbertvilleRoute
   AgenceWebAnnecyRoute: typeof AgenceWebAnnecyRoute
   AgenceWebChamberyRoute: typeof AgenceWebChamberyRoute
+  AgenceWebGillySurIsereRoute: typeof AgenceWebGillySurIsereRoute
+  BienvenueStrategieRoute: typeof BienvenueStrategieRoute
+  BienvenueRoute: typeof BienvenueRoute
   BriefRoute: typeof BriefRoute
+  DiagnosticRoute: typeof DiagnosticRoute
   MerciRoute: typeof MerciRoute
   MerciBriefRoute: typeof MerciBriefRoute
+  MerciDiagnosticRoute: typeof MerciDiagnosticRoute
   PacksRoute: typeof PacksRoute
   PortfolioRoute: typeof PortfolioRoute
   QuiSuisJeRoute: typeof QuiSuisJeRoute
@@ -196,6 +261,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PacksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/merci-diagnostic': {
+      id: '/merci-diagnostic'
+      path: '/merci-diagnostic'
+      fullPath: '/merci-diagnostic'
+      preLoaderRoute: typeof MerciDiagnosticRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/merci-brief': {
       id: '/merci-brief'
       path: '/merci-brief'
@@ -210,11 +282,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MerciRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/diagnostic': {
+      id: '/diagnostic'
+      path: '/diagnostic'
+      fullPath: '/diagnostic'
+      preLoaderRoute: typeof DiagnosticRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/brief': {
       id: '/brief'
       path: '/brief'
       fullPath: '/brief'
       preLoaderRoute: typeof BriefRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bienvenue': {
+      id: '/bienvenue'
+      path: '/bienvenue'
+      fullPath: '/bienvenue'
+      preLoaderRoute: typeof BienvenueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bienvenue-strategie': {
+      id: '/bienvenue-strategie'
+      path: '/bienvenue-strategie'
+      fullPath: '/bienvenue-strategie'
+      preLoaderRoute: typeof BienvenueStrategieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agence-web-gilly-sur-isere': {
+      id: '/agence-web-gilly-sur-isere'
+      path: '/agence-web-gilly-sur-isere'
+      fullPath: '/agence-web-gilly-sur-isere'
+      preLoaderRoute: typeof AgenceWebGillySurIsereRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/agence-web-chambery': {
@@ -261,9 +361,13 @@ const rootRouteChildren: RootRouteChildren = {
   AgenceWebAlbertvilleRoute: AgenceWebAlbertvilleRoute,
   AgenceWebAnnecyRoute: AgenceWebAnnecyRoute,
   AgenceWebChamberyRoute: AgenceWebChamberyRoute,
+  AgenceWebGillySurIsereRoute: AgenceWebGillySurIsereRoute,
+  BienvenueStrategieRoute: BienvenueStrategieRoute,
   BriefRoute: BriefRoute,
+  DiagnosticRoute: DiagnosticRoute,
   MerciRoute: MerciRoute,
   MerciBriefRoute: MerciBriefRoute,
+  MerciDiagnosticRoute: MerciDiagnosticRoute,
   PacksRoute: PacksRoute,
   PortfolioRoute: PortfolioRoute,
   QuiSuisJeRoute: QuiSuisJeRoute,

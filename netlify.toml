@@ -88,6 +88,12 @@
   force = true
 
 [[redirects]]
+  from = "/bienvenue-strategie"
+  to = "/bienvenue"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/graphisme"
   to = "/packs"
   status = 301
