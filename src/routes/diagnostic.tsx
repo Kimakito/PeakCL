@@ -266,7 +266,7 @@ function DiagnosticPage() {
           <form
             name="diagnostic"
             method="POST"
-            action="/merci-diagnostic"
+            action="/bienvenue-strategie"
             data-netlify="true"
             netlify-honeypot="bot-field"
             className="space-y-6"

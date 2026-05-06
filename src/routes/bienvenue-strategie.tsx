@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, CheckCircle2 } from "lucide-react";
 import { absUrl } from "@/seo/site";
+
+const CALENDLY_URL = "https://calendly.com/peakcl73/45min";
 
 export const Route = createFileRoute("/bienvenue-strategie")({
   head: () => ({
@@ -25,6 +27,10 @@ function BienvenueStrategiePage() {
       <section className="relative overflow-hidden bg-hero py-20">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto max-w-4xl px-6 text-center">
+          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+            <CheckCircle2 className="h-4 w-4 text-[var(--brand-turquoise)]" />
+            Diagnostic envoyé — merci
+          </div>
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
             <Check className="h-4 w-4 text-[var(--brand-turquoise)]" />
             Bienvenue · Stratégie
@@ -35,16 +41,19 @@ function BienvenueStrategiePage() {
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Tu es au bon endroit. L’objectif: comprendre ta situation, ton objectif et ce qui bloque aujourd’hui ta
-            visibilité / conversion — pour repartir avec une recommandation claire.
+            Merci pour tes réponses. Si tu veux aller plus vite, le mieux est de faire un point ensemble: en 45 minutes,
+            je te donne une reco claire et priorisée (message, structure, prochaines actions).
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="/diagnostic"
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-7 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
+              data-event="cta_calendly_bienvenue_strategie"
             >
-              Commencer le diagnostic <ArrowRight className="h-4 w-4" />
+              Réserver mon point stratégie <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="/portfolio"
