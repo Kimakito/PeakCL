@@ -15,6 +15,7 @@ import {
   Clock,
   Target,
   ShieldCheck,
+  Phone,
 } from "lucide-react";
 import logo from "@/assets/peakcl-logo.png";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
@@ -49,6 +50,9 @@ export const Route = createFileRoute("/")({
 
 const CALENDLY_URL = "https://calendly.com/peakcl73/45min";
 const WHATSAPP_URL = "https://wa.me/33743517627";
+/** Même numéro que WhatsApp — lien tel: pour appels depuis mobile / fiche Google */
+const PHONE_TEL = "tel:+33743517627";
+const PHONE_DISPLAY = "07 43 51 76 27";
 const EMAIL = "peakcl73@gmail.com";
 const LINKEDIN_URL = "https://www.linkedin.com/in/charlotte-lacroix-peakcl/";
 const MALT_URL = "https://www.malt.fr/profile/peakcldev";
@@ -100,13 +104,22 @@ function ContactInline({ className = "" }: { className?: string }) {
     <div className={`flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground ${className}`}>
       <span>Ou</span>
       <a
+        href={PHONE_TEL}
+        data-event="cta_phone"
+        className="inline-flex items-center gap-1 font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+      >
+        <Phone className="h-3.5 w-3.5 shrink-0" aria-hidden />
+        {PHONE_DISPLAY}
+      </a>
+      <span>·</span>
+      <a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         data-event="cta_whatsapp"
         className="font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
       >
-        WhatsApp pro
+        WhatsApp
       </a>
       <span>·</span>
       <a
@@ -244,8 +257,8 @@ function Hero() {
           transition={{ delay: 0.15 }}
           className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
-          <CTAButton href="/brief" dataEvent="cta_brief_hero">
-            Faire le diagnostic
+          <CTAButton href="#contact" dataEvent="cta_contact_hero">
+            Me contacter
           </CTAButton>
           <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_hero" variant="ghost">
             Réserver un appel
@@ -255,9 +268,16 @@ function Hero() {
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          transition={{ delay: 0.17 }}
-          className="mt-3"
+          transition={{ delay: 0.16 }}
+          className="mt-3 flex flex-col items-center gap-2"
         >
+          <a
+            href="/brief"
+            data-event="cta_brief_hero"
+            className="text-xs font-semibold text-muted-foreground hover:text-foreground"
+          >
+            Préférez le diagnostic en ligne (8 min) →
+          </a>
           <a
             href="#resultats"
             className="text-xs font-semibold text-muted-foreground hover:text-foreground"
@@ -1030,6 +1050,30 @@ function FinalCTA() {
   );
 }
 
+function MobileStickyContact() {
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-white/10 bg-background/90 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-xl md:hidden">
+      <div className="mx-auto flex max-w-lg gap-2 px-4">
+        <a
+          href={PHONE_TEL}
+          data-event="cta_phone_sticky"
+          className="flex flex-1 items-center justify-center gap-2 rounded-full border border-border bg-card/60 py-3 text-sm font-semibold text-foreground backdrop-blur hover:bg-card/80"
+        >
+          <Phone className="h-4 w-4 text-[var(--brand-turquoise)]" aria-hidden />
+          Appeler
+        </a>
+        <a
+          href="#contact"
+          data-event="cta_contact_sticky"
+          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-primary-gradient py-3 text-sm font-semibold text-primary-foreground shadow-glow"
+        >
+          Message
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <footer className="border-t border-white/5 py-10">
@@ -1098,7 +1142,7 @@ function Landing() {
   return (
     <div className="min-h-screen">
       <Nav />
-      <main>
+      <main className="pb-[calc(5.25rem+env(safe-area-inset-bottom))] md:pb-0">
         <Hero />
         <Problem />
         <Method />
@@ -1111,6 +1155,7 @@ function Landing() {
         <FAQ />
         <FinalCTA />
       </main>
+      <MobileStickyContact />
       <Footer />
     </div>
   );
