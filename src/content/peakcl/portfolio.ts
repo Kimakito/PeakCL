@@ -11,6 +11,51 @@ const withPublicPrefix = (path?: string) => (path ? `/peakcl${path}` : undefined
 
 export const peakclPortfolio: PeakclProject[] = [
   {
+    title: "TrackDM",
+    subtitle: "Prospection DM · SaaS · PeakCL",
+    description:
+      "Un cockpit de prospection par messages privés pour les entrepreneurs qui vivent sur Instagram et Messenger. J'ai conçu et développé cette application Next.js avec tunnel de prospects, journal des échanges, relances planifiées et tableau de bord — sans CRM lourd.",
+    tags: ["Next.js", "SaaS", "Prospection"],
+    siteUrl: "https://trackdm.app/",
+    logoUrl: withPublicPrefix("/assets/logo/trackdm.svg"),
+  },
+  {
+    title: "SP Services Rénovation",
+    subtitle: "Artisan rénovation · Isère",
+    description:
+      "Stéphane transforme les intérieurs et extérieurs avec un savoir-faire polyvalent — salles de bain, terrasses, électricité. J'ai créé un site moderne avec galerie de chantiers, formulaire de contact et fil Instagram intégré pour valoriser ses réalisations.",
+    tags: ["TanStack Start", "Galerie", "Artisan"],
+    siteUrl: "https://spservicesrenovation.fr/",
+    logoUrl: withPublicPrefix("/assets/logo/sp-renovation.png"),
+  },
+  {
+    title: "Laboratoire Sanchez Randon",
+    subtitle: "Prothésiste dentaire · Chambéry",
+    description:
+      "Un laboratoire dentaire avec plus de 25 ans d'expertise, mais une vitrine en ligne dépassée. J'ai livré un site Jekyll institutionnel et rassurant, avec pages spécialisées implants, prothèses et logiciels numériques Exocad / 3Shape.",
+    tags: ["Jekyll", "Institutionnel", "Santé"],
+    siteUrl: "https://prothesiste-sanchezrandon-chambery.fr/",
+    logoUrl: withPublicPrefix("/assets/logo/sanchezrandon.svg"),
+  },
+  {
+    title: "Sky View — Jean-Baptiste Lacroix",
+    subtitle: "Pilote de drone · Albertville",
+    description:
+      "Jean-Baptiste, déjà auteur fantasy, s'est lancé dans la captation aérienne en Savoie. J'ai conçu une vitrine immersive pour ses prestations drone : immobilier, tourisme, événementiel et inspection technique, avec un positionnement premium.",
+    tags: ["React", "One-page", "Drone"],
+    siteUrl: "https://jblacroix-drone.fr/",
+    logoUrl: withPublicPrefix("/assets/logo/logo.jbl.nobg.png"),
+  },
+  {
+    title: "Le Feu Sombre",
+    subtitle: "Univers fantasy · Site immersif",
+    description:
+      "L'univers littéraire de Jean-Baptiste Lacroix méritait une expérience web à la hauteur de son mystère. J'ai développé un site immersif avec carte interactive des Provinces, galerie de personnages et ambiance fantasy — pour embarquer les lecteurs dans la quête.",
+    tags: ["Tailwind", "Carte interactive", "Fantasy"],
+    siteUrl: "https://kimakito.github.io/le-feu-sombre/",
+    logoUrl: withPublicPrefix("/assets/logo/le-feu-sombre.png"),
+  },
+  {
     title: "Jantes 73 — La Vieille Roue",
     subtitle: "Artisan automobile · Albertville",
     description:
