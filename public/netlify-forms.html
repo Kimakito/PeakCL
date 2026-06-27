@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Netlify Forms</title>
+  </head>
+  <body>
+    <!--
+      Netlify scans static HTML at build time to register forms.
+      AJAX submissions must POST to this file (not /) on SSR sites.
+    -->
+    <form
+      name="contact"
+      method="POST"
+      action="/merci"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="leadType" value="audit_gratuit" />
+      <input type="hidden" name="source" value="site_peakcl" />
+      <p style="display:none">
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <p>
+        <label>Nom <input name="name" required /></label>
+      </p>
+      <p>
+        <label>Email <input name="email" type="email" required /></label>
+      </p>
+      <p>
+        <label>Message <textarea name="message" required></textarea></label>
+      </p>
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <form
+      name="brief-projet"
+      method="POST"
+      action="/merci-brief"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="brief-projet" />
+      <input type="hidden" name="leadType" value="brief_projet" />
+      <input type="hidden" name="source" value="site_peakcl" />
+      <p style="display:none">
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <p>
+        <label>Nom <input name="fullName" required /></label>
+      </p>
+      <p>
+        <label>Email <input name="email" type="email" required /></label>
+      </p>
+      <p>
+        <label>Activité <input name="businessName" required /></label>
+      </p>
+      <p>
+        <label>Ville/zone <input name="cityZone" required /></label>
+      </p>
+      <p>
+        <label>Résumé <textarea name="projectSummary" required></textarea></label>
+      </p>
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <form
+      name="diagnostic"
+      method="POST"
+      action="/merci-brief"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="diagnostic" />
+      <input type="hidden" name="leadType" value="diagnostic_r1" />
+      <p style="display:none">
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <p>
+        <label>Prénom nom <input name="prenomNom" /></label>
+      </p>
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <!-- Questionnaire privé : cadrage Véronique -->
+    <form
+      name="cadrage-veronique"
+      method="POST"
+      action="/cadrage/veronique/merci"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="cadrage-veronique" />
+      <input type="hidden" name="leadType" value="cadrage_client" />
+      <input type="hidden" name="source" value="cadrage_veronique_prive" />
+      <input type="hidden" name="subject" value="[PeakCL] Cadrage Véronique · questionnaire reçu" />
+      <input type="hidden" name="client_name" value="Véronique" />
+      <input type="hidden" name="client_activity" value="Thérapeute magnétiseuse & énergéticienne" />
+      <input type="hidden" name="site_actuel" value="veronique-et-lenergie-doree.fr" />
+      <p style="display:none">
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <!-- Field names mirrored from /cadrage/veronique for Netlify detection -->
+      <input type="hidden" name="parcours" />
+      <input type="hidden" name="depuis_quand" />
+      <input type="hidden" name="activite_principale" />
+      <input type="hidden" name="modes_exercice" />
+      <input type="hidden" name="zone_geographique" />
+      <input type="hidden" name="seule_ou_equipe" />
+      <input type="hidden" name="approche" />
+      <input type="hidden" name="valeurs" />
+      <input type="hidden" name="ressenti_souhaite" />
+      <input type="hidden" name="problematiques_frequentes" />
+      <input type="hidden" name="sujets_eviter" />
+      <input type="hidden" name="prestations_actuelles" />
+      <input type="hidden" name="detail_soins" />
+      <input type="hidden" name="prestations_prioritaires" />
+      <input type="hidden" name="types_prestations" />
+      <input type="hidden" name="prestations_evolution" />
+      <input type="hidden" name="clientele" />
+      <input type="hidden" name="public_principal" />
+      <input type="hidden" name="besoins_frequents" />
+      <input type="hidden" name="connaissance_soins" />
+      <input type="hidden" name="explications_necessaires" />
+      <input type="hidden" name="pourquoi_refonte" />
+      <input type="hidden" name="site_actuel_problemes" />
+      <input type="hidden" name="objectifs_site" />
+      <input type="hidden" name="objectifs_autre" />
+      <input type="hidden" name="actions_visiteurs" />
+      <input type="hidden" name="actions_visiteurs_autre" />
+      <input type="hidden" name="conserver_actuel" />
+      <input type="hidden" name="changer_completement" />
+      <input type="hidden" name="mots_univers" />
+      <input type="hidden" name="couleurs_appreciees" />
+      <input type="hidden" name="couleurs_eviter" />
+      <input type="hidden" name="inspirations_sites" />
+      <input type="hidden" name="logo_exploitable" />
+      <input type="hidden" name="logo_souhait" />
+      <input type="hidden" name="charte_graphique" />
+      <input type="hidden" name="declinaisons_identite" />
+      <input type="hidden" name="pages_envisagees" />
+      <input type="hidden" name="page_par_soin" />
+      <input type="hidden" name="blog_souhaite" />
+      <input type="hidden" name="temoignages_integration" />
+      <input type="hidden" name="faq_souhaite" />
+      <input type="hidden" name="structure_pages_commentaire" />
+      <input type="hidden" name="contact_canaux" />
+      <input type="hidden" name="formulaires_besoins" />
+      <input type="hidden" name="agenda_reservation" />
+      <input type="hidden" name="contenus_disponibles" />
+      <input type="hidden" name="contenus_redaction" />
+      <input type="hidden" name="photos_utilisation" />
+      <input type="hidden" name="visibilite_google" />
+      <input type="hidden" name="fiche_google" />
+      <input type="hidden" name="google_actions" />
+      <input type="hidden" name="mots_cles_google" />
+      <input type="hidden" name="reseaux_presence" />
+      <input type="hidden" name="reseaux_autre" />
+      <input type="hidden" name="lier_reseaux" />
+      <input type="hidden" name="coherence_graphique" />
+      <input type="hidden" name="gestion_souhaits" />
+      <input type="hidden" name="hebergement_acces" />
+      <input type="hidden" name="date_mise_en_ligne" />
+      <input type="hidden" name="periode_importante" />
+      <input type="hidden" name="organisation_projet" />
+      <textarea name="notes_libres"></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <!-- Questionnaire privé : cadrage Pascale Vert (magnétiseuse) -->
+    <form
+      name="cadrage-pascale"
+      method="POST"
+      action="/cadrage/pascale/merci"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="cadrage-pascale" />
+      <input type="hidden" name="leadType" value="cadrage_client" />
+      <input type="hidden" name="source" value="cadrage_pascale_prive" />
+      <input type="hidden" name="subject" value="[PeakCL] Cadrage Pascale — questionnaire reçu" />
+      <input type="hidden" name="client_name" value="Pascale Vert" />
+      <input type="hidden" name="client_activity" value="Magnétiseuse" />
+      <input type="hidden" name="site_actuel" value="pascale-vert-magnetiseur.fr" />
+      <p style="display:none">
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <input type="hidden" name="parcours" />
+      <input type="hidden" name="depuis_quand" />
+      <input type="hidden" name="activite_principale" />
+      <input type="hidden" name="modes_exercice" />
+      <input type="hidden" name="zone_geographique" />
+      <input type="hidden" name="seule_ou_equipe" />
+      <input type="hidden" name="approche" />
+      <input type="hidden" name="valeurs" />
+      <input type="hidden" name="ressenti_souhaite" />
+      <input type="hidden" name="problematiques_frequentes" />
+      <input type="hidden" name="sujets_eviter" />
+      <input type="hidden" name="prestations_actuelles" />
+      <input type="hidden" name="detail_soins" />
+      <input type="hidden" name="prestations_prioritaires" />
+      <input type="hidden" name="types_prestations" />
+      <input type="hidden" name="tarifs_afficher" />
+      <input type="hidden" name="prestations_evolution" />
+      <input type="hidden" name="clientele" />
+      <input type="hidden" name="public_principal" />
+      <input type="hidden" name="besoins_frequents" />
+      <input type="hidden" name="connaissance_magnetisme" />
+      <input type="hidden" name="explications_necessaires" />
+      <input type="hidden" name="pourquoi_refonte" />
+      <input type="hidden" name="site_actuel_problemes" />
+      <input type="hidden" name="objectifs_site" />
+      <input type="hidden" name="objectifs_autre" />
+      <input type="hidden" name="actions_visiteurs" />
+      <input type="hidden" name="actions_visiteurs_autre" />
+      <input type="hidden" name="conserver_actuel" />
+      <input type="hidden" name="changer_completement" />
+      <input type="hidden" name="mots_univers" />
+      <input type="hidden" name="couleurs_appreciees" />
+      <input type="hidden" name="couleurs_eviter" />
+      <input type="hidden" name="inspirations_sites" />
+      <input type="hidden" name="logo_exploitable" />
+      <input type="hidden" name="logo_souhait" />
+      <input type="hidden" name="charte_graphique" />
+      <input type="hidden" name="declinaisons_identite" />
+      <input type="hidden" name="pages_envisagees" />
+      <input type="hidden" name="page_par_soin" />
+      <input type="hidden" name="blog_souhaite" />
+      <input type="hidden" name="temoignages_integration" />
+      <input type="hidden" name="faq_souhaite" />
+      <input type="hidden" name="structure_pages_commentaire" />
+      <input type="hidden" name="contact_canaux" />
+      <input type="hidden" name="formulaires_besoins" />
+      <input type="hidden" name="agenda_reservation" />
+      <input type="hidden" name="contenus_disponibles" />
+      <input type="hidden" name="contenus_redaction" />
+      <input type="hidden" name="photos_utilisation" />
+      <input type="hidden" name="visibilite_google" />
+      <input type="hidden" name="fiche_google" />
+      <input type="hidden" name="google_actions" />
+      <input type="hidden" name="mots_cles_google" />
+      <input type="hidden" name="reseaux_presence" />
+      <input type="hidden" name="reseaux_autre" />
+      <input type="hidden" name="lier_reseaux" />
+      <input type="hidden" name="coherence_graphique" />
+      <input type="hidden" name="gestion_souhaits" />
+      <input type="hidden" name="hebergement_acces" />
+      <input type="hidden" name="date_mise_en_ligne" />
+      <input type="hidden" name="periode_importante" />
+      <input type="hidden" name="organisation_projet" />
+      <textarea name="notes_libres"></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <!-- Questionnaire privé : cadrage Jean-Baptiste (positionnement drone / VRD) -->
+    <form
+      name="cadrage-jean-baptiste"
+      method="POST"
+      action="/cadrage/jean-baptiste/merci"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="cadrage-jean-baptiste" />
+      <input type="hidden" name="leadType" value="cadrage_client" />
+      <input type="hidden" name="source" value="cadrage_jean_baptiste_prive" />
+      <input type="hidden" name="subject" value="[PeakCL] Cadrage Jean-Baptiste — positionnement drone/VRD" />
+      <input type="hidden" name="client_name" value="Jean-Baptiste Lacroix" />
+      <input type="hidden" name="client_activity" value="Pilote drone · VRD · projet indépendant" />
+      <input type="hidden" name="site_actuel" value="jblacroix-drone.fr" />
+      <p style="display:none">
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <input type="hidden" name="parcours" />
+      <input type="hidden" name="metier_actuel" />
+      <input type="hidden" name="depuis_vrd" />
+      <input type="hidden" name="competences_principales" />
+      <input type="hidden" name="plait_plus" />
+      <input type="hidden" name="plait_moins" />
+      <input type="hidden" name="pourquoi_independant" />
+      <input type="hidden" name="type_projet" />
+      <input type="hidden" name="objectif_1_an" />
+      <input type="hidden" name="objectif_3_ans" />
+      <input type="hidden" name="jours_par_semaine" />
+      <input type="hidden" name="drone_aujourdhui" />
+      <input type="hidden" name="missions_drone" />
+      <input type="hidden" name="problemes_clients" />
+      <input type="hidden" name="resultats_interventions" />
+      <input type="hidden" name="domaines_envisages" />
+      <input type="hidden" name="domaines_autre" />
+      <input type="hidden" name="prestation_une_seule" />
+      <input type="hidden" name="prestation_rentable" />
+      <input type="hidden" name="prestation_facile_vendre" />
+      <input type="hidden" name="prestation_demarque" />
+      <input type="hidden" name="premier_client" />
+      <input type="hidden" name="vendre_a_qui" />
+      <input type="hidden" name="clients_envie" />
+      <input type="hidden" name="clients_pas_envie" />
+      <input type="hidden" name="secteurs_cibles" />
+      <input type="hidden" name="cibles_secteurs_details" />
+      <input type="hidden" name="zone_perimetre" />
+      <input type="hidden" name="km_parcourir" />
+      <input type="hidden" name="zone_scope" />
+      <input type="hidden" name="zone_precision" />
+      <input type="hidden" name="concurrence_connus" />
+      <input type="hidden" name="concurrence_qui" />
+      <input type="hidden" name="concurrence_apprecie" />
+      <input type="hidden" name="concurrence_peu_convaincant" />
+      <input type="hidden" name="differentiation_pourquoi" />
+      <input type="hidden" name="expertise_unique" />
+      <input type="hidden" name="argument_vrd" />
+      <input type="hidden" name="comm_nom_ou_marque" />
+      <input type="hidden" name="idees_nom" />
+      <input type="hidden" name="image_positionnement" />
+      <input type="hidden" name="image_autre" />
+      <input type="hidden" name="aise_camera" />
+      <input type="hidden" name="apparaitre_video" />
+      <input type="hidden" name="contenus_pref" />
+      <input type="hidden" name="questions_frequentes_drone" />
+      <input type="hidden" name="sujets_expliquer" />
+      <input type="hidden" name="realisations_montrer" />
+      <input type="hidden" name="phrase_presentation" />
+      <input type="hidden" name="probleme_principal" />
+      <input type="hidden" name="mission_motivante" />
+      <input type="hidden" name="activite_3_ans" />
+      <input type="hidden" name="offre_principale_intuition" />
+      <input type="hidden" name="offre_secondaire_intuition" />
+      <input type="hidden" name="cible_prioritaire_intuition" />
+      <input type="hidden" name="positionnement_intuition" />
+      <textarea name="notes_libres"></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </body>
+</html>

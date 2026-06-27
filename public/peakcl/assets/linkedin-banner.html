@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1584" />
+  <title>Bannière LinkedIn — PeakCL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1584px;
+      height: 396px;
+      overflow: hidden;
+      font-family: 'Exo 2', sans-serif;
+    }
+
+    .banner {
+      width: 1584px;
+      height: 396px;
+      position: relative;
+      background: linear-gradient(135deg, #07101b 0%, #0c1d3e 45%, #0b1422 70%, #08101b 100%);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Halos lumineux */
+    .halo-purple {
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(109,4,151,0.35) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .halo-teal {
+      position: absolute;
+      bottom: -100px; right: 320px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(12,198,193,0.22) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .halo-yellow {
+      position: absolute;
+      top: -60px; left: 50%;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(245,223,41,0.10) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Ligne déco horizontale en bas */
+    .deco-line {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, #6d0497 20%, #0cc6c1 50%, #f5df29 80%, transparent 100%);
+    }
+    /* Ligne déco haut */
+    .deco-line-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #f5df29 30%, #0cc6c1 70%, transparent 100%);
+      opacity: 0.4;
+    }
+
+    /* Grille teintée */
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(12,198,193,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(12,198,193,0.04) 1px, transparent 1px);
+      background-size: 44px 44px;
+      pointer-events: none;
+    }
+
+    /* ── COLONNE GAUCHE ── */
+    .col-left {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 260px;
+      min-width: 260px;
+      height: 100%;
+      padding: 0 20px;
+      border-right: 1px solid rgba(245,223,41,0.15);
+    }
+
+    .logo {
+      width: 160px;
+      height: auto;
+      filter: drop-shadow(0 0 12px rgba(12,198,193,0.5));
+      margin-bottom: 12px;
+    }
+
+    .site-url {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #0cc6c1;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+
+    .stars {
+      margin-top: 10px;
+      font-size: 11px;
+      color: #f5df29;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    /* ── COLONNE CENTRE ── */
+    .col-center {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 40px 0 44px;
+    }
+
+    .eyebrow {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      color: #f5df29;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+
+    .tagline {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1.18;
+      color: #ffffff;
+      margin-bottom: 14px;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.5);
+    }
+
+    .tagline span.hl-yellow { color: #f5df29; }
+    .tagline span.hl-teal   { color: #0cc6c1; }
+
+    .subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.62);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* Badges de compétences */
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 13px;
+      border-radius: 999px;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .badge-yellow {
+      background: rgba(245,223,41,0.12);
+      border: 1px solid rgba(245,223,41,0.4);
+      color: #f5df29;
+    }
+    .badge-teal {
+      background: rgba(12,198,193,0.12);
+      border: 1px solid rgba(12,198,193,0.4);
+      color: #0cc6c1;
+    }
+    .badge-purple {
+      background: rgba(109,4,151,0.18);
+      border: 1px solid rgba(175,7,217,0.4);
+      color: #af07d9;
+    }
+    .badge-white {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ── COLONNE DROITE (avatar) ── */
+    .col-right {
+      position: relative;
+      z-index: 10;
+      width: 280px;
+      min-width: 280px;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      /* Zone safe LinkedIn mobile = 60% central en hauteur (~79px–317px)
+         On remonte l'avatar de 30px pour garder tête/torse dans la zone safe */
+      padding-bottom: 30px;
+    }
+
+    .avatar {
+      height: 360px; /* réduit pour limiter le débordement en bas */
+      width: auto;
+      object-fit: contain;
+      object-position: top center;
+      filter: drop-shadow(-6px 0 20px rgba(12,198,193,0.25));
+    }
+
+    /* Dégradé fondu à gauche de l'avatar */
+    .col-right::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 60px; height: 100%;
+      background: linear-gradient(90deg, #0b1422 0%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Dégradé en bas de l'avatar */
+    .col-right::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(0deg, #08101b 0%, transparent 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <!-- Décorations -->
+    <div class="halo-purple"></div>
+    <div class="halo-teal"></div>
+    <div class="halo-yellow"></div>
+    <div class="grid-overlay"></div>
+    <div class="deco-line"></div>
+    <div class="deco-line-top"></div>
+
+    <!-- GAUCHE : logo + url + note -->
+    <div class="col-left">
+      <img src="logo/PeakCL.logo-noBG.png" alt="PeakCL" class="logo" />
+      <span class="site-url">peakcl.com</span>
+      <p class="stars">★★★★★ · +20 projets · 5/5 Google</p>
+    </div>
+
+    <!-- CENTRE : texte + badges -->
+    <div class="col-center">
+      <p class="eyebrow">Développeuse web freelance · Savoie</p>
+      <h1 class="tagline">
+        Un site qui vous ressemble,<br>
+        qui se <span class="hl-teal">trouve</span>, et qui <span class="hl-yellow">convainc</span>.
+      </h1>
+      <p class="subtitle">
+        J'aide les indépendants, coachs et petites entreprises à avoir<br>
+        une présence en ligne claire, crédible et efficace.
+      </p>
+      <div class="badges">
+        <span class="badge badge-yellow">🌐 Création de site web</span>
+        <span class="badge badge-teal">📱 Design responsive</span>
+        <span class="badge badge-purple">🎨 Identité visuelle</span>
+        <span class="badge badge-yellow">🔍 SEO local</span>
+        <span class="badge badge-teal">⚡ Jekyll · Tailwind</span>
+        <span class="badge badge-white">🛒 E-commerce</span>
+        <span class="badge badge-white">🔧 Maintenance web</span>
+      </div>
+    </div>
+
+    <!-- DROITE : avatar -->
+    <div class="col-right">
+      <img src="images/avatar-peakcl.png" alt="Charly — PeakCL" class="avatar" />
+    </div>
+  </div>
+</body>
+</html>
