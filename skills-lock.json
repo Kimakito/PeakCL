@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "threejs": {
+      "source": "nexu-io/open-design",
+      "sourceType": "github",
+      "skillPath": "skills/threejs/SKILL.md",
+      "computedHash": "3092a815b2d618723804e855e4fb250e8adb80a1979535ea7d455fbeb3a7f8b5"
+    }
+  }
+}

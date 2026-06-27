@@ -7,12 +7,16 @@ import {
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 import { peakclFaq } from "@/content/peakcl/faq";
 import { peakclPortfolio } from "@/content/peakcl/portfolio";
+import { CATEGORIES } from "@/content/peakcl/portfolioDeck";
+import { DeckFooter } from "@/components/DeckFooter";
 import { TrustedBySection } from "@/components/TrustedBySection";
 import { optimizedLogoUrl } from "@/lib/optimizedLogo";
 import { absUrl } from "@/seo/site";
 import { faqPageJsonLd } from "@/seo/jsonld";
 import { submitNetlifyForm } from "@/lib/funnel";
 import { Fireworks } from "@/components/home/Fireworks";
+import { Mascot } from "@/components/Mascot";
+import { MASCOT_POSES, type MascotPose } from "@/lib/mascot";
 
 const LOGO_NAV = "/peakcl/logo-nav.webp";
 const AVATAR_SVG = "/peakcl/avatar.svg";
@@ -39,6 +43,12 @@ export const Route = createFileRoute("/")({
       { rel: "canonical", href: absUrl("/") },
       { rel: "preload", href: LOGO_NAV, as: "image", type: "image/webp" },
       { rel: "preload", href: AVATAR_SVG, as: "image", type: "image/svg+xml" },
+      { rel: "preload", href: "/peakcl/avatar-montre.webp", as: "image", type: "image/webp" },
+      { rel: "preload", href: "/peakcl/avatar-dab.webp", as: "image", type: "image/webp" },
+      { rel: "preload", href: "/peakcl/avatar-tablette.webp", as: "image", type: "image/webp" },
+      { rel: "preload", href: "/peakcl/avatar-bas.webp", as: "image", type: "image/webp" },
+      { rel: "preload", href: "/peakcl/avatar-graphique.webp", as: "image", type: "image/webp" },
+      { rel: "preload", href: "/peakcl/avatar-victoire.webp", as: "image", type: "image/webp" },
     ],
   }),
   component: Landing,
@@ -119,6 +129,7 @@ const SECTIONS = [
   { id: "avis",      label: "Avis" },
   { id: "faq",       label: "FAQ" },
   { id: "contact",   label: "Contact" },
+  { id: "footer",    label: "Liens & contact" },
 ] as const;
 
 type SectionId = typeof SECTIONS[number]["id"];
@@ -127,8 +138,16 @@ type SectionId = typeof SECTIONS[number]["id"];
 
 function TimelineBar({ activeIdx, total, onNavigate }: { activeIdx: number; total: number; onNavigate: (i: number) => void }) {
   const pct = total > 1 ? (activeIdx / (total - 1)) * 100 : 0;
+  // sens de marche : on garde la dernière direction de navigation
+  const prevIdx = useRef(activeIdx);
+  const [facingRight, setFacingRight] = useState(true);
+  useEffect(() => {
+    if (activeIdx > prevIdx.current) setFacingRight(true);
+    else if (activeIdx < prevIdx.current) setFacingRight(false);
+    prevIdx.current = activeIdx;
+  }, [activeIdx]);
   return (
-    <div className="fixed bottom-0 left-0 right-16 z-40 hidden h-16 items-center px-8 md:flex">
+    <div className="fixed bottom-0 left-16 right-0 z-40 hidden h-16 items-center px-8 md:flex">
       <div className="relative flex w-full items-center">
         {/* track */}
         <div className="h-px w-full bg-white/10" />
@@ -157,30 +176,35 @@ function TimelineBar({ activeIdx, total, onNavigate }: { activeIdx: number; tota
             />
           </button>
         ))}
-        {/* walking avatar */}
+        {/* avatar qui marche le long de la timeline */}
         <div
-          className="absolute -translate-x-1/2 -translate-y-full transition-all duration-500"
+          className="absolute bottom-1/2 -translate-x-1/2 transition-all duration-500"
           style={{ left: `${pct}%` }}
         >
-          <img
-            src={AVATAR_SVG}
-            alt=""
-            aria-hidden
-            className="h-12 w-auto drop-shadow-[0_0_10px_color-mix(in_oklab,var(--brand-turquoise)_70%,transparent)]"
-          />
+          {/* orientation selon le sens de navigation (l'image regarde à gauche par défaut) */}
+          <div style={{ transform: facingRight ? "scaleX(-1)" : "scaleX(1)" }}>
+            <div className="mascot-walk">
+              <img
+                src="/peakcl/avatar-marche.webp"
+                alt=""
+                aria-hidden
+                className="h-16 w-auto select-none drop-shadow-[0_0_12px_color-mix(in_oklab,var(--brand-turquoise)_60%,transparent)]"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-/* ── Right vertical navbar ───────────────────────────────────── */
+/* ── Left vertical navbar ────────────────────────────────────── */
 
 function RightNav({ activeIdx, onNavigate }: { activeIdx: number; onNavigate: (i: number) => void }) {
   return (
     <nav
       aria-label="Navigation sections"
-      className="fixed right-0 top-0 z-50 hidden h-full w-16 flex-col items-center justify-center gap-3 md:flex"
+      className="fixed left-0 top-0 z-50 hidden h-full w-16 flex-col items-center justify-center gap-3 md:flex"
     >
       <div className="flex flex-col items-center gap-3">
         <a href="#top" className="mb-4 flex items-center justify-center">
@@ -200,7 +224,7 @@ function RightNav({ activeIdx, onNavigate }: { activeIdx: number; onNavigate: (i
                   : "bg-white/25 group-hover:bg-white/60"
               }`}
             />
-            <span className="pointer-events-none absolute right-8 whitespace-nowrap rounded-md bg-card/90 px-2 py-1 text-xs font-medium opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
+            <span className="pointer-events-none absolute left-8 whitespace-nowrap rounded-md bg-card/90 px-2 py-1 text-xs font-medium opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
               {s.label}
             </span>
           </button>
@@ -229,13 +253,92 @@ function MobileNav() {
 /* ── Hero panel ─────────────────────────────────────────────── */
 
 const ORBIT_ITEMS = [
-  { label: "Remplir le brief", href: "/brief", angle: -90, r: 220, variant: "primary" as const },
-  { label: "Réserver un appel", href: CALENDLY_URL, angle: -25, r: 240, variant: "ghost" as const },
-  { label: "Voir le portfolio", href: "/portfolio", angle: 30, r: 220, variant: "ghost" as const },
-  { label: "Voir les offres", href: "/packs", angle: 90, r: 240, variant: "ghost" as const },
-  { label: "Avis clients", href: "#avis", angle: 150, r: 220, variant: "ghost" as const },
-  { label: "WhatsApp", href: WHATSAPP_URL, angle: 210, r: 230, variant: "ghost" as const },
+  // pose = pose déclenchée au survol ; flip = version miroir (autre sens)
+  { label: "Remplir le brief", href: "/brief", angle: -90, r: 220, variant: "primary" as const, pose: "victoire" as MascotPose },
+  { label: "Réserver un appel", href: CALENDLY_URL, angle: -25, r: 240, variant: "ghost" as const, pose: "dab" as MascotPose },
+  { label: "Voir le portfolio", href: "/portfolio", angle: 30, r: 220, variant: "ghost" as const, pose: "tablette" as MascotPose },
+  { label: "Voir les offres", href: "/packs", angle: 90, r: 240, variant: "ghost" as const, pose: "bas" as MascotPose },
+  { label: "Avis clients", href: "#avis", angle: 150, r: 220, variant: "ghost" as const, pose: "graphique" as MascotPose },
+  { label: "WhatsApp", href: WHATSAPP_URL, angle: 210, r: 230, variant: "ghost" as const, pose: "dab" as MascotPose, flip: true },
 ] as const;
+
+/** Mascotte décorative d'une section : en filigrane derrière le contenu,
+ *  dans la gouttière latérale, visible seulement sur grands écrans (xl+). */
+function SectionMascot({
+  pose,
+  side = "right",
+  flip = false,
+  heightClass = "h-[48vh]",
+}: {
+  pose: MascotPose;
+  side?: "left" | "right";
+  flip?: boolean;
+  heightClass?: string;
+}) {
+  return (
+    <img
+      aria-hidden
+      src={MASCOT_POSES[pose]}
+      className={`pointer-events-none absolute bottom-0 -z-10 hidden w-auto select-none opacity-90 drop-shadow-[0_10px_40px_rgba(0,0,0,0.35)] xl:block ${heightClass} ${side === "right" ? "right-3 2xl:right-10" : "left-3 2xl:left-10"}`}
+      style={flip ? { transform: "scaleX(-1)" } : undefined}
+    />
+  );
+}
+
+function HeroAvatar() {
+  // Pose active = celle du bouton survolé ; sinon pose de repos (salut).
+  const [active, setActive] = useState<{ pose: MascotPose; flip: boolean } | null>(null);
+  const current = active ?? { pose: "montre" as MascotPose, flip: false };
+
+  return (
+    <div
+      className="relative z-10 flex items-center justify-center"
+      style={{ width: "var(--hero)", height: "var(--hero)", "--hero": "clamp(280px, 42vh, 520px)" } as React.CSSProperties}
+    >
+      {/* glow rings */}
+      <div className="absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_center,color-mix(in_oklab,var(--brand-violet)_30%,transparent)_0%,transparent_70%)]" />
+      <div className="absolute inset-[6%] animate-[spin_20s_linear_infinite] rounded-full border border-[var(--brand-violet)]/15" />
+      <div className="absolute inset-[12%] animate-[spin_30s_linear_infinite_reverse] rounded-full border border-[var(--brand-turquoise)]/10" />
+
+      {/* mascotte (suit la souris + change de pose au survol) */}
+      <div
+        className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
+        style={{ height: "calc(var(--hero) * 0.58)", width: "calc(var(--hero) * 0.66)" }}
+      >
+        <Mascot pose={current.pose} flip={current.flip} lean heightClass="h-full" className="h-full w-full" alt="Charlotte · PeakCL" />
+      </div>
+
+      {/* orbiting CTAs (positions proportionnelles à --hero) */}
+      {ORBIT_ITEMS.map((item) => {
+        const rad = (item.angle * Math.PI) / 180;
+        const fx = ((Math.cos(rad) * item.r) / 520).toFixed(4);
+        const fy = ((Math.sin(rad) * item.r) / 520).toFixed(4);
+        return (
+          <div
+            key={item.label}
+            className="absolute"
+            style={{
+              left: "50%",
+              top: "50%",
+              transform: `translate(calc(-50% + ${fx} * var(--hero)), calc(-50% + ${fy} * var(--hero)))`,
+            }}
+            onMouseEnter={() => setActive({ pose: item.pose, flip: "flip" in item ? !!item.flip : false })}
+            onMouseLeave={() => setActive(null)}
+          >
+            <CTAButton
+              href={item.href}
+              variant={item.variant}
+              dataEvent={`cta_hero_${item.label.toLowerCase().replace(/\s+/g, "_")}`}
+              className="!px-3 !py-1.5 !text-xs whitespace-nowrap shadow-lg"
+            >
+              {item.label}
+            </CTAButton>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 function HeroPanel() {
   return (
@@ -245,57 +348,17 @@ function HeroPanel() {
       <Fireworks className="opacity-70" />
 
       {/* badge */}
-      <div className="hero-fade relative z-10 mb-6 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs text-foreground/90 backdrop-blur">
+      <div className="hero-fade relative z-10 mb-3 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs text-foreground/90 backdrop-blur">
         <span className="text-[var(--brand-yellow)]">★★★★★</span>
         5/5 Google · un seul interlocuteur
       </div>
 
       {/* avatar + orbit */}
-      <div className="relative z-10 flex items-center justify-center" style={{ width: 520, height: 520 }}>
-        {/* glow rings */}
-        <div className="absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_center,color-mix(in_oklab,var(--brand-violet)_30%,transparent)_0%,transparent_70%)]" />
-        <div className="absolute inset-8 animate-[spin_20s_linear_infinite] rounded-full border border-[var(--brand-violet)]/15" />
-        <div className="absolute inset-16 animate-[spin_30s_linear_infinite_reverse] rounded-full border border-[var(--brand-turquoise)]/10" />
-
-        {/* avatar */}
-        <img
-          src={AVATAR_SVG}
-          alt="Charlotte · PeakCL"
-          className="relative z-10 h-64 w-auto drop-shadow-[0_0_40px_color-mix(in_oklab,var(--brand-turquoise)_50%,transparent)]"
-          fetchPriority="high"
-        />
-
-        {/* orbiting CTAs */}
-        {ORBIT_ITEMS.map((item) => {
-          const rad = (item.angle * Math.PI) / 180;
-          const x = Math.cos(rad) * item.r;
-          const y = Math.sin(rad) * item.r;
-          return (
-            <div
-              key={item.label}
-              className="absolute"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-              }}
-            >
-              <CTAButton
-                href={item.href}
-                variant={item.variant}
-                dataEvent={`cta_hero_${item.label.toLowerCase().replace(/\s+/g, "_")}`}
-                className="!px-4 !py-2 !text-xs whitespace-nowrap shadow-lg"
-              >
-                {item.label}
-              </CTAButton>
-            </div>
-          );
-        })}
-      </div>
+      <HeroAvatar />
 
       {/* headline under avatar */}
-      <div className="hero-fade hero-fade-d1 relative z-10 mt-4 text-center">
-        <h1 className="mx-auto max-w-3xl text-balance text-3xl font-bold leading-tight md:text-4xl">
+      <div className="hero-fade hero-fade-d1 relative z-10 mt-3 text-center">
+        <h1 className="mx-auto max-w-3xl text-balance text-2xl font-bold leading-tight md:text-4xl">
           Pas le temps pour votre site, vos réseaux et votre image ?
           <br />
           <span className="text-gradient">Déléguez-moi toute votre communication en ligne.</span>
@@ -323,7 +386,8 @@ function ProblemPanel() {
     { t: "Sans image en ligne, on vous choisit moins.", d: "Vos clients comparent avant d'appeler. Si votre concurrent paraît plus pro sur Google, c'est lui qu'on contacte." },
   ];
   return (
-    <section id="probleme" className="flex h-screen w-full items-center overflow-hidden">
+    <section id="probleme" className="relative flex h-screen w-full items-center overflow-hidden">
+      <SectionMascot pose="idee" side="left" />
       <div className="mx-auto max-w-6xl px-8 md:px-16 w-full">
         <div className="grid items-start gap-10 md:grid-cols-2">
           <div>
@@ -375,7 +439,8 @@ function DifferencePanel() {
     },
   ];
   return (
-    <section id="difference" className="flex h-screen w-full items-center overflow-hidden">
+    <section id="difference" className="relative flex h-screen w-full items-center overflow-hidden">
+      <SectionMascot pose="victoire" side="right" />
       <div className="mx-auto max-w-5xl px-8 md:px-16 w-full">
         <div className="text-center mb-10">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">La différence</span>
@@ -416,7 +481,8 @@ function MethodPanel() {
     { n: "04", title: "Suivi", desc: "Une fois en ligne, je reste disponible pour les ajustements de la première semaine. Au-delà, on continue ou on s'arrête, tu décides." },
   ];
   return (
-    <section id="methode" className="flex h-screen w-full items-center overflow-hidden">
+    <section id="methode" className="relative flex h-screen w-full items-center overflow-hidden">
+      <SectionMascot pose="bureau" side="right" heightClass="h-[42vh]" />
       <div className="mx-auto max-w-6xl px-8 md:px-16 w-full">
         <div className="text-center mb-10">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">Comment je travaille</span>
@@ -450,7 +516,8 @@ const offers = [
 
 function OffersPanel() {
   return (
-    <section id="offres" className="flex h-screen w-full items-center overflow-hidden">
+    <section id="offres" className="relative flex h-screen w-full items-center overflow-hidden">
+      <SectionMascot pose="arc" side="left" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
         <div className="text-center mb-8">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">Les formes que prend l'accompagnement</span>
@@ -486,11 +553,27 @@ function OffersPanel() {
 function PortfolioPanel() {
   const featured = peakclPortfolio.slice(0, 6);
   return (
-    <section id="portfolio" className="flex h-screen w-full items-center overflow-hidden">
+    <section id="portfolio" className="relative flex h-screen w-full items-center overflow-hidden">
+      <SectionMascot pose="tablette" side="right" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
         <div className="text-center mb-8">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">Réalisations</span>
           <h2 className="mt-4 text-3xl font-bold md:text-4xl">Des projets livrés, <span className="text-gradient">qui convertissent</span>.</h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">Vous êtes dans quel métier ? Voyez ce que j'ai livré dans votre secteur.</p>
+        </div>
+        {/* hub catégories (version courte → filtre le portfolio) */}
+        <div className="mb-7 flex flex-wrap justify-center gap-2">
+          {CATEGORIES.map((c) => (
+            <a
+              key={c.slug}
+              href={`/portfolio?cat=${c.slug}`}
+              data-event="home_cat_filter"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-card/40 px-3.5 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-white/25 hover:text-foreground"
+            >
+              <span className="h-1.5 w-1.5 rounded-full" style={{ background: c.accent }} />
+              {c.short}
+            </a>
+          ))}
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((p, i) => (
@@ -531,7 +614,8 @@ function PortfolioPanel() {
 
 function ReviewsPanel() {
   return (
-    <section id="avis" className="flex h-screen w-full items-center overflow-hidden">
+    <section id="avis" className="relative flex h-screen w-full items-center overflow-hidden">
+      <SectionMascot pose="graphique" side="left" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
         <div className="text-center mb-8">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">Ils en parlent mieux que moi</span>
@@ -561,7 +645,8 @@ function ReviewsPanel() {
 
 function FAQPanel() {
   return (
-    <section id="faq" className="flex h-screen w-full items-center overflow-hidden">
+    <section id="faq" className="relative flex h-screen w-full items-center overflow-hidden">
+      <SectionMascot pose="assise" side="right" />
       <div className="mx-auto max-w-3xl px-8 md:px-16 w-full">
         <div className="text-center mb-8">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">Questions fréquentes</span>
@@ -608,6 +693,7 @@ function ContactPanel() {
       <div className="absolute inset-0 -z-10 bg-hero" />
       <div className="bg-aurora" aria-hidden />
       <div className="grid-bg absolute inset-0 -z-10" />
+      <SectionMascot pose="reseaux" side="right" heightClass="h-[42vh]" />
       <div className="mx-auto max-w-4xl px-8 md:px-16 w-full text-center">
         <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-yellow)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs font-semibold text-[var(--brand-yellow)]">
           <Sparkles className="h-3.5 w-3.5" />
@@ -697,6 +783,7 @@ function MobileStickyContact() {
 function Footer() {
   return (
     <footer className="border-t border-white/5 py-8 md:hidden">
+      <img src="/peakcl/avatar-sieste.webp" alt="" aria-hidden loading="lazy" className="mx-auto mb-5 h-28 w-auto select-none opacity-95" />
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 text-sm text-muted-foreground">
         <div className="flex items-center gap-2">
           <img src={LOGO_NAV} alt="PeakCL" width={24} height={24} loading="lazy" decoding="async" className="h-6 w-6 rounded-md object-cover" />
@@ -725,7 +812,7 @@ function Footer() {
 
 const PANELS: React.FC[] = [
   HeroPanel, ProblemPanel, DifferencePanel, MethodPanel,
-  OffersPanel, PortfolioPanel, ReviewsPanel, FAQPanel, ContactPanel,
+  OffersPanel, PortfolioPanel, ReviewsPanel, FAQPanel, ContactPanel, DeckFooter,
 ];
 
 function Landing() {
@@ -785,7 +872,7 @@ function Landing() {
         {PANELS.map((Panel, i) => (
           <div
             key={SECTIONS[i].id}
-            className="h-screen w-screen shrink-0"
+            className="h-screen w-screen shrink-0 pl-16 pb-16"
             style={{ scrollSnapAlign: "start" }}
           >
             <Panel />
@@ -793,8 +880,7 @@ function Landing() {
         ))}
       </div>
 
-      {/* Desktop overlays */}
-      <RightNav activeIdx={activeIdx} onNavigate={navigateTo} />
+      {/* Desktop overlays — nav inter-pages = SiteNav globale ; sections via la timeline */}
       <TimelineBar activeIdx={activeIdx} total={SECTIONS.length} onNavigate={navigateTo} />
 
       {/* Mobile: normal vertical scroll */}

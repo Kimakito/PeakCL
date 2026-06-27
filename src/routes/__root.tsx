@@ -1,6 +1,7 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { SiteNav } from "@/components/SiteNav";
 import { absUrl } from "@/seo/site";
 import { organizationJsonLd, professionalServiceJsonLd } from "@/seo/jsonld";
 
@@ -109,5 +110,15 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  // Les decks (home, portfolio) réservent déjà pl-16 dans leurs panneaux.
+  const isDeck = path === "/" || path === "/portfolio";
+  return (
+    <>
+      <SiteNav />
+      <div className={isDeck ? undefined : "md:pl-16"}>
+        <Outlet />
+      </div>
+    </>
+  );
 }

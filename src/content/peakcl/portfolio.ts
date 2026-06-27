@@ -70,7 +70,7 @@ export const peakclPortfolio: PeakclProject[] = [
     description:
       "Stéphane transforme les intérieurs et extérieurs avec un savoir-faire polyvalent (salles de bain, terrasses, électricité). J'ai créé un site moderne avec galerie de chantiers, formulaire de contact et fil Instagram intégré pour valoriser ses réalisations.",
     tags: ["TanStack Start", "Galerie", "Artisan"],
-    siteUrl: "https://spservicesrenovation.fr/",
+    siteUrl: "https://sp-renovation-73.fr/",
     logoUrl: withPublicPrefix("/assets/logo/sp-renovation.png"),
   },
   {
@@ -101,29 +101,11 @@ export const peakclPortfolio: PeakclProject[] = [
     logoUrl: withPublicPrefix("/assets/logo/trackdm.svg"),
   },
   {
-    title: "Sky View : Jean-Baptiste Lacroix",
-    subtitle: "Pilote de drone · Albertville",
-    description:
-      "Jean-Baptiste, déjà auteur fantasy, s'est lancé dans la captation aérienne en Savoie. J'ai conçu une vitrine immersive pour ses prestations drone : immobilier, tourisme, événementiel et inspection technique, avec un positionnement premium.",
-    tags: ["React", "One-page", "Drone"],
-    siteUrl: "https://jblacroix-drone.fr/",
-    logoUrl: withPublicPrefix("/assets/logo/logo.jbl.nobg.png"),
-  },
-  {
-    title: "Le Feu Sombre",
-    subtitle: "Univers fantasy · Site immersif",
-    description:
-      "L'univers littéraire de Jean-Baptiste Lacroix méritait une expérience web à la hauteur de son mystère. J'ai développé un site immersif avec carte interactive des Provinces, galerie de personnages et ambiance fantasy, pour embarquer les lecteurs dans la quête.",
-    tags: ["Tailwind", "Carte interactive", "Fantasy"],
-    siteUrl: "https://kimakito.github.io/le-feu-sombre/",
-    logoUrl: withPublicPrefix("/assets/logo/le-feu-sombre.png"),
-  },
-  {
     title: "Jean-Baptiste Lacroix",
-    subtitle: "Écrivain fantasy · Savoie",
+    subtitle: "Écriture · Drone · Échecs · Savoie",
     description:
-      "Jean-Baptiste écrit des univers fantasy captivants, mais hors de son cercle, personne ne le connaissait. J'ai conçu un site à son image : mystérieux, élégant, avec un blog pour construire une audience fidèle et bâtir sa notoriété en ligne.",
-    tags: ["Jekyll", "Blog", "Portfolio auteur"],
+      "Jean-Baptiste mène trois vies : auteur de fantasy, pilote de drone et passionné d'échecs. Plutôt que trois sites éparpillés, je lui en ai construit un seul, avec un onglet par univers — son écriture et son blog, ses captations aériennes et sa partie échecs — pour rassembler toute son audience au même endroit.",
+    tags: ["Écriture", "Drone", "Échecs"],
     siteUrl: "https://jb-lacroix.fr/",
     logoUrl: withPublicPrefix("/assets/logo/logo.jbl.nobg.png"),
   },
@@ -169,7 +151,7 @@ export const peakclPortfolio: PeakclProject[] = [
     description:
       "Une praticienne en ostéopathie animale avec une approche unique et bienveillante. J'ai mis en place un site WordPress professionnel avec prise de rendez-vous en ligne et pages dédiées par type d'animal traité.",
     tags: ["WordPress", "Prise de RDV", "Santé animale"],
-    siteUrl: "https://osteo-animalcare.com/",
+    siteUrl: "https://osteo-animalcare.ch/",
     logoUrl: withPublicPrefix("/assets/logo/osteoanimalcare.webp"),
   },
   {

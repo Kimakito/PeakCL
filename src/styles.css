@@ -527,6 +527,26 @@
   50% { opacity: 1; }
 }
 
+/* Mascotte : balancement « marche » pour l'avatar de la timeline */
+@keyframes mascot-walk {
+  0%, 100% { transform: translateY(0) rotate(-2.5deg); }
+  50%      { transform: translateY(-6px) rotate(2.5deg); }
+}
+.mascot-walk { animation: mascot-walk 0.6s ease-in-out infinite; transform-origin: bottom center; }
+@media (prefers-reduced-motion: reduce) {
+  .mascot-walk { animation: none; }
+}
+
+/* Portfolio : captures qui « vivent » (Ken Burns lent) */
+@keyframes pf-kenburns {
+  0%   { transform: scale(1.03) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-2%, -3%); }
+}
+.pf-kenburns { animation: pf-kenburns 16s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) {
+  .pf-kenburns { animation: none; transform: scale(1.03); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .trame-prospection-studio .trame-aurora,
   .trame-prospection-studio .trame-frame::before,
