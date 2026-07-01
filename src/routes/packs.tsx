@@ -20,7 +20,7 @@ export const Route = createFileRoute("/packs")({
   component: PacksPage,
 });
 
-const CALENDLY_URL = "https://calendly.com/peakcl73/45min";
+const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
 type CatalogItem = {
   title: string;

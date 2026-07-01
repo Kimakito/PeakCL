@@ -10,7 +10,7 @@ import {
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 import type { AssetBlock, ValueAsset as ValueAssetData } from "@/content/peakcl/value-assets";
 
-const CALENDLY_URL = "https://calendly.com/peakcl73/45min";
+const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
 function Block({ block }: { block: AssetBlock }) {
   if ("p" in block) {

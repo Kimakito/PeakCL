@@ -54,7 +54,7 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const CALENDLY_URL = "https://calendly.com/peakcl73/45min";
+const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 const WHATSAPP_URL = "https://wa.me/33743517627";
 const PHONE_TEL = "tel:+33743517627";
 const PHONE_DISPLAY = "07 43 51 76 27";

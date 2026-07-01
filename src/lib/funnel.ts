@@ -1,5 +1,6 @@
 /** R1 diagnostic — Calendly event type */
-export const CALENDLY_R1_URL = "https://calendly.com/peakcl73/45min";
+export const CALENDLY_R1_URL =
+  "https://calendly.com/peakcl73/faisons-connaissance?background_color=2b0c7f&text_color=fbfe08&primary_color=b800ff";
 
 export const BIENVENUE_PATH = "/bienvenue";
 export const MERCI_BRIEF_PATH = "/merci-brief";

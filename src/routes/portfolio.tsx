@@ -40,7 +40,7 @@ export const Route = createFileRoute("/portfolio")({
   component: PortfolioPage,
 });
 
-const CALENDLY_URL = "https://calendly.com/peakcl73/45min";
+const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
 const domainOf = (url?: string) => {
   if (!url) return "site en cours";
