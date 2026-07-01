@@ -14,6 +14,7 @@ import { Route as RessourcesSystemeRouteImport } from './routes/ressources-syste
 import { Route as RessourcesSiteRouteImport } from './routes/ressources-site'
 import { Route as RessourcesConversionRouteImport } from './routes/ressources-conversion'
 import { Route as RessourcesConfianceRouteImport } from './routes/ressources-confiance'
+import { Route as ReservationAppelRouteImport } from './routes/reservation-appel'
 import { Route as QuiSuisJeRouteImport } from './routes/qui-suis-je'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PacksRouteImport } from './routes/packs'
@@ -29,7 +30,6 @@ import { Route as ConseilsPrixSiteInternetRouteImport } from './routes/conseils-
 import { Route as ConseilsCommunityManagerUtileRouteImport } from './routes/conseils-community-manager-utile'
 import { Route as ConseilsRouteImport } from './routes/conseils'
 import { Route as CommunityManagerSavoieRouteImport } from './routes/community-manager-savoie'
-import { Route as BriefRouteImport } from './routes/brief'
 import { Route as BienvenueStrategieRouteImport } from './routes/bienvenue-strategie'
 import { Route as BienvenueRouteImport } from './routes/bienvenue'
 import { Route as BacASableVideoRouteImport } from './routes/bac-a-sable-video'
@@ -67,6 +67,11 @@ const RessourcesConversionRoute = RessourcesConversionRouteImport.update({
 const RessourcesConfianceRoute = RessourcesConfianceRouteImport.update({
   id: '/ressources-confiance',
   path: '/ressources-confiance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReservationAppelRoute = ReservationAppelRouteImport.update({
+  id: '/reservation-appel',
+  path: '/reservation-appel',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuiSuisJeRoute = QuiSuisJeRouteImport.update({
@@ -149,11 +154,6 @@ const CommunityManagerSavoieRoute = CommunityManagerSavoieRouteImport.update({
   path: '/community-manager-savoie',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BriefRoute = BriefRouteImport.update({
-  id: '/brief',
-  path: '/brief',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BienvenueStrategieRoute = BienvenueStrategieRouteImport.update({
   id: '/bienvenue-strategie',
   path: '/bienvenue-strategie',
@@ -230,7 +230,6 @@ export interface FileRoutesByFullPath {
   '/bac-a-sable-video': typeof BacASableVideoRoute
   '/bienvenue': typeof BienvenueRoute
   '/bienvenue-strategie': typeof BienvenueStrategieRoute
-  '/brief': typeof BriefRoute
   '/community-manager-savoie': typeof CommunityManagerSavoieRoute
   '/conseils': typeof ConseilsRoute
   '/conseils-community-manager-utile': typeof ConseilsCommunityManagerUtileRoute
@@ -246,6 +245,7 @@ export interface FileRoutesByFullPath {
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
+  '/reservation-appel': typeof ReservationAppelRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
   '/ressources-conversion': typeof RessourcesConversionRoute
   '/ressources-site': typeof RessourcesSiteRoute
@@ -266,7 +266,6 @@ export interface FileRoutesByTo {
   '/bac-a-sable-video': typeof BacASableVideoRoute
   '/bienvenue': typeof BienvenueRoute
   '/bienvenue-strategie': typeof BienvenueStrategieRoute
-  '/brief': typeof BriefRoute
   '/community-manager-savoie': typeof CommunityManagerSavoieRoute
   '/conseils': typeof ConseilsRoute
   '/conseils-community-manager-utile': typeof ConseilsCommunityManagerUtileRoute
@@ -282,6 +281,7 @@ export interface FileRoutesByTo {
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
+  '/reservation-appel': typeof ReservationAppelRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
   '/ressources-conversion': typeof RessourcesConversionRoute
   '/ressources-site': typeof RessourcesSiteRoute
@@ -303,7 +303,6 @@ export interface FileRoutesById {
   '/bac-a-sable-video': typeof BacASableVideoRoute
   '/bienvenue': typeof BienvenueRoute
   '/bienvenue-strategie': typeof BienvenueStrategieRoute
-  '/brief': typeof BriefRoute
   '/community-manager-savoie': typeof CommunityManagerSavoieRoute
   '/conseils': typeof ConseilsRoute
   '/conseils-community-manager-utile': typeof ConseilsCommunityManagerUtileRoute
@@ -319,6 +318,7 @@ export interface FileRoutesById {
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
   '/qui-suis-je': typeof QuiSuisJeRoute
+  '/reservation-appel': typeof ReservationAppelRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
   '/ressources-conversion': typeof RessourcesConversionRoute
   '/ressources-site': typeof RessourcesSiteRoute
@@ -341,7 +341,6 @@ export interface FileRouteTypes {
     | '/bac-a-sable-video'
     | '/bienvenue'
     | '/bienvenue-strategie'
-    | '/brief'
     | '/community-manager-savoie'
     | '/conseils'
     | '/conseils-community-manager-utile'
@@ -357,6 +356,7 @@ export interface FileRouteTypes {
     | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
+    | '/reservation-appel'
     | '/ressources-confiance'
     | '/ressources-conversion'
     | '/ressources-site'
@@ -377,7 +377,6 @@ export interface FileRouteTypes {
     | '/bac-a-sable-video'
     | '/bienvenue'
     | '/bienvenue-strategie'
-    | '/brief'
     | '/community-manager-savoie'
     | '/conseils'
     | '/conseils-community-manager-utile'
@@ -393,6 +392,7 @@ export interface FileRouteTypes {
     | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
+    | '/reservation-appel'
     | '/ressources-confiance'
     | '/ressources-conversion'
     | '/ressources-site'
@@ -413,7 +413,6 @@ export interface FileRouteTypes {
     | '/bac-a-sable-video'
     | '/bienvenue'
     | '/bienvenue-strategie'
-    | '/brief'
     | '/community-manager-savoie'
     | '/conseils'
     | '/conseils-community-manager-utile'
@@ -429,6 +428,7 @@ export interface FileRouteTypes {
     | '/packs'
     | '/portfolio'
     | '/qui-suis-je'
+    | '/reservation-appel'
     | '/ressources-confiance'
     | '/ressources-conversion'
     | '/ressources-site'
@@ -450,7 +450,6 @@ export interface RootRouteChildren {
   BacASableVideoRoute: typeof BacASableVideoRoute
   BienvenueRoute: typeof BienvenueRoute
   BienvenueStrategieRoute: typeof BienvenueStrategieRoute
-  BriefRoute: typeof BriefRoute
   CommunityManagerSavoieRoute: typeof CommunityManagerSavoieRoute
   ConseilsRoute: typeof ConseilsRoute
   ConseilsCommunityManagerUtileRoute: typeof ConseilsCommunityManagerUtileRoute
@@ -466,6 +465,7 @@ export interface RootRouteChildren {
   PacksRoute: typeof PacksRoute
   PortfolioRoute: typeof PortfolioRoute
   QuiSuisJeRoute: typeof QuiSuisJeRoute
+  ReservationAppelRoute: typeof ReservationAppelRoute
   RessourcesConfianceRoute: typeof RessourcesConfianceRoute
   RessourcesConversionRoute: typeof RessourcesConversionRoute
   RessourcesSiteRoute: typeof RessourcesSiteRoute
@@ -510,6 +510,13 @@ declare module '@tanstack/react-router' {
       path: '/ressources-confiance'
       fullPath: '/ressources-confiance'
       preLoaderRoute: typeof RessourcesConfianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reservation-appel': {
+      id: '/reservation-appel'
+      path: '/reservation-appel'
+      fullPath: '/reservation-appel'
+      preLoaderRoute: typeof ReservationAppelRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/qui-suis-je': {
@@ -615,13 +622,6 @@ declare module '@tanstack/react-router' {
       path: '/community-manager-savoie'
       fullPath: '/community-manager-savoie'
       preLoaderRoute: typeof CommunityManagerSavoieRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/brief': {
-      id: '/brief'
-      path: '/brief'
-      fullPath: '/brief'
-      preLoaderRoute: typeof BriefRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bienvenue-strategie': {
@@ -751,7 +751,6 @@ const rootRouteChildren: RootRouteChildren = {
   BacASableVideoRoute: BacASableVideoRoute,
   BienvenueRoute: BienvenueRoute,
   BienvenueStrategieRoute: BienvenueStrategieRoute,
-  BriefRoute: BriefRoute,
   CommunityManagerSavoieRoute: CommunityManagerSavoieRoute,
   ConseilsRoute: ConseilsRoute,
   ConseilsCommunityManagerUtileRoute: ConseilsCommunityManagerUtileRoute,
@@ -767,6 +766,7 @@ const rootRouteChildren: RootRouteChildren = {
   PacksRoute: PacksRoute,
   PortfolioRoute: PortfolioRoute,
   QuiSuisJeRoute: QuiSuisJeRoute,
+  ReservationAppelRoute: ReservationAppelRoute,
   RessourcesConfianceRoute: RessourcesConfianceRoute,
   RessourcesConversionRoute: RessourcesConversionRoute,
   RessourcesSiteRoute: RessourcesSiteRoute,

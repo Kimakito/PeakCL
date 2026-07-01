@@ -308,7 +308,7 @@ function CatalogSection({ title, subtitle, items }: { title: string; subtitle: s
                 <div className="rounded-xl border border-white/5 bg-background/40 p-5">
                   <div className="text-sm font-semibold">Comment on avance</div>
                   <p className="mt-4 text-sm text-muted-foreground">
-                    Tu remplis le brief, je te fais un retour rapide, puis on valide un devis clair (livrables, délais, budget) selon ton cahier des charges.
+                    Tu réserves ton appel, je te fais un retour rapide, puis on valide un devis clair (livrables, délais, budget) selon ton cahier des charges.
                   </p>
                 </div>
               )}
@@ -316,7 +316,7 @@ function CatalogSection({ title, subtitle, items }: { title: string; subtitle: s
 
             <div className="mt-6">
               <a
-                href="/brief"
+                href="/reservation-appel"
                 data-event="cta_brief_pack"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
               >
@@ -356,11 +356,11 @@ function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <a
-            href="/brief"
+            href="/reservation-appel"
             data-event="cta_brief_packs_header"
             className="hidden rounded-full border border-white/10 bg-card/40 px-4 py-2 text-xs font-semibold text-foreground backdrop-blur hover:border-white/20 md:inline-flex"
           >
-            Remplir le brief
+            Réserver un appel
           </a>
           <a
             href={CALENDLY_URL}
@@ -393,7 +393,7 @@ function PacksPage() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="/brief"
+                href="/reservation-appel"
                 data-event="cta_brief_packs_hero"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
               >
@@ -459,12 +459,12 @@ function PacksPage() {
             <div className="mt-12 rounded-2xl border border-white/10 bg-card/40 p-7 text-center shadow-card backdrop-blur">
               <h2 className="text-3xl font-bold md:text-4xl">On commence quand ?</h2>
               <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-                Le plus simple : tu remplis le brief. C’est quelques minutes, et je reviens vers toi avec un devis clair.
-                Si tu préfères en parler de vive voix, tu peux aussi réserver un appel.
+                Le plus simple : tu réserves ton appel. C’est quelques minutes, et je reviens vers toi avec un devis clair.
+                Si tu préfères en parler de vive voix directement, tu peux aussi passer par Calendly.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
-                  href="/brief"
+                  href="/reservation-appel"
                   data-event="cta_brief_packs_final"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
                 >

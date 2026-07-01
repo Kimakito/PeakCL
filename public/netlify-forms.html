@@ -36,14 +36,14 @@
     </form>
 
     <form
-      name="brief-projet"
+      name="reservation-appel"
       method="POST"
       action="/merci-brief"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
-      <input type="hidden" name="form-name" value="brief-projet" />
-      <input type="hidden" name="leadType" value="brief_projet" />
+      <input type="hidden" name="form-name" value="reservation-appel" />
+      <input type="hidden" name="leadType" value="reservation_appel" />
       <input type="hidden" name="source" value="site_peakcl" />
       <p style="display:none">
         <label>Ne pas remplir: <input name="bot-field" /></label>
@@ -52,16 +52,31 @@
         <label>Nom <input name="fullName" required /></label>
       </p>
       <p>
-        <label>Email <input name="email" type="email" required /></label>
+        <label>Instagram <input name="instagram" required /></label>
       </p>
       <p>
-        <label>Activité <input name="businessName" required /></label>
+        <label>Chiffre d'affaire actuel <input name="revenueRange" required /></label>
       </p>
       <p>
-        <label>Ville/zone <input name="cityZone" required /></label>
+        <label>Objectif <input name="goalRevenue" required /></label>
       </p>
       <p>
-        <label>Résumé <textarea name="projectSummary" required></textarea></label>
+        <label>Problématique <input name="painPoints" required /></label>
+      </p>
+      <p>
+        <label>Importance résoudre <input name="importanceSolve" required /></label>
+      </p>
+      <p>
+        <label>Capable seul <input name="ableAlone" required /></label>
+      </p>
+      <p>
+        <label>Importance présence en ligne <input name="importanceOnlinePresence" required /></label>
+      </p>
+      <p>
+        <label>Ouvert accompagnement <input name="opennessToSupport" required /></label>
+      </p>
+      <p>
+        <label>Engagement <input name="commitment" required /></label>
       </p>
       <button type="submit">Envoyer</button>
     </form>

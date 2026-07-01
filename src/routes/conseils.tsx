@@ -75,7 +75,7 @@ function Page() {
             Audit gratuit de votre site web et de vos réseaux sociaux, sous 24h et sans engagement.
           </p>
           <a
-            href="/brief"
+            href="/reservation-appel"
             className="mx-auto mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
           >
             Demander mon audit gratuit <ArrowRight className="h-4 w-4" />

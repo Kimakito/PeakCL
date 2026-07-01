@@ -77,7 +77,13 @@
 
 [[redirects]]
   from = "/contact"
-  to = "/brief"
+  to = "/reservation-appel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/brief"
+  to = "/reservation-appel"
   status = 301
   force = true
 

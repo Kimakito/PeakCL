@@ -72,10 +72,10 @@ markmap:
 
 ## 1️⃣1️⃣ Tunnel de réservation
 
-- **Par défaut (prospect engagé)** → brief : peakcl.com/brief
-  - 8-12 min, sauvegarde auto
+- **Par défaut (prospect engagé)** → réservation d'appel : peakcl.com/reservation-appel
+  - 2-3 min, sauvegarde auto
   - Puis réservation du créneau + vidéo + ressources avant l'appel
-- **§11 bis Prospect frileux** → Calendly direct : calendly.com/peakcl73/45min (sans brief)
+- **§11 bis Prospect frileux** → Calendly direct : calendly.com/peakcl73/45min (sans questionnaire)
 - **Relance douce ~48h** si lien envoyé pas booké : « pas de pression du tout, le lien est toujours là 😊 »
 
 ## 📋 Suivi

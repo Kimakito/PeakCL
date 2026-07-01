@@ -184,7 +184,7 @@ function TrameProspectionPage() {
           </div>
 
           <div className="grid w-full grid-cols-3 gap-1.5 sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:gap-2">
-            <ActionBtn href="/brief" icon={FileText} label="Brief" />
+            <ActionBtn href="/reservation-appel" icon={FileText} label="Réservation" />
             <ActionBtn href="https://calendly.com/peakcl73/45min" icon={Calendar} label="Calendly" />
             <button
               type="button"

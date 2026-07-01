@@ -40,7 +40,7 @@ export function DeckFooter() {
           <a href="/packs" className="text-muted-foreground hover:text-foreground">Offres</a>
           <a href="/qui-suis-je" className="text-muted-foreground hover:text-foreground">Qui suis-je</a>
           <a href="/conseils" className="text-muted-foreground hover:text-foreground">Conseils</a>
-          <a href="/brief" className="text-muted-foreground hover:text-foreground">Brief</a>
+          <a href="/reservation-appel" className="text-muted-foreground hover:text-foreground">Réservation d’appel</a>
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/80">

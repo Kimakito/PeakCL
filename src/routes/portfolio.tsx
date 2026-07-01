@@ -166,7 +166,7 @@ function ContactPanel() {
         Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut et comment je peux m'en charger.
       </p>
       <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-        <a href="/brief" data-event="cta_brief_portfolio_end" className="inline-flex items-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]">
+        <a href="/reservation-appel" data-event="cta_brief_portfolio_end" className="inline-flex items-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]">
           Faire le diagnostic <ArrowRight className="h-4 w-4" />
         </a>
         <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" data-event="cta_calendly_portfolio_end" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-card/40 px-6 py-3 text-sm font-semibold text-foreground backdrop-blur hover:border-white/30">
@@ -338,7 +338,7 @@ function PortfolioPage() {
             <img src={logo} alt="PeakCL" className="h-7 w-7 rounded-md object-cover" />
             <span className="font-display text-base font-bold">Peak<span className="text-gradient">CL</span></span>
           </a>
-          <a href="/brief" className="rounded-full bg-primary-gradient px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-glow">Brief</a>
+          <a href="/reservation-appel" className="rounded-full bg-primary-gradient px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-glow">Réserver</a>
         </header>
         <div className="space-y-14 py-12">
           <IntroPanel onNavigate={() => {}} />

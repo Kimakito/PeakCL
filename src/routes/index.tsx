@@ -254,7 +254,7 @@ function MobileNav() {
 
 const ORBIT_ITEMS = [
   // pose = pose déclenchée au survol ; flip = version miroir (autre sens)
-  { label: "Remplir le brief", href: "/brief", angle: -90, r: 220, variant: "primary" as const, pose: "victoire" as MascotPose },
+  { label: "Réserver un appel", href: "/reservation-appel", angle: -90, r: 220, variant: "primary" as const, pose: "victoire" as MascotPose },
   { label: "Réserver un appel", href: CALENDLY_URL, angle: -25, r: 240, variant: "ghost" as const, pose: "dab" as MascotPose },
   { label: "Voir le portfolio", href: "/portfolio", angle: 30, r: 220, variant: "ghost" as const, pose: "tablette" as MascotPose },
   { label: "Voir les offres", href: "/packs", angle: 90, r: 240, variant: "ghost" as const, pose: "bas" as MascotPose },
@@ -403,7 +403,7 @@ function ProblemPanel() {
               </p>
             </div>
             <div className="mt-6">
-              <CTAButton href="/brief" dataEvent="cta_brief_problem">Je veux déléguer</CTAButton>
+              <CTAButton href="/reservation-appel" dataEvent="cta_brief_problem">Je veux déléguer</CTAButton>
             </div>
           </div>
           <ul className="space-y-3">
@@ -464,7 +464,7 @@ function DifferencePanel() {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <CTAButton href="/brief" dataEvent="cta_brief_diff">Je veux déléguer</CTAButton>
+          <CTAButton href="/reservation-appel" dataEvent="cta_brief_diff">Je veux déléguer</CTAButton>
         </div>
       </div>
     </section>
@@ -498,7 +498,7 @@ function MethodPanel() {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <CTAButton href="/brief" dataEvent="cta_brief_method">Faire le diagnostic</CTAButton>
+          <CTAButton href="/reservation-appel" dataEvent="cta_brief_method">Faire le diagnostic</CTAButton>
         </div>
       </div>
     </section>
@@ -540,7 +540,7 @@ function OffersPanel() {
           ))}
         </div>
         <div className="mt-6 text-center flex justify-center gap-3">
-          <CTAButton href="/brief" dataEvent="cta_brief_offers">Faire le diagnostic</CTAButton>
+          <CTAButton href="/reservation-appel" dataEvent="cta_brief_offers">Faire le diagnostic</CTAButton>
           <CTAButton href="/packs" variant="ghost" dataEvent="cta_packs_detail">Voir les packs</CTAButton>
         </div>
       </div>
@@ -704,7 +704,7 @@ function ContactPanel() {
           Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut pour une image cohérente et comment je peux m'en charger.
         </p>
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <CTAButton href="/brief" dataEvent="cta_brief_final">Faire le diagnostic</CTAButton>
+          <CTAButton href="/reservation-appel" dataEvent="cta_brief_final">Faire le diagnostic</CTAButton>
           <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_final" variant="ghost">Réserver un appel</CTAButton>
         </div>
         <form

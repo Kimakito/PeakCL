@@ -106,7 +106,7 @@ function Page() {
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="/brief"
+                href="/reservation-appel"
                 className="inline-flex items-center justify-center rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:scale-[1.03]"
               >
                 Faire le diagnostic

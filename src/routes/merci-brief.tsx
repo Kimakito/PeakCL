@@ -18,7 +18,7 @@ export const Route = createFileRoute("/merci-brief")({
       {
         name: "description",
         content:
-          "Brief reçu. Choisis ton créneau pour le diagnostic (45 min), puis accède aux ressources avant l’appel.",
+          "Questionnaire reçu. Choisis ton créneau pour le diagnostic (45 min), puis accède aux ressources avant l’appel.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/merci-brief") },
@@ -47,7 +47,7 @@ function MerciBriefPage() {
           <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-[var(--brand-turquoise)]">
             <Check className="h-6 w-6" />
           </div>
-          <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">Brief bien reçu.</h1>
+          <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">C’est reçu.</h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
             Dernière étape avant l’appel : réserve ton créneau de <span className="font-semibold text-foreground">45 minutes</span>{" "}
             (diagnostic, sans engagement). Après la réservation, tu accèderas à la page avec la vidéo et les ressources à

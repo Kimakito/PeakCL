@@ -45,7 +45,7 @@ export const conseils: Conseil[] = [
         h2: "Comment ne pas payer pour rien",
         paragraphs: [
           "Partez de l'objectif, pas de la technique : que doit faire le site (appels, devis, réservations) ? Tout ce qui ne sert pas cet objectif est du budget gaspillé. Demandez ce qui est inclus (mise en ligne, domaine, SSL, bases SEO, formation) et ce qui ne l'est pas.",
-          "Chez PeakCL, l'audit est gratuit et le devis est envoyé sous 48h ouvrées après un brief de 8 minutes. Vous savez exactement ce que vous payez, et pourquoi.",
+          "Chez PeakCL, l'audit est gratuit et le devis est envoyé sous 48h ouvrées après une réservation d'appel de 3 minutes. Vous savez exactement ce que vous payez, et pourquoi.",
         ],
       },
     ],

@@ -48,7 +48,7 @@ const SERVICES = [
 ];
 
 const STEPS = [
-  { n: "01", title: "Diagnostic", desc: "Brief 8 min ou visio 20 min. Je comprends votre activité et votre objectif." },
+  { n: "01", title: "Diagnostic", desc: "Réservation d’appel 3 min ou visio 20 min. Je comprends votre activité et votre objectif." },
   { n: "02", title: "Cadrage", desc: "Devis précis sous 48h ouvrées + planning. Vous validez ou ajustez." },
   { n: "03", title: "Production", desc: "Je code, je dessine, je rédige. Vous voyez le travail avancer." },
   { n: "04", title: "Mise en ligne", desc: "Domaine, performance, indexation. Et un suivi sur la première semaine." },
@@ -213,7 +213,7 @@ export function GeoLanding({
               <h3 className="text-base font-semibold">Combien coûte un {serviceLabel} à {city} ?</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 Ça dépend du périmètre (site seul, ou site + logo + réseaux). Le devis est précis et
-                envoyé sous 48h ouvrées après le brief, pas une fourchette élastique. L&apos;audit, lui,
+                envoyé sous 48h ouvrées après la réservation d’appel, pas une fourchette élastique. L&apos;audit, lui,
                 est gratuit.
               </p>
             </div>
@@ -259,7 +259,7 @@ export function GeoLanding({
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="/brief"
+              href="/reservation-appel"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
             >
               Faire le diagnostic <ArrowRight className="h-4 w-4" />
