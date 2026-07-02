@@ -3,6 +3,7 @@ export const SOCIAL = {
   instagram: "https://www.instagram.com/peakcl73/",
   facebook: "https://www.facebook.com/PeakCL73",
   linkedin: "https://www.linkedin.com/in/charlotte-lacroix-peakcl/",
+  tiktok: "https://www.tiktok.com/@peakcl5",
   whatsapp: "https://wa.me/33743517627",
 } as const;
 

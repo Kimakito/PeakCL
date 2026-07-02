@@ -23,6 +23,7 @@ import { Route as MerciBriefRouteImport } from './routes/merci-brief'
 import { Route as MerciRouteImport } from './routes/merci'
 import { Route as DiagnosticRouteImport } from './routes/diagnostic'
 import { Route as CreationLogoAlbertvilleRouteImport } from './routes/creation-logo-albertville'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConseilsWordpressOuSurMesureRouteImport } from './routes/conseils-wordpress-ou-sur-mesure'
 import { Route as ConseilsSiteWebOuInstagramRouteImport } from './routes/conseils-site-web-ou-instagram'
 import { Route as ConseilsReferencerSiteGoogleRouteImport } from './routes/conseils-referencer-site-google'
@@ -112,6 +113,11 @@ const DiagnosticRoute = DiagnosticRouteImport.update({
 const CreationLogoAlbertvilleRoute = CreationLogoAlbertvilleRouteImport.update({
   id: '/creation-logo-albertville',
   path: '/creation-logo-albertville',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConseilsWordpressOuSurMesureRoute =
@@ -237,6 +243,7 @@ export interface FileRoutesByFullPath {
   '/conseils-referencer-site-google': typeof ConseilsReferencerSiteGoogleRoute
   '/conseils-site-web-ou-instagram': typeof ConseilsSiteWebOuInstagramRoute
   '/conseils-wordpress-ou-sur-mesure': typeof ConseilsWordpressOuSurMesureRoute
+  '/contact': typeof ContactRoute
   '/creation-logo-albertville': typeof CreationLogoAlbertvilleRoute
   '/diagnostic': typeof DiagnosticRoute
   '/merci': typeof MerciRoute
@@ -273,6 +280,7 @@ export interface FileRoutesByTo {
   '/conseils-referencer-site-google': typeof ConseilsReferencerSiteGoogleRoute
   '/conseils-site-web-ou-instagram': typeof ConseilsSiteWebOuInstagramRoute
   '/conseils-wordpress-ou-sur-mesure': typeof ConseilsWordpressOuSurMesureRoute
+  '/contact': typeof ContactRoute
   '/creation-logo-albertville': typeof CreationLogoAlbertvilleRoute
   '/diagnostic': typeof DiagnosticRoute
   '/merci': typeof MerciRoute
@@ -310,6 +318,7 @@ export interface FileRoutesById {
   '/conseils-referencer-site-google': typeof ConseilsReferencerSiteGoogleRoute
   '/conseils-site-web-ou-instagram': typeof ConseilsSiteWebOuInstagramRoute
   '/conseils-wordpress-ou-sur-mesure': typeof ConseilsWordpressOuSurMesureRoute
+  '/contact': typeof ContactRoute
   '/creation-logo-albertville': typeof CreationLogoAlbertvilleRoute
   '/diagnostic': typeof DiagnosticRoute
   '/merci': typeof MerciRoute
@@ -348,6 +357,7 @@ export interface FileRouteTypes {
     | '/conseils-referencer-site-google'
     | '/conseils-site-web-ou-instagram'
     | '/conseils-wordpress-ou-sur-mesure'
+    | '/contact'
     | '/creation-logo-albertville'
     | '/diagnostic'
     | '/merci'
@@ -384,6 +394,7 @@ export interface FileRouteTypes {
     | '/conseils-referencer-site-google'
     | '/conseils-site-web-ou-instagram'
     | '/conseils-wordpress-ou-sur-mesure'
+    | '/contact'
     | '/creation-logo-albertville'
     | '/diagnostic'
     | '/merci'
@@ -420,6 +431,7 @@ export interface FileRouteTypes {
     | '/conseils-referencer-site-google'
     | '/conseils-site-web-ou-instagram'
     | '/conseils-wordpress-ou-sur-mesure'
+    | '/contact'
     | '/creation-logo-albertville'
     | '/diagnostic'
     | '/merci'
@@ -457,6 +469,7 @@ export interface RootRouteChildren {
   ConseilsReferencerSiteGoogleRoute: typeof ConseilsReferencerSiteGoogleRoute
   ConseilsSiteWebOuInstagramRoute: typeof ConseilsSiteWebOuInstagramRoute
   ConseilsWordpressOuSurMesureRoute: typeof ConseilsWordpressOuSurMesureRoute
+  ContactRoute: typeof ContactRoute
   CreationLogoAlbertvilleRoute: typeof CreationLogoAlbertvilleRoute
   DiagnosticRoute: typeof DiagnosticRoute
   MerciRoute: typeof MerciRoute
@@ -573,6 +586,13 @@ declare module '@tanstack/react-router' {
       path: '/creation-logo-albertville'
       fullPath: '/creation-logo-albertville'
       preLoaderRoute: typeof CreationLogoAlbertvilleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/conseils-wordpress-ou-sur-mesure': {
@@ -758,6 +778,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConseilsReferencerSiteGoogleRoute: ConseilsReferencerSiteGoogleRoute,
   ConseilsSiteWebOuInstagramRoute: ConseilsSiteWebOuInstagramRoute,
   ConseilsWordpressOuSurMesureRoute: ConseilsWordpressOuSurMesureRoute,
+  ContactRoute: ContactRoute,
   CreationLogoAlbertvilleRoute: CreationLogoAlbertvilleRoute,
   DiagnosticRoute: DiagnosticRoute,
   MerciRoute: MerciRoute,

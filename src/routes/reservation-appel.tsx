@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Clock, ShieldCheck } from "lucide-react";
 import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
 import { absUrl } from "@/seo/site";
+import { HeroPanel } from "@/components/home/HeroPanel";
 
 export const Route = createFileRoute("/reservation-appel")({
   head: () => ({
@@ -290,6 +291,8 @@ function SectionTitle({ title, subtitle }: { title: string; subtitle?: string })
 function ReservationAppelPage() {
   const { values, setValues } = useAutosaveForm({
     fullName: "",
+    phone: "",
+    email: "",
     instagram: "",
     revenueRange: "",
     goalRevenue: "",
@@ -304,6 +307,8 @@ function ReservationAppelPage() {
   const requiredNames = useMemo(
     () => [
       "fullName",
+      "phone",
+      "email",
       "instagram",
       "revenueRange",
       "goalRevenue",
@@ -344,6 +349,7 @@ function ReservationAppelPage() {
     setIsSubmitting(true);
     stashCalendlyPrefill({
       name: String(values.fullName),
+      email: String(values.email),
     });
 
     try {
@@ -365,8 +371,9 @@ function ReservationAppelPage() {
 
   return (
     <main className="min-h-screen border-t border-white/5">
-      <section className="relative overflow-hidden bg-hero py-20">
-        <div className="grid-bg absolute inset-0 -z-10" />
+      <HeroPanel />
+
+      <section className="border-t border-white/5 py-10">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
             <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />
@@ -430,6 +437,24 @@ function ReservationAppelPage() {
                 required
                 value={String(values.fullName)}
                 onChange={(v) => setField(setValues, "fullName", v)}
+              />
+              <TextInput
+                label="Quel est ton numéro de téléphone ?"
+                name="phone"
+                type="tel"
+                required
+                placeholder="06 12 34 56 78"
+                value={String(values.phone)}
+                onChange={(v) => setField(setValues, "phone", v)}
+              />
+              <TextInput
+                label="Quel est ton mail ?"
+                name="email"
+                type="email"
+                required
+                placeholder="tonmail@example.com"
+                value={String(values.email)}
+                onChange={(v) => setField(setValues, "email", v)}
               />
               <TextInput
                 label="Quel est ton compte Instagram ?"
