@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Clock, ShieldCheck } from "lucide-react";
 import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
@@ -17,6 +17,9 @@ import {
 const BUREAU_IMAGE = "/peakcl/assets/images/bureau-peakcl.webp";
 
 export const Route = createFileRoute("/reservation-appel-hors-ue")({
+  beforeLoad: () => {
+    throw redirect({ to: "/bienvenue" });
+  },
   head: () => ({
     meta: [
       { title: "Réservation d’appel (Hors UE) · PeakCL" },
