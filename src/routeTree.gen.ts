@@ -16,8 +16,10 @@ import { Route as RessourcesConversionRouteImport } from './routes/ressources-co
 import { Route as RessourcesConfianceRouteImport } from './routes/ressources-confiance'
 import { Route as ReservationAppelRouteImport } from './routes/reservation-appel'
 import { Route as QuiSuisJeRouteImport } from './routes/qui-suis-je'
+import { Route as QuestionnaireR2RouteImport } from './routes/questionnaire-r2'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PacksRouteImport } from './routes/packs'
+import { Route as MerciR2RouteImport } from './routes/merci-r2'
 import { Route as MerciDiagnosticRouteImport } from './routes/merci-diagnostic'
 import { Route as MerciBriefRouteImport } from './routes/merci-brief'
 import { Route as MerciRouteImport } from './routes/merci'
@@ -80,6 +82,11 @@ const QuiSuisJeRoute = QuiSuisJeRouteImport.update({
   path: '/qui-suis-je',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuestionnaireR2Route = QuestionnaireR2RouteImport.update({
+  id: '/questionnaire-r2',
+  path: '/questionnaire-r2',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
@@ -88,6 +95,11 @@ const PortfolioRoute = PortfolioRouteImport.update({
 const PacksRoute = PacksRouteImport.update({
   id: '/packs',
   path: '/packs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MerciR2Route = MerciR2RouteImport.update({
+  id: '/merci-r2',
+  path: '/merci-r2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MerciDiagnosticRoute = MerciDiagnosticRouteImport.update({
@@ -249,8 +261,10 @@ export interface FileRoutesByFullPath {
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
   '/merci-diagnostic': typeof MerciDiagnosticRoute
+  '/merci-r2': typeof MerciR2Route
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
+  '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
   '/reservation-appel': typeof ReservationAppelRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
@@ -286,8 +300,10 @@ export interface FileRoutesByTo {
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
   '/merci-diagnostic': typeof MerciDiagnosticRoute
+  '/merci-r2': typeof MerciR2Route
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
+  '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
   '/reservation-appel': typeof ReservationAppelRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
@@ -324,8 +340,10 @@ export interface FileRoutesById {
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
   '/merci-diagnostic': typeof MerciDiagnosticRoute
+  '/merci-r2': typeof MerciR2Route
   '/packs': typeof PacksRoute
   '/portfolio': typeof PortfolioRoute
+  '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
   '/reservation-appel': typeof ReservationAppelRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
@@ -363,8 +381,10 @@ export interface FileRouteTypes {
     | '/merci'
     | '/merci-brief'
     | '/merci-diagnostic'
+    | '/merci-r2'
     | '/packs'
     | '/portfolio'
+    | '/questionnaire-r2'
     | '/qui-suis-je'
     | '/reservation-appel'
     | '/ressources-confiance'
@@ -400,8 +420,10 @@ export interface FileRouteTypes {
     | '/merci'
     | '/merci-brief'
     | '/merci-diagnostic'
+    | '/merci-r2'
     | '/packs'
     | '/portfolio'
+    | '/questionnaire-r2'
     | '/qui-suis-je'
     | '/reservation-appel'
     | '/ressources-confiance'
@@ -437,8 +459,10 @@ export interface FileRouteTypes {
     | '/merci'
     | '/merci-brief'
     | '/merci-diagnostic'
+    | '/merci-r2'
     | '/packs'
     | '/portfolio'
+    | '/questionnaire-r2'
     | '/qui-suis-je'
     | '/reservation-appel'
     | '/ressources-confiance'
@@ -475,8 +499,10 @@ export interface RootRouteChildren {
   MerciRoute: typeof MerciRoute
   MerciBriefRoute: typeof MerciBriefRoute
   MerciDiagnosticRoute: typeof MerciDiagnosticRoute
+  MerciR2Route: typeof MerciR2Route
   PacksRoute: typeof PacksRoute
   PortfolioRoute: typeof PortfolioRoute
+  QuestionnaireR2Route: typeof QuestionnaireR2Route
   QuiSuisJeRoute: typeof QuiSuisJeRoute
   ReservationAppelRoute: typeof ReservationAppelRoute
   RessourcesConfianceRoute: typeof RessourcesConfianceRoute
@@ -539,6 +565,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuiSuisJeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/questionnaire-r2': {
+      id: '/questionnaire-r2'
+      path: '/questionnaire-r2'
+      fullPath: '/questionnaire-r2'
+      preLoaderRoute: typeof QuestionnaireR2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio': {
       id: '/portfolio'
       path: '/portfolio'
@@ -551,6 +584,13 @@ declare module '@tanstack/react-router' {
       path: '/packs'
       fullPath: '/packs'
       preLoaderRoute: typeof PacksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/merci-r2': {
+      id: '/merci-r2'
+      path: '/merci-r2'
+      fullPath: '/merci-r2'
+      preLoaderRoute: typeof MerciR2RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/merci-diagnostic': {
@@ -784,8 +824,10 @@ const rootRouteChildren: RootRouteChildren = {
   MerciRoute: MerciRoute,
   MerciBriefRoute: MerciBriefRoute,
   MerciDiagnosticRoute: MerciDiagnosticRoute,
+  MerciR2Route: MerciR2Route,
   PacksRoute: PacksRoute,
   PortfolioRoute: PortfolioRoute,
+  QuestionnaireR2Route: QuestionnaireR2Route,
   QuiSuisJeRoute: QuiSuisJeRoute,
   ReservationAppelRoute: ReservationAppelRoute,
   RessourcesConfianceRoute: RessourcesConfianceRoute,

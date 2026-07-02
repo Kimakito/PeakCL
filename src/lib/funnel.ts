@@ -4,6 +4,7 @@ export const CALENDLY_R1_URL =
 
 export const BIENVENUE_PATH = "/bienvenue";
 export const MERCI_BRIEF_PATH = "/merci-brief";
+export const MERCI_R2_PATH = "/merci-r2";
 
 /** Static page scanned at build time — required for Netlify Forms with SSR (POST / alone is ignored). */
 export const NETLIFY_FORMS_PATH = "/netlify-forms.html";

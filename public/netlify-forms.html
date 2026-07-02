@@ -111,6 +111,43 @@
       <button type="submit">Envoyer</button>
     </form>
 
+    <form
+      name="questionnaire-r2"
+      method="POST"
+      action="/merci-r2"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="questionnaire-r2" />
+      <input type="hidden" name="leadType" value="questionnaire_r2" />
+      <input type="hidden" name="source" value="site_peakcl" />
+      <p style="display:none">
+        <label>Ne pas remplir: <input name="bot-field" /></label>
+      </p>
+      <p>
+        <label>Nom <input name="fullName" required /></label>
+      </p>
+      <p>
+        <label>Note appel 1 <input name="ratingCall1" required /></label>
+      </p>
+      <p>
+        <label>Objectif <textarea name="objectif" required></textarea></label>
+      </p>
+      <p>
+        <label>Budget <input name="budget" required /></label>
+      </p>
+      <p>
+        <label>Informations nécessaires <textarea name="infosNecessaires" required></textarea></label>
+      </p>
+      <p>
+        <label>Prêt à décider <input name="readyToDecide" required /></label>
+      </p>
+      <p>
+        <label>Raison si non <textarea name="reasonIfNot"></textarea></label>
+      </p>
+      <button type="submit">Envoyer</button>
+    </form>
+
     <!-- Questionnaire privé : cadrage Véronique -->
     <form
       name="cadrage-veronique"
