@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PeakCL — Charlotte Lacroix</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{
+  width:100%;height:100%;overflow:hidden;
+  background:#08101b;
+  font-family:'Space Grotesk',sans-serif;
+  color:#fff;
+  cursor:none;
+}
+
+/* ═══════════════════════════════════════════════════
+   THREE.JS CANVAS — Fixed background
+═══════════════════════════════════════════════════ */
+#three-canvas{
+  position:fixed;inset:0;z-index:0;
+  width:100%;height:100%;
+}
+
+/* ═══════════════════════════════════════════════════
+   HORIZONTAL SCROLL ENGINE
+═══════════════════════════════════════════════════ */
+#scroll-wrapper{
+  position:fixed;inset:0;z-index:5;overflow:hidden;
+}
+#scroll-track{
+  display:flex;
+  width:700vw; /* 7 panels */
+  height:100vh;
+  will-change:transform;
+  /* No CSS transition — JS handles easing */
+}
+.panel{
+  width:100vw;height:100vh;
+  flex-shrink:0;
+  position:relative;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* Per-panel background overlay (tint on top of aurora) */
+.panel::before{
+  content:'';
+  position:absolute;inset:0;z-index:0;
+  pointer-events:none;
+}
+#p0::before{background:linear-gradient(160deg,rgba(8,16,27,.3) 0%,rgba(8,16,27,.6) 100%);}
+#p1::before{background:linear-gradient(150deg,rgba(8,16,27,.82) 0%,rgba(27,8,50,.78) 100%);}
+#p2::before{background:linear-gradient(140deg,rgba(8,16,27,.85) 0%,rgba(15,6,30,.82) 100%);}
+#p3::before{background:linear-gradient(135deg,rgba(8,16,27,.88) 0%,rgba(8,20,35,.85) 100%);}
+#p4::before{background:linear-gradient(130deg,rgba(8,16,27,.86) 0%,rgba(20,8,40,.83) 100%);}
+#p5::before{background:linear-gradient(125deg,rgba(8,16,27,.84) 0%,rgba(8,16,27,.80) 100%);}
+#p6::before{background:linear-gradient(120deg,rgba(8,16,27,.90) 0%,rgba(20,5,40,.88) 100%);}
+
+.panel-inner{
+  position:relative;z-index:2;
+  width:100%;max-width:1200px;
+  padding:0 8vw;
+}
+
+/* ═══════════════════════════════════════════════════
+   NAV — Fixed top
+═══════════════════════════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:26px 48px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  background:rgba(8,16,27,.6);
+  backdrop-filter:blur(16px);
+}
+.logo{font-size:19px;font-weight:800;letter-spacing:.1em;}
+.logo em{color:#f5df29;font-style:normal;}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{
+  font-size:12px;color:rgba(255,255,255,.4);
+  text-decoration:none;letter-spacing:.06em;
+  transition:color .2s;cursor:none;
+}
+.nav-links a:hover,.nav-links a.active{color:#fff;}
+.nav-cta{
+  font-size:12px;font-weight:700;color:#08101b;
+  background:#f5df29;padding:9px 22px;
+  border-radius:100px;text-decoration:none;
+  transition:background .2s,transform .2s;cursor:none;
+}
+.nav-cta:hover{background:#fff200;transform:scale(1.04);}
+
+/* ═══════════════════════════════════════════════════
+   PANEL INDICATORS (bottom dots)
+═══════════════════════════════════════════════════ */
+#dots{
+  position:fixed;bottom:28px;left:50%;
+  transform:translateX(-50%);
+  z-index:100;
+  display:flex;gap:10px;align-items:center;
+}
+.dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.2);
+  transition:background .3s,transform .3s;
+  cursor:none;
+}
+.dot.active{
+  background:#f5df29;
+  transform:scale(1.4);
+  box-shadow:0 0 8px #f5df29;
+}
+
+/* Panel counter */
+#panel-counter{
+  position:fixed;bottom:22px;right:48px;z-index:100;
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:rgba(255,255,255,.25);letter-spacing:.1em;
+}
+
+/* Scroll arrow hint */
+#scroll-arrow{
+  position:fixed;bottom:24px;left:48px;z-index:100;
+  font-family:'Space Mono',monospace;
+  font-size:10px;color:rgba(255,255,255,.2);
+  letter-spacing:.2em;
+  display:flex;align-items:center;gap:10px;
+  transition:opacity .5s;
+}
+#scroll-arrow .arr-line{
+  width:32px;height:1px;background:rgba(255,255,255,.15);
+  position:relative;overflow:hidden;
+}
+#scroll-arrow .arr-line::after{
+  content:'';position:absolute;top:0;left:-100%;
+  width:100%;height:100%;background:#f5df29;
+  animation:slide 2s ease-in-out infinite;
+}
+@keyframes slide{0%{left:-100%}100%{left:100%}}
+
+/* ═══════════════════════════════════════════════════
+   CURSOR
+═══════════════════════════════════════════════════ */
+#cur{
+  position:fixed;z-index:9999;pointer-events:none;
+  width:10px;height:10px;border-radius:50%;
+  background:#f5df29;mix-blend-mode:difference;
+  transform:translate(-50%,-50%);
+}
+#cring{
+  position:fixed;z-index:9998;pointer-events:none;
+  width:38px;height:38px;border-radius:50%;
+  border:1.5px solid rgba(245,223,41,.5);
+  transform:translate(-50%,-50%);
+  transition:width .2s,height .2s,border-color .2s;
+}
+
+/* ═══════════════════════════════════════════════════
+   PANEL 0 — HERO
+═══════════════════════════════════════════════════ */
+#p0 .hero-layout{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:0;
+  width:100%;
+  max-width:1200px;
+  padding:0 6vw;
+  padding-top:60px; /* nav offset */
+}
+#p0 .hero-left{
+  display:flex;flex-direction:column;align-items:flex-start;
+}
+.eyebrow{
+  font-size:11px;letter-spacing:.3em;color:#0cc6c1;
+  text-transform:uppercase;margin-bottom:22px;
+}
+.hero-h1{
+  font-size:clamp(40px,5.5vw,76px);font-weight:800;
+  line-height:1.0;margin-bottom:22px;
+}
+.hero-h1 .y{color:#f5df29;}
+.hero-h1 .t{color:#0cc6c1;}
+.hero-sub{
+  font-size:16px;color:rgba(255,255,255,.4);
+  letter-spacing:.06em;margin-bottom:36px;
+}
+.hero-btns{display:flex;gap:14px;margin-bottom:44px;}
+.btn-y{
+  font-family:inherit;font-size:14px;font-weight:700;
+  color:#08101b;background:#f5df29;border:none;
+  padding:14px 32px;border-radius:100px;cursor:none;
+  transition:background .2s,transform .2s;
+}
+.btn-y:hover{background:#fff200;transform:translateY(-2px);}
+.btn-o{
+  font-family:inherit;font-size:14px;font-weight:700;
+  color:#fff;background:transparent;
+  border:1px solid rgba(255,255,255,.2);
+  padding:14px 32px;border-radius:100px;cursor:none;
+  transition:border-color .2s,transform .2s;
+}
+.btn-o:hover{border-color:rgba(255,255,255,.6);transform:translateY(-2px);}
+
+/* Badges row — inline under buttons */
+.hero-badges{
+  display:flex;gap:12px;
+}
+.hero-badge{
+  background:rgba(8,16,27,.75);
+  border:1px solid rgba(12,198,193,.22);
+  border-radius:12px;padding:12px 18px;
+  backdrop-filter:blur(14px);
+}
+.badge-num{font-size:22px;font-weight:800;line-height:1;}
+.badge-lbl{font-size:10px;color:rgba(255,255,255,.4);margin-top:3px;letter-spacing:.04em;}
+.badge-dot{
+  display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:#0cc6c1;box-shadow:0 0 5px #0cc6c1;
+  margin-right:4px;animation:blink 2s ease-in-out infinite;
+}
+
+/* ── Charlotte video / avatar ── */
+#hero-video-wrap{
+  position:relative;
+  width:clamp(260px,28vw,440px);
+  height:clamp(360px,72vh,680px);
+  flex-shrink:0;
+  align-self:flex-end;
+  margin-right:-2vw;
+  pointer-events:none;
+}
+/* Actual video — shoot yourself on BLACK background,
+   mix-blend-mode:screen makes the dark bg disappear */
+#hero-vid{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  mix-blend-mode:screen;
+  border-radius:0;
+  filter:brightness(1.1) contrast(1.05);
+}
+/* Fallback avatar image (shown when no video) */
+#hero-avatar-img{
+  width:100%;height:100%;
+  object-fit:contain;object-position:bottom center;
+  mix-blend-mode:screen;
+  filter:brightness(1.05) contrast(1.08) drop-shadow(0 0 32px rgba(175,7,217,.5));
+}
+/* Subtle glow halo behind the figure */
+#hero-video-wrap::before{
+  content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:70%;height:40%;
+  background:radial-gradient(ellipse,rgba(175,7,217,.25) 0%,transparent 70%);
+  z-index:0;pointer-events:none;
+}
+/* Floating data chip near the avatar */
+.avatar-chip{
+  position:absolute;z-index:5;
+  background:rgba(8,16,27,.82);
+  border:1px solid rgba(12,198,193,.28);
+  border-radius:10px;padding:10px 14px;
+  backdrop-filter:blur(12px);
+  animation:chipFloat 4s ease-in-out infinite;
+}
+.avatar-chip.c1{right:-20px;top:22%;}
+.avatar-chip.c2{left:-26px;top:52%;}
+.chip-val{font-size:16px;font-weight:800;}
+.chip-lbl{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.06em;margin-top:2px;}
+@keyframes chipFloat{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+}
+
+/* ═══════════════════════════════════════════════════
+   PANEL 1 — PAIN POINTS
+═══════════════════════════════════════════════════ */
+.p-tag{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:.25em;color:#0cc6c1;
+  text-transform:uppercase;margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.p-tag::before{content:'';width:20px;height:1px;background:#0cc6c1;}
+.p-h2{
+  font-size:clamp(34px,4vw,54px);font-weight:800;
+  line-height:1.08;margin-bottom:18px;
+}
+.p-h2 span{color:#f5df29;}
+.p-desc{
+  font-size:16px;color:rgba(255,255,255,.4);line-height:1.8;
+  max-width:480px;margin-bottom:48px;
+}
+.pain-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  max-width:760px;
+}
+.pain-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  border-left:3px solid #af07d9;
+  border-radius:12px;padding:22px 20px;
+  transition:border-left-color .3s,background .3s;
+}
+.pain-card:hover{
+  border-left-color:#f5df29;
+  background:rgba(245,223,41,.03);
+}
+.pain-x{color:#af07d9;font-size:18px;margin-bottom:10px;}
+.pain-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;}
+.pain-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;}
+
+/* ═══════════════════════════════════════════════════
+   PANEL 2 — SERVICES
+═══════════════════════════════════════════════════ */
+.services-layout{
+  display:grid;grid-template-columns:1fr 1.6fr;gap:72px;align-items:center;
+  width:100%;
+}
+.services-cards{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+.svc-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:24px 20px;
+  transition:border-color .3s,background .3s,transform .3s;
+}
+.svc-card:hover{
+  border-color:rgba(12,198,193,.4);
+  background:rgba(12,198,193,.05);
+  transform:translateY(-4px);
+}
+.svc-icon{font-size:26px;margin-bottom:14px;}
+.svc-title{font-size:15px;font-weight:700;margin-bottom:8px;}
+.svc-desc{font-size:12px;color:rgba(255,255,255,.4);line-height:1.7;}
+.svc-price{
+  margin-top:12px;font-size:11px;font-weight:700;
+  color:#0cc6c1;font-family:'Space Mono',monospace;
+}
+.cta-link{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:36px;font-size:14px;font-weight:700;
+  color:#f5df29;text-decoration:none;cursor:none;
+  transition:gap .2s;
+}
+.cta-link:hover{gap:16px;}
+
+/* ═══════════════════════════════════════════════════
+   PANEL 3 — PORTFOLIO
+═══════════════════════════════════════════════════ */
+.portfolio-header{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:36px;width:100%;
+}
+.portfolio-strip{
+  display:flex;gap:20px;
+  overflow-x:auto;padding-bottom:12px;
+  scrollbar-width:none;width:100%;
+}
+.portfolio-strip::-webkit-scrollbar{display:none;}
+.proj-card{
+  flex-shrink:0;width:260px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:16px;overflow:hidden;
+  transition:border-color .3s,transform .3s;
+  cursor:none;
+}
+.proj-card:hover{
+  border-color:rgba(245,223,41,.4);
+  transform:translateY(-6px);
+}
+.proj-img{
+  width:100%;height:150px;
+  background:rgba(175,7,217,.15);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.proj-img img{width:100%;height:100%;object-fit:cover;opacity:.85;}
+.proj-body{padding:18px 16px;}
+.proj-cat{
+  font-size:9px;letter-spacing:.18em;color:#0cc6c1;
+  text-transform:uppercase;margin-bottom:6px;
+  font-family:'Space Mono',monospace;
+}
+.proj-title{font-size:15px;font-weight:700;margin-bottom:4px;}
+.proj-tech{font-size:11px;color:rgba(255,255,255,.35);}
+
+/* ═══════════════════════════════════════════════════
+   PANEL 4 — PROCESSUS
+═══════════════════════════════════════════════════ */
+.steps-layout{
+  display:grid;grid-template-columns:1fr 1.4fr;gap:72px;align-items:center;
+  width:100%;
+}
+.steps{display:flex;flex-direction:column;gap:0;}
+.step{
+  display:flex;gap:20px;padding:22px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:opacity .3s;
+}
+.step:last-child{border-bottom:none;}
+.step-num{
+  font-family:'Space Mono',monospace;
+  font-size:32px;font-weight:700;color:rgba(175,7,217,.3);
+  line-height:1;min-width:42px;
+  transition:color .3s;
+}
+.step:hover .step-num{color:#af07d9;}
+.step-content{}
+.step-title{font-size:16px;font-weight:700;margin-bottom:6px;}
+.step-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;}
+.steps-visual{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+.vis-card{
+  background:rgba(175,7,217,.08);
+  border:1px solid rgba(175,7,217,.2);
+  border-radius:14px;padding:22px;
+  transition:background .3s,border-color .3s;
+}
+.vis-card:hover{background:rgba(175,7,217,.14);border-color:rgba(175,7,217,.4);}
+.vis-icon{font-size:30px;margin-bottom:12px;}
+.vis-label{font-size:13px;font-weight:700;}
+.vis-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px;line-height:1.6;}
+
+/* ═══════════════════════════════════════════════════
+   PANEL 5 — TÉMOIGNAGES
+═══════════════════════════════════════════════════ */
+.testi-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  width:100%;
+}
+.testi-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:16px;padding:28px 24px;
+  display:flex;flex-direction:column;gap:16px;
+  transition:border-color .3s,background .3s;
+}
+.testi-card:hover{
+  border-color:rgba(12,198,193,.25);
+  background:rgba(12,198,193,.03);
+}
+.testi-stars{color:#f5df29;font-size:14px;letter-spacing:2px;}
+.testi-text{
+  font-size:13px;color:rgba(255,255,255,.6);
+  line-height:1.8;font-style:italic;flex:1;
+}
+.testi-text::before{content:'"';color:#af07d9;font-size:24px;line-height:0;vertical-align:-8px;margin-right:4px;}
+.testi-author{font-size:13px;font-weight:700;color:#fff;}
+.testi-company{font-size:11px;color:rgba(255,255,255,.35);margin-top:2px;}
+.testi-badge{
+  display:inline-block;font-size:9px;font-weight:700;
+  color:#0cc6c1;border:1px solid rgba(12,198,193,.3);
+  padding:3px 8px;border-radius:4px;
+  font-family:'Space Mono',monospace;
+}
+
+/* ═══════════════════════════════════════════════════
+   PANEL 6 — CONTACT
+═══════════════════════════════════════════════════ */
+.contact-layout{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+  width:100%;
+}
+.contact-left h2{
+  font-size:clamp(38px,5vw,62px);font-weight:800;
+  line-height:1.05;margin-bottom:18px;
+}
+.contact-left h2 span{color:#f5df29;}
+.contact-left p{
+  font-size:16px;color:rgba(255,255,255,.4);line-height:1.8;
+  margin-bottom:36px;
+}
+.contact-links{display:flex;flex-direction:column;gap:12px;}
+.c-link{
+  display:flex;align-items:center;gap:14px;
+  font-size:14px;color:rgba(255,255,255,.6);
+  text-decoration:none;cursor:none;
+  transition:color .2s;
+}
+.c-link:hover{color:#fff;}
+.c-link-icon{
+  width:38px;height:38px;border-radius:10px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+  transition:background .2s,border-color .2s;
+}
+.c-link:hover .c-link-icon{
+  background:rgba(245,223,41,.1);
+  border-color:rgba(245,223,41,.3);
+}
+.contact-form{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;padding:36px 32px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.contact-form h3{
+  font-size:18px;font-weight:700;margin-bottom:6px;
+}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-label{font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.06em;}
+.form-input{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;padding:12px 14px;
+  color:#fff;font-family:inherit;font-size:14px;
+  transition:border-color .2s;outline:none;
+}
+.form-input:focus{border-color:rgba(12,198,193,.5);}
+.form-input::placeholder{color:rgba(255,255,255,.25);}
+textarea.form-input{resize:none;height:90px;}
+.form-submit{
+  font-family:inherit;font-size:14px;font-weight:700;
+  color:#08101b;background:#f5df29;border:none;
+  padding:14px;border-radius:10px;cursor:none;
+  transition:background .2s,transform .2s;
+  margin-top:4px;
+}
+.form-submit:hover{background:#fff200;transform:translateY(-2px);}
+
+/* ═══════════════════════════════════════════════════
+   FADE IN ANIMATIONS
+═══════════════════════════════════════════════════ */
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.panel-inner>*{
+  opacity:0;transform:translateY(22px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.panel-inner.visible>*{opacity:1;transform:translateY(0);}
+.panel-inner.visible>*:nth-child(1){transition-delay:.1s;}
+.panel-inner.visible>*:nth-child(2){transition-delay:.22s;}
+.panel-inner.visible>*:nth-child(3){transition-delay:.34s;}
+.panel-inner.visible>*:nth-child(4){transition-delay:.46s;}
+.panel-inner.visible>*:nth-child(5){transition-delay:.58s;}
+
+/* Hero left children animate in */
+.hero-left>*{
+  opacity:0;transform:translateY(16px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.hero-left.visible>*:nth-child(1){opacity:1;transform:none;transition-delay:.1s;}
+.hero-left.visible>*:nth-child(2){opacity:1;transform:none;transition-delay:.25s;}
+.hero-left.visible>*:nth-child(3){opacity:1;transform:none;transition-delay:.40s;}
+.hero-left.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.55s;}
+.hero-left.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.68s;}
+/* Video wrap fades in */
+#hero-video-wrap{opacity:0;transform:translateY(24px);transition:opacity .9s ease .3s,transform .9s ease .3s;}
+#p0.panel-anim-active #hero-video-wrap{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div id="cur"></div>
+<div id="cring"></div>
+
+<!-- Three.js Aurora — fixed background -->
+<canvas id="three-canvas"></canvas>
+
+<!-- Nav -->
+<nav id="nav">
+  <div class="logo">PEAK<em>CL</em></div>
+  <div class="nav-links">
+    <a href="#" onclick="goTo(0);return false;" data-panel="0" class="active">Accueil</a>
+    <a href="#" onclick="goTo(2);return false;" data-panel="2">Offres</a>
+    <a href="#" onclick="goTo(3);return false;" data-panel="3">Portfolio</a>
+    <a href="#" onclick="goTo(4);return false;" data-panel="4">Processus</a>
+    <a href="#" onclick="goTo(5);return false;" data-panel="5">Avis</a>
+    <a href="#" onclick="goTo(6);return false;" data-panel="6">Contact</a>
+  </div>
+  <a href="#" class="nav-cta" onclick="goTo(6);return false;">Réserver un appel</a>
+</nav>
+
+<!-- Horizontal scroll track -->
+<div id="scroll-wrapper">
+<div id="scroll-track">
+
+  <!-- ─ P0 : HERO ─────────────────────────────── -->
+  <section class="panel" id="p0">
+    <div class="hero-layout">
+      <!-- Left: text content -->
+      <div class="hero-left panel-inner" style="max-width:600px;padding:0;">
+        <p class="eyebrow">Agence de communication · Albertville, Savoie</p>
+        <h1 class="hero-h1">Votre image mérite<br>un <span class="y">vrai</span> <span class="t">sommet.</span></h1>
+        <p class="hero-sub">Site · Identité · Réseaux · Google<br>un seul interlocuteur</p>
+        <div class="hero-btns">
+          <button class="btn-y" onclick="goTo(6)">Réserver un appel</button>
+          <button class="btn-o" onclick="goTo(3)">Voir le portfolio →</button>
+        </div>
+        <!-- Badges inline, near the content -->
+        <div class="hero-badges">
+          <div class="hero-badge">
+            <div class="badge-num">19</div>
+            <div class="badge-lbl"><span class="badge-dot"></span>Projets livrés</div>
+          </div>
+          <div class="hero-badge">
+            <div class="badge-num" style="color:#f5df29">5★</div>
+            <div class="badge-lbl"><span class="badge-dot"></span>Avis Google</div>
+          </div>
+          <div class="hero-badge">
+            <div class="badge-num">48h</div>
+            <div class="badge-lbl"><span class="badge-dot"></span>Délai de devis</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Charlotte — video OR avatar image -->
+      <div id="hero-video-wrap">
+        <!--
+          OPTION A — Vidéo fond noir (préféré) :
+          Filme-toi sur fond NOIR, exporte en MP4 ou WebM.
+          Le mix-blend-mode:screen efface le fond noir et laisse ton corps visible.
+          Remplace le src ci-dessous par ton fichier.
+        -->
+        <video id="hero-vid" autoplay loop muted playsinline
+               src="assets-source/charlotte-intro.mp4"
+               onerror="this.style.display='none';document.getElementById('hero-avatar-img').style.display='block'">
+        </video>
+        <!--
+          OPTION B — Image avatar (s'affiche si la vidéo n'est pas trouvée)
+        -->
+        <img id="hero-avatar-img"
+             src="assets-source/avatars-source/avatar-entier.png"
+             alt="Charlotte Lacroix"
+             style="display:none">
+
+        <!-- Chips flottants sur la figure -->
+        <div class="avatar-chip c1">
+          <div class="chip-val" style="color:#0cc6c1">100%</div>
+          <div class="chip-lbl">suivi perso</div>
+        </div>
+        <div class="avatar-chip c2">
+          <div class="chip-val" style="color:#f5df29">PeakCL</div>
+          <div class="chip-lbl">Savoie · depuis 2022</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─ P1 : PAIN POINTS ───────────────────────── -->
+  <section class="panel" id="p1">
+    <div class="panel-inner">
+      <p class="p-tag">Soyons honnêtes</p>
+      <h2 class="p-h2">Votre métier mérite<br>une image <span>à la hauteur.</span></h2>
+      <p class="p-desc">Chaque mois sans présence pro, des clients partent vers quelqu'un de moins bon — mais qui paraît plus sérieux en ligne.</p>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-x">✕</div>
+          <div class="pain-title">Vous repoussez toujours "le site".</div>
+          <div class="pain-desc">Pas par manque d'envie — par manque de temps. Chaque mois qui passe, votre image reste en retard sur votre niveau.</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-x">✕</div>
+          <div class="pain-title">Vous perdez des soirées sur des outils que vous détestez.</div>
+          <div class="pain-desc">Canva, WordPress, Instagram… ce n'est pas votre métier. Pendant ce temps, vous ne facturez pas.</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-x">✕</div>
+          <div class="pain-title">Trop d'interlocuteurs, zéro cohérence.</div>
+          <div class="pain-desc">Un pour le logo, un pour le site, personne pour les réseaux — le résultat ne raconte pas la même histoire.</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-x">✕</div>
+          <div class="pain-title">Sans image pro, on vous choisit moins.</div>
+          <div class="pain-desc">Vos clients comparent avant d'appeler. Si votre concurrent paraît plus pro sur Google, c'est lui qu'on contacte.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─ P2 : SERVICES ──────────────────────────── -->
+  <section class="panel" id="p2">
+    <div class="panel-inner">
+      <div class="services-layout">
+        <div>
+          <p class="p-tag">Offres</p>
+          <h2 class="p-h2" style="font-size:clamp(32px,3.5vw,50px)">Tout ce qu'il faut pour paraître <span style="color:#f5df29">au sommet.</span></h2>
+          <p class="p-desc" style="margin-bottom:24px">Un seul interlocuteur, de A à Z. Pas de sous-traitants, pas de mauvaises surprises.</p>
+          <a href="#" class="cta-link" onclick="goTo(6);return false;">Faire le diagnostic gratuit →</a>
+        </div>
+        <div class="services-cards">
+          <div class="svc-card">
+            <div class="svc-icon">🌐</div>
+            <div class="svc-title">Site vitrine codé</div>
+            <div class="svc-desc">Rapide, mobile-first, indexé. Zéro template générique — du code propre pour votre activité.</div>
+            <div class="svc-price">→ à partir de 890€</div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon">✦</div>
+            <div class="svc-title">Identité visuelle</div>
+            <div class="svc-desc">Logo, couleurs, typographie. Une image cohérente sur tous vos supports, web et print.</div>
+            <div class="svc-price">→ à partir de 390€</div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon">📱</div>
+            <div class="svc-title">Réseaux sociaux</div>
+            <div class="svc-desc">Stratégie, création de contenus, publications. Un fil conducteur qui convertit vraiment.</div>
+            <div class="svc-price">→ dès 190€/mois</div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon">📍</div>
+            <div class="svc-title">SEO & Google</div>
+            <div class="svc-desc">Fiche Google Business, référencement local. Apparaissez avant votre concurrent en Savoie.</div>
+            <div class="svc-price">→ inclus dans les packs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─ P3 : PORTFOLIO ─────────────────────────── -->
+  <section class="panel" id="p3">
+    <div class="panel-inner">
+      <div class="portfolio-header">
+        <div>
+          <p class="p-tag">Réalisations</p>
+          <h2 class="p-h2" style="font-size:clamp(30px,3.5vw,46px)">Des projets livrés<br>qui <span style="color:#f5df29">convertissent.</span></h2>
+        </div>
+        <a href="#" class="cta-link" style="margin-top:0">Voir tout le portfolio →</a>
+      </div>
+      <div class="portfolio-strip">
+        <div class="proj-card">
+          <div class="proj-img"><img src="assets-source/captures-sites/Adelante.png" alt="Adelante Voyages" onerror="this.parentElement.innerHTML='🌍'"></div>
+          <div class="proj-body"><div class="proj-cat">Voyage · France</div><div class="proj-title">Adelante Voyages</div><div class="proj-tech">Jekyll · Catalogue · Devis en ligne</div></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-img"><img src="assets-source/captures-sites/Avocat-alfonso.png" alt="Cabinet Alfonso" onerror="this.parentElement.innerHTML='⚖️'"></div>
+          <div class="proj-body"><div class="proj-cat">Juridique · Grenoble</div><div class="proj-title">Cabinet Johanna Alfonso</div><div class="proj-tech">Jekyll + React · Site professionnel</div></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-img"><img src="assets-source/captures-sites/jantes73.png" alt="Jantes 73" onerror="this.parentElement.innerHTML='🔧'"></div>
+          <div class="proj-body"><div class="proj-cat">Artisan · Albertville</div><div class="proj-title">Jantes 73 : La Vieille Roue</div><div class="proj-tech">Jekyll · SEO local</div></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-img"><img src="assets-source/captures-sites/fiona.png" alt="Fiona Dick" onerror="this.parentElement.innerHTML='🎭'"></div>
+          <div class="proj-body"><div class="proj-cat">Artiste · Comédie musicale</div><div class="proj-title">Fiona Espitallier Dick</div><div class="proj-tech">Jekyll · One-page · Portfolio</div></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-img"><img src="assets-source/captures-sites/Setic.png" alt="SETIC Fluides" onerror="this.parentElement.innerHTML='🏗️'"></div>
+          <div class="proj-body"><div class="proj-cat">BTP · Savoie</div><div class="proj-title">SETIC Fluides</div><div class="proj-tech">Jekyll · Institutionnel</div></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-img"><img src="assets-source/captures-sites/peaktraining.png" alt="Peak Training" onerror="this.parentElement.innerHTML='💪'"></div>
+          <div class="proj-body"><div class="proj-cat">Sport · Ugine</div><div class="proj-title">Peak Training</div><div class="proj-tech">Jekyll · Coaching sportif</div></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-img"><img src="assets-source/captures-sites/plumes poils cie.png" alt="Plumes Poils" onerror="this.parentElement.innerHTML='🐾'"></div>
+          <div class="proj-body"><div class="proj-cat">Ferme péda. · Savoie</div><div class="proj-title">Plumes Poils & Compagnie</div><div class="proj-tech">Jekyll · Médiation animale</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─ P4 : PROCESSUS ─────────────────────────── -->
+  <section class="panel" id="p4">
+    <div class="panel-inner">
+      <div class="steps-layout">
+        <div>
+          <p class="p-tag">Comment je travaille</p>
+          <h2 class="p-h2" style="font-size:clamp(30px,3.5vw,48px);margin-bottom:32px">Quatre étapes,<br><span style="color:#f5df29">zéro mauvaise surprise.</span></h2>
+          <div class="steps">
+            <div class="step"><div class="step-num">01</div><div class="step-content"><div class="step-title">Diagnostic</div><div class="step-desc">Formulaire de 8 min ou visio 20 min. Je comprends votre activité, votre public, vos contraintes.</div></div></div>
+            <div class="step"><div class="step-num">02</div><div class="step-content"><div class="step-title">Cadrage</div><div class="step-desc">Devis précis sous 48h ouvrées (pas une fourchette élastique) + planning. Vous validez ou ajustez.</div></div></div>
+            <div class="step"><div class="step-num">03</div><div class="step-content"><div class="step-title">Production</div><div class="step-desc">Je code, dessine, rédige. Vous voyez le travail au fur et à mesure, pas seulement à la fin.</div></div></div>
+            <div class="step"><div class="step-num">04</div><div class="step-content"><div class="step-title">Suivi</div><div class="step-desc">Disponible la première semaine de mise en ligne. Ensuite, on continue ou on s'arrête — vous décidez.</div></div></div>
+          </div>
+        </div>
+        <div class="steps-visual">
+          <div class="vis-card"><div class="vis-icon">⚡</div><div class="vis-label">48h</div><div class="vis-sub">pour recevoir votre devis</div></div>
+          <div class="vis-card"><div class="vis-icon">🔁</div><div class="vis-label">1 révision</div><div class="vis-sub">incluse par livrable</div></div>
+          <div class="vis-card"><div class="vis-icon">🎯</div><div class="vis-label">0 sous-traitant</div><div class="vis-sub">vous parlez toujours à moi</div></div>
+          <div class="vis-card"><div class="vis-icon">📊</div><div class="vis-label">Prix fixes</div><div class="vis-sub">pas de fourchettes floues</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─ P5 : TÉMOIGNAGES ───────────────────────── -->
+  <section class="panel" id="p5">
+    <div class="panel-inner">
+      <p class="p-tag">Ils en parlent mieux que moi</p>
+      <h2 class="p-h2" style="font-size:clamp(30px,3.5vw,48px);margin-bottom:36px">Des résultats, <span style="color:#f5df29">pas des promesses.</span></h2>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Un immense merci à Charlotte pour le travail exceptionnel réalisé sur le site internet d'Adelante Voyage. Elle a parfaitement su comprendre nos attentes et même les dépasser.</p>
+          <div><div class="testi-author">Victor G.</div><div class="testi-company">Adelante Voyage</div><div class="testi-badge" style="margin-top:6px">Google ✓</div></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Je ne peux que recommander Charlotte. Elle a très vite cerné mes besoins et proposé des versions qui correspondaient à mon domaine. 100% satisfaite !</p>
+          <div><div class="testi-author">Mathilde T.</div><div class="testi-company">Mai 2026</div><div class="testi-badge" style="margin-top:6px">Google ✓</div></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">Les questions posées au démarrage ont permis de créer un premier jet qui m'a bluffée car je me suis entièrement reconnue. Site opérationnel avant le salon — parfait !</p>
+          <div><div class="testi-author">Céline G.</div><div class="testi-company">Mars 2026</div><div class="testi-badge" style="margin-top:6px">Google ✓</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─ P6 : CONTACT ───────────────────────────── -->
+  <section class="panel" id="p6">
+    <div class="panel-inner">
+      <div class="contact-layout">
+        <div class="contact-left">
+          <p class="p-tag">Prêt·e à décoller ?</p>
+          <h2>Arrêtons de<br>tout faire <span>vous-même.</span></h2>
+          <p>Décrivez votre activité en 8 minutes — je vous dis ce qu'il faut pour une image cohérente et comment je peux m'en charger.</p>
+          <div class="contact-links">
+            <a href="tel:0743517627" class="c-link"><div class="c-link-icon">📞</div>07 43 51 76 27</a>
+            <a href="mailto:peakcl73@gmail.com" class="c-link"><div class="c-link-icon">✉️</div>peakcl73@gmail.com</a>
+            <a href="#" class="c-link"><div class="c-link-icon">💬</div>WhatsApp</a>
+            <a href="#" class="c-link"><div class="c-link-icon">📍</div>Albertville · Chambéry · Annecy</a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Faire le diagnostic gratuit</h3>
+          <div class="form-group">
+            <label class="form-label">Votre nom</label>
+            <input type="text" class="form-input" placeholder="Marie Dupont">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="marie@monactivite.fr">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Votre activité & besoin</label>
+            <textarea class="form-input" placeholder="Je suis artisan menuisier en Savoie, j'ai besoin d'un site vitrine..."></textarea>
+          </div>
+          <button class="form-submit">Envoyer le message →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /scroll-track -->
+</div><!-- /scroll-wrapper -->
+
+<!-- Bottom indicators -->
+<div id="dots">
+  <div class="dot active" onclick="goTo(0)" title="Accueil"></div>
+  <div class="dot" onclick="goTo(1)" title="Pourquoi"></div>
+  <div class="dot" onclick="goTo(2)" title="Offres"></div>
+  <div class="dot" onclick="goTo(3)" title="Portfolio"></div>
+  <div class="dot" onclick="goTo(4)" title="Processus"></div>
+  <div class="dot" onclick="goTo(5)" title="Avis"></div>
+  <div class="dot" onclick="goTo(6)" title="Contact"></div>
+</div>
+<div id="panel-counter">01 / 07</div>
+<div id="scroll-arrow"><div class="arr-line"></div>SCROLL</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ══════════════════════════════════════════
+   THREE.JS AURORA — identical to prototype
+══════════════════════════════════════════ */
+const canvas  = document.getElementById('three-canvas');
+const ren = new THREE.WebGLRenderer({canvas, antialias:true});
+ren.setPixelRatio(Math.min(devicePixelRatio,2));
+ren.setSize(innerWidth,innerHeight);
+ren.setClearColor(0x08101b);
+const sc = new THREE.Scene();
+sc.fog = new THREE.Fog(0x08101b,80,280);
+const cam = new THREE.PerspectiveCamera(65,innerWidth/innerHeight,.1,500);
+cam.position.set(0,8,40);
+cam.lookAt(0,3,0);
+
+let mx=0,my=0,tmx=0,tmy=0;
+addEventListener('mousemove',e=>{tmx=(e.clientX/innerWidth-.5)*2;tmy=(e.clientY/innerHeight-.5)*2;});
+
+const aVS=`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`;
+const aFS=`precision highp float;
+uniform float uT;uniform vec3 uC1,uC2,uC3;uniform float uS;varying vec2 vUv;
+float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<6;i++){v+=a*n(p);p*=2.1;a*=.48;}return v;}
+void main(){
+  float t=uT*.1+uS;vec2 uv=vUv;
+  float w=sin(uv.x*2.6+t)*.15+sin(uv.x*6.-t*1.3)*.07+cos(uv.x*4.1+t*.8)*.05;
+  float dY=uv.y+w;
+  float curtain=smoothstep(.04,.22,dY)*(1.-smoothstep(.45,.95,dY));
+  float bnd=clamp(fbm(vec2(uv.x*2.,t*.2))+fbm(vec2(uv.x*4.8+1.3,t*.4))*.4,0.,1.);
+  float ex=smoothstep(0.,.12,uv.x)*smoothstep(1.,.88,uv.x);
+  float cs1=sin(uv.x*3.5+t*.5)*.5+.5,cs2=cos(uv.x*5.2-t*.6)*.5+.5;
+  vec3 col=mix(mix(uC1,uC2,cs1),uC3,cs2*.5);
+  gl_FragColor=vec4(col,curtain*bnd*ex*.9);
+}`;
+
+function mkA(cfg){
+  const mat=new THREE.ShaderMaterial({
+    vertexShader:aVS,fragmentShader:aFS,
+    uniforms:{uT:{value:0},uS:{value:cfg.s||0},uC1:{value:new THREE.Color(cfg.c1)},uC2:{value:new THREE.Color(cfg.c2)},uC3:{value:new THREE.Color(cfg.c3)}},
+    transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,side:THREE.DoubleSide
+  });
+  const m=new THREE.Mesh(new THREE.PlaneGeometry(cfg.w,cfg.h,32,32),mat);
+  m.position.set(cfg.x||0,cfg.y||30,cfg.z||-60);m.rotation.y=cfg.ry||0;sc.add(m);return mat;
+}
+const aurs=[
+  mkA({w:180,h:80,x:0,  y:32,z:-65,ry:0,   s:0,  c1:'#af07d9',c2:'#0cc6c1',c3:'#f5df29'}),
+  mkA({w:150,h:65,x:-50,y:27,z:-52,ry:.22, s:3,  c1:'#0cc6c1',c2:'#6d0497',c3:'#af07d9'}),
+  mkA({w:140,h:60,x:55, y:29,z:-58,ry:-.18,s:6,  c1:'#f5df29',c2:'#af07d9',c3:'#0cc6c1'}),
+];
+
+function nz(x,z,s){s=s||0;return Math.sin(x*.10+s)*Math.cos(z*.08+s*.3)*8+Math.sin(x*.24+s*1.4)*Math.cos(z*.20)*3.8+Math.sin(x*.55+s*2)*Math.cos(z*.44+s*.8)*1.6+Math.sin(x*1.1+s*.6)*.5;}
+function mkM(hex,yBase,zPos,seed,sx){
+  const geo=new THREE.PlaneGeometry(300*(sx||1),80,90,25);geo.rotateX(-Math.PI/2);
+  const pos=geo.attributes.position;
+  for(let i=0;i<pos.count;i++){const x=pos.getX(i),z=pos.getZ(i),h=Math.max(0,nz(x,z,seed)+5)*(1-Math.pow(Math.abs(z/40),1.6)*.85);pos.setY(i,h+yBase);}
+  pos.needsUpdate=true;geo.computeVertexNormals();
+  const m=new THREE.Mesh(geo,new THREE.MeshLambertMaterial({color:new THREE.Color(hex),flatShading:true}));
+  m.position.z=zPos;sc.add(m);
+}
+mkM('#1a0a2e',-1,-55,0,1.4);mkM('#14082a',-.5,-40,1.8,1.2);mkM('#0e061e',0,-26,3.4,1);
+mkM('#0a0418',-.5,-12,5.8,.9);mkM('#080214',-1,2,8.1,.8);
+const gG=new THREE.PlaneGeometry(500,80,1,1);gG.rotateX(-Math.PI/2);
+const gM=new THREE.Mesh(gG,new THREE.MeshLambertMaterial({color:0x06030f}));gM.position.set(0,-1.2,18);sc.add(gM);
+
+const N=4500,sB=new Float32Array(N*3),sSp=new Float32Array(N),sPh=new Float32Array(N);
+for(let i=0;i<N;i++){sB[i*3]=(Math.random()-.5)*180;sB[i*3+1]=Math.random()*85-5;sB[i*3+2]=(Math.random()-.5)*110-15;sSp[i]=.016+Math.random()*.025;sPh[i]=Math.random()*Math.PI*2;}
+const sGeo=new THREE.BufferGeometry();sGeo.setAttribute('position',new THREE.BufferAttribute(sB,3));
+sc.add(new THREE.Points(sGeo,new THREE.PointsMaterial({color:0xd4e8ff,size:.14,transparent:true,opacity:.7,sizeAttenuation:true})));
+const SN=2000,stB=new Float32Array(SN*3);
+for(let i=0;i<SN;i++){stB[i*3]=(Math.random()-.5)*600;stB[i*3+1]=Math.random()*130+8;stB[i*3+2]=(Math.random()-.5)*300-50;}
+const stG=new THREE.BufferGeometry();stG.setAttribute('position',new THREE.BufferAttribute(stB,3));
+sc.add(new THREE.Points(stG,new THREE.PointsMaterial({color:0xffffff,size:.08,transparent:true,opacity:.5})));
+
+sc.add(new THREE.AmbientLight(0x1a0a30,4));
+const moon=new THREE.DirectionalLight(0x6688bb,1.5);moon.position.set(-15,35,-10);sc.add(moon);
+const gL1=new THREE.PointLight(0xaf07d9,1.2,200);gL1.position.set(0,25,-45);sc.add(gL1);
+const gL2=new THREE.PointLight(0x0cc6c1,.8,160);gL2.position.set(-40,20,-40);sc.add(gL2);
+const gL3=new THREE.PointLight(0xf5df29,.5,120);gL3.position.set(50,22,-48);sc.add(gL3);
+
+addEventListener('resize',()=>{ren.setSize(innerWidth,innerHeight);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();});
+
+const clk=new THREE.Clock();
+function tick(){
+  requestAnimationFrame(tick);
+  const t=clk.getElapsedTime();
+  aurs.forEach(a=>a.uniforms.uT.value=t);
+  const p=Math.sin(t*.5)*.5+.5;gL1.intensity=.8+p*.8;gL2.intensity=.5+(1-p)*.6;gL3.intensity=.3+Math.sin(t*.3)*.3;
+  for(let i=0;i<N;i++){sB[i*3+1]-=sSp[i];sB[i*3]+=Math.sin(t*.4+sPh[i])*.004;if(sB[i*3+1]<-6){sB[i*3+1]=80;sB[i*3]=(Math.random()-.5)*180;}}
+  sGeo.attributes.position.needsUpdate=true;
+  mx+=(tmx-mx)*.05;my+=(tmy-my)*.05;
+  const sw=Math.sin(t*.18)*.4;
+  cam.position.x=(mx+sw)*4+panelOffset*1.5; /* subtle pan with panels */
+  cam.position.y=8+(my*.5+Math.sin(t*.12)*.2);
+  cam.lookAt((mx+sw)*1.2,3+my*.4,0);
+  ren.render(sc,cam);
+}
+tick();
+
+/* ══════════════════════════════════════════
+   HORIZONTAL SCROLL ENGINE
+══════════════════════════════════════════ */
+const track   = document.getElementById('scroll-track');
+const PANELS  = 7;
+let targetX   = 0;
+let currentX  = 0;
+let currentP  = 0;
+let panelOffset = 0; /* for aurora camera nudge */
+
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+
+function goTo(idx){
+  idx = clamp(idx,0,PANELS-1);
+  targetX = idx * innerWidth;
+  currentP = idx;
+  updateIndicators();
+  triggerPanelAnim(idx);
+}
+
+/* Wheel → horizontal */
+let wheelLock = false;
+addEventListener('wheel',(e)=>{
+  e.preventDefault();
+  if(wheelLock) return;
+  const dir = e.deltaY>0||e.deltaX>0 ? 1 : -1;
+  goTo(currentP+dir);
+  wheelLock=true;
+  setTimeout(()=>wheelLock=false,600);
+},{passive:false});
+
+/* Keyboard */
+addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown') goTo(currentP+1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')  goTo(currentP-1);
+});
+
+/* Touch */
+let touchX=0;
+addEventListener('touchstart',e=>touchX=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-touchX;
+  if(Math.abs(dx)>50) goTo(currentP+(dx<0?1:-1));
+},{passive:true});
+
+/* RAF easing */
+function animScroll(){
+  requestAnimationFrame(animScroll);
+  currentX += (targetX-currentX)*.075;
+  track.style.transform=`translateX(${-currentX}px)`;
+  panelOffset = (currentX/innerWidth)*2 - PANELS+1;
+}
+animScroll();
+
+/* Indicators */
+const dotsEl = document.querySelectorAll('.dot');
+const counterEl = document.getElementById('panel-counter');
+const navLinks  = document.querySelectorAll('.nav-links a');
+
+function updateIndicators(){
+  dotsEl.forEach((d,i)=>{d.classList.toggle('active',i===currentP);});
+  counterEl.textContent=`0${currentP+1} / 0${PANELS}`;
+  navLinks.forEach(a=>{
+    a.classList.toggle('active',parseInt(a.dataset.panel||'-1')===currentP);
+  });
+  /* Hide scroll arrow on last panel */
+  document.getElementById('scroll-arrow').style.opacity = currentP===PANELS-1?'0':'1';
+}
+
+/* Panel enter animations */
+function triggerPanelAnim(idx){
+  const panel = document.querySelectorAll('.panel')[idx];
+  if(!panel)return;
+  /* Hero panel: animate hero-left + video wrap separately */
+  if(idx===0){
+    const hl = panel.querySelector('.hero-left');
+    if(hl){hl.classList.remove('visible');void hl.offsetWidth;requestAnimationFrame(()=>hl.classList.add('visible'));}
+    panel.classList.remove('panel-anim-active');void panel.offsetWidth;
+    requestAnimationFrame(()=>panel.classList.add('panel-anim-active'));
+    return;
+  }
+  const inner = panel.querySelector('.panel-inner');
+  if(!inner)return;
+  inner.classList.remove('visible');
+  void inner.offsetWidth;
+  requestAnimationFrame(()=>inner.classList.add('visible'));
+}
+
+/* Init first panel */
+triggerPanelAnim(0);
+updateIndicators();
+
+/* ══════════════════════════════════════════
+   CUSTOM CURSOR
+══════════════════════════════════════════ */
+const cur=document.getElementById('cur');
+const cring=document.getElementById('cring');
+let cx=0,cy=0,rx=0,ry=0;
+addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;cur.style.left=cx+'px';cur.style.top=cy+'px';});
+function animCur(){rx+=(cx-rx)*.1;ry+=(cy-ry)*.1;cring.style.left=rx+'px';cring.style.top=ry+'px';requestAnimationFrame(animCur);}
+animCur();
+document.querySelectorAll('a,button,.dot,.proj-card,.svc-card,.pain-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cring.style.width='56px';cring.style.height='56px';cring.style.borderColor='rgba(245,223,41,.9)';});
+  el.addEventListener('mouseleave',()=>{cring.style.width='38px';cring.style.height='38px';cring.style.borderColor='rgba(245,223,41,.5)';});
+});
+</script>
+</body>
+</html>
