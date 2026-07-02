@@ -15,6 +15,7 @@ import { absUrl } from "@/seo/site";
 import { faqPageJsonLd } from "@/seo/jsonld";
 import { submitNetlifyForm } from "@/lib/funnel";
 import { Fireworks } from "@/components/home/Fireworks";
+import { AuroraCanvas } from "@/components/home/AuroraCanvas";
 import { Mascot } from "@/components/Mascot";
 import { MASCOT_POSES, type MascotPose } from "@/lib/mascot";
 
@@ -343,9 +344,10 @@ function HeroAvatar() {
 function HeroPanel() {
   return (
     <section id="accueil" className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden">
-      <div className="bg-aurora" aria-hidden />
-      <div className="grid-bg absolute inset-0 -z-10" />
-      <Fireworks className="opacity-70" />
+      {/* Aurora Peaks — Three.js scene as background */}
+      <AuroraCanvas />
+      {/* Keep Fireworks on top for the sparkle effect */}
+      <Fireworks className="opacity-40" />
 
       {/* badge */}
       <div className="hero-fade relative z-10 mb-3 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs text-foreground/90 backdrop-blur">
