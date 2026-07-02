@@ -254,13 +254,11 @@ function MobileNav() {
 /* ── Hero panel ─────────────────────────────────────────────── */
 
 const ORBIT_ITEMS = [
-  // pose = pose déclenchée au survol ; flip = version miroir (autre sens)
   { label: "Réserver un appel", href: "/reservation-appel", angle: -90, r: 220, variant: "primary" as const, pose: "victoire" as MascotPose },
-  { label: "Réserver un appel", href: CALENDLY_URL, angle: -25, r: 240, variant: "ghost" as const, pose: "dab" as MascotPose },
-  { label: "Voir le portfolio", href: "/portfolio", angle: 30, r: 220, variant: "ghost" as const, pose: "tablette" as MascotPose },
-  { label: "Voir les offres", href: "/packs", angle: 90, r: 240, variant: "ghost" as const, pose: "bas" as MascotPose },
-  { label: "Avis clients", href: "#avis", angle: 150, r: 220, variant: "ghost" as const, pose: "graphique" as MascotPose },
-  { label: "WhatsApp", href: WHATSAPP_URL, angle: 210, r: 230, variant: "ghost" as const, pose: "dab" as MascotPose, flip: true },
+  { label: "Voir le portfolio",  href: "/portfolio",        angle: -20, r: 240, variant: "ghost"   as const, pose: "tablette" as MascotPose },
+  { label: "Voir les offres",    href: "/packs",            angle:  50, r: 230, variant: "ghost"   as const, pose: "bas"      as MascotPose },
+  { label: "Avis clients",       href: "#avis",             angle: 130, r: 220, variant: "ghost"   as const, pose: "graphique" as MascotPose },
+  { label: "WhatsApp",           href: WHATSAPP_URL,        angle: 210, r: 230, variant: "ghost"   as const, pose: "dab"      as MascotPose, flip: true },
 ] as const;
 
 /** Mascotte décorative d'une section : en filigrane derrière le contenu,
@@ -727,6 +725,10 @@ function ContactPanel() {
               <input name="email" type="email" required className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20" placeholder="vous@exemple.com" />
             </label>
           </div>
+          <label className="block">
+            <span className="text-xs font-semibold text-muted-foreground">Téléphone</span>
+            <input name="telephone" type="tel" className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20" placeholder="06 12 34 56 78" />
+          </label>
           <label className="block">
             <span className="text-xs font-semibold text-muted-foreground">Message</span>
             <textarea name="message" required rows={4} className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20" placeholder="Votre activité, votre ville, votre objectif..." />
