@@ -14,6 +14,7 @@ import { Route as RessourcesSystemeRouteImport } from './routes/ressources-syste
 import { Route as RessourcesSiteRouteImport } from './routes/ressources-site'
 import { Route as RessourcesConversionRouteImport } from './routes/ressources-conversion'
 import { Route as RessourcesConfianceRouteImport } from './routes/ressources-confiance'
+import { Route as ReservationAppelHorsUeRouteImport } from './routes/reservation-appel-hors-ue'
 import { Route as ReservationAppelRouteImport } from './routes/reservation-appel'
 import { Route as QuiSuisJeRouteImport } from './routes/qui-suis-je'
 import { Route as QuestionnaireR2RouteImport } from './routes/questionnaire-r2'
@@ -70,6 +71,11 @@ const RessourcesConversionRoute = RessourcesConversionRouteImport.update({
 const RessourcesConfianceRoute = RessourcesConfianceRouteImport.update({
   id: '/ressources-confiance',
   path: '/ressources-confiance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReservationAppelHorsUeRoute = ReservationAppelHorsUeRouteImport.update({
+  id: '/reservation-appel-hors-ue',
+  path: '/reservation-appel-hors-ue',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReservationAppelRoute = ReservationAppelRouteImport.update({
@@ -267,6 +273,7 @@ export interface FileRoutesByFullPath {
   '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
   '/reservation-appel': typeof ReservationAppelRoute
+  '/reservation-appel-hors-ue': typeof ReservationAppelHorsUeRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
   '/ressources-conversion': typeof RessourcesConversionRoute
   '/ressources-site': typeof RessourcesSiteRoute
@@ -306,6 +313,7 @@ export interface FileRoutesByTo {
   '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
   '/reservation-appel': typeof ReservationAppelRoute
+  '/reservation-appel-hors-ue': typeof ReservationAppelHorsUeRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
   '/ressources-conversion': typeof RessourcesConversionRoute
   '/ressources-site': typeof RessourcesSiteRoute
@@ -346,6 +354,7 @@ export interface FileRoutesById {
   '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
   '/reservation-appel': typeof ReservationAppelRoute
+  '/reservation-appel-hors-ue': typeof ReservationAppelHorsUeRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
   '/ressources-conversion': typeof RessourcesConversionRoute
   '/ressources-site': typeof RessourcesSiteRoute
@@ -387,6 +396,7 @@ export interface FileRouteTypes {
     | '/questionnaire-r2'
     | '/qui-suis-je'
     | '/reservation-appel'
+    | '/reservation-appel-hors-ue'
     | '/ressources-confiance'
     | '/ressources-conversion'
     | '/ressources-site'
@@ -426,6 +436,7 @@ export interface FileRouteTypes {
     | '/questionnaire-r2'
     | '/qui-suis-je'
     | '/reservation-appel'
+    | '/reservation-appel-hors-ue'
     | '/ressources-confiance'
     | '/ressources-conversion'
     | '/ressources-site'
@@ -465,6 +476,7 @@ export interface FileRouteTypes {
     | '/questionnaire-r2'
     | '/qui-suis-je'
     | '/reservation-appel'
+    | '/reservation-appel-hors-ue'
     | '/ressources-confiance'
     | '/ressources-conversion'
     | '/ressources-site'
@@ -505,6 +517,7 @@ export interface RootRouteChildren {
   QuestionnaireR2Route: typeof QuestionnaireR2Route
   QuiSuisJeRoute: typeof QuiSuisJeRoute
   ReservationAppelRoute: typeof ReservationAppelRoute
+  ReservationAppelHorsUeRoute: typeof ReservationAppelHorsUeRoute
   RessourcesConfianceRoute: typeof RessourcesConfianceRoute
   RessourcesConversionRoute: typeof RessourcesConversionRoute
   RessourcesSiteRoute: typeof RessourcesSiteRoute
@@ -549,6 +562,13 @@ declare module '@tanstack/react-router' {
       path: '/ressources-confiance'
       fullPath: '/ressources-confiance'
       preLoaderRoute: typeof RessourcesConfianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reservation-appel-hors-ue': {
+      id: '/reservation-appel-hors-ue'
+      path: '/reservation-appel-hors-ue'
+      fullPath: '/reservation-appel-hors-ue'
+      preLoaderRoute: typeof ReservationAppelHorsUeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reservation-appel': {
@@ -830,6 +850,7 @@ const rootRouteChildren: RootRouteChildren = {
   QuestionnaireR2Route: QuestionnaireR2Route,
   QuiSuisJeRoute: QuiSuisJeRoute,
   ReservationAppelRoute: ReservationAppelRoute,
+  ReservationAppelHorsUeRoute: ReservationAppelHorsUeRoute,
   RessourcesConfianceRoute: RessourcesConfianceRoute,
   RessourcesConversionRoute: RessourcesConversionRoute,
   RessourcesSiteRoute: RessourcesSiteRoute,

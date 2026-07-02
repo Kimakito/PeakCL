@@ -1,4 +1,4 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Clock, ShieldCheck } from "lucide-react";
 import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
@@ -16,28 +16,25 @@ import {
 
 const BUREAU_IMAGE = "/peakcl/assets/images/bureau-peakcl.webp";
 
-export const Route = createFileRoute("/reservation-appel")({
-  beforeLoad: () => {
-    throw redirect({ to: "/bienvenue" });
-  },
+export const Route = createFileRoute("/reservation-appel-hors-ue")({
   head: () => ({
     meta: [
-      { title: "Réservation d’appel · PeakCL" },
+      { title: "Réservation d’appel (Hors UE) · PeakCL" },
       {
         name: "description",
-        content: "Questionnaire de diagnostic PeakCL avant ton appel.",
+        content: "Questionnaire de diagnostic PeakCL avant ton appel — version internationale.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: absUrl("/reservation-appel") },
+      { property: "og:url", content: absUrl("/reservation-appel-hors-ue") },
     ],
-    links: [{ rel: "canonical", href: absUrl("/reservation-appel") }],
+    links: [{ rel: "canonical", href: absUrl("/reservation-appel-hors-ue") }],
   }),
-  component: ReservationAppelPage,
+  component: ReservationAppelHorsUePage,
 });
 
-const STORAGE_KEY = "peakcl_reservation_appel_v1";
+const STORAGE_KEY = "peakcl_reservation_appel_hors_ue_v1";
 
-function ReservationAppelPage() {
+function ReservationAppelHorsUePage() {
   const { values, setValues } = useAutosaveForm(STORAGE_KEY, {
     fullName: "",
     phone: "",
@@ -159,7 +156,7 @@ function ReservationAppelPage() {
           </div>
 
           <form
-            name="reservation-appel"
+            name="reservation-appel-hors-ue"
             method="POST"
             action={MERCI_BRIEF_PATH}
             data-netlify="true"
@@ -167,8 +164,8 @@ function ReservationAppelPage() {
             className="space-y-8"
             onSubmit={handleSubmit}
           >
-            <input type="hidden" name="form-name" value="reservation-appel" />
-            <input type="hidden" name="leadType" value="reservation_appel" />
+            <input type="hidden" name="form-name" value="reservation-appel-hors-ue" />
+            <input type="hidden" name="leadType" value="reservation_appel_hors_ue" />
             <input type="hidden" name="source" value="site_peakcl" />
             <p className="hidden">
               <label>
@@ -190,7 +187,7 @@ function ReservationAppelPage() {
                 name="phone"
                 type="tel"
                 required
-                placeholder="06 12 34 56 78"
+                placeholder="+1 555 123 4567"
                 value={String(values.phone)}
                 onChange={(v) => setField(setValues, "phone", v)}
               />
@@ -218,10 +215,10 @@ function ReservationAppelPage() {
                 value={String(values.revenueRange)}
                 onChange={(v) => setField(setValues, "revenueRange", v)}
                 options={[
-                  { value: "<1000", label: "Moins de 1 000€/mois" },
-                  { value: "1000-3000", label: "Entre 1 000€ et 3 000€/mois" },
-                  { value: "3000-5000", label: "Entre 3 000€ et 5 000€/mois" },
-                  { value: "5000+", label: "Plus de 5 000€/mois" },
+                  { value: "<1000", label: "Moins de 1 000 $/mois" },
+                  { value: "1000-3000", label: "Entre 1 000 $ et 3 000 $/mois" },
+                  { value: "3000-5000", label: "Entre 3 000 $ et 5 000 $/mois" },
+                  { value: "5000+", label: "Plus de 5 000 $/mois" },
                   { value: "Je préfère ne pas répondre", label: "Je préfère ne pas répondre" },
                 ]}
               />
@@ -232,11 +229,11 @@ function ReservationAppelPage() {
                 value={String(values.goalRevenue)}
                 onChange={(v) => setField(setValues, "goalRevenue", v)}
                 options={[
-                  { value: "1000-2000", label: "1000-2000€" },
-                  { value: "2000-3000", label: "2000-3000€" },
-                  { value: "3000-5000", label: "3000-5000€" },
-                  { value: "5000-10000", label: "5000-10000€" },
-                  { value: "+10000", label: "+ 10000€" },
+                  { value: "1000-2000", label: "1 000 $ – 2 000 $" },
+                  { value: "2000-3000", label: "2 000 $ – 3 000 $" },
+                  { value: "3000-5000", label: "3 000 $ – 5 000 $" },
+                  { value: "5000-10000", label: "5 000 $ – 10 000 $" },
+                  { value: "+10000", label: "+ 10 000 $" },
                 ]}
               />
               <ChoiceMulti
