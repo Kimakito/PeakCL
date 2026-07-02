@@ -233,6 +233,7 @@ function DiagnosticPage() {
 
   const [prenomNom, setPrenomNom] = useState("");
   const [instagram, setInstagram] = useState("");
+  const [telephone, setTelephone] = useState("");
   const [caActuel, setCaActuel] = useState("");
   const [objectif, setObjectif] = useState("");
   const [problematique, setProblematique] = useState<string[]>([]);
@@ -315,6 +316,14 @@ function DiagnosticPage() {
                   value={instagram}
                   onChange={setInstagram}
                   placeholder="Ex: @peakcl"
+                />
+                <TextInput
+                  label="Quel est ton numéro de téléphone ?"
+                  name="telephone"
+                  required
+                  value={telephone}
+                  onChange={setTelephone}
+                  placeholder="Ex: 06 12 34 56 78"
                 />
               </div>
             </div>
