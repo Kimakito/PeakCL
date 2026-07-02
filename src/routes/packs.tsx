@@ -2,6 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
 import logo from "@/assets/peakcl-logo.png";
 import { absUrl } from "@/seo/site";
+import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
+
+const SECTIONS = [
+  { id: "intro", label: "Intro" },
+  { id: "dev-web", label: "Sites web" },
+  { id: "design", label: "Design" },
+  { id: "community", label: "Community" },
+  { id: "packages", label: "Packages" },
+  { id: "contact", label: "Contact" },
+] as const;
 
 export const Route = createFileRoute("/packs")({
   head: () => ({
@@ -257,7 +267,7 @@ const packages: CatalogItem[] = [
 
 function CatalogSection({ title, subtitle, items }: { title: string; subtitle: string; items: CatalogItem[] }) {
   return (
-    <section className="mt-12">
+    <div>
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-foreground">{title}</h2>
         <p className="mt-2 text-sm text-muted-foreground">{subtitle}</p>
@@ -326,7 +336,7 @@ function CatalogSection({ title, subtitle, items }: { title: string; subtitle: s
           </section>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
 
@@ -382,90 +392,21 @@ function PacksPage() {
     <div className="min-h-screen">
       <Header />
       <main className="border-t border-white/5">
-        <section className="relative overflow-hidden bg-hero py-20">
-          <div className="grid-bg absolute inset-0 -z-10" />
-          <div className="mx-auto max-w-3xl px-6 text-center">
-            <h1 className="text-balance text-4xl font-bold leading-tight md:text-6xl">Catalogue de prestations.</h1>
-            <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-              Trois rôles, un seul interlocuteur : <span className="text-foreground">sites web custom</span> (avec accompagnement),
-              <span className="text-foreground"> design</span>, <span className="text-foreground">community management</span>. Tarifs :{" "}
-              <span className="text-foreground">sur devis</span> selon cahier des charges.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a
-                href="/reservation-appel"
-                data-event="cta_brief_packs_hero"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
-              >
-                Demander un devis <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-event="cta_calendly_packs_hero"
-                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
-              >
-                Réserver un appel
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="border-t border-white/5 py-16">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="rounded-2xl border border-white/10 bg-card/40 p-7 shadow-card backdrop-blur">
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-xl border border-white/5 bg-background/40 p-5">
-                  <div className="text-sm font-semibold">Ce que vous obtenez</div>
-                  <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
-                    <li>Des offres claires (livrables + délais + budget).</li>
-                    <li>Des packs clé en main (économie vs achats séparés quand c’est pertinent).</li>
-                    <li>Un seul interlocuteur (dev, design, social).</li>
-                  </ul>
-                </div>
-                <div className="rounded-xl border border-white/5 bg-background/40 p-5">
-                  <div className="text-sm font-semibold">Bon à savoir</div>
-                  <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
-                    <li>Acompte : 30 à 50 % à la signature.</li>
-                    <li>Révisions incluses selon l’offre · au-delà : 60 €/h.</li>
-                    <li>Droits d’utilisation cédés à la livraison du solde.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <CatalogSection
-              title="💻 Développement web"
-              subtitle="Sites web custom, personnalisés selon le client, avec accompagnement de bout en bout."
-              items={devWeb}
-            />
-            <CatalogSection
-              title="🎨 Design graphique"
-              subtitle="Identité visuelle et supports pour une marque cohérente et mémorable."
-              items={design}
-            />
-            <CatalogSection
-              title="📱 Community management"
-              subtitle="Stratégie et contenus : rester visible sans y passer tes soirées."
-              items={community}
-            />
-            <CatalogSection
-              title="📦 Packages combinés"
-              subtitle="Quand c’est plus simple (et plus rentable) de tout cadrer ensemble."
-              items={packages}
-            />
-
-            <div className="mt-12 rounded-2xl border border-white/10 bg-card/40 p-7 text-center shadow-card backdrop-blur">
-              <h2 className="text-3xl font-bold md:text-4xl">On commence quand ?</h2>
-              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-                Le plus simple : tu réserves ton appel. C’est quelques minutes, et je reviens vers toi avec un devis clair.
-                Si tu préfères en parler de vive voix directement, tu peux aussi passer par Calendly.
+        <SectionDots sections={SECTIONS.map((s) => ({ id: s.id, label: s.label }))} />
+        <SnapPage>
+          <SnapSection id="intro" className="relative flex items-center overflow-hidden bg-hero py-20">
+            <div className="grid-bg absolute inset-0 -z-10" />
+            <div className="mx-auto max-w-3xl px-6 text-center">
+              <h1 className="text-balance text-4xl font-bold leading-tight md:text-6xl">Catalogue de prestations.</h1>
+              <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
+                Trois rôles, un seul interlocuteur : <span className="text-foreground">sites web custom</span> (avec accompagnement),
+                <span className="text-foreground"> design</span>, <span className="text-foreground">community management</span>. Tarifs :{" "}
+                <span className="text-foreground">sur devis</span> selon cahier des charges.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
                   href="/reservation-appel"
-                  data-event="cta_brief_packs_final"
+                  data-event="cta_brief_packs_hero"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
                 >
                   Demander un devis <ArrowRight className="h-4 w-4" />
@@ -474,15 +415,106 @@ function PacksPage() {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-event="cta_calendly_packs_final"
+                  data-event="cta_calendly_packs_hero"
                   className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
                 >
                   Réserver un appel
                 </a>
               </div>
+
+              <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-white/10 bg-card/40 p-7 text-left shadow-card backdrop-blur">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-xl border border-white/5 bg-background/40 p-5">
+                    <div className="text-sm font-semibold">Ce que vous obtenez</div>
+                    <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+                      <li>Des offres claires (livrables + délais + budget).</li>
+                      <li>Des packs clé en main (économie vs achats séparés quand c’est pertinent).</li>
+                      <li>Un seul interlocuteur (dev, design, social).</li>
+                    </ul>
+                  </div>
+                  <div className="rounded-xl border border-white/5 bg-background/40 p-5">
+                    <div className="text-sm font-semibold">Bon à savoir</div>
+                    <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+                      <li>Acompte : 30 à 50 % à la signature.</li>
+                      <li>Révisions incluses selon l’offre · au-delà : 60 €/h.</li>
+                      <li>Droits d’utilisation cédés à la livraison du solde.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
+          </SnapSection>
+
+          <SnapSection id="dev-web" className="flex items-center border-t border-white/5 py-16">
+            <div className="mx-auto max-w-5xl px-6">
+              <CatalogSection
+                title="💻 Développement web"
+                subtitle="Sites web custom, personnalisés selon le client, avec accompagnement de bout en bout."
+                items={devWeb}
+              />
+            </div>
+          </SnapSection>
+
+          <SnapSection id="design" className="flex items-center border-t border-white/5 py-16">
+            <div className="mx-auto max-w-5xl px-6">
+              <CatalogSection
+                title="🎨 Design graphique"
+                subtitle="Identité visuelle et supports pour une marque cohérente et mémorable."
+                items={design}
+              />
+            </div>
+          </SnapSection>
+
+          <SnapSection id="community" className="flex items-center border-t border-white/5 py-16">
+            <div className="mx-auto max-w-5xl px-6">
+              <CatalogSection
+                title="📱 Community management"
+                subtitle="Stratégie et contenus : rester visible sans y passer tes soirées."
+                items={community}
+              />
+            </div>
+          </SnapSection>
+
+          <SnapSection id="packages" className="flex items-center border-t border-white/5 py-16">
+            <div className="mx-auto max-w-5xl px-6">
+              <CatalogSection
+                title="📦 Packages combinés"
+                subtitle="Quand c’est plus simple (et plus rentable) de tout cadrer ensemble."
+                items={packages}
+              />
+            </div>
+          </SnapSection>
+
+          <SnapSection id="contact" className="flex items-center border-t border-white/5 py-16">
+            <div className="mx-auto max-w-5xl px-6">
+              <div className="rounded-2xl border border-white/10 bg-card/40 p-7 text-center shadow-card backdrop-blur">
+                <h2 className="text-3xl font-bold md:text-4xl">On commence quand ?</h2>
+                <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+                  Le plus simple : tu réserves ton appel. C’est quelques minutes, et je reviens vers toi avec un devis clair.
+                  Si tu préfères en parler de vive voix directement, tu peux aussi passer par Calendly.
+                </p>
+                <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                  <a
+                    href="/reservation-appel"
+                    data-event="cta_brief_packs_final"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
+                  >
+                    Demander un devis <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-event="cta_calendly_packs_final"
+                    className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+                  >
+                    Réserver un appel
+                  </a>
+                </div>
+              </div>
+            </div>
+          </SnapSection>
+        </SnapPage>
       </main>
     </div>
   );

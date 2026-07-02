@@ -3,7 +3,8 @@ import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Clock, ShieldCheck } from "lucide-react";
 import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
 import { absUrl } from "@/seo/site";
-import { HeroPanel } from "@/components/home/HeroPanel";
+
+const BUREAU_IMAGE = "/peakcl/assets/images/bureau-peakcl.webp";
 
 export const Route = createFileRoute("/reservation-appel")({
   head: () => ({
@@ -371,11 +372,17 @@ function ReservationAppelPage() {
 
   return (
     <main className="min-h-screen border-t border-white/5">
-      <HeroPanel />
-
-      <section className="border-t border-white/5 py-10">
+      <section className="relative overflow-hidden py-24">
+        <img
+          src={BUREAU_IMAGE}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 via-background/85 to-background" />
+        <div className="grid-bg absolute inset-0 -z-10 opacity-30" />
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground backdrop-blur">
             <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />
             2 à 3 minutes
             <span className="opacity-40">·</span>

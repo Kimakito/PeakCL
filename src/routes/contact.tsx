@@ -6,6 +6,13 @@ import {
 import { SOCIAL, CONTACT } from "@/lib/links";
 import { absUrl } from "@/seo/site";
 import { submitNetlifyForm } from "@/lib/funnel";
+import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
+
+const SECTIONS = [
+  { id: "intro", label: "Contact" },
+  { id: "canaux", label: "Nous échanger" },
+  { id: "diagnostic", label: "Réserver un appel" },
+] as const;
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -79,25 +86,27 @@ function ContactPage() {
 
   return (
     <main className="min-h-screen border-t border-white/5">
-      <section className="relative overflow-hidden bg-hero py-20">
-        <div className="grid-bg absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
-            <HeartHandshake className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
-            Toutes les questions sont les bienvenues
+      <SectionDots sections={SECTIONS.map((s) => ({ id: s.id, label: s.label }))} />
+      <SnapPage>
+        <SnapSection id="intro" className="relative flex items-center overflow-hidden bg-hero py-20">
+          <div className="grid-bg absolute inset-0 -z-10" />
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+              <HeartHandshake className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
+              Toutes les questions sont les bienvenues
+            </div>
+            <h1 className="mx-auto mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">
+              Parlons de <span className="text-gradient">votre projet</span>
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+              Une question sur une offre, un tarif, un délai, ou juste envie de discuter avant de vous lancer ? Il n’y a pas
+              de question bête, ni d’engagement à me contacter. Choisissez le canal qui vous convient.
+            </p>
           </div>
-          <h1 className="mx-auto mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">
-            Parlons de <span className="text-gradient">votre projet</span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Une question sur une offre, un tarif, un délai, ou juste envie de discuter avant de vous lancer ? Il n’y a pas
-            de question bête, ni d’engagement à me contacter. Choisissez le canal qui vous convient.
-          </p>
-        </div>
-      </section>
+        </SnapSection>
 
-      <section className="border-t border-white/5 py-16">
-        <div className="mx-auto max-w-5xl px-6">
+        <SnapSection id="canaux" className="flex items-center border-t border-white/5 py-16">
+          <div className="mx-auto max-w-5xl px-6">
           <div className="grid gap-4 md:grid-cols-3">
             {CHANNELS.map((c) => (
               <a
@@ -225,8 +234,12 @@ function ContactPage() {
               </button>
             </form>
           </div>
+          </div>
+        </SnapSection>
 
-          <div className="mt-10 rounded-3xl border border-white/10 bg-card/20 p-6 text-center shadow-card">
+        <SnapSection id="diagnostic" className="flex items-center border-t border-white/5 py-16">
+          <div className="mx-auto max-w-3xl px-6">
+          <div className="rounded-3xl border border-white/10 bg-card/20 p-6 text-center shadow-card">
             <p className="text-sm text-muted-foreground">
               Vous préférez qu’on en parle de vive voix pour cerner précisément votre besoin ?
             </p>
@@ -241,8 +254,9 @@ function ContactPage() {
               </a>
             </div>
           </div>
-        </div>
-      </section>
+          </div>
+        </SnapSection>
+      </SnapPage>
     </main>
   );
 }

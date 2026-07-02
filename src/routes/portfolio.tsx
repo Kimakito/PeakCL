@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect } from "react";
 import {
   CATEGORIES,
   DECK_PROJECTS,
@@ -14,6 +14,7 @@ import { DeckFooter } from "@/components/DeckFooter";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
 import logo from "@/assets/peakcl-logo.png";
+import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -126,7 +127,7 @@ function CategoryPanel({ cat }: { cat: Category }) {
   );
 }
 
-function IntroPanel({ onNavigate }: { onNavigate: (i: number) => void }) {
+function IntroPanel({ onNavigate }: { onNavigate: (id: string) => void }) {
   return (
     <section className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden text-center">
       <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">Portfolio · par métier</span>
@@ -134,26 +135,23 @@ function IntroPanel({ onNavigate }: { onNavigate: (i: number) => void }) {
         Ils m'ont fait <span className="text-gradient">confiance</span>.
       </h1>
       <p className="mx-auto mt-5 max-w-2xl px-6 text-muted-foreground">
-        Cliquez sur votre métier — chaque écran rassemble les projets que j'ai livrés dans ce secteur.
+        Cliquez sur votre métier — chaque section rassemble les projets que j'ai livrés dans ce secteur.
       </p>
       <div className="mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-2 px-6">
-        {PANEL_CATS.map((c) => {
-          const idx = PANELS.findIndex((p) => p.id === c.slug);
-          return (
-            <button
-              key={c.slug}
-              onClick={() => onNavigate(idx)}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-card/40 px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-all hover:scale-[1.04] hover:text-foreground"
-              style={{ borderColor: `${c.accent}55` }}
-            >
-              <span className="h-1.5 w-1.5 rounded-full" style={{ background: c.accent }} />
-              {c.short}
-            </button>
-          );
-        })}
+        {PANEL_CATS.map((c) => (
+          <button
+            key={c.slug}
+            onClick={() => onNavigate(c.slug)}
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-card/40 px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-all hover:scale-[1.04] hover:text-foreground"
+            style={{ borderColor: `${c.accent}55` }}
+          >
+            <span className="h-1.5 w-1.5 rounded-full" style={{ background: c.accent }} />
+            {c.short}
+          </button>
+        ))}
       </div>
       <img src="/peakcl/avatar-tablette.webp" alt="" aria-hidden className="pointer-events-none mt-8 hidden h-40 w-auto select-none opacity-90 md:block" />
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 animate-bounce text-xs text-white/30 hidden md:block">scroll →</div>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-xs text-white/30 hidden md:block">scroll →</div>
     </section>
   );
 }
@@ -210,7 +208,7 @@ function LogosPanel() {
   );
 }
 
-function renderPanel(id: string, onNavigate: (i: number) => void) {
+function renderPanel(id: string, onNavigate: (id: string) => void) {
   if (id === "intro") return <IntroPanel onNavigate={onNavigate} />;
   if (id === "logos") return <LogosPanel />;
   if (id === "contact") return <ContactPanel />;
@@ -219,117 +217,30 @@ function renderPanel(id: string, onNavigate: (i: number) => void) {
   return cat ? <CategoryPanel cat={cat} /> : null;
 }
 
-/* ── Navbar verticale gauche (fixe) ──────────────────────────── */
-function SideNav({ activeIdx, onNavigate }: { activeIdx: number; onNavigate: (i: number) => void }) {
-  return (
-    <nav aria-label="Navigation portfolio" className="fixed left-0 top-0 z-50 hidden h-full w-16 flex-col items-center justify-center gap-3 md:flex">
-      <div className="flex flex-col items-center gap-3">
-        <a href="/" title="Accueil" className="mb-4 flex items-center justify-center">
-          <img src={logo} alt="PeakCL" width={28} height={28} className="h-7 w-7 rounded-md object-cover opacity-80 hover:opacity-100" />
-        </a>
-        {PANELS.map((s, i) => (
-          <button key={s.id} onClick={() => onNavigate(i)} title={s.label} className="group relative flex items-center justify-center">
-            <span className={`block h-2 w-2 rounded-full transition-all duration-300 ${i === activeIdx ? "scale-150 shadow-[0_0_8px_currentColor]" : "bg-white/25 group-hover:bg-white/60"}`} style={i === activeIdx ? { background: s.accent, color: s.accent } : undefined} />
-            <span className="pointer-events-none absolute left-8 whitespace-nowrap rounded-md bg-card/90 px-2 py-1 text-xs font-medium opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">{s.label}</span>
-          </button>
-        ))}
-      </div>
-    </nav>
-  );
-}
-
-/* ── Timeline bas + avatar qui marche ────────────────────────── */
-function Timeline({ activeIdx, total, onNavigate }: { activeIdx: number; total: number; onNavigate: (i: number) => void }) {
-  const pct = total > 1 ? (activeIdx / (total - 1)) * 100 : 0;
-  const prev = useRef(activeIdx);
-  const [facingRight, setFacingRight] = useState(true);
-  useEffect(() => {
-    if (activeIdx > prev.current) setFacingRight(true);
-    else if (activeIdx < prev.current) setFacingRight(false);
-    prev.current = activeIdx;
-  }, [activeIdx]);
-  return (
-    <div className="fixed bottom-0 left-16 right-0 z-40 hidden h-16 items-center px-8 md:flex">
-      <div className="relative flex w-full items-center">
-        <div className="h-px w-full bg-white/10" />
-        <div className="absolute left-0 h-px bg-gradient-to-r from-[var(--brand-violet)] via-[var(--brand-turquoise)] to-[var(--brand-yellow)] transition-all duration-500" style={{ width: `${pct}%` }} />
-        {PANELS.map((s, i) => (
-          <button key={s.id} onClick={() => onNavigate(i)} title={s.label} className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ left: `${(i / (total - 1)) * 100}%` }}>
-            <span className={`block h-2 w-2 rounded-full transition-all duration-300 ${i === activeIdx ? "scale-150" : i < activeIdx ? "" : "bg-white/20"}`} style={i <= activeIdx ? { background: i === activeIdx ? s.accent : "var(--brand-violet)" } : undefined} />
-          </button>
-        ))}
-        <div className="absolute bottom-1/2 -translate-x-1/2 transition-all duration-500" style={{ left: `${pct}%` }}>
-          <div style={{ transform: facingRight ? "scaleX(-1)" : "scaleX(1)" }}>
-            <div className="mascot-walk">
-              <img src="/peakcl/avatar-marche.webp" alt="" aria-hidden className="h-16 w-auto select-none drop-shadow-[0_0_12px_color-mix(in_oklab,var(--brand-turquoise)_60%,transparent)]" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 /* ── Page ────────────────────────────────────────────────────── */
 function PortfolioPage() {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const deckRef = useRef<HTMLDivElement>(null);
-  const isScrolling = useRef(false);
-
-  const navigateTo = useCallback((i: number) => {
-    const clamped = Math.max(0, Math.min(PANELS.length - 1, i));
-    setActiveIdx(clamped);
-    const panel = deckRef.current?.children[clamped] as HTMLElement | undefined;
-    panel?.scrollIntoView({ behavior: "smooth", inline: "start" });
+  const scrollToId = useCallback((id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
   useEffect(() => {
-    const deck = deckRef.current;
-    if (!deck) return;
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      if (isScrolling.current) return;
-      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
-      if (Math.abs(delta) < 3) return;
-      isScrolling.current = true;
-      setActiveIdx((prev) => {
-        const next = delta > 0 ? Math.min(PANELS.length - 1, prev + 1) : Math.max(0, prev - 1);
-        (deck.children[next] as HTMLElement | undefined)?.scrollIntoView({ behavior: "smooth", inline: "start" });
-        return next;
-      });
-      setTimeout(() => { isScrolling.current = false; }, 750);
-    };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); navigateTo(activeIdx + 1); }
-      if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); navigateTo(activeIdx - 1); }
-    };
-    deck.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("keydown", onKey);
-    return () => {
-      deck.removeEventListener("wheel", onWheel);
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [activeIdx, navigateTo]);
-
-  useEffect(() => {
     const q = new URLSearchParams(window.location.search).get("cat");
-    if (q) {
-      const idx = PANELS.findIndex((p) => p.id === q);
-      if (idx > 0) navigateTo(idx);
-    }
-  }, [navigateTo]);
+    if (q && PANELS.some((p) => p.id === q)) scrollToId(q);
+  }, [scrollToId]);
 
   return (
     <div className="relative bg-background text-foreground">
-      {/* Desktop : deck horizontal */}
-      <div ref={deckRef} className="hidden h-screen w-full flex-row overflow-x-hidden md:flex" style={{ scrollSnapType: "x mandatory" }}>
-        {PANELS.map((s) => (
-          <div key={s.id} className="h-screen w-screen shrink-0 pl-16 pb-16" style={{ scrollSnapAlign: "start" }}>
-            {renderPanel(s.id, navigateTo)}
-          </div>
-        ))}
+      {/* Desktop : scroll vertical intelligent (snap par section) */}
+      <div className="hidden md:block">
+        <SectionDots sections={PANELS.map((s) => ({ id: s.id, label: s.label }))} />
+        <SnapPage>
+          {PANELS.map((s) => (
+            <SnapSection key={s.id} id={s.id} className="flex items-center justify-center pl-16">
+              {renderPanel(s.id, scrollToId)}
+            </SnapSection>
+          ))}
+        </SnapPage>
       </div>
-      <Timeline activeIdx={activeIdx} total={PANELS.length} onNavigate={navigateTo} />
 
       {/* Mobile : empilement vertical */}
       <div className="md:hidden">
