@@ -1,43 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
 import { CheckCircle2, Download, Star, TriangleAlert } from "lucide-react";
 import { absUrl } from "@/seo/site";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 
-const WISTIA_MEDIA_ID = "26i532zvqr";
 const AGENDA_HELP_IMAGE = "/peakcl/assets/images/agenda-calendly.png";
-
-function WistiaVideo({ mediaId }: { mediaId: string }) {
-  useEffect(() => {
-    const ensureScript = (src: string, type?: string) => {
-      const existing = document.querySelector(`script[src="${src}"]`);
-      if (existing) return;
-      const s = document.createElement("script");
-      s.src = src;
-      s.async = true;
-      if (type) s.type = type;
-      document.head.appendChild(s);
-    };
-
-    ensureScript("https://fast.wistia.com/player.js");
-    ensureScript(`https://fast.wistia.com/embed/${mediaId}.js`, "module");
-  }, [mediaId]);
-
-  return (
-    <div className="mt-5 overflow-hidden rounded-2xl border border-white/10 bg-black/40">
-      <style>{`
-        wistia-player[media-id='${mediaId}']:not(:defined) {
-          background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${mediaId}/swatch');
-          display: block;
-          filter: blur(5px);
-          padding-top: 56.25%;
-        }
-      `}</style>
-      {/* @ts-expect-error - Custom element provided by Wistia */}
-      <wistia-player media-id={mediaId} aspect="1.7777777777777777" />
-    </div>
-  );
-}
 
 export const Route = createFileRoute("/bienvenue")({
   head: () => ({
@@ -46,7 +12,7 @@ export const Route = createFileRoute("/bienvenue")({
       {
         name: "description",
         content:
-          "Pour confirmer ton appel et accéder aux ressources, suis les étapes ci‑dessous. (Vidéo + preuves + ressources)",
+          "Pour confirmer ton appel et accéder aux ressources, suis les étapes ci‑dessous.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/bienvenue") },
@@ -76,7 +42,7 @@ function BienvenuePage() {
             <span className="text-gradient">4 étapes</span> ci‑dessous
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Tu as réservé ton diagnostic : parcours la vidéo, les preuves et les guides avant notre rendez‑vous. Si tu
+            Tu as réservé ton diagnostic : parcours les preuves et les guides avant notre rendez‑vous. Si tu
             ne complètes pas ces étapes, je serai obligée d&apos;annuler notre appel.
           </p>
           <div className="mt-8">
@@ -99,11 +65,22 @@ function BienvenuePage() {
               1
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-foreground">Regarde la vidéo</h2>
-              <p className="mt-1 text-sm text-muted-foreground">Regarde la VSL jusqu&apos;au bout avant ton rendez‑vous.</p>
+              <h2 className="text-2xl font-bold text-foreground">Qui je suis, ce que je fais</h2>
             </div>
           </div>
-          <WistiaVideo mediaId={WISTIA_MEDIA_ID} />
+
+          <div className="rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card">
+            <p className="text-base leading-relaxed text-foreground/90">
+              Je m&apos;appelle Charlotte, fondatrice de PeakCL. J&apos;aide les indépendants et petites entreprises à
+              structurer leur activité pour attirer des clients sans s&apos;épuiser : site web, système de prospection,
+              image de marque, outils — j&apos;adapte l&apos;accompagnement à ce qui te fait vraiment avancer, pas une
+              formule unique.
+            </p>
+            <p className="mt-3 text-base leading-relaxed text-foreground/90">
+              Notre appel sert à comprendre où tu en es et ce qui bloque, pour te proposer un plan concret — pas un
+              pitch générique. À très vite !
+            </p>
+          </div>
         </section>
 
         {/* Step 2 */}
