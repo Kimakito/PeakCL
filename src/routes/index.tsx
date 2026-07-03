@@ -107,6 +107,9 @@ type SectionId = typeof SECTIONS[number]["id"];
 
 /* ── Timeline avatar at bottom ───────────────────────────────── */
 
+const WALK_FRAME_COUNT = 30;
+const WALK_FRAME_SRC = (i: number) => `/peakcl/avatar-marche/frame-${String(i).padStart(2, "0")}.webp`;
+
 function TimelineBar({ activeIdx, total, onNavigate }: { activeIdx: number; total: number; onNavigate: (i: number) => void }) {
   const pct = total > 1 ? (activeIdx / (total - 1)) * 100 : 0;
   // sens de marche : on garde la dernière direction de navigation
@@ -117,6 +120,34 @@ function TimelineBar({ activeIdx, total, onNavigate }: { activeIdx: number; tota
     else if (activeIdx < prevIdx.current) setFacingRight(false);
     prevIdx.current = activeIdx;
   }, [activeIdx]);
+
+  // précharge les frames de marche une seule fois
+  useEffect(() => {
+    for (let i = 0; i < WALK_FRAME_COUNT; i++) {
+      const img = new Image();
+      img.src = WALK_FRAME_SRC(i);
+    }
+  }, []);
+
+  // la mascotte marche réellement : sa frame suit la progression sur la frise
+  const [frameIdx, setFrameIdx] = useState(0);
+  const frameRef = useRef(0);
+  useEffect(() => {
+    const target = total > 1 ? Math.round((activeIdx / (total - 1)) * (WALK_FRAME_COUNT - 1)) : 0;
+    const start = frameRef.current;
+    if (start === target) return;
+    const t0 = performance.now();
+    const DURATION = 500;
+    let raf = requestAnimationFrame(function tick(now: number) {
+      const p = Math.min(1, (now - t0) / DURATION);
+      const cur = Math.round(start + (target - start) * p);
+      frameRef.current = cur;
+      setFrameIdx(cur);
+      if (p < 1) raf = requestAnimationFrame(tick);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [activeIdx, total]);
+
   return (
     <div className="fixed bottom-0 left-16 right-0 z-40 hidden h-16 items-center px-8 md:flex">
       <div className="relative flex w-full items-center">
@@ -152,16 +183,14 @@ function TimelineBar({ activeIdx, total, onNavigate }: { activeIdx: number; tota
           className="absolute bottom-1/2 -translate-x-1/2 transition-all duration-500"
           style={{ left: `${pct}%` }}
         >
-          {/* orientation selon le sens de navigation (l'image regarde à gauche par défaut) */}
-          <div style={{ transform: facingRight ? "scaleX(-1)" : "scaleX(1)" }}>
-            <div className="mascot-walk">
-              <img
-                src="/peakcl/avatar-marche.webp"
-                alt=""
-                aria-hidden
-                className="h-16 w-auto select-none drop-shadow-[0_0_12px_color-mix(in_oklab,var(--brand-turquoise)_60%,transparent)]"
-              />
-            </div>
+          {/* orientation selon le sens de navigation (la séquence regarde à droite par défaut) */}
+          <div style={{ transform: facingRight ? "scaleX(1)" : "scaleX(-1)" }}>
+            <img
+              src={WALK_FRAME_SRC(frameIdx)}
+              alt=""
+              aria-hidden
+              className="h-16 w-auto select-none drop-shadow-[0_0_12px_color-mix(in_oklab,var(--brand-turquoise)_60%,transparent)]"
+            />
           </div>
         </div>
       </div>

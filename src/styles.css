@@ -258,10 +258,25 @@
   }
 }
 
+@keyframes gradient-pan-y {
+  to {
+    background-position: 0 300%;
+  }
+}
+
+.nav-iris-line,
+.nav-iris-glow {
+  background: linear-gradient(180deg, var(--brand-yellow), var(--brand-turquoise), var(--brand-violet), var(--brand-yellow));
+  background-size: 100% 300%;
+  animation: gradient-pan-y 6s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .bg-aurora,
   .text-gradient-anim,
-  .hero-fade {
+  .hero-fade,
+  .nav-iris-line,
+  .nav-iris-glow {
     animation: none;
   }
 }
@@ -527,15 +542,6 @@
   50% { opacity: 1; }
 }
 
-/* Mascotte : balancement « marche » pour l'avatar de la timeline */
-@keyframes mascot-walk {
-  0%, 100% { transform: translateY(0) rotate(-2.5deg); }
-  50%      { transform: translateY(-6px) rotate(2.5deg); }
-}
-.mascot-walk { animation: mascot-walk 0.6s ease-in-out infinite; transform-origin: bottom center; }
-@media (prefers-reduced-motion: reduce) {
-  .mascot-walk { animation: none; }
-}
 
 /* Portfolio : captures qui « vivent » (Ken Burns lent) */
 @keyframes pf-kenburns {
