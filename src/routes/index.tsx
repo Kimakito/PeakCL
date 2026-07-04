@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Site, identité, réseaux, Google : déléguez toute votre image en ligne à un seul interlocuteur. Pour indépendants et petites structures qui veulent une présence pro sans y passer leurs soirées.",
+          "Site, identité visuelle et réseaux sociaux : déléguez votre image en ligne à un seul interlocuteur, pour indépendants et petites structures.",
       },
       { property: "og:title", content: "PeakCL · Déléguez votre communication en ligne" },
       {

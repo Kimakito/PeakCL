@@ -33,7 +33,7 @@ export const Route = createFileRoute("/community-manager-savoie")({
       {
         name: "description",
         content:
-          "Community manager en Savoie : déléguez la gestion de vos réseaux sociaux à Charlotte (PeakCL), formée au community management. Visuels brandés, rédaction et stratégie. Formules mensuelles sans engagement, partout en France.",
+          "Community manager en Savoie : déléguez vos réseaux sociaux à Charlotte (PeakCL). Visuels brandés, rédaction et stratégie, formules mensuelles sans engagement.",
       },
       { property: "og:title", content: "Community manager en Savoie · PeakCL" },
       {
@@ -240,7 +240,7 @@ function Page() {
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-xl font-bold">Community management en Savoie et alentours</h2>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-            Basée à Albertville, j&apos;accompagne des indépendants et petites structures dans toute la
+            Basée à Gilly-sur-Isère, près d&apos;Albertville, j&apos;accompagne des indépendants et petites structures dans toute la
             Savoie, la Haute-Savoie et partout en France (visio).
           </p>
           <div className="mt-6 flex flex-wrap gap-2">

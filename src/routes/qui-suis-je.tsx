@@ -17,7 +17,7 @@ export const Route = createFileRoute("/qui-suis-je")({
       {
         name: "description",
         content:
-          "Charlotte Lacroix (PeakCL), développeuse web et graphiste à Albertville. Création de sites internet, logos et community management pour indépendants et petites structures, en Savoie et partout en France.",
+          "Charlotte Lacroix (PeakCL), développeuse web & graphiste près d'Albertville (Savoie). Sites internet, logos et community management pour indépendants.",
       },
       { property: "og:title", content: "Charlotte Lacroix · Développeuse web & graphiste en Savoie | PeakCL" },
       {
@@ -48,7 +48,7 @@ function Page() {
               Charlotte Lacroix, <span className="text-gradient">PeakCL</span>.
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-              Développeuse web et graphiste à Albertville (Savoie). Mon objectif : transformer votre
+              Développeuse web et graphiste à Gilly-sur-Isère, près d'Albertville (Savoie). Mon objectif : transformer votre
               présence en ligne en un outil qui génère des demandes, pas juste des visites.
             </p>
           </div>
@@ -90,7 +90,7 @@ function Page() {
                 petites structures qui veulent une présence en ligne professionnelle sans y passer leurs
                 soirées. J'ai livré plus de 20 projets, agence de voyage, cabinet d'avocate, artisan
                 automobile, prothésiste dentaire, coachs, e-commerce équestre, notés 5/5 sur Google.
-                Basée à Albertville, je travaille avec des clients dans toute la Savoie (Chambéry,
+                Basée à Gilly-sur-Isère, juste à côté d'Albertville, je travaille avec des clients dans toute la Savoie (Chambéry,
                 Aix-les-Bains, Annecy) et partout en France, en visio.
               </p>
             </div>

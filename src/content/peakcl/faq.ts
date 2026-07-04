@@ -92,7 +92,7 @@ export const peakclFaq: PeakclFaqItem[] = [
   {
     question: "Travaillez‑vous uniquement en Savoie / Albertville ?",
     answerHtml:
-      "Basée à Albertville, mais j'accompagne des clients partout en France (visio, téléphone, email). Rencontre possible en Savoie. <a href='/qui-suis-je' class='underline'>En savoir plus sur moi →</a>",
+      "Basée à Gilly-sur-Isère, près d'Albertville, mais j'accompagne des clients partout en France (visio, téléphone, email). Rencontre possible en Savoie. <a href='/qui-suis-je' class='underline'>En savoir plus sur moi →</a>",
   },
   {
     question: "Hébergement, nom de domaine, emails… je dois gérer ça ?",

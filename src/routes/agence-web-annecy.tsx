@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { breadcrumbJsonLd } from "@/seo/jsonld";
-import { GeoLanding } from "@/components/GeoLanding";
+import { breadcrumbJsonLd, faqPageJsonLd } from "@/seo/jsonld";
+import { GeoLanding, geoLandingFaq } from "@/components/GeoLanding";
 
 export const Route = createFileRoute("/agence-web-annecy")({
   head: () => ({
@@ -26,6 +26,7 @@ export const Route = createFileRoute("/agence-web-annecy")({
           { name: "Annecy", path: "/agence-web-annecy" },
         ]),
       },
+      { "script:ld+json": faqPageJsonLd(geoLandingFaq("Annecy", "Haute-Savoie", "site web")) },
     ],
     links: [{ rel: "canonical", href: absUrl("/agence-web-annecy") }],
   }),

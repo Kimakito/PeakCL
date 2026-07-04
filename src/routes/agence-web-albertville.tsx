@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { breadcrumbJsonLd } from "@/seo/jsonld";
-import { GeoLanding } from "@/components/GeoLanding";
+import { breadcrumbJsonLd, faqPageJsonLd } from "@/seo/jsonld";
+import { GeoLanding, geoLandingFaq } from "@/components/GeoLanding";
 
 export const Route = createFileRoute("/agence-web-albertville")({
   head: () => ({
@@ -10,7 +10,7 @@ export const Route = createFileRoute("/agence-web-albertville")({
       {
         name: "description",
         content:
-          "Agence web à Albertville : création & refonte de sites internet premium, référencement SEO local inclus. Un site rapide, clair et pensé pour générer des prises de contact. Audit gratuit sous 24h.",
+          "Agence web à Albertville : création de sites internet premium avec référencement SEO local inclus. Rapide, clair, pensé pour générer des prises de contact.",
       },
       { property: "og:title", content: "Agence web à Albertville · PeakCL" },
       {
@@ -26,6 +26,7 @@ export const Route = createFileRoute("/agence-web-albertville")({
           { name: "Albertville", path: "/agence-web-albertville" },
         ]),
       },
+      { "script:ld+json": faqPageJsonLd(geoLandingFaq("Albertville", "Savoie", "site internet")) },
     ],
     links: [{ rel: "canonical", href: absUrl("/agence-web-albertville") }],
   }),
@@ -40,7 +41,7 @@ function Page() {
       serviceLabel="site internet"
       intro="Un site premium (site internet), rapide et structuré pour convertir les visiteurs locaux en prises de contact."
       angleTitle="Pourquoi une page Albertville ?"
-      angleText="Pour être trouvée quand quelqu'un cherche « création site web Albertville », et pour rassurer avec une offre claire, locale et orientée résultats. Basée à Albertville, je connais le tissu d'indépendants et d'artisans local."
+      angleText="Pour être trouvée quand quelqu'un cherche « création site web Albertville », et pour rassurer avec une offre claire, locale et orientée résultats. Basée à Gilly-sur-Isère, juste à côté, je connais le tissu d'indépendants et d'artisans du bassin albertvillois."
       localExample={{
         text: "Exemple concret : pour La Vieille Roue (Jantes 73), artisan automobile à Albertville, j'ai conçu un site vitrine clair avec un travail de SEO local pour capter les recherches du bassin albertvillois.",
         linkLabel: "Voir le portfolio",

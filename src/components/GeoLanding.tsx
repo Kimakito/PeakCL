@@ -10,6 +10,20 @@ import {
 
 export type NearbyLink = { name: string; href: string };
 
+/** Mini-FAQ shown on every geo landing page — also used to build FAQPage JSON-LD in each route's head(). */
+export function geoLandingFaq(city: string, region: string, serviceLabel: string) {
+  return [
+    {
+      question: `Travaillez-vous uniquement à ${city} ?`,
+      answerHtml: `Non. Je suis basée à Gilly-sur-Isère, en Savoie, et j'accompagne ${city} et ses environs, mais aussi des clients partout en France en visio. Une rencontre reste possible en ${region}.`,
+    },
+    {
+      question: `Combien coûte un ${serviceLabel} à ${city} ?`,
+      answerHtml: `Ça dépend du périmètre (site seul, ou site + logo + réseaux). Le devis est précis et envoyé sous 48h ouvrées après la réservation d'appel, pas une fourchette élastique. L'audit, lui, est gratuit.`,
+    },
+  ];
+}
+
 export type GeoLandingProps = {
   city: string;
   region: string;
@@ -67,6 +81,7 @@ export function GeoLanding({
   seoSection,
   nearby,
 }: GeoLandingProps) {
+  const faq = geoLandingFaq(city, region, serviceLabel);
   return (
     <main className="min-h-screen border-t border-white/5">
       {/* Hero */}
@@ -215,21 +230,12 @@ export function GeoLanding({
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-2xl font-bold">Questions fréquentes</h2>
           <div className="mt-6 space-y-4">
-            <div className="rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
-              <h3 className="text-base font-semibold">Travaillez-vous uniquement à {city} ?</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Non. Je suis basée en Savoie (Albertville) et j&apos;accompagne {city} et ses environs,
-                mais aussi des clients partout en France en visio. Une rencontre reste possible en {region}.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
-              <h3 className="text-base font-semibold">Combien coûte un {serviceLabel} à {city} ?</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Ça dépend du périmètre (site seul, ou site + logo + réseaux). Le devis est précis et
-                envoyé sous 48h ouvrées après la réservation d’appel, pas une fourchette élastique. L&apos;audit, lui,
-                est gratuit.
-              </p>
-            </div>
+            {faq.map((item) => (
+              <div key={item.question} className="rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
+                <h3 className="text-base font-semibold">{item.question}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.answerHtml}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -30,7 +30,7 @@ export const Route = createFileRoute("/creation-logo-albertville")({
       {
         name: "description",
         content:
-          "Création de logo et d'identité visuelle à Albertville (Savoie) : logo professionnel, charte graphique, déclinaisons web et print. Par une graphiste qui code aussi votre site. Audit visuel gratuit.",
+          "Création de logo et identité visuelle à Albertville (Savoie) : logo pro, charte graphique, déclinaisons web/print. Par une graphiste qui code aussi votre site.",
       },
       { property: "og:title", content: "Création de logo & identité visuelle à Albertville · PeakCL" },
       {
@@ -158,7 +158,7 @@ function Page() {
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-xl font-bold">Graphiste en Savoie et alentours</h2>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-            Basée à Albertville, je crée des logos et identités visuelles pour des indépendants et
+            Basée à Gilly-sur-Isère, près d&apos;Albertville, je crée des logos et identités visuelles pour des indépendants et
             petites structures dans toute la Savoie et partout en France (visio).
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
