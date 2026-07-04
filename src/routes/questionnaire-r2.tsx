@@ -464,7 +464,7 @@ function QuestionnaireR2Page() {
             <div>
               <TextArea
                 label="Quel est ton objectif sur les prochaines semaines ou mois pour ta communication digitale ?"
-                helper="Site, identité visuelle, réseaux sociaux, visibilité Google — ce que tu veux voir changer en priorité."
+                helper="Site, identité visuelle, réseaux sociaux, visibilité Google : ce que tu veux voir changer en priorité."
                 name="objectif"
                 required
                 value={values.objectif}
@@ -585,7 +585,7 @@ function QuestionnaireR2Page() {
               <p className="mt-2 px-2 text-xs text-muted-foreground">
                 La plupart des personnes qui font cette démarche sérieusement
                 sont prêtes à avancer dès que l'offre correspond à ce qu'elles
-                cherchent — c'est justement l'objectif de notre prochain appel.
+                cherchent, c'est justement l'objectif de notre prochain appel.
               </p>
               {values.readyToDecide === "oui" ? (
                 <p className="mt-2 px-2 text-xs font-medium text-[var(--brand-turquoise)]">

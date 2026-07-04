@@ -51,7 +51,7 @@ function MerciR2Page() {
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             J’ai bien reçu tes réponses. Je prépare notre prochain appel avec ça
-            en tête — à très vite au créneau réservé.
+            en tête ! À très vite au créneau réservé.
           </p>
 
           <div className="mx-auto mt-10 max-w-xl rounded-2xl border border-white/10 bg-card/40 p-6 text-left shadow-card backdrop-blur">
@@ -68,7 +68,7 @@ function MerciR2Page() {
               une fois payé : c’est ce qui va augmenter ta visibilité, et donc
               le nombre de clients ou de patients qui te trouvent. Un seul
               nouveau client ou patient qui te trouve grâce à ça peut suffire à
-              rentabiliser l’investissement — et ça continue d’en amener après.
+              rentabiliser l’investissement; et ça continue d’en amener après.
             </p>
           </div>
 
@@ -89,7 +89,7 @@ function MerciR2Page() {
           </div>
 
           <p className="mt-10 text-sm text-muted-foreground">À très vite,</p>
-          <p className="text-sm font-semibold text-foreground">Cha · PeakCL</p>
+          <p className="text-sm font-semibold text-foreground">Charlotte · PeakCL</p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
