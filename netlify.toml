@@ -76,6 +76,24 @@
   force = true
 
 [[redirects]]
+  from = "/portfolio.html"
+  to = "/portfolio"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/politique-confidentialite"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/conseils/*"
+  to = "/conseils"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/contact"
   to = "/reservation-appel"
   status = 301
@@ -133,6 +151,36 @@
 [[redirects]]
   from = "/maintenance-site-web"
   to = "/packs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/maintenance-site-web.html"
+  to = "/packs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/graphisme.html"
+  to = "/packs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/developpement-web.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/reservation-appel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/web-strategy/*"
+  to = "/"
   status = 301
   force = true
 
