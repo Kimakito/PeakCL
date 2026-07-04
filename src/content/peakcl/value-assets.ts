@@ -386,6 +386,121 @@ export const valueAssets: ValueAsset[] = [
     metaDescription:
       "Ressource offerte PeakCL pour préparer ton appel : la synthèse du système clarté / structure / conversion pour faire de ton site un vrai outil de vente.",
   },
+  {
+    slug: "ressources-reseaux",
+    index: 1,
+    total: 1,
+    eyebrow: "Ressource · Réseaux sociaux",
+    title: "Pourquoi avoir une stratégie sur les réseaux sociaux",
+    subtitle:
+      "Facebook, Instagram, TikTok, LinkedIn : 4 manières de communiquer, et une seule clé pour que ça marche.",
+    hook: "Poster de temps en temps « quand on a le temps » ne construit rien. Une présence sans stratégie, c'est du bruit qui s'oublie en 2 secondes.",
+    readTime: "5 min de lecture",
+    intro: [
+      "Les réseaux sociaux ne servent pas à « être vu ». Ils servent à construire une relation avec les bonnes personnes, jusqu'à ce qu'elles te fassent confiance et passent à l'action.",
+      "Voici pourquoi une vraie stratégie change tout, ce que chaque plateforme fait de mieux, et le seul facteur qui détermine si ça marche ou pas.",
+    ],
+    sections: [
+      {
+        h2: "Pourquoi une stratégie, et pas juste « poster »",
+        blocks: [
+          {
+            p: "Sans stratégie, chaque publication part dans une direction différente : un jour tu montres ton quotidien, le lendemain une promo, puis plus rien pendant 3 semaines. Ton audience ne sait jamais à quoi s'attendre, donc elle décroche.",
+          },
+          {
+            list: [
+              {
+                strong: "Une stratégie donne un fil conducteur.",
+                text: "Chaque publication sert un objectif : faire connaître, prouver ton expertise, ou vendre.",
+              },
+              {
+                strong: "Elle cible la bonne audience.",
+                text: "Parler à tout le monde, c'est ne convaincre personne. Une stratégie définit qui tu veux toucher.",
+              },
+              {
+                strong: "Elle prépare la vente.",
+                text: "Les réseaux ne vendent pas directement : ils construisent la confiance qui rend la vente évidente ensuite.",
+              },
+            ],
+          },
+          { quote: "Les réseaux sociaux ne remplacent pas ton offre. Ils la rendent crédible avant même le premier contact." },
+        ],
+      },
+      {
+        h2: "4 plateformes, 4 manières de communiquer",
+        blocks: [
+          {
+            cards: [
+              {
+                k: "Facebook",
+                t: "La communauté",
+                d: "Idéal pour fidéliser une audience locale ou déjà cliente : groupes, avis, événements, proximité.",
+              },
+              {
+                k: "Instagram",
+                t: "L'image de marque",
+                d: "Le visuel et l'émotion. Parfait pour montrer ton univers, tes coulisses, ton savoir-faire en images.",
+              },
+              {
+                k: "TikTok",
+                t: "La découverte",
+                d: "Le format le plus rapide pour toucher de nouvelles personnes qui ne te connaissent pas encore.",
+              },
+              {
+                k: "LinkedIn",
+                t: "L'expertise",
+                d: "Le réseau du sérieux et du B2B : ton expertise, tes résultats, ta crédibilité professionnelle.",
+              },
+            ],
+          },
+          {
+            p: "Tu n'as pas besoin d'être partout. Une ou deux plateformes bien choisies, alignées avec où se trouve ta cible, valent mieux que cinq comptes à moitié tenus.",
+          },
+        ],
+      },
+      {
+        h2: "La régularité : la clé de la visibilité",
+        blocks: [
+          {
+            p: "Les algorithmes de tous ces réseaux récompensent une chose avant tout : la constance. Un compte qui publie peu mais régulièrement passe devant un compte qui publie beaucoup puis disparaît.",
+          },
+          {
+            callout: {
+              title: "Ce que la régularité change concrètement",
+              bullets: [
+                "L'algorithme te montre plus souvent à ton audience existante.",
+                "Ton audience prend l'habitude de te retrouver, ce qui construit la confiance.",
+                "Chaque publication vient renforcer les précédentes, au lieu de repartir de zéro.",
+              ],
+            },
+          },
+          {
+            quote: "Mieux vaut 1 publication par semaine tenue pendant 6 mois que 10 publications en 3 jours puis plus rien.",
+          },
+        ],
+      },
+    ],
+    action: {
+      title: "Avant notre appel, réfléchis à ça",
+      items: [
+        {
+          strong: "Où est ta cible ?",
+          text: "Sur quelle(s) plateforme(s) tes futurs clients passent-ils réellement du temps ?",
+        },
+        {
+          strong: "Quel rythme tu peux tenir vraiment ?",
+          text: "Mieux vaut un rythme modeste et tenu dans la durée qu'un rythme ambitieux abandonné après 2 semaines.",
+        },
+        {
+          strong: "Quel est ton message central ?",
+          text: "Ce que tu veux que les gens retiennent de toi, publication après publication.",
+        },
+      ],
+    },
+    metaTitle: "Ressource : Pourquoi avoir une stratégie sur les réseaux sociaux · PeakCL",
+    metaDescription:
+      "Ressource offerte PeakCL pour préparer ton appel : pourquoi une stratégie réseaux sociaux, les 4 façons de communiquer (Facebook, Instagram, TikTok, LinkedIn) et pourquoi la régularité est la clé de la visibilité.",
+  },
 ];
 
 export function valueAssetBySlug(slug: string): ValueAsset | undefined {

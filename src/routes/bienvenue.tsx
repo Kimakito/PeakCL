@@ -157,6 +157,7 @@ function BienvenuePage() {
                   { title: "2 · Pourquoi ton site ne convertit pas", href: "/ressources-site" },
                   { title: "3 · Pourquoi on ne te fait pas confiance", href: "/ressources-confiance" },
                   { title: "Bonus · Ton site, machine à clients", href: "/ressources-conversion" },
+                  { title: "5 · Stratégie réseaux sociaux", href: "/ressources-reseaux" },
                 ].map((r) => (
                   <a
                     key={r.href}

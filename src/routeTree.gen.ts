@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrameProspectionRouteImport } from './routes/trame-prospection'
 import { Route as RessourcesSystemeRouteImport } from './routes/ressources-systeme'
 import { Route as RessourcesSiteRouteImport } from './routes/ressources-site'
+import { Route as RessourcesReseauxRouteImport } from './routes/ressources-reseaux'
 import { Route as RessourcesConversionRouteImport } from './routes/ressources-conversion'
 import { Route as RessourcesConfianceRouteImport } from './routes/ressources-confiance'
 import { Route as ReservationAppelHorsUeRouteImport } from './routes/reservation-appel-hors-ue'
@@ -61,6 +62,11 @@ const RessourcesSystemeRoute = RessourcesSystemeRouteImport.update({
 const RessourcesSiteRoute = RessourcesSiteRouteImport.update({
   id: '/ressources-site',
   path: '/ressources-site',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RessourcesReseauxRoute = RessourcesReseauxRouteImport.update({
+  id: '/ressources-reseaux',
+  path: '/ressources-reseaux',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RessourcesConversionRoute = RessourcesConversionRouteImport.update({
@@ -276,6 +282,7 @@ export interface FileRoutesByFullPath {
   '/reservation-appel-hors-ue': typeof ReservationAppelHorsUeRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
   '/ressources-conversion': typeof RessourcesConversionRoute
+  '/ressources-reseaux': typeof RessourcesReseauxRoute
   '/ressources-site': typeof RessourcesSiteRoute
   '/ressources-systeme': typeof RessourcesSystemeRoute
   '/trame-prospection': typeof TrameProspectionRoute
@@ -316,6 +323,7 @@ export interface FileRoutesByTo {
   '/reservation-appel-hors-ue': typeof ReservationAppelHorsUeRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
   '/ressources-conversion': typeof RessourcesConversionRoute
+  '/ressources-reseaux': typeof RessourcesReseauxRoute
   '/ressources-site': typeof RessourcesSiteRoute
   '/ressources-systeme': typeof RessourcesSystemeRoute
   '/trame-prospection': typeof TrameProspectionRoute
@@ -357,6 +365,7 @@ export interface FileRoutesById {
   '/reservation-appel-hors-ue': typeof ReservationAppelHorsUeRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
   '/ressources-conversion': typeof RessourcesConversionRoute
+  '/ressources-reseaux': typeof RessourcesReseauxRoute
   '/ressources-site': typeof RessourcesSiteRoute
   '/ressources-systeme': typeof RessourcesSystemeRoute
   '/trame-prospection': typeof TrameProspectionRoute
@@ -399,6 +408,7 @@ export interface FileRouteTypes {
     | '/reservation-appel-hors-ue'
     | '/ressources-confiance'
     | '/ressources-conversion'
+    | '/ressources-reseaux'
     | '/ressources-site'
     | '/ressources-systeme'
     | '/trame-prospection'
@@ -439,6 +449,7 @@ export interface FileRouteTypes {
     | '/reservation-appel-hors-ue'
     | '/ressources-confiance'
     | '/ressources-conversion'
+    | '/ressources-reseaux'
     | '/ressources-site'
     | '/ressources-systeme'
     | '/trame-prospection'
@@ -479,6 +490,7 @@ export interface FileRouteTypes {
     | '/reservation-appel-hors-ue'
     | '/ressources-confiance'
     | '/ressources-conversion'
+    | '/ressources-reseaux'
     | '/ressources-site'
     | '/ressources-systeme'
     | '/trame-prospection'
@@ -520,6 +532,7 @@ export interface RootRouteChildren {
   ReservationAppelHorsUeRoute: typeof ReservationAppelHorsUeRoute
   RessourcesConfianceRoute: typeof RessourcesConfianceRoute
   RessourcesConversionRoute: typeof RessourcesConversionRoute
+  RessourcesReseauxRoute: typeof RessourcesReseauxRoute
   RessourcesSiteRoute: typeof RessourcesSiteRoute
   RessourcesSystemeRoute: typeof RessourcesSystemeRoute
   TrameProspectionRoute: typeof TrameProspectionRoute
@@ -548,6 +561,13 @@ declare module '@tanstack/react-router' {
       path: '/ressources-site'
       fullPath: '/ressources-site'
       preLoaderRoute: typeof RessourcesSiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ressources-reseaux': {
+      id: '/ressources-reseaux'
+      path: '/ressources-reseaux'
+      fullPath: '/ressources-reseaux'
+      preLoaderRoute: typeof RessourcesReseauxRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ressources-conversion': {
@@ -853,6 +873,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReservationAppelHorsUeRoute: ReservationAppelHorsUeRoute,
   RessourcesConfianceRoute: RessourcesConfianceRoute,
   RessourcesConversionRoute: RessourcesConversionRoute,
+  RessourcesReseauxRoute: RessourcesReseauxRoute,
   RessourcesSiteRoute: RessourcesSiteRoute,
   RessourcesSystemeRoute: RessourcesSystemeRoute,
   TrameProspectionRoute: TrameProspectionRoute,
