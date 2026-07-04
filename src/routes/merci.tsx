@@ -10,6 +10,7 @@ export const Route = createFileRoute("/merci")({
         name: "description",
         content: "Merci pour votre message. Réponse sous 24h.",
       },
+      { name: "robots", content: "noindex, nofollow" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/merci") },
     ],

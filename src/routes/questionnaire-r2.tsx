@@ -14,6 +14,7 @@ export const Route = createFileRoute("/questionnaire-r2")({
         name: "description",
         content: "Questionnaire à remplir avant notre deuxième appel, pour préparer une proposition adaptée à ta situation.",
       },
+      { name: "robots", content: "noindex, nofollow" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/questionnaire-r2") },
     ],

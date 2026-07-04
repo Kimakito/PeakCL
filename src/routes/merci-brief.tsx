@@ -20,6 +20,7 @@ export const Route = createFileRoute("/merci-brief")({
         content:
           "Questionnaire reçu. Choisis ton créneau pour le diagnostic (45 min), puis accède aux ressources avant l’appel.",
       },
+      { name: "robots", content: "noindex, nofollow" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/merci-brief") },
     ],

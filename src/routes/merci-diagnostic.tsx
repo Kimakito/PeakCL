@@ -10,6 +10,7 @@ export const Route = createFileRoute("/merci-diagnostic")({
         name: "description",
         content: "Diagnostic bien reçu. Je reviens vers toi rapidement.",
       },
+      { name: "robots", content: "noindex, nofollow" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/merci-diagnostic") },
     ],
