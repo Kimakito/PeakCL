@@ -1,7 +1,11 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Clock, ShieldCheck } from "lucide-react";
-import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
+import {
+  MERCI_BRIEF_PATH,
+  stashCalendlyPrefill,
+  submitNetlifyForm,
+} from "@/lib/funnel";
 import { absUrl } from "@/seo/site";
 import {
   ChoiceMulti,
@@ -25,7 +29,8 @@ export const Route = createFileRoute("/reservation-appel-hors-ue")({
       { title: "Réservation d’appel (Hors UE) · PeakCL" },
       {
         name: "description",
-        content: "Questionnaire de diagnostic PeakCL avant ton appel — version internationale.",
+        content:
+          "Questionnaire de diagnostic PeakCL avant ton appel, version internationale.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/reservation-appel-hors-ue") },
@@ -78,7 +83,9 @@ function ReservationAppelHorsUePage() {
     return Array.isArray(v) ? v.length > 0 : true;
   };
 
-  const canSubmit = completion.filled === completion.total && forceRequiredMultiOk("painPoints");
+  const canSubmit =
+    completion.filled === completion.total &&
+    forceRequiredMultiOk("painPoints");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -123,8 +130,8 @@ function ReservationAppelHorsUePage() {
         <div className="grid-bg absolute inset-0 -z-10 opacity-30" />
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground backdrop-blur">
-            <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />
-            2 à 3 minutes
+            <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />2 à 3
+            minutes
             <span className="opacity-40">·</span>
             Diagnostic 45 min
             <span className="opacity-40">·</span>
@@ -132,9 +139,13 @@ function ReservationAppelHorsUePage() {
             Confidentiel
           </div>
 
-          <h1 className="mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">Réservation d’appel · PeakCL</h1>
+          <h1 className="mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">
+            Réservation d’appel · PeakCL
+          </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Avant notre appel, j’ai besoin de comprendre ta situation. Ce questionnaire prend 2 à 3 minutes. À la fin, tu pourras réserver ton créneau de diagnostic (45 min).
+            Avant notre appel, j’ai besoin de comprendre ta situation. Ce
+            questionnaire prend 2 à 3 minutes. À la fin, tu pourras réserver ton
+            créneau de diagnostic (45 min).
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-xs text-muted-foreground">
             Tes réponses restent confidentielles.
@@ -152,7 +163,10 @@ function ReservationAppelHorsUePage() {
                   {completion.filled}/{completion.total}
                 </span>
               </div>
-              <a href="#submit" className="inline-flex items-center gap-2 font-semibold text-[var(--brand-turquoise)] hover:text-foreground">
+              <a
+                href="#submit"
+                className="inline-flex items-center gap-2 font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+              >
                 Aller à l’envoi <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -167,8 +181,16 @@ function ReservationAppelHorsUePage() {
             className="space-y-8"
             onSubmit={handleSubmit}
           >
-            <input type="hidden" name="form-name" value="reservation-appel-hors-ue" />
-            <input type="hidden" name="leadType" value="reservation_appel_hors_ue" />
+            <input
+              type="hidden"
+              name="form-name"
+              value="reservation-appel-hors-ue"
+            />
+            <input
+              type="hidden"
+              name="leadType"
+              value="reservation_appel_hors_ue"
+            />
             <input type="hidden" name="source" value="site_peakcl" />
             <p className="hidden">
               <label>
@@ -219,10 +241,19 @@ function ReservationAppelHorsUePage() {
                 onChange={(v) => setField(setValues, "revenueRange", v)}
                 options={[
                   { value: "<1000", label: "Moins de 1 000 $/mois" },
-                  { value: "1000-3000", label: "Entre 1 000 $ et 3 000 $/mois" },
-                  { value: "3000-5000", label: "Entre 3 000 $ et 5 000 $/mois" },
+                  {
+                    value: "1000-3000",
+                    label: "Entre 1 000 $ et 3 000 $/mois",
+                  },
+                  {
+                    value: "3000-5000",
+                    label: "Entre 3 000 $ et 5 000 $/mois",
+                  },
                   { value: "5000+", label: "Plus de 5 000 $/mois" },
-                  { value: "Je préfère ne pas répondre", label: "Je préfère ne pas répondre" },
+                  {
+                    value: "Je préfère ne pas répondre",
+                    label: "Je préfère ne pas répondre",
+                  },
                 ]}
               />
               <ChoiceSingle
@@ -246,12 +277,35 @@ function ReservationAppelHorsUePage() {
                 values={(values.painPoints as string[]) || []}
                 onChange={(v) => setField(setValues, "painPoints", v)}
                 options={[
-                  { value: "Site n'attire/convertit pas", label: "Mon site web n’attire pas de visiteurs ou ne convertit pas en clients" },
-                  { value: "Manque de visibilité", label: "Je manque de visibilité" },
-                  { value: "Manque de temps", label: "Je n’ai pas le temps de gérer mon site et ma communication en parallèle" },
-                  { value: "Résultat DIY insatisfaisant", label: "J’ai essayé de créer mon site moi‑même mais le résultat ne me satisfait pas" },
-                  { value: "Ne sait pas se différencier", label: "Je ne sais pas quoi communiquer ni comment me différencier" },
-                  { value: "Difficulté à justifier l'investissement", label: "J’ai du mal à justifier l’investissement dans quelque chose que je ne maîtrise pas" },
+                  {
+                    value: "Site n'attire/convertit pas",
+                    label:
+                      "Mon site web n’attire pas de visiteurs ou ne convertit pas en clients",
+                  },
+                  {
+                    value: "Manque de visibilité",
+                    label: "Je manque de visibilité",
+                  },
+                  {
+                    value: "Manque de temps",
+                    label:
+                      "Je n’ai pas le temps de gérer mon site et ma communication en parallèle",
+                  },
+                  {
+                    value: "Résultat DIY insatisfaisant",
+                    label:
+                      "J’ai essayé de créer mon site moi‑même mais le résultat ne me satisfait pas",
+                  },
+                  {
+                    value: "Ne sait pas se différencier",
+                    label:
+                      "Je ne sais pas quoi communiquer ni comment me différencier",
+                  },
+                  {
+                    value: "Difficulté à justifier l'investissement",
+                    label:
+                      "J’ai du mal à justifier l’investissement dans quelque chose que je ne maîtrise pas",
+                  },
                 ]}
               />
               <ChoiceScale
@@ -277,7 +331,9 @@ function ReservationAppelHorsUePage() {
                 name="importanceOnlinePresence"
                 required
                 value={String(values.importanceOnlinePresence)}
-                onChange={(v) => setField(setValues, "importanceOnlinePresence", v)}
+                onChange={(v) =>
+                  setField(setValues, "importanceOnlinePresence", v)
+                }
               />
               <ChoiceSingle
                 label="Si tu avais une solution claire pour améliorer ta présence en ligne, serais-tu ouvert(e) à te faire accompagner ?"
@@ -303,7 +359,10 @@ function ReservationAppelHorsUePage() {
               />
             </div>
 
-            <div id="submit" className="rounded-2xl border border-white/10 bg-card/40 p-6 text-center shadow-card backdrop-blur">
+            <div
+              id="submit"
+              className="rounded-2xl border border-white/10 bg-card/40 p-6 text-center shadow-card backdrop-blur"
+            >
               <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-[var(--brand-turquoise)]">
                 <Check className="h-6 w-6" />
               </div>
@@ -322,7 +381,9 @@ function ReservationAppelHorsUePage() {
                       : "cursor-not-allowed border border-white/10 bg-white/5 text-muted-foreground"
                   }`}
                 >
-                  {isSubmitting ? "Envoi en cours…" : "Envoyer et réserver mon créneau"}
+                  {isSubmitting
+                    ? "Envoi en cours…"
+                    : "Envoyer et réserver mon créneau"}
                   <ArrowRight className="h-4 w-4" />
                 </button>
                 <a
@@ -335,7 +396,9 @@ function ReservationAppelHorsUePage() {
 
               {!canSubmit ? (
                 <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">
-                  Il manque encore des champs ⭐ obligatoires. Tu peux les remplir plus tard : le formulaire se sauvegarde automatiquement sur ton appareil.
+                  Il manque encore des champs ⭐ obligatoires. Tu peux les
+                  remplir plus tard : le formulaire se sauvegarde
+                  automatiquement sur ton appareil.
                 </p>
               ) : null}
             </div>

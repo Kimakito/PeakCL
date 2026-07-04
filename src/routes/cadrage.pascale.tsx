@@ -19,9 +19,12 @@ const MERCI_PATH = "/cadrage/pascale/merci";
 export const Route = createFileRoute("/cadrage/pascale")({
   head: () => ({
     meta: [
-      { title: "Questionnaire de cadrage — Pascale · PeakCL" },
+      { title: "Questionnaire de cadrage · Pascale · PeakCL" },
       { name: "robots", content: "noindex, nofollow" },
-      { name: "description", content: "Questionnaire privé de cadrage pour la refonte du site." },
+      {
+        name: "description",
+        content: "Questionnaire privé de cadrage pour la refonte du site.",
+      },
       { property: "og:url", content: absUrl("/cadrage/pascale") },
     ],
   }),
@@ -113,7 +116,8 @@ function useFormState() {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return;
       const parsed = JSON.parse(raw) as Values;
-      if (parsed && typeof parsed === "object") setValues((v) => ({ ...v, ...parsed }));
+      if (parsed && typeof parsed === "object")
+        setValues((v) => ({ ...v, ...parsed }));
     } catch {
       // ignore
     }
@@ -127,9 +131,11 @@ function useFormState() {
     }
   }, [values]);
 
-  const set = (name: string, value: string | string[]) => setValues((prev) => ({ ...prev, [name]: value }));
+  const set = (name: string, value: string | string[]) =>
+    setValues((prev) => ({ ...prev, [name]: value }));
   const str = (name: string) => String(values[name] ?? "");
-  const arr = (name: string) => (Array.isArray(values[name]) ? values[name] : []) as string[];
+  const arr = (name: string) =>
+    (Array.isArray(values[name]) ? values[name] : []) as string[];
 
   return { values, set, str, arr };
 }
@@ -152,7 +158,7 @@ function CadragePascalePage() {
       window.location.href = MERCI_PATH;
     } catch {
       alert(
-        "L'envoi a échoué. Vérifie ta connexion et réessaie, ou écris à peakcl73@gmail.com — tes réponses sont sauvegardées dans ce navigateur.",
+        "L'envoi a échoué. Vérifie ta connexion et réessaie, ou écris à peakcl73@gmail.com : tes réponses sont sauvegardées dans ce navigateur.",
       );
     } finally {
       setIsSubmitting(false);
@@ -165,7 +171,9 @@ function CadragePascalePage() {
         <div className="mx-auto flex max-w-3xl items-center justify-between px-6">
           <span className="font-display text-sm font-bold tracking-tight">
             Peak<span className="text-gradient">CL</span>
-            <span className="ml-2 font-sans text-xs font-normal text-muted-foreground">· Cadrage privé</span>
+            <span className="ml-2 font-sans text-xs font-normal text-muted-foreground">
+              · Cadrage privé
+            </span>
           </span>
           <span className="text-xs text-muted-foreground">Pascale Vert</span>
         </div>
@@ -185,13 +193,15 @@ function CadragePascalePage() {
             Questionnaire de cadrage
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground md:text-base">
-            Refonte du site · <span className="text-foreground">pascale-vert-magnetiseur.fr</span>
+            Refonte du site ·{" "}
+            <span className="text-foreground">pascale-vert-magnetiseur.fr</span>
             <br />
             Magnétiseuse
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-xs leading-relaxed text-muted-foreground">
-            Réponds librement, même de manière intuitive. L'objectif n'est pas la perfection : c'est de poser les bonnes
-            bases pour un site cohérent et aligné avec ton activité. Aucun champ n'est obligatoire.
+            Réponds librement, même de manière intuitive. L'objectif n'est pas
+            la perfection : c'est de poser les bonnes bases pour un site
+            cohérent et aligné avec ton activité. Aucun champ n'est obligatoire.
           </p>
         </div>
       </section>
@@ -212,8 +222,16 @@ function CadragePascalePage() {
             <input type="hidden" name="source" value="cadrage_pascale_prive" />
             <input type="hidden" name="client_name" value="Pascale Vert" />
             <input type="hidden" name="client_activity" value="Magnétiseuse" />
-            <input type="hidden" name="site_actuel" value="pascale-vert-magnetiseur.fr" />
-            <input type="hidden" name="subject" value="[PeakCL] Cadrage Pascale — questionnaire reçu" />
+            <input
+              type="hidden"
+              name="site_actuel"
+              value="pascale-vert-magnetiseur.fr"
+            />
+            <input
+              type="hidden"
+              name="subject"
+              value="[PeakCL] Cadrage Pascale : questionnaire reçu"
+            />
             <p className="hidden">
               <label>
                 Ne pas remplir : <input name="bot-field" />
@@ -254,7 +272,10 @@ function CadragePascalePage() {
                   { value: "domicile", label: "À domicile" },
                   { value: "cabinet", label: "En cabinet" },
                   { value: "distance", label: "À distance / en visio" },
-                  { value: "deplacement", label: "En déplacement chez les clients" },
+                  {
+                    value: "deplacement",
+                    label: "En déplacement chez les clients",
+                  },
                   { value: "evenements", label: "Lors d'événements / salons" },
                 ]}
                 values={arr("modes_exercice")}
@@ -358,12 +379,21 @@ function CadragePascalePage() {
               <CheckboxGroup
                 name="types_prestations"
                 options={[
-                  { value: "seances_individuelles", label: "Séances individuelles" },
-                  { value: "accompagnements", label: "Accompagnements sur plusieurs séances" },
+                  {
+                    value: "seances_individuelles",
+                    label: "Séances individuelles",
+                  },
+                  {
+                    value: "accompagnements",
+                    label: "Accompagnements sur plusieurs séances",
+                  },
                   { value: "distance", label: "Soins à distance" },
                   { value: "animaux", label: "Soins pour animaux" },
                   { value: "ateliers", label: "Ateliers / cours" },
-                  { value: "evenements", label: "Présence en foires / salons bien-être" },
+                  {
+                    value: "evenements",
+                    label: "Présence en foires / salons bien-être",
+                  },
                 ]}
                 values={arr("types_prestations")}
                 onChange={(v) => set("types_prestations", v)}
@@ -420,7 +450,7 @@ function CadragePascalePage() {
                 rows={3}
                 value={str("connaissance_magnetisme")}
                 onChange={(v) => set("connaissance_magnetisme", v)}
-                placeholder="Souvent oui · souvent non · mitigé — ça aide à calibrer les explications sur le site"
+                placeholder="Souvent oui · souvent non · mitigé, ça aide à calibrer les explications sur le site"
               />
             </QuestionBlock>
             <QuestionBlock label="Faut-il expliquer davantage certaines notions pour rassurer ou lever des doutes ?">
@@ -456,13 +486,31 @@ function CadragePascalePage() {
               <CheckboxGroup
                 name="objectifs_site"
                 options={[
-                  { value: "visible", label: "Être plus visible localement sur Google" },
+                  {
+                    value: "visible",
+                    label: "Être plus visible localement sur Google",
+                  },
                   { value: "moderniser", label: "Moderniser mon image" },
-                  { value: "expliquer", label: "Mieux expliquer le magnétisme et mes soins" },
-                  { value: "contact", label: "Faciliter la prise de contact / rendez-vous" },
-                  { value: "rassurer", label: "Rassurer les visiteurs sceptiques" },
-                  { value: "developper", label: "Développer certaines prestations spécifiques" },
-                  { value: "credibilite", label: "Asseoir ma crédibilité et mon sérieux" },
+                  {
+                    value: "expliquer",
+                    label: "Mieux expliquer le magnétisme et mes soins",
+                  },
+                  {
+                    value: "contact",
+                    label: "Faciliter la prise de contact / rendez-vous",
+                  },
+                  {
+                    value: "rassurer",
+                    label: "Rassurer les visiteurs sceptiques",
+                  },
+                  {
+                    value: "developper",
+                    label: "Développer certaines prestations spécifiques",
+                  },
+                  {
+                    value: "credibilite",
+                    label: "Asseoir ma crédibilité et mon sérieux",
+                  },
                 ]}
                 values={arr("objectifs_site")}
                 onChange={(v) => set("objectifs_site", v)}
@@ -483,7 +531,10 @@ function CadragePascalePage() {
                   { value: "rdv", label: "Prendre rendez-vous" },
                   { value: "appeler", label: "Appeler" },
                   { value: "message", label: "Envoyer un message" },
-                  { value: "univers", label: "Découvrir ton univers et ta façon de travailler" },
+                  {
+                    value: "univers",
+                    label: "Découvrir ton univers et ta façon de travailler",
+                  },
                   { value: "reseaux", label: "Suivre tes réseaux sociaux" },
                 ]}
                 values={arr("actions_visiteurs")}
@@ -559,7 +610,7 @@ function CadragePascalePage() {
                 rows={4}
                 value={str("inspirations_sites")}
                 onChange={(v) => set("inspirations_sites", v)}
-                placeholder="URLs, captures d'écran, ou décris ce que tu aimes — pas forcément des sites de magnétisme"
+                placeholder="URLs, captures d'écran, ou décris ce que tu aimes, pas forcément des sites de magnétisme"
               />
             </QuestionBlock>
 
@@ -578,9 +629,15 @@ function CadragePascalePage() {
               <RadioGroup
                 name="logo_souhait"
                 options={[
-                  { value: "conserver", label: "Conserver le logo actuel tel quel" },
+                  {
+                    value: "conserver",
+                    label: "Conserver le logo actuel tel quel",
+                  },
                   { value: "moderniser", label: "Le moderniser légèrement" },
-                  { value: "nouveau", label: "Repartir sur une nouvelle identité visuelle" },
+                  {
+                    value: "nouveau",
+                    label: "Repartir sur une nouvelle identité visuelle",
+                  },
                 ]}
                 value={str("logo_souhait")}
                 onChange={(v) => set("logo_souhait", v)}
@@ -598,7 +655,10 @@ function CadragePascalePage() {
               <CheckboxGroup
                 name="declinaisons_identite"
                 options={[
-                  { value: "reseaux", label: "Réseaux sociaux (bannières, visuels de posts)" },
+                  {
+                    value: "reseaux",
+                    label: "Réseaux sociaux (bannières, visuels de posts)",
+                  },
                   { value: "cartes", label: "Cartes de visite" },
                   { value: "print", label: "Flyers / supports imprimés" },
                 ]}
@@ -618,12 +678,18 @@ function CadragePascalePage() {
                 options={[
                   { value: "accueil", label: "Accueil" },
                   { value: "apropos", label: "À propos / mon parcours" },
-                  { value: "magnetisme", label: "Qu'est-ce que le magnétisme ?" },
+                  {
+                    value: "magnetisme",
+                    label: "Qu'est-ce que le magnétisme ?",
+                  },
                   { value: "soins", label: "Soins & tarifs" },
                   { value: "temoignages", label: "Témoignages clients" },
                   { value: "faq", label: "Questions fréquentes" },
                   { value: "contact", label: "Contact / prise de rendez-vous" },
-                  { value: "legal", label: "Mentions légales & confidentialité" },
+                  {
+                    value: "legal",
+                    label: "Mentions légales & confidentialité",
+                  },
                 ]}
                 values={arr("pages_envisagees")}
                 onChange={(v) => set("pages_envisagees", v)}
@@ -680,8 +746,14 @@ function CadragePascalePage() {
                 options={[
                   { value: "telephone", label: "Téléphone" },
                   { value: "email", label: "Email" },
-                  { value: "formulaire", label: "Formulaire de contact sur le site" },
-                  { value: "plateforme", label: "Plateforme de réservation en ligne" },
+                  {
+                    value: "formulaire",
+                    label: "Formulaire de contact sur le site",
+                  },
+                  {
+                    value: "plateforme",
+                    label: "Plateforme de réservation en ligne",
+                  },
                   { value: "sms", label: "SMS / WhatsApp" },
                 ]}
                 values={arr("contact_canaux")}
@@ -703,7 +775,7 @@ function CadragePascalePage() {
                 rows={3}
                 value={str("agenda_reservation")}
                 onChange={(v) => set("agenda_reservation", v)}
-                placeholder="Doctolib, Calendly, Acuity, Planity, autre, aucun — souhaites-tu en intégrer un ?"
+                placeholder="Doctolib, Calendly, Acuity, Planity, autre, aucun : souhaites-tu en intégrer un ?"
               />
             </QuestionBlock>
 
@@ -713,9 +785,18 @@ function CadragePascalePage() {
               <CheckboxGroup
                 name="contenus_disponibles"
                 options={[
-                  { value: "photos_pro", label: "Photos professionnelles de toi" },
-                  { value: "photos_perso", label: "Photos personnelles utilisables" },
-                  { value: "textes", label: "Textes existants sur le site actuel réutilisables" },
+                  {
+                    value: "photos_pro",
+                    label: "Photos professionnelles de toi",
+                  },
+                  {
+                    value: "photos_perso",
+                    label: "Photos personnelles utilisables",
+                  },
+                  {
+                    value: "textes",
+                    label: "Textes existants sur le site actuel réutilisables",
+                  },
                   { value: "temoignages", label: "Témoignages clients écrits" },
                   { value: "avis_google", label: "Avis Google" },
                   { value: "videos", label: "Vidéos" },
@@ -728,9 +809,16 @@ function CadragePascalePage() {
               <RadioGroup
                 name="contenus_redaction"
                 options={[
-                  { value: "peakcl", label: "Je préfère que tu rédiges les textes" },
+                  {
+                    value: "peakcl",
+                    label: "Je préfère que tu rédiges les textes",
+                  },
                   { value: "cliente", label: "Je rédige moi-même" },
-                  { value: "ensemble", label: "On travaille ensemble (j'apporte la matière, tu structures)" },
+                  {
+                    value: "ensemble",
+                    label:
+                      "On travaille ensemble (j'apporte la matière, tu structures)",
+                  },
                 ]}
                 value={str("contenus_redaction")}
                 onChange={(v) => set("contenus_redaction", v)}
@@ -830,10 +918,23 @@ function CadragePascalePage() {
               <CheckboxGroup
                 name="gestion_souhaits"
                 options={[
-                  { value: "simple", label: "Un site simple, fiable et évolutif" },
-                  { value: "autonomie", label: "Pouvoir modifier certains contenus toi-même (textes, tarifs…)" },
-                  { value: "ponctuel", label: "Un accompagnement technique ponctuel si besoin" },
-                  { value: "maintenance", label: "Une maintenance assurée par PeakCL" },
+                  {
+                    value: "simple",
+                    label: "Un site simple, fiable et évolutif",
+                  },
+                  {
+                    value: "autonomie",
+                    label:
+                      "Pouvoir modifier certains contenus toi-même (textes, tarifs…)",
+                  },
+                  {
+                    value: "ponctuel",
+                    label: "Un accompagnement technique ponctuel si besoin",
+                  },
+                  {
+                    value: "maintenance",
+                    label: "Une maintenance assurée par PeakCL",
+                  },
                 ]}
                 values={arr("gestion_souhaits")}
                 onChange={(v) => set("gestion_souhaits", v)}
@@ -845,7 +946,7 @@ function CadragePascalePage() {
                 rows={4}
                 value={str("hebergement_acces")}
                 onChange={(v) => set("hebergement_acces", v)}
-                placeholder="Fournisseur, identifiants disponibles, ou aucune idée — tout est utile"
+                placeholder="Fournisseur, identifiants disponibles, ou aucune idée, tout est utile"
               />
             </QuestionBlock>
 
@@ -871,8 +972,14 @@ function CadragePascalePage() {
               <RadioGroup
                 name="organisation_projet"
                 options={[
-                  { value: "etapes", label: "Étape par étape avec des validations régulières" },
-                  { value: "global", label: "Me présenter le projet global une fois finalisé" },
+                  {
+                    value: "etapes",
+                    label: "Étape par étape avec des validations régulières",
+                  },
+                  {
+                    value: "global",
+                    label: "Me présenter le projet global une fois finalisé",
+                  },
                 ]}
                 value={str("organisation_projet")}
                 onChange={(v) => set("organisation_projet", v)}
@@ -893,8 +1000,8 @@ function CadragePascalePage() {
 
             <div className="mt-12 rounded-2xl border border-white/10 bg-card/40 p-6 text-center shadow-card">
               <p className="text-sm text-muted-foreground">
-                Tu peux envoyer même si tout n'est pas rempli. Tes réponses sont sauvegardées sur cet appareil jusqu'à
-                l'envoi.
+                Tu peux envoyer même si tout n'est pas rempli. Tes réponses sont
+                sauvegardées sur cet appareil jusqu'à l'envoi.
               </p>
               <button
                 type="submit"

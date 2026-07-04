@@ -12,7 +12,10 @@ export const Route = createFileRoute("/agence-web-annecy")({
         content:
           "Création & refonte de sites web premium à Annecy. Un site rapide, clair et pensé pour générer des prises de contact. Audit gratuit sous 24h.",
       },
-      { property: "og:title", content: "Création de site web à Annecy · PeakCL" },
+      {
+        property: "og:title",
+        content: "Création de site web à Annecy · PeakCL",
+      },
       {
         property: "og:description",
         content:
@@ -26,7 +29,11 @@ export const Route = createFileRoute("/agence-web-annecy")({
           { name: "Annecy", path: "/agence-web-annecy" },
         ]),
       },
-      { "script:ld+json": faqPageJsonLd(geoLandingFaq("Annecy", "Haute-Savoie", "site web")) },
+      {
+        "script:ld+json": faqPageJsonLd(
+          geoLandingFaq("Annecy", "Haute-Savoie", "site web"),
+        ),
+      },
     ],
     links: [{ rel: "canonical", href: absUrl("/agence-web-annecy") }],
   }),
@@ -42,7 +49,7 @@ function Page() {
       angleTitle="Un site qui fait le tri."
       angleText="Annecy est concurrentiel : l'objectif est une page et une structure qui rassurent, positionnent haut de gamme, et transforment en demandes qualifiées. On vise la qualité du contact, pas seulement le volume de visites."
       localExample={{
-        text: "Annecy concentre beaucoup d'indépendants, d'artisans et de prestataires haut de gamme : la concurrence en ligne y est plus forte qu'ailleurs en Haute-Savoie. Se démarquer passe par un site rapide, une identité nette et des signaux de confiance solides (avis, portfolio, performance) — exactement ce que je construis avec mes clients.",
+        text: "Annecy concentre beaucoup d'indépendants, d'artisans et de prestataires haut de gamme : la concurrence en ligne y est plus forte qu'ailleurs en Haute-Savoie. Se démarquer passe par un site rapide, une identité nette et des signaux de confiance solides (avis, portfolio, performance), exactement ce que je construis avec mes clients.",
       }}
       nearby={[
         { name: "Aix-les-Bains", href: "/agence-web-aix-les-bains" },
@@ -53,4 +60,3 @@ function Page() {
     />
   );
 }
-

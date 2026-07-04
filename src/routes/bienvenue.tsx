@@ -42,8 +42,9 @@ function BienvenuePage() {
             <span className="text-gradient">4 étapes</span> ci‑dessous
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Tu as réservé ton diagnostic : parcours les preuves et les guides avant notre rendez‑vous. Si tu
-            ne complètes pas ces étapes, je serai obligée d&apos;annuler notre appel.
+            Tu as réservé ton diagnostic : parcours les preuves et les guides
+            avant notre rendez‑vous. Si tu ne complètes pas ces étapes, je serai
+            obligée d&apos;annuler notre appel.
           </p>
           <div className="mt-8">
             <a
@@ -65,20 +66,24 @@ function BienvenuePage() {
               1
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-foreground">Qui je suis, ce que je fais</h2>
+              <h2 className="text-2xl font-bold text-foreground">
+                Qui je suis, ce que je fais
+              </h2>
             </div>
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card">
             <p className="text-base leading-relaxed text-foreground/90">
-              Je m&apos;appelle Charlotte, fondatrice de PeakCL. J&apos;aide les indépendants et petites entreprises à
-              structurer leur activité pour attirer des clients sans s&apos;épuiser : site web, système de prospection,
-              image de marque, outils — j&apos;adapte l&apos;accompagnement à ce qui te fait vraiment avancer, pas une
+              Je m&apos;appelle Charlotte, fondatrice de PeakCL. J&apos;aide les
+              indépendants et petites entreprises à structurer leur activité
+              pour attirer des clients sans s&apos;épuiser : site web, système
+              de prospection, image de marque, outils : j&apos;adapte
+              l&apos;accompagnement à ce qui te fait vraiment avancer, pas une
               formule unique.
             </p>
             <p className="mt-3 text-base leading-relaxed text-foreground/90">
-              Notre appel sert à comprendre où tu en es et ce qui bloque, pour te proposer un plan concret — pas un
-              pitch générique. À très vite !
+              Notre appel sert à comprendre où tu en es et ce qui bloque, pour
+              te proposer un plan concret, pas un pitch générique. À très vite !
             </p>
           </div>
         </section>
@@ -90,15 +95,22 @@ function BienvenuePage() {
               2
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-foreground">Ajoute le rendez‑vous à ton agenda</h2>
+              <h2 className="text-2xl font-bold text-foreground">
+                Ajoute le rendez‑vous à ton agenda
+              </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Quand tu reçois l&apos;invitation, clique sur “Je connais cet expéditeur” puis confirme pour l&apos;ajouter à ton calendrier.
+                Quand tu reçois l&apos;invitation, clique sur “Je connais cet
+                expéditeur” puis confirme pour l&apos;ajouter à ton calendrier.
               </p>
             </div>
           </div>
 
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-card">
-            <img src={AGENDA_HELP_IMAGE} alt="Aide agenda - confirmation du rendez-vous" className="h-auto w-full" />
+            <img
+              src={AGENDA_HELP_IMAGE}
+              alt="Aide agenda - confirmation du rendez-vous"
+              className="h-auto w-full"
+            />
           </div>
         </section>
 
@@ -109,25 +121,37 @@ function BienvenuePage() {
               3
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-foreground">Regarde des résultats clients</h2>
+              <h2 className="text-2xl font-bold text-foreground">
+                Regarde des résultats clients
+              </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Quelques retours récents de clients PeakCL (site, clarté, conversion).
+                Quelques retours récents de clients PeakCL (site, clarté,
+                conversion).
               </p>
             </div>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
             {peakclTestimonials.map((t) => (
-              <div key={t.name} className="h-full rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card">
+              <div
+                key={t.name}
+                className="h-full rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card"
+              >
                 <div className="flex gap-1 text-[var(--brand-yellow)]">
                   {Array.from({ length: t.rating }).map((_, k) => (
                     <Star key={k} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-foreground/90">“{t.quote}”</p>
+                <p className="mt-4 text-sm leading-relaxed text-foreground/90">
+                  “{t.quote}”
+                </p>
                 <div className="mt-6 border-t border-white/10 pt-4">
-                  <div className="text-sm font-semibold text-foreground">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{[t.sourceLabel, t.dateLabel].filter(Boolean).join(" · ")}</div>
+                  <div className="text-sm font-semibold text-foreground">
+                    {t.name}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {[t.sourceLabel, t.dateLabel].filter(Boolean).join(" · ")}
+                  </div>
                 </div>
               </div>
             ))}
@@ -141,9 +165,12 @@ function BienvenuePage() {
               4
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-foreground">Récupère les ressources</h2>
+              <h2 className="text-2xl font-bold text-foreground">
+                Récupère les ressources
+              </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Télécharge les guides et garde‑les sous la main avant notre rendez‑vous.
+                Télécharge les guides et garde‑les sous la main avant notre
+                rendez‑vous.
               </p>
             </div>
           </div>
@@ -153,11 +180,26 @@ function BienvenuePage() {
             <div className="relative p-6">
               <div className="grid gap-3">
                 {[
-                  { title: "1 · Pourquoi tu n'as pas de clients", href: "/ressources-systeme" },
-                  { title: "2 · Pourquoi ton site ne convertit pas", href: "/ressources-site" },
-                  { title: "3 · Pourquoi on ne te fait pas confiance", href: "/ressources-confiance" },
-                  { title: "Bonus · Ton site, machine à clients", href: "/ressources-conversion" },
-                  { title: "5 · Stratégie réseaux sociaux", href: "/ressources-reseaux" },
+                  {
+                    title: "1 · Pourquoi tu n'as pas de clients",
+                    href: "/ressources-systeme",
+                  },
+                  {
+                    title: "2 · Pourquoi ton site ne convertit pas",
+                    href: "/ressources-site",
+                  },
+                  {
+                    title: "3 · Pourquoi on ne te fait pas confiance",
+                    href: "/ressources-confiance",
+                  },
+                  {
+                    title: "Bonus · Ton site, machine à clients",
+                    href: "/ressources-conversion",
+                  },
+                  {
+                    title: "5 · Stratégie réseaux sociaux",
+                    href: "/ressources-reseaux",
+                  },
                 ].map((r) => (
                   <a
                     key={r.href}
@@ -169,14 +211,20 @@ function BienvenuePage() {
                       <Download className="h-4 w-4 text-muted-foreground" />
                       {r.title}
                     </span>
-                    <span className="text-xs text-muted-foreground">Ouvrir</span>
+                    <span className="text-xs text-muted-foreground">
+                      Ouvrir
+                    </span>
                   </a>
                 ))}
               </div>
 
               <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div className="text-xs text-muted-foreground">45 min · visio · sans engagement</div>
-                <div className="text-xs text-muted-foreground">Ressources personnalisées pour ton appel</div>
+                <div className="text-xs text-muted-foreground">
+                  45 min · visio · sans engagement
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  Ressources personnalisées pour ton appel
+                </div>
               </div>
             </div>
           </div>
@@ -185,4 +233,3 @@ function BienvenuePage() {
     </main>
   );
 }
-
