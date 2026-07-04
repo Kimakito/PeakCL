@@ -23,6 +23,8 @@ export type GeoLandingProps = {
   angleText: string;
   /** Optional city-specific block (local proof / context) to avoid duplicate content */
   localExample?: { text: string; linkLabel?: string; linkHref?: string };
+  /** Optional dedicated local-SEO block (targets "agence seo {city}"-style queries) */
+  seoSection?: { title: string; text: string };
   nearby: NearbyLink[];
 };
 
@@ -62,6 +64,7 @@ export function GeoLanding({
   angleTitle,
   angleText,
   localExample,
+  seoSection,
   nearby,
 }: GeoLandingProps) {
   return (
@@ -75,7 +78,7 @@ export function GeoLanding({
             {city} · {region}
           </div>
           <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-tight md:text-6xl">
-            Création de {serviceLabel} à <span className="text-gradient">{city}</span>
+            Agence web à <span className="text-gradient">{city}</span> : création de {serviceLabel}
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{intro}</p>
           <a
@@ -180,6 +183,16 @@ export function GeoLanding({
           </div>
         </div>
       </section>
+
+      {/* Local SEO */}
+      {seoSection ? (
+        <section className="border-t border-white/5 py-20">
+          <div className="mx-auto max-w-5xl px-6">
+            <h2 className="text-2xl font-bold md:text-3xl">{seoSection.title}</h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground">{seoSection.text}</p>
+          </div>
+        </section>
+      ) : null}
 
       {/* Process */}
       <section className="border-t border-white/5 py-20">

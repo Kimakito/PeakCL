@@ -6,17 +6,17 @@ import { GeoLanding } from "@/components/GeoLanding";
 export const Route = createFileRoute("/agence-web-albertville")({
   head: () => ({
     meta: [
-      { title: "Création de site web / site internet à Albertville · PeakCL" },
+      { title: "Agence web à Albertville : création de site internet · PeakCL" },
       {
         name: "description",
         content:
-          "Création & refonte de sites web (sites internet) premium à Albertville. Un site rapide, clair et pensé pour générer des prises de contact. Audit gratuit sous 24h.",
+          "Agence web à Albertville : création & refonte de sites internet premium, référencement SEO local inclus. Un site rapide, clair et pensé pour générer des prises de contact. Audit gratuit sous 24h.",
       },
-      { property: "og:title", content: "Création de site web à Albertville · PeakCL" },
+      { property: "og:title", content: "Agence web à Albertville · PeakCL" },
       {
         property: "og:description",
         content:
-          "Création & refonte de sites web premium à Albertville. Audit gratuit sous 24h.",
+          "Agence web à Albertville : création de sites internet et référencement SEO local. Audit gratuit sous 24h.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/agence-web-albertville") },
@@ -45,6 +45,10 @@ function Page() {
         text: "Exemple concret : pour La Vieille Roue (Jantes 73), artisan automobile à Albertville, j'ai conçu un site vitrine clair avec un travail de SEO local pour capter les recherches du bassin albertvillois.",
         linkLabel: "Voir le portfolio",
         linkHref: "/portfolio",
+      }}
+      seoSection={{
+        title: "Agence SEO à Albertville : être trouvée avant vos concurrents",
+        text: "Au-delà du design, chaque site est construit avec des bases de référencement local propres : balises titres et méta cohérentes, structure de contenu claire, maillage vers vos pages clés et temps de chargement optimisé. L'objectif : que votre agence ou activité albertvilloise apparaisse quand vos clients potentiels cherchent vos services à Albertville, pas seulement votre nom.",
       }}
       nearby={[
         { name: "Gilly-sur-Isère", href: "/agence-web-gilly-sur-isere" },
