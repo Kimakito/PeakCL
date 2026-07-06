@@ -323,25 +323,16 @@ function QuestionnaireR2Page() {
     refonte: ["1200 à 2000€", "2000 à 3000€", "3000€ et plus"],
     debug: ["60€/h (ponctuel)", "99€/mois (maintenance)", "300€ et plus"],
     identite: ["500 à 800€", "800 à 1500€", "1500€ et plus"],
-    reseaux: ["200 à 400€/mois", "400 à 650€/mois", "900€/mois et plus"],
+    reseaux: ["150 à 300€/mois", "300 à 450€/mois", "450 à 600€/mois et plus"],
     global: ["2200 à 3200€", "3200 à 4500€", "4500€ et plus"],
   };
   const budgetSuggestions =
     budgetSuggestionsByFocus[values.serviceFocus] ??
     budgetSuggestionsByFocus.global;
-  const budgetPlaceholderByFocus: Record<string, string> = {
-    landing: "Ex: 800 à 1200€",
-    site: "Ex: 2000 à 3000€",
-    ecommerce: "Ex: 3800 à 5000€",
-    refonte: "Ex: 1200 à 2000€",
-    debug: "Ex: 99€/mois",
-    identite: "Ex: 500 à 800€",
-    reseaux: "Ex: 200 à 400€/mois",
-    global: "Ex: 2200 à 3200€",
-  };
-  const budgetPlaceholder =
-    budgetPlaceholderByFocus[values.serviceFocus] ??
-    budgetPlaceholderByFocus.global;
+  const budgetOptions = [
+    ...budgetSuggestions.map((s) => ({ value: s, label: s })),
+    { value: "ne_sais_pas", label: "Je ne sais pas encore" },
+  ];
 
   const completion = useMemo(() => {
     const isFilled = (name: string) => values[name]?.trim().length > 0;
@@ -525,22 +516,21 @@ function QuestionnaireR2Page() {
               ]}
             />
 
-            <div>
-              <TextInput
+            {values.serviceFocus ? (
+              <ChoiceSingle
                 label="Si, lors de notre prochain appel, je te présente une offre qui répond à ce besoin et t’aide à atteindre ton objectif, combien serais-tu prêt·e à investir ?"
-                helper="Une fourchette suffit, il n'y a pas de mauvaise réponse."
                 name="budget"
                 required
                 value={values.budget}
                 onChange={(v) => setField(setValues, "budget", v)}
-                placeholder={budgetPlaceholder}
+                options={budgetOptions}
               />
-              <SuggestionChips
-                suggestions={budgetSuggestions}
-                value={values.budget}
-                onChange={(v) => setField(setValues, "budget", v)}
-              />
-            </div>
+            ) : (
+              <div className="rounded-2xl border border-dashed border-white/10 bg-card/20 p-5 text-sm text-muted-foreground">
+                Choisis d’abord ta priorité ci-dessus pour voir les fourchettes
+                de budget adaptées. ⭐
+              </div>
+            )}
 
             <div>
               <TextArea

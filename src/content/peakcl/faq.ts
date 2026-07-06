@@ -1,16 +1,18 @@
 export type PeakclFaqItem = {
-  question: string
-  answerHtml: string
-}
+  question: string;
+  answerHtml: string;
+};
 
 export const peakclFaq: PeakclFaqItem[] = [
   {
-    question: "Comment savoir quel type de présence en ligne est adapté à mon activité ?",
+    question:
+      "Comment savoir quel type de présence en ligne est adapté à mon activité ?",
     answerHtml:
       "On part de votre activité (ce que vous faites, pour qui, où) et de l’action que vous voulez obtenir (appel, demande de devis, réservation…). Un bon site ne commence pas par la technique, mais par un message clair et un parcours simple vers la prise de contact.",
   },
   {
-    question: "Combien de temps faut‑il pour créer un site (et le mettre vraiment en ligne) ?",
+    question:
+      "Combien de temps faut‑il pour créer un site (et le mettre vraiment en ligne) ?",
     answerHtml:
       "Ça dépend du périmètre (site seul vs site + logo + réseaux + Google). L’idée, c’est d’avancer vite sans bâcler : on valide la structure et le ton, puis je produis. Le délai dépend aussi de votre disponibilité pour les infos de base (services, zone, photos).",
   },
@@ -18,6 +20,16 @@ export const peakclFaq: PeakclFaqItem[] = [
     question: "Pourquoi avoir un site web si j’ai déjà Instagram / Facebook ?",
     answerHtml:
       "Les réseaux sont utiles, mais vous ne les contrôlez pas (algorithmes, restrictions, comptes). Votre site, c’est votre base : un endroit clair où l’on comprend vite ce que vous faites, avec une prise de contact simple. Et surtout, Google renvoie d’abord vers des pages web et des fiches Google, pas vers vos posts.",
+  },
+  {
+    question: "En quoi consiste l’accompagnement réseaux sociaux ?",
+    answerHtml:
+      "Un rythme de publication adapté à votre activité (d’une publication par semaine à plusieurs par semaine), des visuels brandés et des textes avec hashtags. Selon le rythme choisi, on ajoute des stories et des reels. Un rapport mensuel permet de suivre ce qui fonctionne.",
+  },
+  {
+    question: "Qui crée les visuels et les textes des publications ?",
+    answerHtml:
+      "Je m’occupe de la création (visuels brandés, rédaction, hashtags) à partir de ce que vous me fournissez (photos, infos, actus). Vous gardez un droit de regard avant publication, et les révisions du visuel sont incluses.",
   },
   {
     question: "Comment choisir la bonne personne pour créer mon site ?",
@@ -31,8 +43,7 @@ export const peakclFaq: PeakclFaqItem[] = [
   },
   {
     question: "Mon site sera‑t‑il adapté aux smartphones ?",
-    answerHtml:
-      "Oui, 100% responsive : le mobile est la norme, pas l’option.",
+    answerHtml: "Oui, 100% responsive : le mobile est la norme, pas l’option.",
   },
   {
     question: "La maintenance, c’est obligatoire ?",
@@ -104,5 +115,4 @@ export const peakclFaq: PeakclFaqItem[] = [
     answerHtml:
       "L’IA peut aider, oui. Mais un site utile, c’est aussi des choix : structure, message, confiance, mise en ligne, Google, cohérence visuelle. Si vous ne faites pas ça souvent, vous perdez du temps et vous perdez la main. Mon rôle : prendre le temps, simplifier, et livrer une présence en ligne propre, sans vous épuiser.",
   },
-]
-
+];
