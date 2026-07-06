@@ -614,11 +614,11 @@ function QuestionnaireR2Page() {
               <div className="mt-6 flex justify-center">
                 <button
                   type="submit"
-                  disabled={!canSubmit || isSubmitting}
+                  disabled={isSubmitting}
                   className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all ${
                     canSubmit && !isSubmitting
                       ? "bg-primary-gradient text-primary-foreground shadow-glow hover:scale-[1.02]"
-                      : "cursor-not-allowed border border-white/10 bg-white/5 text-muted-foreground"
+                      : "border border-white/10 bg-white/5 text-muted-foreground"
                   }`}
                 >
                   {isSubmitting ? "Envoi en cours…" : "Envoyer mes réponses"}
@@ -628,8 +628,9 @@ function QuestionnaireR2Page() {
 
               {!canSubmit ? (
                 <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">
-                  Il manque encore des champs ⭐ obligatoires. Tu peux les
-                  remplir plus tard : le formulaire se sauvegarde
+                  Il manque encore des champs ⭐ obligatoires. Clique sur
+                  "Envoyer mes réponses" : on t’emmène directement au premier
+                  champ à compléter. Tes réponses restent sauvegardées
                   automatiquement sur ton appareil.
                 </p>
               ) : null}
