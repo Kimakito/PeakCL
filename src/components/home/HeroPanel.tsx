@@ -9,7 +9,6 @@ import {
   Star,
 } from "lucide-react";
 import { CTAButton } from "@/components/CTAButton";
-import { Fireworks } from "@/components/home/Fireworks";
 import { Mascot } from "@/components/Mascot";
 import type { MascotPose } from "@/lib/mascot";
 
@@ -43,9 +42,9 @@ const ORBIT_ITEMS: OrbitItem[] = [
     variant: "ghost",
   },
   {
-    label: "Offres",
-    href: "/packs",
-    desc: "Site, identité, réseaux, Google. Un seul interlocuteur.",
+    label: "Services",
+    href: "/services",
+    desc: "Sites web, réseaux, design, automatisation. Un seul interlocuteur.",
     icon: Package,
     pose: "bas",
     variant: "ghost",
@@ -250,8 +249,9 @@ export function HeroPanel() {
       id="accueil"
       className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden"
     >
-      {/* Fireworks sparkle effect */}
-      <Fireworks className="opacity-40" />
+      {/* Atmosphère hero : aurora premium + halo lumineux central + étoiles */}
+      <div className="hero-aurora" aria-hidden />
+      <div className="hero-stars" aria-hidden />
 
       {/* badge */}
       <div className="hero-fade relative z-10 mb-3 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs text-foreground/90 backdrop-blur">
@@ -264,21 +264,21 @@ export function HeroPanel() {
 
       {/* headline under avatar */}
       <div className="hero-fade hero-fade-d1 relative z-10 mt-3 text-center">
-        <h1 className="mx-auto max-w-3xl text-balance text-2xl font-bold leading-tight md:text-4xl">
+        <h1 className="mx-auto max-w-4xl text-balance text-3xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
           Pas le temps pour votre site, vos réseaux et votre image ?
           <br />
-          <span className="text-gradient">
+          <span className="text-gradient-anim">
             Déléguez-moi toute votre communication en ligne.
           </span>
         </h1>
-        <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground md:text-base">
+        <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-lg">
           Site · Identité · Réseaux · Google : un seul interlocuteur, de A à Z.
         </p>
       </div>
 
       {/* scroll hint */}
       <div className="absolute bottom-20 left-1/2 z-10 -translate-x-1/2 animate-bounce text-white/30 text-xs hidden md:block">
-        scroll →
+        scroll ↓
       </div>
     </section>
   );

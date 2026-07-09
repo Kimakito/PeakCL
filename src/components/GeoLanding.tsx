@@ -48,7 +48,7 @@ const SERVICES = [
     icon: Globe,
     title: "Site & pages de vente",
     desc: "Site vitrine rapide, codé sur mesure ou WordPress, pensé pour convertir.",
-    href: "/packs",
+    href: "/services",
   },
   {
     icon: Palette,

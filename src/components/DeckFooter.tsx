@@ -76,10 +76,10 @@ export function DeckFooter() {
             Portfolio
           </a>
           <a
-            href="/packs"
+            href="/services"
             className="text-muted-foreground hover:text-foreground"
           >
-            Offres
+            Services
           </a>
           <a
             href="/qui-suis-je"

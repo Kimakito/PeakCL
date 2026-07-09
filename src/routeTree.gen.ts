@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrameProspectionRouteImport } from './routes/trame-prospection'
+import { Route as SitesWebRouteImport } from './routes/sites-web'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as RessourcesSystemeRouteImport } from './routes/ressources-systeme'
 import { Route as RessourcesSiteRouteImport } from './routes/ressources-site'
 import { Route as RessourcesReseauxRouteImport } from './routes/ressources-reseaux'
@@ -26,6 +28,7 @@ import { Route as MerciDiagnosticRouteImport } from './routes/merci-diagnostic'
 import { Route as MerciBriefRouteImport } from './routes/merci-brief'
 import { Route as MerciRouteImport } from './routes/merci'
 import { Route as DiagnosticRouteImport } from './routes/diagnostic'
+import { Route as DesignRouteImport } from './routes/design'
 import { Route as CreationLogoAlbertvilleRouteImport } from './routes/creation-logo-albertville'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConseilsWordpressOuSurMesureRouteImport } from './routes/conseils-wordpress-ou-sur-mesure'
@@ -35,6 +38,7 @@ import { Route as ConseilsPrixSiteInternetRouteImport } from './routes/conseils-
 import { Route as ConseilsCommunityManagerUtileRouteImport } from './routes/conseils-community-manager-utile'
 import { Route as ConseilsRouteImport } from './routes/conseils'
 import { Route as CommunityManagerSavoieRouteImport } from './routes/community-manager-savoie'
+import { Route as CommunityManagementRouteImport } from './routes/community-management'
 import { Route as BienvenueStrategieRouteImport } from './routes/bienvenue-strategie'
 import { Route as BienvenueRouteImport } from './routes/bienvenue'
 import { Route as BacASableVideoRouteImport } from './routes/bac-a-sable-video'
@@ -43,6 +47,7 @@ import { Route as AgenceWebChamberyRouteImport } from './routes/agence-web-chamb
 import { Route as AgenceWebAnnecyRouteImport } from './routes/agence-web-annecy'
 import { Route as AgenceWebAlbertvilleRouteImport } from './routes/agence-web-albertville'
 import { Route as AgenceWebAixLesBainsRouteImport } from './routes/agence-web-aix-les-bains'
+import { Route as AccompagnementAutomatisationRouteImport } from './routes/accompagnement-automatisation'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CadrageVeroniqueRouteImport } from './routes/cadrage.veronique'
 import { Route as CadragePascaleRouteImport } from './routes/cadrage.pascale'
@@ -52,6 +57,16 @@ import { Route as CadragePascaleMerciRouteImport } from './routes/cadrage.pascal
 const TrameProspectionRoute = TrameProspectionRouteImport.update({
   id: '/trame-prospection',
   path: '/trame-prospection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitesWebRoute = SitesWebRouteImport.update({
+  id: '/sites-web',
+  path: '/sites-web',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RessourcesSystemeRoute = RessourcesSystemeRouteImport.update({
@@ -134,6 +149,11 @@ const DiagnosticRoute = DiagnosticRouteImport.update({
   path: '/diagnostic',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DesignRoute = DesignRouteImport.update({
+  id: '/design',
+  path: '/design',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CreationLogoAlbertvilleRoute = CreationLogoAlbertvilleRouteImport.update({
   id: '/creation-logo-albertville',
   path: '/creation-logo-albertville',
@@ -184,6 +204,11 @@ const CommunityManagerSavoieRoute = CommunityManagerSavoieRouteImport.update({
   path: '/community-manager-savoie',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityManagementRoute = CommunityManagementRouteImport.update({
+  id: '/community-management',
+  path: '/community-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BienvenueStrategieRoute = BienvenueStrategieRouteImport.update({
   id: '/bienvenue-strategie',
   path: '/bienvenue-strategie',
@@ -224,6 +249,12 @@ const AgenceWebAixLesBainsRoute = AgenceWebAixLesBainsRouteImport.update({
   path: '/agence-web-aix-les-bains',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccompagnementAutomatisationRoute =
+  AccompagnementAutomatisationRouteImport.update({
+    id: '/accompagnement-automatisation',
+    path: '/accompagnement-automatisation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -252,6 +283,7 @@ const CadragePascaleMerciRoute = CadragePascaleMerciRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accompagnement-automatisation': typeof AccompagnementAutomatisationRoute
   '/agence-web-aix-les-bains': typeof AgenceWebAixLesBainsRoute
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
@@ -260,6 +292,7 @@ export interface FileRoutesByFullPath {
   '/bac-a-sable-video': typeof BacASableVideoRoute
   '/bienvenue': typeof BienvenueRoute
   '/bienvenue-strategie': typeof BienvenueStrategieRoute
+  '/community-management': typeof CommunityManagementRoute
   '/community-manager-savoie': typeof CommunityManagerSavoieRoute
   '/conseils': typeof ConseilsRoute
   '/conseils-community-manager-utile': typeof ConseilsCommunityManagerUtileRoute
@@ -269,6 +302,7 @@ export interface FileRoutesByFullPath {
   '/conseils-wordpress-ou-sur-mesure': typeof ConseilsWordpressOuSurMesureRoute
   '/contact': typeof ContactRoute
   '/creation-logo-albertville': typeof CreationLogoAlbertvilleRoute
+  '/design': typeof DesignRoute
   '/diagnostic': typeof DiagnosticRoute
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
@@ -285,6 +319,8 @@ export interface FileRoutesByFullPath {
   '/ressources-reseaux': typeof RessourcesReseauxRoute
   '/ressources-site': typeof RessourcesSiteRoute
   '/ressources-systeme': typeof RessourcesSystemeRoute
+  '/services': typeof ServicesRoute
+  '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
   '/cadrage/pascale': typeof CadragePascaleRouteWithChildren
   '/cadrage/veronique': typeof CadrageVeroniqueRouteWithChildren
@@ -293,6 +329,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accompagnement-automatisation': typeof AccompagnementAutomatisationRoute
   '/agence-web-aix-les-bains': typeof AgenceWebAixLesBainsRoute
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
@@ -301,6 +338,7 @@ export interface FileRoutesByTo {
   '/bac-a-sable-video': typeof BacASableVideoRoute
   '/bienvenue': typeof BienvenueRoute
   '/bienvenue-strategie': typeof BienvenueStrategieRoute
+  '/community-management': typeof CommunityManagementRoute
   '/community-manager-savoie': typeof CommunityManagerSavoieRoute
   '/conseils': typeof ConseilsRoute
   '/conseils-community-manager-utile': typeof ConseilsCommunityManagerUtileRoute
@@ -310,6 +348,7 @@ export interface FileRoutesByTo {
   '/conseils-wordpress-ou-sur-mesure': typeof ConseilsWordpressOuSurMesureRoute
   '/contact': typeof ContactRoute
   '/creation-logo-albertville': typeof CreationLogoAlbertvilleRoute
+  '/design': typeof DesignRoute
   '/diagnostic': typeof DiagnosticRoute
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
@@ -326,6 +365,8 @@ export interface FileRoutesByTo {
   '/ressources-reseaux': typeof RessourcesReseauxRoute
   '/ressources-site': typeof RessourcesSiteRoute
   '/ressources-systeme': typeof RessourcesSystemeRoute
+  '/services': typeof ServicesRoute
+  '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
   '/cadrage/pascale': typeof CadragePascaleRouteWithChildren
   '/cadrage/veronique': typeof CadrageVeroniqueRouteWithChildren
@@ -335,6 +376,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accompagnement-automatisation': typeof AccompagnementAutomatisationRoute
   '/agence-web-aix-les-bains': typeof AgenceWebAixLesBainsRoute
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
@@ -343,6 +385,7 @@ export interface FileRoutesById {
   '/bac-a-sable-video': typeof BacASableVideoRoute
   '/bienvenue': typeof BienvenueRoute
   '/bienvenue-strategie': typeof BienvenueStrategieRoute
+  '/community-management': typeof CommunityManagementRoute
   '/community-manager-savoie': typeof CommunityManagerSavoieRoute
   '/conseils': typeof ConseilsRoute
   '/conseils-community-manager-utile': typeof ConseilsCommunityManagerUtileRoute
@@ -352,6 +395,7 @@ export interface FileRoutesById {
   '/conseils-wordpress-ou-sur-mesure': typeof ConseilsWordpressOuSurMesureRoute
   '/contact': typeof ContactRoute
   '/creation-logo-albertville': typeof CreationLogoAlbertvilleRoute
+  '/design': typeof DesignRoute
   '/diagnostic': typeof DiagnosticRoute
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
@@ -368,6 +412,8 @@ export interface FileRoutesById {
   '/ressources-reseaux': typeof RessourcesReseauxRoute
   '/ressources-site': typeof RessourcesSiteRoute
   '/ressources-systeme': typeof RessourcesSystemeRoute
+  '/services': typeof ServicesRoute
+  '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
   '/cadrage/pascale': typeof CadragePascaleRouteWithChildren
   '/cadrage/veronique': typeof CadrageVeroniqueRouteWithChildren
@@ -378,6 +424,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/accompagnement-automatisation'
     | '/agence-web-aix-les-bains'
     | '/agence-web-albertville'
     | '/agence-web-annecy'
@@ -386,6 +433,7 @@ export interface FileRouteTypes {
     | '/bac-a-sable-video'
     | '/bienvenue'
     | '/bienvenue-strategie'
+    | '/community-management'
     | '/community-manager-savoie'
     | '/conseils'
     | '/conseils-community-manager-utile'
@@ -395,6 +443,7 @@ export interface FileRouteTypes {
     | '/conseils-wordpress-ou-sur-mesure'
     | '/contact'
     | '/creation-logo-albertville'
+    | '/design'
     | '/diagnostic'
     | '/merci'
     | '/merci-brief'
@@ -411,6 +460,8 @@ export interface FileRouteTypes {
     | '/ressources-reseaux'
     | '/ressources-site'
     | '/ressources-systeme'
+    | '/services'
+    | '/sites-web'
     | '/trame-prospection'
     | '/cadrage/pascale'
     | '/cadrage/veronique'
@@ -419,6 +470,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/accompagnement-automatisation'
     | '/agence-web-aix-les-bains'
     | '/agence-web-albertville'
     | '/agence-web-annecy'
@@ -427,6 +479,7 @@ export interface FileRouteTypes {
     | '/bac-a-sable-video'
     | '/bienvenue'
     | '/bienvenue-strategie'
+    | '/community-management'
     | '/community-manager-savoie'
     | '/conseils'
     | '/conseils-community-manager-utile'
@@ -436,6 +489,7 @@ export interface FileRouteTypes {
     | '/conseils-wordpress-ou-sur-mesure'
     | '/contact'
     | '/creation-logo-albertville'
+    | '/design'
     | '/diagnostic'
     | '/merci'
     | '/merci-brief'
@@ -452,6 +506,8 @@ export interface FileRouteTypes {
     | '/ressources-reseaux'
     | '/ressources-site'
     | '/ressources-systeme'
+    | '/services'
+    | '/sites-web'
     | '/trame-prospection'
     | '/cadrage/pascale'
     | '/cadrage/veronique'
@@ -460,6 +516,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/accompagnement-automatisation'
     | '/agence-web-aix-les-bains'
     | '/agence-web-albertville'
     | '/agence-web-annecy'
@@ -468,6 +525,7 @@ export interface FileRouteTypes {
     | '/bac-a-sable-video'
     | '/bienvenue'
     | '/bienvenue-strategie'
+    | '/community-management'
     | '/community-manager-savoie'
     | '/conseils'
     | '/conseils-community-manager-utile'
@@ -477,6 +535,7 @@ export interface FileRouteTypes {
     | '/conseils-wordpress-ou-sur-mesure'
     | '/contact'
     | '/creation-logo-albertville'
+    | '/design'
     | '/diagnostic'
     | '/merci'
     | '/merci-brief'
@@ -493,6 +552,8 @@ export interface FileRouteTypes {
     | '/ressources-reseaux'
     | '/ressources-site'
     | '/ressources-systeme'
+    | '/services'
+    | '/sites-web'
     | '/trame-prospection'
     | '/cadrage/pascale'
     | '/cadrage/veronique'
@@ -502,6 +563,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccompagnementAutomatisationRoute: typeof AccompagnementAutomatisationRoute
   AgenceWebAixLesBainsRoute: typeof AgenceWebAixLesBainsRoute
   AgenceWebAlbertvilleRoute: typeof AgenceWebAlbertvilleRoute
   AgenceWebAnnecyRoute: typeof AgenceWebAnnecyRoute
@@ -510,6 +572,7 @@ export interface RootRouteChildren {
   BacASableVideoRoute: typeof BacASableVideoRoute
   BienvenueRoute: typeof BienvenueRoute
   BienvenueStrategieRoute: typeof BienvenueStrategieRoute
+  CommunityManagementRoute: typeof CommunityManagementRoute
   CommunityManagerSavoieRoute: typeof CommunityManagerSavoieRoute
   ConseilsRoute: typeof ConseilsRoute
   ConseilsCommunityManagerUtileRoute: typeof ConseilsCommunityManagerUtileRoute
@@ -519,6 +582,7 @@ export interface RootRouteChildren {
   ConseilsWordpressOuSurMesureRoute: typeof ConseilsWordpressOuSurMesureRoute
   ContactRoute: typeof ContactRoute
   CreationLogoAlbertvilleRoute: typeof CreationLogoAlbertvilleRoute
+  DesignRoute: typeof DesignRoute
   DiagnosticRoute: typeof DiagnosticRoute
   MerciRoute: typeof MerciRoute
   MerciBriefRoute: typeof MerciBriefRoute
@@ -535,6 +599,8 @@ export interface RootRouteChildren {
   RessourcesReseauxRoute: typeof RessourcesReseauxRoute
   RessourcesSiteRoute: typeof RessourcesSiteRoute
   RessourcesSystemeRoute: typeof RessourcesSystemeRoute
+  ServicesRoute: typeof ServicesRoute
+  SitesWebRoute: typeof SitesWebRoute
   TrameProspectionRoute: typeof TrameProspectionRoute
   CadragePascaleRoute: typeof CadragePascaleRouteWithChildren
   CadrageVeroniqueRoute: typeof CadrageVeroniqueRouteWithChildren
@@ -547,6 +613,20 @@ declare module '@tanstack/react-router' {
       path: '/trame-prospection'
       fullPath: '/trame-prospection'
       preLoaderRoute: typeof TrameProspectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sites-web': {
+      id: '/sites-web'
+      path: '/sites-web'
+      fullPath: '/sites-web'
+      preLoaderRoute: typeof SitesWebRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ressources-systeme': {
@@ -661,6 +741,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DiagnosticRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/design': {
+      id: '/design'
+      path: '/design'
+      fullPath: '/design'
+      preLoaderRoute: typeof DesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/creation-logo-albertville': {
       id: '/creation-logo-albertville'
       path: '/creation-logo-albertville'
@@ -724,6 +811,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunityManagerSavoieRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community-management': {
+      id: '/community-management'
+      path: '/community-management'
+      fullPath: '/community-management'
+      preLoaderRoute: typeof CommunityManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bienvenue-strategie': {
       id: '/bienvenue-strategie'
       path: '/bienvenue-strategie'
@@ -778,6 +872,13 @@ declare module '@tanstack/react-router' {
       path: '/agence-web-aix-les-bains'
       fullPath: '/agence-web-aix-les-bains'
       preLoaderRoute: typeof AgenceWebAixLesBainsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accompagnement-automatisation': {
+      id: '/accompagnement-automatisation'
+      path: '/accompagnement-automatisation'
+      fullPath: '/accompagnement-automatisation'
+      preLoaderRoute: typeof AccompagnementAutomatisationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -843,6 +944,7 @@ const CadrageVeroniqueRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccompagnementAutomatisationRoute: AccompagnementAutomatisationRoute,
   AgenceWebAixLesBainsRoute: AgenceWebAixLesBainsRoute,
   AgenceWebAlbertvilleRoute: AgenceWebAlbertvilleRoute,
   AgenceWebAnnecyRoute: AgenceWebAnnecyRoute,
@@ -851,6 +953,7 @@ const rootRouteChildren: RootRouteChildren = {
   BacASableVideoRoute: BacASableVideoRoute,
   BienvenueRoute: BienvenueRoute,
   BienvenueStrategieRoute: BienvenueStrategieRoute,
+  CommunityManagementRoute: CommunityManagementRoute,
   CommunityManagerSavoieRoute: CommunityManagerSavoieRoute,
   ConseilsRoute: ConseilsRoute,
   ConseilsCommunityManagerUtileRoute: ConseilsCommunityManagerUtileRoute,
@@ -860,6 +963,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConseilsWordpressOuSurMesureRoute: ConseilsWordpressOuSurMesureRoute,
   ContactRoute: ContactRoute,
   CreationLogoAlbertvilleRoute: CreationLogoAlbertvilleRoute,
+  DesignRoute: DesignRoute,
   DiagnosticRoute: DiagnosticRoute,
   MerciRoute: MerciRoute,
   MerciBriefRoute: MerciBriefRoute,
@@ -876,6 +980,8 @@ const rootRouteChildren: RootRouteChildren = {
   RessourcesReseauxRoute: RessourcesReseauxRoute,
   RessourcesSiteRoute: RessourcesSiteRoute,
   RessourcesSystemeRoute: RessourcesSystemeRoute,
+  ServicesRoute: ServicesRoute,
+  SitesWebRoute: SitesWebRoute,
   TrameProspectionRoute: TrameProspectionRoute,
   CadragePascaleRoute: CadragePascaleRouteWithChildren,
   CadrageVeroniqueRoute: CadrageVeroniqueRouteWithChildren,

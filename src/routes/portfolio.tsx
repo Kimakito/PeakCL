@@ -179,7 +179,8 @@ function CategoryPanel({ cat }: { cat: Category }) {
 
 function IntroPanel({ onNavigate }: { onNavigate: (id: string) => void }) {
   return (
-    <section className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden text-center">
+    <section className="relative isolate flex h-full w-full flex-col items-center justify-center overflow-hidden text-center">
+      <div className="hero-aurora" aria-hidden style={{ zIndex: -10 }} />
       <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
         Portfolio · par métier
       </span>

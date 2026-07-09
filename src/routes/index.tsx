@@ -17,6 +17,8 @@ import { faqPageJsonLd } from "@/seo/jsonld";
 import { submitNetlifyForm } from "@/lib/funnel";
 import { CTAButton } from "@/components/CTAButton";
 import { HeroPanel } from "@/components/home/HeroPanel";
+import { SectionHeading } from "@/components/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { MASCOT_POSES, type MascotPose } from "@/lib/mascot";
 
@@ -141,16 +143,17 @@ function ProblemPanel() {
     { t: "Sans image en ligne, on vous choisit moins.", d: "Vos clients comparent avant d'appeler. Si votre concurrent paraît plus pro sur Google, c'est lui qu'on contacte." },
   ];
   return (
-    <section id="probleme" className="relative flex h-screen w-full items-center overflow-hidden">
+    <section id="probleme" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
       <SectionMascot pose="idee" side="left" />
       <div className="mx-auto max-w-6xl px-8 md:px-16 w-full">
         <div className="grid items-start gap-10 md:grid-cols-2">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">Soyons honnêtes</span>
-            <h2 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">
-              Votre métier mérite une image en ligne
-              <span className="text-gradient"> à la hauteur.</span>
-            </h2>
+            <SectionHeading
+              align="left"
+              accent="yellow"
+              eyebrow="Soyons honnêtes"
+              title={<>Votre métier mérite une image en ligne<span className="text-gradient"> à la hauteur.</span></>}
+            />
             <div className="mt-8 overflow-hidden rounded-2xl bg-band-yellow p-5 shadow-card">
               <div className="text-xs font-bold uppercase tracking-[0.18em] opacity-70">Pourquoi déléguer</div>
               <p className="mt-2 text-base font-bold leading-snug">
@@ -194,16 +197,19 @@ function DifferencePanel() {
     },
   ];
   return (
-    <section id="difference" className="relative flex h-screen w-full items-center overflow-hidden">
+    <section id="difference" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
       <SectionMascot pose="victoire" side="right" />
       <div className="mx-auto max-w-5xl px-8 md:px-16 w-full">
-        <div className="text-center mb-10">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">La différence</span>
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">Même activité. <span className="text-gradient">Deux façons de gérer sa com'.</span></h2>
-        </div>
+        <SectionHeading
+          className="mb-10"
+          accent="turquoise"
+          eyebrow="La différence"
+          title={<>Même activité. <span className="text-gradient">Deux façons de gérer sa com'.</span></>}
+        />
         <div className="grid gap-5 md:grid-cols-2">
-          {cols.map((c) => (
-            <div key={c.label} className={`relative rounded-2xl border p-6 shadow-card backdrop-blur ${c.tone === "good" ? "card-glass ring-brand" : "border-white/5 bg-card/30"}`}>
+          {cols.map((c, i) => (
+            <Reveal key={c.label} delay={i * 0.08} className="h-full">
+            <div className={`card-hover relative h-full rounded-2xl border p-6 shadow-card backdrop-blur ${c.tone === "good" ? "card-glass ring-brand" : "border-white/5 bg-card/30"}`}>
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className={`text-sm font-bold uppercase tracking-[0.16em] ${c.tone === "good" ? "text-[var(--brand-turquoise)]" : "text-muted-foreground"}`}>{c.label}</div>
               <ul className="mt-5 space-y-3">
@@ -217,6 +223,7 @@ function DifferencePanel() {
                 ))}
               </ul>
             </div>
+            </Reveal>
           ))}
         </div>
         <div className="mt-8 text-center">
@@ -237,16 +244,18 @@ function MethodPanel() {
     { n: "04", title: "Suivi", desc: "Une fois en ligne, je reste disponible pour les ajustements de la première semaine. Au-delà, on continue ou on s'arrête, tu décides." },
   ];
   return (
-    <section id="methode" className="relative flex h-screen w-full items-center overflow-hidden">
+    <section id="methode" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
       <SectionMascot pose="bureau" side="right" heightClass="h-[42vh]" />
       <div className="mx-auto max-w-6xl px-8 md:px-16 w-full">
-        <div className="text-center mb-10">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">Comment je travaille</span>
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">Quatre étapes, du diagnostic à la mise en ligne</h2>
-        </div>
+        <SectionHeading
+          className="mb-10"
+          accent="yellow"
+          eyebrow="Comment je travaille"
+          title="Quatre étapes, du diagnostic à la mise en ligne"
+        />
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
-            <motion.div key={s.n} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} transition={{ delay: i * 0.07 }} className="relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
+            <motion.div key={s.n} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} transition={{ delay: i * 0.07 }} className="card-hover relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="text-xs font-semibold tracking-[0.2em] text-[var(--brand-turquoise)]">{s.n}</div>
               <h3 className="mt-4 text-base font-semibold">{s.title}</h3>
@@ -273,16 +282,19 @@ const offers = [
 
 function OffersPanel() {
   return (
-    <section id="offres" className="relative flex h-screen w-full items-center overflow-hidden">
+    <section id="offres" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
       <SectionMascot pose="arc" side="left" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
-        <div className="text-center mb-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">Les formes que prend l'accompagnement</span>
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">Quatre formules selon votre besoin</h2>
-        </div>
+        <SectionHeading
+          className="mb-8"
+          accent="yellow"
+          eyebrow="Les formes que prend l'accompagnement"
+          title="Quatre formules selon votre besoin"
+        />
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {offers.map((o) => (
-            <div key={o.title} className={`relative rounded-2xl border bg-card/50 p-5 shadow-card backdrop-blur ${o.highlight ? "border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_22%,transparent)]" : "border-white/5"}`}>
+          {offers.map((o, i) => (
+            <Reveal key={o.title} delay={i * 0.06} className="h-full">
+            <div className={`card-hover relative h-full rounded-2xl border bg-card/50 p-5 shadow-card backdrop-blur ${o.highlight ? "border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_22%,transparent)]" : "border-white/5"}`}>
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]/80">{o.eyebrow}</div>
               <h3 className="mt-2 text-base font-semibold">{o.title}</h3>
@@ -295,11 +307,12 @@ function OffersPanel() {
                 ))}
               </ul>
             </div>
+            </Reveal>
           ))}
         </div>
         <div className="mt-6 text-center flex justify-center gap-3">
           <CTAButton href="/reservation-appel" dataEvent="cta_brief_offers">Faire le diagnostic</CTAButton>
-          <CTAButton href="/packs" variant="ghost" dataEvent="cta_packs_detail">Voir les packs</CTAButton>
+          <CTAButton href="/services" variant="ghost" dataEvent="cta_services_detail">Voir tous les services</CTAButton>
         </div>
       </div>
     </section>
@@ -311,14 +324,16 @@ function OffersPanel() {
 function PortfolioPanel() {
   const featured = peakclPortfolio.slice(0, 6);
   return (
-    <section id="portfolio" className="relative flex h-screen w-full items-center overflow-hidden">
+    <section id="portfolio" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
       <SectionMascot pose="tablette" side="right" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
-        <div className="text-center mb-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">Réalisations</span>
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">Des projets livrés, <span className="text-gradient">qui convertissent</span>.</h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">Vous êtes dans quel métier ? Voyez ce que j'ai livré dans votre secteur.</p>
-        </div>
+        <SectionHeading
+          className="mb-8"
+          accent="turquoise"
+          eyebrow="Réalisations"
+          title={<>Des projets livrés, <span className="text-gradient">qui convertissent</span>.</>}
+          subtitle="Vous êtes dans quel métier ? Voyez ce que j'ai livré dans votre secteur."
+        />
         {/* hub catégories (version courte → filtre le portfolio) */}
         <div className="mb-7 flex flex-wrap justify-center gap-2">
           {CATEGORIES.map((c) => (
@@ -383,13 +398,15 @@ function ReviewsPanel() {
   const col2 = [...reviews.slice(1), ...reviews.slice(0, 1)];
   const col3 = [...reviews.slice(2), ...reviews.slice(0, 2)];
   return (
-    <section id="avis" className="relative flex h-screen w-full items-center overflow-hidden">
+    <section id="avis" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
       <SectionMascot pose="graphique" side="left" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
-        <div className="text-center mb-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">Ils en parlent mieux que moi</span>
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">Des résultats, pas des promesses.</h2>
-        </div>
+        <SectionHeading
+          className="mb-8"
+          accent="turquoise"
+          eyebrow="Ils en parlent mieux que moi"
+          title="Des résultats, pas des promesses."
+        />
         <div className="mx-auto flex max-h-[58vh] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
           <TestimonialsColumn testimonials={col1} duration={16} />
           <TestimonialsColumn testimonials={col2} className="hidden md:block" duration={20} />
@@ -404,13 +421,15 @@ function ReviewsPanel() {
 
 function FAQPanel() {
   return (
-    <section id="faq" className="relative flex h-screen w-full items-center overflow-hidden">
+    <section id="faq" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
       <SectionMascot pose="assise" side="right" />
       <div className="mx-auto max-w-3xl px-8 md:px-16 w-full">
-        <div className="text-center mb-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">Questions fréquentes</span>
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">On lève les derniers doutes.</h2>
-        </div>
+        <SectionHeading
+          className="mb-8"
+          accent="turquoise"
+          eyebrow="Questions fréquentes"
+          title="On lève les derniers doutes."
+        />
         <div className="space-y-2 max-h-[55vh] overflow-y-auto pr-1">
           {peakclFaq.map((f) => (
             <details key={f.question} className="group rounded-2xl border border-white/5 bg-card/50 p-4 shadow-card open:bg-card/70">
@@ -448,7 +467,7 @@ function ContactPanel() {
   };
 
   return (
-    <section id="contact" className="relative flex h-screen w-full items-center overflow-hidden">
+    <section id="contact" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
       <div className="absolute inset-0 -z-10 bg-hero" />
       <div className="bg-aurora" aria-hidden />
       <div className="grid-bg absolute inset-0 -z-10" />

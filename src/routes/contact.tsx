@@ -105,7 +105,8 @@ function ContactPage() {
           className="relative flex items-center overflow-hidden bg-hero py-20"
         >
           <div className="grid-bg absolute inset-0 -z-10" />
-          <div className="mx-auto max-w-3xl px-6 text-center">
+          <div className="hero-aurora" aria-hidden />
+          <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
             <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
               <HeartHandshake className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
               Toutes les questions sont les bienvenues
