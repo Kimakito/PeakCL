@@ -1,12 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useCallback, useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   CATEGORIES,
   DECK_PROJECTS,
   LOGO_PROJECTS,
-  liveCount,
-  categoryProjects,
   type Category,
   type DeckProject,
 } from "@/content/peakcl/portfolioDeck";
@@ -14,7 +12,6 @@ import { DeckFooter } from "@/components/DeckFooter";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
 import logo from "@/assets/peakcl-logo.png";
-import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export const Route = createFileRoute("/portfolio")({
@@ -24,7 +21,7 @@ export const Route = createFileRoute("/portfolio")({
       {
         name: "description",
         content:
-          "Réalisations PeakCL par métier : sites vitrines, e-commerce, branding. Parcourez les projets secteur par secteur.",
+          "Réalisations PeakCL par métier : sites vitrines, e-commerce, branding. Filtrez les projets par secteur.",
       },
       { property: "og:title", content: "Portfolio · PeakCL" },
       {
@@ -57,17 +54,20 @@ const domainOf = (url?: string) => {
   }
 };
 
-/* ── Panneaux ────────────────────────────────────────────────── */
+/** Catégories qui ont au moins un projet. */
 const PANEL_CATS: Category[] = CATEGORIES.filter((c) =>
   DECK_PROJECTS.some((p) => p.category === c.slug),
 );
-type PanelDef = { id: string; label: string; accent: string };
-const PANELS: PanelDef[] = [
-  { id: "intro", label: "Accueil portfolio", accent: "#00E5D4" },
-  ...PANEL_CATS.map((c) => ({ id: c.slug, label: c.short, accent: c.accent })),
-  { id: "logos", label: "Logos créés", accent: "#EC4899" },
-  { id: "contact", label: "Travailler ensemble", accent: "#FFD500" },
-  { id: "footer", label: "Liens & contact", accent: "#7B3FF2" },
+
+const LOGOS_KEY = "logos";
+const ALL_KEY = "all";
+const LOGOS_ACCENT = "#EC4899";
+
+type Filter = { key: string; label: string; accent: string };
+const FILTERS: Filter[] = [
+  { key: ALL_KEY, label: "Tous", accent: "var(--brand-turquoise)" },
+  ...PANEL_CATS.map((c) => ({ key: c.slug, label: c.short, accent: c.accent })),
+  { key: LOGOS_KEY, label: "Logos", accent: LOGOS_ACCENT },
 ];
 
 /* ── Carte site (élément de grille) ──────────────────────────── */
@@ -130,13 +130,7 @@ function SiteCard({ p }: { p: DeckProject }) {
   const cls =
     "group relative block overflow-hidden rounded-2xl border border-white/5 bg-card/40 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-white/15";
   return p.siteUrl ? (
-    <a
-      href={p.siteUrl}
-      target="_blank"
-      rel="noreferrer"
-      data-event="portfolio_visit"
-      className={cls}
-    >
+    <a href={p.siteUrl} target="_blank" rel="noreferrer" data-event="portfolio_visit" className={cls}>
       <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       {Inner}
     </a>
@@ -148,240 +142,168 @@ function SiteCard({ p }: { p: DeckProject }) {
   );
 }
 
-/* ── Panneau catégorie (grille) ──────────────────────────────── */
-function CategoryPanel({ cat }: { cat: Category }) {
-  const items = categoryProjects(cat.slug);
-  const n = liveCount(cat.slug);
+/* ── Carte logo ──────────────────────────────────────────────── */
+function LogoCard({ l }: { l: (typeof LOGO_PROJECTS)[number] }) {
   return (
-    <section className="flex h-full w-full items-center overflow-hidden">
-      <div className="mx-auto w-full max-w-7xl px-8 md:px-12">
-        <div className="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-          <div className="flex items-center gap-3">
-            <span
-              className="h-3 w-3 rounded-full"
-              style={{ background: cat.accent }}
-            />
-            <h2 className="text-2xl font-bold md:text-4xl">{cat.label}</h2>
-          </div>
-          <span className="text-sm text-muted-foreground">
-            {n > 0 ? `${n} réalisation${n > 1 ? "s" : ""}` : "bientôt"}
+    <div className="group relative overflow-hidden rounded-2xl border border-white/5 bg-card/40 shadow-card">
+      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+      <div className="flex h-44 items-center justify-center bg-white p-8">
+        <img
+          src={l.file}
+          alt={`Logo ${l.name}`}
+          loading="lazy"
+          decoding="async"
+          className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div className="p-4">
+        <div className="flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full" style={{ background: l.accent }} />
+          <h3 className="text-sm font-semibold">{l.name}</h3>
+        </div>
+        <p className="mt-0.5 text-xs text-muted-foreground">{l.metier}</p>
+        {l.note ? (
+          <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground/70">{l.note}</p>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+/* ── En-tête ─────────────────────────────────────────────────── */
+function Header() {
+  return (
+    <header className="sticky top-0 z-40 border-b border-white/5 bg-background/70 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a href="/" className="flex items-center gap-3">
+          <img src={logo} alt="PeakCL logo" className="h-9 w-9 rounded-lg object-cover" />
+          <span className="font-display text-lg font-bold tracking-tight">
+            Peak<span className="text-gradient">CL</span>
           </span>
-        </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((p) => (
-            <SiteCard key={p.slug} p={p} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function IntroPanel({ onNavigate }: { onNavigate: (id: string) => void }) {
-  return (
-    <section className="relative isolate flex h-full w-full flex-col items-center justify-center overflow-hidden text-center">
-      <div className="hero-aurora" aria-hidden style={{ zIndex: -10 }} />
-      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
-        Portfolio · par métier
-      </span>
-      <h1 className="mt-4 max-w-4xl text-balance px-6 text-4xl font-bold leading-tight md:text-6xl">
-        Ils m'ont fait <span className="text-gradient">confiance</span>.
-      </h1>
-      <p className="mx-auto mt-5 max-w-2xl px-6 text-muted-foreground">
-        Cliquez sur votre métier : chaque section rassemble les projets que j'ai
-        livrés dans ce secteur.
-      </p>
-      <div className="mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-2 px-6">
-        {PANEL_CATS.map((c) => (
-          <button
-            key={c.slug}
-            onClick={() => onNavigate(c.slug)}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-card/40 px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-all hover:scale-[1.04] hover:text-foreground"
-            style={{ borderColor: `${c.accent}55` }}
-          >
-            <span
-              className="h-1.5 w-1.5 rounded-full"
-              style={{ background: c.accent }}
-            />
-            {c.short}
-          </button>
-        ))}
-      </div>
-      <img
-        src="/peakcl/avatar-tablette.webp"
-        alt=""
-        aria-hidden
-        className="pointer-events-none mt-8 hidden h-40 w-auto select-none opacity-90 md:block"
-      />
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-xs text-white/30 hidden md:block">
-        scroll →
-      </div>
-    </section>
-  );
-}
-
-function ContactPanel() {
-  return (
-    <section className="flex h-full w-full flex-col items-center justify-center px-6 text-center">
-      <h2 className="text-3xl font-bold md:text-4xl">
-        Votre métier mérite la même image.
-      </h2>
-      <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-        Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut et
-        comment je peux m'en charger.
-      </p>
-      <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+        </a>
+        <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
+          <a href="/services" className="hover:text-foreground">Services</a>
+          <a href="/#faq" className="hover:text-foreground">FAQ</a>
+        </nav>
         <a
           href="/reservation-appel"
-          data-event="cta_brief_portfolio_end"
-          className="inline-flex items-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]"
-        >
-          Faire le diagnostic <ArrowRight className="h-4 w-4" />
-        </a>
-        <a
-          href={CALENDLY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-event="cta_calendly_portfolio_end"
-          className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-card/40 px-6 py-3 text-sm font-semibold text-foreground backdrop-blur hover:border-white/30"
+          data-event="cta_brief_portfolio_header"
+          className="inline-flex items-center justify-center rounded-full bg-primary-gradient px-5 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
         >
           Réserver un appel
         </a>
       </div>
-    </section>
+    </header>
   );
-}
-
-function LogosPanel() {
-  return (
-    <section className="flex h-full w-full items-center overflow-hidden">
-      <div className="mx-auto w-full max-w-7xl px-8 md:px-12">
-        <div className="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-          <div className="flex items-center gap-3">
-            <span className="h-3 w-3 rounded-full bg-[#EC4899]" />
-            <h2 className="text-2xl font-bold md:text-4xl">Logos créés</h2>
-          </div>
-          <span className="text-sm text-muted-foreground">
-            {LOGO_PROJECTS.length} créations
-          </span>
-        </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {LOGO_PROJECTS.map((l) => (
-            <div
-              key={l.name}
-              className="group relative overflow-hidden rounded-2xl border border-white/5 bg-card/40 shadow-card"
-            >
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-              <div className="flex h-44 items-center justify-center bg-white p-8">
-                <img
-                  src={l.file}
-                  alt={`Logo ${l.name}`}
-                  loading="lazy"
-                  decoding="async"
-                  className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-4">
-                <div className="flex items-center gap-2">
-                  <span
-                    className="h-2 w-2 rounded-full"
-                    style={{ background: l.accent }}
-                  />
-                  <h3 className="text-sm font-semibold">{l.name}</h3>
-                </div>
-                <p className="mt-0.5 text-xs text-muted-foreground">
-                  {l.metier}
-                </p>
-                {l.note ? (
-                  <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground/70">
-                    {l.note}
-                  </p>
-                ) : null}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function renderPanel(id: string, onNavigate: (id: string) => void) {
-  if (id === "intro") return <IntroPanel onNavigate={onNavigate} />;
-  if (id === "logos") return <LogosPanel />;
-  if (id === "contact") return <ContactPanel />;
-  if (id === "footer") return <DeckFooter />;
-  const cat = CATEGORIES.find((c) => c.slug === id);
-  return cat ? <CategoryPanel cat={cat} /> : null;
 }
 
 /* ── Page ────────────────────────────────────────────────────── */
 function PortfolioPage() {
-  const scrollToId = useCallback((id: string) => {
-    document
-      .getElementById(id)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, []);
+  const [active, setActive] = useState<string>(ALL_KEY);
 
+  // Pré-sélection via ?cat=<slug> (liens depuis la home).
   useEffect(() => {
     const q = new URLSearchParams(window.location.search).get("cat");
-    if (q && PANELS.some((p) => p.id === q)) scrollToId(q);
-  }, [scrollToId]);
+    if (q && FILTERS.some((f) => f.key === q)) setActive(q);
+  }, []);
+
+  const showLogos = active === LOGOS_KEY;
+  const projects =
+    active === ALL_KEY ? DECK_PROJECTS : DECK_PROJECTS.filter((p) => p.category === active);
+  const count = showLogos ? LOGO_PROJECTS.length : projects.length;
+  const noun = showLogos ? "création" : "réalisation";
 
   return (
     <div className="relative bg-background text-foreground">
-      {/* Desktop : scroll vertical intelligent (snap par section) */}
-      <div className="hidden md:block">
-        <SectionDots
-          sections={PANELS.map((s) => ({ id: s.id, label: s.label }))}
-        />
-        <SnapPage>
-          {PANELS.map((s) => (
-            <SnapSection
-              key={s.id}
-              id={s.id}
-              className="flex items-center justify-center pl-16"
-            >
-              {renderPanel(s.id, scrollToId)}
-            </SnapSection>
-          ))}
-        </SnapPage>
-      </div>
+      <Header />
 
-      {/* Mobile : empilement vertical */}
-      <div className="md:hidden">
-        <header className="sticky top-0 z-50 flex items-center justify-between border-b border-white/5 bg-background/80 px-5 py-3 backdrop-blur-xl">
-          <a href="/" className="flex items-center gap-2">
-            <img
-              src={logo}
-              alt="PeakCL"
-              className="h-7 w-7 rounded-md object-cover"
-            />
-            <span className="font-display text-base font-bold">
-              Peak<span className="text-gradient">CL</span>
-            </span>
-          </a>
-          <a
-            href="/reservation-appel"
-            className="rounded-full bg-primary-gradient px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-glow"
-          >
-            Réserver
-          </a>
-        </header>
-        <div className="space-y-14 py-12">
-          <IntroPanel onNavigate={() => {}} />
-          {PANEL_CATS.map((c) => (
-            <div key={c.slug} className="min-h-[60vh]">
-              <CategoryPanel cat={c} />
-            </div>
-          ))}
-          <div className="min-h-[60vh]">
-            <LogosPanel />
-          </div>
-          <ContactPanel />
-          <DeckFooter />
+      {/* Hero compact */}
+      <section className="relative isolate overflow-hidden bg-hero py-14 text-center md:py-20">
+        <div className="hero-aurora" aria-hidden style={{ zIndex: -10 }} />
+        <div className="relative mx-auto max-w-3xl px-6">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+            Portfolio
+          </span>
+          <h1 className="mt-4 text-balance text-4xl font-bold leading-tight md:text-6xl">
+            Ils m'ont fait <span className="text-gradient">confiance</span>.
+          </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            Sites, boutiques et logos livrés, classés par métier. Filtrez par secteur pour voir ce que j'ai fait dans le vôtre.
+          </p>
+        </div>
+      </section>
+
+      {/* Barre de filtres (collante) */}
+      <div className="sticky top-[68px] z-30 border-y border-white/5 bg-background/85 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-2 px-6 py-3">
+          {FILTERS.map((f) => {
+            const on = active === f.key;
+            return (
+              <button
+                key={f.key}
+                onClick={() => setActive(f.key)}
+                data-event="portfolio_filter"
+                aria-pressed={on}
+                className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-all ${
+                  on
+                    ? "bg-white/10 text-foreground"
+                    : "border-white/10 text-muted-foreground hover:border-white/25 hover:text-foreground"
+                }`}
+                style={on ? { borderColor: f.accent } : undefined}
+              >
+                <span
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{ background: f.accent, boxShadow: on ? `0 0 8px ${f.accent}` : undefined }}
+                />
+                {f.label}
+              </button>
+            );
+          })}
         </div>
       </div>
+
+      {/* Grille */}
+      <section className="mx-auto w-full max-w-7xl px-6 py-10 md:py-14">
+        <p className="mb-6 text-sm text-muted-foreground">
+          {count} {noun}
+          {count > 1 ? "s" : ""}
+        </p>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {showLogos
+            ? LOGO_PROJECTS.map((l) => <LogoCard key={l.name} l={l} />)
+            : projects.map((p) => <SiteCard key={p.slug} p={p} />)}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto w-full max-w-5xl px-6 pb-16">
+        <div className="rounded-2xl border border-white/10 bg-card/40 p-8 text-center shadow-card backdrop-blur">
+          <h2 className="text-3xl font-bold md:text-4xl">Votre métier mérite la même image.</h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
+            Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut et comment je peux m'en charger.
+          </p>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="/reservation-appel"
+              data-event="cta_brief_portfolio_end"
+              className="inline-flex items-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]"
+            >
+              Faire le diagnostic <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-event="cta_calendly_portfolio_end"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-card/40 px-6 py-3 text-sm font-semibold text-foreground backdrop-blur hover:border-white/30"
+            >
+              Réserver un appel
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <DeckFooter />
     </div>
   );
 }

@@ -117,8 +117,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const path = useRouterState({ select: (s) => s.location.pathname });
-  // Les decks (home, portfolio) réservent déjà pl-16 dans leurs panneaux.
-  const isDeck = path === "/" || path === "/portfolio";
+  // La home (scroll vertical centré) gère son propre décalage ; les autres
+  // pages sont décalées de la largeur du rail latéral.
+  const isDeck = path === "/";
   return (
     <>
       <SiteNav />

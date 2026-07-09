@@ -24,25 +24,31 @@ function useSectionObserver(ids: string[]) {
   return activeId;
 }
 
-/** Conteneur qui transforme la page en scroll vertical "smart" (snap par section) sur desktop. Mobile = scroll normal. */
-export function SnapPage({ children, className = "" }: { children: ReactNode; className?: string }) {
+/**
+ * Conteneur de page à sections.
+ * Par défaut : scroll vertical normal et compact (les sections font la hauteur
+ * de leur contenu + padding). Passer `full` pour l'ancien mode "deck" plein
+ * écran avec snap (utilisé par le portfolio, 1 section par écran).
+ */
+export function SnapPage({ children, className = "", full = false }: { children: ReactNode; className?: string; full?: boolean }) {
   return (
-    <div className={`md:h-screen md:snap-y md:snap-mandatory md:overflow-y-auto md:scroll-smooth ${className}`}>
+    <div className={`${full ? "md:h-screen md:snap-y md:snap-mandatory md:overflow-y-auto md:scroll-smooth" : ""} ${className}`}>
       {children}
     </div>
   );
 }
 
-/** Section à utiliser à l'intérieur de <SnapPage> : id requis pour le snap + la nav latérale. */
+/** Section à utiliser à l'intérieur de <SnapPage> : id requis pour la nav latérale. `full` = plein écran + snap. */
 export function SnapSection({
-  id, children, className = "",
+  id, children, className = "", full = false,
 }: {
   id: string;
   children: ReactNode;
   className?: string;
+  full?: boolean;
 }) {
   return (
-    <section id={id} className={`md:min-h-screen md:snap-start ${className}`}>
+    <section id={id} className={`${full ? "md:min-h-screen md:snap-start" : ""} ${className}`}>
       {children}
     </section>
   );
