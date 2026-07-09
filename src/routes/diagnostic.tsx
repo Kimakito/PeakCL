@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { absUrl } from "@/seo/site";
 
 export const Route = createFileRoute("/diagnostic")({
@@ -75,7 +76,8 @@ function ChoiceSingle({
   onChange: (v: string) => void;
 }) {
   return (
-    <fieldset className="rounded-2xl border border-white/10 bg-card/30 p-5">
+    <fieldset className="relative rounded-2xl border border-white/10 bg-card/30 p-5">
+      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       <legend className="px-2">
         <FieldLabel label={label} required={required} />
       </legend>
@@ -119,7 +121,8 @@ function ChoiceMulti({
 }) {
   const hasAny = value.length > 0;
   return (
-    <fieldset className="rounded-2xl border border-white/10 bg-card/30 p-5">
+    <fieldset className="relative rounded-2xl border border-white/10 bg-card/30 p-5">
+      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       <legend className="px-2">
         <FieldLabel label={label} required={required} />
       </legend>
@@ -167,7 +170,8 @@ function Scale10({
   onChange: (v: number) => void;
 }) {
   return (
-    <fieldset className="rounded-2xl border border-white/10 bg-card/30 p-5">
+    <fieldset className="relative rounded-2xl border border-white/10 bg-card/30 p-5">
+      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       <legend className="px-2">
         <FieldLabel label={label} required={required} />
       </legend>
@@ -299,7 +303,8 @@ function DiagnosticPage() {
               </label>
             </p>
 
-            <div className="rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
+            <div className="relative rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="grid gap-5">
                 <TextInput
                   label="Quels sont tes prénom et nom ?"
@@ -363,7 +368,8 @@ function DiagnosticPage() {
               onChange={setImportanceProbleme}
             />
 
-            <label className="block rounded-2xl border border-white/10 bg-card/30 p-5">
+            <label className="relative block rounded-2xl border border-white/10 bg-card/30 p-5">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <FieldLabel label="Classe (par ordre) tes priorités du moment." required />
               <div className="mt-2 text-xs text-muted-foreground">
                 Ex: (1) plus de leads · (2) crédibilité · (3) gagner du temps · (4) visuels/branding
@@ -423,7 +429,8 @@ function DiagnosticPage() {
               onChange={setEngagement}
             />
 
-            <div className="flex flex-col items-stretch justify-between gap-3 rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card sm:flex-row sm:items-center">
+            <div className="relative flex flex-col items-stretch justify-between gap-3 rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card sm:flex-row sm:items-center">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="text-sm text-muted-foreground">
                 Champs obligatoires marqués d’une <span className="text-[var(--brand-turquoise)]">⭐</span>
               </div>

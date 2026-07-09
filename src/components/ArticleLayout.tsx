@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { conseils, type Conseil } from "@/content/peakcl/conseils";
 
 const DATE_FMT = new Intl.DateTimeFormat("fr-FR", {
@@ -54,7 +55,8 @@ export function ArticleLayout({ conseil }: { conseil: Conseil }) {
           </div>
 
           {/* CTA */}
-          <div className="mt-12 rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] bg-card/40 p-6 text-center shadow-card">
+          <div className="relative mt-12 rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] bg-card/40 p-6 text-center shadow-card">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <h2 className="text-lg font-bold">Un projet, ou juste une question ?</h2>
             <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
               Audit gratuit de votre site web et de vos réseaux sociaux, sous 24h et sans engagement.
@@ -88,8 +90,9 @@ export function ArticleLayout({ conseil }: { conseil: Conseil }) {
                   <a
                     key={r.slug}
                     href={`/${r.slug}`}
-                    className="group rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card transition-colors hover:border-white/15"
+                    className="group relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card transition-colors hover:border-white/15"
                   >
+                    <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                     <h3 className="text-base font-semibold">{r.h1}</h3>
                     <p className="mt-2 text-sm text-muted-foreground">{r.excerpt}</p>
                     <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[var(--brand-turquoise)]">

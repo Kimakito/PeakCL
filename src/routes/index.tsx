@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import React, { useEffect, useRef, useState, useCallback, type FormEvent } from "react";
+import React, { useState, type FormEvent } from "react";
 import {
-  ArrowRight, Check, Sparkles, Star, Phone,
+  ArrowRight, Check, Sparkles, Phone,
 } from "lucide-react";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
+import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 import { peakclFaq } from "@/content/peakcl/faq";
 import { peakclPortfolio } from "@/content/peakcl/portfolio";
 import { CATEGORIES } from "@/content/peakcl/portfolioDeck";
@@ -16,6 +17,7 @@ import { faqPageJsonLd } from "@/seo/jsonld";
 import { submitNetlifyForm } from "@/lib/funnel";
 import { CTAButton } from "@/components/CTAButton";
 import { HeroPanel } from "@/components/home/HeroPanel";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { MASCOT_POSES, type MascotPose } from "@/lib/mascot";
 
 const LOGO_NAV = "/peakcl/logo-nav.webp";
@@ -85,152 +87,6 @@ function ContactInline({ className = "" }: { className?: string }) {
       <span>·</span>
       <a href={`mailto:${EMAIL}`} data-event="cta_email" className="font-semibold text-[var(--brand-turquoise)] hover:text-foreground">{EMAIL}</a>
     </div>
-  );
-}
-
-/* ── Section definitions ─────────────────────────────────────── */
-
-const SECTIONS = [
-  { id: "accueil",   label: "Accueil" },
-  { id: "probleme",  label: "Votre situation" },
-  { id: "difference", label: "La différence" },
-  { id: "methode",   label: "Méthode" },
-  { id: "offres",    label: "Offres" },
-  { id: "portfolio", label: "Portfolio" },
-  { id: "avis",      label: "Avis" },
-  { id: "faq",       label: "FAQ" },
-  { id: "contact",   label: "Contact" },
-  { id: "footer",    label: "Liens & contact" },
-] as const;
-
-type SectionId = typeof SECTIONS[number]["id"];
-
-/* ── Timeline avatar at bottom ───────────────────────────────── */
-
-const WALK_FRAME_COUNT = 30;
-const WALK_FRAME_SRC = (i: number) => `/peakcl/avatar-marche/frame-${String(i).padStart(2, "0")}.webp`;
-
-function TimelineBar({ activeIdx, total, onNavigate }: { activeIdx: number; total: number; onNavigate: (i: number) => void }) {
-  const pct = total > 1 ? (activeIdx / (total - 1)) * 100 : 0;
-  // sens de marche : on garde la dernière direction de navigation
-  const prevIdx = useRef(activeIdx);
-  const [facingRight, setFacingRight] = useState(true);
-  useEffect(() => {
-    if (activeIdx > prevIdx.current) setFacingRight(true);
-    else if (activeIdx < prevIdx.current) setFacingRight(false);
-    prevIdx.current = activeIdx;
-  }, [activeIdx]);
-
-  // précharge les frames de marche une seule fois
-  useEffect(() => {
-    for (let i = 0; i < WALK_FRAME_COUNT; i++) {
-      const img = new Image();
-      img.src = WALK_FRAME_SRC(i);
-    }
-  }, []);
-
-  // la mascotte marche réellement : sa frame suit la progression sur la frise
-  const [frameIdx, setFrameIdx] = useState(0);
-  const frameRef = useRef(0);
-  useEffect(() => {
-    const target = total > 1 ? Math.round((activeIdx / (total - 1)) * (WALK_FRAME_COUNT - 1)) : 0;
-    const start = frameRef.current;
-    if (start === target) return;
-    const t0 = performance.now();
-    const DURATION = 500;
-    let raf = requestAnimationFrame(function tick(now: number) {
-      const p = Math.min(1, (now - t0) / DURATION);
-      const cur = Math.round(start + (target - start) * p);
-      frameRef.current = cur;
-      setFrameIdx(cur);
-      if (p < 1) raf = requestAnimationFrame(tick);
-    });
-    return () => cancelAnimationFrame(raf);
-  }, [activeIdx, total]);
-
-  return (
-    <div className="fixed bottom-0 left-16 right-0 z-40 hidden h-16 items-center px-8 md:flex">
-      <div className="relative flex w-full items-center">
-        {/* track */}
-        <div className="h-px w-full bg-white/10" />
-        {/* progress */}
-        <div
-          className="absolute left-0 h-px bg-gradient-to-r from-[var(--brand-violet)] via-[var(--brand-turquoise)] to-[var(--brand-yellow)] transition-all duration-500"
-          style={{ width: `${pct}%` }}
-        />
-        {/* dots */}
-        {SECTIONS.map((s, i) => (
-          <button
-            key={s.id}
-            onClick={() => onNavigate(i)}
-            title={s.label}
-            className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2"
-            style={{ left: `${(i / (total - 1)) * 100}%` }}
-          >
-            <span
-              className={`block h-2 w-2 rounded-full transition-all duration-300 ${
-                i === activeIdx
-                  ? "scale-150 bg-[var(--brand-turquoise)] shadow-[0_0_8px_var(--brand-turquoise)]"
-                  : i < activeIdx
-                  ? "bg-[var(--brand-violet)]"
-                  : "bg-white/20"
-              }`}
-            />
-          </button>
-        ))}
-        {/* avatar qui marche le long de la timeline */}
-        <div
-          className="absolute bottom-1/2 -translate-x-1/2 transition-all duration-500"
-          style={{ left: `${pct}%` }}
-        >
-          {/* orientation selon le sens de navigation (la séquence regarde à droite par défaut) */}
-          <div style={{ transform: facingRight ? "scaleX(1)" : "scaleX(-1)" }}>
-            <img
-              src={WALK_FRAME_SRC(frameIdx)}
-              alt=""
-              aria-hidden
-              className="h-16 w-auto select-none drop-shadow-[0_0_12px_color-mix(in_oklab,var(--brand-turquoise)_60%,transparent)]"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ── Left vertical navbar ────────────────────────────────────── */
-
-function RightNav({ activeIdx, onNavigate }: { activeIdx: number; onNavigate: (i: number) => void }) {
-  return (
-    <nav
-      aria-label="Navigation sections"
-      className="fixed left-0 top-0 z-50 hidden h-full w-16 flex-col items-center justify-center gap-3 md:flex"
-    >
-      <div className="flex flex-col items-center gap-3">
-        <a href="#top" className="mb-4 flex items-center justify-center">
-          <img src={LOGO_NAV} alt="PeakCL" width={28} height={28} className="h-7 w-7 rounded-md object-cover opacity-80 hover:opacity-100" />
-        </a>
-        {SECTIONS.map((s, i) => (
-          <button
-            key={s.id}
-            onClick={() => onNavigate(i)}
-            title={s.label}
-            className="group relative flex items-center justify-center"
-          >
-            <span
-              className={`block h-2 w-2 rounded-full transition-all duration-300 ${
-                i === activeIdx
-                  ? "scale-150 bg-[var(--brand-turquoise)] shadow-[0_0_8px_var(--brand-turquoise)]"
-                  : "bg-white/25 group-hover:bg-white/60"
-              }`}
-            />
-            <span className="pointer-events-none absolute left-8 whitespace-nowrap rounded-md bg-card/90 px-2 py-1 text-xs font-medium opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
-              {s.label}
-            </span>
-          </button>
-        ))}
-      </div>
-    </nav>
   );
 }
 
@@ -347,7 +203,8 @@ function DifferencePanel() {
         </div>
         <div className="grid gap-5 md:grid-cols-2">
           {cols.map((c) => (
-            <div key={c.label} className={`rounded-2xl border p-6 shadow-card backdrop-blur ${c.tone === "good" ? "card-glass ring-brand" : "border-white/5 bg-card/30"}`}>
+            <div key={c.label} className={`relative rounded-2xl border p-6 shadow-card backdrop-blur ${c.tone === "good" ? "card-glass ring-brand" : "border-white/5 bg-card/30"}`}>
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className={`text-sm font-bold uppercase tracking-[0.16em] ${c.tone === "good" ? "text-[var(--brand-turquoise)]" : "text-muted-foreground"}`}>{c.label}</div>
               <ul className="mt-5 space-y-3">
                 {c.items.map((x) => (
@@ -389,7 +246,8 @@ function MethodPanel() {
         </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
-            <motion.div key={s.n} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} transition={{ delay: i * 0.07 }} className="rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
+            <motion.div key={s.n} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} transition={{ delay: i * 0.07 }} className="relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="text-xs font-semibold tracking-[0.2em] text-[var(--brand-turquoise)]">{s.n}</div>
               <h3 className="mt-4 text-base font-semibold">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
@@ -407,7 +265,7 @@ function MethodPanel() {
 /* ── Offers panel ────────────────────────────────────────────── */
 
 const offers = [
-  { eyebrow: "À pousser en priorité", title: "Pack présence en ligne", price: "Sur devis", highlight: true, points: ["Site + logo + pages réseaux sociaux", "Premières publications selon besoin", "Intégration réseau social sur le site", "Mise en ligne + bases SEO + parcours de contact"] },
+  { eyebrow: "Clé en main", title: "Pack présence en ligne", price: "Sur devis", highlight: true, points: ["Site + logo + pages réseaux sociaux", "Premières publications selon besoin", "Intégration réseau social sur le site", "Mise en ligne + bases SEO + parcours de contact"] },
   { eyebrow: "Site vitrine codé", title: "Site vitrine codé", price: "Sur devis", points: ["Pages essentielles (Accueil, services, contact)", "Mobile, rapide, propre", "Mise en ligne complète (domaine, SSL, indexation)", "Bases SEO (structure, titres)"] },
   { eyebrow: "Sur-mesure / custom", title: "Site sur-mesure / custom", price: "Sur devis", points: ["UX/UI plus poussé, sections spécifiques", "Intégrations et fonctionnalités adaptées", "Optimisations performance et conversion"] },
   { eyebrow: "Identité visuelle", title: "Identité visuelle / logo", price: "Sur devis", points: ["Logo propre et déclinable (web + réseaux)", "Couleurs & typos cohérentes", "Mini kit de départ pour une image homogène"] },
@@ -424,7 +282,8 @@ function OffersPanel() {
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {offers.map((o) => (
-            <div key={o.title} className={`relative overflow-hidden rounded-2xl border bg-card/50 p-5 shadow-card backdrop-blur ${o.highlight ? "border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_22%,transparent)]" : "border-white/5"}`}>
+            <div key={o.title} className={`relative rounded-2xl border bg-card/50 p-5 shadow-card backdrop-blur ${o.highlight ? "border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_22%,transparent)]" : "border-white/5"}`}>
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]/80">{o.eyebrow}</div>
               <h3 className="mt-2 text-base font-semibold">{o.title}</h3>
               <ul className="mt-4 space-y-2 text-xs text-muted-foreground">
@@ -478,7 +337,8 @@ function PortfolioPanel() {
           {featured.map((p, i) => (
             <motion.a key={p.siteUrl} href={p.siteUrl} target="_blank" rel="noreferrer" data-event="portfolio_click"
               initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} transition={{ delay: i * 0.05 }}
-              className="group relative overflow-hidden rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card transition-all hover:-translate-y-1 hover:border-white/15">
+              className="group relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card transition-all hover:-translate-y-1 hover:border-white/15">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="flex items-start gap-3">
                 {p.logoUrl
                   ? <img src={optimizedLogoUrl(p.logoUrl)} alt={p.title} width={40} height={40} className="h-10 w-10 rounded-xl bg-white/5 object-contain p-1.5" loading="lazy" decoding="async" />
@@ -512,6 +372,16 @@ function PortfolioPanel() {
 /* ── Reviews panel ───────────────────────────────────────────── */
 
 function ReviewsPanel() {
+  const reviews = peakclTestimonials.map((t) => ({
+    quote: t.quote,
+    name: t.name,
+    role: [t.sourceLabel, t.dateLabel].filter(Boolean).join(" · "),
+    rating: t.rating,
+  }));
+  // Rotate the small set per column so the 3 columns never look identical side by side.
+  const col1 = reviews;
+  const col2 = [...reviews.slice(1), ...reviews.slice(0, 1)];
+  const col3 = [...reviews.slice(2), ...reviews.slice(0, 2)];
   return (
     <section id="avis" className="relative flex h-screen w-full items-center overflow-hidden">
       <SectionMascot pose="graphique" side="left" heightClass="h-[40vh]" />
@@ -520,20 +390,10 @@ function ReviewsPanel() {
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">Ils en parlent mieux que moi</span>
           <h2 className="mt-4 text-3xl font-bold md:text-4xl">Des résultats, pas des promesses.</h2>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {peakclTestimonials.map((t, i) => (
-            <motion.div key={t.name} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} transition={{ delay: i * 0.08 }}
-              className="rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
-              <div className="flex gap-1 text-[var(--brand-yellow)]">
-                {Array.from({ length: t.rating }).map((_, k) => <Star key={k} className="h-3.5 w-3.5 fill-current" />)}
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-foreground/90">"{t.quote}"</p>
-              <div className="mt-4 border-t border-white/5 pt-3">
-                <div className="text-sm font-semibold">{t.name}</div>
-                <div className="text-xs text-muted-foreground">{[t.sourceLabel, t.dateLabel].filter(Boolean).join(" · ")}</div>
-              </div>
-            </motion.div>
-          ))}
+        <div className="mx-auto flex max-h-[58vh] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
+          <TestimonialsColumn testimonials={col1} duration={16} />
+          <TestimonialsColumn testimonials={col2} className="hidden md:block" duration={20} />
+          <TestimonialsColumn testimonials={col3} className="hidden lg:block" duration={18} />
         </div>
       </div>
     </section>
@@ -607,9 +467,10 @@ function ContactPanel() {
           <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_final" variant="ghost">Réserver un appel</CTAButton>
         </div>
         <form
-          className="mx-auto mt-7 max-w-xl space-y-3 rounded-2xl border border-white/10 bg-card/40 p-5 text-left shadow-card backdrop-blur"
+          className="relative mx-auto mt-7 max-w-xl space-y-3 rounded-2xl border border-white/10 bg-card/40 p-5 text-left shadow-card backdrop-blur"
           name="contact" method="POST" action="/merci" data-netlify="true" data-netlify-honeypot="bot-field" data-event="audit_submit" onSubmit={handleSubmit}
         >
+          <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
           <input type="hidden" name="form-name" value="contact" />
           <input type="hidden" name="leadType" value="contact" />
           <input type="hidden" name="source" value="site_peakcl" />
@@ -642,24 +503,6 @@ function ContactPanel() {
         </form>
       </div>
     </section>
-  );
-}
-
-/* ── Mobile vertical layout ──────────────────────────────────── */
-
-function MobileLayout() {
-  return (
-    <div className="md:hidden">
-      <HeroPanel />
-      <ProblemPanel />
-      <DifferencePanel />
-      <MethodPanel />
-      <OffersPanel />
-      <PortfolioPanel />
-      <ReviewsPanel />
-      <FAQPanel />
-      <ContactPanel />
-    </div>
   );
 }
 
@@ -713,82 +556,21 @@ function Footer() {
 
 /* ── Root ────────────────────────────────────────────────────── */
 
-const PANELS: React.FC[] = [
-  HeroPanel, ProblemPanel, DifferencePanel, MethodPanel,
-  OffersPanel, PortfolioPanel, ReviewsPanel, FAQPanel, ContactPanel, DeckFooter,
-];
-
 function Landing() {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const deckRef = useRef<HTMLDivElement>(null);
-  const isScrolling = useRef(false);
-
-  const navigateTo = useCallback((i: number) => {
-    const clamped = Math.max(0, Math.min(SECTIONS.length - 1, i));
-    setActiveIdx(clamped);
-    const deck = deckRef.current;
-    if (!deck) return;
-    const panel = deck.children[clamped] as HTMLElement;
-    if (panel) panel.scrollIntoView({ behavior: "smooth", inline: "start" });
-  }, []);
-
-  useEffect(() => {
-    const deck = deckRef.current;
-    if (!deck) return;
-
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      if (isScrolling.current) return;
-      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
-      if (Math.abs(delta) < 3) return;
-      isScrolling.current = true;
-      setActiveIdx((prev) => {
-        const next = delta > 0 ? Math.min(SECTIONS.length - 1, prev + 1) : Math.max(0, prev - 1);
-        const panel = deck.children[next] as HTMLElement;
-        if (panel) panel.scrollIntoView({ behavior: "smooth", inline: "start" });
-        return next;
-      });
-      setTimeout(() => { isScrolling.current = false; }, 750);
-    };
-
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); navigateTo(activeIdx + 1); }
-      if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); navigateTo(activeIdx - 1); }
-    };
-
-    deck.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("keydown", onKey);
-    return () => {
-      deck.removeEventListener("wheel", onWheel);
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [activeIdx, navigateTo]);
-
   return (
     <div className="relative bg-background text-foreground">
-      {/* Desktop: horizontal scrolling deck */}
-      <div
-        ref={deckRef}
-        className="hidden md:flex h-screen w-full flex-row overflow-x-hidden"
-        style={{ scrollSnapType: "x mandatory" }}
-      >
-        {PANELS.map((Panel, i) => (
-          <div
-            key={SECTIONS[i].id}
-            className="h-screen w-screen shrink-0 pl-16 pb-16"
-            style={{ scrollSnapAlign: "start" }}
-          >
-            <Panel />
-          </div>
-        ))}
-      </div>
-
-      {/* Desktop overlays — nav inter-pages = SiteNav globale ; sections via la timeline */}
-      <TimelineBar activeIdx={activeIdx} total={SECTIONS.length} onNavigate={navigateTo} />
-
-      {/* Mobile: normal vertical scroll */}
       <MobileNav />
-      <MobileLayout />
+      {/* Scroll vertical : sections pleine hauteur empilées (desktop + mobile) */}
+      <HeroPanel />
+      <ProblemPanel />
+      <DifferencePanel />
+      <MethodPanel />
+      <OffersPanel />
+      <PortfolioPanel />
+      <ReviewsPanel />
+      <FAQPanel />
+      <ContactPanel />
+      <div className="hidden md:block"><DeckFooter /></div>
       <TrustedBySection />
       <MobileStickyContact />
       <Footer />

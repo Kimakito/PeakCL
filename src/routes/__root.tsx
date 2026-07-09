@@ -97,6 +97,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
         </noscript>
       </head>
       <body>
+        {/* Fond global animé : blobs violet · turquoise · jaune qui dérivent */}
+        <div className="site-bg" aria-hidden="true">
+          <div className="site-bg__blob site-bg__blob--v" />
+          <div className="site-bg__blob site-bg__blob--t" />
+          <div className="site-bg__blob site-bg__blob--y" />
+        </div>
         {children}
         <Scripts />
         <script

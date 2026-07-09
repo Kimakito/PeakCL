@@ -30,5 +30,13 @@ export const peakclTestimonials: PeakclTestimonial[] = [
     quote:
       "Cela faisait des mois que je repoussais la création de mon site internet. Les questions que tu m'as posées au démarrage ont permis de créer un 1er jet qui m'a bluffé car je me suis entièrement reconnue. Tu as été très réactive pour tous les petits ajustements ce qui permet à mon site d'être opérationnel avant le salon auquel je participe bientôt. C'est parfait !",
   },
+  {
+    name: "Camille Daldosso",
+    sourceLabel: "Plumes Poils & Compagnie · Avis Google ✓",
+    dateLabel: "juin 2026",
+    rating: 5,
+    quote:
+      "Depuis le temps que je repoussais la création de mon site, je suis plus que ravie de cette collaboration avec PeakCL. Un grand merci à Charlotte pour sa réactivité, son expertise, ses idées et ses conseils. Elle a parfaitement cerné mes besoins tout en étant force de proposition. Je ne peux que la recommander. Merci pour ton implication et ton super travail.",
+  },
 ]
 

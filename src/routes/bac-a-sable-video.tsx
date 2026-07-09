@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import logo from "@/assets/peakcl-logo.png";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { absUrl } from "@/seo/site";
 
 const STORAGE_KEY = "peakcl-bac-a-sable-video-text";
@@ -294,7 +295,8 @@ function BacASableVideoPage() {
               </p>
 
               {/* Zone démo (dans le cadre capture) */}
-              <div className="mt-8 flex min-h-0 flex-1 flex-col rounded-3xl border border-white/15 bg-white/[0.06] p-3 shadow-card backdrop-blur-sm">
+              <div className="relative mt-8 flex min-h-0 flex-1 flex-col rounded-3xl border border-white/15 bg-white/[0.06] p-3 shadow-card backdrop-blur-sm">
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="mb-3 flex flex-wrap items-center justify-between gap-3 px-2">
                   <div className="flex items-center gap-2">
                     <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />

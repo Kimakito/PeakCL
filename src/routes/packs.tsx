@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import logo from "@/assets/peakcl-logo.png";
 import { absUrl } from "@/seo/site";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const SECTIONS = [
   { id: "intro", label: "Intro" },
@@ -277,12 +278,13 @@ function CatalogSection({ title, subtitle, items }: { title: string; subtitle: s
         {items.map((p) => (
           <section
             key={p.title}
-            className={`rounded-2xl border bg-card/50 p-7 shadow-card ${
+            className={`relative rounded-2xl border bg-card/50 p-7 shadow-card ${
               p.highlight
                 ? "border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_22%,transparent)]"
                 : "border-white/5"
             }`}
           >
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <div className="flex flex-wrap items-baseline justify-between gap-3">
               <h3 className="text-xl font-semibold">{p.title}</h3>
               <div className={`text-sm font-semibold ${p.highlight ? "text-[var(--brand-turquoise)]" : "text-muted-foreground"}`}>

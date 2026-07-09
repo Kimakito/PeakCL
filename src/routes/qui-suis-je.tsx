@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const BUREAU_IMAGE = "/peakcl/assets/images/bureau-peakcl.webp";
 
@@ -56,7 +57,8 @@ function Page() {
 
         <SnapSection id="parcours" className="flex items-center border-t border-white/5 py-20">
           <div className="mx-auto max-w-3xl px-6">
-            <div className="mb-8 overflow-hidden rounded-2xl border border-white/10 shadow-card">
+            <div className="relative mb-8 overflow-hidden rounded-2xl border border-white/10 shadow-card">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <img
                 src={BUREAU_IMAGE}
                 alt="Mon espace de travail · PeakCL"
@@ -95,7 +97,8 @@ function Page() {
               </p>
             </div>
 
-            <div className="mt-10 rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+            <div className="relative mt-10 rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <h2 className="text-2xl font-bold">Ma façon de travailler</h2>
               <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
                 <li>
@@ -125,7 +128,8 @@ function Page() {
 
         <SnapSection id="contact" className="flex items-center border-t border-white/5 py-20">
           <div className="mx-auto max-w-3xl px-6">
-            <div className="rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] bg-card/40 p-6 text-center shadow-card">
+            <div className="relative rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] bg-card/40 p-6 text-center shadow-card">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <h2 className="text-xl font-bold">On en parle ?</h2>
               <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
                 Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut pour une présence en

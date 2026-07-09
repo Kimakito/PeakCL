@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, Gift, MapPin, Palette } from "lucide-react";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
@@ -130,7 +131,8 @@ function Page() {
               pensé pour fonctionner ensemble.
             </p>
           </div>
-          <div className="rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+          <div className="relative rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] text-[var(--brand-violet)]">
               <Palette className="h-5 w-5" />
             </div>

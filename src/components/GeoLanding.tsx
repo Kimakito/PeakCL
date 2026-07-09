@@ -7,6 +7,7 @@ import {
   Megaphone,
   Palette,
 } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export type NearbyLink = { name: string; href: string };
 
@@ -144,7 +145,8 @@ export function GeoLanding({
               </p>
             ) : null}
           </div>
-          <div className="rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+          <div className="relative rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <h3 className="text-base font-semibold">Ce que vous obtenez</h3>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -183,8 +185,9 @@ export function GeoLanding({
               <a
                 key={s.title}
                 href={s.href}
-                className="group rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card transition-colors hover:border-white/15"
+                className="group relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card transition-colors hover:border-white/15"
               >
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] text-[var(--brand-violet)]">
                   <s.icon className="h-5 w-5" />
                 </div>
@@ -215,7 +218,8 @@ export function GeoLanding({
           <h2 className="text-2xl font-bold md:text-3xl">Comment ça se passe</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((step) => (
-              <div key={step.n} className="rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
+              <div key={step.n} className="relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="text-sm font-bold text-[var(--brand-turquoise)]">{step.n}</div>
                 <h3 className="mt-2 text-base font-semibold">{step.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{step.desc}</p>
@@ -231,7 +235,8 @@ export function GeoLanding({
           <h2 className="text-2xl font-bold">Questions fréquentes</h2>
           <div className="mt-6 space-y-4">
             {faq.map((item) => (
-              <div key={item.question} className="rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
+              <div key={item.question} className="relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <h3 className="text-base font-semibold">{item.question}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{item.answerHtml}</p>
               </div>

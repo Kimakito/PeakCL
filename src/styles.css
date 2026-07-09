@@ -118,18 +118,15 @@
 
   html {
     scroll-behavior: smooth;
+    /* Fond de base sur html pour que la couche animée .site-bg (z-index:-1)
+       reste visible : un background opaque sur body la masquerait. */
+    background-color: var(--color-background);
   }
 
   body {
-    background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    background-image:
-      radial-gradient(1100px 620px at 50% -240px, color-mix(in oklab, var(--brand-violet) 38%, transparent), transparent 60%),
-      radial-gradient(900px 700px at 100% 8%, color-mix(in oklab, var(--brand-turquoise) 18%, transparent), transparent 55%),
-      radial-gradient(900px 700px at 0% 22%, color-mix(in oklab, var(--brand-yellow) 12%, transparent), transparent 55%);
-    background-attachment: fixed;
   }
 
   h1, h2, h3, h4 {
@@ -164,6 +161,70 @@
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black, transparent 70%);
   }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Fond global vivant : blobs de couleur qui dérivent
+   violet → turquoise → jaune. Fixe, derrière tout le contenu.
+   ───────────────────────────────────────────────────────────── */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--background);
+}
+.site-bg__blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.5;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+.site-bg__blob--v {
+  width: 55vw;
+  height: 55vw;
+  left: -12vw;
+  top: -12vw;
+  background: radial-gradient(circle at center, var(--brand-violet), transparent 70%);
+  animation: bgDriftV 26s ease-in-out infinite;
+}
+.site-bg__blob--t {
+  width: 50vw;
+  height: 50vw;
+  right: -10vw;
+  top: 18vh;
+  background: radial-gradient(circle at center, var(--brand-turquoise), transparent 70%);
+  animation: bgDriftT 32s ease-in-out infinite;
+}
+.site-bg__blob--y {
+  width: 45vw;
+  height: 45vw;
+  left: 14vw;
+  bottom: -18vw;
+  background: radial-gradient(circle at center, var(--brand-yellow), transparent 70%);
+  animation: bgDriftY 38s ease-in-out infinite;
+  opacity: 0.4;
+}
+@keyframes bgDriftV {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(22vw, 12vh) scale(1.18); }
+  66% { transform: translate(8vw, 30vh) scale(0.92); }
+}
+@keyframes bgDriftT {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-18vw, 14vh) scale(0.9); }
+  66% { transform: translate(-6vw, -12vh) scale(1.2); }
+}
+@keyframes bgDriftY {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(16vw, -16vh) scale(1.1); }
+  66% { transform: translate(-14vw, -6vh) scale(0.95); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-bg__blob { animation: none; }
 }
 
 @keyframes trusted-marquee {

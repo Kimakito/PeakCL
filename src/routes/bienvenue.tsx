@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2, Download, Star, TriangleAlert } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { absUrl } from "@/seo/site";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 
@@ -72,7 +73,8 @@ function BienvenuePage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card">
+          <div className="relative rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <p className="text-base leading-relaxed text-foreground/90">
               Je m&apos;appelle Charlotte, fondatrice de PeakCL. J&apos;aide les
               indépendants et petites entreprises à structurer leur activité
@@ -105,7 +107,8 @@ function BienvenuePage() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-card">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-card">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <img
               src={AGENDA_HELP_IMAGE}
               alt="Aide agenda - confirmation du rendez-vous"
@@ -135,8 +138,9 @@ function BienvenuePage() {
             {peakclTestimonials.map((t) => (
               <div
                 key={t.name}
-                className="h-full rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card"
+                className="relative h-full rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card"
               >
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="flex gap-1 text-[var(--brand-yellow)]">
                   {Array.from({ length: t.rating }).map((_, k) => (
                     <Star key={k} className="h-4 w-4 fill-current" />
@@ -176,6 +180,7 @@ function BienvenuePage() {
           </div>
 
           <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-card">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] via-transparent to-[color-mix(in_oklab,var(--brand-turquoise)_12%,transparent)]" />
             <div className="relative p-6">
               <div className="grid gap-3">

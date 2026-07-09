@@ -3,6 +3,7 @@ import { ArrowRight, BookOpen } from "lucide-react";
 import { absUrl } from "@/seo/site";
 import { conseils } from "@/content/peakcl/conseils";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const SECTIONS = [
   { id: "intro", label: "Conseils" },
@@ -62,8 +63,9 @@ function Page() {
                 <a
                   key={c.slug}
                   href={`/${c.slug}`}
-                  className="group flex flex-col rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card transition-colors hover:border-white/15"
+                  className="group relative flex flex-col rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card transition-colors hover:border-white/15"
                 >
+                  <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                   <h2 className="text-lg font-bold leading-snug">{c.h1}</h2>
                   <p className="mt-3 flex-1 text-sm text-muted-foreground">{c.excerpt}</p>
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[var(--brand-turquoise)]">

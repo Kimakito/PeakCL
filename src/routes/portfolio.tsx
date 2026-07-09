@@ -15,6 +15,7 @@ import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
 import logo from "@/assets/peakcl-logo.png";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -136,10 +137,14 @@ function SiteCard({ p }: { p: DeckProject }) {
       data-event="portfolio_visit"
       className={cls}
     >
+      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       {Inner}
     </a>
   ) : (
-    <div className={cls}>{Inner}</div>
+    <div className={cls}>
+      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+      {Inner}
+    </div>
   );
 }
 
@@ -263,8 +268,9 @@ function LogosPanel() {
           {LOGO_PROJECTS.map((l) => (
             <div
               key={l.name}
-              className="group overflow-hidden rounded-2xl border border-white/5 bg-card/40 shadow-card"
+              className="group relative overflow-hidden rounded-2xl border border-white/5 bg-card/40 shadow-card"
             >
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="flex h-44 items-center justify-center bg-white p-8">
                 <img
                   src={l.file}

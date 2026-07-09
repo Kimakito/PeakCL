@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, Gift, Instagram, MapPin, Sparkles } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
 
@@ -148,8 +149,9 @@ function Page() {
             {PAINS.map((p) => (
               <li
                 key={p}
-                className="rounded-2xl border border-white/5 bg-card/50 p-5 text-sm text-muted-foreground shadow-card"
+                className="relative rounded-2xl border border-white/5 bg-card/50 p-5 text-sm text-muted-foreground shadow-card"
               >
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 {p}
               </li>
             ))}
@@ -171,7 +173,8 @@ function Page() {
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+          <div className="relative rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <h3 className="text-base font-semibold">Formules mensuelles</h3>
             <p className="mt-1 text-xs text-muted-foreground">
               Un rythme adapté à votre énergie et vos objectifs. Sans engagement longue durée imposé.

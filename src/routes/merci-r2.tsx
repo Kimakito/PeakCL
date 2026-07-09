@@ -3,6 +3,7 @@ import { ArrowRight, Check, Star, TrendingUp } from "lucide-react";
 import { absUrl } from "@/seo/site";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 import { peakclFaq } from "@/content/peakcl/faq";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const KEY_STATS = [
   {
@@ -97,7 +98,8 @@ function MerciR2Page() {
             en tête ! En attendant, voici comment on va travailler ensemble.
           </p>
 
-          <div className="mx-auto mt-10 max-w-xl rounded-2xl border border-white/10 bg-card/40 p-6 text-left shadow-card backdrop-blur">
+          <div className="relative mx-auto mt-10 max-w-xl rounded-2xl border border-white/10 bg-card/40 p-6 text-left shadow-card backdrop-blur">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <div className="flex items-center gap-3">
               <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 text-[var(--brand-turquoise)]">
                 <TrendingUp className="h-5 w-5" />
@@ -119,8 +121,9 @@ function MerciR2Page() {
             {KEY_STATS.map((s) => (
               <div
                 key={s.figure}
-                className="rounded-2xl border border-white/5 bg-card/40 p-4 text-center shadow-card backdrop-blur"
+                className="relative rounded-2xl border border-white/5 bg-card/40 p-4 text-center shadow-card backdrop-blur"
               >
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="text-2xl font-bold text-gradient">
                   {s.figure}
                 </div>
@@ -151,8 +154,9 @@ function MerciR2Page() {
             {ROADMAP_STEPS.map((step) => (
               <div
                 key={step.n}
-                className="rounded-2xl border border-white/5 bg-card/40 p-5 shadow-card backdrop-blur"
+                className="relative rounded-2xl border border-white/5 bg-card/40 p-5 shadow-card backdrop-blur"
               >
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="text-3xl font-bold text-gradient">{step.n}</div>
                 <div className="mt-2 text-sm font-bold text-foreground">
                   {step.title}
@@ -180,8 +184,9 @@ function MerciR2Page() {
             {peakclTestimonials.map((t) => (
               <div
                 key={t.name}
-                className="rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card"
+                className="relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card"
               >
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="flex gap-1 text-[var(--brand-yellow)]">
                   {Array.from({ length: t.rating }).map((_, k) => (
                     <Star key={k} className="h-3.5 w-3.5 fill-current" />

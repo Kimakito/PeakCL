@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Check, ShieldCheck } from "lucide-react";
 import { MERCI_R2_PATH, submitNetlifyForm } from "@/lib/funnel";
 import { absUrl } from "@/seo/site";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const BUREAU_IMAGE = "/peakcl/assets/images/bureau-peakcl.webp";
 
@@ -372,16 +373,16 @@ function QuestionnaireR2Page() {
 
   return (
     <main className="min-h-screen border-t border-white/5">
-      <section className="relative overflow-hidden py-20">
+      <section className="relative grid min-h-[55vh] place-items-center overflow-hidden py-20">
         <img
           src={BUREAU_IMAGE}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35"
+          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-100"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 via-background/85 to-background" />
         <div className="grid-bg absolute inset-0 -z-10 opacity-30" />
-        <div className="mx-auto max-w-3xl px-6 text-center">
+        <div className="relative mx-4 max-w-2xl justify-self-center rounded-3xl border border-white/20 bg-white/5 px-6 py-10 text-center shadow-card backdrop-blur-2xl sm:px-10">
+          <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
             <ShieldCheck className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
             2 minutes · Confidentiel
@@ -399,7 +400,8 @@ function QuestionnaireR2Page() {
 
       <section className="border-t border-white/5 py-16">
         <div className="mx-auto max-w-3xl px-6">
-          <div className="mb-8 rounded-2xl border border-white/5 bg-card/40 p-5 text-sm text-muted-foreground shadow-card backdrop-blur">
+          <div className="relative mb-8 rounded-2xl border border-white/5 bg-card/40 p-5 text-sm text-muted-foreground shadow-card backdrop-blur">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 Progression des champs ⭐ :{" "}
@@ -601,8 +603,9 @@ function QuestionnaireR2Page() {
 
             <div
               id="submit"
-              className="rounded-2xl border border-white/10 bg-card/40 p-6 text-center shadow-card backdrop-blur"
+              className="relative rounded-2xl border border-white/10 bg-card/40 p-6 text-center shadow-card backdrop-blur"
             >
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-[var(--brand-turquoise)]">
                 <Check className="h-6 w-6" />
               </div>

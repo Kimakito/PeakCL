@@ -16,6 +16,7 @@ import { SOCIAL, CONTACT } from "@/lib/links";
 import { absUrl } from "@/seo/site";
 import { submitNetlifyForm } from "@/lib/funnel";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const SECTIONS = [
   { id: "intro", label: "Contact" },
@@ -138,8 +139,9 @@ function ContactPage() {
                       : undefined
                   }
                   data-event={c.dataEvent}
-                  className="group flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-card/30 p-6 text-center shadow-card transition-colors hover:border-white/20"
+                  className="group relative flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-card/30 p-6 text-center shadow-card transition-colors hover:border-white/20"
                 >
+                  <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/5 text-[var(--brand-turquoise)]">
                     <c.icon className="h-5 w-5" />
                   </span>
@@ -153,7 +155,8 @@ function ContactPage() {
               ))}
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 rounded-2xl border border-white/10 bg-card/20 p-5">
+            <div className="relative mt-6 flex flex-wrap items-center justify-center gap-3 rounded-2xl border border-white/10 bg-card/20 p-5">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                 Sur les réseaux
               </span>
@@ -173,7 +176,8 @@ function ContactPage() {
             </div>
 
             <div className="mt-10 grid gap-6 md:grid-cols-2">
-              <div className="rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
+              <div className="relative rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
                   <MapPin className="h-4 w-4 text-[var(--brand-turquoise)]" />
                   Basée à Gilly-sur-Isère, Savoie
@@ -202,8 +206,9 @@ function ContactPage() {
                 data-netlify-honeypot="bot-field"
                 data-event="contact_page_form_submit"
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-3 rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card"
+                className="relative flex flex-col gap-3 rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card"
               >
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <input type="hidden" name="form-name" value="contact" />
                 <input type="hidden" name="leadType" value="contact" />
                 <input type="hidden" name="source" value="site_peakcl" />
@@ -279,7 +284,8 @@ function ContactPage() {
           className="flex items-center border-t border-white/5 py-16"
         >
           <div className="mx-auto max-w-3xl px-6">
-            <div className="rounded-3xl border border-white/10 bg-card/20 p-6 text-center shadow-card">
+            <div className="relative rounded-3xl border border-white/10 bg-card/20 p-6 text-center shadow-card">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <p className="text-sm text-muted-foreground">
                 Vous préférez qu’on en parle de vive voix pour cerner
                 précisément votre besoin ?

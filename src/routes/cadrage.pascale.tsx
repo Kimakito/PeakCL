@@ -9,6 +9,7 @@ import {
   TextArea,
   TextInput,
 } from "@/components/cadrage/FormFields";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { submitNetlifyForm } from "@/lib/funnel";
 import { absUrl } from "@/seo/site";
 
@@ -998,7 +999,8 @@ function CadragePascalePage() {
               />
             </QuestionBlock>
 
-            <div className="mt-12 rounded-2xl border border-white/10 bg-card/40 p-6 text-center shadow-card">
+            <div className="relative mt-12 rounded-2xl border border-white/10 bg-card/40 p-6 text-center shadow-card">
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <p className="text-sm text-muted-foreground">
                 Tu peux envoyer même si tout n'est pas rempli. Tes réponses sont
                 sauvegardées sur cet appareil jusqu'à l'envoi.
