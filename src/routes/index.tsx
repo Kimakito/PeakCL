@@ -17,6 +17,7 @@ import { faqPageJsonLd } from "@/seo/jsonld";
 import { submitNetlifyForm } from "@/lib/funnel";
 import { CTAButton } from "@/components/CTAButton";
 import { HeroPanel } from "@/components/home/HeroPanel";
+import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -581,6 +582,7 @@ function Landing() {
       <MobileNav />
       {/* Scroll vertical : sections pleine hauteur empilées (desktop + mobile) */}
       <HeroPanel />
+      <InstagramFeed />
       <ProblemPanel />
       <DifferencePanel />
       <MethodPanel />
