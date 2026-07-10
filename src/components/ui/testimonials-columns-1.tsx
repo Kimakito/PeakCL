@@ -43,9 +43,13 @@ export const TestimonialsColumn = (props: {
               >
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 {rating ? (
-                  <div className="flex gap-1 text-[var(--brand-yellow)]">
+                  <div className="flex items-center gap-1 text-[var(--brand-yellow)]">
                     {Array.from({ length: rating }).map((_, k) => (
-                      <Star key={k} className="h-3.5 w-3.5 fill-current" />
+                      <Star
+                        key={k}
+                        className="star-pop h-3.5 w-3.5 fill-current"
+                        style={{ animationDelay: `${k * 0.08}s` }}
+                      />
                     ))}
                   </div>
                 ) : null}

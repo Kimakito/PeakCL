@@ -214,7 +214,36 @@ function DifferencePanel() {
 
 /* ── Method panel ────────────────────────────────────────────── */
 
+function useDrawOnView() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = containerRef.current;
+    const ln = lineRef.current;
+    if (!el || !ln) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      ln.style.setProperty("--draw", "1");
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            ln.style.setProperty("--draw", "1");
+            io.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return { containerRef, lineRef };
+}
+
 function MethodPanel() {
+  const { containerRef, lineRef } = useDrawOnView();
   const steps = [
     { n: "01", title: "Diagnostic", desc: "Vous remplissez un formulaire de 8 minutes ou on en parle 20 minutes en visio. Je comprends votre activité, votre public, votre budget, vos contraintes." },
     { n: "02", title: "Cadrage", desc: "Je vous renvoie un devis précis sous 48h ouvrées (pas une fourchette élastique) et un planning. Vous validez ou vous ajustez." },
@@ -231,7 +260,13 @@ function MethodPanel() {
           eyebrow="Comment je travaille"
           title="Quatre étapes, du diagnostic à la mise en ligne"
         />
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div ref={containerRef} className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {/* ligne de progression tracée au scroll (desktop) */}
+          <div
+            ref={lineRef}
+            aria-hidden
+            className="process-line pointer-events-none absolute left-[12.5%] right-[12.5%] top-10 hidden h-0.5 bg-gradient-to-r from-[var(--brand-turquoise)] to-[var(--brand-violet)] lg:block"
+          />
           {steps.map((s, i) => (
             <motion.div key={s.n} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} transition={{ delay: i * 0.07 }} className="card-hover relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />

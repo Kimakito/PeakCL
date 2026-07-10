@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 
 import appCss from "../styles.css?url";
 import { TopNav } from "@/components/TopNav";
+import { SiteChrome } from "@/components/SiteChrome";
 import { absUrl } from "@/seo/site";
 import { organizationJsonLd, professionalServiceJsonLd } from "@/seo/jsonld";
 
@@ -121,6 +122,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   return (
     <>
+      <SiteChrome />
       <TopNav />
       <Outlet />
     </>

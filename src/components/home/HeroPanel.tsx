@@ -268,9 +268,10 @@ export function HeroPanel() {
       id="accueil"
       className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden"
     >
-      {/* Atmosphère hero : aurora premium + halo lumineux central + étoiles */}
+      {/* Atmosphère hero : aurora premium + halo lumineux central + étoiles + grain */}
       <div className="hero-aurora" aria-hidden />
       <div className="hero-stars" aria-hidden />
+      <div className="hero-grain" aria-hidden />
 
       {/* badge */}
       <div className="hero-fade relative z-10 mb-3 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs text-foreground/90 backdrop-blur">

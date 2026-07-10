@@ -13,7 +13,7 @@ export function CTAButton({
   const base = "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300";
   const styles =
     variant === "primary"
-      ? "bg-primary-gradient text-primary-foreground shadow-glow hover:scale-[1.03]"
+      ? "cta-anim bg-primary-gradient text-primary-foreground shadow-glow hover:scale-[1.03]"
       : "border border-border bg-card/40 text-foreground backdrop-blur hover:bg-card/70";
   const isExternal = /^https?:\/\//.test(href);
   return (

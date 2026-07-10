@@ -37,7 +37,8 @@ export function TopNav() {
             <Link
               key={to}
               to={to}
-              className={`transition-colors hover:text-foreground ${isActive(to) ? "font-semibold text-foreground" : "text-muted-foreground"}`}
+              data-active={isActive(to)}
+              className={`nav-underline transition-colors hover:text-foreground ${isActive(to) ? "font-semibold text-foreground" : "text-muted-foreground"}`}
             >
               {label}
             </Link>
@@ -50,7 +51,7 @@ export function TopNav() {
             target="_blank"
             rel="noopener noreferrer"
             data-event="cta_calendly_nav"
-            className="inline-flex items-center justify-center rounded-full bg-primary-gradient px-4 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03] md:text-sm"
+            className="cta-anim inline-flex items-center justify-center rounded-full bg-primary-gradient px-4 py-2 text-xs font-semibold text-primary-foreground shadow-glow hover:scale-[1.03] md:text-sm"
           >
             Réserver un appel
           </a>
