@@ -9,7 +9,7 @@ export function organizationJsonLd(): JsonLd {
     name: "PeakCL",
     url: absUrl("/"),
     logo: absUrl("/peakcl/PeakCL.svg"),
-    email: "peakcl73@gmail.com",
+    email: "contact@peakcl.com",
     sameAs: ["https://www.linkedin.com/in/charlotte-lacroix-peakcl/"],
   };
 }
@@ -25,7 +25,7 @@ export function professionalServiceJsonLd(): JsonLd {
     url: absUrl("/"),
     logo: absUrl("/peakcl/PeakCL.svg"),
     image: absUrl("/peakcl/PeakCL.svg"),
-    email: "peakcl73@gmail.com",
+    email: "contact@peakcl.com",
     telephone: "+33743517627",
     priceRange: "€€",
     founder: {

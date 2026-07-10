@@ -38,7 +38,11 @@ export const TestimonialsColumn = (props: {
           <React.Fragment key={index}>
             {props.testimonials.map(({ quote, name, role, rating }, i) => (
               <div
-                key={i}
+                key={`${index}-${i}`}
+                /* La 2e copie n'existe que pour la boucle visuelle : on la masque
+                   aux lecteurs d'écran et à l'indexation pour ne pas dupliquer
+                   le contenu. */
+                aria-hidden={index === 1}
                 className="relative w-full max-w-xs rounded-3xl border border-white/5 bg-card/50 p-8 text-left shadow-card backdrop-blur"
               >
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />

@@ -56,7 +56,7 @@ const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 const WHATSAPP_URL = "https://wa.me/33743517627";
 const PHONE_TEL = "tel:+33743517627";
 const PHONE_DISPLAY = "07 43 51 76 27";
-const EMAIL = "peakcl73@gmail.com";
+const EMAIL = "contact@peakcl.com";
 const LINKEDIN_URL = "https://www.linkedin.com/in/charlotte-lacroix-peakcl/";
 const MALT_URL = "https://www.malt.fr/profile/peakcldev";
 const FIVERR_URL = "https://fr.fiverr.com/s/99W6WYa";
@@ -477,7 +477,7 @@ function ContactPanel() {
       await submitNetlifyForm(form);
       window.location.href = "/merci";
     } catch {
-      alert("L'envoi a échoué. Écrivez-moi directement à peakcl73@gmail.com.");
+      alert("L'envoi a échoué. Écrivez-moi directement à contact@peakcl.com.");
     } finally {
       setIsSubmitting(false);
     }
@@ -619,25 +619,49 @@ function useCountUp(target: number, duration = 1200) {
       return;
     }
     let done = false;
+    let raf = 0;
+    // Filet de sécurité : quoi qu'il arrive (onglet en arrière-plan qui gèle
+    // requestAnimationFrame, IntersectionObserver qui ne se déclenche jamais),
+    // la valeur finale s'affiche. Un compteur figé à mi-course ("52%") ou resté
+    // à 0 est pire que pas d'animation.
+    let fallback = window.setTimeout(() => setValue(target), duration + 2500);
+
+    const run = () => {
+      if (done) return;
+      done = true;
+      const start = performance.now();
+      const tick = (now: number) => {
+        const p = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - p, 3);
+        setValue(Math.round(target * eased));
+        if (p < 1) {
+          raf = requestAnimationFrame(tick);
+        } else {
+          setValue(target);
+          window.clearTimeout(fallback);
+        }
+      };
+      raf = requestAnimationFrame(tick);
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (!e.isIntersecting || done) return;
-          done = true;
-          const start = performance.now();
-          const tick = (now: number) => {
-            const p = Math.min(1, (now - start) / duration);
-            const eased = 1 - Math.pow(1 - p, 3);
-            setValue(Math.round(target * eased));
-            if (p < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
+          if (e.isIntersecting) run();
         });
       },
       { threshold: 0.5 },
     );
     io.observe(el);
-    return () => io.disconnect();
+    // Déjà visible au chargement (la barre est juste sous le hero) : certains
+    // navigateurs ne rappellent pas l'observer, on démarre donc aussi ici.
+    if (el.getBoundingClientRect().top < window.innerHeight) run();
+
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+      window.clearTimeout(fallback);
+    };
   }, [target, duration]);
   return { value, ref };
 }
@@ -670,7 +694,7 @@ function ReassuranceBar() {
   return (
     <section aria-label="Réassurance" className="border-y border-white/5 bg-card/30 py-4">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 text-sm">
-        <Stat target={20} suffix="+" label="projets livrés" />
+        <Stat target={peakclPortfolio.filter((p) => p.logoUrl).length} label="projets livrés" />
         <Stat literal="5/5" label="sur Google" />
         <Stat target={100} suffix="%" label="clients satisfaits" />
         <Stat literal="Savoie" label="& France" />

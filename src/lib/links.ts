@@ -15,7 +15,7 @@ export const FREELANCE = {
 } as const;
 
 export const CONTACT = {
-  email: "peakcl73@gmail.com",
+  email: "contact@peakcl.com",
   phoneTel: "tel:+33743517627",
   phoneDisplay: "07 43 51 76 27",
   calendly: "https://calendly.com/peakcl73/faisons-connaissance",

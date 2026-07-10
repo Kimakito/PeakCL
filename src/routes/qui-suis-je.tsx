@@ -102,7 +102,7 @@ function Page() {
               <p>
                 Concrètement, j'accompagne des indépendants, artisans, thérapeutes, commerçants et
                 petites structures qui veulent une présence en ligne professionnelle sans y passer leurs
-                soirées. J'ai livré plus de 20 projets, agence de voyage, cabinet d'avocate, artisan
+                soirées. J'ai livré 19 projets, agence de voyage, cabinet d'avocate, artisan
                 automobile, prothésiste dentaire, coachs, e-commerce équestre, notés 5/5 sur Google.
                 Basée à Gilly-sur-Isère, juste à côté d'Albertville, je travaille avec des clients dans toute la Savoie (Chambéry,
                 Aix-les-Bains, Annecy) et partout en France, en visio.
