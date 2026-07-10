@@ -21,7 +21,14 @@ import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { MASCOT_POSES, type MascotPose } from "@/lib/mascot";
+import { type MascotPose } from "@/lib/mascot";
+
+const DOODLES = [
+  "/peakcl/doodles/doodle-1.webp",
+  "/peakcl/doodles/doodle-2.webp",
+  "/peakcl/doodles/doodle-3.webp",
+  "/peakcl/doodles/doodle-4.webp",
+];
 
 const LOGO_NAV = "/peakcl/logo-nav.webp";
 
@@ -88,8 +95,9 @@ function ContactInline({ className = "" }: { className?: string }) {
 
 /* ── Hero panel ─────────────────────────────────────────────── */
 
-/** Mascotte décorative d'une section : en filigrane derrière le contenu,
- *  dans la gouttière latérale, visible seulement sur grands écrans (xl+). */
+/** Doodle décoratif d'une section : filigrane clair dans la gouttière latérale,
+ *  visible seulement sur grands écrans (xl+). Une seule direction : photos
+ *  réelles + mockups + doodles, plus d'illustration 3D. */
 function SectionMascot({
   pose,
   side = "right",
@@ -101,11 +109,15 @@ function SectionMascot({
   flip?: boolean;
   heightClass?: string;
 }) {
+  // Choix déterministe et varié d'un doodle selon la section.
+  const src = DOODLES[pose.length % DOODLES.length];
   return (
     <img
       aria-hidden
-      src={MASCOT_POSES[pose]}
-      className={`pointer-events-none absolute bottom-0 -z-10 hidden w-auto select-none opacity-90 drop-shadow-[0_10px_40px_rgba(0,0,0,0.35)] xl:block ${heightClass} ${side === "right" ? "right-3 2xl:right-10" : "left-3 2xl:left-10"}`}
+      src={src}
+      loading="lazy"
+      decoding="async"
+      className={`pointer-events-none absolute top-1/2 -z-10 hidden w-auto -translate-y-1/2 select-none opacity-[0.22] xl:block ${heightClass} ${side === "right" ? "right-0 2xl:right-4" : "left-0 2xl:left-4"}`}
       style={flip ? { transform: "scaleX(-1)" } : undefined}
     />
   );
