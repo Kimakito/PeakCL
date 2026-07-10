@@ -23,13 +23,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { type MascotPose } from "@/lib/mascot";
 
-const DOODLES = [
-  "/peakcl/doodles/doodle-1.webp",
-  "/peakcl/doodles/doodle-2.webp",
-  "/peakcl/doodles/doodle-3.webp",
-  "/peakcl/doodles/doodle-4.webp",
-];
-
 const LOGO_NAV = "/peakcl/logo-nav.webp";
 
 export const Route = createFileRoute("/")({
@@ -95,32 +88,16 @@ function ContactInline({ className = "" }: { className?: string }) {
 
 /* ── Hero panel ─────────────────────────────────────────────── */
 
-/** Doodle décoratif d'une section : filigrane clair dans la gouttière latérale,
- *  visible seulement sur grands écrans (xl+). Une seule direction : photos
- *  réelles + mockups + doodles, plus d'illustration 3D. */
-function SectionMascot({
-  pose,
-  side = "right",
-  flip = false,
-  heightClass = "h-[48vh]",
-}: {
+/** Ancien emplacement de la mascotte 3D des gouttières : retiré pour tenir une
+ *  seule direction (photo réelle + mockups + doodle de fond). Conservé en
+ *  no-op pour ne pas toucher tous les appels de section. */
+function SectionMascot(_props: {
   pose: MascotPose;
   side?: "left" | "right";
   flip?: boolean;
   heightClass?: string;
 }) {
-  // Choix déterministe et varié d'un doodle selon la section.
-  const src = DOODLES[pose.length % DOODLES.length];
-  return (
-    <img
-      aria-hidden
-      src={src}
-      loading="lazy"
-      decoding="async"
-      className={`pointer-events-none absolute top-1/2 -z-10 hidden w-auto -translate-y-1/2 select-none opacity-[0.22] xl:block ${heightClass} ${side === "right" ? "right-0 2xl:right-4" : "left-0 2xl:left-4"}`}
-      style={flip ? { transform: "scaleX(-1)" } : undefined}
-    />
-  );
+  return null;
 }
 
 /* ── Problem panel ───────────────────────────────────────────── */
@@ -264,8 +241,19 @@ function MethodPanel() {
   ];
   return (
     <section id="methode" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
-      <SectionMascot pose="bureau" side="right" heightClass="h-[42vh]" />
-      <div className="mx-auto max-w-6xl px-8 md:px-16 w-full">
+      <div className="relative isolate mx-auto w-full max-w-6xl px-8 md:px-16">
+        {/* doodle en fond de section (thème « comment je travaille ») */}
+        <img
+          aria-hidden
+          src="/peakcl/doodles/doodle-1.webp"
+          loading="lazy"
+          decoding="async"
+          className="pointer-events-none absolute left-1/2 top-1/2 -z-10 hidden w-[min(760px,100%)] -translate-x-1/2 -translate-y-1/2 select-none opacity-30 md:block"
+          style={{
+            maskImage: "radial-gradient(circle, black 45%, transparent 78%)",
+            WebkitMaskImage: "radial-gradient(circle, black 45%, transparent 78%)",
+          }}
+        />
         <SectionHeading
           className="mb-10"
           accent="yellow"
