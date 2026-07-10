@@ -6,6 +6,27 @@
 [functions]
   directory = ".netlify/v1/functions"
 
+# Caching strategy.
+# Rules are applied top-to-bottom; a later match overrides the same header key.
+# 1) HTML documents must never be cached: they reference hashed asset URLs that
+#    change on every deploy. A stale cached HTML pointing at a purged asset hash
+#    is what caused the "unstyled site" bug.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+# 2) Hashed build assets are content-addressed and immutable: cache forever.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 # TanStack Start on Netlify runs via a serverless function.
 # SEO: redirect legacy URLs (previous site/blog) so Google doesn't see 404.
 [[redirects]]
