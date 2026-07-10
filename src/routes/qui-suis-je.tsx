@@ -3,7 +3,7 @@ import { absUrl } from "@/seo/site";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
-const BUREAU_IMAGE = "/peakcl/assets/images/bureau-peakcl.webp";
+const PHOTO = "/peakcl/photo/charlotte-portrait";
 
 const SECTIONS = [
   { id: "intro", label: "Charlotte" },
@@ -57,17 +57,29 @@ function Page() {
 
         <SnapSection id="parcours" className="flex items-center border-t border-white/5 py-20">
           <div className="mx-auto max-w-3xl px-6">
-            <div className="relative mb-8 overflow-hidden rounded-2xl border border-white/10 shadow-card">
+            <div className="relative mx-auto mb-8 max-w-md overflow-hidden rounded-2xl border border-white/10 shadow-card">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-              <img
-                src={BUREAU_IMAGE}
-                alt="Mon espace de travail · PeakCL"
-                width={1200}
-                height={800}
-                loading="lazy"
-                decoding="async"
-                className="h-auto w-full object-cover"
-              />
+              <picture>
+                <source
+                  type="image/avif"
+                  srcSet={`${PHOTO}-640.avif 640w, ${PHOTO}-960.avif 960w, ${PHOTO}-1280.avif 1280w`}
+                  sizes="(min-width: 768px) 448px, 100vw"
+                />
+                <source
+                  type="image/webp"
+                  srcSet={`${PHOTO}-640.webp 640w, ${PHOTO}-960.webp 960w, ${PHOTO}-1280.webp 1280w`}
+                  sizes="(min-width: 768px) 448px, 100vw"
+                />
+                <img
+                  src={`${PHOTO}-960.webp`}
+                  alt="Charlotte Lacroix, fondatrice de PeakCL"
+                  width={960}
+                  height={1117}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-auto w-full object-cover"
+                />
+              </picture>
             </div>
 
             <div className="space-y-5 text-[15px] leading-relaxed text-muted-foreground">

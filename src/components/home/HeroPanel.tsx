@@ -9,8 +9,10 @@ import {
   Star,
 } from "lucide-react";
 import { CTAButton } from "@/components/CTAButton";
-import { Mascot } from "@/components/Mascot";
 import type { MascotPose } from "@/lib/mascot";
+
+const PHOTO_400 = "/peakcl/photo/charlotte-round-400.webp";
+const PHOTO_800 = "/peakcl/photo/charlotte-round-800.webp";
 
 const WHATSAPP_URL = "https://wa.me/33743517627";
 const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
@@ -90,12 +92,6 @@ function HeroAvatar() {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const total = ORBIT_ITEMS.length;
 
-  // Pose active = nœud survolé ; sinon pose de repos (montre).
-  const focusItem = hoverId !== null ? ORBIT_ITEMS[hoverId] : null;
-  const current = focusItem
-    ? { pose: focusItem.pose, flip: !!focusItem.flip }
-    : { pose: "montre" as MascotPose, flip: false };
-
   // Auto-rotation, en pause quand un nœud est survolé (le nœud reste immobile,
   // le temps d'aller cliquer sur sa carte).
   const paused = hoverId !== null;
@@ -151,21 +147,28 @@ function HeroAvatar() {
         }}
       />
 
-      {/* mascotte (change de pose au survol d'un nœud) */}
+      {/* photo pro de Charlotte au centre de l'orbite (élément LCP du hero) */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
         style={{
-          height: "calc(var(--hero) * 0.58)",
-          width: "calc(var(--hero) * 0.66)",
+          height: "calc(var(--hero) * 0.62)",
+          width: "calc(var(--hero) * 0.62)",
         }}
       >
-        <Mascot
-          pose={current.pose}
-          flip={current.flip}
-          lean
-          heightClass="h-full"
-          className="h-full w-full"
-          alt="Charlotte · PeakCL"
+        <div
+          aria-hidden
+          className="absolute inset-[-10%] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--brand-turquoise)_45%,transparent)_0%,transparent_70%)] blur-xl"
+        />
+        <img
+          src={PHOTO_400}
+          srcSet={`${PHOTO_400} 400w, ${PHOTO_800} 800w`}
+          sizes="(min-width: 768px) 340px, 220px"
+          width={800}
+          height={800}
+          fetchPriority="high"
+          decoding="async"
+          alt="Charlotte Lacroix, fondatrice de PeakCL"
+          className="relative h-full w-full rounded-full object-cover shadow-[0_0_44px_rgba(12,198,193,0.35)] ring-2 ring-white/15"
         />
       </div>
 

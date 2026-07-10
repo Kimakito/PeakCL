@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import React, { useState, type FormEvent } from "react";
+import React, { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   ArrowRight, Check, Sparkles, Phone,
 } from "lucide-react";
@@ -24,7 +24,6 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { MASCOT_POSES, type MascotPose } from "@/lib/mascot";
 
 const LOGO_NAV = "/peakcl/logo-nav.webp";
-const AVATAR_SVG = "/peakcl/avatar.svg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,13 +46,7 @@ export const Route = createFileRoute("/")({
     links: [
       { rel: "canonical", href: absUrl("/") },
       { rel: "preload", href: LOGO_NAV, as: "image", type: "image/webp" },
-      { rel: "preload", href: AVATAR_SVG, as: "image", type: "image/svg+xml" },
-      { rel: "preload", href: "/peakcl/avatar-montre.webp", as: "image", type: "image/webp" },
-      { rel: "preload", href: "/peakcl/avatar-dab.webp", as: "image", type: "image/webp" },
-      { rel: "preload", href: "/peakcl/avatar-tablette.webp", as: "image", type: "image/webp" },
-      { rel: "preload", href: "/peakcl/avatar-bas.webp", as: "image", type: "image/webp" },
-      { rel: "preload", href: "/peakcl/avatar-graphique.webp", as: "image", type: "image/webp" },
-      { rel: "preload", href: "/peakcl/avatar-victoire.webp", as: "image", type: "image/webp" },
+      { rel: "preload", href: "/peakcl/photo/charlotte-round-800.webp", as: "image", type: "image/webp" },
     ],
   }),
   component: Landing,
@@ -470,7 +463,21 @@ function ContactPanel() {
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
           Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut pour une image cohérente et comment je peux m'en charger.
         </p>
-        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <img
+            src="/peakcl/photo/charlotte-round-192.webp"
+            width={192}
+            height={192}
+            loading="lazy"
+            decoding="async"
+            alt="Charlotte Lacroix"
+            className="h-14 w-14 rounded-full object-cover ring-2 ring-white/15"
+          />
+          <p className="text-left text-sm text-muted-foreground">
+            Vous parlerez directement à <span className="font-semibold text-foreground">Charlotte</span>.
+          </p>
+        </div>
+        <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <CTAButton href="/reservation-appel" dataEvent="cta_brief_final">Faire le diagnostic</CTAButton>
           <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_final" variant="ghost">Réserver un appel</CTAButton>
         </div>
@@ -537,7 +544,7 @@ function MobileStickyContact() {
 function Footer() {
   return (
     <footer className="border-t border-white/5 py-8 md:hidden">
-      <img src="/peakcl/avatar-sieste.webp" alt="" aria-hidden loading="lazy" className="mx-auto mb-5 h-28 w-auto select-none opacity-95" />
+      <img src="/peakcl/photo/charlotte-round-192.webp" width={192} height={192} alt="Charlotte Lacroix, PeakCL" loading="lazy" decoding="async" className="mx-auto mb-5 h-20 w-20 rounded-full object-cover ring-2 ring-white/10" />
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 text-sm text-muted-foreground">
         <div className="flex items-center gap-2">
           <img src={LOGO_NAV} alt="PeakCL" width={24} height={24} loading="lazy" decoding="async" className="h-6 w-6 rounded-md object-cover" />
@@ -562,24 +569,76 @@ function Footer() {
   );
 }
 
-/* ── Reassurance bar ─────────────────────────────────────────── */
+/* ── Reassurance bar (compteurs animés) ──────────────────────── */
+
+/** Incrémente 0 -> target quand l'élément entre dans le viewport (une seule fois).
+ *  Valeur finale immédiate si prefers-reduced-motion. */
+function useCountUp(target: number, duration = 1200) {
+  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLSpanElement | null>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setValue(target);
+      return;
+    }
+    let done = false;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting || done) return;
+          done = true;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const p = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - p, 3);
+            setValue(Math.round(target * eased));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      },
+      { threshold: 0.5 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [target, duration]);
+  return { value, ref };
+}
+
+function Stat({
+  target,
+  prefix = "",
+  suffix = "",
+  label,
+  literal,
+}: {
+  target?: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+  literal?: string;
+}) {
+  const { value, ref } = useCountUp(target ?? 0);
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <span ref={ref} className="font-bold text-[var(--brand-turquoise)]">
+        {literal ?? `${prefix}${value}${suffix}`}
+      </span>
+      <span className="text-muted-foreground">{label}</span>
+    </span>
+  );
+}
 
 function ReassuranceBar() {
-  const items = [
-    { strong: "5/5", rest: "sur Google" },
-    { strong: "20+", rest: "projets livrés" },
-    { strong: "1 seul", rest: "interlocuteur" },
-    { strong: "Savoie", rest: "& France" },
-  ];
   return (
     <section aria-label="Réassurance" className="border-y border-white/5 bg-card/30 py-4">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 text-sm">
-        {items.map((it) => (
-          <span key={it.rest} className="inline-flex items-center gap-1.5">
-            <span className="font-bold text-[var(--brand-turquoise)]">{it.strong}</span>
-            <span className="text-muted-foreground">{it.rest}</span>
-          </span>
-        ))}
+        <Stat target={20} suffix="+" label="projets livrés" />
+        <Stat literal="5/5" label="sur Google" />
+        <Stat target={100} suffix="%" label="clients satisfaits" />
+        <Stat literal="Savoie" label="& France" />
       </div>
     </section>
   );
