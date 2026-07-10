@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
+import { peakclTestimonials } from "@/content/peakcl/testimonials";
 import {
   CATEGORIES,
   DECK_PROJECTS,
@@ -77,8 +78,117 @@ function MacbookFrame({ children }: { children: ReactNode }) {
   );
 }
 
+/* ── Étude de cas (modale interne) ───────────────────────────── */
+/** Avis client associé à un projet, si l'un des témoignages le mentionne. */
+function testimonialFor(p: DeckProject) {
+  const first = p.title.toLowerCase().split(" ")[0];
+  return peakclTestimonials.find((t) => {
+    const label = (t.sourceLabel || "").toLowerCase();
+    if (!label || label.startsWith("avis")) return false;
+    return label.includes(first);
+  });
+}
+
+function CaseStudyModal({ p, onClose }: { p: DeckProject; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [onClose]);
+
+  const quote = testimonialFor(p);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Étude de cas ${p.title}`}
+      onClick={onClose}
+      className="fixed inset-0 z-[100] flex items-end justify-center bg-black/70 backdrop-blur-sm sm:items-center sm:p-6"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl border border-white/10 bg-[#0c0c16] shadow-card sm:rounded-3xl"
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Fermer"
+          className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-black/50 text-white/70 backdrop-blur hover:text-white"
+        >
+          <X className="h-5 w-5" />
+        </button>
+
+        {p.shot ? (
+          <div className="aspect-[16/9] overflow-hidden bg-black">
+            <img src={p.shot} alt={`Aperçu du site ${p.title}`} decoding="async" className="h-full w-full object-cover object-top" />
+          </div>
+        ) : null}
+
+        <div className="p-6 sm:p-8">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">Étude de cas</span>
+          <h3 className="mt-2 text-2xl font-bold">{p.title}</h3>
+          {p.subtitle ? <p className="mt-1 text-sm text-muted-foreground">{p.subtitle}</p> : null}
+          {p.description ? <p className="mt-5 text-sm leading-relaxed text-foreground/90">{p.description}</p> : null}
+
+          {p.tags?.length ? (
+            <div className="mt-6">
+              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Ce qui a été livré</div>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {p.tags.map((t) => (
+                  <li key={t} className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-foreground/90">
+                    <Check className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          {quote ? (
+            <blockquote className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm italic leading-relaxed text-foreground/90">
+              « {quote.quote} »
+              <footer className="mt-2 not-italic text-xs text-muted-foreground">
+                {quote.name} · {quote.sourceLabel}
+              </footer>
+            </blockquote>
+          ) : null}
+
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            {p.siteUrl ? (
+              <a
+                href={p.siteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-event="portfolio_visit"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-foreground hover:border-white/30"
+              >
+                Voir le site en ligne <ArrowUpRight className="h-4 w-4" />
+              </a>
+            ) : null}
+            <a
+              href="/reservation-appel"
+              data-event="cta_brief_case"
+              className="cta-anim inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow hover:scale-[1.02]"
+            >
+              Un projet comme ça ? <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ── Carte site (élément de grille) ──────────────────────────── */
-function SiteCard({ p }: { p: DeckProject }) {
+function SiteCard({ p, onOpen }: { p: DeckProject; onOpen: (project: DeckProject) => void }) {
   const Inner = (
     <>
       <div
@@ -126,18 +236,16 @@ function SiteCard({ p }: { p: DeckProject }) {
     </>
   );
 
-  const cls =
-    "group relative block overflow-hidden rounded-2xl border border-white/5 bg-card/40 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-white/15";
-  return p.siteUrl ? (
-    <a href={p.siteUrl} target="_blank" rel="noopener noreferrer" data-event="portfolio_visit" className={cls}>
+  return (
+    <button
+      type="button"
+      onClick={() => onOpen(p)}
+      data-event="portfolio_open"
+      className="group relative block w-full cursor-pointer overflow-hidden rounded-2xl border border-white/5 bg-card/40 text-left shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-white/15"
+    >
       <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       {Inner}
-    </a>
-  ) : (
-    <div className={cls}>
-      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-      {Inner}
-    </div>
+    </button>
   );
 }
 
@@ -172,6 +280,7 @@ function LogoCard({ l }: { l: (typeof LOGO_PROJECTS)[number] }) {
 /* ── Page ────────────────────────────────────────────────────── */
 function PortfolioPage() {
   const [active, setActive] = useState<string>(ALL_KEY);
+  const [openP, setOpenP] = useState<DeckProject | null>(null);
 
   // Pré-sélection via ?cat=<slug> (liens depuis la home).
   useEffect(() => {
@@ -241,7 +350,7 @@ function PortfolioPage() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {showLogos
             ? LOGO_PROJECTS.map((l) => <LogoCard key={l.name} l={l} />)
-            : projects.map((p) => <SiteCard key={p.slug} p={p} />)}
+            : projects.map((p) => <SiteCard key={p.slug} p={p} onOpen={setOpenP} />)}
         </div>
       </section>
 
@@ -274,6 +383,8 @@ function PortfolioPage() {
       </section>
 
       <DeckFooter />
+
+      {openP ? <CaseStudyModal p={openP} onClose={() => setOpenP(null)} /> : null}
     </div>
   );
 }
