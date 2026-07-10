@@ -154,7 +154,7 @@ function CadrageVeroniquePage() {
       window.location.href = MERCI_PATH;
     } catch {
       alert(
-        "L’envoi a échoué. Vérifie ta connexion et réessaie, ou écris à contact@peakcl.com, tes réponses sont sauvegardées dans ce navigateur.",
+        "L’envoi a échoué. Vérifie ta connexion et réessaie, ou écris à peakcl73@gmail.com, tes réponses sont sauvegardées dans ce navigateur.",
       );
     } finally {
       setIsSubmitting(false);

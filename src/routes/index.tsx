@@ -56,7 +56,7 @@ const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 const WHATSAPP_URL = "https://wa.me/33743517627";
 const PHONE_TEL = "tel:+33743517627";
 const PHONE_DISPLAY = "07 43 51 76 27";
-const EMAIL = "contact@peakcl.com";
+const EMAIL = "peakcl73@gmail.com";
 const LINKEDIN_URL = "https://www.linkedin.com/in/charlotte-lacroix-peakcl/";
 const MALT_URL = "https://www.malt.fr/profile/peakcldev";
 const FIVERR_URL = "https://fr.fiverr.com/s/99W6WYa";
@@ -477,7 +477,7 @@ function ContactPanel() {
       await submitNetlifyForm(form);
       window.location.href = "/merci";
     } catch {
-      alert("L'envoi a échoué. Écrivez-moi directement à contact@peakcl.com.");
+      alert("L'envoi a échoué. Écrivez-moi directement à peakcl73@gmail.com.");
     } finally {
       setIsSubmitting(false);
     }
