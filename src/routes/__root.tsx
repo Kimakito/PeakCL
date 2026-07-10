@@ -3,6 +3,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 import appCss from "../styles.css?url";
 import { TopNav } from "@/components/TopNav";
 import { SiteChrome } from "@/components/SiteChrome";
+import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { absUrl } from "@/seo/site";
 import { organizationJsonLd, professionalServiceJsonLd } from "@/seo/jsonld";
 
@@ -10,10 +11,19 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
+        <div className="mb-6 flex justify-center">
+          <ExpressionPhoto
+            slug="batman"
+            caption="Même Batman a cherché"
+            tilt={-3}
+            imgClassName="aspect-[3/4] w-36"
+            loading="eager"
+          />
+        </div>
         <h1 className="text-7xl font-bold text-gradient">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page introuvable</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Cette page n'existe pas ou a été déplacée.
+          Cette page a filé dans la nuit. Rentrons à l'accueil, c'est plus sûr.
         </p>
         <div className="mt-6">
           <Link

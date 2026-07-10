@@ -9,6 +9,7 @@ dist/
 
 # Assets sources lourds, hors web (mockups PSD, doodles bruts, photo source)
 /mockups/
+/images/
 /PeakCL.jpg
 /doodle_2_07.jpg
 /arl5_11xm_221223.jpg

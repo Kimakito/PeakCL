@@ -4,6 +4,7 @@ import { absUrl } from "@/seo/site";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Reveal } from "@/components/ui/Reveal";
 import { SERVICES, packages } from "@/content/peakcl/services";
+import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 
 const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
@@ -39,6 +40,9 @@ function ServicesHub() {
             <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
               Site, réseaux, image et automatisation : choisissez ce dont vous avez besoin, ou déléguez tout de A à Z. Tarifs sur devis selon votre besoin.
             </p>
+            <div className="mt-10 flex justify-center">
+              <SectionAvatarCard slug="offres" imgClassName="w-full max-w-[230px]" />
+            </div>
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -111,6 +115,9 @@ function ServicesHub() {
           </div>
 
           <div className="mt-16 rounded-2xl border border-white/10 bg-card/40 p-7 text-center shadow-card backdrop-blur">
+            <div className="mb-6 flex justify-center">
+              <ExpressionPhoto slug="sourire-malicieux" caption="Par quoi on commence ?" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+            </div>
             <h2 className="text-2xl font-bold md:text-3xl">Vous ne savez pas par où commencer ?</h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
               Réservez un appel de diagnostic : je vous dis ce qui aura le plus d’impact pour votre activité, et comment je peux m’en charger.

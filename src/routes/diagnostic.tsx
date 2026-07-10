@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { absUrl } from "@/seo/site";
+import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 
 export const Route = createFileRoute("/diagnostic")({
   head: () => ({
@@ -273,6 +274,9 @@ function DiagnosticPage() {
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
             <CheckCircle2 className="h-4 w-4 text-[var(--brand-turquoise)]" />
             Diagnostic · 3 à 5 minutes
+          </div>
+          <div className="mt-6 flex justify-center">
+            <ExpressionPhoto slug="lunettes-reflexion" caption="On regarde ça ensemble" tilt={-3} imgClassName="aspect-[3/4] w-24" />
           </div>
           <h1 className="mx-auto mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">
             Questionnaire <span className="text-gradient">diagnostic</span>

@@ -17,6 +17,7 @@ import { absUrl } from "@/seo/site";
 import { submitNetlifyForm } from "@/lib/funnel";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 
 const SECTIONS = [
   { id: "intro", label: "Contact" },
@@ -120,6 +121,9 @@ function ContactPage() {
               d’engagement à me contacter. Choisissez le canal qui vous
               convient.
             </p>
+            <div className="mt-10 flex justify-center">
+              <SectionAvatarCard slug="contact" imgClassName="w-full max-w-[230px]" />
+            </div>
           </div>
         </SnapSection>
 
@@ -287,6 +291,9 @@ function ContactPage() {
           <div className="mx-auto max-w-3xl px-6">
             <div className="relative rounded-3xl border border-white/10 bg-card/20 p-6 text-center shadow-card">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <div className="mb-6 flex justify-center">
+                <ExpressionPhoto slug="sourire-exterieur" caption="À vous lire" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+              </div>
               <p className="text-sm text-muted-foreground">
                 Vous préférez qu’on en parle de vive voix pour cerner
                 précisément votre besoin ?

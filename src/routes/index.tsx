@@ -19,6 +19,7 @@ import { CTAButton } from "@/components/CTAButton";
 import { HeroPanel } from "@/components/home/HeroPanel";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { SectionHeading } from "@/components/SectionHeading";
+import { ExpressionGallery } from "@/components/ExpressionPhoto";
 import { Reveal } from "@/components/ui/Reveal";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { type MascotPose } from "@/lib/mascot";
@@ -422,6 +423,8 @@ function ReviewsPanel() {
           eyebrow="Ils en parlent mieux que moi"
           title="Des résultats, pas des promesses."
         />
+        <p className="mb-2 text-center text-sm text-muted-foreground">Derrière PeakCL, une vraie personne :</p>
+        <ExpressionGallery className="mt-2 mb-12" />
         <div className="mx-auto flex max-h-[58vh] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
           {/* Mobile : une colonne, les 4 avis une fois */}
           <TestimonialsColumn testimonials={reviews} duration={22} className="md:hidden" />

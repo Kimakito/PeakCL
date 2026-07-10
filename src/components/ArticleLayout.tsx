@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { conseils, type Conseil } from "@/content/peakcl/conseils";
 
 const DATE_FMT = new Intl.DateTimeFormat("fr-FR", {
@@ -57,6 +58,9 @@ export function ArticleLayout({ conseil }: { conseil: Conseil }) {
           {/* CTA */}
           <div className="relative mt-12 rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] bg-card/40 p-6 text-center shadow-card">
             <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <div className="mb-5 flex justify-center">
+              <ExpressionPhoto slug="lunettes-reflexion" caption="Bonne question" tilt={-3} imgClassName="aspect-[3/4] w-24" />
+            </div>
             <h2 className="text-lg font-bold">Un projet, ou juste une question ?</h2>
             <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
               Audit gratuit de votre site web et de vos réseaux sociaux, sous 24h et sans engagement.

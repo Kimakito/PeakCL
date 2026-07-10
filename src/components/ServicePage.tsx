@@ -3,6 +3,8 @@ import { ArrowRight, Check } from "lucide-react";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionAvatarCard, ExpressionPhoto } from "@/components/ExpressionPhoto";
+import type { SectionCardSlug } from "@/lib/expressions";
 import type { CatalogItem, Forfait, ServiceHighlight } from "@/content/peakcl/services";
 
 const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
@@ -128,9 +130,11 @@ export type ServicePageProps = {
   items: CatalogItem[];
   /** Affiche les prix réels des items du catalogue (sinon « Sur devis »). */
   showPrices?: boolean;
+  /** Vignette avatar labellisée affichée dans le hero (ex. "logos"). */
+  avatarCard?: SectionCardSlug;
 };
 
-export function ServicePage({ eyebrow, title, tagline, intro, highlights, highlightsTitle, highlightsSubtitle, forfaits, forfaitsTitle, forfaitsNote, sectionTitle, sectionSubtitle, items, showPrices }: ServicePageProps) {
+export function ServicePage({ eyebrow, title, tagline, intro, highlights, highlightsTitle, highlightsSubtitle, forfaits, forfaitsTitle, forfaitsNote, sectionTitle, sectionSubtitle, items, showPrices, avatarCard }: ServicePageProps) {
   const SECTIONS = [
     { id: "intro", label: "Intro" },
     ...(highlights?.length ? [{ id: "expertises", label: "Expertises" }] : []),
@@ -169,6 +173,11 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
                   Réserver un appel
                 </a>
               </div>
+              {avatarCard ? (
+                <div className="mt-10 flex justify-center">
+                  <SectionAvatarCard slug={avatarCard} imgClassName="w-full max-w-[230px]" loading="eager" />
+                </div>
+              ) : null}
             </div>
           </SnapSection>
 
@@ -228,6 +237,9 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
           <SnapSection id="contact" className="flex items-center border-t border-white/5 py-16">
             <div className="mx-auto w-full max-w-5xl px-6">
               <div className="rounded-2xl border border-white/10 bg-card/40 p-7 text-center shadow-card backdrop-blur">
+                <div className="mb-6 flex justify-center">
+                  <ExpressionPhoto slug="grand-sourire" caption="On y va ?" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+                </div>
                 <h2 className="text-3xl font-bold md:text-4xl">On commence quand ?</h2>
                 <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
                   Le plus simple : vous réservez votre appel. C’est quelques minutes, et je reviens vers vous avec un devis clair.

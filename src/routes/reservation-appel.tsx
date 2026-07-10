@@ -4,6 +4,7 @@ import { ArrowRight, Check, Clock, ShieldCheck } from "lucide-react";
 import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
 import { absUrl } from "@/seo/site";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import {
   ChoiceMulti,
   ChoiceScale,
@@ -118,6 +119,10 @@ function ReservationAppelPage() {
             <span className="opacity-40">·</span>
             <ShieldCheck className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
             Confidentiel
+          </div>
+
+          <div className="mt-6 flex justify-center">
+            <ExpressionPhoto slug="sourire-exterieur" caption="À tout de suite" tilt={-3} imgClassName="aspect-[3/4] w-24" />
           </div>
 
           <h1 className="mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">Réservation d’appel · PeakCL</h1>

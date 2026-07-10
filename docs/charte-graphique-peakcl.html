@@ -1,0 +1,450 @@
+<title>Charte graphique PeakCL</title>
+<style>
+  :root {
+    /* Trio de marque */
+    --brand-yellow: oklch(0.89 0.18 95);
+    --brand-violet: oklch(0.55 0.27 295);
+    --brand-turquoise: oklch(0.83 0.14 185);
+
+    /* Monde crépusculaire (identique au produit) */
+    --background: oklch(0.22 0.055 290);
+    --foreground: oklch(0.98 0.005 280);
+    --card: oklch(0.27 0.05 290);
+    --secondary: oklch(0.3 0.05 290);
+    --muted: oklch(0.29 0.045 290);
+    --muted-foreground: oklch(0.8 0.03 290);
+    --destructive: oklch(0.62 0.24 25);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 12%);
+
+    --radius: 0.875rem;
+
+    --gradient-hero:
+      radial-gradient(ellipse 80% 55% at 50% -10%, color-mix(in oklab, var(--brand-violet) 55%, transparent), transparent 62%),
+      radial-gradient(ellipse 55% 45% at 88% 12%, color-mix(in oklab, var(--brand-turquoise) 40%, transparent), transparent 60%),
+      radial-gradient(ellipse 55% 45% at 8% 28%, color-mix(in oklab, var(--brand-yellow) 28%, transparent), transparent 60%);
+    --gradient-primary: linear-gradient(135deg, var(--brand-violet), color-mix(in oklab, var(--brand-violet) 60%, var(--brand-turquoise)));
+    --gradient-text: linear-gradient(100deg, var(--brand-yellow) 0%, var(--brand-turquoise) 55%, var(--brand-violet) 100%);
+
+    --shadow-glow: 0 20px 60px -20px color-mix(in oklab, var(--brand-violet) 55%, transparent);
+    --shadow-card: 0 1px 0 0 oklch(1 0 0 / 6%) inset, 0 30px 60px -30px oklch(0 0 0 / 60%);
+
+    --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+    --ink-soft: oklch(0.8 0.03 290);
+    --ink-faint: oklch(0.66 0.03 290);
+    --hair: oklch(1 0 0 / 8%);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Fond vivant : blobs de marque qui dérivent, comme sur le site */
+  .site-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+  .blob { position: absolute; border-radius: 9999px; filter: blur(90px); mix-blend-mode: screen; will-change: transform; }
+  .blob.v { width: 55vw; height: 55vw; left: -12vw; top: -12vw; opacity: .5;
+    background: radial-gradient(circle at center, var(--brand-violet), transparent 70%); animation: driftV 26s ease-in-out infinite; }
+  .blob.t { width: 50vw; height: 50vw; right: -10vw; top: 20vh; opacity: .5;
+    background: radial-gradient(circle at center, var(--brand-turquoise), transparent 70%); animation: driftT 32s ease-in-out infinite; }
+  .blob.y { width: 45vw; height: 45vw; left: 14vw; bottom: -20vw; opacity: .4;
+    background: radial-gradient(circle at center, var(--brand-yellow), transparent 70%); animation: driftY 38s ease-in-out infinite; }
+  @keyframes driftV { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(22vw,12vh) scale(1.18)} 66%{transform:translate(8vw,30vh) scale(.92)} }
+  @keyframes driftT { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(-18vw,14vh) scale(.9)} 66%{transform:translate(-6vw,-12vh) scale(1.2)} }
+  @keyframes driftY { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(16vw,-16vh) scale(1.1)} 66%{transform:translate(-14vw,-6vh) scale(.95)} }
+  @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: clamp(1.25rem, 4vw, 3rem); }
+
+  /* En-tête */
+  header.masthead { padding-top: clamp(3rem, 9vw, 7rem); padding-bottom: clamp(2rem, 6vw, 4rem); }
+  .kicker { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--brand-turquoise); font-weight: 600; margin: 0 0 1.1rem; }
+  h1 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em; line-height: 1.02;
+    font-size: clamp(2.6rem, 8vw, 5.25rem); margin: 0; text-wrap: balance; }
+  h1 .g { background: linear-gradient(100deg, var(--brand-yellow), var(--brand-turquoise), var(--brand-violet), var(--brand-yellow));
+    background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: pan 8s linear infinite; }
+  @keyframes pan { to { background-position: 300% 0; } }
+  @media (prefers-reduced-motion: reduce) { h1 .g { animation: none; } }
+  .lede { max-width: 60ch; margin: 1.6rem 0 0; font-size: clamp(1.02rem, 2.2vw, 1.2rem); color: var(--ink-soft); }
+  .meta-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.8rem; }
+  .pill { font-size: .74rem; letter-spacing: .04em; padding: .4rem .8rem; border-radius: 999px;
+    border: 1px solid var(--hair); background: oklch(1 0 0 / 5%); color: var(--ink-soft); backdrop-filter: blur(8px); }
+
+  /* Sections */
+  section { padding: clamp(2rem, 6vw, 4rem) 0; border-top: 1px solid var(--hair); }
+  .sec-head { display: flex; align-items: baseline; gap: 1rem; margin: 0 0 2rem; }
+  .sec-num { font-family: var(--font-display); font-variant-numeric: tabular-nums; font-size: .82rem; letter-spacing: .1em;
+    color: var(--brand-turquoise); font-weight: 600; padding-top: .35rem; }
+  h2 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; font-size: clamp(1.5rem, 4vw, 2.15rem); margin: 0; text-wrap: balance; }
+  .sec-head p { margin: .5rem 0 0; color: var(--ink-faint); font-size: .95rem; max-width: 52ch; }
+  h3.block-title { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.01em; font-size: 1.05rem;
+    margin: 2.4rem 0 1.1rem; color: var(--foreground); }
+
+  /* Trio hero */
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .brandcard { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--hair); background: var(--card); }
+  .brandcard .chip { height: 148px; display: flex; align-items: flex-end; padding: 1rem; }
+  .brandcard .chip .role { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; }
+  .brandcard .body { padding: 1rem 1.1rem 1.2rem; }
+  .brandcard .name { font-weight: 600; margin: 0 0 .5rem; }
+  .brandcard dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: .2rem .8rem; font-size: .82rem; }
+  .brandcard dt { color: var(--ink-faint); }
+  .brandcard dd { margin: 0; font-variant-numeric: tabular-nums; text-align: right; }
+  .brandcard .use { margin: .8rem 0 0; font-size: .82rem; color: var(--ink-soft); }
+  .c-yellow { background: var(--brand-yellow); } .c-yellow .role { color: oklch(0.25 0.05 95); }
+  .c-violet { background: var(--brand-violet); } .c-violet .role { color: oklch(0.99 0 0); }
+  .c-turq   { background: var(--brand-turquoise); } .c-turq .role { color: oklch(0.22 0.05 195); }
+
+  /* Palette tokens */
+  .tokens { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: .9rem; }
+  .tok { border: 1px solid var(--hair); border-radius: calc(var(--radius) - 4px); overflow: hidden; background: var(--card); }
+  .tok .sw { height: 80px; border-bottom: 1px solid var(--hair); }
+  .tok .lab { padding: .65rem .8rem .8rem; }
+  .tok .lab b { display: block; font-size: .85rem; font-weight: 600; }
+  .tok .lab code { display: block; font-size: .68rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; margin-top: .25rem; word-break: break-all; }
+  .tok .lab .note { display: block; font-size: .74rem; color: var(--ink-soft); margin-top: .45rem; }
+  .checker { background-image: linear-gradient(45deg, oklch(1 0 0 / 12%) 25%, transparent 25%),
+    linear-gradient(-45deg, oklch(1 0 0 / 12%) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, oklch(1 0 0 / 12%) 75%),
+    linear-gradient(-45deg, transparent 75%, oklch(1 0 0 / 12%) 75%);
+    background-size: 14px 14px; background-position: 0 0, 0 7px, 7px -7px, -7px 0; }
+
+  /* Dégradés */
+  .grads { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+  .grad { border-radius: var(--radius); border: 1px solid var(--hair); overflow: hidden; }
+  .grad .panel { height: 130px; }
+  .grad .cap { padding: .8rem 1rem 1rem; background: var(--card); }
+  .grad .cap b { font-size: .9rem; font-weight: 600; }
+  .grad .cap code { display: block; font-size: .68rem; color: var(--ink-faint); margin-top: .3rem; }
+  .grad .cap .u { display: block; font-size: .78rem; color: var(--ink-soft); margin-top: .5rem; }
+  .p-hero { background: var(--background) var(--gradient-hero); }
+  .p-primary { background: var(--gradient-primary); }
+  .p-text { background: var(--background); display: grid; place-items: center; }
+  .p-text span { font-family: var(--font-display); font-weight: 700; font-size: 2rem;
+    background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .p-band-y { background: linear-gradient(135deg, var(--brand-yellow), color-mix(in oklab, var(--brand-yellow) 70%, var(--brand-turquoise))); }
+  .p-band-t { background: linear-gradient(135deg, var(--brand-turquoise), color-mix(in oklab, var(--brand-turquoise) 60%, var(--brand-violet))); }
+  .p-band-v { background: linear-gradient(135deg, var(--brand-violet), color-mix(in oklab, var(--brand-violet) 55%, var(--brand-turquoise))); }
+
+  /* Typo */
+  .specimen { border: 1px solid var(--hair); border-radius: var(--radius); background: var(--card); padding: 1.4rem 1.5rem; margin-bottom: 1rem; }
+  .specimen .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem; border-bottom: 1px solid var(--hair); padding-bottom: .8rem; margin-bottom: 1.1rem; }
+  .specimen .top .fam { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+  .specimen .top .role { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--brand-turquoise); }
+  .specimen .aa { line-height: 1; margin: 0; }
+  .specimen .scale > * { margin: 0; }
+  .disp { font-family: var(--font-display); letter-spacing: -0.02em; }
+  .sansf { font-family: var(--font-sans); }
+  .glyphset { font-size: .82rem; color: var(--ink-faint); margin-top: 1rem; word-spacing: .1em; }
+  .scale { display: grid; gap: .7rem; }
+  .scale .s-row { display: flex; align-items: baseline; gap: 1rem; }
+  .scale .s-row .tag { font-size: .68rem; color: var(--ink-faint); width: 4.5rem; flex: none; font-variant-numeric: tabular-nums; }
+
+  /* Ombres */
+  .shadows { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.4rem; padding-top: .6rem; }
+  .shadow-demo { background: var(--card); border: 1px solid var(--hair); border-radius: var(--radius); height: 120px; display: grid; place-items: center;
+    font-size: .8rem; color: var(--ink-soft); }
+  .sh-glow { box-shadow: var(--shadow-glow); }
+  .sh-card { box-shadow: var(--shadow-card); }
+  .sh-ring { box-shadow: 0 0 0 1px color-mix(in oklab, var(--brand-turquoise) 30%, transparent), 0 30px 80px -40px color-mix(in oklab, var(--brand-violet) 80%, transparent); }
+  .shadow-label { text-align: center; margin-top: .7rem; font-size: .8rem; }
+  .shadow-label b { display:block; font-weight:600; } .shadow-label code { font-size:.68rem; color: var(--ink-faint); }
+
+  /* Rayons */
+  .radii { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: flex-end; }
+  .radius-demo { text-align: center; }
+  .radius-demo .box { width: 84px; height: 84px; background: color-mix(in oklab, var(--brand-violet) 30%, var(--card));
+    border: 1px solid color-mix(in oklab, var(--brand-turquoise) 30%, transparent); }
+  .radius-demo .t { font-size: .72rem; color: var(--ink-faint); margin-top: .5rem; font-variant-numeric: tabular-nums; }
+
+  /* Composants */
+  .comps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }
+  .card-glass { background: linear-gradient(160deg, color-mix(in oklab, var(--brand-violet) 14%, transparent), transparent 55%), var(--card);
+    border: 1px solid color-mix(in oklab, var(--brand-turquoise) 22%, transparent); border-radius: var(--radius); padding: 1.3rem 1.4rem; }
+  .card-glass h4 { font-family: var(--font-display); margin: 0 0 .5rem; font-weight: 600; }
+  .card-glass p { margin: 0; font-size: .86rem; color: var(--ink-soft); }
+  .cta { display: inline-block; font-family: var(--font-display); font-weight: 600; text-decoration: none; color: oklch(0.99 0 0);
+    padding: .8rem 1.5rem; border-radius: 999px; background-image: var(--gradient-primary); background-size: 200% 100%; background-position: 0 0;
+    transition: background-position .5s ease, transform .25s ease; box-shadow: var(--shadow-glow); }
+  .cta:hover { background-position: 100% 0; transform: translateY(-2px); }
+  .cta:focus-visible { outline: 2px solid var(--brand-turquoise); outline-offset: 3px; }
+  .navlink { position: relative; font-family: var(--font-display); font-weight: 600; text-decoration: none; color: var(--foreground); padding-bottom: 4px; }
+  .navlink::after { content:""; position:absolute; left:0; bottom:0; height:2px; width:100%; transform: scaleX(0); transform-origin: left;
+    background: linear-gradient(90deg, var(--brand-turquoise), var(--brand-violet)); transition: transform .25s ease; }
+  .navlink:hover::after, .navlink:focus-visible::after { transform: scaleX(1); }
+  .chiprow { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+  .ui-chip { display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .65rem; border-radius: 999px; font-size: .65rem; font-weight: 600;
+    letter-spacing: .04em; text-transform: uppercase; border: 1px solid var(--hair); background: oklch(1 0 0 / 5%); backdrop-filter: blur(8px); }
+  .comp-demo { border: 1px dashed var(--hair); border-radius: var(--radius); padding: 1.4rem; display: grid; gap: 1rem; place-items: start; align-content: center; }
+  .comp-note { font-size: .78rem; color: var(--ink-faint); margin: .3rem 0 0; }
+
+  /* Règles do/don't */
+  .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+  .rule { border-radius: var(--radius); padding: 1.2rem 1.3rem; border: 1px solid var(--hair); background: var(--card); }
+  .rule .h { display: flex; align-items: center; gap: .5rem; font-weight: 600; font-family: var(--font-display); margin-bottom: .8rem; }
+  .rule.do .h { color: var(--brand-turquoise); } .rule.dont .h { color: var(--destructive); }
+  .rule ul { margin: 0; padding-left: 1.1rem; } .rule li { font-size: .88rem; margin-bottom: .5rem; color: var(--ink-soft); }
+  .rule .mark { width: 1.4rem; height: 1.4rem; border-radius: 50%; display: grid; place-items: center; font-size: .85rem; flex: none; }
+  .rule.do .mark { background: color-mix(in oklab, var(--brand-turquoise) 25%, transparent); color: var(--brand-turquoise); }
+  .rule.dont .mark { background: color-mix(in oklab, var(--destructive) 25%, transparent); color: var(--destructive); }
+
+  footer { border-top: 1px solid var(--hair); padding: 2.5rem 0 4rem; color: var(--ink-faint); font-size: .82rem; }
+  code.inl { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .82em; background: oklch(1 0 0 / 7%); padding: .1em .4em; border-radius: 5px; color: var(--foreground); }
+
+  @media (max-width: 720px) { .trio { grid-template-columns: 1fr; } }
+</style>
+
+<div class="site-bg" aria-hidden="true">
+  <div class="blob v"></div><div class="blob t"></div><div class="blob y"></div>
+</div>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="kicker">Système visuel · Marque PeakCL</p>
+    <h1>Charte <span class="g">graphique</span></h1>
+    <p class="lede">Une identité crépusculaire : un violet profond mais lumineux, traversé par un trio jaune / turquoise / violet. Tokens, dégradés, typographie et mouvement, tirés directement du code de production.</p>
+    <div class="meta-row">
+      <span class="pill">Espace couleur OKLCH</span>
+      <span class="pill">Space Grotesk + Inter</span>
+      <span class="pill">Rayon de base 14px</span>
+      <span class="pill">Sombre par défaut</span>
+    </div>
+  </header>
+
+  <!-- 1 · TRIO -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <div><h2>Le trio de marque</h2><p>Trois couleurs saturées qui portent toute l'énergie de la marque. Jamais neutres, toujours en accent ou en dégradé.</p></div>
+    </div>
+    <div class="trio">
+      <div class="brandcard">
+        <div class="chip c-yellow"><span class="role">Jaune</span></div>
+        <div class="body">
+          <p class="name">Signal / éclat</p>
+          <dl><dt>HEX</dt><dd>#FFD500</dd><dt>OKLCH</dt><dd>0.89 0.18 95</dd></dl>
+          <p class="use">Accents ponctuels, chiffres clés, début des dégradés de texte. Le point le plus vif.</p>
+        </div>
+      </div>
+      <div class="brandcard">
+        <div class="chip c-violet"><span class="role">Violet</span></div>
+        <div class="body">
+          <p class="name">Couleur primaire</p>
+          <dl><dt>HEX</dt><dd>#7B3FF2</dd><dt>OKLCH</dt><dd>0.55 0.27 295</dd></dl>
+          <p class="use">Boutons, liens, anneau de focus, halos. La couleur d'action et la base du fond.</p>
+        </div>
+      </div>
+      <div class="brandcard">
+        <div class="chip c-turq"><span class="role">Turquoise</span></div>
+        <div class="body">
+          <p class="name">Accent / vivacité</p>
+          <dl><dt>HEX</dt><dd>#00E5D4</dd><dt>OKLCH</dt><dd>0.83 0.14 185</dd></dl>
+          <p class="use">Bordures qui s'éclairent, focus clavier, survols, curseur. La fraîcheur.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · TOKENS -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <div><h2>Palette d'interface</h2><p>Les tokens sémantiques dérivés du crépuscule violet. On style toujours par le token, jamais par la valeur brute.</p></div>
+    </div>
+    <div class="tokens">
+      <div class="tok"><div class="sw" style="background: oklch(0.22 0.055 290)"></div><div class="lab"><b>background</b><code>oklch(0.22 0.055 290)</code><span class="note">Fond global, violet profond lumineux</span></div></div>
+      <div class="tok"><div class="sw" style="background: oklch(0.98 0.005 280)"></div><div class="lab"><b>foreground</b><code>oklch(0.98 0.005 280)</code><span class="note">Texte principal, blanc tiède</span></div></div>
+      <div class="tok"><div class="sw" style="background: oklch(0.27 0.05 290)"></div><div class="lab"><b>card / popover</b><code>oklch(0.27 0.05 290)</code><span class="note">Surfaces surélevées</span></div></div>
+      <div class="tok"><div class="sw" style="background: oklch(0.3 0.05 290)"></div><div class="lab"><b>secondary</b><code>oklch(0.3 0.05 290)</code><span class="note">Boutons secondaires, puces</span></div></div>
+      <div class="tok"><div class="sw" style="background: oklch(0.29 0.045 290)"></div><div class="lab"><b>muted</b><code>oklch(0.29 0.045 290)</code><span class="note">Zones calmes, séparateurs</span></div></div>
+      <div class="tok"><div class="sw" style="background: oklch(0.8 0.03 290)"></div><div class="lab"><b>muted-foreground</b><code>oklch(0.8 0.03 290)</code><span class="note">Texte secondaire</span></div></div>
+      <div class="tok"><div class="sw" style="background: var(--brand-violet)"></div><div class="lab"><b>primary</b><code>= brand-violet</code><span class="note">Action principale</span></div></div>
+      <div class="tok"><div class="sw" style="background: var(--brand-turquoise)"></div><div class="lab"><b>accent / ring</b><code>= brand-turquoise</code><span class="note">Focus, survols · anneau = violet</span></div></div>
+      <div class="tok"><div class="sw" style="background: oklch(0.62 0.24 25)"></div><div class="lab"><b>destructive</b><code>oklch(0.62 0.24 25)</code><span class="note">Erreurs, suppression</span></div></div>
+      <div class="tok"><div class="sw checker" style="background: oklch(1 0 0 / 10%)"></div><div class="lab"><b>border</b><code>oklch(1 0 0 / 10%)</code><span class="note">Blanc à 10 %, translucide</span></div></div>
+      <div class="tok"><div class="sw checker" style="background: oklch(1 0 0 / 12%)"></div><div class="lab"><b>input</b><code>oklch(1 0 0 / 12%)</code><span class="note">Bordure des champs</span></div></div>
+    </div>
+  </section>
+
+  <!-- 3 · DEGRADES -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <div><h2>Dégradés signature</h2><p>Le trio ne s'utilise presque jamais à plat. Il vit dans des nappes, des textes irisés et des bandes pleines.</p></div>
+    </div>
+    <div class="grads">
+      <div class="grad"><div class="panel p-hero"></div><div class="cap"><b>gradient-hero</b><code>violet · turquoise · jaune en halos radiaux</code><span class="u">Atmosphère derrière le héros, sur fond sombre</span></div></div>
+      <div class="grad"><div class="panel p-primary"></div><div class="cap"><b>gradient-primary</b><code>violet → violet+turquoise · 135°</code><span class="u">CTA, surfaces d'action</span></div></div>
+      <div class="grad"><div class="panel p-text"><span>PeakCL</span></div><div class="cap"><b>gradient-text</b><code>jaune → turquoise → violet · 100°</code><span class="u">Mots mis en avant, clip sur le texte</span></div></div>
+      <div class="grad"><div class="panel p-band-y"></div><div class="cap"><b>bande jaune</b><code>texte sombre oklch(0.2 0.03 290)</code><span class="u">Bandeau CTA lumineux</span></div></div>
+      <div class="grad"><div class="panel p-band-t"></div><div class="cap"><b>bande turquoise</b><code>texte sombre oklch(0.18 0.03 290)</code><span class="u">Accent frais pleine largeur</span></div></div>
+      <div class="grad"><div class="panel p-band-v"></div><div class="cap"><b>bande violette</b><code>texte blanc oklch(0.99 0 0)</code><span class="u">Bandeau d'action principal</span></div></div>
+    </div>
+  </section>
+
+  <!-- 4 · TYPO -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <div><h2>Typographie</h2><p>Deux familles. Space Grotesk, grotesque géométrique, pour les titres, avec un interlettrage resserré. Inter pour le texte courant.</p></div>
+    </div>
+
+    <div class="specimen">
+      <div class="top"><span class="fam disp">Space Grotesk</span><span class="role">Display · titres · 600 / 700</span></div>
+      <p class="aa disp" style="font-size: clamp(2.4rem, 9vw, 4.5rem); font-weight: 700; letter-spacing: -0.02em;">Aa Bb Cc</p>
+      <div class="scale" style="margin-top: 1.6rem;">
+        <div class="s-row"><span class="tag">H1</span><span class="disp" style="font-size: 2.4rem; font-weight: 700; letter-spacing:-0.03em;">Sites vivants</span></div>
+        <div class="s-row"><span class="tag">H2</span><span class="disp" style="font-size: 1.7rem; font-weight: 700; letter-spacing:-0.02em;">Un seul interlocuteur</span></div>
+        <div class="s-row"><span class="tag">H3</span><span class="disp" style="font-size: 1.15rem; font-weight: 600;">Automatisation sur mesure</span></div>
+      </div>
+      <p class="glyphset disp">Réglages : titres h1–h4, <code class="inl">letter-spacing: -0.02em</code>, <code class="inl">text-wrap: balance</code>. Poids chargés : 600 et 700.</p>
+    </div>
+
+    <div class="specimen">
+      <div class="top"><span class="fam sansf" style="font-family: var(--font-sans)">Inter</span><span class="role">Sans · corps · 400 / 600</span></div>
+      <p class="aa sansf" style="font-size: clamp(2.2rem, 8vw, 3.8rem); font-weight: 600;">Aa Bb Cc</p>
+      <p class="sansf" style="max-width: 62ch; margin: 1.4rem 0 0; color: var(--ink-soft);">Le corps de texte se lit autour de 65 caractères par ligne, en Inter 400. On accompagne les visiteurs avec un seul interlocuteur, du premier échange à la mise en ligne. Les mots en gras passent en poids 600.</p>
+      <p class="glyphset sansf" style="font-family: var(--font-sans)">Lissage antialiasé · hauteur de ligne 1.6 · variantes chiffres tabulaires pour les colonnes.</p>
+    </div>
+
+    <div class="specimen">
+      <div class="top"><span class="fam disp">Familles secondaires</span><span class="role">Bac à sable vidéo uniquement</span></div>
+      <p class="comp-note" style="margin-bottom: 1rem;">Réservées au studio vidéo interne (<code class="inl">.bac-sable-studio</code>), hors interface publique.</p>
+      <div class="scale">
+        <div class="s-row"><span class="tag">Script</span><span style="font-family: 'Style Script', cursive; font-size: 2rem;">Style Script</span></div>
+        <div class="s-row"><span class="tag">Serif</span><span style="font-family: 'Gabriela', Georgia, serif; font-size: 1.6rem;">Gabriela Regular</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · OMBRES + RAYONS -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <div><h2>Ombres, halos & rayons</h2><p>La profondeur vient de halos violets colorés, pas d'ombres grises. Les angles sont franchement arrondis.</p></div>
+    </div>
+
+    <h3 class="block-title">Élévation</h3>
+    <div class="shadows">
+      <div><div class="shadow-demo sh-glow">halo</div><div class="shadow-label"><b>shadow-glow</b><code>halo violet · 60px</code></div></div>
+      <div><div class="shadow-demo sh-card">carte</div><div class="shadow-label"><b>shadow-card</b><code>liseré interne + ombre profonde</code></div></div>
+      <div><div class="shadow-demo sh-ring">anneau</div><div class="shadow-label"><b>ring-brand</b><code>liseré turquoise + halo violet</code></div></div>
+    </div>
+
+    <h3 class="block-title">Échelle de rayon · base <code class="inl">--radius: 0.875rem</code> (14px)</h3>
+    <div class="radii">
+      <div class="radius-demo"><div class="box" style="border-radius: calc(var(--radius) - 4px)"></div><div class="t">sm · 10px</div></div>
+      <div class="radius-demo"><div class="box" style="border-radius: calc(var(--radius) - 2px)"></div><div class="t">md · 12px</div></div>
+      <div class="radius-demo"><div class="box" style="border-radius: var(--radius)"></div><div class="t">lg · 14px</div></div>
+      <div class="radius-demo"><div class="box" style="border-radius: calc(var(--radius) + 4px)"></div><div class="t">xl · 18px</div></div>
+      <div class="radius-demo"><div class="box" style="border-radius: calc(var(--radius) + 8px)"></div><div class="t">2xl · 22px</div></div>
+      <div class="radius-demo"><div class="box" style="border-radius: calc(var(--radius) + 16px)"></div><div class="t">4xl · 30px</div></div>
+      <div class="radius-demo"><div class="box" style="border-radius: 999px"></div><div class="t">pilule</div></div>
+    </div>
+  </section>
+
+  <!-- 6 · COMPOSANTS -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <div><h2>Composants signature</h2><p>Les motifs récurrents de l'interface, verre teinté et interactions à base de dégradés.</p></div>
+    </div>
+    <div class="comps">
+      <div class="comp-demo">
+        <div class="card-glass"><h4>Carte verre teinté</h4><p>Voile violet en diagonale sur la surface, bord turquoise translucide.</p></div>
+        <p class="comp-note"><code class="inl">.card-glass</code> + survol <code class="inl">.card-hover</code> (élévation 4px)</p>
+      </div>
+      <div class="comp-demo">
+        <a href="#" class="cta" onclick="return false;">Prendre rendez-vous</a>
+        <p class="comp-note"><code class="inl">.cta</code> · dégradé qui glisse au survol, halo violet</p>
+      </div>
+      <div class="comp-demo">
+        <a href="#" class="navlink" onclick="return false;">Nos services</a>
+        <p class="comp-note"><code class="inl">.nav-underline</code> · trait turquoise→violet qui se trace</p>
+      </div>
+      <div class="comp-demo">
+        <div class="chiprow">
+          <span class="ui-chip">Nouveau</span>
+          <span class="ui-chip">IA</span>
+          <span class="ui-chip">Sur mesure</span>
+        </div>
+        <p class="comp-note">Puces majuscules, verre dépoli, bord blanc 10 %</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · MOUVEMENT -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <div><h2>Mouvement & atmosphère</h2><p>Le fond est vivant mais calme. Le mouvement sert l'ambiance, jamais la distraction.</p></div>
+    </div>
+    <div class="rules">
+      <div class="rule do">
+        <div class="h"><span class="mark">✓</span> Principes</div>
+        <ul>
+          <li>Blobs de marque qui dérivent lentement en fond fixe (26 à 38 s par cycle).</li>
+          <li>Aurora premium et halo central derrière le héros.</li>
+          <li>Feux d'artifice au trio de marque pour les moments forts.</li>
+          <li>Courbe d'accélération maison <code class="inl">cubic-bezier(0.22, 1, 0.36, 1)</code>.</li>
+          <li>Tout en <code class="inl">transform</code> / <code class="inl">opacity</code> (GPU).</li>
+        </ul>
+      </div>
+      <div class="rule dont">
+        <div class="h"><span class="mark">!</span> Garde-fous</div>
+        <ul>
+          <li>Toujours respecter <code class="inl">prefers-reduced-motion</code> : animations coupées.</li>
+          <li>Curseur halo et effets fins désactivés sur tactile.</li>
+          <li>Le H1 reste visible immédiatement (LCP), l'animation vient après.</li>
+          <li>Pas de mouvement qui gêne la lecture ou clignote.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · REGLES -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">08</span>
+      <div><h2>Règles d'usage</h2><p>À garder en tête pour toute nouvelle page ou support.</p></div>
+    </div>
+    <div class="rules">
+      <div class="rule do">
+        <div class="h"><span class="mark">✓</span> À faire</div>
+        <ul>
+          <li>Le trio en accent et en dégradé ; le fond reste crépusculaire.</li>
+          <li>Styler par les tokens sémantiques, pas les valeurs brutes.</li>
+          <li>Texte sombre sur les bandes jaune et turquoise ; texte blanc sur le violet.</li>
+          <li>Titres en Space Grotesk, resserrés ; corps en Inter, ~65 caractères.</li>
+          <li>Focus clavier turquoise net et visible partout.</li>
+        </ul>
+      </div>
+      <div class="rule dont">
+        <div class="h"><span class="mark">✕</span> À éviter</div>
+        <ul>
+          <li>Le tiret cadratin dans les textes visibles : préférer deux-points, parenthèses ou point.</li>
+          <li>Aplats saturés du trio sur de grandes surfaces (réserver aux accents).</li>
+          <li>Ombres grises plates : utiliser les halos colorés.</li>
+          <li>Mélanger d'autres familles typographiques dans l'interface publique.</li>
+          <li>Contraste insuffisant : le blanc tiède sur fond violet reste lisible.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Charte graphique PeakCL · valeurs extraites de <code class="inl">src/styles.css</code> et <code class="inl">src/components/home/Fireworks.tsx</code>. Espace couleur OKLCH, thème sombre par défaut. Les rendus des polices dépendent de leur disponibilité ; références : Space Grotesk (600/700) et Inter (400/600).</p>
+  </footer>
+
+</div>

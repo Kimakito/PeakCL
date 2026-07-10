@@ -19,6 +19,7 @@ export const Route = createFileRoute("/sites-web")({
   }),
   component: () => (
     <ServicePage
+      avatarCard="sites-web"
       eyebrow="Développement web"
       title="Sites web sur mesure"
       tagline="Sites vitrines, e-commerce et refontes : rapides, optimisés et pensés pour convertir vos visiteurs en clients."

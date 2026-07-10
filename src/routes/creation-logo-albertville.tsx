@@ -3,6 +3,7 @@ import { ArrowRight, Check, Gift, MapPin, Palette } from "lucide-react";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
@@ -94,6 +95,9 @@ function Page() {
             Demander un devis <ArrowRight className="h-4 w-4" />
           </a>
           <p className="mt-3 text-xs text-muted-foreground">Réponse sous 24h · Sans engagement</p>
+          <div className="mt-10 flex justify-center">
+            <SectionAvatarCard slug="logos" imgClassName="w-full max-w-[230px]" />
+          </div>
         </div>
       </section>
 
@@ -188,6 +192,9 @@ function Page() {
       <section className="relative overflow-hidden border-t border-white/5 py-20">
         <div className="absolute inset-0 -z-10 bg-hero" />
         <div className="mx-auto max-w-3xl px-6 text-center">
+          <div className="mb-6 flex justify-center">
+            <ExpressionPhoto slug="sourire-malicieux" caption="Votre logo ?" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+          </div>
           <h2 className="text-3xl font-bold md:text-4xl">Donnons une vraie image à votre activité</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Décrivez votre projet en 8 minutes : je vous propose une direction visuelle et un devis

@@ -13,6 +13,7 @@ import { DeckFooter } from "@/components/DeckFooter";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -309,6 +310,9 @@ function PortfolioPage() {
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
             Sites, boutiques et logos livrés, classés par métier. Filtrez par secteur pour voir ce que j'ai fait dans le vôtre.
           </p>
+          <div className="mt-10 flex justify-center">
+            <SectionAvatarCard slug="portfolio" imgClassName="w-full max-w-[230px]" />
+          </div>
         </div>
       </section>
 
@@ -357,6 +361,9 @@ function PortfolioPage() {
       {/* CTA */}
       <section className="mx-auto w-full max-w-5xl px-6 pb-16">
         <div className="rounded-2xl border border-white/10 bg-card/40 p-8 text-center shadow-card backdrop-blur">
+          <div className="mb-6 flex justify-center">
+            <ExpressionPhoto slug="grand-sourire" caption="Mon travail" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+          </div>
           <h2 className="text-3xl font-bold md:text-4xl">Votre métier mérite la même image.</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
             Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut et comment je peux m'en charger.

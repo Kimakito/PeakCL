@@ -19,6 +19,7 @@ export const Route = createFileRoute("/community-management")({
   }),
   component: () => (
     <ServicePage
+      avatarCard="reseaux"
       eyebrow="Réseaux sociaux"
       title="Community management"
       tagline="Rester visible et cohérent sur vos réseaux, sans y passer vos soirées. Des forfaits clairs, sans engagement long."

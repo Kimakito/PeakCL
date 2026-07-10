@@ -19,6 +19,7 @@ export const Route = createFileRoute("/design")({
   }),
   component: () => (
     <ServicePage
+      avatarCard="logos"
       eyebrow="Design graphique"
       title="Design graphique"
       tagline="Une identité visuelle et des supports qui rendent votre marque cohérente et mémorable."

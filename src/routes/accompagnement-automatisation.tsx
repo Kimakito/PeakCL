@@ -19,6 +19,7 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
   }),
   component: () => (
     <ServicePage
+      avatarCard="offres"
       eyebrow="Automatisation & IA"
       title="L’IA au service de votre TPE"
       tagline="Mettre l’intelligence artificielle et l’automatisation au travail dans votre petite structure : moins de tâches répétitives, plus de temps pour votre vrai métier."

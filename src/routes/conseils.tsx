@@ -4,6 +4,7 @@ import { absUrl } from "@/seo/site";
 import { conseils } from "@/content/peakcl/conseils";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 
 const SECTIONS = [
   { id: "intro", label: "Conseils" },
@@ -53,6 +54,9 @@ function Page() {
               Des réponses concrètes, sans jargon, aux questions que se posent les indépendants et les
               petites structures avant de se lancer.
             </p>
+            <div className="mt-10 flex justify-center">
+              <SectionAvatarCard slug="tips" imgClassName="w-full max-w-[230px]" />
+            </div>
           </div>
         </SnapSection>
 
@@ -81,6 +85,9 @@ function Page() {
         <SnapSection id="contact" className="relative flex items-center overflow-hidden border-t border-white/5 py-16">
           <div className="absolute inset-0 -z-10 bg-hero" />
           <div className="mx-auto max-w-3xl px-6 text-center">
+            <div className="mb-6 flex justify-center">
+              <ExpressionPhoto slug="lunettes-reflexion" caption="Mes conseils" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+            </div>
             <h2 className="text-2xl font-bold md:text-3xl">Une question sur votre projet ?</h2>
             <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
               Audit gratuit de votre site web et de vos réseaux sociaux, sous 24h et sans engagement.

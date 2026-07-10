@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ExpressionGallery } from "@/components/ExpressionPhoto";
 
 const PHOTO = "/peakcl/photo/charlotte-portrait";
 
@@ -134,6 +135,15 @@ function Page() {
                   trouvée par les bons clients, près de chez vous.
                 </li>
               </ul>
+            </div>
+
+            <div className="mt-14 text-center">
+              <h2 className="text-2xl font-bold">Et sinon, en vrai&nbsp;: toutes mes têtes</h2>
+              <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
+                Sérieuse sur le travail, pas sur moi-même. Vous bossez avec une vraie personne,
+                pas avec un logo.
+              </p>
+              <ExpressionGallery className="mt-8" />
             </div>
           </div>
         </SnapSection>

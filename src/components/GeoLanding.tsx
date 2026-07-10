@@ -8,6 +8,7 @@ import {
   Palette,
 } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 
 export type NearbyLink = { name: string; href: string };
 
@@ -121,6 +122,9 @@ export function GeoLanding({
               Je passe en revue votre présence en ligne à {city} et je vous renvoie des recommandations
               concrètes, sous 24h, sans engagement.
             </p>
+          </div>
+          <div className="hidden shrink-0 sm:block">
+            <ExpressionPhoto slug="lunettes-cool" caption="Cadeau" tilt={3} imgClassName="aspect-[3/4] w-20" />
           </div>
         </div>
       </section>
@@ -274,6 +278,9 @@ export function GeoLanding({
       <section className="relative overflow-hidden border-t border-white/5 py-20">
         <div className="absolute inset-0 -z-10 bg-hero" />
         <div className="mx-auto max-w-3xl px-6 text-center">
+          <div className="mb-6 flex justify-center">
+            <ExpressionPhoto slug="sourire-exterieur" caption="Ravie de vous lire" tilt={-2} imgClassName="aspect-[3/4] w-28" />
+          </div>
           <h2 className="text-3xl font-bold md:text-4xl">
             Votre projet à {city}, on en parle ?
           </h2>

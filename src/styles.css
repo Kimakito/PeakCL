@@ -227,6 +227,11 @@
   .site-bg__blob { animation: none; }
 }
 
+/* Éléments écran-only : masqués à l'impression / export PDF des ressources */
+@media print {
+  .no-print { display: none !important; }
+}
+
 @keyframes trusted-marquee {
   to {
     transform: translate3d(-50%, 0, 0);
