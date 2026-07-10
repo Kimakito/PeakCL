@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import {
   CATEGORIES,
   DECK_PROJECTS,
@@ -44,15 +44,6 @@ export const Route = createFileRoute("/portfolio")({
 
 const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
-const domainOf = (url?: string) => {
-  if (!url) return "site en cours";
-  try {
-    return new URL(url).hostname.replace(/^www\./, "");
-  } catch {
-    return url;
-  }
-};
-
 /** Catégories qui ont au moins un projet. */
 const PANEL_CATS: Category[] = CATEGORIES.filter((c) =>
   DECK_PROJECTS.some((p) => p.category === c.slug),
@@ -69,6 +60,23 @@ const FILTERS: Filter[] = [
   { key: LOGOS_KEY, label: "Logos", accent: LOGOS_ACCENT },
 ];
 
+/* ── Cadre MacBook (CSS) ─────────────────────────────────────── */
+function MacbookFrame({ children }: { children: ReactNode }) {
+  return (
+    <div className="px-3 pt-4">
+      {/* écran */}
+      <div className="relative rounded-t-lg border border-white/15 bg-[#0b0b14] p-1.5 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.85)]">
+        <span className="absolute left-1/2 top-1 z-10 h-1 w-1 -translate-x-1/2 rounded-full bg-white/25" aria-hidden />
+        <div className="relative aspect-[16/10] overflow-hidden rounded-[3px] bg-black">{children}</div>
+      </div>
+      {/* base + charnière */}
+      <div className="relative mx-auto h-2.5 w-[106%] -translate-x-[3%] rounded-b-lg bg-gradient-to-b from-[#c9cdd6] to-[#9399a5]">
+        <span className="absolute left-1/2 top-0 h-1.5 w-14 -translate-x-1/2 rounded-b-[4px] bg-[#7c828d]" aria-hidden />
+      </div>
+    </div>
+  );
+}
+
 /* ── Carte site (élément de grille) ──────────────────────────── */
 function SiteCard({ p }: { p: DeckProject }) {
   const Inner = (
@@ -78,22 +86,14 @@ function SiteCard({ p }: { p: DeckProject }) {
         style={{ background: p.accent }}
         aria-hidden
       />
-      <div className="flex items-center gap-1.5 border-b border-white/10 bg-white/5 px-3 py-1.5">
-        <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
-        <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
-        <span className="h-2 w-2 rounded-full bg-[#28c840]" />
-        <span className="ml-1.5 truncate rounded bg-black/30 px-1.5 py-0.5 text-[10px] text-white/50">
-          {domainOf(p.siteUrl)}
-        </span>
-      </div>
-      <div className="relative aspect-[1600/815] overflow-hidden bg-[#0c0c16]">
+      <MacbookFrame>
         {p.shot ? (
           <img
             src={p.shot}
             alt={`Aperçu du site ${p.title}`}
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.08]"
           />
         ) : (
           <div
@@ -105,7 +105,7 @@ function SiteCard({ p }: { p: DeckProject }) {
             Aperçu bientôt disponible
           </div>
         )}
-      </div>
+      </MacbookFrame>
       <div className="p-4">
         <div className="flex items-center justify-between gap-2">
           <h3 className="truncate text-sm font-semibold">{p.title}</h3>
