@@ -12,7 +12,7 @@ export const Route = createFileRoute("/diagnostic")({
       {
         name: "description",
         content:
-          "Questionnaire diagnostic (3 à 5 minutes) pour clarifier ta présence en ligne, tes objectifs et tes priorités.",
+          "Questionnaire diagnostic (3 à 5 minutes) pour clarifier votre présence en ligne, vos objectifs et vos priorités.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/diagnostic") },
@@ -259,7 +259,7 @@ function DiagnosticPage() {
       await submitNetlifyForm(form);
       window.location.href = MERCI_BRIEF_PATH;
     } catch {
-      alert("L’envoi a échoué. Vérifie ta connexion et réessaie.");
+      alert("L’envoi a échoué. Vérifiez votre connexion et réessayez.");
     } finally {
       setIsSubmitting(false);
     }
@@ -278,7 +278,7 @@ function DiagnosticPage() {
             Questionnaire <span className="text-gradient">diagnostic</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            L’objectif: comprendre ta situation, ta priorité n°1 et ce qui bloquerait aujourd’hui ton passage au niveau
+            L’objectif: comprendre votre situation, votre priorité n°1 et ce qui bloquerait aujourd’hui votre passage au niveau
             supérieur.
           </p>
         </div>
@@ -307,7 +307,7 @@ function DiagnosticPage() {
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="grid gap-5">
                 <TextInput
-                  label="Quels sont tes prénom et nom ?"
+                  label="Quels sont vos prénom et nom ?"
                   name="prenom_nom"
                   required
                   value={prenomNom}
@@ -315,7 +315,7 @@ function DiagnosticPage() {
                   placeholder="Ex: Charlotte Lacroix"
                 />
                 <TextInput
-                  label="Quel est ton compte instagram ?"
+                  label="Quel est votre compte instagram ?"
                   name="instagram"
                   required
                   value={instagram}
@@ -323,7 +323,7 @@ function DiagnosticPage() {
                   placeholder="Ex: @peakcl"
                 />
                 <TextInput
-                  label="Quel est ton numéro de téléphone ?"
+                  label="Quel est votre numéro de téléphone ?"
                   name="telephone"
                   required
                   value={telephone}
@@ -334,7 +334,7 @@ function DiagnosticPage() {
             </div>
 
             <ChoiceSingle
-              label="Quel est ton chiffre d'affaire actuel ?"
+              label="Quel est votre chiffre d'affaires actuel ?"
               name="ca_actuel"
               required
               options={caOptions}
@@ -343,7 +343,7 @@ function DiagnosticPage() {
             />
 
             <ChoiceSingle
-              label="Quel est ton objectif pour les prochains mois ?"
+              label="Quel est votre objectif pour les prochains mois ?"
               name="objectif_prochains_mois"
               required
               options={objectifOptions}
@@ -352,7 +352,7 @@ function DiagnosticPage() {
             />
 
             <ChoiceMulti
-              label="Quelle est ta problématique ? (Plusieurs réponses possibles)"
+              label="Quelle est votre problématique ? (Plusieurs réponses possibles)"
               name="problematique"
               required
               options={problematiqueOptions}
@@ -361,7 +361,7 @@ function DiagnosticPage() {
             />
 
             <Scale10
-              label="À quel point est-ce important pour toi de régler cette problématique et d'atteindre tes objectifs ?"
+              label="À quel point est-ce important pour vous de régler cette problématique et d'atteindre vos objectifs ?"
               name="importance_regler_problematique"
               required
               value={importanceProbleme}
@@ -370,7 +370,7 @@ function DiagnosticPage() {
 
             <label className="relative block rounded-2xl border border-white/10 bg-card/30 p-5">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-              <FieldLabel label="Classe (par ordre) tes priorités du moment." required />
+              <FieldLabel label="Classez (par ordre) vos priorités du moment." required />
               <div className="mt-2 text-xs text-muted-foreground">
                 Ex: (1) plus de leads · (2) crédibilité · (3) gagner du temps · (4) visuels/branding
               </div>
@@ -386,7 +386,7 @@ function DiagnosticPage() {
             </label>
 
             <ChoiceSingle
-              label="Est-ce que tu penses honnêtement être capable de régler cette problématique par toi-même ?"
+              label="Est-ce que vous pensez honnêtement être capable de régler cette problématique par vous-même ?"
               name="capable_par_soi_meme"
               required
               options={[
@@ -398,7 +398,7 @@ function DiagnosticPage() {
             />
 
             <Scale10
-              label="À quel point c'est important pour toi d'améliorer ta présence en ligne aujourd'hui ?"
+              label="À quel point c'est important pour vous d'améliorer votre présence en ligne aujourd'hui ?"
               name="importance_presence_en_ligne"
               required
               value={importancePresence}
@@ -406,7 +406,7 @@ function DiagnosticPage() {
             />
 
             <ChoiceSingle
-              label="Si tu avais une solution claire pour améliorer ta présence en ligne, serais-tu ouvert(e) à te faire accompagner ?"
+              label="Si vous aviez une solution claire pour améliorer votre présence en ligne, seriez-vous ouvert(e) à vous faire accompagner ?"
               name="ouvert_accompagnement"
               required
               options={[
@@ -418,7 +418,7 @@ function DiagnosticPage() {
             />
 
             <ChoiceSingle
-              label="Est-ce que tu peux t'engager à être présent(e) et à prévenir en cas d'empêchement ?"
+              label="Est-ce que vous pouvez vous engager à être présent(e) et à prévenir en cas d'empêchement ?"
               name="engagement_presence"
               required
               options={[

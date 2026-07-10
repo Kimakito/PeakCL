@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
-import logo from "@/assets/peakcl-logo.png";
 import { absUrl } from "@/seo/site";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Reveal } from "@/components/ui/Reveal";
@@ -25,36 +24,9 @@ export const Route = createFileRoute("/services")({
   component: ServicesHub,
 });
 
-function Header() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <a href="/" className="flex items-center gap-3">
-          <img src={logo} alt="PeakCL logo" className="h-9 w-9 rounded-lg object-cover" />
-          <span className="font-display text-lg font-bold tracking-tight">
-            Peak<span className="text-gradient">CL</span>
-          </span>
-        </a>
-        <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="/portfolio" className="hover:text-foreground">Portfolio</a>
-          <a href="/#faq" className="hover:text-foreground">FAQ</a>
-        </nav>
-        <a
-          href="/reservation-appel"
-          data-event="cta_brief_services_header"
-          className="inline-flex items-center justify-center rounded-full bg-primary-gradient px-5 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
-        >
-          Réserver un appel
-        </a>
-      </div>
-    </header>
-  );
-}
-
 function ServicesHub() {
   return (
     <div className="min-h-screen">
-      <Header />
       <main className="relative overflow-hidden border-t border-white/5 bg-hero">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="hero-aurora" aria-hidden style={{ bottom: "auto", height: "680px" }} />

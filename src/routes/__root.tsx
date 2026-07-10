@@ -1,7 +1,7 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import { SiteNav } from "@/components/SiteNav";
+import { TopNav } from "@/components/TopNav";
 import { absUrl } from "@/seo/site";
 import { organizationJsonLd, professionalServiceJsonLd } from "@/seo/jsonld";
 
@@ -48,7 +48,10 @@ export const Route = createRootRoute({
       { property: "og:locale", content: "fr_FR" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/") },
+      { property: "og:image", content: absUrl("/peakcl/logo-nav.webp") },
+      { property: "og:image:alt", content: "PeakCL · Charlotte Lacroix" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: absUrl("/peakcl/logo-nav.webp") },
       { "script:ld+json": organizationJsonLd() },
       { "script:ld+json": professionalServiceJsonLd() },
     ],
@@ -116,16 +119,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  const path = useRouterState({ select: (s) => s.location.pathname });
-  // La home (scroll vertical centré) gère son propre décalage ; les autres
-  // pages sont décalées de la largeur du rail latéral.
-  const isDeck = path === "/";
   return (
     <>
-      <SiteNav />
-      <div className={isDeck ? undefined : "md:pl-16"}>
-        <Outlet />
-      </div>
+      <TopNav />
+      <Outlet />
     </>
   );
 }

@@ -31,7 +31,7 @@ export const Route = createFileRoute("/reservation-appel-hors-ue")({
       {
         name: "description",
         content:
-          "Questionnaire de diagnostic PeakCL avant ton appel, version internationale.",
+          "Questionnaire de diagnostic PeakCL avant votre appel, version internationale.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/reservation-appel-hors-ue") },
@@ -111,7 +111,7 @@ function ReservationAppelHorsUePage() {
       window.location.href = MERCI_BRIEF_PATH;
     } catch {
       alert(
-        "L’envoi a échoué. Vérifie ta connexion et réessaie, tes réponses restent sauvegardées dans ce navigateur.",
+        "L’envoi a échoué. Vérifiez votre connexion et réessayez, vos réponses restent sauvegardées dans ce navigateur.",
       );
     } finally {
       setIsSubmitting(false);
@@ -144,12 +144,12 @@ function ReservationAppelHorsUePage() {
             Réservation d’appel · PeakCL
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Avant notre appel, j’ai besoin de comprendre ta situation. Ce
-            questionnaire prend 2 à 3 minutes. À la fin, tu pourras réserver ton
+            Avant notre appel, j’ai besoin de comprendre votre situation. Ce
+            questionnaire prend 2 à 3 minutes. À la fin, vous pourrez réserver votre
             créneau de diagnostic (45 min).
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-xs text-muted-foreground">
-            Tes réponses restent confidentielles.
+            Vos réponses restent confidentielles.
           </p>
         </div>
       </section>
@@ -203,14 +203,14 @@ function ReservationAppelHorsUePage() {
             <SectionTitle title="Diagnostic" />
             <div className="grid gap-5">
               <TextInput
-                label="Quels sont tes prénom et nom ?"
+                label="Quels sont vos prénom et nom ?"
                 name="fullName"
                 required
                 value={String(values.fullName)}
                 onChange={(v) => setField(setValues, "fullName", v)}
               />
               <TextInput
-                label="Quel est ton numéro de téléphone ?"
+                label="Quel est votre numéro de téléphone ?"
                 name="phone"
                 type="tel"
                 required
@@ -219,7 +219,7 @@ function ReservationAppelHorsUePage() {
                 onChange={(v) => setField(setValues, "phone", v)}
               />
               <TextInput
-                label="Quel est ton mail ?"
+                label="Quel est votre mail ?"
                 name="email"
                 type="email"
                 required
@@ -228,7 +228,7 @@ function ReservationAppelHorsUePage() {
                 onChange={(v) => setField(setValues, "email", v)}
               />
               <TextInput
-                label="Quel est ton compte Instagram ?"
+                label="Quel est votre compte Instagram ?"
                 name="instagram"
                 required
                 placeholder="@moncompte"
@@ -236,7 +236,7 @@ function ReservationAppelHorsUePage() {
                 onChange={(v) => setField(setValues, "instagram", v)}
               />
               <ChoiceSingle
-                label="Quel est ton chiffre d’affaire actuel ?"
+                label="Quel est votre chiffre d’affaires actuel ?"
                 name="revenueRange"
                 required
                 value={String(values.revenueRange)}
@@ -259,7 +259,7 @@ function ReservationAppelHorsUePage() {
                 ]}
               />
               <ChoiceSingle
-                label="Quel est ton objectif pour les prochains mois ?"
+                label="Quel est votre objectif pour les prochains mois ?"
                 name="goalRevenue"
                 required
                 value={String(values.goalRevenue)}
@@ -273,7 +273,7 @@ function ReservationAppelHorsUePage() {
                 ]}
               />
               <ChoiceMulti
-                label="Quelle est ta problématique ? (Plusieurs réponses possibles)"
+                label="Quelle est votre problématique ? (Plusieurs réponses possibles)"
                 name="painPoints"
                 required
                 values={(values.painPoints as string[]) || []}
@@ -311,14 +311,14 @@ function ReservationAppelHorsUePage() {
                 ]}
               />
               <ChoiceScale
-                label="À quel point est-ce important pour toi de régler cette problématique et d’atteindre tes objectifs ?"
+                label="À quel point est-ce important pour vous de régler cette problématique et d’atteindre vos objectifs ?"
                 name="importanceSolve"
                 required
                 value={String(values.importanceSolve)}
                 onChange={(v) => setField(setValues, "importanceSolve", v)}
               />
               <ChoiceSingle
-                label="Est-ce que tu penses honnêtement être capable de régler cette problématique par toi-même ?"
+                label="Est-ce que vous pensez honnêtement être capable de régler cette problématique par vous-même ?"
                 name="ableAlone"
                 required
                 value={String(values.ableAlone)}
@@ -329,7 +329,7 @@ function ReservationAppelHorsUePage() {
                 ]}
               />
               <ChoiceScale
-                label="À quel point c’est important pour toi d’améliorer ta présence en ligne aujourd’hui ?"
+                label="À quel point c’est important pour vous d’améliorer votre présence en ligne aujourd’hui ?"
                 name="importanceOnlinePresence"
                 required
                 value={String(values.importanceOnlinePresence)}
@@ -338,7 +338,7 @@ function ReservationAppelHorsUePage() {
                 }
               />
               <ChoiceSingle
-                label="Si tu avais une solution claire pour améliorer ta présence en ligne, serais-tu ouvert(e) à te faire accompagner ?"
+                label="Si vous aviez une solution claire pour améliorer votre présence en ligne, seriez-vous ouvert(e) à vous faire accompagner ?"
                 name="opennessToSupport"
                 required
                 value={String(values.opennessToSupport)}
@@ -349,7 +349,7 @@ function ReservationAppelHorsUePage() {
                 ]}
               />
               <ChoiceSingle
-                label="Est-ce que tu peux t’engager à être présent(e) et à prévenir en cas d’empêchement ?"
+                label="Est-ce que vous pouvez vous engager à être présent(e) et à prévenir en cas d’empêchement ?"
                 name="commitment"
                 required
                 value={String(values.commitment)}
@@ -371,7 +371,7 @@ function ReservationAppelHorsUePage() {
               </div>
               <h3 className="mt-4 text-2xl font-bold">Prêt·e à envoyer ?</h3>
               <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-                Ensuite, tu choisiras ton créneau Calendly (45 min).
+                Ensuite, vous choisirez votre créneau Calendly (45 min).
               </p>
 
               <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -399,9 +399,9 @@ function ReservationAppelHorsUePage() {
 
               {!canSubmit ? (
                 <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">
-                  Il manque encore des champs ⭐ obligatoires. Tu peux les
+                  Il manque encore des champs ⭐ obligatoires. Vous pouvez les
                   remplir plus tard : le formulaire se sauvegarde
-                  automatiquement sur ton appareil.
+                  automatiquement sur votre appareil.
                 </p>
               ) : null}
             </div>

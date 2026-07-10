@@ -27,7 +27,7 @@ const ROADMAP_STEPS = [
   {
     n: "1",
     title: "Audit",
-    text: "On regarde ensemble ce qui existe déjà (site, réseaux, visibilité Google) et ce qu'il manque pour atteindre ton objectif.",
+    text: "On regarde ensemble ce qui existe déjà (site, réseaux, visibilité Google) et ce qu'il manque pour atteindre votre objectif.",
   },
   {
     n: "2",
@@ -37,17 +37,17 @@ const ROADMAP_STEPS = [
   {
     n: "3",
     title: "Validation",
-    text: "Tu regardes, tu réagis, tu dis ce qui te ressemble ou pas. Rien n'avance sans ton feu vert.",
+    text: "Vous regardez, vous réagissez, vous dites ce qui vous ressemble ou pas. Rien n'avance sans votre feu vert.",
   },
   {
     n: "4",
     title: "Optimisation à deux",
-    text: "On ajuste ensemble textes, visuels et détails. Ton avis compte à chaque étape, pas juste à la fin.",
+    text: "On ajuste ensemble textes, visuels et détails. Votre avis compte à chaque étape, pas juste à la fin.",
   },
   {
     n: "5",
     title: "Livraison",
-    text: "Mise en ligne, dernières vérifications, et transmission de tout ce qu'il faut pour être autonome (ou pour déléguer, si tu préfères).",
+    text: "Mise en ligne, dernières vérifications, et transmission de tout ce qu'il faut pour être autonome (ou pour déléguer, si vous préférez).",
   },
 ];
 
@@ -94,7 +94,7 @@ function MerciR2Page() {
             C’est noté. Merci !
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            J’ai bien reçu tes réponses. Je prépare notre prochain appel avec ça
+            J’ai bien reçu vos réponses. Je prépare notre prochain appel avec ça
             en tête ! En attendant, voici comment on va travailler ensemble.
           </p>
 
@@ -110,9 +110,9 @@ function MerciR2Page() {
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
               Ce qu’on va construire ensemble n’est pas un coût qui disparaît
-              une fois payé : c’est ce qui va augmenter ta visibilité, et donc
-              le nombre de clients ou de patients qui te trouvent. Un seul
-              nouveau client ou patient qui te trouve grâce à ça peut suffire à
+              une fois payé : c’est ce qui va augmenter votre visibilité, et donc
+              le nombre de clients ou de patients qui vous trouvent. Un seul
+              nouveau client ou patient qui vous trouve grâce à ça peut suffire à
               rentabiliser l’investissement; et ça continue d’en amener après.
             </p>
           </div>
@@ -146,8 +146,8 @@ function MerciR2Page() {
               Un accompagnement, pas une livraison à l’aveugle.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              À chaque étape, tu vois, tu valides, tu ajustes. Rien n’est figé
-              tant que tu ne t’y reconnais pas.
+              À chaque étape, vous voyez, vous validez, vous ajustez. Rien n’est figé
+              tant que vous ne vous y reconnaissez pas.
             </p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -248,10 +248,10 @@ function MerciR2Page() {
             Pas de chiffre magique promis.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Je ne te garantis pas un chiffre d’affaires : personne ne le devrait
+            Je ne vous garantis pas un chiffre d’affaires : personne ne le devrait
             honnêtement. Ce que je m’engage à faire : t’écouter vraiment,
-            avancer avec toi à chaque étape, et livrer un résultat dans lequel
-            tu te reconnais.
+            avancer avec vous à chaque étape, et livrer un résultat dans lequel
+            vous vous reconnaissez.
           </p>
 
           <p className="mt-10 text-sm text-muted-foreground">À très vite,</p>

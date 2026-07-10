@@ -8,7 +8,7 @@ export const Route = createFileRoute("/merci-diagnostic")({
       { title: "Bien reçu · Diagnostic · PeakCL" },
       {
         name: "description",
-        content: "Diagnostic bien reçu. Je reviens vers toi rapidement.",
+        content: "Diagnostic bien reçu. Je reviens vers vous rapidement.",
       },
       { name: "robots", content: "noindex, nofollow" },
       { property: "og:type", content: "website" },
@@ -30,8 +30,8 @@ function MerciDiagnosticPage() {
           </div>
           <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">Bien reçu. Merci !</h1>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            J’ai bien reçu ton diagnostic. Je le lis et je reviens vers toi avec une recommandation claire pour améliorer
-            ta présence en ligne.
+            J’ai bien reçu votre diagnostic. Je le lis et je reviens vers vous avec une recommandation claire pour améliorer
+            votre présence en ligne.
           </p>
           <p className="mt-6 text-sm text-muted-foreground">À très vite,</p>
           <p className="text-sm font-semibold text-foreground">Cha · PeakCL</p>

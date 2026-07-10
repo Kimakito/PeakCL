@@ -11,7 +11,6 @@ import {
 import { DeckFooter } from "@/components/DeckFooter";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
-import logo from "@/assets/peakcl-logo.png";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export const Route = createFileRoute("/portfolio")({
@@ -130,7 +129,7 @@ function SiteCard({ p }: { p: DeckProject }) {
   const cls =
     "group relative block overflow-hidden rounded-2xl border border-white/5 bg-card/40 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-white/15";
   return p.siteUrl ? (
-    <a href={p.siteUrl} target="_blank" rel="noreferrer" data-event="portfolio_visit" className={cls}>
+    <a href={p.siteUrl} target="_blank" rel="noopener noreferrer" data-event="portfolio_visit" className={cls}>
       <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       {Inner}
     </a>
@@ -170,33 +169,6 @@ function LogoCard({ l }: { l: (typeof LOGO_PROJECTS)[number] }) {
   );
 }
 
-/* ── En-tête ─────────────────────────────────────────────────── */
-function Header() {
-  return (
-    <header className="sticky top-0 z-40 border-b border-white/5 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="/" className="flex items-center gap-3">
-          <img src={logo} alt="PeakCL logo" className="h-9 w-9 rounded-lg object-cover" />
-          <span className="font-display text-lg font-bold tracking-tight">
-            Peak<span className="text-gradient">CL</span>
-          </span>
-        </a>
-        <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="/services" className="hover:text-foreground">Services</a>
-          <a href="/#faq" className="hover:text-foreground">FAQ</a>
-        </nav>
-        <a
-          href="/reservation-appel"
-          data-event="cta_brief_portfolio_header"
-          className="inline-flex items-center justify-center rounded-full bg-primary-gradient px-5 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
-        >
-          Réserver un appel
-        </a>
-      </div>
-    </header>
-  );
-}
-
 /* ── Page ────────────────────────────────────────────────────── */
 function PortfolioPage() {
   const [active, setActive] = useState<string>(ALL_KEY);
@@ -215,8 +187,6 @@ function PortfolioPage() {
 
   return (
     <div className="relative bg-background text-foreground">
-      <Header />
-
       {/* Hero compact */}
       <section className="relative isolate overflow-hidden bg-hero py-14 text-center md:py-20">
         <div className="hero-aurora" aria-hidden style={{ zIndex: -10 }} />
@@ -234,7 +204,7 @@ function PortfolioPage() {
       </section>
 
       {/* Barre de filtres (collante) */}
-      <div className="sticky top-[68px] z-30 border-y border-white/5 bg-background/85 backdrop-blur-xl">
+      <div className="sticky top-[56px] z-30 border-y border-white/5 bg-background/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-2 px-6 py-3">
           {FILTERS.map((f) => {
             const on = active === f.key;

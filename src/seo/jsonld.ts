@@ -101,6 +101,14 @@ export function professionalServiceJsonLd(): JsonLd {
         reviewBody:
           "Cela faisait des mois que je repoussais la création de mon site. Le 1er jet m'a bluffée car je me suis entièrement reconnue. Très réactive sur tous les ajustements. C'est parfait !",
       },
+      {
+        "@type": "Review",
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        author: { "@type": "Person", name: "Camille Daldosso" },
+        datePublished: "2026-06",
+        reviewBody:
+          "Depuis le temps que je repoussais la création de mon site, je suis plus que ravie de cette collaboration avec PeakCL. Un grand merci à Charlotte pour sa réactivité, son expertise et ses conseils. Elle a parfaitement cerné mes besoins. Je ne peux que la recommander.",
+      },
     ],
   };
 }

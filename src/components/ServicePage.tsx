@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { ArrowRight, Check } from "lucide-react";
-import logo from "@/assets/peakcl-logo.png";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Reveal } from "@/components/ui/Reveal";
@@ -21,8 +20,13 @@ function CatalogCard({ p, showPrices }: { p: CatalogItem; showPrices?: boolean }
       <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h3 className="text-xl font-semibold">{p.title}</h3>
-        <div className={`text-sm font-semibold ${priceText === "Sur devis" ? "text-muted-foreground" : "text-[var(--brand-turquoise)]"}`}>
-          {priceText}
+        <div className="text-right">
+          <div className={`text-sm font-semibold ${priceText === "Sur devis" ? "text-muted-foreground" : "text-[var(--brand-turquoise)]"}`}>
+            {priceText}
+          </div>
+          {priceText === "Sur devis" ? (
+            <div className="text-xs text-muted-foreground/70">Selon votre profil et le périmètre</div>
+          ) : null}
         </div>
       </div>
 
@@ -54,7 +58,7 @@ function CatalogCard({ p, showPrices }: { p: CatalogItem; showPrices?: boolean }
           <div className="rounded-xl border border-white/5 bg-background/40 p-5">
             <div className="text-sm font-semibold">Comment on avance</div>
             <p className="mt-4 text-sm text-muted-foreground">
-              Tu réserves ton appel, je te fais un retour rapide, puis on valide un devis clair (livrables, délais, budget) selon ton besoin.
+              Vous réservez votre appel, je vous fais un retour rapide, puis on valide un devis clair (livrables, délais, budget) selon votre besoin.
             </p>
           </div>
         )}
@@ -105,33 +109,6 @@ function ForfaitCard({ f }: { f: Forfait }) {
   );
 }
 
-function Header() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <a href="/" className="flex items-center gap-3">
-          <img src={logo} alt="PeakCL logo" className="h-9 w-9 rounded-lg object-cover" />
-          <span className="font-display text-lg font-bold tracking-tight">
-            Peak<span className="text-gradient">CL</span>
-          </span>
-        </a>
-        <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="/services" className="hover:text-foreground">Services</a>
-          <a href="/portfolio" className="hover:text-foreground">Portfolio</a>
-          <a href="/#faq" className="hover:text-foreground">FAQ</a>
-        </nav>
-        <a
-          href="/reservation-appel"
-          data-event="cta_brief_service_header"
-          className="inline-flex items-center justify-center rounded-full bg-primary-gradient px-5 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
-        >
-          Réserver un appel
-        </a>
-      </div>
-    </header>
-  );
-}
-
 export type ServicePageProps = {
   eyebrow: string;
   title: string;
@@ -163,7 +140,6 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
   ];
   return (
     <div className="min-h-screen">
-      <Header />
       <main className="border-t border-white/5">
         <SectionDots sections={SECTIONS} />
         <SnapPage>
@@ -254,7 +230,7 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
               <div className="rounded-2xl border border-white/10 bg-card/40 p-7 text-center shadow-card backdrop-blur">
                 <h2 className="text-3xl font-bold md:text-4xl">On commence quand ?</h2>
                 <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-                  Le plus simple : tu réserves ton appel. C’est quelques minutes, et je reviens vers toi avec un devis clair.
+                  Le plus simple : vous réservez votre appel. C’est quelques minutes, et je reviens vers vous avec un devis clair.
                 </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                   <a

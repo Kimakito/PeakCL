@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
-import { peakclFaq } from "@/content/peakcl/faq";
+import { peakclFaqHome } from "@/content/peakcl/faq";
 import { peakclPortfolio } from "@/content/peakcl/portfolio";
 import { CATEGORIES } from "@/content/peakcl/portfolioDeck";
 import { DeckFooter } from "@/components/DeckFooter";
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/")({
           "Pas le temps pour votre site, vos réseaux et votre image ? Un seul interlocuteur pour construire une communication en ligne cohérente, de A à Z.",
       },
       { property: "og:url", content: absUrl("/") },
-      { "script:ld+json": faqPageJsonLd(peakclFaq) },
+      { "script:ld+json": faqPageJsonLd(peakclFaqHome) },
     ],
     links: [
       { rel: "canonical", href: absUrl("/") },
@@ -93,22 +93,6 @@ function ContactInline({ className = "" }: { className?: string }) {
   );
 }
 
-/* ── Mobile top nav ──────────────────────────────────────────── */
-
-function MobileNav() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-background/70 backdrop-blur-xl md:hidden">
-      <div className="flex items-center justify-between px-4 py-3">
-        <a href="#top" className="flex items-center gap-2">
-          <img src={LOGO_NAV} alt="PeakCL logo" width={32} height={32} fetchPriority="high" decoding="async" className="h-8 w-8 rounded-lg object-cover" />
-          <span className="font-display text-base font-bold tracking-tight">Peak<span className="text-gradient">CL</span></span>
-        </a>
-        <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_header" className="!px-4 !py-2 !text-xs">Appel</CTAButton>
-      </div>
-    </header>
-  );
-}
-
 /* ── Hero panel ─────────────────────────────────────────────── */
 
 /** Mascotte décorative d'une section : en filigrane derrière le contenu,
@@ -144,7 +128,7 @@ function ProblemPanel() {
     { t: "Sans image en ligne, on vous choisit moins.", d: "Vos clients comparent avant d'appeler. Si votre concurrent paraît plus pro sur Google, c'est lui qu'on contacte." },
   ];
   return (
-    <section id="probleme" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
+    <section id="probleme" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <SectionMascot pose="idee" side="left" />
       <div className="mx-auto max-w-6xl px-8 md:px-16 w-full">
         <div className="grid items-start gap-10 md:grid-cols-2">
@@ -198,7 +182,7 @@ function DifferencePanel() {
     },
   ];
   return (
-    <section id="difference" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
+    <section id="difference" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <SectionMascot pose="victoire" side="right" />
       <div className="mx-auto max-w-5xl px-8 md:px-16 w-full">
         <SectionHeading
@@ -239,13 +223,13 @@ function DifferencePanel() {
 
 function MethodPanel() {
   const steps = [
-    { n: "01", title: "Diagnostic", desc: "Tu remplis un formulaire de 8 minutes ou on en parle 20 minutes en visio. Je comprends ton activité, ton public, ton budget, tes contraintes." },
-    { n: "02", title: "Cadrage", desc: "Je te renvoie un devis précis sous 48h ouvrées (pas une fourchette élastique) et un planning. Tu valides ou tu ajustes." },
-    { n: "03", title: "Production", desc: "Je code, je dessine, je rédige. Tu vois le travail au fur et à mesure, pas seulement à la fin. Une révision incluse à chaque livrable." },
-    { n: "04", title: "Suivi", desc: "Une fois en ligne, je reste disponible pour les ajustements de la première semaine. Au-delà, on continue ou on s'arrête, tu décides." },
+    { n: "01", title: "Diagnostic", desc: "Vous remplissez un formulaire de 8 minutes ou on en parle 20 minutes en visio. Je comprends votre activité, votre public, votre budget, vos contraintes." },
+    { n: "02", title: "Cadrage", desc: "Je vous renvoie un devis précis sous 48h ouvrées (pas une fourchette élastique) et un planning. Vous validez ou vous ajustez." },
+    { n: "03", title: "Production", desc: "Je code, je dessine, je rédige. Vous voyez le travail au fur et à mesure, pas seulement à la fin. Une révision incluse à chaque livrable." },
+    { n: "04", title: "Suivi", desc: "Une fois en ligne, je reste disponible pour les ajustements de la première semaine. Au-delà, on continue ou on s'arrête, vous décidez." },
   ];
   return (
-    <section id="methode" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
+    <section id="methode" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <SectionMascot pose="bureau" side="right" heightClass="h-[42vh]" />
       <div className="mx-auto max-w-6xl px-8 md:px-16 w-full">
         <SectionHeading
@@ -283,7 +267,7 @@ const offers = [
 
 function OffersPanel() {
   return (
-    <section id="offres" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
+    <section id="offres" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <SectionMascot pose="arc" side="left" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
         <SectionHeading
@@ -325,7 +309,7 @@ function OffersPanel() {
 function PortfolioPanel() {
   const featured = peakclPortfolio.slice(0, 6);
   return (
-    <section id="portfolio" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
+    <section id="portfolio" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <SectionMascot pose="tablette" side="right" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
         <SectionHeading
@@ -351,7 +335,7 @@ function PortfolioPanel() {
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((p, i) => (
-            <motion.a key={p.siteUrl} href={p.siteUrl} target="_blank" rel="noreferrer" data-event="portfolio_click"
+            <motion.a key={p.siteUrl} href={p.siteUrl} target="_blank" rel="noopener noreferrer" data-event="portfolio_click"
               initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} transition={{ delay: i * 0.05 }}
               className="group relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card transition-all hover:-translate-y-1 hover:border-white/15">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
@@ -394,12 +378,14 @@ function ReviewsPanel() {
     role: [t.sourceLabel, t.dateLabel].filter(Boolean).join(" · "),
     rating: t.rating,
   }));
-  // Rotate the small set per column so the 3 columns never look identical side by side.
-  const col1 = reviews;
-  const col2 = [...reviews.slice(1), ...reviews.slice(0, 1)];
-  const col3 = [...reviews.slice(2), ...reviews.slice(0, 2)];
+  // Chaque avis n'apparaît qu'une fois par mise en page. La duplication interne
+  // de TestimonialsColumn est le clone de boucle du marquee (défilement continu),
+  // pas une répétition en dur des avis.
+  const mid = Math.ceil(reviews.length / 2);
+  const colA = reviews.slice(0, mid);
+  const colB = reviews.slice(mid);
   return (
-    <section id="avis" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
+    <section id="avis" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <SectionMascot pose="graphique" side="left" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
         <SectionHeading
@@ -409,9 +395,11 @@ function ReviewsPanel() {
           title="Des résultats, pas des promesses."
         />
         <div className="mx-auto flex max-h-[58vh] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
-          <TestimonialsColumn testimonials={col1} duration={16} />
-          <TestimonialsColumn testimonials={col2} className="hidden md:block" duration={20} />
-          <TestimonialsColumn testimonials={col3} className="hidden lg:block" duration={18} />
+          {/* Mobile : une colonne, les 4 avis une fois */}
+          <TestimonialsColumn testimonials={reviews} duration={22} className="md:hidden" />
+          {/* Desktop : 2 colonnes, chaque avis une seule fois */}
+          <TestimonialsColumn testimonials={colA} duration={18} className="hidden md:block" />
+          <TestimonialsColumn testimonials={colB} duration={22} className="hidden md:block" />
         </div>
       </div>
     </section>
@@ -422,7 +410,7 @@ function ReviewsPanel() {
 
 function FAQPanel() {
   return (
-    <section id="faq" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
+    <section id="faq" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <SectionMascot pose="assise" side="right" />
       <div className="mx-auto max-w-3xl px-8 md:px-16 w-full">
         <SectionHeading
@@ -431,8 +419,8 @@ function FAQPanel() {
           eyebrow="Questions fréquentes"
           title="On lève les derniers doutes."
         />
-        <div className="space-y-2 max-h-[55vh] overflow-y-auto pr-1">
-          {peakclFaq.map((f) => (
+        <div className="space-y-2">
+          {peakclFaqHome.map((f) => (
             <details key={f.question} className="group rounded-2xl border border-white/5 bg-card/50 p-4 shadow-card open:bg-card/70">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-sm font-semibold">
                 {f.question}
@@ -468,7 +456,7 @@ function ContactPanel() {
   };
 
   return (
-    <section id="contact" className="relative flex w-full items-center overflow-hidden py-20 md:py-28">
+    <section id="contact" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <div className="absolute inset-0 -z-10 bg-hero" />
       <div className="bg-aurora" aria-hidden />
       <div className="grid-bg absolute inset-0 -z-10" />
@@ -574,25 +562,48 @@ function Footer() {
   );
 }
 
+/* ── Reassurance bar ─────────────────────────────────────────── */
+
+function ReassuranceBar() {
+  const items = [
+    { strong: "5/5", rest: "sur Google" },
+    { strong: "20+", rest: "projets livrés" },
+    { strong: "1 seul", rest: "interlocuteur" },
+    { strong: "Savoie", rest: "& France" },
+  ];
+  return (
+    <section aria-label="Réassurance" className="border-y border-white/5 bg-card/30 py-4">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 text-sm">
+        {items.map((it) => (
+          <span key={it.rest} className="inline-flex items-center gap-1.5">
+            <span className="font-bold text-[var(--brand-turquoise)]">{it.strong}</span>
+            <span className="text-muted-foreground">{it.rest}</span>
+          </span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 /* ── Root ────────────────────────────────────────────────────── */
 
 function Landing() {
   return (
     <div className="relative bg-background text-foreground">
-      <MobileNav />
       {/* Scroll vertical : sections pleine hauteur empilées (desktop + mobile) */}
       <HeroPanel />
-      <InstagramFeed />
+      <ReassuranceBar />
       <ProblemPanel />
       <DifferencePanel />
-      <MethodPanel />
+      <TrustedBySection />
       <OffersPanel />
       <PortfolioPanel />
       <ReviewsPanel />
+      <MethodPanel />
       <FAQPanel />
       <ContactPanel />
+      <InstagramFeed />
       <div className="hidden md:block"><DeckFooter /></div>
-      <TrustedBySection />
       <MobileStickyContact />
       <Footer />
     </div>

@@ -506,7 +506,7 @@ export const SERVICES: ServiceMeta[] = [
     emoji: "📱",
     eyebrow: "Réseaux sociaux",
     title: "Community management",
-    tagline: "Stratégie et contenus : rester visible sans y passer tes soirées.",
+    tagline: "Stratégie et contenus : rester visible sans y passer vos soirées.",
   },
   {
     slug: "/design",

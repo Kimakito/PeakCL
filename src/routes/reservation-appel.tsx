@@ -23,7 +23,7 @@ export const Route = createFileRoute("/reservation-appel")({
       { title: "Réservation d’appel · PeakCL" },
       {
         name: "description",
-        content: "Questionnaire de diagnostic PeakCL avant ton appel.",
+        content: "Diagnostic approfondi PeakCL avant votre appel, ou réservez directement votre créneau.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/reservation-appel") },
@@ -34,6 +34,7 @@ export const Route = createFileRoute("/reservation-appel")({
 });
 
 const STORAGE_KEY = "peakcl_reservation_appel_v1";
+const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
 function ReservationAppelPage() {
   const { values, setValues } = useAutosaveForm(STORAGE_KEY, {
@@ -51,21 +52,11 @@ function ReservationAppelPage() {
     commitment: "",
   });
 
+  // Voie qualifiée : seuls les champs de contact + la problématique sont
+  // obligatoires. Les questions de qualification (CA, objectifs, engagement…)
+  // sont facultatives, pour ne pas dresser un mur à l'entrée.
   const requiredNames = useMemo(
-    () => [
-      "fullName",
-      "phone",
-      "email",
-      "instagram",
-      "revenueRange",
-      "goalRevenue",
-      "painPoints",
-      "importanceSolve",
-      "ableAlone",
-      "importanceOnlinePresence",
-      "opennessToSupport",
-      "commitment",
-    ],
+    () => ["fullName", "phone", "email", "painPoints"],
     [],
   );
 
@@ -101,7 +92,7 @@ function ReservationAppelPage() {
       window.location.href = MERCI_BRIEF_PATH;
     } catch {
       alert(
-        "L’envoi a échoué. Vérifie ta connexion et réessaie, tes réponses restent sauvegardées dans ce navigateur.",
+        "L’envoi a échoué. Vérifiez votre connexion et réessayez, vos réponses restent sauvegardées dans ce navigateur.",
       );
     } finally {
       setIsSubmitting(false);
@@ -131,21 +122,38 @@ function ReservationAppelPage() {
 
           <h1 className="mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">Réservation d’appel · PeakCL</h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Avant notre appel, j’ai besoin de comprendre ta situation. Ce questionnaire prend 2 à 3 minutes. À la fin, tu pourras réserver ton créneau de diagnostic (45 min).
+            Deux options : réservez directement votre créneau, ou remplissez d’abord ce diagnostic (2 à 3 minutes) pour que je prépare notre échange. Appel de 45 minutes.
           </p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-event="cta_calendly_direct"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
+            >
+              Réserver directement mon appel <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href="#diagnostic"
+              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/30"
+            >
+              Faire d’abord le diagnostic
+            </a>
+          </div>
           <p className="mx-auto mt-6 max-w-2xl text-xs text-muted-foreground">
-            Tes réponses restent confidentielles.
+            Vos réponses restent confidentielles.
           </p>
         </div>
       </section>
 
-      <section className="border-t border-white/5 py-16">
+      <section id="diagnostic" className="border-t border-white/5 py-16">
         <div className="mx-auto max-w-3xl px-6">
           <div className="relative mb-8 rounded-2xl border border-white/5 bg-card/40 p-5 text-sm text-muted-foreground shadow-card backdrop-blur">
             <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                Progression des champs ⭐ :{" "}
+                Champs obligatoires ⭐ :{" "}
                 <span className="font-semibold text-foreground">
                   {completion.filled}/{completion.total}
                 </span>
@@ -174,17 +182,17 @@ function ReservationAppelPage() {
               </label>
             </p>
 
-            <SectionTitle title="Diagnostic" />
+            <SectionTitle title="L’essentiel" />
             <div className="grid gap-5">
               <TextInput
-                label="Quels sont tes prénom et nom ?"
+                label="Vos prénom et nom"
                 name="fullName"
                 required
                 value={String(values.fullName)}
                 onChange={(v) => setField(setValues, "fullName", v)}
               />
               <TextInput
-                label="Quel est ton numéro de téléphone ?"
+                label="Votre numéro de téléphone"
                 name="phone"
                 type="tel"
                 required
@@ -193,52 +201,16 @@ function ReservationAppelPage() {
                 onChange={(v) => setField(setValues, "phone", v)}
               />
               <TextInput
-                label="Quel est ton mail ?"
+                label="Votre e-mail"
                 name="email"
                 type="email"
                 required
-                placeholder="tonmail@example.com"
+                placeholder="vous@exemple.com"
                 value={String(values.email)}
                 onChange={(v) => setField(setValues, "email", v)}
               />
-              <TextInput
-                label="Quel est ton compte Instagram ?"
-                name="instagram"
-                required
-                placeholder="@moncompte"
-                value={String(values.instagram)}
-                onChange={(v) => setField(setValues, "instagram", v)}
-              />
-              <ChoiceSingle
-                label="Quel est ton chiffre d’affaire actuel ?"
-                name="revenueRange"
-                required
-                value={String(values.revenueRange)}
-                onChange={(v) => setField(setValues, "revenueRange", v)}
-                options={[
-                  { value: "<1000", label: "Moins de 1 000€/mois" },
-                  { value: "1000-3000", label: "Entre 1 000€ et 3 000€/mois" },
-                  { value: "3000-5000", label: "Entre 3 000€ et 5 000€/mois" },
-                  { value: "5000+", label: "Plus de 5 000€/mois" },
-                  { value: "Je préfère ne pas répondre", label: "Je préfère ne pas répondre" },
-                ]}
-              />
-              <ChoiceSingle
-                label="Quel est ton objectif pour les prochains mois ?"
-                name="goalRevenue"
-                required
-                value={String(values.goalRevenue)}
-                onChange={(v) => setField(setValues, "goalRevenue", v)}
-                options={[
-                  { value: "1000-2000", label: "1000-2000€" },
-                  { value: "2000-3000", label: "2000-3000€" },
-                  { value: "3000-5000", label: "3000-5000€" },
-                  { value: "5000-10000", label: "5000-10000€" },
-                  { value: "+10000", label: "+ 10000€" },
-                ]}
-              />
               <ChoiceMulti
-                label="Quelle est ta problématique ? (Plusieurs réponses possibles)"
+                label="Quelle est votre problématique ? (Plusieurs réponses possibles)"
                 name="painPoints"
                 required
                 values={(values.painPoints as string[]) || []}
@@ -252,17 +224,29 @@ function ReservationAppelPage() {
                   { value: "Difficulté à justifier l'investissement", label: "J’ai du mal à justifier l’investissement dans quelque chose que je ne maîtrise pas" },
                 ]}
               />
+              <TextInput
+                label="Votre compte Instagram (si vous en avez un)"
+                name="instagram"
+                placeholder="@moncompte"
+                value={String(values.instagram)}
+                onChange={(v) => setField(setValues, "instagram", v)}
+              />
+            </div>
+
+            <SectionTitle title="Pour préparer l’appel (facultatif)" />
+            <p className="-mt-4 text-sm text-muted-foreground">
+              Ces questions m’aident à préparer un échange plus utile. Vous pouvez les laisser vides et réserver directement.
+            </p>
+            <div className="grid gap-5">
               <ChoiceScale
-                label="À quel point est-ce important pour toi de régler cette problématique et d’atteindre tes objectifs ?"
+                label="À quel point est-ce important pour vous de régler cette problématique et d’atteindre vos objectifs ?"
                 name="importanceSolve"
-                required
                 value={String(values.importanceSolve)}
                 onChange={(v) => setField(setValues, "importanceSolve", v)}
               />
               <ChoiceSingle
-                label="Est-ce que tu penses honnêtement être capable de régler cette problématique par toi-même ?"
+                label="Pensez-vous honnêtement être capable de régler cette problématique par vous-même ?"
                 name="ableAlone"
-                required
                 value={String(values.ableAlone)}
                 onChange={(v) => setField(setValues, "ableAlone", v)}
                 options={[
@@ -271,16 +255,14 @@ function ReservationAppelPage() {
                 ]}
               />
               <ChoiceScale
-                label="À quel point c’est important pour toi d’améliorer ta présence en ligne aujourd’hui ?"
+                label="À quel point est-ce important pour vous d’améliorer votre présence en ligne aujourd’hui ?"
                 name="importanceOnlinePresence"
-                required
                 value={String(values.importanceOnlinePresence)}
                 onChange={(v) => setField(setValues, "importanceOnlinePresence", v)}
               />
               <ChoiceSingle
-                label="Si tu avais une solution claire pour améliorer ta présence en ligne, serais-tu ouvert(e) à te faire accompagner ?"
+                label="Si vous aviez une solution claire pour améliorer votre présence en ligne, seriez-vous ouvert(e) à vous faire accompagner ?"
                 name="opennessToSupport"
-                required
                 value={String(values.opennessToSupport)}
                 onChange={(v) => setField(setValues, "opennessToSupport", v)}
                 options={[
@@ -289,14 +271,39 @@ function ReservationAppelPage() {
                 ]}
               />
               <ChoiceSingle
-                label="Est-ce que tu peux t’engager à être présent(e) et à prévenir en cas d’empêchement ?"
+                label="Pouvez-vous vous engager à être présent(e) et à prévenir en cas d’empêchement ?"
                 name="commitment"
-                required
                 value={String(values.commitment)}
                 onChange={(v) => setField(setValues, "commitment", v)}
                 options={[
                   { value: "Oui, je m'engage", label: "Oui, je m’engage" },
                   { value: "Non", label: "Non" },
+                ]}
+              />
+              <ChoiceSingle
+                label="Quel est votre objectif pour les prochains mois ?"
+                name="goalRevenue"
+                value={String(values.goalRevenue)}
+                onChange={(v) => setField(setValues, "goalRevenue", v)}
+                options={[
+                  { value: "1000-2000", label: "1000-2000€" },
+                  { value: "2000-3000", label: "2000-3000€" },
+                  { value: "3000-5000", label: "3000-5000€" },
+                  { value: "5000-10000", label: "5000-10000€" },
+                  { value: "+10000", label: "+ 10000€" },
+                ]}
+              />
+              <ChoiceSingle
+                label="Quel est votre chiffre d’affaires actuel ?"
+                name="revenueRange"
+                value={String(values.revenueRange)}
+                onChange={(v) => setField(setValues, "revenueRange", v)}
+                options={[
+                  { value: "<1000", label: "Moins de 1 000€/mois" },
+                  { value: "1000-3000", label: "Entre 1 000€ et 3 000€/mois" },
+                  { value: "3000-5000", label: "Entre 3 000€ et 5 000€/mois" },
+                  { value: "5000+", label: "Plus de 5 000€/mois" },
+                  { value: "Je préfère ne pas répondre", label: "Je préfère ne pas répondre" },
                 ]}
               />
             </div>
@@ -308,7 +315,7 @@ function ReservationAppelPage() {
               </div>
               <h3 className="mt-4 text-2xl font-bold">Prêt·e à envoyer ?</h3>
               <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-                Ensuite, tu choisiras ton créneau Calendly (45 min).
+                Ensuite, vous choisirez votre créneau Calendly (45 min).
               </p>
 
               <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -334,7 +341,7 @@ function ReservationAppelPage() {
 
               {!canSubmit ? (
                 <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">
-                  Il manque encore des champs ⭐ obligatoires. Tu peux les remplir plus tard : le formulaire se sauvegarde automatiquement sur ton appareil.
+                  Il manque encore des champs ⭐ obligatoires. Vous pouvez les remplir plus tard : le formulaire se sauvegarde automatiquement sur votre appareil.
                 </p>
               ) : null}
             </div>

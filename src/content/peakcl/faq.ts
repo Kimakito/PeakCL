@@ -116,3 +116,22 @@ export const peakclFaq: PeakclFaqItem[] = [
       "L’IA peut aider, oui. Mais un site utile, c’est aussi des choix : structure, message, confiance, mise en ligne, Google, cohérence visuelle. Si vous ne faites pas ça souvent, vous perdez du temps et vous perdez la main. Mon rôle : prendre le temps, simplifier, et livrer une présence en ligne propre, sans vous épuiser.",
   },
 ];
+
+/**
+ * Sélection condensée pour la home : les questions qui lèvent réellement un frein
+ * d'achat (délai, Google, ce qui est inclus, autonomie, périmètre géo, objections).
+ * La FAQ complète reste disponible via {@link peakclFaq}.
+ */
+const HOME_FAQ_QUESTIONS = [
+  "Combien de temps faut‑il pour créer un site (et le mettre vraiment en ligne) ?",
+  "Mon site sera‑t‑il référencé sur Google ?",
+  "Pourquoi avoir un site web si j’ai déjà Instagram / Facebook ?",
+  "Je n’ai pas le temps de préparer le contenu. On fait comment ?",
+  "Hébergement, nom de domaine, emails… je dois gérer ça ?",
+  "Est‑ce que je serai autonome après ?",
+  "Travaillez‑vous uniquement en Savoie / Albertville ?",
+];
+
+export const peakclFaqHome: PeakclFaqItem[] = HOME_FAQ_QUESTIONS.map(
+  (q) => peakclFaq.find((f) => f.question === q)!,
+);

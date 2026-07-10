@@ -14,7 +14,7 @@ export const Route = createFileRoute("/questionnaire-r2")({
       {
         name: "description",
         content:
-          "Questionnaire à remplir avant notre deuxième appel, pour préparer une proposition adaptée à ta situation.",
+          "Questionnaire à remplir avant notre deuxième appel, pour préparer une proposition adaptée à votre situation.",
       },
       { name: "robots", content: "noindex, nofollow" },
       { property: "og:type", content: "website" },
@@ -364,7 +364,7 @@ function QuestionnaireR2Page() {
       window.location.href = MERCI_R2_PATH;
     } catch {
       alert(
-        "L’envoi a échoué. Vérifie ta connexion et réessaie, tes réponses restent sauvegardées dans ce navigateur.",
+        "L’envoi a échoué. Vérifiez votre connexion et réessayez, vos réponses restent sauvegardées dans ce navigateur.",
       );
     } finally {
       setIsSubmitting(false);
@@ -392,7 +392,7 @@ function QuestionnaireR2Page() {
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
             Pour préparer une proposition de communication digitale (site,
-            identité, réseaux, Google) qui correspond vraiment à ta situation,
+            identité, réseaux, Google) qui correspond vraiment à votre situation,
             j’ai besoin de quelques précisions. 2 minutes, pas plus.
           </p>
         </div>
@@ -438,7 +438,7 @@ function QuestionnaireR2Page() {
 
             <div className="rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
               <TextInput
-                label="Quel est ton nom et ton prénom ?"
+                label="Quel est votre nom et votre prénom ?"
                 name="fullName"
                 required
                 value={values.fullName}
@@ -447,7 +447,7 @@ function QuestionnaireR2Page() {
             </div>
 
             <ChoiceScale
-              label="Quelle note mettrais-tu à notre premier appel ?"
+              label="Quelle note mettriez-vous à notre premier appel ?"
               name="ratingCall1"
               required
               value={values.ratingCall1}
@@ -456,8 +456,8 @@ function QuestionnaireR2Page() {
 
             <div>
               <TextArea
-                label="Quel est ton objectif sur les prochaines semaines ou mois pour ta communication digitale ?"
-                helper="Site, identité visuelle, réseaux sociaux, visibilité Google : ce que tu veux voir changer en priorité."
+                label="Quel est votre objectif sur les prochaines semaines ou mois pour votre communication digitale ?"
+                helper="Site, identité visuelle, réseaux sociaux, visibilité Google : ce que vous voulez voir changer en priorité."
                 name="objectif"
                 required
                 value={values.objectif}
@@ -477,7 +477,7 @@ function QuestionnaireR2Page() {
             </div>
 
             <ChoiceSingle
-              label="Sur quoi veux-tu qu'on avance en priorité lors de notre prochain appel ?"
+              label="Sur quoi voulez-vous qu'on avance en priorité lors de notre prochain appel ?"
               name="serviceFocus"
               required
               value={values.serviceFocus}
@@ -520,7 +520,7 @@ function QuestionnaireR2Page() {
 
             {values.serviceFocus ? (
               <ChoiceSingle
-                label="Si, lors de notre prochain appel, je te présente une offre qui répond à ce besoin et t’aide à atteindre ton objectif, combien serais-tu prêt·e à investir ?"
+                label="Si, lors de notre prochain appel, je vous présente une offre qui répond à ce besoin et vous aide à atteindre votre objectif, combien seriez-vous prêt·e à investir ?"
                 name="budget"
                 required
                 value={values.budget}
@@ -529,14 +529,14 @@ function QuestionnaireR2Page() {
               />
             ) : (
               <div className="rounded-2xl border border-dashed border-white/10 bg-card/20 p-5 text-sm text-muted-foreground">
-                Choisis d’abord ta priorité ci-dessus pour voir les fourchettes
+                Choisissez d’abord votre priorité ci-dessus pour voir les fourchettes
                 de budget adaptées. ⭐
               </div>
             )}
 
             <div>
               <TextArea
-                label="Pour prendre la meilleure décision possible, de quelles informations aurais-tu besoin ?"
+                label="Pour prendre la meilleure décision possible, de quelles informations auriez-vous besoin ?"
                 helper="Avis clients, garanties, exemples de réalisations, précisions techniques, autres questions en tête..."
                 name="infosNecessaires"
                 required
@@ -557,7 +557,7 @@ function QuestionnaireR2Page() {
 
             <div>
               <ChoiceSingle
-                label="Si l’offre te correspond et que tu as toutes les informations nécessaires, serais-tu prêt·e à prendre ta décision à la fin de notre prochain appel ?"
+                label="Si l’offre vous correspond et que vous avez toutes les informations nécessaires, seriez-vous prêt·e à prendre votre décision à la fin de notre prochain appel ?"
                 name="readyToDecide"
                 required
                 value={values.readyToDecide}
@@ -582,7 +582,7 @@ function QuestionnaireR2Page() {
               {values.readyToDecide === "oui" ? (
                 <p className="mt-2 px-2 text-xs font-medium text-[var(--brand-turquoise)]">
                   Parfait, on prépare tout pour notre appel afin que ce soit un
-                  oui aussi de ton côté.
+                  oui aussi de votre côté.
                 </p>
               ) : null}
             </div>
@@ -590,7 +590,7 @@ function QuestionnaireR2Page() {
             {values.readyToDecide === "non" ? (
               <TextArea
                 label="Qu’est-ce qui pourrait t’en empêcher ?"
-                helper="Note-le précisément : on s'assure de lever ce point pendant l'appel pour que tu puisses décider en toute confiance."
+                helper="Note-le précisément : on s'assure de lever ce point pendant l'appel pour que vous puissiez décider en toute confiance."
                 name="reasonIfNot"
                 required
                 value={values.reasonIfNot}
@@ -633,8 +633,8 @@ function QuestionnaireR2Page() {
                 <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">
                   Il manque encore des champs ⭐ obligatoires. Clique sur
                   "Envoyer mes réponses" : on t’emmène directement au premier
-                  champ à compléter. Tes réponses restent sauvegardées
-                  automatiquement sur ton appareil.
+                  champ à compléter. Vos réponses restent sauvegardées
+                  automatiquement sur votre appareil.
                 </p>
               ) : null}
             </div>

@@ -20,21 +20,21 @@ export function InstagramFeed() {
   }, []);
 
   return (
-    <section id="instagram" className="relative w-full overflow-hidden py-20 md:py-28">
-      <div className="mx-auto w-full max-w-5xl px-8 md:px-16">
+    <section id="instagram" className="relative w-full overflow-hidden border-t border-white/5 py-12 md:py-16">
+      <div className="mx-auto w-full max-w-3xl px-8 md:px-16">
         <SectionHeading
-          className="mb-8"
+          className="mb-6"
           accent="violet"
           eyebrow="Instagram"
           title={<>Le studio <span className="text-gradient">au quotidien</span>.</>}
-          subtitle="Coulisses, projets livrés et conseils : suivez PeakCL sur Instagram."
+          subtitle="Coulisses et projets livrés : suivez PeakCL sur Instagram."
         />
-        {/* Widget Elfsight — Instagram Feed PeakCL */}
+        {/* Widget Elfsight — Instagram Feed PeakCL (layout réglé côté Elfsight : viser 3-4 vignettes) */}
         <div
-          className="elfsight-app-562a0aa7-3065-445f-bb96-cba40fe65b41"
+          className="elfsight-app-562a0aa7-3065-445f-bb96-cba40fe65b41 max-h-[420px] overflow-hidden"
           data-elfsight-app-lazy
         />
-        <div className="mt-8 text-center">
+        <div className="mt-6 text-center">
           <a
             href={SOCIAL.instagram}
             target="_blank"

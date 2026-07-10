@@ -14,11 +14,11 @@ import { absUrl } from "@/seo/site";
 export const Route = createFileRoute("/merci-brief")({
   head: () => ({
     meta: [
-      { title: "Réserve ton appel · PeakCL" },
+      { title: "Réservez votre appel · PeakCL" },
       {
         name: "description",
         content:
-          "Questionnaire reçu. Choisis ton créneau pour le diagnostic (45 min), puis accède aux ressources avant l’appel.",
+          "Questionnaire reçu. Choisissez votre créneau pour le diagnostic (45 min), puis accède aux ressources avant l’appel.",
       },
       { name: "robots", content: "noindex, nofollow" },
       { property: "og:type", content: "website" },
@@ -50,8 +50,8 @@ function MerciBriefPage() {
           </div>
           <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">C’est reçu.</h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Dernière étape avant l’appel : réserve ton créneau de <span className="font-semibold text-foreground">45 minutes</span>{" "}
-            (diagnostic, sans engagement). Après la réservation, tu accèderas à la page avec la vidéo et les ressources à
+            Dernière étape avant l’appel : réservez votre créneau de <span className="font-semibold text-foreground">45 minutes</span>{" "}
+            (diagnostic, sans engagement). Après la réservation, vous accéderez à la page avec la vidéo et les ressources à
             préparer.
           </p>
 
@@ -66,7 +66,7 @@ function MerciBriefPage() {
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-gradient text-xs font-bold text-primary-foreground">
                 2
               </span>
-              <span className="font-semibold text-foreground">Choisis ton créneau ci‑dessous</span>
+              <span className="font-semibold text-foreground">Choisissez votre créneau ci‑dessous</span>
             </li>
             <li className="flex items-center gap-3 rounded-xl border border-white/5 bg-white/5 px-4 py-3 text-muted-foreground">
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/10 text-xs font-bold">
@@ -103,7 +103,7 @@ function MerciBriefPage() {
           <CalendlyEmbed url={calendlyUrl} />
 
           <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-muted-foreground">
-            Après confirmation du créneau, tu seras redirigé·e vers la page{" "}
+            Après confirmation du créneau, vous serez redirigé·e vers la page{" "}
             <a href={BIENVENUE_PATH} className="font-semibold text-[var(--brand-turquoise)] hover:text-foreground">
               bienvenue
             </a>{" "}

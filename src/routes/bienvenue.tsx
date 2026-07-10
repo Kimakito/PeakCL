@@ -13,7 +13,7 @@ export const Route = createFileRoute("/bienvenue")({
       {
         name: "description",
         content:
-          "Pour confirmer ton appel et accéder aux ressources, suis les étapes ci‑dessous.",
+          "Pour confirmer votre appel et accéder aux ressources, suivez les étapes ci‑dessous.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/bienvenue") },
@@ -30,7 +30,7 @@ function BienvenuePage() {
         <div className="pointer-events-none absolute top-0 left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] blur-[120px]" />
         <div className="relative z-10 mx-auto max-w-3xl">
           <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
-            Étape 3 · Après ton créneau Calendly
+            Étape 3 · Après votre créneau Calendly
           </div>
           <div className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-[var(--brand-turquoise)]">
             <TriangleAlert className="h-4 w-4" />
@@ -39,12 +39,12 @@ function BienvenuePage() {
           </div>
 
           <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl">
-            Pour confirmer ton appel et accéder aux ressources, réalise les{" "}
+            Pour confirmer votre appel et accéder aux ressources, réalisez les{" "}
             <span className="text-gradient">4 étapes</span> ci‑dessous
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Tu as réservé ton diagnostic : parcours les preuves et les guides
-            avant notre rendez‑vous. Si tu ne complètes pas ces étapes, je serai
+            Vous avez réservé votre diagnostic : parcourez les preuves et les guides
+            avant notre rendez‑vous. Si vous ne complétez pas ces étapes, je serai
             obligée d&apos;annuler notre appel.
           </p>
           <div className="mt-8">
@@ -80,12 +80,12 @@ function BienvenuePage() {
               indépendants et petites entreprises à structurer leur activité
               pour attirer des clients sans s&apos;épuiser : site web, système
               de prospection, image de marque, outils : j&apos;adapte
-              l&apos;accompagnement à ce qui te fait vraiment avancer, pas une
+              l&apos;accompagnement à ce qui vous fait vraiment avancer, pas une
               formule unique.
             </p>
             <p className="mt-3 text-base leading-relaxed text-foreground/90">
-              Notre appel sert à comprendre où tu en es et ce qui bloque, pour
-              te proposer un plan concret, pas un pitch générique. À très vite !
+              Notre appel sert à comprendre où vous en êtes et ce qui bloque, pour
+              vous proposer un plan concret, pas un pitch générique. À très vite !
             </p>
           </div>
         </section>
@@ -98,11 +98,11 @@ function BienvenuePage() {
             </div>
             <div>
               <h2 className="text-2xl font-bold text-foreground">
-                Ajoute le rendez‑vous à ton agenda
+                Ajoutez le rendez‑vous à votre agenda
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Quand tu reçois l&apos;invitation, clique sur “Je connais cet
-                expéditeur” puis confirme pour l&apos;ajouter à ton calendrier.
+                Quand vous recevez l&apos;invitation, cliquez sur “Je connais cet
+                expéditeur” puis confirmez pour l&apos;ajouter à votre calendrier.
               </p>
             </div>
           </div>
@@ -186,19 +186,19 @@ function BienvenuePage() {
               <div className="grid gap-3">
                 {[
                   {
-                    title: "1 · Pourquoi tu n'as pas de clients",
+                    title: "1 · Pourquoi vous n'avez pas de clients",
                     href: "/ressources-systeme",
                   },
                   {
-                    title: "2 · Pourquoi ton site ne convertit pas",
+                    title: "2 · Pourquoi votre site ne convertit pas",
                     href: "/ressources-site",
                   },
                   {
-                    title: "3 · Pourquoi on ne te fait pas confiance",
+                    title: "3 · Pourquoi on ne vous fait pas confiance",
                     href: "/ressources-confiance",
                   },
                   {
-                    title: "Bonus · Ton site, machine à clients",
+                    title: "Bonus · Votre site, machine à clients",
                     href: "/ressources-conversion",
                   },
                   {
@@ -228,7 +228,7 @@ function BienvenuePage() {
                   45 min · visio · sans engagement
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  Ressources personnalisées pour ton appel
+                  Ressources personnalisées pour votre appel
                 </div>
               </div>
             </div>
