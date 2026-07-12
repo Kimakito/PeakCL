@@ -35,7 +35,8 @@ export const askPeakaBot = createServerFn({ method: "POST" })
     return { messages: sanitize(input.messages) } satisfies AskInput;
   })
   .handler(async ({ data }: { data: AskInput }): Promise<{ text: string }> => {
-    const apiKey = process.env.ANTHROPIC_API_KEY;
+    // Variable Netlify nommée "Peakcl_site" ; ANTHROPIC_API_KEY reste prioritaire.
+    const apiKey = process.env.ANTHROPIC_API_KEY ?? process.env.Peakcl_site;
     if (!apiKey) return { text: FALLBACK };
     if (!data.messages.length || data.messages[data.messages.length - 1].role !== "user") {
       return { text: FALLBACK };
