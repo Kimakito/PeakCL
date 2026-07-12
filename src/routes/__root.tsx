@@ -3,6 +3,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 import appCss from "../styles.css?url";
 import { TopNav } from "@/components/TopNav";
 import { SiteChrome } from "@/components/SiteChrome";
+import { PeakaBot } from "@/components/PeakaBot";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { absUrl } from "@/seo/site";
 import { organizationJsonLd, professionalServiceJsonLd } from "@/seo/jsonld";
@@ -137,6 +138,7 @@ function RootComponent() {
       <SiteChrome />
       <TopNav />
       <Outlet />
+      <PeakaBot />
     </>
   );
 }

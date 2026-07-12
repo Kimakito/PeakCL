@@ -384,6 +384,78 @@ export const automatisationHighlights: ServiceHighlight[] = [
   },
 ];
 
+/* Compétences « Sites web » : bénéfices client, affichées en grille d’expertises. */
+export const sitesWebHighlights: ServiceHighlight[] = [
+  {
+    emoji: "🎯",
+    title: "Un site pensé pour convertir",
+    desc: "Structure claire, parcours guidé et appels à l’action au bon endroit : vos visiteurs comprennent et passent à l’action.",
+  },
+  {
+    emoji: "⚡",
+    title: "Rapide et bien référencé",
+    desc: "Code optimisé, Core Web Vitals au vert et SEO on-page soigné : Google et vos visiteurs vous trouvent plus vite.",
+  },
+  {
+    emoji: "📱",
+    title: "Impeccable sur mobile",
+    desc: "Conception mobile-first : votre site reste net et confortable sur téléphone, tablette et ordinateur.",
+  },
+  {
+    emoji: "🛠️",
+    title: "Autonome ou accompagné",
+    desc: "Sur mesure ou WordPress selon votre besoin : vous gérez votre contenu seul, ou je m’occupe de tout en maintenance.",
+  },
+];
+
+/* Compétences « Design graphique ». */
+export const designHighlights: ServiceHighlight[] = [
+  {
+    emoji: "✨",
+    title: "Une identité qui vous ressemble",
+    desc: "Logo, couleurs et typographies cohérents : une marque reconnaissable au premier coup d’œil, sur tous vos supports.",
+  },
+  {
+    emoji: "🖼️",
+    title: "Des supports prêts à l’emploi",
+    desc: "Cartes de visite, flyers, visuels réseaux : des fichiers finalisés, déclinés et livrés dans les bons formats.",
+  },
+  {
+    emoji: "🎭",
+    title: "Illustration & personnages",
+    desc: "Mascottes et illustrations sur mesure pour donner de la personnalité à votre marque et vous démarquer.",
+  },
+  {
+    emoji: "📐",
+    title: "Une charte claire à suivre",
+    desc: "Un guide simple des règles de votre marque : vous restez cohérent, même quand vous créez vos visuels vous-même.",
+  },
+];
+
+/* Compétences « Réseaux sociaux / Community management ». */
+export const communityHighlights: ServiceHighlight[] = [
+  {
+    emoji: "🗓️",
+    title: "Une présence régulière",
+    desc: "Calendrier éditorial et publications planifiées : vous restez visible sans y penser tous les jours.",
+  },
+  {
+    emoji: "🎨",
+    title: "Des visuels à votre image",
+    desc: "Posts, stories et carrousels cohérents avec votre marque, pensés pour arrêter le scroll.",
+  },
+  {
+    emoji: "💬",
+    title: "Une communauté animée",
+    desc: "Ton juste, réponses aux commentaires et messages : une relation de confiance avec votre audience.",
+  },
+  {
+    emoji: "📈",
+    title: "Des choix guidés par les chiffres",
+    desc: "Suivi des statistiques et ajustements réguliers : on garde ce qui marche, on abandonne ce qui ne prend pas.",
+  },
+];
+
 /* ── Packages combinés (hub /services) ───────────────────────── */
 
 export type Pack = {

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
 import { ServicePage } from "@/components/ServicePage";
-import { community, cmForfaits } from "@/content/peakcl/services";
+import { community, cmForfaits, communityHighlights } from "@/content/peakcl/services";
 
 export const Route = createFileRoute("/community-management")({
   head: () => ({
@@ -23,6 +23,9 @@ export const Route = createFileRoute("/community-management")({
       eyebrow="Réseaux sociaux"
       title="Community management"
       tagline="Rester visible et cohérent sur vos réseaux, sans y passer vos soirées. Des forfaits clairs, sans engagement long."
+      highlights={communityHighlights}
+      highlightsTitle="Ce que je gère pour vos réseaux"
+      highlightsSubtitle="Une présence régulière et à votre image, sans que ça vous mange vos soirées."
       forfaits={cmForfaits}
       forfaitsTitle="📱 Forfaits mensuels"
       forfaitsNote="Tarifs HT · révisions du visuel incluses · option +1 réseau supplémentaire disponible. Sans engagement de durée."
@@ -30,6 +33,22 @@ export const Route = createFileRoute("/community-management")({
       sectionSubtitle="Besoin ponctuel ou envie d’autonomie : audit, contenus à l’unité et formation."
       items={community}
       showPrices
+      socials={[
+        {
+          handle: "la_communaute_des_9_poilus",
+          url: "https://www.instagram.com/la_communaute_des_9_poilus/",
+          name: "La Communauté des 9 Poilus",
+          desc: "Compte communautaire autour des animaux de compagnie : contenus réguliers, ton chaleureux et animation de la communauté.",
+        },
+        {
+          handle: "haltere_ego_c",
+          url: "https://www.instagram.com/haltere_ego_c/",
+          name: "Haltère Ego",
+          desc: "Compte fitness & remise en forme : posts motivants, conseils d’entraînement et publication régulière.",
+        },
+      ]}
+      socialsTitle="📲 Des comptes que j’anime"
+      socialsSubtitle="En attendant vos projets, voici deux comptes que je gère au quotidien pour garder la main : rythme de publication, visuels et animation de communauté."
     />
   ),
 });

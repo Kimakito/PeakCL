@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" font-family="Inter, sans-serif">
+  <defs>
+    <!-- Degrade texte tri-couleur : jaune -> turquoise -> violet, 100deg -->
+    <linearGradient id="text-gradient" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0.985" y2="0.174">
+      <stop offset="0%"  stop-color="#ffd815"/>
+      <stop offset="55%" stop-color="#2ae4d3"/>
+      <stop offset="100%" stop-color="#852df9"/>
+    </linearGradient>
+    <!-- Degrade CTA primary : violet -> mix, 135deg -->
+    <linearGradient id="primary-gradient" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#852df9"/>
+      <stop offset="100%" stop-color="#6a5ae0"/>
+    </linearGradient>
+    <!-- Halo hero : 3 radiaux -->
+    <radialGradient id="hero-violet" cx="50%" cy="-10%" r="80%">
+      <stop offset="0%" stop-color="#852df9" stop-opacity="0.55"/>
+      <stop offset="62%" stop-color="#852df9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hero-turq" cx="88%" cy="12%" r="55%">
+      <stop offset="0%" stop-color="#2ae4d3" stop-opacity="0.40"/>
+      <stop offset="60%" stop-color="#2ae4d3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hero-yellow" cx="8%" cy="28%" r="55%">
+      <stop offset="0%" stop-color="#ffd815" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#ffd815" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Halo violet CTA (glow) -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-color="#852df9" flood-opacity="0.55"/>
+    </filter>
+    <!-- Ombre carte -->
+    <filter id="card-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="30" stdDeviation="30" flood-color="#000000" flood-opacity="0.60"/>
+    </filter>
+  </defs>
+
+  <!-- Fond global -->
+  <rect width="1200" height="900" fill="#1b1532"/>
+
+  <!-- 1. Fond hero multi-radial -->
+  <text x="60" y="50" fill="#bdbbd0" font-size="16">1 / Fond hero (multi-radial)</text>
+  <g>
+    <rect x="60" y="70" width="520" height="220" rx="14" fill="#1b1532"/>
+    <rect x="60" y="70" width="520" height="220" rx="14" fill="url(#hero-violet)"/>
+    <rect x="60" y="70" width="520" height="220" rx="14" fill="url(#hero-turq)"/>
+    <rect x="60" y="70" width="520" height="220" rx="14" fill="url(#hero-yellow)"/>
+  </g>
+
+  <!-- 2. Degrade texte -->
+  <text x="620" y="50" fill="#bdbbd0" font-size="16">2 / Degrade texte tri-couleur</text>
+  <rect x="620" y="70" width="520" height="220" rx="14" fill="url(#text-gradient)"/>
+  <text x="650" y="205" fill="url(#text-gradient)" font-size="72" font-weight="700" font-family="Space Grotesk, sans-serif" letter-spacing="-1.4">PeakCL</text>
+
+  <!-- 3. CTA primary gradient + glow -->
+  <text x="60" y="360" fill="#bdbbd0" font-size="16">3 / Bouton CTA (primary gradient + halo)</text>
+  <g filter="url(#glow)">
+    <rect x="60" y="390" width="260" height="64" rx="14" fill="url(#primary-gradient)"/>
+  </g>
+  <text x="190" y="430" fill="#fcfcfc" font-size="20" font-weight="600" text-anchor="middle" font-family="Space Grotesk, sans-serif">Prendre RDV</text>
+
+  <!-- 4. Carte + ombre -->
+  <text x="620" y="360" fill="#bdbbd0" font-size="16">4 / Carte (surface + ombre)</text>
+  <g filter="url(#card-shadow)">
+    <rect x="620" y="390" width="520" height="180" rx="18" fill="#26223d" stroke="#ffffff" stroke-opacity="0.06"/>
+  </g>
+  <text x="650" y="440" fill="#f8f8fc" font-size="22" font-weight="600" font-family="Space Grotesk, sans-serif">Titre carte</text>
+  <text x="650" y="475" fill="#bdbbd0" font-size="16">Texte attenue sur surface card.</text>
+
+  <!-- 5. Nuancier -->
+  <text x="60" y="640" fill="#bdbbd0" font-size="16">5 / Nuancier</text>
+  <g font-size="13" fill="#f8f8fc">
+    <rect x="60"  y="660" width="120" height="120" rx="12" fill="#ffd815"/><text x="60"  y="805" fill="#bdbbd0">Jaune</text>
+    <rect x="200" y="660" width="120" height="120" rx="12" fill="#852df9"/><text x="200" y="805" fill="#bdbbd0">Violet</text>
+    <rect x="340" y="660" width="120" height="120" rx="12" fill="#2ae4d3"/><text x="340" y="805" fill="#bdbbd0">Turquoise</text>
+    <rect x="480" y="660" width="120" height="120" rx="12" fill="#26223d" stroke="#ffffff" stroke-opacity="0.1"/><text x="480" y="805" fill="#bdbbd0">Card</text>
+    <rect x="620" y="660" width="120" height="120" rx="12" fill="#2d2945"/><text x="620" y="805" fill="#bdbbd0">Secondary</text>
+    <rect x="760" y="660" width="120" height="120" rx="12" fill="#f8f8fc"/><text x="760" y="805" fill="#bdbbd0">Foreground</text>
+    <rect x="900" y="660" width="120" height="120" rx="12" fill="#f51d31"/><text x="900" y="805" fill="#bdbbd0">Destructif</text>
+  </g>
+</svg>

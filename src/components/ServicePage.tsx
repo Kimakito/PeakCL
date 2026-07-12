@@ -1,11 +1,12 @@
 import type { ReactNode } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, Instagram } from "lucide-react";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionAvatarCard, ExpressionPhoto } from "@/components/ExpressionPhoto";
 import type { SectionCardSlug } from "@/lib/expressions";
 import type { CatalogItem, Forfait, ServiceHighlight } from "@/content/peakcl/services";
+import type { MascotShot } from "@/content/peakcl/mascots";
 
 const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
@@ -132,14 +133,26 @@ export type ServicePageProps = {
   showPrices?: boolean;
   /** Vignette avatar labellisée affichée dans le hero (ex. "logos"). */
   avatarCard?: SectionCardSlug;
+  /** Galerie d'illustrations (portfolio), ex. les expressions de la mascotte. */
+  gallery?: MascotShot[];
+  galleryTitle?: string;
+  gallerySubtitle?: string;
+  /** Lien vers le portfolio filtré par métier, affiché sous les prestations. */
+  portfolioLink?: { to: string; label: string };
+  /** Comptes réseaux animés (démonstration), affichés en cartes cliquables. */
+  socials?: { handle: string; url: string; name: string; desc: string }[];
+  socialsTitle?: string;
+  socialsSubtitle?: string;
 };
 
-export function ServicePage({ eyebrow, title, tagline, intro, highlights, highlightsTitle, highlightsSubtitle, forfaits, forfaitsTitle, forfaitsNote, sectionTitle, sectionSubtitle, items, showPrices, avatarCard }: ServicePageProps) {
+export function ServicePage({ eyebrow, title, tagline, intro, highlights, highlightsTitle, highlightsSubtitle, forfaits, forfaitsTitle, forfaitsNote, sectionTitle, sectionSubtitle, items, showPrices, avatarCard, gallery, galleryTitle, gallerySubtitle, portfolioLink, socials, socialsTitle, socialsSubtitle }: ServicePageProps) {
   const SECTIONS = [
     { id: "intro", label: "Intro" },
     ...(highlights?.length ? [{ id: "expertises", label: "Expertises" }] : []),
     ...(forfaits?.length ? [{ id: "forfaits", label: "Forfaits" }] : []),
     { id: "prestations", label: "Prestations" },
+    ...(gallery?.length ? [{ id: "galerie", label: "Illustration" }] : []),
+    ...(socials?.length ? [{ id: "reseaux", label: "Réseaux" }] : []),
     { id: "contact", label: "Contact" },
   ];
   return (
@@ -231,8 +244,86 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
                   </Reveal>
                 ))}
               </div>
+              {portfolioLink ? (
+                <div className="mt-8 flex justify-center">
+                  <a
+                    href={portfolioLink.to}
+                    data-event="cta_portfolio_service"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-white/30"
+                  >
+                    {portfolioLink.label} <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </div>
+              ) : null}
             </div>
           </SnapSection>
+
+          {gallery?.length ? (
+            <SnapSection id="galerie" className="flex items-center border-t border-white/5 py-16">
+              <div className="mx-auto w-full max-w-5xl px-6">
+                <div className="mb-8 text-center">
+                  <h2 className="text-2xl font-bold text-foreground md:text-3xl">{galleryTitle ?? "Illustration & character design"}</h2>
+                  {gallerySubtitle ? <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">{gallerySubtitle}</p> : null}
+                </div>
+                <div className="gap-5 [column-fill:_balance] sm:columns-2 lg:columns-3">
+                  {gallery.map((m, i) => (
+                    <Reveal key={m.slug} delay={i * 0.05}>
+                      <figure className="group relative mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-white/5 bg-card/40 shadow-card">
+                        <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                        <img
+                          src={m.src}
+                          alt={m.alt}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full transition-transform duration-500 group-hover:scale-[1.03]"
+                        />
+                        <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center gap-2 bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-8 text-sm font-semibold text-white">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-turquoise)]" />
+                          {m.mood}
+                        </figcaption>
+                      </figure>
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            </SnapSection>
+          ) : null}
+
+          {socials?.length ? (
+            <SnapSection id="reseaux" className="flex items-center border-t border-white/5 py-16">
+              <div className="mx-auto w-full max-w-5xl px-6">
+                <div className="mb-8 text-center">
+                  <h2 className="text-2xl font-bold text-foreground md:text-3xl">{socialsTitle ?? "Comptes que j’anime"}</h2>
+                  {socialsSubtitle ? <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">{socialsSubtitle}</p> : null}
+                </div>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {socials.map((s) => (
+                    <a
+                      key={s.handle}
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-event="social_account_open"
+                      className="card-hover relative flex items-start gap-4 rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card"
+                    >
+                      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-gradient text-primary-foreground">
+                        <Instagram className="h-5 w-5" />
+                      </span>
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-1.5">
+                          <h3 className="truncate text-base font-semibold">{s.name}</h3>
+                          <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                        </div>
+                        <div className="text-xs text-[var(--brand-turquoise)]">@{s.handle}</div>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </SnapSection>
+          ) : null}
 
           <SnapSection id="contact" className="flex items-center border-t border-white/5 py-16">
             <div className="mx-auto w-full max-w-5xl px-6">

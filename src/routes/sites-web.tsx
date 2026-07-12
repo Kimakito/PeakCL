@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
 import { ServicePage } from "@/components/ServicePage";
-import { sitesWeb } from "@/content/peakcl/services";
+import { sitesWeb, sitesWebHighlights } from "@/content/peakcl/services";
 
 export const Route = createFileRoute("/sites-web")({
   head: () => ({
@@ -23,9 +23,13 @@ export const Route = createFileRoute("/sites-web")({
       eyebrow="Développement web"
       title="Sites web sur mesure"
       tagline="Sites vitrines, e-commerce et refontes : rapides, optimisés et pensés pour convertir vos visiteurs en clients."
+      highlights={sitesWebHighlights}
+      highlightsTitle="Ce que j’apporte à votre site"
+      highlightsSubtitle="Un site rapide, bien référencé et pensé pour convertir, sur tous les écrans."
       sectionTitle="💻 Prestations sites web"
       sectionSubtitle="Sites custom, personnalisés selon le client, avec accompagnement de bout en bout."
       items={sitesWeb}
+      portfolioLink={{ to: "/portfolio", label: "Voir mes réalisations web" }}
     />
   ),
 });

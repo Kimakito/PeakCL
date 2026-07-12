@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PeakCL — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --radius: 0.875rem;
+    --brand-yellow: oklch(0.89 0.18 95);
+    --brand-violet: oklch(0.55 0.27 295);
+    --brand-turquoise: oklch(0.83 0.14 185);
+
+    --background: oklch(0.22 0.055 290);
+    --foreground: oklch(0.98 0.005 280);
+    --card: oklch(0.27 0.05 290);
+    --secondary: oklch(0.30 0.05 290);
+    --muted: oklch(0.29 0.045 290);
+    --muted-foreground: oklch(0.80 0.03 290);
+    --accent-foreground: oklch(0.17 0.03 295);
+    --destructive: oklch(0.62 0.24 25);
+    --border: oklch(1 0 0 / 10%);
+    --primary: var(--brand-violet);
+
+    --gradient-text: linear-gradient(100deg, var(--brand-yellow) 0%, var(--brand-turquoise) 55%, var(--brand-violet) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--brand-violet), color-mix(in oklab, var(--brand-violet) 60%, var(--brand-turquoise)));
+    --gradient-hero: radial-gradient(ellipse 80% 55% at 50% -10%, color-mix(in oklab, var(--brand-violet) 55%, transparent), transparent 62%),
+      radial-gradient(ellipse 55% 45% at 88% 12%, color-mix(in oklab, var(--brand-turquoise) 40%, transparent), transparent 60%),
+      radial-gradient(ellipse 55% 45% at 8% 28%, color-mix(in oklab, var(--brand-yellow) 28%, transparent), transparent 60%);
+
+    --shadow-glow: 0 20px 60px -20px color-mix(in oklab, var(--brand-violet) 55%, transparent);
+    --shadow-card: 0 1px 0 0 oklch(1 0 0 / 6%) inset, 0 30px 60px -30px oklch(0 0 0 / 60%);
+
+    --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+    --maxw: 1120px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; background: var(--background); }
+  body {
+    margin: 0;
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.1; margin: 0; text-wrap: balance; }
+
+  /* Fond vivant : blobs qui dérivent */
+  .site-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: var(--background); }
+  .blob { position: absolute; border-radius: 9999px; filter: blur(90px); opacity: 0.5; mix-blend-mode: screen; will-change: transform; }
+  .blob.v { width: 55vw; height: 55vw; left: -12vw; top: -12vw; background: radial-gradient(circle, var(--brand-violet), transparent 70%); animation: driftV 26s ease-in-out infinite; }
+  .blob.t { width: 50vw; height: 50vw; right: -10vw; top: 18vh; background: radial-gradient(circle, var(--brand-turquoise), transparent 70%); animation: driftT 32s ease-in-out infinite; }
+  .blob.y { width: 45vw; height: 45vw; left: 14vw; bottom: -18vw; opacity: 0.4; background: radial-gradient(circle, var(--brand-yellow), transparent 70%); animation: driftY 38s ease-in-out infinite; }
+  @keyframes driftV { 0%,100%{transform:translate(0,0) scale(1);} 33%{transform:translate(22vw,12vh) scale(1.18);} 66%{transform:translate(8vw,30vh) scale(0.92);} }
+  @keyframes driftT { 0%,100%{transform:translate(0,0) scale(1);} 33%{transform:translate(-18vw,14vh) scale(0.9);} 66%{transform:translate(-6vw,-12vh) scale(1.2);} }
+  @keyframes driftY { 0%,100%{transform:translate(0,0) scale(1);} 33%{transform:translate(16vw,-16vh) scale(1.1);} 66%{transform:translate(-14vw,-6vh) scale(0.95);} }
+  @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  header.hero { position: relative; padding: 120px 0 72px; overflow: hidden; }
+  .hero-aurora { position: absolute; inset: -25%; z-index: 0; pointer-events: none;
+    background: radial-gradient(42% 46% at 24% 20%, color-mix(in oklab, var(--brand-violet) 65%, transparent), transparent 68%),
+      radial-gradient(38% 40% at 80% 18%, color-mix(in oklab, var(--brand-turquoise) 55%, transparent), transparent 66%),
+      radial-gradient(46% 50% at 66% 84%, color-mix(in oklab, var(--brand-yellow) 34%, transparent), transparent 72%);
+    filter: blur(72px) saturate(132%); opacity: 0.72; animation: auroraDrift 26s ease-in-out infinite alternate; }
+  @keyframes auroraDrift { 0%{transform:translate3d(-3%,-2%,0) scale(1);} 100%{transform:translate3d(-2%,4%,0) scale(1.05);} }
+  @media (prefers-reduced-motion: reduce) { .hero-aurora { animation: none; } }
+  .hero-inner { position: relative; z-index: 1; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-foreground); padding: 0.4rem 0.8rem; border: 1px solid var(--border); border-radius: 999px; background: oklch(1 0 0 / 4%); }
+  h1.title { font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 700; margin: 22px 0 18px; }
+  .text-gradient { background: var(--gradient-text); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: pan 8s linear infinite; }
+  @keyframes pan { to { background-position: 300% 0; } }
+  @media (prefers-reduced-motion: reduce) { .text-gradient { animation: none; } }
+  .lede { max-width: 60ch; color: var(--muted-foreground); font-size: 1.15rem; }
+  .meta { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .meta code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.8rem; padding: 0.35rem 0.7rem; border-radius: 8px; background: oklch(1 0 0 / 6%); border: 1px solid var(--border); color: var(--foreground); }
+
+  /* Sections */
+  section { padding: 56px 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; flex-wrap: wrap; }
+  .sec-head h2 { font-size: 1.7rem; font-weight: 700; }
+  .sec-num { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; color: var(--brand-turquoise); letter-spacing: 0.1em; }
+  .sec-head p { margin: 0; color: var(--muted-foreground); font-size: 0.95rem; }
+  .divider { height: 1px; background: var(--border); border: 0; margin: 0; }
+
+  /* Cards / glass */
+  .card-glass { background: linear-gradient(160deg, color-mix(in oklab, var(--brand-violet) 14%, transparent), transparent 55%), var(--card); border: 1px solid color-mix(in oklab, var(--brand-turquoise) 22%, transparent); border-radius: var(--radius); box-shadow: var(--shadow-card); }
+
+  /* Color grids */
+  .grid { display: grid; gap: 16px; }
+  .grid.brand { grid-template-columns: repeat(3, 1fr); }
+  .grid.semantic { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+  @media (max-width: 720px) { .grid.brand { grid-template-columns: 1fr; } }
+
+  .swatch { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: var(--card); cursor: pointer; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s ease, border-color 0.25s ease; }
+  .swatch:hover { transform: translateY(-4px); border-color: color-mix(in oklab, var(--brand-turquoise) 40%, transparent); box-shadow: var(--shadow-card); }
+  .swatch .chip { height: 116px; }
+  .swatch .body { padding: 14px 16px; }
+  .swatch .name { font-family: var(--font-display); font-weight: 600; font-size: 0.98rem; }
+  .swatch .hex { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.82rem; color: var(--muted-foreground); margin-top: 3px; letter-spacing: 0.02em; }
+  .swatch .role { font-size: 0.78rem; color: var(--muted-foreground); margin-top: 6px; }
+
+  /* Gradients */
+  .grad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 820px) { .grad-grid { grid-template-columns: 1fr; } }
+  .grad { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+  .grad .preview { height: 150px; }
+  .grad .body { padding: 14px 16px; background: var(--card); }
+  .grad .name { font-family: var(--font-display); font-weight: 600; }
+  .grad .role { font-size: 0.8rem; color: var(--muted-foreground); margin-top: 4px; }
+
+  /* Typography specimen */
+  .type-row { display: flex; align-items: baseline; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+  .type-row .label { width: 130px; flex-shrink: 0; font-family: ui-monospace, monospace; font-size: 0.78rem; color: var(--muted-foreground); }
+  .type-row .sample { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; }
+  .type-row.body .sample { font-family: var(--font-sans); font-weight: 400; letter-spacing: 0; }
+  .font-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 34px; }
+  @media (max-width: 720px) { .font-cards { grid-template-columns: 1fr; } }
+  .font-card { padding: 24px; border-radius: var(--radius); }
+  .font-card .big { font-size: 3.2rem; line-height: 1; }
+  .font-card .fam { margin-top: 14px; font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+  .font-card .use { color: var(--muted-foreground); font-size: 0.85rem; margin-top: 4px; }
+
+  /* Radius */
+  .radius-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 720px) { .radius-grid { grid-template-columns: repeat(2, 1fr); } }
+  .radius-box { text-align: center; }
+  .radius-box .demo { height: 84px; background: var(--gradient-primary); border: 1px solid color-mix(in oklab, var(--brand-turquoise) 30%, transparent); }
+  .radius-box .rlabel { margin-top: 10px; font-family: ui-monospace, monospace; font-size: 0.8rem; }
+  .radius-box .rval { color: var(--muted-foreground); font-size: 0.75rem; }
+
+  /* Shadows */
+  .shadow-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 720px) { .shadow-grid { grid-template-columns: 1fr; gap: 28px; } }
+  .shadow-demo { height: 130px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 600; color: var(--muted-foreground); }
+  .shadow-demo.glow { box-shadow: var(--shadow-glow); }
+  .shadow-demo.card { box-shadow: var(--shadow-card); }
+
+  /* Components */
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 820px) { .comp-grid { grid-template-columns: 1fr; } }
+  .comp-panel { padding: 28px; }
+  .comp-panel .clabel { font-family: ui-monospace, monospace; font-size: 0.75rem; color: var(--brand-turquoise); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; }
+  .row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+  .btn { font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; border: 0; border-radius: var(--radius); padding: 0.72rem 1.35rem; cursor: pointer; transition: transform 0.25s ease, box-shadow 0.3s ease, background-position 0.5s ease; }
+  .btn.primary { color: oklch(0.99 0 0); background-image: var(--gradient-primary); background-size: 200% 100%; box-shadow: var(--shadow-glow); }
+  .btn.primary:hover { background-position: 100% 0; transform: translateY(-2px); }
+  .btn.ghost { background: oklch(1 0 0 / 5%); color: var(--foreground); border: 1px solid var(--border); }
+  .btn.ghost:hover { border-color: color-mix(in oklab, var(--brand-turquoise) 45%, transparent); }
+  .btn.accent { background: var(--brand-turquoise); color: var(--accent-foreground); }
+  .btn.accent:hover { transform: translateY(-2px); }
+
+  .chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.7rem; border-radius: 999px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border: 1px solid var(--border); background: oklch(1 0 0 / 5%); }
+  .badge { display: inline-flex; padding: 0.25rem 0.6rem; border-radius: 8px; font-size: 0.72rem; font-weight: 600; }
+  .badge.violet { background: color-mix(in oklab, var(--brand-violet) 22%, transparent); color: color-mix(in oklab, var(--brand-violet) 30%, white); border: 1px solid color-mix(in oklab, var(--brand-violet) 40%, transparent); }
+  .badge.turq { background: color-mix(in oklab, var(--brand-turquoise) 18%, transparent); color: var(--brand-turquoise); border: 1px solid color-mix(in oklab, var(--brand-turquoise) 40%, transparent); }
+  .badge.yellow { background: color-mix(in oklab, var(--brand-yellow) 20%, transparent); color: var(--brand-yellow); border: 1px solid color-mix(in oklab, var(--brand-yellow) 45%, transparent); }
+  .badge.err { background: color-mix(in oklab, var(--destructive) 20%, transparent); color: color-mix(in oklab, var(--destructive) 35%, white); border: 1px solid color-mix(in oklab, var(--destructive) 45%, transparent); }
+
+  .nav-demo { display: flex; gap: 26px; }
+  .nav-underline { position: relative; color: var(--foreground); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding-bottom: 2px; }
+  .nav-underline::after { content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 100%; transform: scaleX(0); transform-origin: left; background: linear-gradient(90deg, var(--brand-turquoise), var(--brand-violet)); transition: transform 0.25s ease; }
+  .nav-underline:hover::after, .nav-underline[data-active="true"]::after { transform: scaleX(1); }
+
+  /* Sample content card (glass) */
+  .demo-card { padding: 24px; max-width: 360px; }
+  .demo-card h4 { font-size: 1.25rem; margin-bottom: 8px; }
+  .demo-card p { color: var(--muted-foreground); font-size: 0.92rem; margin: 0 0 18px; }
+
+  footer { padding: 60px 0 80px; color: var(--muted-foreground); font-size: 0.9rem; }
+  footer code { font-family: ui-monospace, monospace; color: var(--foreground); }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--card); border: 1px solid color-mix(in oklab, var(--brand-turquoise) 40%, transparent); color: var(--foreground); padding: 0.7rem 1.2rem; border-radius: 999px; font-size: 0.85rem; box-shadow: var(--shadow-card); opacity: 0; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease; z-index: 100; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  :where(a, button, [tabindex]):focus-visible { outline: 2px solid var(--brand-turquoise); outline-offset: 3px; border-radius: 6px; }
+</style>
+</head>
+<body>
+  <div class="site-bg" aria-hidden="true">
+    <div class="blob v"></div><div class="blob t"></div><div class="blob y"></div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-aurora" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Design System · PeakCL</span>
+      <h1 class="title">Le système <span class="text-gradient">twilight violet</span><br />qui fait vivre le site.</h1>
+      <p class="lede">Couleurs, dégradés, typographie, rayons, ombres et composants. Extrait directement de <code>src/styles.css</code>. Source de vérité unique pour la marque.</p>
+      <div class="meta">
+        <code>Thème sombre par défaut</code>
+        <code>Space Grotesk + Inter</code>
+        <code>Couleurs oklch</code>
+        <code>tokens.json fourni</code>
+      </div>
+    </div>
+  </header>
+
+  <hr class="divider" />
+
+  <!-- Couleurs de marque -->
+  <section class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>Couleurs de marque</h2>
+      <p>Trois teintes signature. Clique un swatch pour copier son hex.</p>
+    </div>
+    <div class="grid brand" id="brand-grid"></div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Couleurs sémantiques -->
+  <section class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>Surfaces et texte</h2>
+      <p>Jetons sémantiques du thème sombre. Fonds, texte, bordures.</p>
+    </div>
+    <div class="grid semantic" id="semantic-grid"></div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Dégradés -->
+  <section class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Dégradés</h2>
+      <p>Les trois dégradés de marque qui portent l'ambiance.</p>
+    </div>
+    <div class="grad-grid">
+      <div class="grad">
+        <div class="preview" style="background: var(--gradient-text);"></div>
+        <div class="body"><div class="name">Texte</div><div class="role">Titres accentués · .text-gradient</div></div>
+      </div>
+      <div class="grad">
+        <div class="preview" style="background: var(--gradient-primary);"></div>
+        <div class="body"><div class="name">Primary</div><div class="role">Boutons / CTA · .bg-primary-gradient</div></div>
+      </div>
+      <div class="grad">
+        <div class="preview" style="background: var(--background); background-image: var(--gradient-hero);"></div>
+        <div class="body"><div class="name">Héro</div><div class="role">Fond de section · .bg-hero</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Typographie -->
+  <section class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>Typographie</h2>
+      <p>Space Grotesk pour les titres, Inter pour le corps.</p>
+    </div>
+    <div class="font-cards">
+      <div class="font-card card-glass">
+        <div class="big" style="font-family: var(--font-display); font-weight: 700;">Ag</div>
+        <div class="fam">Space Grotesk</div>
+        <div class="use">Titres h1 à h4 · poids 600 / 700 · interlettrage -0.02em</div>
+      </div>
+      <div class="font-card card-glass">
+        <div class="big" style="font-family: var(--font-sans); font-weight: 400;">Ag</div>
+        <div class="fam">Inter</div>
+        <div class="use">Corps de texte et interface · poids 400 / 600</div>
+      </div>
+    </div>
+    <div class="type-row"><span class="label">h1 / 700</span><span class="sample" style="font-size:2.8rem;">Faire décoller votre présence</span></div>
+    <div class="type-row"><span class="label">h2 / 700</span><span class="sample" style="font-size:2rem;">Un cap, une méthode, des résultats</span></div>
+    <div class="type-row"><span class="label">h3 / 600</span><span class="sample" style="font-size:1.4rem;">Accompagnement sur mesure</span></div>
+    <div class="type-row body"><span class="label">body / 400</span><span class="sample" style="font-size:1.05rem; max-width:60ch;">Le corps de texte reste lisible et posé, avec une hauteur de ligne généreuse pour un confort de lecture sur fond sombre.</span></div>
+    <div class="type-row body"><span class="label">small / 400</span><span class="sample" style="font-size:0.9rem; color:var(--muted-foreground);">Légendes, mentions et métadonnées secondaires.</span></div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Rayons -->
+  <section class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>Rayons de bordure</h2>
+      <p>Échelle basée sur 0.875rem (14px).</p>
+    </div>
+    <div class="radius-grid" id="radius-grid"></div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Ombres -->
+  <section class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2>Ombres</h2>
+      <p>Deux profondeurs : halo violet et élévation de carte.</p>
+    </div>
+    <div class="shadow-grid">
+      <div><div class="shadow-demo glow">shadow-glow</div><p style="color:var(--muted-foreground); font-size:0.85rem; margin-top:12px;">Halo violet diffus. CTA et éléments phares.</p></div>
+      <div><div class="shadow-demo card">shadow-card</div><p style="color:var(--muted-foreground); font-size:0.85rem; margin-top:12px;">Liseré interne clair + ombre portée profonde.</p></div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Composants -->
+  <section class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2>Composants</h2>
+      <p>Éléments d'interface construits sur les jetons.</p>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-panel card-glass">
+        <div class="clabel">Boutons</div>
+        <div class="row">
+          <button class="btn primary">Prendre rendez-vous</button>
+          <button class="btn accent">Découvrir</button>
+          <button class="btn ghost">En savoir plus</button>
+        </div>
+      </div>
+      <div class="comp-panel card-glass">
+        <div class="clabel">Chips</div>
+        <div class="row">
+          <span class="chip">Nouveau</span>
+          <span class="chip">Automatisation</span>
+          <span class="chip">Site web</span>
+          <span class="chip">Community</span>
+        </div>
+      </div>
+      <div class="comp-panel card-glass">
+        <div class="clabel">Badges</div>
+        <div class="row">
+          <span class="badge violet">Primary</span>
+          <span class="badge turq">Accent</span>
+          <span class="badge yellow">Marque</span>
+          <span class="badge err">Erreur</span>
+        </div>
+      </div>
+      <div class="comp-panel card-glass">
+        <div class="clabel">Navigation</div>
+        <nav class="nav-demo">
+          <a class="nav-underline" href="#" data-active="true">Accueil</a>
+          <a class="nav-underline" href="#">Services</a>
+          <a class="nav-underline" href="#">Portfolio</a>
+          <a class="nav-underline" href="#">Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <div style="margin-top: 22px;">
+      <div class="demo-card card-glass">
+        <h4>Carte en verre teinté</h4>
+        <p>Fond dégradé violet léger sur surface carte, bordure turquoise, ombre de carte. Le motif récurrent des sections.</p>
+        <button class="btn primary">Action</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <footer class="wrap">
+    <p><strong>Source de vérité :</strong> <code>src/styles.css</code>. Jetons exportés dans <code>design-system/tokens.json</code> (format Tokens Studio) pour import Figma via le plugin gratuit.</p>
+    <p>Couleurs définies en <code>oklch</code> ; les hex affichés sont la conversion sRGB rendue à l'écran.</p>
+  </footer>
+
+  <div class="toast" id="toast">Copié</div>
+
+<script>
+  const brand = [
+    { name: "Brand · Yellow", hex: "#FFD815", css: "var(--brand-yellow)", role: "Accents, dégradés" },
+    { name: "Brand · Violet", hex: "#852DF9", css: "var(--brand-violet)", role: "Primary, focus" },
+    { name: "Brand · Turquoise", hex: "#2AE4D3", css: "var(--brand-turquoise)", role: "Accent, liens" },
+  ];
+  const semantic = [
+    { name: "background", hex: "#1B1532", css: "var(--background)", role: "Fond global", dark: true },
+    { name: "card", hex: "#26223D", css: "var(--card)", role: "Surface carte" },
+    { name: "secondary", hex: "#2D2945", css: "var(--secondary)", role: "Surface secondaire" },
+    { name: "muted", hex: "#2B2740", css: "var(--muted)", role: "Surface atténuée" },
+    { name: "foreground", hex: "#F8F8FC", css: "var(--foreground)", role: "Texte principal" },
+    { name: "muted-foreground", hex: "#BDBBD0", css: "var(--muted-foreground)", role: "Texte atténué" },
+    { name: "destructive", hex: "#F51D31", css: "var(--destructive)", role: "Erreur" },
+    { name: "border", hex: "rgba(255,255,255,.10)", css: "var(--border)", role: "Bordures" },
+  ];
+  const radii = [
+    { n: "sm", v: "10px" }, { n: "md", v: "12px" }, { n: "lg", v: "14px" }, { n: "xl", v: "18px" },
+    { n: "2xl", v: "22px" }, { n: "3xl", v: "26px" }, { n: "4xl", v: "30px" }, { n: "full", v: "9999px" },
+  ];
+
+  const toast = document.getElementById("toast");
+  let toastTimer;
+  function copy(text) {
+    navigator.clipboard && navigator.clipboard.writeText(text);
+    toast.textContent = "Copié " + text;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 1400);
+  }
+
+  function swatch(c) {
+    const el = document.createElement("button");
+    el.className = "swatch";
+    el.type = "button";
+    el.innerHTML =
+      '<div class="chip" style="background:' + c.css + '"></div>' +
+      '<div class="body"><div class="name">' + c.name + '</div>' +
+      '<div class="hex">' + c.hex + '</div>' +
+      '<div class="role">' + c.role + '</div></div>';
+    el.addEventListener("click", () => copy(c.hex));
+    return el;
+  }
+
+  const bg = document.getElementById("brand-grid");
+  brand.forEach(c => bg.appendChild(swatch(c)));
+  const sg = document.getElementById("semantic-grid");
+  semantic.forEach(c => sg.appendChild(swatch(c)));
+
+  const rg = document.getElementById("radius-grid");
+  radii.forEach(r => {
+    const box = document.createElement("div");
+    box.className = "radius-box";
+    box.innerHTML =
+      '<div class="demo" style="border-radius:' + r.v + '"></div>' +
+      '<div class="rlabel">radius-' + r.n + '</div>' +
+      '<div class="rval">' + r.v + '</div>';
+    rg.appendChild(box);
+  });
+</script>
+</body>
+</html>

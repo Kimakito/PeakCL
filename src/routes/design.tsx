@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
 import { ServicePage } from "@/components/ServicePage";
-import { design } from "@/content/peakcl/services";
+import { design, designHighlights } from "@/content/peakcl/services";
+import { MASCOT_GALLERY } from "@/content/peakcl/mascots";
 
 export const Route = createFileRoute("/design")({
   head: () => ({
@@ -34,9 +35,16 @@ export const Route = createFileRoute("/design")({
           </p>
         </div>
       }
+      highlights={designHighlights}
+      highlightsTitle="Ce que je crée pour votre marque"
+      highlightsSubtitle="De l’identité visuelle aux illustrations sur mesure, des supports cohérents sur tous vos points de contact."
       sectionTitle="🎨 Prestations design"
       sectionSubtitle="Identité visuelle et supports pour une marque cohérente sur tous vos points de contact."
       items={design}
+      gallery={MASCOT_GALLERY}
+      galleryTitle="🎭 Illustration & character design"
+      gallerySubtitle="Une mascotte expressive dessinée sous Illustrator : un même personnage décliné en plusieurs émotions pour donner du caractère à une marque."
+      portfolioLink={{ to: "/portfolio?cat=logos", label: "Voir mes logos & créations" }}
     />
   ),
 });
