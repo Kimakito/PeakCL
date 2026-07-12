@@ -19,7 +19,7 @@ export const Route = createFileRoute("/community-management")({
   }),
   component: () => (
     <ServicePage
-      avatarCard="reseaux"
+      heroImage={{ src: "/peakcl/assets/images/iphone.webp", alt: "Contenus réseaux sociaux affichés sur un iPhone" }}
       eyebrow="Réseaux sociaux"
       title="Community management"
       tagline="Rester visible et cohérent sur vos réseaux, sans y passer vos soirées. Des forfaits clairs, sans engagement long."

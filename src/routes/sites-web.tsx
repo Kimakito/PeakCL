@@ -19,7 +19,7 @@ export const Route = createFileRoute("/sites-web")({
   }),
   component: () => (
     <ServicePage
-      avatarCard="sites-web"
+      heroImage={{ src: "/peakcl/assets/images/bureau-peakcl.webp", alt: "Bureau PeakCL avec un site web affiché à l’écran" }}
       eyebrow="Développement web"
       title="Sites web sur mesure"
       tagline="Sites vitrines, e-commerce et refontes : rapides, optimisés et pensés pour convertir vos visiteurs en clients."

@@ -2,6 +2,9 @@ import type { ReactNode } from "react";
 import { ArrowRight, ArrowUpRight, Check, Facebook, Instagram } from "lucide-react";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { Card } from "@/components/ui/card";
+import { Spotlight } from "@/components/ui/spotlight";
+import { SplineScene } from "@/components/ui/splite";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionAvatarCard, ExpressionPhoto } from "@/components/ExpressionPhoto";
 import type { SectionCardSlug } from "@/lib/expressions";
@@ -133,6 +136,10 @@ export type ServicePageProps = {
   showPrices?: boolean;
   /** Vignette avatar labellisée affichée dans le hero (ex. "logos"). */
   avatarCard?: SectionCardSlug;
+  /** Scène Spline (robot 3D) affichée dans un hero split. URL .splinecode. */
+  heroSpline?: string;
+  /** Image affichée dans le hero split (à la place du robot 3D). */
+  heroImage?: { src: string; alt: string };
   /** Galerie d'illustrations (portfolio), ex. les expressions de la mascotte. */
   gallery?: MascotShot[];
   galleryTitle?: string;
@@ -145,7 +152,7 @@ export type ServicePageProps = {
   socialsSubtitle?: string;
 };
 
-export function ServicePage({ eyebrow, title, tagline, intro, highlights, highlightsTitle, highlightsSubtitle, forfaits, forfaitsTitle, forfaitsNote, sectionTitle, sectionSubtitle, items, showPrices, avatarCard, gallery, galleryTitle, gallerySubtitle, portfolioLink, socials, socialsTitle, socialsSubtitle }: ServicePageProps) {
+export function ServicePage({ eyebrow, title, tagline, intro, highlights, highlightsTitle, highlightsSubtitle, forfaits, forfaitsTitle, forfaitsNote, sectionTitle, sectionSubtitle, items, showPrices, avatarCard, heroSpline, heroImage, gallery, galleryTitle, gallerySubtitle, portfolioLink, socials, socialsTitle, socialsSubtitle }: ServicePageProps) {
   const SECTIONS = [
     { id: "intro", label: "Intro" },
     ...(highlights?.length ? [{ id: "expertises", label: "Expertises" }] : []),
@@ -163,35 +170,91 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
           <SnapSection id="intro" className="relative flex items-center overflow-hidden bg-hero py-20">
             <div className="grid-bg absolute inset-0 -z-10" />
             <div className="hero-aurora" aria-hidden />
-            <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">{eyebrow}</span>
-              <h1 className="mt-4 text-balance text-4xl font-bold leading-tight md:text-6xl">{title}</h1>
-              <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{tagline}</p>
-              {intro ? <div className="mx-auto mt-8 max-w-2xl text-left">{intro}</div> : null}
-              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <a
-                  href="/reservation-appel"
-                  data-event="cta_brief_service_hero"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
-                >
-                  Demander un devis <ArrowRight className="h-4 w-4" />
-                </a>
-                <a
-                  href={CALENDLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-event="cta_calendly_service_hero"
-                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
-                >
-                  Réserver un appel
-                </a>
+            {heroSpline || heroImage ? (
+              <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
+                <Card className="relative overflow-hidden rounded-3xl border-white/10 bg-[color-mix(in_oklab,var(--brand-violet)_10%,#07060d)] shadow-card">
+                  <Spotlight
+                    className="-top-40 left-0 md:-top-20 md:left-60"
+                    fill="oklch(0.83 0.14 185)"
+                  />
+                  <div className="grid gap-2 md:grid-cols-2">
+                    {/* Colonne texte */}
+                    <div className="relative z-10 flex flex-col justify-center p-8 md:p-12">
+                      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+                        {eyebrow}
+                      </span>
+                      <h1 className="mt-4 text-balance bg-gradient-to-b from-white to-white/60 bg-clip-text text-4xl font-bold leading-tight text-transparent md:text-5xl">
+                        {title}
+                      </h1>
+                      <p className="mt-5 max-w-md text-muted-foreground">{tagline}</p>
+                      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                        <a
+                          href="/reservation-appel"
+                          data-event="cta_brief_service_hero"
+                          className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
+                        >
+                          Demander un devis <ArrowRight className="h-4 w-4" />
+                        </a>
+                        <a
+                          href={CALENDLY_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-event="cta_calendly_service_hero"
+                          className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+                        >
+                          Réserver un appel
+                        </a>
+                      </div>
+                    </div>
+                    {/* Colonne visuel : robot 3D ou image */}
+                    <div className="relative min-h-[280px] md:min-h-[440px]">
+                      {heroSpline ? (
+                        <SplineScene scene={heroSpline} className="h-full w-full" />
+                      ) : heroImage ? (
+                        <img
+                          src={heroImage.src}
+                          alt={heroImage.alt}
+                          loading="eager"
+                          decoding="async"
+                          className="absolute inset-0 h-full w-full object-contain object-center p-6 drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)]"
+                        />
+                      ) : null}
+                    </div>
+                  </div>
+                </Card>
+                {intro ? <div className="mx-auto mt-8 max-w-2xl text-left">{intro}</div> : null}
               </div>
-              {avatarCard ? (
-                <div className="mt-10 flex justify-center">
-                  <SectionAvatarCard slug={avatarCard} imgClassName="w-full max-w-[230px]" loading="eager" />
+            ) : (
+              <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">{eyebrow}</span>
+                <h1 className="mt-4 text-balance text-4xl font-bold leading-tight md:text-6xl">{title}</h1>
+                <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{tagline}</p>
+                {intro ? <div className="mx-auto mt-8 max-w-2xl text-left">{intro}</div> : null}
+                <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                  <a
+                    href="/reservation-appel"
+                    data-event="cta_brief_service_hero"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
+                  >
+                    Demander un devis <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-event="cta_calendly_service_hero"
+                    className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+                  >
+                    Réserver un appel
+                  </a>
                 </div>
-              ) : null}
-            </div>
+                {avatarCard ? (
+                  <div className="mt-10 flex justify-center">
+                    <SectionAvatarCard slug={avatarCard} imgClassName="w-full max-w-[230px]" loading="eager" />
+                  </div>
+                ) : null}
+              </div>
+            )}
           </SnapSection>
 
           {highlights?.length ? (

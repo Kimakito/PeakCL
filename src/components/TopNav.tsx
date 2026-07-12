@@ -22,10 +22,51 @@ export function TopNav() {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [revealed, setRevealed] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
 
   const isActive = (to: string) => path === to || path.startsWith(to + "/");
   const servicesActive = path === "/services" || SERVICE_PATHS.some((p) => isActive(p));
+
+  // La navbar reste sous le hero : invisible en haut de page, elle glisse et se
+  // colle en haut dès qu'on scrolle au-delà du hero (seuil ~70% de la fenêtre).
+  // On écoute le scroll de la fenêtre et, en phase de capture, celui des
+  // conteneurs internes (pages snap plein écran) pour couvrir tous les cas.
+  useEffect(() => {
+    let raf = 0;
+    const compute = () => {
+      raf = 0;
+      const threshold = window.innerHeight * 0.7;
+      const doc = document.scrollingElement?.scrollTop ?? window.scrollY;
+      setRevealed(doc > threshold);
+    };
+    const onScroll = (e: Event) => {
+      // Pour un scroll interne (conteneur snap), lit le scrollTop de la cible.
+      const target = e.target;
+      if (target instanceof HTMLElement && target.scrollTop > 0) {
+        if (target.scrollTop > window.innerHeight * 0.7) {
+          setRevealed(true);
+          return;
+        }
+      }
+      if (!raf) raf = requestAnimationFrame(compute);
+    };
+    compute();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("scroll", onScroll, { passive: true, capture: true });
+    window.addEventListener("resize", compute);
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("scroll", onScroll, { capture: true } as EventListenerOptions);
+      window.removeEventListener("resize", compute);
+    };
+  }, [path]);
+
+  // Referme le menu mobile quand la navbar se cache (retour en haut de page).
+  useEffect(() => {
+    if (!revealed) setOpen(false);
+  }, [revealed]);
 
   // Ferme le menu Services au clic extérieur et à la touche Échap.
   useEffect(() => {
@@ -45,7 +86,11 @@ export function TopNav() {
   }, [servicesOpen]);
 
   return (
-    <header className="sticky top-0 z-[60] border-b border-white/5 bg-background/80 backdrop-blur-xl">
+    <header
+      className={`fixed inset-x-0 top-0 z-[60] border-b border-white/5 bg-background/80 backdrop-blur-xl transition-all duration-500 ${
+        revealed ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-full opacity-0"
+      }`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
         <a href="/" className="flex items-center gap-2.5">
           <img src={logo} alt="PeakCL logo" width={32} height={32} className="h-8 w-8 rounded-lg object-cover" />

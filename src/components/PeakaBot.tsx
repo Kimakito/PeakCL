@@ -80,6 +80,13 @@ export function PeakaBot() {
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
+  // Ouverture depuis n'importe où : window.dispatchEvent(new Event("peakabot:open")).
+  useEffect(() => {
+    const onOpen = () => setOpen(true);
+    window.addEventListener("peakabot:open", onOpen);
+    return () => window.removeEventListener("peakabot:open", onOpen);
+  }, []);
+
   const goToNode = (id: string, userLabel: string) => {
     const target = PEAKABOT_NODES[id];
     if (!target) return;

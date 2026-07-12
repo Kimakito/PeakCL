@@ -174,7 +174,14 @@ function CadrageVeroniquePage() {
       </header>
 
       <section className="relative overflow-hidden bg-hero py-14">
-        <div className="grid-bg absolute inset-0 -z-10" />
+        <img
+          src="/peakcl/assets/images/bureau-peakcl.webp"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 -z-20 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 -z-[15] bg-background/70" />
+        <div className="grid-bg absolute inset-0 -z-10 opacity-30" />
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
             <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />
