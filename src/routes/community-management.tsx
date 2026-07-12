@@ -38,13 +38,13 @@ export const Route = createFileRoute("/community-management")({
           handle: "la_communaute_des_9_poilus",
           url: "https://www.instagram.com/la_communaute_des_9_poilus/",
           name: "La Communauté des 9 Poilus",
-          desc: "Compte communautaire autour des animaux de compagnie : contenus réguliers, ton chaleureux et animation de la communauté.",
+          desc: "La vie en Savoie d’une tribu de neuf : 2 humains, 6 chats, 2 chevaux et 1 chien. Contenus du quotidien, ton chaleureux et animation de la communauté.",
         },
         {
           handle: "haltere_ego_c",
           url: "https://www.instagram.com/haltere_ego_c/",
           name: "Haltère Ego",
-          desc: "Compte fitness & remise en forme : posts motivants, conseils d’entraînement et publication régulière.",
+          desc: "Vivre avec l’endométriose par le sport : CrossFit, équitation, course à pied et Hyrox. Témoignage, sensibilisation et publications régulières.",
         },
       ]}
       socialsTitle="📲 Des comptes que j’anime"
