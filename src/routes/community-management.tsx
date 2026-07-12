@@ -46,6 +46,13 @@ export const Route = createFileRoute("/community-management")({
           name: "Haltère Ego",
           desc: "Vivre avec l’endométriose par le sport : CrossFit, équitation, course à pied et Hyrox. Témoignage, sensibilisation et publications régulières.",
         },
+        {
+          handle: "lesmondesdejbl",
+          url: "https://www.facebook.com/lesmondesdejbl",
+          name: "Les Mondes de JBL",
+          platform: "facebook",
+          desc: "Page d’un écrivain : premier roman paru, deuxième en écriture. Animation de la communauté de lecteurs et actualités autour de ses univers.",
+        },
       ]}
       socialsTitle="📲 Des comptes que j’anime"
       socialsSubtitle="En attendant vos projets, voici deux comptes que je gère au quotidien pour garder la main : rythme de publication, visuels et animation de communauté."

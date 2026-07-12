@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowRight, ArrowUpRight, Check, Instagram } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, Facebook, Instagram } from "lucide-react";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Reveal } from "@/components/ui/Reveal";
@@ -140,7 +140,7 @@ export type ServicePageProps = {
   /** Lien vers le portfolio filtré par métier, affiché sous les prestations. */
   portfolioLink?: { to: string; label: string };
   /** Comptes réseaux animés (démonstration), affichés en cartes cliquables. */
-  socials?: { handle: string; url: string; name: string; desc: string }[];
+  socials?: { handle: string; url: string; name: string; desc: string; platform?: "instagram" | "facebook" }[];
   socialsTitle?: string;
   socialsSubtitle?: string;
 };
@@ -308,14 +308,14 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
                     >
                       <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-gradient text-primary-foreground">
-                        <Instagram className="h-5 w-5" />
+                        {s.platform === "facebook" ? <Facebook className="h-5 w-5" /> : <Instagram className="h-5 w-5" />}
                       </span>
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
                           <h3 className="truncate text-base font-semibold">{s.name}</h3>
                           <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground" />
                         </div>
-                        <div className="text-xs text-[var(--brand-turquoise)]">@{s.handle}</div>
+                        <div className="text-xs text-[var(--brand-turquoise)]">{s.platform === "facebook" ? "Facebook" : `@${s.handle}`}</div>
                         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                       </div>
                     </a>
