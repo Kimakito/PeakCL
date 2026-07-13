@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
 import { sitesWeb, sitesWebHighlights } from "@/content/peakcl/services";
 
@@ -14,6 +15,22 @@ export const Route = createFileRoute("/sites-web")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/sites-web") },
+      {
+        "script:ld+json": serviceJsonLd({
+          name: "Création de site web sur mesure",
+          description:
+            "Sites vitrines, e-commerce et refontes : des sites web custom, rapides et optimisés pour le référencement local en Savoie et Haute-Savoie.",
+          serviceType: "Création de site internet",
+          path: "/sites-web",
+        }),
+      },
+      {
+        "script:ld+json": breadcrumbJsonLd([
+          { name: "Accueil", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Sites web", path: "/sites-web" },
+        ]),
+      },
     ],
     links: [{ rel: "canonical", href: absUrl("/sites-web") }],
   }),

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
+import { personJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionGallery } from "@/components/ExpressionPhoto";
@@ -29,6 +30,13 @@ export const Route = createFileRoute("/qui-suis-je")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/qui-suis-je") },
+      { "script:ld+json": personJsonLd() },
+      {
+        "script:ld+json": breadcrumbJsonLd([
+          { name: "Accueil", path: "/" },
+          { name: "Qui suis-je", path: "/qui-suis-je" },
+        ]),
+      },
     ],
     links: [{ rel: "canonical", href: absUrl("/qui-suis-je") }],
   }),

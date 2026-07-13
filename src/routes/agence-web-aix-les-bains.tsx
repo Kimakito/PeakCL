@@ -6,24 +6,24 @@ import { GeoLanding, geoLandingFaq } from "@/components/GeoLanding";
 export const Route = createFileRoute("/agence-web-aix-les-bains")({
   head: () => ({
     meta: [
-      { title: "Création de site web à Aix‑les‑Bains (Savoie) · PeakCL" },
+      { title: "Création de site web à Aix-les-Bains (Savoie) · PeakCL" },
       {
         name: "description",
         content:
-          "Création & refonte de sites web premium à Aix‑les‑Bains. Un site rapide, clair et pensé pour générer des prises de contact. Audit gratuit sous 24h.",
+          "Création & refonte de sites web premium à Aix-les-Bains. Un site rapide, clair et pensé pour générer des prises de contact. Audit gratuit sous 24h.",
       },
-      { property: "og:title", content: "Création de site web à Aix‑les‑Bains · PeakCL" },
+      { property: "og:title", content: "Création de site web à Aix-les-Bains · PeakCL" },
       {
         property: "og:description",
         content:
-          "Création & refonte de sites web premium à Aix‑les‑Bains. Audit gratuit sous 24h.",
+          "Création & refonte de sites web premium à Aix-les-Bains. Audit gratuit sous 24h.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/agence-web-aix-les-bains") },
       {
         "script:ld+json": breadcrumbJsonLd([
           { name: "Accueil", path: "/" },
-          { name: "Aix‑les‑Bains", path: "/agence-web-aix-les-bains" },
+          { name: "Aix-les-Bains", path: "/agence-web-aix-les-bains" },
         ]),
       },
       { "script:ld+json": faqPageJsonLd(geoLandingFaq("Aix-les-Bains", "Savoie", "site web")) },

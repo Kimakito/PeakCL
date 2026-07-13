@@ -113,6 +113,39 @@ export function professionalServiceJsonLd(): JsonLd {
   };
 }
 
+export function personJsonLd(): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Charlotte Lacroix",
+    url: absUrl("/qui-suis-je"),
+    jobTitle: "Développeuse web & graphiste",
+    image: absUrl("/peakcl/photo/charlotte-round-800.webp"),
+    worksFor: { "@type": "Organization", name: "PeakCL", "@id": absUrl("/#business") },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Gilly-sur-Isère",
+      postalCode: "73200",
+      addressRegion: "Savoie",
+      addressCountry: "FR",
+    },
+    knowsAbout: [
+      "Création de site internet",
+      "Refonte de site web",
+      "Identité visuelle",
+      "Création de logo",
+      "Community management",
+      "SEO local",
+    ],
+    sameAs: [
+      "https://www.instagram.com/peakcl73/",
+      "https://www.facebook.com/PeakCL73/",
+      "https://www.linkedin.com/in/charlotte-lacroix-peakcl/",
+      "https://github.com/PeakCL",
+    ],
+  };
+}
+
 export function faqPageJsonLd(items: Array<{ question: string; answerHtml: string }>): JsonLd {
   return {
     "@context": "https://schema.org",
@@ -139,6 +172,40 @@ export function breadcrumbJsonLd(crumbs: Array<{ name: string; path: string }>):
       name: c.name,
       item: absUrl(c.path),
     })),
+  };
+}
+
+/** Zone desservie par défaut : villes et départements cibles pour le SEO local. */
+export const DEFAULT_AREA_SERVED: JsonLd[] = [
+  { "@type": "City", name: "Albertville" },
+  { "@type": "City", name: "Gilly-sur-Isère" },
+  { "@type": "City", name: "Chambéry" },
+  { "@type": "City", name: "Annecy" },
+  { "@type": "City", name: "Aix-les-Bains" },
+  { "@type": "AdministrativeArea", name: "Savoie" },
+  { "@type": "AdministrativeArea", name: "Haute-Savoie" },
+];
+
+/**
+ * Schéma Service pour les pages prestation (sites web, logo, community management…).
+ * `provider` pointe vers l'@id de la ProfessionalService pour lier les deux entités.
+ */
+export function serviceJsonLd(opts: {
+  name: string;
+  description: string;
+  serviceType: string;
+  path: string;
+  areaServed?: JsonLd[];
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: opts.name,
+    description: opts.description,
+    serviceType: opts.serviceType,
+    url: absUrl(opts.path),
+    provider: { "@id": absUrl("/#business") },
+    areaServed: opts.areaServed ?? DEFAULT_AREA_SERVED,
   };
 }
 

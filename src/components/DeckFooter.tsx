@@ -101,6 +101,21 @@ export function DeckFooter() {
           </a>
         </div>
 
+        <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/80">
+          <a href="/sites-web" className="hover:text-foreground">
+            Création de sites web
+          </a>
+          <a href="/creation-logo-albertville" className="hover:text-foreground">
+            Logo &amp; identité
+          </a>
+          <a href="/community-manager-savoie" className="hover:text-foreground">
+            Community management
+          </a>
+          <a href="/design" className="hover:text-foreground">
+            Design graphique
+          </a>
+        </div>
+
         <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/80">
           <span>Aussi disponible sur&nbsp;:</span>
           <a
@@ -141,6 +156,9 @@ export function DeckFooter() {
           </a>
           <a href="/agence-web-aix-les-bains" className="hover:text-foreground">
             Aix-les-Bains
+          </a>
+          <a href="/agence-web-gilly-sur-isere" className="hover:text-foreground">
+            Gilly-sur-Isère
           </a>
         </div>
 

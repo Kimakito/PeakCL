@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
 import { automatisation, automatisationHighlights } from "@/content/peakcl/services";
 
@@ -14,6 +15,22 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/accompagnement-automatisation") },
+      {
+        "script:ld+json": serviceJsonLd({
+          name: "Automatisation des processus & IA",
+          description:
+            "Audit, automatisations no-code (Make, Zapier), IA appliquée et formation pour les TPE de Savoie et Haute-Savoie.",
+          serviceType: "Automatisation des processus métier",
+          path: "/accompagnement-automatisation",
+        }),
+      },
+      {
+        "script:ld+json": breadcrumbJsonLd([
+          { name: "Accueil", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Automatisation & IA", path: "/accompagnement-automatisation" },
+        ]),
+      },
     ],
     links: [{ rel: "canonical", href: absUrl("/accompagnement-automatisation") }],
   }),

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
+import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
 import { community, cmForfaits, communityHighlights } from "@/content/peakcl/services";
 
@@ -14,6 +15,22 @@ export const Route = createFileRoute("/community-management")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/community-management") },
+      {
+        "script:ld+json": serviceJsonLd({
+          name: "Community management",
+          description:
+            "Stratégie et contenus réseaux sociaux : forfaits mensuels, audit, contenu à la carte et formation, pour les indépendants et TPE de Savoie et Haute-Savoie.",
+          serviceType: "Community management",
+          path: "/community-management",
+        }),
+      },
+      {
+        "script:ld+json": breadcrumbJsonLd([
+          { name: "Accueil", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Community management", path: "/community-management" },
+        ]),
+      },
     ],
     links: [{ rel: "canonical", href: absUrl("/community-management") }],
   }),

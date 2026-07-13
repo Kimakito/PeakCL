@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { absUrl } from "@/seo/site";
+import { breadcrumbJsonLd } from "@/seo/jsonld";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Reveal } from "@/components/ui/Reveal";
 import { SERVICES, packages } from "@/content/peakcl/services";
@@ -19,6 +20,12 @@ export const Route = createFileRoute("/services")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/services") },
+      {
+        "script:ld+json": breadcrumbJsonLd([
+          { name: "Accueil", path: "/" },
+          { name: "Services", path: "/services" },
+        ]),
+      },
     ],
     links: [{ rel: "canonical", href: absUrl("/services") }],
   }),

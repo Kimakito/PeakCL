@@ -1,8 +1,16 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import {
+  Outlet,
+  Link,
+  createRootRoute,
+  HeadContent,
+  Scripts,
+  useRouterState,
+} from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { TopNav } from "@/components/TopNav";
 import { SiteChrome } from "@/components/SiteChrome";
+import { SiteFooter } from "@/components/SiteFooter";
 import { PeakaBot } from "@/components/PeakaBot";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { absUrl } from "@/seo/site";
@@ -74,8 +82,10 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", type: "image/svg+xml", href: "/peakcl/PeakCL.svg" },
-      { rel: "alternate icon", href: "/peakcl/PeakCL.svg" },
+      { rel: "icon", type: "image/png", sizes: "96x96", href: "/peakcl/assets/favicon/favicon-96x96.png" },
+      { rel: "icon", type: "image/x-icon", href: "/peakcl/assets/favicon/favicon.ico" },
+      { rel: "apple-touch-icon", href: "/peakcl/assets/favicon/apple-touch-icon.png" },
+      { rel: "manifest", href: "/peakcl/assets/favicon/site.webmanifest" },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",
@@ -133,11 +143,15 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
+  // Le deck home (/) et /portfolio embarquent déjà DeckFooter : on évite le doublon.
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const hasDeckFooter = pathname === "/" || pathname === "/portfolio";
   return (
     <>
       <SiteChrome />
       <TopNav />
       <Outlet />
+      {!hasDeckFooter ? <SiteFooter /> : null}
       <PeakaBot />
     </>
   );

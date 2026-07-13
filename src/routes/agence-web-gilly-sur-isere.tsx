@@ -6,27 +6,27 @@ import { GeoLanding, geoLandingFaq } from "@/components/GeoLanding";
 export const Route = createFileRoute("/agence-web-gilly-sur-isere")({
   head: () => ({
     meta: [
-      { title: "Création de site internet à Gilly‑sur‑Isère · PeakCL" },
+      { title: "Création de site internet à Gilly-sur-Isère · PeakCL" },
       {
         name: "description",
         content:
-          "Création & refonte de sites web à Gilly‑sur‑Isère, près d’Albertville. Site rapide, clair, pensé pour générer des prises de contact. Audit gratuit sous 24h.",
+          "Création & refonte de sites web à Gilly-sur-Isère, près d’Albertville. Site rapide, clair, pensé pour générer des prises de contact. Audit gratuit sous 24h.",
       },
       {
         property: "og:title",
-        content: "Création de site internet à Gilly‑sur‑Isère · PeakCL",
+        content: "Création de site internet à Gilly-sur-Isère · PeakCL",
       },
       {
         property: "og:description",
         content:
-          "Création & refonte de sites web à Gilly‑sur‑Isère. Audit gratuit sous 24h.",
+          "Création & refonte de sites web à Gilly-sur-Isère. Audit gratuit sous 24h.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/agence-web-gilly-sur-isere") },
       {
         "script:ld+json": breadcrumbJsonLd([
           { name: "Accueil", path: "/" },
-          { name: "Gilly‑sur‑Isère", path: "/agence-web-gilly-sur-isere" },
+          { name: "Gilly-sur-Isère", path: "/agence-web-gilly-sur-isere" },
         ]),
       },
       {

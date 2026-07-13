@@ -6,7 +6,7 @@ import { GeoLanding, geoLandingFaq } from "@/components/GeoLanding";
 export const Route = createFileRoute("/agence-web-annecy")({
   head: () => ({
     meta: [
-      { title: "Création de site web à Annecy (Haute‑Savoie) · PeakCL" },
+      { title: "Création de site web à Annecy (Haute-Savoie) · PeakCL" },
       {
         name: "description",
         content:
