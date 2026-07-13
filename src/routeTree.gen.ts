@@ -38,12 +38,19 @@ import { Route as ConseilsPrixSiteInternetRouteImport } from './routes/conseils-
 import { Route as ConseilsCommunityManagerUtileRouteImport } from './routes/conseils-community-manager-utile'
 import { Route as ConseilsRouteImport } from './routes/conseils'
 import { Route as CommunityManagerSavoieRouteImport } from './routes/community-manager-savoie'
+import { Route as CommunityManagerChamberyRouteImport } from './routes/community-manager-chambery'
+import { Route as CommunityManagerAnnecyRouteImport } from './routes/community-manager-annecy'
+import { Route as CommunityManagerAlbertvilleRouteImport } from './routes/community-manager-albertville'
+import { Route as CommunityManagerAixLesBainsRouteImport } from './routes/community-manager-aix-les-bains'
 import { Route as CommunityManagementRouteImport } from './routes/community-management'
 import { Route as BienvenueStrategieRouteImport } from './routes/bienvenue-strategie'
 import { Route as BienvenueRouteImport } from './routes/bienvenue'
 import { Route as BacASableVideoRouteImport } from './routes/bac-a-sable-video'
+import { Route as AgenceWebUgineRouteImport } from './routes/agence-web-ugine'
+import { Route as AgenceWebMoutiersRouteImport } from './routes/agence-web-moutiers'
 import { Route as AgenceWebGillySurIsereRouteImport } from './routes/agence-web-gilly-sur-isere'
 import { Route as AgenceWebChamberyRouteImport } from './routes/agence-web-chambery'
+import { Route as AgenceWebBeaufortRouteImport } from './routes/agence-web-beaufort'
 import { Route as AgenceWebAnnecyRouteImport } from './routes/agence-web-annecy'
 import { Route as AgenceWebAlbertvilleRouteImport } from './routes/agence-web-albertville'
 import { Route as AgenceWebAixLesBainsRouteImport } from './routes/agence-web-aix-les-bains'
@@ -204,6 +211,29 @@ const CommunityManagerSavoieRoute = CommunityManagerSavoieRouteImport.update({
   path: '/community-manager-savoie',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityManagerChamberyRoute =
+  CommunityManagerChamberyRouteImport.update({
+    id: '/community-manager-chambery',
+    path: '/community-manager-chambery',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CommunityManagerAnnecyRoute = CommunityManagerAnnecyRouteImport.update({
+  id: '/community-manager-annecy',
+  path: '/community-manager-annecy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityManagerAlbertvilleRoute =
+  CommunityManagerAlbertvilleRouteImport.update({
+    id: '/community-manager-albertville',
+    path: '/community-manager-albertville',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CommunityManagerAixLesBainsRoute =
+  CommunityManagerAixLesBainsRouteImport.update({
+    id: '/community-manager-aix-les-bains',
+    path: '/community-manager-aix-les-bains',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CommunityManagementRoute = CommunityManagementRouteImport.update({
   id: '/community-management',
   path: '/community-management',
@@ -224,6 +254,16 @@ const BacASableVideoRoute = BacASableVideoRouteImport.update({
   path: '/bac-a-sable-video',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgenceWebUgineRoute = AgenceWebUgineRouteImport.update({
+  id: '/agence-web-ugine',
+  path: '/agence-web-ugine',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgenceWebMoutiersRoute = AgenceWebMoutiersRouteImport.update({
+  id: '/agence-web-moutiers',
+  path: '/agence-web-moutiers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AgenceWebGillySurIsereRoute = AgenceWebGillySurIsereRouteImport.update({
   id: '/agence-web-gilly-sur-isere',
   path: '/agence-web-gilly-sur-isere',
@@ -232,6 +272,11 @@ const AgenceWebGillySurIsereRoute = AgenceWebGillySurIsereRouteImport.update({
 const AgenceWebChamberyRoute = AgenceWebChamberyRouteImport.update({
   id: '/agence-web-chambery',
   path: '/agence-web-chambery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgenceWebBeaufortRoute = AgenceWebBeaufortRouteImport.update({
+  id: '/agence-web-beaufort',
+  path: '/agence-web-beaufort',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AgenceWebAnnecyRoute = AgenceWebAnnecyRouteImport.update({
@@ -287,12 +332,19 @@ export interface FileRoutesByFullPath {
   '/agence-web-aix-les-bains': typeof AgenceWebAixLesBainsRoute
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
+  '/agence-web-beaufort': typeof AgenceWebBeaufortRoute
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
   '/agence-web-gilly-sur-isere': typeof AgenceWebGillySurIsereRoute
+  '/agence-web-moutiers': typeof AgenceWebMoutiersRoute
+  '/agence-web-ugine': typeof AgenceWebUgineRoute
   '/bac-a-sable-video': typeof BacASableVideoRoute
   '/bienvenue': typeof BienvenueRoute
   '/bienvenue-strategie': typeof BienvenueStrategieRoute
   '/community-management': typeof CommunityManagementRoute
+  '/community-manager-aix-les-bains': typeof CommunityManagerAixLesBainsRoute
+  '/community-manager-albertville': typeof CommunityManagerAlbertvilleRoute
+  '/community-manager-annecy': typeof CommunityManagerAnnecyRoute
+  '/community-manager-chambery': typeof CommunityManagerChamberyRoute
   '/community-manager-savoie': typeof CommunityManagerSavoieRoute
   '/conseils': typeof ConseilsRoute
   '/conseils-community-manager-utile': typeof ConseilsCommunityManagerUtileRoute
@@ -333,12 +385,19 @@ export interface FileRoutesByTo {
   '/agence-web-aix-les-bains': typeof AgenceWebAixLesBainsRoute
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
+  '/agence-web-beaufort': typeof AgenceWebBeaufortRoute
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
   '/agence-web-gilly-sur-isere': typeof AgenceWebGillySurIsereRoute
+  '/agence-web-moutiers': typeof AgenceWebMoutiersRoute
+  '/agence-web-ugine': typeof AgenceWebUgineRoute
   '/bac-a-sable-video': typeof BacASableVideoRoute
   '/bienvenue': typeof BienvenueRoute
   '/bienvenue-strategie': typeof BienvenueStrategieRoute
   '/community-management': typeof CommunityManagementRoute
+  '/community-manager-aix-les-bains': typeof CommunityManagerAixLesBainsRoute
+  '/community-manager-albertville': typeof CommunityManagerAlbertvilleRoute
+  '/community-manager-annecy': typeof CommunityManagerAnnecyRoute
+  '/community-manager-chambery': typeof CommunityManagerChamberyRoute
   '/community-manager-savoie': typeof CommunityManagerSavoieRoute
   '/conseils': typeof ConseilsRoute
   '/conseils-community-manager-utile': typeof ConseilsCommunityManagerUtileRoute
@@ -380,12 +439,19 @@ export interface FileRoutesById {
   '/agence-web-aix-les-bains': typeof AgenceWebAixLesBainsRoute
   '/agence-web-albertville': typeof AgenceWebAlbertvilleRoute
   '/agence-web-annecy': typeof AgenceWebAnnecyRoute
+  '/agence-web-beaufort': typeof AgenceWebBeaufortRoute
   '/agence-web-chambery': typeof AgenceWebChamberyRoute
   '/agence-web-gilly-sur-isere': typeof AgenceWebGillySurIsereRoute
+  '/agence-web-moutiers': typeof AgenceWebMoutiersRoute
+  '/agence-web-ugine': typeof AgenceWebUgineRoute
   '/bac-a-sable-video': typeof BacASableVideoRoute
   '/bienvenue': typeof BienvenueRoute
   '/bienvenue-strategie': typeof BienvenueStrategieRoute
   '/community-management': typeof CommunityManagementRoute
+  '/community-manager-aix-les-bains': typeof CommunityManagerAixLesBainsRoute
+  '/community-manager-albertville': typeof CommunityManagerAlbertvilleRoute
+  '/community-manager-annecy': typeof CommunityManagerAnnecyRoute
+  '/community-manager-chambery': typeof CommunityManagerChamberyRoute
   '/community-manager-savoie': typeof CommunityManagerSavoieRoute
   '/conseils': typeof ConseilsRoute
   '/conseils-community-manager-utile': typeof ConseilsCommunityManagerUtileRoute
@@ -428,12 +494,19 @@ export interface FileRouteTypes {
     | '/agence-web-aix-les-bains'
     | '/agence-web-albertville'
     | '/agence-web-annecy'
+    | '/agence-web-beaufort'
     | '/agence-web-chambery'
     | '/agence-web-gilly-sur-isere'
+    | '/agence-web-moutiers'
+    | '/agence-web-ugine'
     | '/bac-a-sable-video'
     | '/bienvenue'
     | '/bienvenue-strategie'
     | '/community-management'
+    | '/community-manager-aix-les-bains'
+    | '/community-manager-albertville'
+    | '/community-manager-annecy'
+    | '/community-manager-chambery'
     | '/community-manager-savoie'
     | '/conseils'
     | '/conseils-community-manager-utile'
@@ -474,12 +547,19 @@ export interface FileRouteTypes {
     | '/agence-web-aix-les-bains'
     | '/agence-web-albertville'
     | '/agence-web-annecy'
+    | '/agence-web-beaufort'
     | '/agence-web-chambery'
     | '/agence-web-gilly-sur-isere'
+    | '/agence-web-moutiers'
+    | '/agence-web-ugine'
     | '/bac-a-sable-video'
     | '/bienvenue'
     | '/bienvenue-strategie'
     | '/community-management'
+    | '/community-manager-aix-les-bains'
+    | '/community-manager-albertville'
+    | '/community-manager-annecy'
+    | '/community-manager-chambery'
     | '/community-manager-savoie'
     | '/conseils'
     | '/conseils-community-manager-utile'
@@ -520,12 +600,19 @@ export interface FileRouteTypes {
     | '/agence-web-aix-les-bains'
     | '/agence-web-albertville'
     | '/agence-web-annecy'
+    | '/agence-web-beaufort'
     | '/agence-web-chambery'
     | '/agence-web-gilly-sur-isere'
+    | '/agence-web-moutiers'
+    | '/agence-web-ugine'
     | '/bac-a-sable-video'
     | '/bienvenue'
     | '/bienvenue-strategie'
     | '/community-management'
+    | '/community-manager-aix-les-bains'
+    | '/community-manager-albertville'
+    | '/community-manager-annecy'
+    | '/community-manager-chambery'
     | '/community-manager-savoie'
     | '/conseils'
     | '/conseils-community-manager-utile'
@@ -567,12 +654,19 @@ export interface RootRouteChildren {
   AgenceWebAixLesBainsRoute: typeof AgenceWebAixLesBainsRoute
   AgenceWebAlbertvilleRoute: typeof AgenceWebAlbertvilleRoute
   AgenceWebAnnecyRoute: typeof AgenceWebAnnecyRoute
+  AgenceWebBeaufortRoute: typeof AgenceWebBeaufortRoute
   AgenceWebChamberyRoute: typeof AgenceWebChamberyRoute
   AgenceWebGillySurIsereRoute: typeof AgenceWebGillySurIsereRoute
+  AgenceWebMoutiersRoute: typeof AgenceWebMoutiersRoute
+  AgenceWebUgineRoute: typeof AgenceWebUgineRoute
   BacASableVideoRoute: typeof BacASableVideoRoute
   BienvenueRoute: typeof BienvenueRoute
   BienvenueStrategieRoute: typeof BienvenueStrategieRoute
   CommunityManagementRoute: typeof CommunityManagementRoute
+  CommunityManagerAixLesBainsRoute: typeof CommunityManagerAixLesBainsRoute
+  CommunityManagerAlbertvilleRoute: typeof CommunityManagerAlbertvilleRoute
+  CommunityManagerAnnecyRoute: typeof CommunityManagerAnnecyRoute
+  CommunityManagerChamberyRoute: typeof CommunityManagerChamberyRoute
   CommunityManagerSavoieRoute: typeof CommunityManagerSavoieRoute
   ConseilsRoute: typeof ConseilsRoute
   ConseilsCommunityManagerUtileRoute: typeof ConseilsCommunityManagerUtileRoute
@@ -811,6 +905,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunityManagerSavoieRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community-manager-chambery': {
+      id: '/community-manager-chambery'
+      path: '/community-manager-chambery'
+      fullPath: '/community-manager-chambery'
+      preLoaderRoute: typeof CommunityManagerChamberyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community-manager-annecy': {
+      id: '/community-manager-annecy'
+      path: '/community-manager-annecy'
+      fullPath: '/community-manager-annecy'
+      preLoaderRoute: typeof CommunityManagerAnnecyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community-manager-albertville': {
+      id: '/community-manager-albertville'
+      path: '/community-manager-albertville'
+      fullPath: '/community-manager-albertville'
+      preLoaderRoute: typeof CommunityManagerAlbertvilleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community-manager-aix-les-bains': {
+      id: '/community-manager-aix-les-bains'
+      path: '/community-manager-aix-les-bains'
+      fullPath: '/community-manager-aix-les-bains'
+      preLoaderRoute: typeof CommunityManagerAixLesBainsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/community-management': {
       id: '/community-management'
       path: '/community-management'
@@ -839,6 +961,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BacASableVideoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agence-web-ugine': {
+      id: '/agence-web-ugine'
+      path: '/agence-web-ugine'
+      fullPath: '/agence-web-ugine'
+      preLoaderRoute: typeof AgenceWebUgineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agence-web-moutiers': {
+      id: '/agence-web-moutiers'
+      path: '/agence-web-moutiers'
+      fullPath: '/agence-web-moutiers'
+      preLoaderRoute: typeof AgenceWebMoutiersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/agence-web-gilly-sur-isere': {
       id: '/agence-web-gilly-sur-isere'
       path: '/agence-web-gilly-sur-isere'
@@ -851,6 +987,13 @@ declare module '@tanstack/react-router' {
       path: '/agence-web-chambery'
       fullPath: '/agence-web-chambery'
       preLoaderRoute: typeof AgenceWebChamberyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agence-web-beaufort': {
+      id: '/agence-web-beaufort'
+      path: '/agence-web-beaufort'
+      fullPath: '/agence-web-beaufort'
+      preLoaderRoute: typeof AgenceWebBeaufortRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/agence-web-annecy': {
@@ -948,12 +1091,19 @@ const rootRouteChildren: RootRouteChildren = {
   AgenceWebAixLesBainsRoute: AgenceWebAixLesBainsRoute,
   AgenceWebAlbertvilleRoute: AgenceWebAlbertvilleRoute,
   AgenceWebAnnecyRoute: AgenceWebAnnecyRoute,
+  AgenceWebBeaufortRoute: AgenceWebBeaufortRoute,
   AgenceWebChamberyRoute: AgenceWebChamberyRoute,
   AgenceWebGillySurIsereRoute: AgenceWebGillySurIsereRoute,
+  AgenceWebMoutiersRoute: AgenceWebMoutiersRoute,
+  AgenceWebUgineRoute: AgenceWebUgineRoute,
   BacASableVideoRoute: BacASableVideoRoute,
   BienvenueRoute: BienvenueRoute,
   BienvenueStrategieRoute: BienvenueStrategieRoute,
   CommunityManagementRoute: CommunityManagementRoute,
+  CommunityManagerAixLesBainsRoute: CommunityManagerAixLesBainsRoute,
+  CommunityManagerAlbertvilleRoute: CommunityManagerAlbertvilleRoute,
+  CommunityManagerAnnecyRoute: CommunityManagerAnnecyRoute,
+  CommunityManagerChamberyRoute: CommunityManagerChamberyRoute,
   CommunityManagerSavoieRoute: CommunityManagerSavoieRoute,
   ConseilsRoute: ConseilsRoute,
   ConseilsCommunityManagerUtileRoute: ConseilsCommunityManagerUtileRoute,

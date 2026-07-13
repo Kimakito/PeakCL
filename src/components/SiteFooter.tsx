@@ -22,6 +22,9 @@ const VILLES = [
   { href: "/agence-web-annecy", label: "Annecy" },
   { href: "/agence-web-aix-les-bains", label: "Aix-les-Bains" },
   { href: "/agence-web-gilly-sur-isere", label: "Gilly-sur-Isère" },
+  { href: "/agence-web-ugine", label: "Ugine" },
+  { href: "/agence-web-moutiers", label: "Moûtiers" },
+  { href: "/agence-web-beaufort", label: "Beaufort" },
 ];
 
 const PAGES = [

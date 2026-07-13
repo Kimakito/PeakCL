@@ -291,8 +291,9 @@ export function HeroPanel() {
             Déléguez-moi toute votre communication en ligne.
           </span>
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-lg">
-          Site · Identité · Réseaux · Google : un seul interlocuteur, de A à Z.
+        <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground md:text-lg">
+          Création de site internet, identité visuelle &amp; community management en Savoie.
+          Un seul interlocuteur, de A à Z.
         </p>
 
         {/* CTA principaux visibles sans scroll */}

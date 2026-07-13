@@ -1,62 +1,33 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, Gift, Instagram, MapPin, Sparkles } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { absUrl } from "@/seo/site";
-import { breadcrumbJsonLd } from "@/seo/jsonld";
 import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 
-const serviceJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  serviceType: "Community management",
-  name: "Community management · PeakCL",
-  description:
-    "Gestion de réseaux sociaux (community management) pour indépendants et petites structures en Savoie : visuels brandés, rédaction, stratégie et publications régulières.",
-  provider: {
-    "@type": "ProfessionalService",
-    name: "PeakCL · Charlotte Lacroix",
-    url: absUrl("/"),
-  },
-  areaServed: [
-    { "@type": "AdministrativeArea", name: "Savoie" },
-    { "@type": "AdministrativeArea", name: "Haute-Savoie" },
-    { "@type": "City", name: "Albertville" },
-    { "@type": "City", name: "Chambéry" },
-    { "@type": "City", name: "Annecy" },
-    { "@type": "Country", name: "France" },
-  ],
-  url: absUrl("/community-manager-savoie"),
+export type CmNearbyLink = { name: string; href: string };
+
+export type CommunityLandingProps = {
+  city: string;
+  region: string;
+  /** Accroche hero, idéalement propre à la ville (évite le duplicate content). */
+  intro: string;
+  /** Angle unique par ville pour le bloc « pourquoi ici ». */
+  angleTitle: string;
+  angleText: string;
+  nearby: CmNearbyLink[];
 };
 
-export const Route = createFileRoute("/community-manager-savoie")({
-  head: () => ({
-    meta: [
-      { title: "Community manager en Savoie (Albertville) · PeakCL" },
-      {
-        name: "description",
-        content:
-          "Community manager en Savoie : déléguez vos réseaux sociaux à Charlotte (PeakCL). Visuels brandés, rédaction et stratégie, formules mensuelles sans engagement.",
-      },
-      { property: "og:title", content: "Community manager en Savoie · PeakCL" },
-      {
-        property: "og:description",
-        content:
-          "Déléguez vos réseaux sociaux à une community manager formée, à Albertville et en Savoie. Formules mensuelles, sans engagement.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: absUrl("/community-manager-savoie") },
-      {
-        "script:ld+json": breadcrumbJsonLd([
-          { name: "Accueil", path: "/" },
-          { name: "Community manager en Savoie", path: "/community-manager-savoie" },
-        ]),
-      },
-      { "script:ld+json": serviceJsonLd },
-    ],
-    links: [{ rel: "canonical", href: absUrl("/community-manager-savoie") }],
-  }),
-  component: Page,
-});
+/** Mini-FAQ community management par ville, sert aussi à construire le FAQPage JSON-LD. */
+export function communityFaq(city: string, region: string) {
+  return [
+    {
+      question: `Faut-il être à ${city} pour travailler avec vous ?`,
+      answerHtml: `Non. Je suis basée à Gilly-sur-Isère, en ${region}, et je gère les réseaux de clients à ${city} et partout en France, en visio. Tout se pilote à distance, avec un point régulier.`,
+    },
+    {
+      question: `Combien coûte la gestion de réseaux sociaux à ${city} ?`,
+      answerHtml: `Ça dépend du rythme (de 4 à 20 publications par mois) et des formats (posts, stories, reels). Les formules mensuelles sont claires, sans engagement long imposé. Le devis est envoyé après un court appel, et l'audit de vos réseaux est gratuit.`,
+    },
+  ];
+}
 
 const PAINS = [
   "Vous publiez par à-coups, puis plus rien pendant trois semaines.",
@@ -80,15 +51,15 @@ const FORMULES = [
   { name: "Intensif", detail: "20 publications/mois · 5 par semaine + stories & reels" },
 ];
 
-const ZONES = [
-  { name: "Albertville", href: "/community-manager-albertville" },
-  { name: "Chambéry", href: "/community-manager-chambery" },
-  { name: "Annecy", href: "/community-manager-annecy" },
-  { name: "Aix-les-Bains", href: "/community-manager-aix-les-bains" },
-  { name: "Gilly-sur-Isère", href: "/agence-web-gilly-sur-isere" },
-];
-
-function Page() {
+export function CommunityLanding({
+  city,
+  region,
+  intro,
+  angleTitle,
+  angleText,
+  nearby,
+}: CommunityLandingProps) {
+  const faq = communityFaq(city, region);
   return (
     <main className="min-h-screen border-t border-white/5">
       {/* Hero */}
@@ -97,16 +68,12 @@ function Page() {
         <div className="mx-auto max-w-5xl px-6 text-center">
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
             <MapPin className="h-3.5 w-3.5" />
-            Savoie · Albertville · partout en France
+            {city} · {region}
           </div>
           <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-tight md:text-6xl">
-            Community manager en <span className="text-gradient">Savoie</span>
+            Community manager à <span className="text-gradient">{city}</span>
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-            Déléguez vos réseaux sociaux à une community manager formée, qui maîtrise aussi votre
-            site et votre identité visuelle. Une présence régulière et cohérente, sans y passer vos
-            soirées.
-          </p>
+          <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{intro}</p>
           <a
             href="/#contact"
             className="mx-auto mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
@@ -128,7 +95,7 @@ function Page() {
           </div>
           <div>
             <p className="text-sm font-semibold text-foreground">
-              Audit gratuit de vos réseaux sociaux (et de votre site)
+              Audit gratuit de vos réseaux sociaux à {city}
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
               Je regarde votre présence actuelle et je vous renvoie des pistes concrètes pour gagner
@@ -138,17 +105,18 @@ function Page() {
         </div>
       </section>
 
+      {/* Unique angle */}
+      <section className="border-t border-white/5 py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="text-2xl font-bold md:text-3xl">{angleTitle}</h2>
+          <p className="mt-4 max-w-3xl text-muted-foreground">{angleText}</p>
+        </div>
+      </section>
+
       {/* Pourquoi déléguer */}
       <section className="border-t border-white/5 py-20">
         <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            Pourquoi déléguer vos réseaux sociaux ?
-          </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            Le community management, ce n&apos;est pas « poster pour poster ». C&apos;est une présence
-            régulière, cohérente avec votre image, pensée pour donner envie de vous contacter. Si vous
-            vous reconnaissez ici, c&apos;est le moment de déléguer :
-          </p>
+          <h2 className="text-2xl font-bold md:text-3xl">Pourquoi déléguer vos réseaux sociaux ?</h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {PAINS.map((p) => (
               <li
@@ -192,7 +160,7 @@ function Page() {
               ))}
             </ul>
             <a
-              href="/services"
+              href="/community-management"
               className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
             >
               Voir toutes les formules <ArrowRight className="h-4 w-4" />
@@ -211,16 +179,15 @@ function Page() {
           <h2 className="mt-5 text-2xl font-bold md:text-3xl">Pourquoi me confier vos réseaux ?</h2>
           <div className="mt-4 max-w-3xl space-y-4 text-muted-foreground">
             <p>
-              Je suis Charlotte Lacroix (PeakCL), développeuse web et graphiste à Albertville, et je
-              suis <strong className="text-foreground">formée au community management</strong>. Concrètement,
-              vous ne jonglez pas entre un CM, un graphiste et un développeur : la même personne pense
-              votre site, votre identité visuelle et vos publications, pour un message parfaitement
-              cohérent partout.
+              Je suis Charlotte Lacroix (PeakCL), développeuse web et graphiste près d'Albertville, et
+              je suis <strong className="text-foreground">formée au community management</strong>. Pour
+              votre activité à {city}, la même personne pense votre site, votre identité visuelle et vos
+              publications, pour un message parfaitement cohérent partout.
             </p>
             <p>
-              Vos visuels réseaux reprennent les codes de votre site et de votre logo. Vos
-              publications renvoient vers les bonnes pages. Tout travaille ensemble, dans la même
-              direction, au lieu de trois prestataires qui ne se parlent pas.
+              Vos visuels réseaux reprennent les codes de votre site et de votre logo. Vos publications
+              renvoient vers les bonnes pages. Tout travaille ensemble, au lieu de trois prestataires
+              qui ne se parlent pas.
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -242,16 +209,28 @@ function Page() {
         </div>
       </section>
 
+      {/* Mini FAQ */}
+      <section className="border-t border-white/5 py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="text-2xl font-bold">Questions fréquentes</h2>
+          <div className="mt-6 space-y-4">
+            {faq.map((item) => (
+              <div key={item.question} className="relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                <h3 className="text-base font-semibold">{item.question}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.answerHtml}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Zones */}
       <section className="border-t border-white/5 py-16">
         <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-xl font-bold">Community management en Savoie et alentours</h2>
-          <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-            Basée à Gilly-sur-Isère, près d&apos;Albertville, j&apos;accompagne des indépendants et petites structures dans toute la
-            Savoie, la Haute-Savoie et partout en France (visio).
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {ZONES.map((z) => (
+          <h2 className="text-xl font-bold">Autour de {city}</h2>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {nearby.map((z) => (
               <a
                 key={z.href}
                 href={z.href}
@@ -261,6 +240,12 @@ function Page() {
                 {z.name}
               </a>
             ))}
+            <a
+              href="/community-manager-savoie"
+              className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
+            >
+              Community manager en Savoie
+            </a>
           </div>
         </div>
       </section>
@@ -272,10 +257,10 @@ function Page() {
           <div className="mb-6 flex justify-center">
             <ExpressionPhoto slug="grand-sourire" caption="Vos réseaux, gérés" tilt={-3} imgClassName="aspect-[3/4] w-28" />
           </div>
-          <h2 className="text-3xl font-bold md:text-4xl">On s&apos;occupe de vos réseaux ?</h2>
+          <h2 className="text-3xl font-bold md:text-4xl">On s'occupe de vos réseaux à {city} ?</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Décrivez votre activité en 8 minutes : je vous propose le rythme de publication adapté et
-            un devis clair.
+            Décrivez votre activité en 8 minutes : je vous propose le rythme de publication adapté et un
+            devis clair.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
