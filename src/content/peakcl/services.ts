@@ -25,7 +25,7 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Site vitrine sur mesure (code)",
     desc: "Site 100% codé, sans CMS ni dépendance à des plugins. Performances optimales, architecture maîtrisée de bout en bout, résultat unique et pérenne.",
-    price: "2 000 €",
+    price: "Sur devis",
     delay: "Délai : 3 à 5 semaines",
     included: [
       "Analyse des besoins & maquettage (wireframes)",

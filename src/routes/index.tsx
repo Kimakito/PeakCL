@@ -18,6 +18,7 @@ import { submitNetlifyForm } from "@/lib/funnel";
 import { CTAButton } from "@/components/CTAButton";
 import { HeroPanel } from "@/components/home/HeroPanel";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
+import { VideoPresentation } from "@/components/home/VideoPresentation";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ExpressionGallery } from "@/components/ExpressionPhoto";
 import { Reveal } from "@/components/ui/Reveal";
@@ -641,6 +642,7 @@ function Landing() {
       {/* Scroll vertical : sections pleine hauteur empilées (desktop + mobile) */}
       <HeroPanel />
       <ReassuranceBar />
+      <VideoPresentation />
       <ProblemPanel />
       <TrustedBySection />
       <OffersPanel />
