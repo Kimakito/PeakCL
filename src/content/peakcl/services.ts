@@ -41,7 +41,6 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Site vitrine WordPress",
     desc: "Site professionnel sous WordPress avec back-office pour gérer votre contenu en autonomie. Idéal pour modifier vos pages sans faire appel à un développeur.",
-    price: "À partir de 2 500 €",
     delay: "Délai : 3 à 5 semaines",
     included: [
       "Analyse des besoins & maquettage",
@@ -57,7 +56,7 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Site e-commerce",
     desc: "Boutique en ligne complète et sécurisée. Plateforme recommandée selon votre projet : Shopify, PrestaShop ou WooCommerce.",
-    price: "À partir de 3 800 €",
+    price: "Sur devis",
     delay: "Délai : 4 à 7 semaines",
     included: [
       "Audit & recommandation de plateforme selon vos besoins",
@@ -73,7 +72,7 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Landing page / Page de vente",
     desc: "Une page unique à fort taux de conversion pour promouvoir une offre, un événement ou un produit.",
-    price: "À partir de 800 €",
+    price: "Sur devis",
     delay: "Délai : 1 à 2 semaines",
     included: [
       "Copywriting orienté conversion (structure AIDA)",
@@ -86,7 +85,7 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Refonte de site existant",
     desc: "Modernisation d’un site obsolète : nouveau design, meilleure expérience utilisateur, meilleures performances.",
-    price: "À partir de 1 200 €",
+    price: "Sur devis",
     delay: "Selon complexité du site actuel",
     included: [
       "Audit UX/UI et analyse des performances actuelles",
@@ -133,7 +132,7 @@ export const design: CatalogItem[] = [
   {
     title: "Identité visuelle complète",
     desc: "Logo, couleurs, typographies et charte graphique pour une marque cohérente et mémorable.",
-    price: "À partir de 500 €",
+    price: "sur devis",
     delay: "Délai : 1 à 2 semaines",
     included: [
       "Questionnaire de positionnement & brief",
@@ -147,7 +146,7 @@ export const design: CatalogItem[] = [
   {
     title: "Supports print",
     desc: "Flyers, plaquettes, cartes de visite et affiches prêts à l’impression.",
-    price: "À partir de 80 €/support",
+    price: "Sur devis",
     delay: "Tarif dégressif dès 3 supports",
     included: [
       "Cartes de visite (recto/verso)",
@@ -160,7 +159,7 @@ export const design: CatalogItem[] = [
   {
     title: "Visuels réseaux sociaux",
     desc: "Pack de 10 templates brandés et réutilisables pour animer vos réseaux avec professionnalisme.",
-    price: "À partir de 200 €",
+    price: "Sur devis",
     delay: "Délai : 3 à 5 jours",
     included: [
       "10 templates (posts, stories, couvertures)",
@@ -173,7 +172,7 @@ export const design: CatalogItem[] = [
   {
     title: "Template email & newsletter",
     desc: "Design responsive à votre image, compatible tous clients mail et plateformes d’emailing.",
-    price: "À partir de 180 €",
+    price: "Sur devis",
     delay: "Délai : 3 à 5 jours",
     included: [
       "Design responsive (mobile & desktop)",
@@ -186,7 +185,7 @@ export const design: CatalogItem[] = [
   {
     title: "Bannières publicitaires digitales",
     desc: "Bannières display pour vos campagnes, en formats standards ou sur mesure.",
-    price: "À partir de 150 € pour 5 formats",
+    price: "Sur devis",
     delay: "Livraison en 48h",
     included: [
       "Formats standards (728x90, 300x250, 160x600, 320x50…)",
@@ -244,7 +243,7 @@ export const cmForfaits: Forfait[] = [
     name: "Sur mesure",
     freq: "Fréquence définie ensemble",
     inclus: ["Volume personnalisé", "Toutes plateformes", "Accompagnement stratégique", "Rapport mensuel"],
-    price: "Devis",
+    price: "sur devis",
   },
 ];
 
@@ -252,7 +251,7 @@ export const community: CatalogItem[] = [
   {
     title: "Audit réseaux sociaux",
     desc: "Analyse complète de votre présence sociale pour identifier forces, lacunes et opportunités.",
-    price: "À partir de 250 €",
+    price: "Sur devis",
     delay: "Livré en 5 jours ouvrés",
     included: [
       "Analyse de vos comptes existants (engagement, fréquence, ton…)",
