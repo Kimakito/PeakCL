@@ -215,9 +215,9 @@ function MethodPanel() {
 /* ── Offers panel ────────────────────────────────────────────── */
 
 const offers = [
-  { eyebrow: "Le plus simple", title: "Pack présence en ligne", price: "À partir de 2 500 €", highlight: true, points: ["Site clair + image cohérente", "Pages essentielles + parcours de contact", "Premières publications et visuels de base", "Mise en ligne et premiers réglages SEO"] },
-  { eyebrow: "Pour un site rapide", title: "Site vitrine", price: "À partir de 3 000 €", points: ["Structure pensée pour convertir", "Design sobre et mobile-friendly", "Pages accueil / services / contact", "Domaine, SSL et mise en ligne inclus"] },
-  { eyebrow: "Si vous avez déjà un socle", title: "Refonte / amélioration", price: "À partir de 1 800 €", points: ["Clarification du message et du parcours", "Visuels et textes repensés", "Amélioration du site existant", "Gain de clarté et de confiance"] },
+  { eyebrow: "Le plus simple", title: "Pack présence en ligne", price: "Sur devis", highlight: true, points: ["Site clair + image cohérente", "Pages essentielles + parcours de contact", "Premières publications et visuels de base", "Mise en ligne et premiers réglages SEO"] },
+  { eyebrow: "Pour un site rapide", title: "Site vitrine", price: "Sur devis", points: ["Structure pensée pour convertir", "Design sobre et mobile-friendly", "Pages accueil / services / contact", "Domaine, SSL et mise en ligne inclus"] },
+  { eyebrow: "Si vous avez déjà un socle", title: "Refonte / amélioration", price: "Sur devis", points: ["Clarification du message et du parcours", "Visuels et textes repensés", "Amélioration du site existant", "Gain de clarté et de confiance"] },
 ];
 
 function OffersPanel() {
