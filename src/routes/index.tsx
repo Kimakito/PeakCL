@@ -33,13 +33,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Site, identité visuelle et réseaux sociaux : déléguez votre image en ligne à un seul interlocuteur, pour indépendants et petites structures.",
+          "Vous avez besoin d’un site claire, d’une image cohérente et d’une présence en ligne fiable ? PeakCL vous accompagne de A à Z, avec un seul interlocuteur.",
       },
-      { property: "og:title", content: "PeakCL · Déléguez votre communication en ligne" },
+      { property: "og:title", content: "PeakCL · Votre présence en ligne, simplifiée" },
       {
         property: "og:description",
         content:
-          "Pas le temps pour votre site, vos réseaux et votre image ? Un seul interlocuteur pour construire une communication en ligne cohérente, de A à Z.",
+          "Un seul interlocuteur pour votre site, votre image et vos réseaux, avec un plan clair et des livrables concrets.",
       },
       { property: "og:url", content: absUrl("/") },
       { "script:ld+json": faqPageJsonLd(peakclFaqHome) },
@@ -104,98 +104,39 @@ function SectionMascot(_props: {
 /* ── Problem panel ───────────────────────────────────────────── */
 
 function ProblemPanel() {
-  const pains = [
-    { t: "Vous repoussez toujours « le site » et « les réseaux ».", d: "Pas par manque d'envie, par manque de temps. Chaque mois qui passe, votre image reste en retard sur votre vrai niveau." },
-    { t: "Vous perdez des soirées sur des outils que vous détestez.", d: "Canva, WordPress, Instagram… ce n'est pas votre métier. Pendant ce temps, vous ne facturez pas ce qui vous rapporte vraiment." },
-    { t: "Trop d'interlocuteurs, zéro cohérence.", d: "Un pour le logo, un autre pour le site, personne pour les réseaux : le résultat ne raconte pas la même histoire." },
-    { t: "Sans image en ligne, on vous choisit moins.", d: "Vos clients comparent avant d'appeler. Si votre concurrent paraît plus pro sur Google, c'est lui qu'on contacte." },
+  const points = [
+    "Vous avez besoin d’une présence en ligne claire, crédible et facile à comprendre.",
+    "Vous n’avez pas le temps de gérer site, design, réseaux et prise de contact à la main.",
+    "Vous voulez un accompagnement simple, avec un seul interlocuteur et des décisions rapides.",
   ];
+
   return (
     <section id="probleme" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <SectionMascot pose="idee" side="left" />
       <div className="mx-auto max-w-6xl px-8 md:px-16 w-full">
-        <div className="grid items-start gap-10 md:grid-cols-2">
+        <div className="grid items-start gap-10 md:grid-cols-[1.1fr_0.9fr]">
           <div>
             <SectionHeading
               align="left"
               accent="yellow"
-              eyebrow="Soyons honnêtes"
-              title={<>Votre métier mérite une image en ligne<span className="text-gradient"> à la hauteur.</span></>}
+              eyebrow="Pourquoi me confier votre image"
+              title={<>Une présence en ligne<span className="text-gradient"> plus simple à tenir.</span></>}
             />
-            <div className="mt-8 overflow-hidden rounded-2xl bg-band-yellow p-5 shadow-card">
-              <div className="text-xs font-bold uppercase tracking-[0.18em] opacity-70">Pourquoi déléguer</div>
-              <p className="mt-2 text-base font-bold leading-snug">
-                Négliger son image en ligne, ce n'est pas « économiser du temps ». C'est laisser des clients partir vers quelqu'un de moins bon, mais qui paraît plus pro.
-              </p>
-            </div>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              Pas besoin d’un projet énorme pour paraître professionnel. Il faut surtout une direction claire, un bon rythme et quelqu’un qui vous aide à avancer.
+            </p>
             <div className="mt-6">
-              <CTAButton href="/reservation-appel" dataEvent="cta_brief_problem">Je veux déléguer</CTAButton>
+              <CTAButton href="/reservation-appel" dataEvent="cta_brief_problem">Faire le diagnostic</CTAButton>
             </div>
           </div>
           <ul className="space-y-3">
-            {pains.map((p) => (
-              <li key={p.t} className="flex items-start gap-3 rounded-2xl border border-white/5 bg-card/40 p-4 shadow-card backdrop-blur">
-                <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_oklab,var(--brand-violet)_30%,transparent)] text-[var(--brand-yellow)] text-xs">✕</span>
-                <span>
-                  <span className="block text-sm font-semibold text-foreground">{p.t}</span>
-                  <span className="mt-1 block text-xs text-muted-foreground">{p.d}</span>
-                </span>
+            {points.map((point) => (
+              <li key={point} className="flex items-start gap-3 rounded-2xl border border-white/5 bg-card/40 p-4 shadow-card backdrop-blur">
+                <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_oklab,var(--brand-violet)_30%,transparent)] text-[var(--brand-yellow)] text-xs">✓</span>
+                <span className="text-sm text-foreground/90">{point}</span>
               </li>
             ))}
           </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ── Difference panel ────────────────────────────────────────── */
-
-function DifferencePanel() {
-  const cols = [
-    {
-      label: "Vous gérez tout seul",
-      tone: "bad" as const,
-      items: ["Site, réseaux et visuels repoussés « à plus tard »", "Des heures perdues sur des outils hors de votre métier", "Plusieurs prestataires, aucune ligne directrice", "Une image qui ne reflète pas votre niveau réel"],
-    },
-    {
-      label: "Vous déléguez à PeakCL",
-      tone: "good" as const,
-      items: ["Un seul interlocuteur pour toute votre communication", "Site, identité, réseaux et Google alignés", "Une image pro qui inspire confiance avant le premier appel", "Vous retrouvez du temps pour votre vrai travail"],
-    },
-  ];
-  return (
-    <section id="difference" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
-      <SectionMascot pose="victoire" side="right" />
-      <div className="mx-auto max-w-5xl px-8 md:px-16 w-full">
-        <SectionHeading
-          className="mb-10"
-          accent="turquoise"
-          eyebrow="La différence"
-          title={<>Même activité. <span className="text-gradient">Deux façons de gérer sa com'.</span></>}
-        />
-        <div className="grid gap-5 md:grid-cols-2">
-          {cols.map((c, i) => (
-            <Reveal key={c.label} delay={i * 0.08} className="h-full">
-            <div className={`card-hover relative h-full rounded-2xl border p-6 shadow-card backdrop-blur ${c.tone === "good" ? "card-glass ring-brand" : "border-white/5 bg-card/30"}`}>
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-              <div className={`text-sm font-bold uppercase tracking-[0.16em] ${c.tone === "good" ? "text-[var(--brand-turquoise)]" : "text-muted-foreground"}`}>{c.label}</div>
-              <ul className="mt-5 space-y-3">
-                {c.items.map((x) => (
-                  <li key={x} className="flex items-start gap-3 text-sm">
-                    {c.tone === "good"
-                      ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
-                      : <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center text-muted-foreground">✕</span>}
-                    <span className={c.tone === "good" ? "text-foreground/90" : "text-muted-foreground"}>{x}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            </Reveal>
-          ))}
-        </div>
-        <div className="mt-8 text-center">
-          <CTAButton href="/reservation-appel" dataEvent="cta_brief_diff">Je veux déléguer</CTAButton>
         </div>
       </div>
     </section>
@@ -235,38 +176,24 @@ function useDrawOnView() {
 function MethodPanel() {
   const { containerRef, lineRef } = useDrawOnView();
   const steps = [
-    { n: "01", title: "Diagnostic", desc: "Vous remplissez un formulaire de 8 minutes ou on en parle 20 minutes en visio. Je comprends votre activité, votre public, votre budget, vos contraintes." },
-    { n: "02", title: "Cadrage", desc: "Je vous renvoie un devis précis sous 48h ouvrées (pas une fourchette élastique) et un planning. Vous validez ou vous ajustez." },
-    { n: "03", title: "Production", desc: "Je code, je dessine, je rédige. Vous voyez le travail au fur et à mesure, pas seulement à la fin. Une révision incluse à chaque livrable." },
-    { n: "04", title: "Suivi", desc: "Une fois en ligne, je reste disponible pour les ajustements de la première semaine. Au-delà, on continue ou on s'arrête, vous décidez." },
+    { n: "01", title: "Comprendre", desc: "Je pose les bonnes questions pour clarifier votre activité, votre public et votre objectif." },
+    { n: "02", title: "Proposer", desc: "Je vous renvoie un plan clair, avec les livrables, le timing et un budget de départ." },
+    { n: "03", title: "Livrer", desc: "Je produis le site et les éléments de communication, puis je vous accompagne jusqu’à la mise en ligne." },
   ];
   return (
     <section id="methode" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <div className="relative isolate mx-auto w-full max-w-6xl px-8 md:px-16">
-        {/* doodle en fond de section (thème « comment je travaille ») */}
-        <img
-          aria-hidden
-          src="/peakcl/doodles/doodle-1.webp"
-          loading="lazy"
-          decoding="async"
-          className="pointer-events-none absolute left-1/2 top-1/2 -z-10 hidden w-[min(760px,100%)] -translate-x-1/2 -translate-y-1/2 select-none opacity-30 md:block"
-          style={{
-            maskImage: "radial-gradient(circle, black 45%, transparent 78%)",
-            WebkitMaskImage: "radial-gradient(circle, black 45%, transparent 78%)",
-          }}
-        />
         <SectionHeading
           className="mb-10"
           accent="yellow"
-          eyebrow="Comment je travaille"
-          title="Quatre étapes, du diagnostic à la mise en ligne"
+          eyebrow="Comment ça se passe"
+          title="Un parcours simple, pensé pour avancer sans friction"
         />
-        <div ref={containerRef} className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {/* ligne de progression tracée au scroll (desktop) */}
+        <div ref={containerRef} className="relative grid gap-5 md:grid-cols-3">
           <div
             ref={lineRef}
             aria-hidden
-            className="process-line pointer-events-none absolute left-[12.5%] right-[12.5%] top-10 hidden h-0.5 bg-gradient-to-r from-[var(--brand-turquoise)] to-[var(--brand-violet)] lg:block"
+            className="process-line pointer-events-none absolute left-[16.6%] right-[16.6%] top-10 hidden h-0.5 bg-gradient-to-r from-[var(--brand-turquoise)] to-[var(--brand-violet)] md:block"
           />
           {steps.map((s, i) => (
             <motion.div key={s.n} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} transition={{ delay: i * 0.07 }} className="card-hover relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
@@ -278,7 +205,7 @@ function MethodPanel() {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <CTAButton href="/reservation-appel" dataEvent="cta_brief_method">Faire le diagnostic</CTAButton>
+          <CTAButton href="/reservation-appel" dataEvent="cta_brief_method">Obtenir un plan clair</CTAButton>
         </div>
       </div>
     </section>
@@ -288,10 +215,9 @@ function MethodPanel() {
 /* ── Offers panel ────────────────────────────────────────────── */
 
 const offers = [
-  { eyebrow: "Clé en main", title: "Pack présence en ligne", price: "Sur devis", highlight: true, points: ["Site + logo + pages réseaux sociaux", "Premières publications selon besoin", "Intégration réseau social sur le site", "Mise en ligne + bases SEO + parcours de contact"] },
-  { eyebrow: "Site vitrine codé", title: "Site vitrine codé", price: "Sur devis", points: ["Pages essentielles (Accueil, services, contact)", "Mobile, rapide, propre", "Mise en ligne complète (domaine, SSL, indexation)", "Bases SEO (structure, titres)"] },
-  { eyebrow: "Sur-mesure / custom", title: "Site sur-mesure / custom", price: "Sur devis", points: ["UX/UI plus poussé, sections spécifiques", "Intégrations et fonctionnalités adaptées", "Optimisations performance et conversion"] },
-  { eyebrow: "Identité visuelle", title: "Identité visuelle / logo", price: "Sur devis", points: ["Logo propre et déclinable (web + réseaux)", "Couleurs & typos cohérentes", "Mini kit de départ pour une image homogène"] },
+  { eyebrow: "Le plus simple", title: "Pack présence en ligne", price: "À partir de 2 500 €", highlight: true, points: ["Site clair + image cohérente", "Pages essentielles + parcours de contact", "Premières publications et visuels de base", "Mise en ligne et premiers réglages SEO"] },
+  { eyebrow: "Pour un site rapide", title: "Site vitrine", price: "À partir de 3 000 €", points: ["Structure pensée pour convertir", "Design sobre et mobile-friendly", "Pages accueil / services / contact", "Domaine, SSL et mise en ligne inclus"] },
+  { eyebrow: "Si vous avez déjà un socle", title: "Refonte / amélioration", price: "À partir de 1 800 €", points: ["Clarification du message et du parcours", "Visuels et textes repensés", "Amélioration du site existant", "Gain de clarté et de confiance"] },
 ];
 
 function OffersPanel() {
@@ -303,15 +229,16 @@ function OffersPanel() {
           className="mb-8"
           accent="yellow"
           eyebrow="Les formes que prend l'accompagnement"
-          title="Quatre formules selon votre besoin"
+          title="Trois façons d’avancer, selon votre besoin"
         />
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-3">
           {offers.map((o, i) => (
             <Reveal key={o.title} delay={i * 0.06} className="h-full">
             <div className={`card-hover relative h-full rounded-2xl border bg-card/50 p-5 shadow-card backdrop-blur ${o.highlight ? "border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_22%,transparent)]" : "border-white/5"}`}>
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]/80">{o.eyebrow}</div>
               <h3 className="mt-2 text-base font-semibold">{o.title}</h3>
+              <div className="mt-2 text-sm font-semibold text-[var(--brand-turquoise)]">{o.price}</div>
               <ul className="mt-4 space-y-2 text-xs text-muted-foreground">
                 {o.points.map((x) => (
                   <li key={x} className="flex items-start gap-2">
@@ -326,7 +253,7 @@ function OffersPanel() {
         </div>
         <div className="mt-6 text-center flex justify-center gap-3">
           <CTAButton href="/reservation-appel" dataEvent="cta_brief_offers">Faire le diagnostic</CTAButton>
-          <CTAButton href="/services" variant="ghost" dataEvent="cta_services_detail">Voir tous les services</CTAButton>
+          <CTAButton href="/services" variant="ghost" dataEvent="cta_services_detail">Voir les services</CTAButton>
         </div>
       </div>
     </section>
@@ -345,8 +272,8 @@ function PortfolioPanel() {
           className="mb-8"
           accent="turquoise"
           eyebrow="Réalisations"
-          title={<>Des projets livrés, <span className="text-gradient">qui convertissent</span>.</>}
-          subtitle="Vous êtes dans quel métier ? Voyez ce que j'ai livré dans votre secteur."
+          title={<>Des projets livrés, <span className="text-gradient">avec un vrai impact</span>.</>}
+          subtitle="Vous êtes dans quel métier ? Voyez ce que j’ai déjà livré dans votre secteur."
         />
         {/* hub catégories (version courte → filtre le portfolio) */}
         <div className="mb-7 flex flex-wrap justify-center gap-2">
@@ -391,7 +318,7 @@ function PortfolioPanel() {
           ))}
         </div>
         <div className="mt-6 text-center">
-          <CTAButton href="/portfolio" variant="ghost">Voir tout le portfolio</CTAButton>
+          <CTAButton href="/portfolio" variant="ghost">Voir le portfolio</CTAButton>
         </div>
       </div>
     </section>
@@ -495,11 +422,11 @@ function ContactPanel() {
       <div className="mx-auto max-w-4xl px-8 md:px-16 w-full text-center">
         <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-yellow)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs font-semibold text-[var(--brand-yellow)]">
           <Sparkles className="h-3.5 w-3.5" />
-          Audit gratuit : votre site web + vos réseaux sociaux
+          Diagnostic gratuit : site, image et réseaux
         </div>
-        <h2 className="text-balance text-3xl font-bold leading-tight md:text-4xl">Prêt à arrêter de tout faire vous-même ?</h2>
+        <h2 className="text-balance text-3xl font-bold leading-tight md:text-4xl">Prêt à déléguer votre présence en ligne ?</h2>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-          Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut pour une image cohérente et comment je peux m'en charger.
+          Décrivez votre activité en 8 minutes : je vous dis ce qui vous manque le plus et comment je peux vous aider à avancer.
         </p>
         <div className="mt-6 flex items-center justify-center gap-3">
           <img
@@ -715,7 +642,6 @@ function Landing() {
       <HeroPanel />
       <ReassuranceBar />
       <ProblemPanel />
-      <DifferencePanel />
       <TrustedBySection />
       <OffersPanel />
       <PortfolioPanel />

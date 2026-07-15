@@ -276,7 +276,7 @@ export function HeroPanel() {
       {/* badge */}
       <div className="hero-fade relative z-10 mb-3 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs text-foreground/90 backdrop-blur">
         <span className="text-[var(--brand-yellow)]">★★★★★</span>
-        5/5 Google · un seul interlocuteur
+        5/5 Google · diagnostic gratuit · un seul interlocuteur
       </div>
 
       {/* avatar + orbit */}
@@ -285,15 +285,14 @@ export function HeroPanel() {
       {/* headline under avatar */}
       <div className="hero-fade hero-fade-d1 relative z-10 mt-3 text-center">
         <h1 className="mx-auto max-w-4xl text-balance text-3xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
-          Pas le temps pour votre site, vos réseaux et votre image ?
+          Vous voulez une présence en ligne claire, crédible et sans complication ?
           <br />
           <span className="text-gradient-anim">
-            Déléguez-moi toute votre communication en ligne.
+            Je vous accompagne de A à Z, avec un seul interlocuteur.
           </span>
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground md:text-lg">
-          Création de site internet, identité visuelle &amp; community management en Savoie.
-          Un seul interlocuteur, de A à Z.
+          De la stratégie au lancement, avec un plan clair, des livrables concrets et un accompagnement humain.
         </p>
 
         {/* CTA principaux visibles sans scroll */}
@@ -301,9 +300,25 @@ export function HeroPanel() {
           <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_hero">
             Réserver un appel gratuit
           </CTAButton>
-          <CTAButton href="/portfolio" variant="ghost" dataEvent="cta_portfolio_hero">
-            Voir mes réalisations
+          <CTAButton href="/services" variant="ghost" dataEvent="cta_services_hero">
+            Voir les services
           </CTAButton>
+        </div>
+
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-[11px] sm:text-xs">
+          {[
+            { value: "5/5", label: "avis Google" },
+            { value: "1", label: "interlocuteur" },
+            { value: "45 min", label: "diagnostic gratuit" },
+          ].map((item) => (
+            <div
+              key={item.label}
+              className="rounded-full border border-white/10 bg-white/6 px-3 py-1.5 text-foreground/80 backdrop-blur"
+            >
+              <span className="font-semibold text-[var(--brand-turquoise)]">{item.value}</span>{" "}
+              <span>{item.label}</span>
+            </div>
+          ))}
         </div>
       </div>
 

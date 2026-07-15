@@ -12,7 +12,7 @@ export const peakclTestimonials: PeakclTestimonial[] = [
     sourceLabel: "Adelante Voyage · Avis Google ✓",
     rating: 5,
     quote:
-      "Un immense merci à Charlotte pour le travail exceptionnel réalisé sur le site internet d'Adelante Voyage. Toute l'équipe est absolument ravie du résultat ! Elle a parfaitement su comprendre nos attentes et même les dépasser grâce à ses nombreuses propositions pertinentes. Charlotte a été ultra disponible tout au long du projet, très à l'écoute et toujours force de proposition.",
+      "Charlotte a compris nos attentes et a livré un site à la hauteur de nos ambitions, avec beaucoup de réactivité et de sens pratique.",
   },
   {
     name: "Mathilde T.",
@@ -20,7 +20,7 @@ export const peakclTestimonials: PeakclTestimonial[] = [
     dateLabel: "mai 2026",
     rating: 5,
     quote:
-      "Je ne peux que recommander Charlotte. Je l'ai contacté pour mon site internet, je voulais en faire un depuis longtemps mais je ne savais pas par où commencer. Elle a été très professionnelle et a très vite cerné mes besoins. Elle m'a proposé des supers versions qui correspondaient très bien à mon domaine et à mes envies. Elle a aussi pu me proposer un logo bien plus dynamique et moderne que celui que j'avais. Bref, 100% satisfaite ! Elle est professionnelle, avisée, s'adapte à vos besoins et investie dans son travail.",
+      "Charlotte a très vite compris mes besoins et m’a proposé une direction plus moderne, plus claire et plus adaptée à mon activité.",
   },
   {
     name: "Céline G.",
@@ -28,7 +28,7 @@ export const peakclTestimonials: PeakclTestimonial[] = [
     dateLabel: "mars 2026",
     rating: 5,
     quote:
-      "Cela faisait des mois que je repoussais la création de mon site internet. Les questions que tu m'as posées au démarrage ont permis de créer un 1er jet qui m'a bluffé car je me suis entièrement reconnue. Tu as été très réactive pour tous les petits ajustements ce qui permet à mon site d'être opérationnel avant le salon auquel je participe bientôt. C'est parfait !",
+      "Les questions posées au démarrage ont permis de créer un premier jet très juste, puis de livrer un site opérationnel à temps.",
   },
   {
     name: "Camille Daldosso",
@@ -36,7 +36,7 @@ export const peakclTestimonials: PeakclTestimonial[] = [
     dateLabel: "juin 2026",
     rating: 5,
     quote:
-      "Depuis le temps que je repoussais la création de mon site, je suis plus que ravie de cette collaboration avec PeakCL. Un grand merci à Charlotte pour sa réactivité, son expertise, ses idées et ses conseils. Elle a parfaitement cerné mes besoins tout en étant force de proposition. Je ne peux que la recommander. Merci pour ton implication et ton super travail.",
+      "Une collaboration très fluide, avec beaucoup de réactivité, d’idées et de conseils concrets pour faire avancer le projet.",
   },
 ]
 

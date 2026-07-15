@@ -127,8 +127,6 @@ const HOME_FAQ_QUESTIONS = [
   "Mon site sera‑t‑il référencé sur Google ?",
   "Pourquoi avoir un site web si j’ai déjà Instagram / Facebook ?",
   "Je n’ai pas le temps de préparer le contenu. On fait comment ?",
-  "Hébergement, nom de domaine, emails… je dois gérer ça ?",
-  "Est‑ce que je serai autonome après ?",
   "Travaillez‑vous uniquement en Savoie / Albertville ?",
 ];
 
