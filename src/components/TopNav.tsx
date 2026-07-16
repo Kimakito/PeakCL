@@ -22,51 +22,66 @@ export function TopNav() {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [revealed, setRevealed] = useState(false);
+  // Décalage vertical (px) de la barre par rapport au haut de l'écran.
+  // null tant que non mesuré (évite un flash au chargement / hydratation SSR).
+  const [offset, setOffset] = useState<number | null>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<number | undefined>(undefined);
 
   const isActive = (to: string) => path === to || path.startsWith(to + "/");
   const servicesActive = path === "/services" || SERVICE_PATHS.some((p) => isActive(p));
 
-  // La navbar reste sous le hero : invisible en haut de page, elle glisse et se
-  // colle en haut dès qu'on scrolle au-delà du hero (seuil ~70% de la fenêtre).
-  // On écoute le scroll de la fenêtre et, en phase de capture, celui des
-  // conteneurs internes (pages snap plein écran) pour couvrir tous les cas.
+  // La navbar est visible en permanence, posée sous le hero au chargement. Quand
+  // on scrolle, elle remonte avec la page puis se colle en haut de l'écran :
+  // translateY = max(0, bas_du_hero − scroll). Le hero est la première section
+  // de la page (ou l'élément marqué [data-hero]).
   useEffect(() => {
     let raf = 0;
+    let heroBottom = 0;
+    const scrollTop = () => document.scrollingElement?.scrollTop ?? window.scrollY;
+    const measure = () => {
+      const hero =
+        document.querySelector<HTMLElement>("[data-hero]") ??
+        document.querySelector<HTMLElement>("main section, section");
+      heroBottom = hero ? hero.getBoundingClientRect().bottom + scrollTop() : window.innerHeight;
+    };
     const compute = () => {
       raf = 0;
-      const threshold = window.innerHeight * 0.7;
-      const doc = document.scrollingElement?.scrollTop ?? window.scrollY;
-      setRevealed(doc > threshold);
+      setOffset(Math.max(0, heroBottom - scrollTop()));
     };
-    const onScroll = (e: Event) => {
-      // Pour un scroll interne (conteneur snap), lit le scrollTop de la cible.
-      const target = e.target;
-      if (target instanceof HTMLElement && target.scrollTop > 0) {
-        if (target.scrollTop > window.innerHeight * 0.7) {
-          setRevealed(true);
-          return;
-        }
-      }
+    const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(compute);
     };
+    const onResize = () => {
+      measure();
+      compute();
+    };
+    measure();
     compute();
+    // Images / polices du hero peuvent modifier sa hauteur après coup.
+    const t = window.setTimeout(onResize, 300);
     window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("scroll", onScroll, { passive: true, capture: true });
-    window.addEventListener("resize", compute);
+    window.addEventListener("resize", onResize);
     return () => {
       if (raf) cancelAnimationFrame(raf);
+      window.clearTimeout(t);
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("scroll", onScroll, { capture: true } as EventListenerOptions);
-      window.removeEventListener("resize", compute);
+      window.removeEventListener("resize", onResize);
     };
   }, [path]);
 
-  // Referme le menu mobile quand la navbar se cache (retour en haut de page).
-  useEffect(() => {
-    if (!revealed) setOpen(false);
-  }, [revealed]);
+  // Ouverture/fermeture du menu Services avec petit délai : évite qu'il se ferme
+  // quand le curseur traverse l'espace entre le bouton et le panneau.
+  const openServices = () => {
+    window.clearTimeout(closeTimer.current);
+    setServicesOpen(true);
+  };
+  const scheduleCloseServices = () => {
+    window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => setServicesOpen(false), 140);
+  };
 
   // Ferme le menu Services au clic extérieur et à la touche Échap.
   useEffect(() => {
@@ -87,8 +102,12 @@ export function TopNav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-[60] border-b border-white/5 bg-background/80 backdrop-blur-xl transition-all duration-500 ${
-        revealed ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-full opacity-0"
+      style={{
+        transform: `translateY(${offset ?? 0}px)`,
+        opacity: offset === null ? 0 : 1,
+      }}
+      className={`fixed inset-x-0 top-0 z-[60] border-b border-white/5 bg-background/80 backdrop-blur-xl transition-opacity duration-300 ${
+        offset === 0 ? "shadow-card" : ""
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
@@ -104,8 +123,8 @@ export function TopNav() {
           <div
             ref={servicesRef}
             className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
+            onMouseEnter={openServices}
+            onMouseLeave={scheduleCloseServices}
           >
             <button
               type="button"
@@ -119,10 +138,11 @@ export function TopNav() {
               <ChevronDown className={`h-3.5 w-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
             </button>
             {servicesOpen ? (
-              <div
-                role="menu"
-                className="absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 rounded-2xl border border-white/10 bg-card/95 p-2 shadow-card backdrop-blur-xl"
-              >
+              <div className="absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-2">
+                <div
+                  role="menu"
+                  className="rounded-2xl border border-white/10 bg-card/95 p-2 shadow-card backdrop-blur-xl"
+                >
                 <Link
                   to="/services"
                   role="menuitem"
@@ -144,6 +164,7 @@ export function TopNav() {
                     {s.navLabel}
                   </Link>
                 ))}
+                </div>
               </div>
             ) : null}
           </div>
