@@ -25,6 +25,7 @@ export function TopNav() {
   // Décalage vertical (px) de la barre par rapport au haut de l'écran.
   // null tant que non mesuré (évite un flash au chargement / hydratation SSR).
   const [offset, setOffset] = useState<number | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<number | undefined>(undefined);
 
@@ -33,21 +34,35 @@ export function TopNav() {
 
   // La navbar est visible en permanence, posée sous le hero au chargement. Quand
   // on scrolle, elle remonte avec la page puis se colle en haut de l'écran :
-  // translateY = max(0, bas_du_hero − scroll). Le hero est la première section
-  // de la page (ou l'élément marqué [data-hero]).
+  // translateY = max(0, bas_du_hero − scroll). Le hero est l'élément marqué
+  // [data-hero], sinon la première section de la page.
   useEffect(() => {
     let raf = 0;
-    let heroBottom = 0;
+    let restTop = 0;
+    let heroEl: HTMLElement | null = null;
     const scrollTop = () => document.scrollingElement?.scrollTop ?? window.scrollY;
     const measure = () => {
-      const hero =
+      heroEl =
         document.querySelector<HTMLElement>("[data-hero]") ??
         document.querySelector<HTMLElement>("main section, section");
-      heroBottom = hero ? hero.getBoundingClientRect().bottom + scrollTop() : window.innerHeight;
+      if (!heroEl) {
+        restTop = window.innerHeight;
+        return;
+      }
+      const rect = heroEl.getBoundingClientRect();
+      const heroBottom = rect.bottom + scrollTop();
+      // Hero plein écran (accueil) : la barre est posée sous le hero, donc hors
+      // écran au repos → son bord haut est au bas du hero. Hero compact
+      // (portfolio, qui-suis-je…) : elle est visible au repos, on la cale pour
+      // que son bord BAS touche le bas du hero, dans la marge basse du hero, sans
+      // recouvrir la section suivante.
+      const navH = headerRef.current?.offsetHeight ?? 0;
+      const heroIsFull = rect.height >= window.innerHeight - 1;
+      restTop = heroIsFull ? heroBottom : Math.max(0, heroBottom - navH);
     };
     const compute = () => {
       raf = 0;
-      setOffset(Math.max(0, heroBottom - scrollTop()));
+      setOffset(Math.max(0, restTop - scrollTop()));
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(compute);
@@ -58,14 +73,18 @@ export function TopNav() {
     };
     measure();
     compute();
-    // Images / polices du hero peuvent modifier sa hauteur après coup.
-    const t = window.setTimeout(onResize, 300);
+    // Le hero change de hauteur après coup (images lazy, polices, hydratation).
+    // Un ResizeObserver garde heroBottom juste : sinon la barre reste figée à une
+    // position mesurée trop tôt et recouvre le contenu qui suit.
+    const ro = new ResizeObserver(onResize);
+    if (heroEl) ro.observe(heroEl);
+    ro.observe(document.body);
     window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("scroll", onScroll, { passive: true, capture: true });
     window.addEventListener("resize", onResize);
     return () => {
       if (raf) cancelAnimationFrame(raf);
-      window.clearTimeout(t);
+      ro.disconnect();
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("scroll", onScroll, { capture: true } as EventListenerOptions);
       window.removeEventListener("resize", onResize);
@@ -102,6 +121,7 @@ export function TopNav() {
 
   return (
     <header
+      ref={headerRef}
       style={{
         transform: `translateY(${offset ?? 0}px)`,
         opacity: offset === null ? 0 : 1,

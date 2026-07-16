@@ -266,6 +266,7 @@ export function HeroPanel() {
   return (
     <section
       id="accueil"
+      data-hero
       className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden"
     >
       {/* Atmosphère hero : aurora premium + halo lumineux central + étoiles + grain */}
