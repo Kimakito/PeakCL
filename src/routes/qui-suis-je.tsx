@@ -4,6 +4,8 @@ import { personJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionGallery } from "@/components/ExpressionPhoto";
+import { TerminalBio } from "@/components/TerminalBio";
+import { StarCrawl } from "@/components/StarCrawl";
 
 const PHOTO = "/peakcl/photo/charlotte-portrait";
 
@@ -66,6 +68,8 @@ function Page() {
 
         <SnapSection id="parcours" className="flex items-center border-t border-white/5 py-20">
           <div className="mx-auto max-w-3xl px-6">
+            <TerminalBio className="mb-12" />
+
             <div className="relative mx-auto mb-8 max-w-md overflow-hidden rounded-2xl border border-white/10 shadow-card">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <picture>
@@ -91,32 +95,7 @@ function Page() {
               </picture>
             </div>
 
-            <div className="space-y-5 text-[15px] leading-relaxed text-muted-foreground">
-              <p>
-                Je m'appelle Charlotte Lacroix et je suis à l'origine de PeakCL. J'ai une particularité
-                rare : je <strong className="text-foreground">code</strong>, je{" "}
-                <strong className="text-foreground">dessine</strong>, et je suis{" "}
-                <strong className="text-foreground">formée au community management</strong>. La plupart
-                des entrepreneurs doivent jongler entre un développeur qui ne pense pas design, un
-                graphiste qui ne sait pas coder et un CM qui ne connaît pas leur image. Avec moi, c'est
-                une seule interlocutrice pour votre site, votre identité visuelle et vos réseaux :
-                site, logo et publications alignés sur le même message, sans double brief ni
-                sous-traitance cachée.
-              </p>
-              <p>
-                Ma formation en community management complète mes compétences techniques et graphiques :
-                je ne me contente pas de « faire de jolis posts », je construis une communication
-                cohérente, pensée pour la conversion, du site web jusqu'aux réseaux sociaux.
-              </p>
-              <p>
-                Concrètement, j'accompagne des indépendants, artisans, thérapeutes, commerçants et
-                petites structures qui veulent une présence en ligne professionnelle sans y passer leurs
-                soirées. J'ai livré 19 projets, agence de voyage, cabinet d'avocate, artisan
-                automobile, prothésiste dentaire, coachs, e-commerce équestre, notés 5/5 sur Google.
-                Basée à Gilly-sur-Isère, juste à côté d'Albertville, je travaille avec des clients dans toute la Savoie (Chambéry,
-                Aix-les-Bains, Annecy) et partout en France, en visio.
-              </p>
-            </div>
+            <StarCrawl />
 
             <div className="relative mt-10 rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />

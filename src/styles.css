@@ -892,3 +892,53 @@
     transform: translate(-50%, -40%) scale(1);
   }
 }
+
+/* ── Générique « crawl » (page Qui suis-je) ──────────────────────
+   Le texte est couché en perspective et remonte vers un point de
+   fuite. L'avancement n'est PAS une minuterie : il suit le scroll,
+   via `--crawl-y` posée par le composant. Le visiteur lit donc à sa
+   vitesse, et le cadre n'est jamais vide en attendant.
+
+   `.crawl-runway` = la course de scroll (hauteur posée en inline
+   après mesure du texte) ; `.crawl-sticky` = le cadre épinglé qu'on
+   traverse pendant cette course.                                    */
+.crawl-runway {
+  position: relative;
+  height: 300vh; /* remplacé en inline une fois le texte mesuré */
+}
+
+.crawl-sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+
+.crawl-scene {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  perspective: 400px;
+  perspective-origin: 50% 0%;
+}
+
+/* Le masque de fondu vit ici, pas sur .crawl-scene : sinon il
+   effacerait aussi le ciel étoilé en haut du cadre. */
+.crawl-tilt {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(24deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 34%, transparent 86%);
+  mask-image: linear-gradient(to top, #000 0%, #000 34%, transparent 86%);
+}
+
+.crawl-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transform: translateY(var(--crawl-y, 0px));
+  will-change: transform;
+}
