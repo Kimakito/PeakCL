@@ -27,6 +27,34 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# 3) En-têtes de sécurité.
+# Clés distinctes de Cache-Control : les blocs ci-dessus ne les écrasent pas.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Empêche l'encadrement du site par un tiers (clickjacking). SAMEORIGIN
+    # plutôt que DENY : /contact intègre déjà une iframe interne.
+    X-Frame-Options = "SAMEORIGIN"
+    # Interdit au navigateur de deviner un type MIME différent de celui servi.
+    X-Content-Type-Options = "nosniff"
+    # Ne fuite pas l'URL complète (chemins de deck client, params) vers l'externe.
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Le site n'utilise ni caméra, ni micro, ni géoloc : on les coupe.
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # Force le HTTPS côté navigateur (les redirects 301 ne protègent pas la
+    # toute première requête). Pas de `preload` : c'est quasi irréversible.
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# 4) CSP en Report-Only d'abord.
+# Une CSP trop stricte casse le site en silence, et les en-têtes netlify.toml
+# ne sont pas testables en `vite dev`. On observe les violations en console
+# après déploiement, puis on renomme la clé en `Content-Security-Policy`.
+# `unsafe-inline` sur script-src est requis par l'hydratation TanStack Start.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy-Report-Only = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://calendly.com; frame-src https://calendly.com; form-action 'self'"
+
 # TanStack Start on Netlify runs via a serverless function.
 # SEO: redirect legacy URLs (previous site/blog) so Google doesn't see 404.
 [[redirects]]
