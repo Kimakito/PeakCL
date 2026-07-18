@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Vous avez besoin d’un site claire, d’une image cohérente et d’une présence en ligne fiable ? PeakCL vous accompagne de A à Z, avec un seul interlocuteur.",
+          "Vous avez besoin d’un site claire, d’une image cohérente et d’une présence en ligne fiable ? PeakCL vous accompagne de A à Z.",
       },
       {
         property: "og:title",
