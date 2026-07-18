@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouterState } from "@tanstack/react-router";
+import { localeFromPath, type Locale } from "@/i18n/config";
 
 /**
  * Bloc « terminal » de la page Qui suis-je : les commandes se tapent
@@ -17,7 +19,7 @@ type Line =
   | { kind: "out"; text: string; tone?: "accent" | "strong" }
   | { kind: "gap" };
 
-const LINES: Line[] = [
+const LINES_FR: Line[] = [
   { kind: "cmd", text: "whoami" },
   { kind: "out", text: "charlotte lacroix", tone: "strong" },
   {
@@ -44,12 +46,52 @@ const LINES: Line[] = [
   { kind: "out", text: "Core Web Vitals au vert, SEO local propre." },
 ];
 
+const LINES_EN: Line[] = [
+  { kind: "cmd", text: "whoami" },
+  { kind: "out", text: "charlotte lacroix", tone: "strong" },
+  {
+    kind: "out",
+    text: "web developer & graphic designer, working remotely worldwide",
+  },
+  { kind: "gap" },
+
+  { kind: "cmd", text: "ls ~/skills" },
+  {
+    kind: "out",
+    text: "code/     design/     social-media/",
+    tone: "accent",
+  },
+  { kind: "gap" },
+
+  { kind: "cmd", text: "ls ~/projects | wc -l" },
+  { kind: "out", text: "19", tone: "strong" },
+  { kind: "out", text: "# 19 projects delivered, rated 5/5 on Google" },
+  { kind: "gap" },
+
+  { kind: "cmd", text: "cat stack.txt" },
+  { kind: "out", text: "Hand-coded sites, no CMS, no plugins." },
+  { kind: "out", text: "Core Web Vitals in the green, clean SEO." },
+];
+
+function linesFor(locale: Locale): Line[] {
+  return locale === "en" ? LINES_EN : LINES_FR;
+}
+
+/** Chemin affiché dans l'invite du terminal, selon la langue. */
+function promptPath(locale: Locale): string {
+  return locale === "en" ? "~/about" : "~/qui-suis-je";
+}
+
 const TYPE_MS = 30;
 const AFTER_CMD_MS = 300;
 const AFTER_OUT_MS = 90;
 const GAP_MS = 180;
 
 export function TerminalBio({ className = "" }: { className?: string }) {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const locale = localeFromPath(path);
+  // Mémoïsé : sinon un nouveau tableau à chaque render relancerait l'animation.
+  const LINES = useMemo(() => linesFor(locale), [locale]);
   const rootRef = useRef<HTMLDivElement>(null);
   // step = nombre de lignes entièrement révélées ; chars = avancement de la ligne en cours.
   const [step, setStep] = useState(0);
@@ -111,7 +153,7 @@ export function TerminalBio({ className = "" }: { className?: string }) {
     return () => {
       cancelled = true;
     };
-  }, [started]);
+  }, [started, LINES]);
 
   const done = step >= LINES.length;
 
@@ -129,7 +171,7 @@ export function TerminalBio({ className = "" }: { className?: string }) {
         <span className="h-3 w-3 rounded-full bg-[var(--brand-turquoise)]/80" />
         <span className="h-3 w-3 rounded-full bg-white/25" />
         <span className="ml-2 font-mono text-xs text-muted-foreground">
-          charlotte@peakcl : ~/qui-suis-je
+          charlotte@peakcl : {promptPath(locale)}
         </span>
       </div>
 

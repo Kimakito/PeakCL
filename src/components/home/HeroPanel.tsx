@@ -8,7 +8,9 @@ import {
   Package,
   Star,
 } from "lucide-react";
+import { useRouterState } from "@tanstack/react-router";
 import { CTAButton } from "@/components/CTAButton";
+import { localeFromPath, type Locale } from "@/i18n/config";
 import type { MascotPose } from "@/lib/mascot";
 
 const PHOTO_400 = "/peakcl/photo/charlotte-round-400.webp";
@@ -27,49 +29,97 @@ type OrbitItem = {
   flip?: boolean;
 };
 
-const ORBIT_ITEMS: OrbitItem[] = [
-  {
-    label: "Réserver un appel",
-    href: "/reservation-appel",
-    desc: "Diagnostic offert, 45 min. Repartez sur un plan clair.",
-    icon: CalendarCheck,
-    pose: "victoire",
-    variant: "primary",
-  },
-  {
-    label: "Portfolio",
-    href: "/portfolio",
-    desc: "Des projets livrés qui convertissent.",
-    icon: LayoutGrid,
-    pose: "tablette",
-    variant: "ghost",
-  },
-  {
-    label: "Services",
-    href: "/services",
-    desc: "Sites web, réseaux, design, automatisation. Un seul interlocuteur.",
-    icon: Package,
-    pose: "bas",
-    variant: "ghost",
-  },
-  {
-    label: "Avis clients",
-    href: "#avis",
-    desc: "Noté 5/5 sur Google par mes clients.",
-    icon: Star,
-    pose: "graphique",
-    variant: "ghost",
-  },
-  {
-    label: "WhatsApp",
-    href: WHATSAPP_URL,
-    desc: "Une question rapide ? Réponse en direct.",
-    icon: MessageCircle,
-    pose: "dab",
-    variant: "ghost",
-    flip: true,
-  },
-];
+/** Nœuds de l'orbite selon la langue (libellés + descriptions + cibles). */
+function orbitItems(locale: Locale): OrbitItem[] {
+  if (locale === "en") {
+    return [
+      {
+        label: "Book a call",
+        href: "/en/book-a-call",
+        desc: "Free 45-min audit. Leave with a clear plan.",
+        icon: CalendarCheck,
+        pose: "victoire",
+        variant: "primary",
+      },
+      {
+        label: "Portfolio",
+        href: "/en/portfolio",
+        desc: "Delivered projects that convert.",
+        icon: LayoutGrid,
+        pose: "tablette",
+        variant: "ghost",
+      },
+      {
+        label: "Services",
+        href: "/en/services",
+        desc: "Websites, social, design, automation. One point of contact.",
+        icon: Package,
+        pose: "bas",
+        variant: "ghost",
+      },
+      {
+        label: "Reviews",
+        href: "#avis",
+        desc: "Rated 5/5 on Google by my clients.",
+        icon: Star,
+        pose: "graphique",
+        variant: "ghost",
+      },
+      {
+        label: "WhatsApp",
+        href: WHATSAPP_URL,
+        desc: "Quick question? Get a direct reply.",
+        icon: MessageCircle,
+        pose: "dab",
+        variant: "ghost",
+        flip: true,
+      },
+    ];
+  }
+  return [
+    {
+      label: "Réserver un appel",
+      href: "/reservation-appel",
+      desc: "Diagnostic offert, 45 min. Repartez sur un plan clair.",
+      icon: CalendarCheck,
+      pose: "victoire",
+      variant: "primary",
+    },
+    {
+      label: "Portfolio",
+      href: "/portfolio",
+      desc: "Des projets livrés qui convertissent.",
+      icon: LayoutGrid,
+      pose: "tablette",
+      variant: "ghost",
+    },
+    {
+      label: "Services",
+      href: "/services",
+      desc: "Sites web, réseaux, design, automatisation. Un seul interlocuteur.",
+      icon: Package,
+      pose: "bas",
+      variant: "ghost",
+    },
+    {
+      label: "Avis clients",
+      href: "#avis",
+      desc: "Noté 5/5 sur Google par mes clients.",
+      icon: Star,
+      pose: "graphique",
+      variant: "ghost",
+    },
+    {
+      label: "WhatsApp",
+      href: WHATSAPP_URL,
+      desc: "Une question rapide ? Réponse en direct.",
+      icon: MessageCircle,
+      pose: "dab",
+      variant: "ghost",
+      flip: true,
+    },
+  ];
+}
 
 /** Radius of the orbit as a fraction of the container's --hero size. */
 const ORBIT_R = 0.46;
@@ -86,11 +136,11 @@ function nodeVector(index: number, total: number, rotation: number, r: number) {
   };
 }
 
-function HeroAvatar() {
+function HeroAvatar({ items }: { items: OrbitItem[] }) {
   const [rotation, setRotation] = useState(0);
   const [hoverId, setHoverId] = useState<number | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const total = ORBIT_ITEMS.length;
+  const total = items.length;
 
   // Auto-rotation, en pause quand un nœud est survolé (le nœud reste immobile,
   // le temps d'aller cliquer sur sa carte).
@@ -116,9 +166,12 @@ function HeroAvatar() {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     closeTimer.current = setTimeout(() => setHoverId(null), 220);
   };
-  useEffect(() => () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-  }, []);
+  useEffect(
+    () => () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    },
+    [],
+  );
 
   const dataEventFor = (label: string) =>
     `cta_hero_${label.toLowerCase().replace(/\s+/g, "_")}`;
@@ -173,7 +226,7 @@ function HeroAvatar() {
       </div>
 
       {/* nœuds en orbite — chaque nœud est un lien direct (tap mobile = navigation) */}
-      {ORBIT_ITEMS.map((item, index) => {
+      {items.map((item, index) => {
         const { fx, fy, rad } = nodeVector(index, total, rotation, ORBIT_R);
         const lit = hoverId === index;
         const Icon = item.icon;
@@ -186,7 +239,9 @@ function HeroAvatar() {
           <a
             key={item.label}
             href={item.href}
-            {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            {...(external
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
             data-event={dataEventFor(item.label)}
             className="absolute flex flex-col items-center transition-[opacity] duration-300"
             style={{
@@ -226,7 +281,7 @@ function HeroAvatar() {
           donc toujours dans l'écran, jamais sous le titre. */}
       {hoverId !== null &&
         (() => {
-          const item = ORBIT_ITEMS[hoverId];
+          const item = items[hoverId];
           const { fx, fy } = nodeVector(hoverId, total, rotation, ORBIT_R);
           const Icon = item.icon;
           return (
@@ -242,7 +297,9 @@ function HeroAvatar() {
             >
               <div className="flex items-center gap-2">
                 <Icon size={15} className="text-[var(--brand-turquoise)]" />
-                <span className="text-sm font-semibold text-white">{item.label}</span>
+                <span className="text-sm font-semibold text-white">
+                  {item.label}
+                </span>
               </div>
               <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                 {item.desc}
@@ -262,7 +319,51 @@ function HeroAvatar() {
   );
 }
 
+/** Textes du hero selon la langue. En anglais : angle international, on retire
+ *  l'ancrage Savoie et « un seul interlocuteur » devient « one person ». */
+function heroText(locale: Locale) {
+  if (locale === "en") {
+    return {
+      badge: "5/5 Google · free audit · one point of contact",
+      titleLead:
+        "Want an online presence that's clear, credible and simple to run?",
+      titleAccent: "One person for your site, design and social, end to end.",
+      sub: "From strategy to launch, with a clear plan, concrete deliverables and a human on the other end.",
+      ctaPrimary: "Book a free call",
+      ctaSecondary: "See services",
+      servicesHref: "/en/services",
+      chips: [
+        { value: "5/5", label: "Google reviews" },
+        { value: "1", label: "point of contact" },
+        { value: "45 min", label: "free audit" },
+      ],
+      scrollHint: "scroll ↓",
+    };
+  }
+  return {
+    badge: "5/5 Google · diagnostic gratuit · un seul interlocuteur",
+    titleLead:
+      "Vous voulez une présence en ligne claire, crédible et sans complication ?",
+    titleAccent: "Je vous accompagne de A à Z, avec un seul interlocuteur.",
+    sub: "De la stratégie au lancement, avec un plan clair, des livrables concrets et un accompagnement humain.",
+    ctaPrimary: "Réserver un appel gratuit",
+    ctaSecondary: "Voir les services",
+    servicesHref: "/services",
+    chips: [
+      { value: "5/5", label: "avis Google" },
+      { value: "1", label: "interlocuteur" },
+      { value: "45 min", label: "diagnostic gratuit" },
+    ],
+    scrollHint: "scroll ↓",
+  };
+}
+
 export function HeroPanel() {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const locale = localeFromPath(path);
+  const t = heroText(locale);
+  const items = orbitItems(locale);
+
   return (
     <section
       id="accueil"
@@ -277,46 +378,46 @@ export function HeroPanel() {
       {/* badge */}
       <div className="hero-fade relative z-10 mb-3 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs text-foreground/90 backdrop-blur">
         <span className="text-[var(--brand-yellow)]">★★★★★</span>
-        5/5 Google · diagnostic gratuit · un seul interlocuteur
+        {t.badge}
       </div>
 
       {/* avatar + orbit */}
-      <HeroAvatar />
+      <HeroAvatar items={items} />
 
       {/* headline under avatar */}
       <div className="hero-fade hero-fade-d1 relative z-10 mt-3 text-center">
         <h1 className="mx-auto max-w-4xl text-balance text-3xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
-          Vous voulez une présence en ligne claire, crédible et sans complication ?
+          {t.titleLead}
           <br />
-          <span className="text-gradient-anim">
-            Je vous accompagne de A à Z, avec un seul interlocuteur.
-          </span>
+          <span className="text-gradient-anim">{t.titleAccent}</span>
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground md:text-lg">
-          De la stratégie au lancement, avec un plan clair, des livrables concrets et un accompagnement humain.
+          {t.sub}
         </p>
 
         {/* CTA principaux visibles sans scroll */}
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_hero">
-            Réserver un appel gratuit
+            {t.ctaPrimary}
           </CTAButton>
-          <CTAButton href="/services" variant="ghost" dataEvent="cta_services_hero">
-            Voir les services
+          <CTAButton
+            href={t.servicesHref}
+            variant="ghost"
+            dataEvent="cta_services_hero"
+          >
+            {t.ctaSecondary}
           </CTAButton>
         </div>
 
         <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-[11px] sm:text-xs">
-          {[
-            { value: "5/5", label: "avis Google" },
-            { value: "1", label: "interlocuteur" },
-            { value: "45 min", label: "diagnostic gratuit" },
-          ].map((item) => (
+          {t.chips.map((item) => (
             <div
               key={item.label}
               className="rounded-full border border-white/10 bg-white/6 px-3 py-1.5 text-foreground/80 backdrop-blur"
             >
-              <span className="font-semibold text-[var(--brand-turquoise)]">{item.value}</span>{" "}
+              <span className="font-semibold text-[var(--brand-turquoise)]">
+                {item.value}
+              </span>{" "}
               <span>{item.label}</span>
             </div>
           ))}
@@ -325,7 +426,7 @@ export function HeroPanel() {
 
       {/* scroll hint */}
       <div className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 animate-bounce text-white/30 text-xs hidden md:block">
-        scroll ↓
+        {t.scrollHint}
       </div>
     </section>
   );

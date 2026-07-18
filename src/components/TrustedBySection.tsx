@@ -1,26 +1,61 @@
 import { useMemo } from "react";
 import { ArrowRight } from "lucide-react";
+import { useRouterState } from "@tanstack/react-router";
 import { peakclPortfolio } from "@/content/peakcl/portfolio";
 import { ClientLogo } from "@/components/ClientLogo";
+import { localeFromPath, type Locale } from "@/i18n/config";
+
+/** Textes de la section selon la langue. En anglais : angle international,
+ *  on retire l'ancrage Savoie / France. */
+function trustedText(locale: Locale, count: number) {
+  if (locale === "en") {
+    return {
+      eyebrow: "Trusted by",
+      heading: (
+        <>
+          Professionals who chose <span className="text-gradient">PeakCL</span>.
+        </>
+      ),
+      subtitle: `${count} projects delivered for craftspeople, coaches, health, travel and e-commerce.`,
+      cta: "See all projects",
+      portfolioHref: "/en/portfolio",
+    };
+  }
+  return {
+    eyebrow: "Ils nous ont fait confiance",
+    heading: (
+      <>
+        Des pros qui ont choisi <span className="text-gradient">PeakCL</span>.
+      </>
+    ),
+    subtitle: `${count} projets livrés, artisans, coachs, santé, voyage, e-commerce… en Savoie et en France.`,
+    cta: "Voir tous les projets",
+    portfolioHref: "/portfolio",
+  };
+}
 
 function ClientLogoCard({
   title,
   subtitle,
   logoUrl,
   siteUrl,
+  locale,
 }: {
   title: string;
   subtitle?: string;
   logoUrl: string;
   siteUrl: string;
+  locale: Locale;
 }) {
+  const titleAttr =
+    locale === "en" ? `${title}: view the site` : `${title} : voir le site`;
   return (
     <a
       href={siteUrl}
       target="_blank"
       rel="noopener noreferrer"
       data-event="trusted_logo_click"
-      title={`${title} : voir le site`}
+      title={titleAttr}
       className="group flex shrink-0 items-center gap-3 rounded-2xl border border-white/10 bg-card/40 px-4 py-3 shadow-card backdrop-blur transition-colors hover:border-white/20 hover:bg-card/60 sm:px-5"
     >
       <ClientLogo src={logoUrl} alt={title} size="sm" />
@@ -39,8 +74,11 @@ function ClientLogoCard({
 }
 
 export function TrustedBySection() {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const locale = localeFromPath(path);
   const clients = useMemo(() => peakclPortfolio.filter((p) => p.logoUrl), []);
   const marqueeTrack = useMemo(() => [...clients, ...clients], [clients]);
+  const t = trustedText(locale, clients.length);
 
   return (
     <section
@@ -50,13 +88,16 @@ export function TrustedBySection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
-            Ils nous ont fait confiance
+            {t.eyebrow}
           </span>
-          <h2 id="trusted-by-heading" className="mt-4 text-balance text-3xl font-bold md:text-4xl">
-            Des pros qui ont choisi <span className="text-gradient">PeakCL</span>.
+          <h2
+            id="trusted-by-heading"
+            className="mt-4 text-balance text-3xl font-bold md:text-4xl"
+          >
+            {t.heading}
           </h2>
           <p className="mt-3 text-sm text-muted-foreground md:text-base">
-            {clients.length} projets livrés, artisans, coachs, santé, voyage, e-commerce… en Savoie et en France.
+            {t.subtitle}
           </p>
         </div>
 
@@ -79,6 +120,7 @@ export function TrustedBySection() {
                   subtitle={p.subtitle}
                   logoUrl={p.logoUrl!}
                   siteUrl={p.siteUrl}
+                  locale={locale}
                 />
               ))}
             </div>
@@ -93,6 +135,7 @@ export function TrustedBySection() {
                 subtitle={p.subtitle}
                 logoUrl={p.logoUrl!}
                 siteUrl={p.siteUrl}
+                locale={locale}
               />
             </li>
           ))}
@@ -100,11 +143,11 @@ export function TrustedBySection() {
 
         <p className="mt-8 text-center">
           <a
-            href="/portfolio"
+            href={t.portfolioHref}
             className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
             data-event="cta_portfolio_trusted"
           >
-            Voir tous les projets
+            {t.cta}
             <ArrowRight className="h-4 w-4" />
           </a>
         </p>

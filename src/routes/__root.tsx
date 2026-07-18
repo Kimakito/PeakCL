@@ -15,6 +15,7 @@ import { PeakaBot } from "@/components/PeakaBot";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { absUrl } from "@/seo/site";
 import { organizationJsonLd, professionalServiceJsonLd } from "@/seo/jsonld";
+import { localeFromPath, HTML_LANG } from "@/i18n/config";
 
 function NotFoundComponent() {
   return (
@@ -30,7 +31,9 @@ function NotFoundComponent() {
           />
         </div>
         <h1 className="text-7xl font-bold text-gradient">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page introuvable</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">
+          Page introuvable
+        </h2>
         <p className="mt-2 text-sm text-muted-foreground">
           Cette page a filé dans la nuit. Rentrons à l'accueil, c'est plus sûr.
         </p>
@@ -71,7 +74,10 @@ export const Route = createRootRoute({
       { property: "og:image", content: absUrl("/peakcl/og-cover.jpg") },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "PeakCL · Déléguez votre communication en ligne" },
+      {
+        property: "og:image:alt",
+        content: "PeakCL · Déléguez votre communication en ligne",
+      },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: absUrl("/peakcl/og-cover.jpg") },
       { "script:ld+json": organizationJsonLd() },
@@ -82,9 +88,21 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", type: "image/png", sizes: "96x96", href: "/peakcl/assets/favicon/favicon-96x96.png" },
-      { rel: "icon", type: "image/x-icon", href: "/peakcl/assets/favicon/favicon.ico" },
-      { rel: "apple-touch-icon", href: "/peakcl/assets/favicon/apple-touch-icon.png" },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "96x96",
+        href: "/peakcl/assets/favicon/favicon-96x96.png",
+      },
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/peakcl/assets/favicon/favicon.ico",
+      },
+      {
+        rel: "apple-touch-icon",
+        href: "/peakcl/assets/favicon/apple-touch-icon.png",
+      },
       { rel: "manifest", href: "/peakcl/assets/favicon/site.webmanifest" },
       {
         rel: "preconnect",
@@ -103,8 +121,11 @@ export const Route = createRootRoute({
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  // <html lang> suit la langue de l'URL, côté SSR comme au montage.
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const lang = HTML_LANG[localeFromPath(pathname)];
   return (
-    <html lang="fr">
+    <html lang={lang}>
       <head>
         <HeadContent />
         <link
@@ -143,9 +164,14 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  // Le deck home (/) et /portfolio embarquent déjà DeckFooter : on évite le doublon.
+  // Le deck home (/) et /portfolio embarquent déjà DeckFooter : on évite le
+  // doublon. Idem pour leurs équivalents anglais.
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const hasDeckFooter = pathname === "/" || pathname === "/portfolio";
+  const hasDeckFooter =
+    pathname === "/" ||
+    pathname === "/portfolio" ||
+    pathname === "/en" ||
+    pathname === "/en/portfolio";
   return (
     <>
       <SiteChrome />

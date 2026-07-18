@@ -6,7 +6,9 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
+import { useRouterState } from "@tanstack/react-router";
 import { SOCIAL, FREELANCE, CONTACT } from "@/lib/links";
+import { localeFromPath, type Locale } from "@/i18n/config";
 import logo from "@/assets/peakcl-logo.png";
 
 const SOCIALS = [
@@ -16,8 +18,84 @@ const SOCIALS = [
   { href: SOCIAL.whatsapp, label: "WhatsApp", icon: MessageCircle },
 ];
 
+const FREELANCE_LINKS = [
+  { href: FREELANCE.malt, label: "Malt" },
+  { href: FREELANCE.fiverr, label: "Fiverr" },
+  { href: FREELANCE.comeup, label: "ComeUp" },
+];
+
+type NavLink = { href: string; label: string };
+
+type FooterText = {
+  headline: string;
+  subtitle: string;
+  primaryNav: NavLink[];
+  serviceLinks: NavLink[];
+  alsoAvailable: string;
+  /** Villes : SEO local français uniquement, retiré en anglais (angle international). */
+  cities: NavLink[] | null;
+};
+
+/** Contenu du footer selon la langue. En anglais : angle international
+ *  (freelance à distance), on retire l'ancrage géographique Savoie / villes. */
+function footerText(locale: Locale): FooterText {
+  if (locale === "en") {
+    return {
+      headline: "Let's build your online presence.",
+      subtitle:
+        "Website, brand, social, Google: one person, from start to finish.",
+      primaryNav: [
+        { href: "/en", label: "Home" },
+        { href: "/en/portfolio", label: "Portfolio" },
+        { href: "/en/services", label: "Services" },
+        { href: "/en/about", label: "About" },
+        { href: "/conseils", label: "Tips" },
+        { href: "/en/book-a-call", label: "Book a call" },
+      ],
+      serviceLinks: [
+        { href: "/en/web-development", label: "Web development" },
+        { href: "/creation-logo-albertville", label: "Logo & brand identity" },
+        { href: "/community-manager-savoie", label: "Social media management" },
+        { href: "/en/design", label: "Graphic design" },
+      ],
+      alsoAvailable: "Also available on:",
+      cities: null,
+    };
+  }
+  return {
+    headline: "Construisons votre image en ligne.",
+    subtitle:
+      "Site, identité, réseaux, Google : un seul interlocuteur, de A à Z.",
+    primaryNav: [
+      { href: "/", label: "Accueil" },
+      { href: "/portfolio", label: "Portfolio" },
+      { href: "/services", label: "Services" },
+      { href: "/qui-suis-je", label: "Qui suis-je" },
+      { href: "/conseils", label: "Conseils" },
+      { href: "/reservation-appel", label: "Réservation d’appel" },
+    ],
+    serviceLinks: [
+      { href: "/sites-web", label: "Création de sites web" },
+      { href: "/creation-logo-albertville", label: "Logo & identité" },
+      { href: "/community-manager-savoie", label: "Community management" },
+      { href: "/design", label: "Design graphique" },
+    ],
+    alsoAvailable: "Aussi disponible sur :",
+    cities: [
+      { href: "/agence-web-albertville", label: "Albertville" },
+      { href: "/agence-web-chambery", label: "Chambéry" },
+      { href: "/agence-web-annecy", label: "Annecy" },
+      { href: "/agence-web-aix-les-bains", label: "Aix-les-Bains" },
+      { href: "/agence-web-gilly-sur-isere", label: "Gilly-sur-Isère" },
+    ],
+  };
+}
+
 /** Footer plein écran — pensé pour terminer un deck horizontal. */
 export function DeckFooter() {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const locale = localeFromPath(path);
+  const t = footerText(locale);
   const year = new Date().getFullYear();
   return (
     <section className="flex h-full w-full items-center justify-center overflow-y-auto">
@@ -27,11 +105,9 @@ export function DeckFooter() {
           alt="PeakCL"
           className="mx-auto h-12 w-12 rounded-xl object-cover"
         />
-        <h2 className="mt-4 text-2xl font-bold md:text-3xl">
-          Construisons votre image en ligne.
-        </h2>
+        <h2 className="mt-4 text-2xl font-bold md:text-3xl">{t.headline}</h2>
         <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
-          Site, identité, réseaux, Google : un seul interlocuteur, de A à Z.
+          {t.subtitle}
         </p>
 
         <div className="mt-6 flex items-center justify-center gap-3">
@@ -66,101 +142,49 @@ export function DeckFooter() {
         </div>
 
         <div className="mt-7 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs">
-          <a href="/" className="text-muted-foreground hover:text-foreground">
-            Accueil
-          </a>
-          <a
-            href="/portfolio"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            Portfolio
-          </a>
-          <a
-            href="/services"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            Services
-          </a>
-          <a
-            href="/qui-suis-je"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            Qui suis-je
-          </a>
-          <a
-            href="/conseils"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            Conseils
-          </a>
-          <a
-            href="/reservation-appel"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            Réservation d’appel
-          </a>
+          {t.primaryNav.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              {label}
+            </a>
+          ))}
         </div>
 
         <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/80">
-          <a href="/sites-web" className="hover:text-foreground">
-            Création de sites web
-          </a>
-          <a href="/creation-logo-albertville" className="hover:text-foreground">
-            Logo &amp; identité
-          </a>
-          <a href="/community-manager-savoie" className="hover:text-foreground">
-            Community management
-          </a>
-          <a href="/design" className="hover:text-foreground">
-            Design graphique
-          </a>
+          {t.serviceLinks.map(({ href, label }) => (
+            <a key={href} href={href} className="hover:text-foreground">
+              {label}
+            </a>
+          ))}
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/80">
-          <span>Aussi disponible sur&nbsp;:</span>
-          <a
-            href={FREELANCE.malt}
-            target="_blank"
-            rel="noopener noreferrer nofollow sponsored"
-            className="hover:text-foreground"
-          >
-            Malt
-          </a>
-          <a
-            href={FREELANCE.fiverr}
-            target="_blank"
-            rel="noopener noreferrer nofollow sponsored"
-            className="hover:text-foreground"
-          >
-            Fiverr
-          </a>
-          <a
-            href={FREELANCE.comeup}
-            target="_blank"
-            rel="noopener noreferrer nofollow sponsored"
-            className="hover:text-foreground"
-          >
-            ComeUp
-          </a>
+          <span>{t.alsoAvailable}</span>
+          {FREELANCE_LINKS.map(({ href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer nofollow sponsored"
+              className="hover:text-foreground"
+            >
+              {label}
+            </a>
+          ))}
         </div>
 
-        <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/60">
-          <a href="/agence-web-albertville" className="hover:text-foreground">
-            Albertville
-          </a>
-          <a href="/agence-web-chambery" className="hover:text-foreground">
-            Chambéry
-          </a>
-          <a href="/agence-web-annecy" className="hover:text-foreground">
-            Annecy
-          </a>
-          <a href="/agence-web-aix-les-bains" className="hover:text-foreground">
-            Aix-les-Bains
-          </a>
-          <a href="/agence-web-gilly-sur-isere" className="hover:text-foreground">
-            Gilly-sur-Isère
-          </a>
-        </div>
+        {t.cities ? (
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/60">
+            {t.cities.map(({ href, label }) => (
+              <a key={href} href={href} className="hover:text-foreground">
+                {label}
+              </a>
+            ))}
+          </div>
+        ) : null}
 
         <p className="mt-6 text-xs text-muted-foreground/60">
           © {year} PeakCL · Charlotte Lacroix

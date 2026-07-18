@@ -1,20 +1,49 @@
 import type { ReactNode } from "react";
-import { ArrowRight, ArrowUpRight, Check, Facebook, Instagram } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Facebook,
+  Instagram,
+} from "lucide-react";
+import { useRouterState } from "@tanstack/react-router";
+import { localeFromPath } from "@/i18n/config";
+import { ui } from "@/i18n/ui";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Card } from "@/components/ui/card";
 import { Spotlight } from "@/components/ui/spotlight";
 import { SplineScene } from "@/components/ui/splite";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionAvatarCard, ExpressionPhoto } from "@/components/ExpressionPhoto";
+import {
+  SectionAvatarCard,
+  ExpressionPhoto,
+} from "@/components/ExpressionPhoto";
 import type { SectionCardSlug } from "@/lib/expressions";
-import type { CatalogItem, Forfait, ServiceHighlight } from "@/content/peakcl/services";
+import type {
+  CatalogItem,
+  Forfait,
+  ServiceHighlight,
+} from "@/content/peakcl/services";
 import type { MascotShot } from "@/content/peakcl/mascots";
 
 const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
-function CatalogCard({ p, showPrices }: { p: CatalogItem; showPrices?: boolean }) {
-  const priceText = showPrices && p.price ? p.price : "Sur devis";
+type ServicePageStrings = ReturnType<typeof ui>["servicePage"];
+
+function CatalogCard({
+  p,
+  showPrices,
+  t,
+  bookHref,
+}: {
+  p: CatalogItem;
+  showPrices?: boolean;
+  t: ServicePageStrings;
+  bookHref: string;
+}) {
+  const isOnQuote = !(showPrices && p.price);
+  const priceText = isOnQuote ? t.onQuote : (p.price as string);
   return (
     <section
       className={`card-hover relative rounded-2xl border bg-card/50 p-7 shadow-card ${
@@ -23,25 +52,38 @@ function CatalogCard({ p, showPrices }: { p: CatalogItem; showPrices?: boolean }
           : "border-white/5"
       }`}
     >
-      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+      <GlowingEffect
+        spread={40}
+        glow
+        disabled={false}
+        proximity={64}
+        inactiveZone={0.01}
+        borderWidth={3}
+      />
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h3 className="text-xl font-semibold">{p.title}</h3>
         <div className="text-right">
-          <div className={`text-sm font-semibold ${priceText === "Sur devis" ? "text-muted-foreground" : "text-[var(--brand-turquoise)]"}`}>
+          <div
+            className={`text-sm font-semibold ${isOnQuote ? "text-muted-foreground" : "text-[var(--brand-turquoise)]"}`}
+          >
             {priceText}
           </div>
-          {priceText === "Sur devis" ? (
-            <div className="text-xs text-muted-foreground/70">Selon votre profil et le périmètre</div>
+          {isOnQuote ? (
+            <div className="text-xs text-muted-foreground/70">
+              {t.priceHint}
+            </div>
           ) : null}
         </div>
       </div>
 
       <p className="mt-3 text-sm text-muted-foreground">{p.desc}</p>
-      {p.delay ? <p className="mt-2 text-sm text-muted-foreground">{p.delay}</p> : null}
+      {p.delay ? (
+        <p className="mt-2 text-sm text-muted-foreground">{p.delay}</p>
+      ) : null}
 
       <div className="mt-6 grid gap-5 md:grid-cols-2">
         <div className="rounded-xl border border-white/5 bg-background/40 p-5">
-          <div className="text-sm font-semibold">Livrables</div>
+          <div className="text-sm font-semibold">{t.deliverables}</div>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             {p.included.map((x) => (
               <li key={x} className="flex items-start gap-3">
@@ -53,7 +95,7 @@ function CatalogCard({ p, showPrices }: { p: CatalogItem; showPrices?: boolean }
         </div>
         {p.notIncluded?.length ? (
           <div className="rounded-xl border border-white/5 bg-background/40 p-5">
-            <div className="text-sm font-semibold">Hors périmètre (souvent)</div>
+            <div className="text-sm font-semibold">{t.outOfScope}</div>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
               {p.notIncluded.map((x) => (
                 <li key={x}>{x}</li>
@@ -62,9 +104,9 @@ function CatalogCard({ p, showPrices }: { p: CatalogItem; showPrices?: boolean }
           </div>
         ) : (
           <div className="rounded-xl border border-white/5 bg-background/40 p-5">
-            <div className="text-sm font-semibold">Comment on avance</div>
+            <div className="text-sm font-semibold">{t.howWeWork}</div>
             <p className="mt-4 text-sm text-muted-foreground">
-              Vous réservez votre appel, je vous fais un retour rapide, puis on valide un devis clair (livrables, délais, budget) selon votre besoin.
+              {t.howWeWorkBody}
             </p>
           </div>
         )}
@@ -72,18 +114,18 @@ function CatalogCard({ p, showPrices }: { p: CatalogItem; showPrices?: boolean }
 
       <div className="mt-6">
         <a
-          href="/reservation-appel"
+          href={bookHref}
           data-event="cta_brief_service"
           className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
         >
-          Demander un devis pour cette prestation <ArrowRight className="h-4 w-4" />
+          {t.requestQuote} <ArrowRight className="h-4 w-4" />
         </a>
       </div>
     </section>
   );
 }
 
-function ForfaitCard({ f }: { f: Forfait }) {
+function ForfaitCard({ f, t }: { f: Forfait; t: ServicePageStrings }) {
   return (
     <div
       className={`card-hover relative flex flex-col rounded-2xl border p-6 shadow-card ${
@@ -94,14 +136,18 @@ function ForfaitCard({ f }: { f: Forfait }) {
     >
       {f.highlight ? (
         <span className="absolute -top-2.5 left-6 rounded-full bg-primary-gradient px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary-foreground">
-          Populaire
+          {t.popular}
         </span>
       ) : null}
       <div className="flex items-center gap-2">
         <span className="text-xl">{f.emoji}</span>
-        <span className="text-sm font-bold uppercase tracking-[0.14em]">{f.name}</span>
+        <span className="text-sm font-bold uppercase tracking-[0.14em]">
+          {f.name}
+        </span>
       </div>
-      <div className="mt-3 text-2xl font-bold text-[var(--brand-turquoise)]">{f.price}</div>
+      <div className="mt-3 text-2xl font-bold text-[var(--brand-turquoise)]">
+        {f.price}
+      </div>
       <p className="mt-1 text-xs text-muted-foreground">{f.freq}</p>
       <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
         {f.inclus.map((x) => (
@@ -147,27 +193,65 @@ export type ServicePageProps = {
   /** Lien vers le portfolio filtré par métier, affiché sous les prestations. */
   portfolioLink?: { to: string; label: string };
   /** Comptes réseaux animés (démonstration), affichés en cartes cliquables. */
-  socials?: { handle: string; url: string; name: string; desc: string; platform?: "instagram" | "facebook" }[];
+  socials?: {
+    handle: string;
+    url: string;
+    name: string;
+    desc: string;
+    platform?: "instagram" | "facebook";
+  }[];
   socialsTitle?: string;
   socialsSubtitle?: string;
 };
 
-export function ServicePage({ eyebrow, title, tagline, intro, highlights, highlightsTitle, highlightsSubtitle, forfaits, forfaitsTitle, forfaitsNote, sectionTitle, sectionSubtitle, items, showPrices, avatarCard, heroSpline, heroImage, gallery, galleryTitle, gallerySubtitle, portfolioLink, socials, socialsTitle, socialsSubtitle }: ServicePageProps) {
+export function ServicePage({
+  eyebrow,
+  title,
+  tagline,
+  intro,
+  highlights,
+  highlightsTitle,
+  highlightsSubtitle,
+  forfaits,
+  forfaitsTitle,
+  forfaitsNote,
+  sectionTitle,
+  sectionSubtitle,
+  items,
+  showPrices,
+  avatarCard,
+  heroSpline,
+  heroImage,
+  gallery,
+  galleryTitle,
+  gallerySubtitle,
+  portfolioLink,
+  socials,
+  socialsTitle,
+  socialsSubtitle,
+}: ServicePageProps) {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const locale = localeFromPath(path);
+  const t = ui(locale).servicePage;
+  const bookHref = locale === "en" ? "/en/book-a-call" : "/reservation-appel";
   const SECTIONS = [
-    { id: "intro", label: "Intro" },
-    ...(highlights?.length ? [{ id: "expertises", label: "Expertises" }] : []),
-    ...(forfaits?.length ? [{ id: "forfaits", label: "Forfaits" }] : []),
-    { id: "prestations", label: "Prestations" },
-    ...(gallery?.length ? [{ id: "galerie", label: "Illustration" }] : []),
-    ...(socials?.length ? [{ id: "reseaux", label: "Réseaux" }] : []),
-    { id: "contact", label: "Contact" },
+    { id: "intro", label: t.sections[0] },
+    ...(highlights?.length ? [{ id: "expertises", label: t.sections[1] }] : []),
+    ...(forfaits?.length ? [{ id: "forfaits", label: t.sections[2] }] : []),
+    { id: "prestations", label: t.sections[3] },
+    ...(gallery?.length ? [{ id: "galerie", label: t.sections[4] }] : []),
+    ...(socials?.length ? [{ id: "reseaux", label: t.sections[5] }] : []),
+    { id: "contact", label: t.sections[6] },
   ];
   return (
     <div className="min-h-screen">
       <main className="border-t border-white/5">
         <SectionDots sections={SECTIONS} />
         <SnapPage>
-          <SnapSection id="intro" className="relative flex items-center overflow-hidden bg-hero py-20">
+          <SnapSection
+            id="intro"
+            className="relative flex items-center overflow-hidden bg-hero py-20"
+          >
             <div className="grid-bg absolute inset-0 -z-10" />
             <div className="hero-aurora" aria-hidden />
             {heroSpline || heroImage ? (
@@ -186,14 +270,17 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
                       <h1 className="mt-4 text-balance bg-gradient-to-b from-white to-white/60 bg-clip-text text-4xl font-bold leading-tight text-transparent md:text-5xl">
                         {title}
                       </h1>
-                      <p className="mt-5 max-w-md text-muted-foreground">{tagline}</p>
+                      <p className="mt-5 max-w-md text-muted-foreground">
+                        {tagline}
+                      </p>
                       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                         <a
-                          href="/reservation-appel"
+                          href={bookHref}
                           data-event="cta_brief_service_hero"
                           className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
                         >
-                          Demander un devis <ArrowRight className="h-4 w-4" />
+                          {t.requestQuoteHero}{" "}
+                          <ArrowRight className="h-4 w-4" />
                         </a>
                         <a
                           href={CALENDLY_URL}
@@ -202,14 +289,17 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
                           data-event="cta_calendly_service_hero"
                           className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
                         >
-                          Réserver un appel
+                          {t.bookCall}
                         </a>
                       </div>
                     </div>
                     {/* Colonne visuel : robot 3D ou image */}
                     <div className="relative min-h-[280px] md:min-h-[440px]">
                       {heroSpline ? (
-                        <SplineScene scene={heroSpline} className="h-full w-full" />
+                        <SplineScene
+                          scene={heroSpline}
+                          className="h-full w-full"
+                        />
                       ) : heroImage ? (
                         <img
                           src={heroImage.src}
@@ -222,21 +312,35 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
                     </div>
                   </div>
                 </Card>
-                {intro ? <div className="mx-auto mt-8 max-w-2xl text-left">{intro}</div> : null}
+                {intro ? (
+                  <div className="mx-auto mt-8 max-w-2xl text-left">
+                    {intro}
+                  </div>
+                ) : null}
               </div>
             ) : (
               <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">{eyebrow}</span>
-                <h1 className="mt-4 text-balance text-4xl font-bold leading-tight md:text-6xl">{title}</h1>
-                <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{tagline}</p>
-                {intro ? <div className="mx-auto mt-8 max-w-2xl text-left">{intro}</div> : null}
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+                  {eyebrow}
+                </span>
+                <h1 className="mt-4 text-balance text-4xl font-bold leading-tight md:text-6xl">
+                  {title}
+                </h1>
+                <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
+                  {tagline}
+                </p>
+                {intro ? (
+                  <div className="mx-auto mt-8 max-w-2xl text-left">
+                    {intro}
+                  </div>
+                ) : null}
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                   <a
-                    href="/reservation-appel"
+                    href={bookHref}
                     data-event="cta_brief_service_hero"
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
                   >
-                    Demander un devis <ArrowRight className="h-4 w-4" />
+                    {t.requestQuoteHero} <ArrowRight className="h-4 w-4" />
                   </a>
                   <a
                     href={CALENDLY_URL}
@@ -245,12 +349,16 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
                     data-event="cta_calendly_service_hero"
                     className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
                   >
-                    Réserver un appel
+                    {t.bookCall}
                   </a>
                 </div>
                 {avatarCard ? (
                   <div className="mt-10 flex justify-center">
-                    <SectionAvatarCard slug={avatarCard} imgClassName="w-full max-w-[230px]" loading="eager" />
+                    <SectionAvatarCard
+                      slug={avatarCard}
+                      imgClassName="w-full max-w-[230px]"
+                      loading="eager"
+                    />
                   </div>
                 ) : null}
               </div>
@@ -258,19 +366,40 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
           </SnapSection>
 
           {highlights?.length ? (
-            <SnapSection id="expertises" className="flex items-center border-t border-white/5 py-16">
+            <SnapSection
+              id="expertises"
+              className="flex items-center border-t border-white/5 py-16"
+            >
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
-                  <h2 className="text-2xl font-bold text-foreground md:text-3xl">{highlightsTitle ?? "Ce que je peux faire pour vous"}</h2>
-                  {highlightsSubtitle ? <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">{highlightsSubtitle}</p> : null}
+                  <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+                    {highlightsTitle ?? t.highlightsTitleDefault}
+                  </h2>
+                  {highlightsSubtitle ? (
+                    <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
+                      {highlightsSubtitle}
+                    </p>
+                  ) : null}
                 </div>
                 <div className="grid gap-5 md:grid-cols-2">
                   {highlights.map((h) => (
-                    <div key={h.title} className="card-hover relative rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
-                      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                    <div
+                      key={h.title}
+                      className="card-hover relative rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card"
+                    >
+                      <GlowingEffect
+                        spread={40}
+                        glow
+                        disabled={false}
+                        proximity={64}
+                        inactiveZone={0.01}
+                        borderWidth={3}
+                      />
                       <div className="text-2xl">{h.emoji}</div>
                       <h3 className="mt-3 text-lg font-semibold">{h.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{h.desc}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {h.desc}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -279,31 +408,52 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
           ) : null}
 
           {forfaits?.length ? (
-            <SnapSection id="forfaits" className="flex items-center border-t border-white/5 py-16">
+            <SnapSection
+              id="forfaits"
+              className="flex items-center border-t border-white/5 py-16"
+            >
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
-                  <h2 className="text-2xl font-bold text-foreground md:text-3xl">{forfaitsTitle ?? "Forfaits mensuels"}</h2>
-                  {forfaitsNote ? <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">{forfaitsNote}</p> : null}
+                  <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+                    {forfaitsTitle ?? t.forfaitsTitleDefault}
+                  </h2>
+                  {forfaitsNote ? (
+                    <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
+                      {forfaitsNote}
+                    </p>
+                  ) : null}
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {forfaits.map((f) => (
-                    <ForfaitCard key={f.name} f={f} />
+                    <ForfaitCard key={f.name} f={f} t={t} />
                   ))}
                 </div>
               </div>
             </SnapSection>
           ) : null}
 
-          <SnapSection id="prestations" className="flex items-center border-t border-white/5 py-16">
+          <SnapSection
+            id="prestations"
+            className="flex items-center border-t border-white/5 py-16"
+          >
             <div className="mx-auto w-full max-w-5xl px-6">
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-foreground">{sectionTitle}</h2>
-                <p className="mt-2 text-sm text-muted-foreground">{sectionSubtitle}</p>
+                <h2 className="text-2xl font-bold text-foreground">
+                  {sectionTitle}
+                </h2>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {sectionSubtitle}
+                </p>
               </div>
               <div className="space-y-6">
                 {items.map((p, i) => (
                   <Reveal key={p.title} delay={i * 0.05}>
-                    <CatalogCard p={p} showPrices={showPrices} />
+                    <CatalogCard
+                      p={p}
+                      showPrices={showPrices}
+                      t={t}
+                      bookHref={bookHref}
+                    />
                   </Reveal>
                 ))}
               </div>
@@ -322,17 +472,33 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
           </SnapSection>
 
           {gallery?.length ? (
-            <SnapSection id="galerie" className="flex items-center border-t border-white/5 py-16">
+            <SnapSection
+              id="galerie"
+              className="flex items-center border-t border-white/5 py-16"
+            >
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
-                  <h2 className="text-2xl font-bold text-foreground md:text-3xl">{galleryTitle ?? "Illustration & character design"}</h2>
-                  {gallerySubtitle ? <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">{gallerySubtitle}</p> : null}
+                  <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+                    {galleryTitle ?? t.galleryTitleDefault}
+                  </h2>
+                  {gallerySubtitle ? (
+                    <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
+                      {gallerySubtitle}
+                    </p>
+                  ) : null}
                 </div>
                 <div className="gap-5 [column-fill:_balance] sm:columns-2 lg:columns-3">
                   {gallery.map((m, i) => (
                     <Reveal key={m.slug} delay={i * 0.05}>
                       <figure className="group relative mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-white/5 bg-card/40 shadow-card">
-                        <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                        <GlowingEffect
+                          spread={40}
+                          glow
+                          disabled={false}
+                          proximity={64}
+                          inactiveZone={0.01}
+                          borderWidth={3}
+                        />
                         <img
                           src={m.src}
                           alt={m.alt}
@@ -353,11 +519,20 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
           ) : null}
 
           {socials?.length ? (
-            <SnapSection id="reseaux" className="flex items-center border-t border-white/5 py-16">
+            <SnapSection
+              id="reseaux"
+              className="flex items-center border-t border-white/5 py-16"
+            >
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
-                  <h2 className="text-2xl font-bold text-foreground md:text-3xl">{socialsTitle ?? "Comptes que j’anime"}</h2>
-                  {socialsSubtitle ? <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">{socialsSubtitle}</p> : null}
+                  <h2 className="text-2xl font-bold text-foreground md:text-3xl">
+                    {socialsTitle ?? t.socialsTitleDefault}
+                  </h2>
+                  {socialsSubtitle ? (
+                    <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
+                      {socialsSubtitle}
+                    </p>
+                  ) : null}
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2">
                   {socials.map((s) => (
@@ -369,17 +544,36 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
                       data-event="social_account_open"
                       className="card-hover relative flex items-start gap-4 rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card"
                     >
-                      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                      <GlowingEffect
+                        spread={40}
+                        glow
+                        disabled={false}
+                        proximity={64}
+                        inactiveZone={0.01}
+                        borderWidth={3}
+                      />
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-gradient text-primary-foreground">
-                        {s.platform === "facebook" ? <Facebook className="h-5 w-5" /> : <Instagram className="h-5 w-5" />}
+                        {s.platform === "facebook" ? (
+                          <Facebook className="h-5 w-5" />
+                        ) : (
+                          <Instagram className="h-5 w-5" />
+                        )}
                       </span>
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <h3 className="truncate text-base font-semibold">{s.name}</h3>
+                          <h3 className="truncate text-base font-semibold">
+                            {s.name}
+                          </h3>
                           <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground" />
                         </div>
-                        <div className="text-xs text-[var(--brand-turquoise)]">{s.platform === "facebook" ? "Facebook" : `@${s.handle}`}</div>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                        <div className="text-xs text-[var(--brand-turquoise)]">
+                          {s.platform === "facebook"
+                            ? "Facebook"
+                            : `@${s.handle}`}
+                        </div>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                          {s.desc}
+                        </p>
                       </div>
                     </a>
                   ))}
@@ -388,23 +582,33 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
             </SnapSection>
           ) : null}
 
-          <SnapSection id="contact" className="flex items-center border-t border-white/5 py-16">
+          <SnapSection
+            id="contact"
+            className="flex items-center border-t border-white/5 py-16"
+          >
             <div className="mx-auto w-full max-w-5xl px-6">
               <div className="rounded-2xl border border-white/10 bg-card/40 p-7 text-center shadow-card backdrop-blur">
                 <div className="mb-6 flex justify-center">
-                  <ExpressionPhoto slug="grand-sourire" caption="On y va ?" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+                  <ExpressionPhoto
+                    slug="grand-sourire"
+                    caption={t.photoCaption}
+                    tilt={-3}
+                    imgClassName="aspect-[3/4] w-28"
+                  />
                 </div>
-                <h2 className="text-3xl font-bold md:text-4xl">On commence quand ?</h2>
+                <h2 className="text-3xl font-bold md:text-4xl">
+                  {t.contactTitle}
+                </h2>
                 <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-                  Le plus simple : vous réservez votre appel. C’est quelques minutes, et je reviens vers vous avec un devis clair.
+                  {t.contactBody}
                 </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                   <a
-                    href="/reservation-appel"
+                    href={bookHref}
                     data-event="cta_brief_service_final"
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
                   >
-                    Demander un devis <ArrowRight className="h-4 w-4" />
+                    {t.requestQuoteHero} <ArrowRight className="h-4 w-4" />
                   </a>
                   <a
                     href={CALENDLY_URL}
@@ -413,7 +617,7 @@ export function ServicePage({ eyebrow, title, tagline, intro, highlights, highli
                     data-event="cta_calendly_service_final"
                     className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
                   >
-                    Réserver un appel
+                    {t.bookCall}
                   </a>
                 </div>
               </div>

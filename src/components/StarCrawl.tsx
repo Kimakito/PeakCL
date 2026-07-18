@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { useRouterState } from "@tanstack/react-router";
+import { localeFromPath, type Locale } from "@/i18n/config";
 
 /**
  * Générique façon « opening crawl » : le texte est couché en perspective et
@@ -18,8 +20,22 @@ import { useEffect, useRef, useState } from "react";
 
 type Para = { lead?: string; rest: string };
 
+/** Textes du générique selon la langue : paragraphes, titres, libellés de
+ *  boutons et CTA de sortie. L'anglais adopte un angle international/remote et
+ *  retire l'ancrage Savoie. */
+type CrawlCopy = {
+  paragraphs: Para[];
+  episode: string;
+  title: string;
+  endText: string;
+  ctaLabel: string;
+  ctaHref: string;
+  readAsText: string;
+  replay: string;
+};
+
 /** `lead` = le fragment mis en avant, repris en gras dans la version statique. */
-const PARAGRAPHS: Para[] = [
+const PARAGRAPHS_FR: Para[] = [
   {
     lead: "Je code, je dessine, et je suis formée au community management.",
     rest: "Je m'appelle Charlotte Lacroix et je suis à l'origine de PeakCL. La plupart des entrepreneurs doivent jongler entre un développeur qui ne pense pas design, un graphiste qui ne sait pas coder et un CM qui ne connaît pas leur image. Avec moi, c'est une seule interlocutrice pour votre site, votre identité visuelle et vos réseaux : site, logo et publications alignés sur le même message, sans double brief ni sous-traitance cachée.",
@@ -31,6 +47,45 @@ const PARAGRAPHS: Para[] = [
     rest: "Concrètement, j'accompagne des indépendants, artisans, thérapeutes, commerçants et petites structures qui veulent une présence en ligne professionnelle sans y passer leurs soirées. J'ai livré 19 projets, agence de voyage, cabinet d'avocate, artisan automobile, prothésiste dentaire, coachs, e-commerce équestre, notés 5/5 sur Google. Basée à Gilly-sur-Isère, juste à côté d'Albertville, je travaille avec des clients dans toute la Savoie (Chambéry, Aix-les-Bains, Annecy) et partout en France, en visio.",
   },
 ];
+
+const PARAGRAPHS_EN: Para[] = [
+  {
+    lead: "I code, I design, and I'm trained in social media management.",
+    rest: "I'm Charlotte Lacroix and I'm the founder of PeakCL. Most business owners have to juggle a developer who doesn't think about design, a designer who can't code and a social media manager who doesn't know their brand. With me, it's a single point of contact for your site, your visual identity and your social: site, logo and posts aligned on the same message, with no double brief and no hidden subcontracting.",
+  },
+  {
+    rest: "My training in social media management rounds out my technical and design skills: I don't just make pretty posts, I build consistent communication, designed to convert, from your website all the way to your social channels.",
+  },
+  {
+    rest: "In practice, I help freelancers, makers, therapists, shop owners and small teams who want a professional online presence without spending their evenings on it. I've delivered 19 projects, a travel agency, a law firm, an auto craftsman, a dental technician, coaches, an equestrian store, all rated 5/5 on Google. I work remotely, with clients across France and worldwide, over video calls.",
+  },
+];
+
+function crawlCopy(locale: Locale): CrawlCopy {
+  if (locale === "en") {
+    return {
+      paragraphs: PARAGRAPHS_EN,
+      episode: "Episode I",
+      title: "A single point of contact",
+      endText: "One point of contact for your site, your logo and your social.",
+      ctaLabel: "Get your diagnosis",
+      ctaHref: "/en/book-a-call",
+      readAsText: "Read as text",
+      replay: "Replay the intro",
+    };
+  }
+  return {
+    paragraphs: PARAGRAPHS_FR,
+    episode: "Épisode I",
+    title: "Une seule interlocutrice",
+    endText:
+      "Une seule interlocutrice pour votre site, votre logo et vos réseaux.",
+    ctaLabel: "Faire le diagnostic",
+    ctaHref: "/reservation-appel",
+    readAsText: "Lire en texte",
+    replay: "Revoir le générique",
+  };
+}
 
 /**
  * Étoiles tirées avec un xorshift à graine fixe : le serveur et le client
@@ -67,6 +122,10 @@ const clamp = (v: number, min: number, max: number) =>
   Math.min(max, Math.max(min, v));
 
 export function StarCrawl({ className = "" }: { className?: string }) {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const locale = localeFromPath(path);
+  const copy = crawlCopy(locale);
+  const PARAGRAPHS = copy.paragraphs;
   const runwayRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -154,7 +213,7 @@ export function StarCrawl({ className = "" }: { className?: string }) {
               onClick={() => setForced("crawl")}
               className="text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
             >
-              Revoir le générique
+              {copy.replay}
             </button>
           </div>
         )}
@@ -200,10 +259,10 @@ export function StarCrawl({ className = "" }: { className?: string }) {
                 }}
               >
                 <p className="text-center text-[0.8em] font-semibold uppercase tracking-[0.35em]">
-                  Épisode I
+                  {copy.episode}
                 </p>
                 <h2 className="mt-2 text-center text-[1.6em] font-extrabold uppercase leading-tight tracking-wide">
-                  Une seule interlocutrice
+                  {copy.title}
                 </h2>
                 <div className="mt-[1.2em] space-y-[1em] text-justify font-bold leading-[1.45]">
                   {PARAGRAPHS.map((p, i) => (
@@ -224,16 +283,15 @@ export function StarCrawl({ className = "" }: { className?: string }) {
             }`}
           >
             <p className="text-lg font-semibold text-foreground">
-              Une seule interlocutrice pour votre site, votre logo et vos
-              réseaux.
+              {copy.endText}
             </p>
             <a
-              href="/reservation-appel"
+              href={copy.ctaHref}
               className={`inline-flex items-center justify-center rounded-full bg-primary-gradient px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:scale-[1.03] ${
                 nearEnd ? "pointer-events-auto" : ""
               }`}
             >
-              Faire le diagnostic
+              {copy.ctaLabel}
             </a>
           </div>
 
@@ -241,7 +299,7 @@ export function StarCrawl({ className = "" }: { className?: string }) {
             onClick={() => setForced("static")}
             className="absolute bottom-3 right-3 z-10 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-xs font-semibold text-white/60 backdrop-blur transition-colors hover:text-white"
           >
-            Lire en texte
+            {copy.readAsText}
           </button>
         </div>
       </div>
