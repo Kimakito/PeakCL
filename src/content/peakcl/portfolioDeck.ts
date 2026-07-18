@@ -49,7 +49,7 @@ const META: Record<string, { category: string; slug: string; shot?: string; cate
   "Les 9 Poilus": { category: "tourisme-animaux", slug: "9poilus", shot: "9poilus" },
   "Ostéo Animal Care": { category: "pro-sante", slug: "osteo-animal", shot: "osteo-animal" },
   "Le Juste Plan": { category: "archi", slug: "le-juste-plan", shot: "le-juste-plan" },
-  "Natural Riders": { category: "artisan", slug: "natural-riders", categories: ["artisan", "tourisme-animaux"] },
+  "Natural Riders": { category: "artisan", slug: "natural-riders", shot: "natural-riders", categories: ["artisan", "tourisme-animaux"] },
   "Peak Training": { category: "pro-sante", slug: "peak-training", shot: "peak-training" },
 };
 
