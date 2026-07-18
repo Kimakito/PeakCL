@@ -10,6 +10,7 @@ import {
   type DeckProject,
 } from "@/content/peakcl/portfolioDeck";
 import { DeckFooter } from "@/components/DeckFooter";
+import { PortfolioReel } from "@/components/PortfolioReel";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
 import { canonicalLink, hreflangLinks, ogLocaleMeta } from "@/seo/hreflang";
@@ -424,13 +425,26 @@ function PortfolioPage() {
           {count} {noun}
           {count > 1 ? "s" : ""}
         </p>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {showLogos
-            ? LOGO_PROJECTS.map((l) => <LogoCard key={l.name} l={l} />)
-            : projects.map((p) => (
-                <SiteCard key={p.slug} p={p} onOpen={setOpenP} />
-              ))}
-        </div>
+        {showLogos ? (
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {LOGO_PROJECTS.map((l) => (
+              <LogoCard key={l.name} l={l} />
+            ))}
+          </div>
+        ) : (
+          <PortfolioReel
+            projects={projects}
+            onOpen={setOpenP}
+            resetKey={active}
+            fallback={
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {projects.map((p) => (
+                  <SiteCard key={p.slug} p={p} onOpen={setOpenP} />
+                ))}
+              </div>
+            }
+          />
+        )}
       </section>
 
       {/* CTA */}

@@ -942,3 +942,89 @@
   transform: translateY(var(--crawl-y, 0px));
   will-change: transform;
 }
+
+/* ── Pellicule portfolio (PortfolioReel) ─────────────────────────
+   Bobine horizontale bornée : molette/swipe/flèches, jamais de
+   scroll-hijack de la page. N'anime que transform/opacity/filter.
+   Grain et perforations sont des overlays CSS légers (pas d'image). */
+.reel-viewport {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+.reel-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.reel-frame {
+  scroll-snap-align: center;
+  flex: 0 0 auto;
+  /* transform/opacity/filter posés en inline par le composant selon la
+     distance au centre : le photogramme actif est net et agrandi. */
+  will-change: transform;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease,
+    filter 0.35s ease;
+}
+
+/* Perforations 35mm : bande sombre bordée de trous clairs réguliers, en haut
+   et en bas de la pellicule. Trous = petits rectangles clairs à coins doux. */
+.reel-perf {
+  background-color: oklch(0 0 0 / 78%);
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent 9px,
+    oklch(0.98 0 0 / 88%) 9px,
+    oklch(0.98 0 0 / 88%) 20px,
+    transparent 20px,
+    transparent 29px
+  );
+  background-size: 29px 7px;
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+/* Grain de film : bruit SVG en overlay, très discret. */
+.reel-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.12;
+}
+
+/* Vignette : assombrit les bords du cadre pellicule. */
+.reel-vignette {
+  background: radial-gradient(
+    ellipse 75% 90% at 50% 50%,
+    transparent 55%,
+    oklch(0 0 0 / 55%) 100%
+  );
+}
+
+/* Spotlight néon derrière le photogramme actif. */
+.reel-spotlight {
+  background: radial-gradient(
+    ellipse 40% 80% at var(--reel-x, 50%) 50%,
+    color-mix(in oklab, var(--brand-violet) 55%, transparent) 0%,
+    color-mix(in oklab, var(--brand-turquoise) 30%, transparent) 40%,
+    transparent 72%
+  );
+  transition: background-position 0.2s ease;
+}
+
+/* Mouvement réduit : le composant rend la grille de repli, mais si un
+   morceau de pellicule subsiste, on fige grain et transitions. */
+@media (prefers-reduced-motion: reduce) {
+  .reel-grain {
+    display: none;
+  }
+  .reel-frame {
+    transition: none;
+    will-change: auto;
+  }
+}
