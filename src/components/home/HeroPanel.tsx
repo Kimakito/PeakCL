@@ -183,7 +183,7 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
         {
           width: "var(--hero)",
           height: "var(--hero)",
-          "--hero": "clamp(220px, 36vh, 520px)",
+          "--hero": "clamp(190px, 30vh, 480px)",
         } as React.CSSProperties
       }
     >
@@ -368,7 +368,11 @@ export function HeroPanel() {
     <section
       id="accueil"
       data-hero
-      className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden"
+      // min-h plutôt que h-screen : sur un écran court (paysage tablette/mobile)
+      // le contenu déborderait et l'orbite chevaucherait le titre. Ici le hero
+      // grandit et la page scrolle au lieu de superposer. py-* garde la
+      // respiration quand il tient dans l'écran.
+      className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden py-8"
     >
       {/* Atmosphère hero : aurora premium + halo lumineux central + étoiles + grain */}
       <div className="hero-aurora" aria-hidden />
@@ -384,9 +388,10 @@ export function HeroPanel() {
       {/* avatar + orbit */}
       <HeroAvatar items={items} />
 
-      {/* headline under avatar */}
-      <div className="hero-fade hero-fade-d1 relative z-10 mt-3 text-center">
-        <h1 className="mx-auto max-w-4xl text-balance text-3xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
+      {/* headline under avatar : mt généreux pour dégager le label d'orbite
+          du bas (Portfolio), qui déborde sous la boîte avatar. */}
+      <div className="hero-fade hero-fade-d1 relative z-10 mt-8 text-center">
+        <h1 className="mx-auto max-w-4xl text-balance text-3xl font-bold leading-[1.1] tracking-tight md:text-5xl xl:text-6xl">
           {t.titleLead}
           <br />
           <span className="text-gradient-anim">{t.titleAccent}</span>
