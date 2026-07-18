@@ -56,6 +56,15 @@ import { Route as AgenceWebAlbertvilleRouteImport } from './routes/agence-web-al
 import { Route as AgenceWebAixLesBainsRouteImport } from './routes/agence-web-aix-les-bains'
 import { Route as AccompagnementAutomatisationRouteImport } from './routes/accompagnement-automatisation'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EnIndexRouteImport } from './routes/en/index'
+import { Route as EnWebDevelopmentRouteImport } from './routes/en/web-development'
+import { Route as EnSocialMediaRouteImport } from './routes/en/social-media'
+import { Route as EnServicesRouteImport } from './routes/en/services'
+import { Route as EnPortfolioRouteImport } from './routes/en/portfolio'
+import { Route as EnDesignRouteImport } from './routes/en/design'
+import { Route as EnBookACallRouteImport } from './routes/en/book-a-call'
+import { Route as EnAutomationRouteImport } from './routes/en/automation'
+import { Route as EnAboutRouteImport } from './routes/en/about'
 import { Route as CadrageVeroniqueRouteImport } from './routes/cadrage.veronique'
 import { Route as CadragePascaleRouteImport } from './routes/cadrage.pascale'
 import { Route as CadrageVeroniqueMerciRouteImport } from './routes/cadrage.veronique.merci'
@@ -305,6 +314,51 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnWebDevelopmentRoute = EnWebDevelopmentRouteImport.update({
+  id: '/en/web-development',
+  path: '/en/web-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnSocialMediaRoute = EnSocialMediaRouteImport.update({
+  id: '/en/social-media',
+  path: '/en/social-media',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnServicesRoute = EnServicesRouteImport.update({
+  id: '/en/services',
+  path: '/en/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnPortfolioRoute = EnPortfolioRouteImport.update({
+  id: '/en/portfolio',
+  path: '/en/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnDesignRoute = EnDesignRouteImport.update({
+  id: '/en/design',
+  path: '/en/design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnBookACallRoute = EnBookACallRouteImport.update({
+  id: '/en/book-a-call',
+  path: '/en/book-a-call',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnAutomationRoute = EnAutomationRouteImport.update({
+  id: '/en/automation',
+  path: '/en/automation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnAboutRoute = EnAboutRouteImport.update({
+  id: '/en/about',
+  path: '/en/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CadrageVeroniqueRoute = CadrageVeroniqueRouteImport.update({
   id: '/cadrage/veronique',
   path: '/cadrage/veronique',
@@ -376,6 +430,15 @@ export interface FileRoutesByFullPath {
   '/trame-prospection': typeof TrameProspectionRoute
   '/cadrage/pascale': typeof CadragePascaleRouteWithChildren
   '/cadrage/veronique': typeof CadrageVeroniqueRouteWithChildren
+  '/en/about': typeof EnAboutRoute
+  '/en/automation': typeof EnAutomationRoute
+  '/en/book-a-call': typeof EnBookACallRoute
+  '/en/design': typeof EnDesignRoute
+  '/en/portfolio': typeof EnPortfolioRoute
+  '/en/services': typeof EnServicesRoute
+  '/en/social-media': typeof EnSocialMediaRoute
+  '/en/web-development': typeof EnWebDevelopmentRoute
+  '/en/': typeof EnIndexRoute
   '/cadrage/pascale/merci': typeof CadragePascaleMerciRoute
   '/cadrage/veronique/merci': typeof CadrageVeroniqueMerciRoute
 }
@@ -429,6 +492,15 @@ export interface FileRoutesByTo {
   '/trame-prospection': typeof TrameProspectionRoute
   '/cadrage/pascale': typeof CadragePascaleRouteWithChildren
   '/cadrage/veronique': typeof CadrageVeroniqueRouteWithChildren
+  '/en/about': typeof EnAboutRoute
+  '/en/automation': typeof EnAutomationRoute
+  '/en/book-a-call': typeof EnBookACallRoute
+  '/en/design': typeof EnDesignRoute
+  '/en/portfolio': typeof EnPortfolioRoute
+  '/en/services': typeof EnServicesRoute
+  '/en/social-media': typeof EnSocialMediaRoute
+  '/en/web-development': typeof EnWebDevelopmentRoute
+  '/en': typeof EnIndexRoute
   '/cadrage/pascale/merci': typeof CadragePascaleMerciRoute
   '/cadrage/veronique/merci': typeof CadrageVeroniqueMerciRoute
 }
@@ -483,6 +555,15 @@ export interface FileRoutesById {
   '/trame-prospection': typeof TrameProspectionRoute
   '/cadrage/pascale': typeof CadragePascaleRouteWithChildren
   '/cadrage/veronique': typeof CadrageVeroniqueRouteWithChildren
+  '/en/about': typeof EnAboutRoute
+  '/en/automation': typeof EnAutomationRoute
+  '/en/book-a-call': typeof EnBookACallRoute
+  '/en/design': typeof EnDesignRoute
+  '/en/portfolio': typeof EnPortfolioRoute
+  '/en/services': typeof EnServicesRoute
+  '/en/social-media': typeof EnSocialMediaRoute
+  '/en/web-development': typeof EnWebDevelopmentRoute
+  '/en/': typeof EnIndexRoute
   '/cadrage/pascale/merci': typeof CadragePascaleMerciRoute
   '/cadrage/veronique/merci': typeof CadrageVeroniqueMerciRoute
 }
@@ -538,6 +619,15 @@ export interface FileRouteTypes {
     | '/trame-prospection'
     | '/cadrage/pascale'
     | '/cadrage/veronique'
+    | '/en/about'
+    | '/en/automation'
+    | '/en/book-a-call'
+    | '/en/design'
+    | '/en/portfolio'
+    | '/en/services'
+    | '/en/social-media'
+    | '/en/web-development'
+    | '/en/'
     | '/cadrage/pascale/merci'
     | '/cadrage/veronique/merci'
   fileRoutesByTo: FileRoutesByTo
@@ -591,6 +681,15 @@ export interface FileRouteTypes {
     | '/trame-prospection'
     | '/cadrage/pascale'
     | '/cadrage/veronique'
+    | '/en/about'
+    | '/en/automation'
+    | '/en/book-a-call'
+    | '/en/design'
+    | '/en/portfolio'
+    | '/en/services'
+    | '/en/social-media'
+    | '/en/web-development'
+    | '/en'
     | '/cadrage/pascale/merci'
     | '/cadrage/veronique/merci'
   id:
@@ -644,6 +743,15 @@ export interface FileRouteTypes {
     | '/trame-prospection'
     | '/cadrage/pascale'
     | '/cadrage/veronique'
+    | '/en/about'
+    | '/en/automation'
+    | '/en/book-a-call'
+    | '/en/design'
+    | '/en/portfolio'
+    | '/en/services'
+    | '/en/social-media'
+    | '/en/web-development'
+    | '/en/'
     | '/cadrage/pascale/merci'
     | '/cadrage/veronique/merci'
   fileRoutesById: FileRoutesById
@@ -698,6 +806,15 @@ export interface RootRouteChildren {
   TrameProspectionRoute: typeof TrameProspectionRoute
   CadragePascaleRoute: typeof CadragePascaleRouteWithChildren
   CadrageVeroniqueRoute: typeof CadrageVeroniqueRouteWithChildren
+  EnAboutRoute: typeof EnAboutRoute
+  EnAutomationRoute: typeof EnAutomationRoute
+  EnBookACallRoute: typeof EnBookACallRoute
+  EnDesignRoute: typeof EnDesignRoute
+  EnPortfolioRoute: typeof EnPortfolioRoute
+  EnServicesRoute: typeof EnServicesRoute
+  EnSocialMediaRoute: typeof EnSocialMediaRoute
+  EnWebDevelopmentRoute: typeof EnWebDevelopmentRoute
+  EnIndexRoute: typeof EnIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1031,6 +1148,69 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/web-development': {
+      id: '/en/web-development'
+      path: '/en/web-development'
+      fullPath: '/en/web-development'
+      preLoaderRoute: typeof EnWebDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/social-media': {
+      id: '/en/social-media'
+      path: '/en/social-media'
+      fullPath: '/en/social-media'
+      preLoaderRoute: typeof EnSocialMediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/services': {
+      id: '/en/services'
+      path: '/en/services'
+      fullPath: '/en/services'
+      preLoaderRoute: typeof EnServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/portfolio': {
+      id: '/en/portfolio'
+      path: '/en/portfolio'
+      fullPath: '/en/portfolio'
+      preLoaderRoute: typeof EnPortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/design': {
+      id: '/en/design'
+      path: '/en/design'
+      fullPath: '/en/design'
+      preLoaderRoute: typeof EnDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/book-a-call': {
+      id: '/en/book-a-call'
+      path: '/en/book-a-call'
+      fullPath: '/en/book-a-call'
+      preLoaderRoute: typeof EnBookACallRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/automation': {
+      id: '/en/automation'
+      path: '/en/automation'
+      fullPath: '/en/automation'
+      preLoaderRoute: typeof EnAutomationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/about': {
+      id: '/en/about'
+      path: '/en/about'
+      fullPath: '/en/about'
+      preLoaderRoute: typeof EnAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cadrage/veronique': {
       id: '/cadrage/veronique'
       path: '/cadrage/veronique'
@@ -1135,6 +1315,15 @@ const rootRouteChildren: RootRouteChildren = {
   TrameProspectionRoute: TrameProspectionRoute,
   CadragePascaleRoute: CadragePascaleRouteWithChildren,
   CadrageVeroniqueRoute: CadrageVeroniqueRouteWithChildren,
+  EnAboutRoute: EnAboutRoute,
+  EnAutomationRoute: EnAutomationRoute,
+  EnBookACallRoute: EnBookACallRoute,
+  EnDesignRoute: EnDesignRoute,
+  EnPortfolioRoute: EnPortfolioRoute,
+  EnServicesRoute: EnServicesRoute,
+  EnSocialMediaRoute: EnSocialMediaRoute,
+  EnWebDevelopmentRoute: EnWebDevelopmentRoute,
+  EnIndexRoute: EnIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

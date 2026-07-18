@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
+import { hreflangLinks } from "@/seo/hreflang";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
 import { design, designHighlights } from "@/content/peakcl/services";
@@ -33,7 +34,10 @@ export const Route = createFileRoute("/design")({
         ]),
       },
     ],
-    links: [{ rel: "canonical", href: absUrl("/design") }],
+    links: [
+      { rel: "canonical", href: absUrl("/design") },
+      ...hreflangLinks("/design"),
+    ],
   }),
   component: () => (
     <ServicePage
@@ -48,7 +52,11 @@ export const Route = createFileRoute("/design")({
           </div>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Prestations réalisées dans le cadre de la certification{" "}
-            <span className="text-foreground">RS7068 « Créer des supports de communication avec un outil de design graphique »</span>.
+            <span className="text-foreground">
+              RS7068 « Créer des supports de communication avec un outil de
+              design graphique »
+            </span>
+            .
           </p>
         </div>
       }
@@ -61,7 +69,10 @@ export const Route = createFileRoute("/design")({
       gallery={MASCOT_GALLERY}
       galleryTitle="🎭 Illustration & character design"
       gallerySubtitle="Une mascotte expressive dessinée sous Illustrator : un même personnage décliné en plusieurs émotions pour donner du caractère à une marque."
-      portfolioLink={{ to: "/portfolio?cat=logos", label: "Voir mes logos & créations" }}
+      portfolioLink={{
+        to: "/portfolio?cat=logos",
+        label: "Voir mes logos & créations",
+      }}
     />
   ),
 });

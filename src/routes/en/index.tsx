@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Sparkles, Phone } from "lucide-react";
-import { peakclTestimonials } from "@/content/peakcl/testimonials";
+import { peakclTestimonialsEn } from "@/content/peakcl/testimonials.en";
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
-import { peakclFaqHome } from "@/content/peakcl/faq";
+import { peakclFaqHomeEn } from "@/content/peakcl/faq.en";
 import { peakclPortfolio } from "@/content/peakcl/portfolio";
 import { CATEGORIES } from "@/content/peakcl/portfolioDeck";
 import { DeckFooter } from "@/components/DeckFooter";
@@ -12,7 +12,7 @@ import { TrustedBySection } from "@/components/TrustedBySection";
 import { optimizedLogoUrl } from "@/lib/optimizedLogo";
 import { absUrl } from "@/seo/site";
 import { faqPageJsonLd } from "@/seo/jsonld";
-import { hreflangLinks } from "@/seo/hreflang";
+import { canonicalLink, hreflangLinks, ogLocaleMeta } from "@/seo/hreflang";
 import { submitNetlifyForm } from "@/lib/funnel";
 import { CTAButton } from "@/components/CTAButton";
 import { HeroPanel } from "@/components/home/HeroPanel";
@@ -26,29 +26,31 @@ import { type MascotPose } from "@/lib/mascot";
 
 const LOGO_NAV = "/peakcl/logo-nav.webp";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/en/")({
   head: () => ({
     meta: [
-      { title: "Création site internet, logo & réseaux en Savoie · PeakCL" },
+      {
+        title: "Freelance web developer: code, design & social in one · PeakCL",
+      },
       {
         name: "description",
         content:
-          "Vous avez besoin d’un site claire, d’une image cohérente et d’une présence en ligne fiable ? PeakCL vous accompagne de A à Z, avec un seul interlocuteur.",
+          "Need a clear site, a consistent brand and a reliable online presence? PeakCL builds it end to end, hand-coded and fast, working remotely with clients worldwide.",
       },
       {
         property: "og:title",
-        content: "PeakCL · Votre présence en ligne, simplifiée",
+        content: "PeakCL · Your online presence, simplified",
       },
       {
         property: "og:description",
         content:
-          "Un seul interlocuteur pour votre site, votre image et vos réseaux, avec un plan clair et des livrables concrets.",
+          "One partner for your site, your brand and your social, with a clear plan and concrete deliverables.",
       },
-      { property: "og:url", content: absUrl("/") },
-      { "script:ld+json": faqPageJsonLd(peakclFaqHome) },
+      ...ogLocaleMeta("/", "en"),
+      { "script:ld+json": faqPageJsonLd(peakclFaqHomeEn) },
     ],
     links: [
-      { rel: "canonical", href: absUrl("/") },
+      { ...canonicalLink("/", "en") },
       ...hreflangLinks("/"),
       { rel: "preload", href: LOGO_NAV, as: "image", type: "image/webp" },
       {
@@ -65,13 +67,28 @@ export const Route = createFileRoute("/")({
 const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 const WHATSAPP_URL = "https://wa.me/33743517627";
 const PHONE_TEL = "tel:+33743517627";
-const PHONE_DISPLAY = "07 43 51 76 27";
+const PHONE_DISPLAY = "+33 7 43 51 76 27";
 const EMAIL = "peakcl73@gmail.com";
 const LINKEDIN_URL = "https://www.linkedin.com/in/charlotte-lacroix-peakcl/";
 const MALT_URL = "https://www.malt.fr/profile/peakcldev";
 const FIVERR_URL = "https://fr.fiverr.com/s/99W6WYa";
 const COMEUP_URL = "https://comeup.com/fr/@PeakCL";
-const CODEUR_URL = "https://www.codeur.com/-peakcl";
+
+/** English labels for the portfolio category hub. Keyed by the imported
+ *  CATEGORIES slugs so we never fork the shared portfolioDeck data module. */
+const CAT_LABELS_EN: Record<string, string> = {
+  therapeute: "Therapists",
+  artisan: "Trades & craft",
+  equestre: "Equestrian",
+  artiste: "Artists",
+  ecrivain: "Writers",
+  archi: "Architects",
+  pme: "SMEs & tech",
+  taxi: "Taxi",
+  droit: "Legal",
+  "pro-sante": "Health",
+  "tourisme-animaux": "Travel & animals",
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -89,7 +106,7 @@ function ContactInline({ className = "" }: { className?: string }) {
     <div
       className={`flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground ${className}`}
     >
-      <span>Ou</span>
+      <span>Or</span>
       <a
         href={PHONE_TEL}
         data-event="cta_phone"
@@ -122,9 +139,8 @@ function ContactInline({ className = "" }: { className?: string }) {
 
 /* ── Hero panel ─────────────────────────────────────────────── */
 
-/** Ancien emplacement de la mascotte 3D des gouttières : retiré pour tenir une
- *  seule direction (photo réelle + mockups + doodle de fond). Conservé en
- *  no-op pour ne pas toucher tous les appels de section. */
+/** No-op kept so section calls stay untouched (the 3D mascot was removed to
+ *  hold a single visual direction: real photo + mockups + background doodle). */
 function SectionMascot(_props: {
   pose: MascotPose;
   side?: "left" | "right";
@@ -138,9 +154,9 @@ function SectionMascot(_props: {
 
 function ProblemPanel() {
   const points = [
-    "Vous avez besoin d’une présence en ligne claire, crédible et facile à comprendre.",
-    "Vous n’avez pas le temps de gérer site, design, réseaux et prise de contact à la main.",
-    "Vous voulez un accompagnement simple, avec un seul interlocuteur et des décisions rapides.",
+    "You need an online presence that's clear, credible and easy to grasp.",
+    "You don't have time to juggle the site, design, social and inbound by hand.",
+    "You want a simple setup: one point of contact and fast decisions.",
   ];
 
   return (
@@ -155,25 +171,25 @@ function ProblemPanel() {
             <SectionHeading
               align="left"
               accent="yellow"
-              eyebrow="Pourquoi me confier votre image"
+              eyebrow="Why hand your online image to me"
               title={
                 <>
-                  Une présence en ligne
-                  <span className="text-gradient"> plus simple à tenir.</span>
+                  An online presence
+                  <span className="text-gradient">
+                    {" "}
+                    that's easier to keep up.
+                  </span>
                 </>
               }
             />
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              Pas besoin d’un projet énorme pour paraître professionnel. Il faut
-              surtout une direction claire, un bon rythme et quelqu’un qui vous
-              aide à avancer.
+              You don't need a huge project to look professional. What you
+              really need is a clear direction, a steady rhythm, and someone who
+              helps you keep moving.
             </p>
             <div className="mt-6">
-              <CTAButton
-                href="/reservation-appel"
-                dataEvent="cta_brief_problem"
-              >
-                Faire le diagnostic
+              <CTAButton href="/en/book-a-call" dataEvent="cta_brief_problem">
+                Get your diagnosis
               </CTAButton>
             </div>
           </div>
@@ -231,18 +247,18 @@ function MethodPanel() {
   const steps = [
     {
       n: "01",
-      title: "Comprendre",
-      desc: "Je pose les bonnes questions pour clarifier votre activité, votre public et votre objectif.",
+      title: "Understand",
+      desc: "I ask the right questions to clarify your business, your audience and your goal.",
     },
     {
       n: "02",
-      title: "Proposer",
-      desc: "Je vous renvoie un plan clair, avec les livrables, le timing et un budget de départ.",
+      title: "Propose",
+      desc: "I send back a clear plan, with the deliverables, the timing and a starting budget.",
     },
     {
       n: "03",
-      title: "Livrer",
-      desc: "Je produis le site et les éléments de communication, puis je vous accompagne jusqu’à la mise en ligne.",
+      title: "Deliver",
+      desc: "I build the site and the communication assets, then guide you all the way to launch.",
     },
   ];
   return (
@@ -254,8 +270,8 @@ function MethodPanel() {
         <SectionHeading
           className="mb-10"
           accent="yellow"
-          eyebrow="Comment ça se passe"
-          title="Un parcours simple, pensé pour avancer sans friction"
+          eyebrow="How it works"
+          title="A simple path, built to move forward without friction"
         />
         <div ref={containerRef} className="relative grid gap-5 md:grid-cols-3">
           <div
@@ -292,8 +308,8 @@ function MethodPanel() {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <CTAButton href="/reservation-appel" dataEvent="cta_brief_method">
-            Obtenir un plan clair
+          <CTAButton href="/en/book-a-call" dataEvent="cta_brief_method">
+            Get a clear plan
           </CTAButton>
         </div>
       </div>
@@ -305,37 +321,37 @@ function MethodPanel() {
 
 const offers = [
   {
-    eyebrow: "Le plus simple",
-    title: "Pack présence en ligne",
-    price: "Sur devis",
+    eyebrow: "The simplest",
+    title: "Online presence pack",
+    price: "On request",
     highlight: true,
     points: [
-      "Site clair + image cohérente",
-      "Pages essentielles + parcours de contact",
-      "Premières publications et visuels de base",
-      "Mise en ligne et premiers réglages SEO",
+      "Clear site + consistent brand",
+      "Essential pages + contact journey",
+      "First posts and core visuals",
+      "Launch and initial SEO setup",
     ],
   },
   {
-    eyebrow: "Pour un site rapide",
-    title: "Site vitrine",
-    price: "Sur devis",
+    eyebrow: "For a site, fast",
+    title: "Showcase site",
+    price: "On request",
     points: [
-      "Structure pensée pour convertir",
-      "Design sobre et mobile-friendly",
-      "Pages accueil / services / contact",
-      "Domaine, SSL et mise en ligne inclus",
+      "Structure built to convert",
+      "Clean, mobile-friendly design",
+      "Home / services / contact pages",
+      "Domain, SSL and launch included",
     ],
   },
   {
-    eyebrow: "Si vous avez déjà un socle",
-    title: "Refonte / amélioration",
-    price: "Sur devis",
+    eyebrow: "If you already have a base",
+    title: "Redesign / improvement",
+    price: "On request",
     points: [
-      "Clarification du message et du parcours",
-      "Visuels et textes repensés",
-      "Amélioration du site existant",
-      "Gain de clarté et de confiance",
+      "Sharper message and journey",
+      "Reworked visuals and copy",
+      "Improvements to your existing site",
+      "More clarity, more trust",
     ],
   },
 ];
@@ -351,8 +367,8 @@ function OffersPanel() {
         <SectionHeading
           className="mb-8"
           accent="yellow"
-          eyebrow="Les formes que prend l'accompagnement"
-          title="Trois façons d’avancer, selon votre besoin"
+          eyebrow="The shapes the work can take"
+          title="Three ways to move forward, depending on what you need"
         />
         <div className="grid gap-4 md:grid-cols-3">
           {offers.map((o, i) => (
@@ -388,15 +404,15 @@ function OffersPanel() {
           ))}
         </div>
         <div className="mt-6 text-center flex justify-center gap-3">
-          <CTAButton href="/reservation-appel" dataEvent="cta_brief_offers">
-            Faire le diagnostic
+          <CTAButton href="/en/book-a-call" dataEvent="cta_brief_offers">
+            Get your diagnosis
           </CTAButton>
           <CTAButton
-            href="/services"
+            href="/en/services"
             variant="ghost"
             dataEvent="cta_services_detail"
           >
-            Voir les services
+            See the services
           </CTAButton>
         </div>
       </div>
@@ -418,21 +434,21 @@ function PortfolioPanel() {
         <SectionHeading
           className="mb-8"
           accent="turquoise"
-          eyebrow="Réalisations"
+          eyebrow="Selected work"
           title={
             <>
-              Des projets livrés,{" "}
-              <span className="text-gradient">avec un vrai impact</span>.
+              Projects delivered,{" "}
+              <span className="text-gradient">with real impact</span>.
             </>
           }
-          subtitle="Vous êtes dans quel métier ? Voyez ce que j’ai déjà livré dans votre secteur."
+          subtitle="What's your field? See what I've already shipped in your industry."
         />
-        {/* hub catégories (version courte → filtre le portfolio) */}
+        {/* category hub (short version → filters the portfolio) */}
         <div className="mb-7 flex flex-wrap justify-center gap-2">
           {CATEGORIES.map((c) => (
             <a
               key={c.slug}
-              href={`/portfolio?cat=${c.slug}`}
+              href={`/en/portfolio?cat=${c.slug}`}
               data-event="home_cat_filter"
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-card/40 px-3.5 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-white/25 hover:text-foreground"
             >
@@ -440,7 +456,7 @@ function PortfolioPanel() {
                 className="h-1.5 w-1.5 rounded-full"
                 style={{ background: c.accent }}
               />
-              {c.short}
+              {CAT_LABELS_EN[c.slug] ?? c.short}
             </a>
           ))}
         </div>
@@ -503,14 +519,14 @@ function PortfolioPanel() {
                 </div>
               )}
               <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--brand-turquoise)]">
-                Voir le projet <ArrowRight className="h-3.5 w-3.5" />
+                View project <ArrowRight className="h-3.5 w-3.5" />
               </div>
             </motion.a>
           ))}
         </div>
         <div className="mt-6 text-center">
-          <CTAButton href="/portfolio" variant="ghost">
-            Voir le portfolio
+          <CTAButton href="/en/portfolio" variant="ghost">
+            See the portfolio
           </CTAButton>
         </div>
       </div>
@@ -521,15 +537,15 @@ function PortfolioPanel() {
 /* ── Reviews panel ───────────────────────────────────────────── */
 
 function ReviewsPanel() {
-  const reviews = peakclTestimonials.map((t) => ({
+  const reviews = peakclTestimonialsEn.map((t) => ({
     quote: t.quote,
     name: t.name,
     role: [t.sourceLabel, t.dateLabel].filter(Boolean).join(" · "),
     rating: t.rating,
   }));
-  // Chaque avis n'apparaît qu'une fois par mise en page. La duplication interne
-  // de TestimonialsColumn est le clone de boucle du marquee (défilement continu),
-  // pas une répétition en dur des avis.
+  // Each review appears only once per layout. The internal duplication inside
+  // TestimonialsColumn is the marquee loop clone (continuous scroll), not a
+  // hard-coded repeat of the reviews.
   const mid = Math.ceil(reviews.length / 2);
   const colA = reviews.slice(0, mid);
   const colB = reviews.slice(mid);
@@ -543,21 +559,21 @@ function ReviewsPanel() {
         <SectionHeading
           className="mb-8"
           accent="turquoise"
-          eyebrow="Ils en parlent mieux que moi"
-          title="Des résultats, pas des promesses."
+          eyebrow="They say it better than I could"
+          title="Results, not promises."
         />
         <p className="mb-2 text-center text-sm text-muted-foreground">
-          Derrière PeakCL, une vraie personne :
+          Behind PeakCL, a real person:
         </p>
         <ExpressionGallery className="mt-2 mb-12" />
         <div className="mx-auto flex max-h-[58vh] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
-          {/* Mobile : une colonne, les 4 avis une fois */}
+          {/* Mobile: one column, the 4 reviews once */}
           <TestimonialsColumn
             testimonials={reviews}
             duration={22}
             className="md:hidden"
           />
-          {/* Desktop : 2 colonnes, chaque avis une seule fois */}
+          {/* Desktop: 2 columns, each review only once */}
           <TestimonialsColumn
             testimonials={colA}
             duration={18}
@@ -587,11 +603,11 @@ function FAQPanel() {
         <SectionHeading
           className="mb-8"
           accent="turquoise"
-          eyebrow="Questions fréquentes"
-          title="On lève les derniers doutes."
+          eyebrow="Frequently asked"
+          title="Let's clear up any last doubts."
         />
         <div className="space-y-2">
-          {peakclFaqHome.map((f) => (
+          {peakclFaqHomeEn.map((f) => (
             <details
               key={f.question}
               className="group rounded-2xl border border-white/5 bg-card/50 p-4 shadow-card open:bg-card/70"
@@ -628,7 +644,7 @@ function ContactPanel() {
       await submitNetlifyForm(form);
       window.location.href = "/merci";
     } catch {
-      alert("L'envoi a échoué. Écrivez-moi directement à peakcl73@gmail.com.");
+      alert("Something went wrong. Email me directly at peakcl73@gmail.com.");
     } finally {
       setIsSubmitting(false);
     }
@@ -646,14 +662,14 @@ function ContactPanel() {
       <div className="mx-auto max-w-4xl px-8 md:px-16 w-full text-center">
         <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-yellow)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs font-semibold text-[var(--brand-yellow)]">
           <Sparkles className="h-3.5 w-3.5" />
-          Diagnostic gratuit : site, image et réseaux
+          Free diagnosis: site, brand and social
         </div>
         <h2 className="text-balance text-3xl font-bold leading-tight md:text-4xl">
-          Prêt à déléguer votre présence en ligne ?
+          Ready to hand off your online presence?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-          Décrivez votre activité en 8 minutes : je vous dis ce qui vous manque
-          le plus et comment je peux vous aider à avancer.
+          Tell me about your business in 8 minutes: I'll pinpoint what you're
+          missing most and how I can help you move forward.
         </p>
         <div className="mt-6 flex items-center justify-center gap-3">
           <img
@@ -666,20 +682,20 @@ function ContactPanel() {
             className="h-14 w-14 rounded-full object-cover ring-2 ring-white/15"
           />
           <p className="text-left text-sm text-muted-foreground">
-            Vous parlerez directement à{" "}
+            You'll talk directly with{" "}
             <span className="font-semibold text-foreground">Charlotte</span>.
           </p>
         </div>
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <CTAButton href="/reservation-appel" dataEvent="cta_brief_final">
-            Faire le diagnostic
+          <CTAButton href="/en/book-a-call" dataEvent="cta_brief_final">
+            Get your diagnosis
           </CTAButton>
           <CTAButton
             href={CALENDLY_URL}
             dataEvent="cta_calendly_final"
             variant="ghost"
           >
-            Réserver un appel
+            Book a call
           </CTAButton>
         </div>
         <form
@@ -705,19 +721,19 @@ function ContactPanel() {
           <input type="hidden" name="source" value="site_peakcl" />
           <p className="hidden">
             <label>
-              Ne pas remplir: <input name="bot-field" />
+              Don't fill this in: <input name="bot-field" />
             </label>
           </p>
           <div className="grid gap-3 md:grid-cols-2">
             <label className="block">
               <span className="text-xs font-semibold text-muted-foreground">
-                Nom
+                Name
               </span>
               <input
                 name="name"
                 required
                 className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
-                placeholder="Votre nom"
+                placeholder="Your name"
               />
             </label>
             <label className="block">
@@ -729,19 +745,19 @@ function ContactPanel() {
                 type="email"
                 required
                 className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
-                placeholder="vous@exemple.com"
+                placeholder="you@example.com"
               />
             </label>
           </div>
           <label className="block">
             <span className="text-xs font-semibold text-muted-foreground">
-              Téléphone
+              Phone
             </span>
             <input
               name="telephone"
               type="tel"
               className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
-              placeholder="06 12 34 56 78"
+              placeholder="+1 555 123 4567"
             />
           </label>
           <label className="block">
@@ -753,7 +769,7 @@ function ContactPanel() {
               required
               rows={4}
               className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
-              placeholder="Votre activité, votre ville, votre objectif..."
+              placeholder="Your business, your location, your goal..."
             />
           </label>
           <div className="flex items-center justify-center gap-3">
@@ -763,7 +779,7 @@ function ContactPanel() {
               data-event="audit_submit_click"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:scale-[1.03] disabled:opacity-60"
             >
-              {isSubmitting ? "Envoi…" : "Recevoir mon plan"}
+              {isSubmitting ? "Sending…" : "Get my plan"}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
@@ -789,7 +805,7 @@ function MobileStickyContact() {
             className="h-4 w-4 text-[var(--brand-turquoise)]"
             aria-hidden
           />
-          Appeler
+          Call
         </a>
         <a
           href="#contact"
@@ -863,25 +879,8 @@ function Footer() {
           >
             ComeUp
           </a>
-          <a href="/portfolio" className="hover:text-foreground">
+          <a href="/en/portfolio" className="hover:text-foreground">
             Portfolio
-          </a>
-          <a href="/conseils" className="hover:text-foreground">
-            Conseils
-          </a>
-        </div>
-        <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs">
-          <a href="/agence-web-albertville" className="hover:text-foreground">
-            Albertville
-          </a>
-          <a href="/agence-web-chambery" className="hover:text-foreground">
-            Chambéry
-          </a>
-          <a href="/agence-web-annecy" className="hover:text-foreground">
-            Annecy
-          </a>
-          <a href="/agence-web-aix-les-bains" className="hover:text-foreground">
-            Aix-les-Bains
           </a>
         </div>
       </div>
@@ -889,10 +888,10 @@ function Footer() {
   );
 }
 
-/* ── Reassurance bar (compteurs animés) ──────────────────────── */
+/* ── Reassurance bar (animated counters) ─────────────────────── */
 
-/** Incrémente 0 -> target quand l'élément entre dans le viewport (une seule fois).
- *  Valeur finale immédiate si prefers-reduced-motion. */
+/** Counts 0 -> target when the element enters the viewport (once).
+ *  Jumps straight to the final value under prefers-reduced-motion. */
 function useCountUp(target: number, duration = 1200) {
   const [value, setValue] = useState(0);
   const ref = useRef<HTMLSpanElement | null>(null);
@@ -905,11 +904,11 @@ function useCountUp(target: number, duration = 1200) {
     }
     let done = false;
     let raf = 0;
-    // Filet de sécurité : quoi qu'il arrive (onglet en arrière-plan qui gèle
-    // requestAnimationFrame, IntersectionObserver qui ne se déclenche jamais),
-    // la valeur finale s'affiche. Un compteur figé à mi-course ("52%") ou resté
-    // à 0 est pire que pas d'animation.
-    let fallback = window.setTimeout(() => setValue(target), duration + 2500);
+    // Safety net: whatever happens (a backgrounded tab freezing
+    // requestAnimationFrame, an IntersectionObserver that never fires), the
+    // final value shows. A counter stuck mid-way ("52%") or left at 0 is worse
+    // than no animation at all.
+    const fallback = window.setTimeout(() => setValue(target), duration + 2500);
 
     const run = () => {
       if (done) return;
@@ -938,8 +937,8 @@ function useCountUp(target: number, duration = 1200) {
       { threshold: 0.5 },
     );
     io.observe(el);
-    // Déjà visible au chargement (la barre est juste sous le hero) : certains
-    // navigateurs ne rappellent pas l'observer, on démarre donc aussi ici.
+    // Already visible on load (the bar sits right under the hero): some
+    // browsers don't re-notify the observer, so we also start here.
     if (el.getBoundingClientRect().top < window.innerHeight) run();
 
     return () => {
@@ -978,17 +977,17 @@ function Stat({
 function ReassuranceBar() {
   return (
     <section
-      aria-label="Réassurance"
+      aria-label="Reassurance"
       className="border-y border-white/5 bg-card/30 py-4"
     >
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 text-sm">
         <Stat
           target={peakclPortfolio.filter((p) => p.logoUrl).length}
-          label="projets livrés"
+          label="projects delivered"
         />
-        <Stat literal="5/5" label="sur Google" />
-        <Stat target={100} suffix="%" label="clients satisfaits" />
-        <Stat literal="Savoie" label="& France" />
+        <Stat literal="5/5" label="on Google" />
+        <Stat target={100} suffix="%" label="happy clients" />
+        <Stat literal="Remote" label="worldwide" />
       </div>
     </section>
   );
@@ -999,7 +998,7 @@ function ReassuranceBar() {
 function Landing() {
   return (
     <div className="relative bg-background text-foreground">
-      {/* Scroll vertical : sections pleine hauteur empilées (desktop + mobile) */}
+      {/* Vertical scroll: full-height sections stacked (desktop + mobile) */}
       <HeroPanel />
       <ReassuranceBar />
       <VideoPresentation />

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
+import { hreflangLinks } from "@/seo/hreflang";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
 import { sitesWeb, sitesWebHighlights } from "@/content/peakcl/services";
@@ -32,11 +33,17 @@ export const Route = createFileRoute("/sites-web")({
         ]),
       },
     ],
-    links: [{ rel: "canonical", href: absUrl("/sites-web") }],
+    links: [
+      { rel: "canonical", href: absUrl("/sites-web") },
+      ...hreflangLinks("/sites-web"),
+    ],
   }),
   component: () => (
     <ServicePage
-      heroImage={{ src: "/peakcl/assets/images/bureau-peakcl.webp", alt: "Bureau PeakCL avec un site web affiché à l’écran" }}
+      heroImage={{
+        src: "/peakcl/assets/images/bureau-peakcl.webp",
+        alt: "Bureau PeakCL avec un site web affiché à l’écran",
+      }}
       eyebrow="Développement web"
       title="Sites web sur mesure"
       tagline="Sites vitrines, e-commerce et refontes : rapides, optimisés et pensés pour convertir vos visiteurs en clients."

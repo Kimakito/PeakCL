@@ -1,8 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
+import { hreflangLinks } from "@/seo/hreflang";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
-import { automatisation, automatisationHighlights } from "@/content/peakcl/services";
+import {
+  automatisation,
+  automatisationHighlights,
+} from "@/content/peakcl/services";
 
 export const Route = createFileRoute("/accompagnement-automatisation")({
   head: () => ({
@@ -28,11 +32,17 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
         "script:ld+json": breadcrumbJsonLd([
           { name: "Accueil", path: "/" },
           { name: "Services", path: "/services" },
-          { name: "Automatisation & IA", path: "/accompagnement-automatisation" },
+          {
+            name: "Automatisation & IA",
+            path: "/accompagnement-automatisation",
+          },
         ]),
       },
     ],
-    links: [{ rel: "canonical", href: absUrl("/accompagnement-automatisation") }],
+    links: [
+      { rel: "canonical", href: absUrl("/accompagnement-automatisation") },
+      ...hreflangLinks("/accompagnement-automatisation"),
+    ],
   }),
   component: () => (
     <ServicePage
@@ -47,9 +57,13 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
           </div>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Je me forme pour obtenir la certification{" "}
-            <span className="text-foreground">RS7311 « Améliorer l’efficacité de sa TPE à l’aide de l’IA »</span>{" "}
-            (21 h, pensée pour les dirigeants de petites structures). Objectif : vous accompagner concrètement pour intégrer
-            l’IA de façon stratégique, accessible et opérationnelle, avec des outils fiables, documentés et maîtrisés.
+            <span className="text-foreground">
+              RS7311 « Améliorer l’efficacité de sa TPE à l’aide de l’IA »
+            </span>{" "}
+            (21 h, pensée pour les dirigeants de petites structures). Objectif :
+            vous accompagner concrètement pour intégrer l’IA de façon
+            stratégique, accessible et opérationnelle, avec des outils fiables,
+            documentés et maîtrisés.
           </p>
         </div>
       }

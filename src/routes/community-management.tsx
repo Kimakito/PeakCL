@@ -1,8 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
+import { hreflangLinks } from "@/seo/hreflang";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
-import { community, cmForfaits, communityHighlights } from "@/content/peakcl/services";
+import {
+  community,
+  cmForfaits,
+  communityHighlights,
+} from "@/content/peakcl/services";
 
 export const Route = createFileRoute("/community-management")({
   head: () => ({
@@ -32,11 +37,17 @@ export const Route = createFileRoute("/community-management")({
         ]),
       },
     ],
-    links: [{ rel: "canonical", href: absUrl("/community-management") }],
+    links: [
+      { rel: "canonical", href: absUrl("/community-management") },
+      ...hreflangLinks("/community-management"),
+    ],
   }),
   component: () => (
     <ServicePage
-      heroImage={{ src: "/peakcl/assets/images/iphone.webp", alt: "Contenus réseaux sociaux affichés sur un iPhone" }}
+      heroImage={{
+        src: "/peakcl/assets/images/iphone.webp",
+        alt: "Contenus réseaux sociaux affichés sur un iPhone",
+      }}
       eyebrow="Réseaux sociaux"
       title="Community management"
       tagline="Rester visible et cohérent sur vos réseaux, sans y passer vos soirées. Des forfaits clairs, sans engagement long."
