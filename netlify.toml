@@ -95,14 +95,20 @@
   force = true
 
 [[redirects]]
+  from = "/blog"
+  to = "/conseils"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/blog/*"
-  to = "/"
+  to = "/conseils"
   status = 301
   force = true
 
 [[redirects]]
   from = "/blog/"
-  to = "/"
+  to = "/conseils"
   status = 301
   force = true
 
