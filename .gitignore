@@ -6,15 +6,8 @@ dist/
 *.log
 .DS_Store
 .wrangler/
-
-# Assets sources lourds, hors web (mockups PSD, doodles bruts, photo source)
-/mockups/
-/images/
-/PeakCL.jpg
-/doodle_2_07.jpg
-/arl5_11xm_221223.jpg
-/7609.jpg
-/45930.jpg
+.netlify/
+.tanstack/
 
 # Illustrator temp files
 ~ai-*.tmp
