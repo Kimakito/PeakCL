@@ -57,7 +57,7 @@ export function CalendlyEmbed({ url, minHeight = 700 }: CalendlyEmbedProps) {
   return (
     <div
       ref={hostRef}
-      className="w-full overflow-hidden rounded-2xl border border-white/10 bg-card/20"
+      className="w-full overflow-hidden rounded-2xl border border-border bg-card/20"
       style={{ height: minHeight, minHeight }}
     />
   );

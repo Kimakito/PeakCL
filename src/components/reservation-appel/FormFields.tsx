@@ -77,7 +77,7 @@ export function TextInput({
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-white/20"
+        className="mt-2 w-full rounded-md border border-border bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-border"
         placeholder={placeholder}
       />
     </label>
@@ -125,7 +125,7 @@ export function TextArea({
         maxLength={maxLength}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-white/20"
+        className="mt-2 w-full rounded-md border border-border bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-border"
         placeholder={placeholder}
       />
     </label>
@@ -150,14 +150,14 @@ export function ChoiceSingle({
   onChange: (v: string) => void;
 }) {
   return (
-    <fieldset className="rounded-2xl border border-white/5 bg-card/40 p-5 shadow-card backdrop-blur">
+    <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
         {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
       </legend>
       {helper ? <div className="mt-2 px-2 text-xs text-muted-foreground">{helper}</div> : null}
       <div className="mt-4 grid gap-2">
         {options.map((o) => (
-          <label key={o.value} className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/5 bg-background/40 px-4 py-3 hover:border-white/10">
+          <label key={o.value} className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-background/40 px-4 py-3 hover:border-border">
             <input
               type="radio"
               name={name}
@@ -195,7 +195,7 @@ export function ChoiceMulti({
   const hasValue = values.length > 0;
 
   return (
-    <fieldset className="rounded-2xl border border-white/5 bg-card/40 p-5 shadow-card backdrop-blur">
+    <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
         {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
       </legend>
@@ -205,7 +205,7 @@ export function ChoiceMulti({
         {options.map((o) => {
           const checked = values.includes(o.value);
           return (
-            <label key={o.value} className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/5 bg-background/40 px-4 py-3 hover:border-white/10">
+            <label key={o.value} className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-background/40 px-4 py-3 hover:border-border">
               <input
                 type="checkbox"
                 name={name}
@@ -240,7 +240,7 @@ export function ChoiceScale({
   onChange: (v: string) => void;
 }) {
   return (
-    <fieldset className="rounded-2xl border border-white/5 bg-card/40 p-5 shadow-card backdrop-blur">
+    <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
         {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
       </legend>
@@ -249,7 +249,7 @@ export function ChoiceScale({
           <label
             key={n}
             className={`flex cursor-pointer flex-col items-center gap-1 rounded-lg border px-1 py-2 text-xs font-semibold ${
-              value === n ? "border-[var(--brand-turquoise)] bg-[var(--brand-turquoise)]/10 text-foreground" : "border-white/5 bg-background/40 text-foreground/70 hover:border-white/10"
+              value === n ? "border-[var(--brand-turquoise)] bg-[var(--brand-turquoise)]/10 text-foreground" : "border-border bg-background/40 text-foreground/70 hover:border-border"
             }`}
           >
             <input

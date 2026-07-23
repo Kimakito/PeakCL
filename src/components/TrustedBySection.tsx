@@ -56,7 +56,7 @@ function ClientLogoCard({
       rel="noopener noreferrer"
       data-event="trusted_logo_click"
       title={titleAttr}
-      className="group flex shrink-0 items-center gap-3 rounded-2xl border border-white/10 bg-card/40 px-4 py-3 shadow-card backdrop-blur transition-colors hover:border-white/20 hover:bg-card/60 sm:px-5"
+      className="group flex shrink-0 items-center gap-3 rounded-2xl border border-border bg-card/40 px-4 py-3 shadow-card backdrop-blur transition-colors hover:border-border hover:bg-card/60 sm:px-5"
     >
       <ClientLogo src={logoUrl} alt={title} size="sm" />
       <span className="min-w-0 pr-2">
@@ -83,7 +83,7 @@ export function TrustedBySection() {
   return (
     <section
       aria-labelledby="trusted-by-heading"
-      className="border-t border-white/5 bg-[color-mix(in_oklab,var(--background)_92%,var(--brand-violet)_8%)] py-16 md:py-20"
+      className="border-t border-border bg-[color-mix(in_oklab,var(--background)_92%,var(--brand-violet)_8%)] py-16 md:py-20"
     >
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">

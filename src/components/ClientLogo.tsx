@@ -18,7 +18,7 @@ const sizeClasses = {
 export function ClientLogo({ src, alt, size = "md", className }: ClientLogoProps) {
   const [variant, setVariant] = useState<LogoBgVariant>("light");
   const bg = useMemo(
-    () => (variant === "dark" ? "bg-black/40 border-white/10" : "bg-white/90 border-black/10"),
+    () => (variant === "dark" ? "bg-black/40 border-border" : "bg-muted border-black/10"),
     [variant],
   );
 

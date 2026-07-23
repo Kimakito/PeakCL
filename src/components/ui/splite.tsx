@@ -15,7 +15,7 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
       fallback={
         <div className="flex h-full w-full items-center justify-center">
           <span
-            className="h-8 w-8 animate-spin rounded-full border-2 border-white/15 border-t-[var(--brand-turquoise)]"
+            className="h-8 w-8 animate-spin rounded-full border-2 border-border border-t-[var(--brand-turquoise)]"
             aria-label="Chargement de la scène 3D"
           />
         </div>

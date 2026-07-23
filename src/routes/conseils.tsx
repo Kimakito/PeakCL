@@ -37,13 +37,13 @@ export const Route = createFileRoute("/conseils")({
 
 function Page() {
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       <SectionDots sections={SECTIONS} />
       <SnapPage>
         <SnapSection id="intro" className="relative flex items-center overflow-hidden bg-hero py-20">
           <div className="grid-bg absolute inset-0 -z-10" />
           <div className="mx-auto max-w-4xl px-6 text-center">
-            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+            <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
               <BookOpen className="h-3.5 w-3.5" />
               Conseils
             </div>
@@ -60,14 +60,14 @@ function Page() {
           </div>
         </SnapSection>
 
-        <SnapSection id="articles" className="flex items-center border-t border-white/5 py-16">
+        <SnapSection id="articles" className="flex items-center border-t border-border py-16">
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-5 sm:grid-cols-2">
               {conseils.map((c) => (
                 <a
                   key={c.slug}
                   href={`/${c.slug}`}
-                  className="group relative flex flex-col rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card transition-colors hover:border-white/15"
+                  className="group relative flex flex-col rounded-2xl border border-border bg-card/50 p-6 shadow-card transition-colors hover:border-border"
                 >
                   <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                   <h2 className="text-lg font-bold leading-snug">{c.h1}</h2>
@@ -82,7 +82,7 @@ function Page() {
           </div>
         </SnapSection>
 
-        <SnapSection id="contact" className="relative flex items-center overflow-hidden border-t border-white/5 py-16">
+        <SnapSection id="contact" className="relative flex items-center overflow-hidden border-t border-border py-16">
           <div className="absolute inset-0 -z-10 bg-hero" />
           <div className="mx-auto max-w-3xl px-6 text-center">
             <div className="mb-6 flex justify-center">

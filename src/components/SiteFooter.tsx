@@ -72,7 +72,7 @@ export function SiteFooter() {
   const t = ui(locale).footer;
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-white/5 bg-card/30">
+    <footer className="border-t border-border bg-card/30">
       <div className="mx-auto grid max-w-5xl gap-8 px-6 py-14 sm:grid-cols-2 md:grid-cols-4">
         <nav aria-label={t.services}>
           <h2 className="text-sm font-semibold text-foreground">
@@ -147,7 +147,7 @@ export function SiteFooter() {
                 rel="noopener noreferrer"
                 aria-label={label}
                 title={label}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-colors hover:border-[var(--brand-turquoise)] hover:text-[var(--brand-turquoise)]"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-muted text-muted-foreground transition-colors hover:border-[var(--brand-turquoise)] hover:text-[var(--brand-turquoise)]"
               >
                 <Icon className="h-[17px] w-[17px]" />
               </a>
@@ -156,7 +156,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 border-t border-white/5 px-6 py-6 text-xs text-muted-foreground/70 sm:flex-row">
+      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 border-t border-border px-6 py-6 text-xs text-muted-foreground/70 sm:flex-row">
         <p>
           {locale === "en"
             ? `© ${year} PeakCL · Charlotte Lacroix · Web developer & designer, working remotely worldwide`

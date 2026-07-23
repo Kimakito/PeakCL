@@ -41,11 +41,11 @@ function MerciBriefPage() {
   }, []);
 
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       <section className="relative overflow-hidden bg-hero py-20">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-[var(--brand-turquoise)]">
+          <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
             <Check className="h-6 w-6" />
           </div>
           <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">C’est reçu.</h1>
@@ -56,20 +56,20 @@ function MerciBriefPage() {
           </p>
 
           <ol className="mx-auto mt-8 flex max-w-lg flex-col gap-2 text-left text-sm">
-            <li className="flex items-center gap-3 rounded-xl border border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] bg-white/5 px-4 py-3">
+            <li className="flex items-center gap-3 rounded-xl border border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] bg-muted px-4 py-3">
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-gradient text-xs font-bold text-primary-foreground">
                 ✓
               </span>
               <span className="text-foreground">Questionnaire envoyé</span>
             </li>
-            <li className="flex items-center gap-3 rounded-xl border border-white/15 bg-white/5 px-4 py-3">
+            <li className="flex items-center gap-3 rounded-xl border border-border bg-muted px-4 py-3">
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-gradient text-xs font-bold text-primary-foreground">
                 2
               </span>
               <span className="font-semibold text-foreground">Choisissez votre créneau ci‑dessous</span>
             </li>
-            <li className="flex items-center gap-3 rounded-xl border border-white/5 bg-white/5 px-4 py-3 text-muted-foreground">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/10 text-xs font-bold">
+            <li className="flex items-center gap-3 rounded-xl border border-border bg-muted px-4 py-3 text-muted-foreground">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border text-xs font-bold">
                 3
               </span>
               <span className="flex items-center gap-2">
@@ -81,7 +81,7 @@ function MerciBriefPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 py-12">
+      <section className="border-t border-border py-12">
         <div className="mx-auto max-w-4xl px-6">
           <div className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
             <div>
@@ -92,7 +92,7 @@ function MerciBriefPage() {
               href={calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-foreground hover:border-white/20"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-5 py-2.5 text-sm font-semibold text-foreground hover:border-border"
               data-event="cta_calendly_merci_brief_tab"
             >
               <Calendar className="h-4 w-4" />
@@ -114,7 +114,7 @@ function MerciBriefPage() {
           <div className="mt-6 flex justify-center">
             <a
               href={BIENVENUE_PATH}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-muted px-6 py-3 text-sm font-semibold text-foreground hover:border-border"
               data-event="cta_bienvenue_manual"
             >
               J'ai réservé : accéder aux ressources <ArrowRight className="h-4 w-4" />

@@ -193,7 +193,7 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
       <div className="absolute inset-[12%] animate-[spin_30s_linear_infinite_reverse] rounded-full border border-[var(--brand-turquoise)]/10" />
       {/* orbit path */}
       <div
-        className="pointer-events-none absolute rounded-full border border-white/10"
+        className="pointer-events-none absolute rounded-full border border-border"
         style={{
           width: `calc(var(--hero) * ${ORBIT_R * 2})`,
           height: `calc(var(--hero) * ${ORBIT_R * 2})`,
@@ -221,7 +221,7 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
           fetchPriority="high"
           decoding="async"
           alt="Charlotte Lacroix, fondatrice de PeakCL"
-          className="relative h-full w-full rounded-full object-cover shadow-[0_0_44px_rgba(12,198,193,0.35)] ring-2 ring-white/15"
+          className="relative h-full w-full rounded-full object-cover shadow-[0_0_44px_rgba(12,198,193,0.35)] ring-2 ring-border"
         />
       </div>
 
@@ -258,17 +258,17 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
             <span
               className={`flex h-11 w-11 items-center justify-center rounded-full border-2 backdrop-blur transition-all duration-300 ${
                 lit
-                  ? "scale-125 border-[var(--brand-turquoise)] bg-[var(--brand-turquoise)]/15 text-white shadow-[0_0_22px_rgba(12,198,193,0.45)]"
+                  ? "scale-125 border-[var(--brand-turquoise)] bg-card text-[var(--accent-turquoise-ink)] shadow-[0_0_22px_rgba(12,198,193,0.45)]"
                   : item.variant === "primary"
-                    ? "border-[var(--brand-yellow)]/70 bg-[#08101b]/70 text-[var(--brand-yellow)]"
-                    : "border-white/20 bg-[#08101b]/70 text-white/70"
+                    ? "border-[var(--brand-yellow)] bg-card text-[var(--accent-yellow-ink)]"
+                    : "border-border bg-card text-muted-foreground"
               }`}
             >
               <Icon size={18} />
             </span>
             <span
               className={`mt-2 whitespace-nowrap text-[10px] font-semibold tracking-wide transition-colors ${
-                lit ? "text-white" : "text-white/55"
+                lit ? "text-foreground" : "text-muted-foreground"
               }`}
             >
               {item.label}
@@ -286,7 +286,7 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
           const Icon = item.icon;
           return (
             <div
-              className="absolute z-[70] w-52 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/15 bg-[#08101b]/95 p-4 text-left shadow-card backdrop-blur-xl"
+              className="absolute z-[70] w-52 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-border bg-popover p-4 text-left shadow-card backdrop-blur-xl"
               style={{
                 left: "50%",
                 top: "50%",
@@ -297,7 +297,7 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
             >
               <div className="flex items-center gap-2">
                 <Icon size={15} className="text-[var(--brand-turquoise)]" />
-                <span className="text-sm font-semibold text-white">
+                <span className="text-sm font-semibold text-foreground">
                   {item.label}
                 </span>
               </div>
@@ -380,7 +380,7 @@ export function HeroPanel() {
       <div className="hero-grain" aria-hidden />
 
       {/* badge */}
-      <div className="hero-fade relative z-10 mb-3 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs text-foreground/90 backdrop-blur">
+      <div className="hero-fade relative z-10 mb-3 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] bg-muted px-4 py-1.5 text-xs text-foreground/90 backdrop-blur">
         <span className="text-[var(--brand-yellow)]">★★★★★</span>
         {t.badge}
       </div>
@@ -418,7 +418,7 @@ export function HeroPanel() {
           {t.chips.map((item) => (
             <div
               key={item.label}
-              className="rounded-full border border-white/10 bg-white/6 px-3 py-1.5 text-foreground/80 backdrop-blur"
+              className="rounded-full border border-border bg-muted px-3 py-1.5 text-foreground/80 backdrop-blur"
             >
               <span className="font-semibold text-[var(--brand-turquoise)]">
                 {item.value}
@@ -430,7 +430,7 @@ export function HeroPanel() {
       </div>
 
       {/* scroll hint */}
-      <div className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 animate-bounce text-white/30 text-xs hidden md:block">
+      <div className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 animate-bounce text-muted-foreground text-xs hidden md:block">
         {t.scrollHint}
       </div>
     </section>

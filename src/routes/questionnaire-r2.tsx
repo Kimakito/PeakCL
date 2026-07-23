@@ -114,7 +114,7 @@ function SuggestionChips({
             className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
               active
                 ? "border-[var(--brand-turquoise)] bg-[var(--brand-turquoise)]/10 text-foreground"
-                : "border-white/10 bg-white/5 text-muted-foreground hover:border-white/20 hover:text-foreground"
+                : "border-border bg-muted text-muted-foreground hover:border-border hover:text-foreground"
             }`}
           >
             {s}
@@ -153,7 +153,7 @@ function TextInput({
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none focus:border-white/20"
+        className="mt-2 w-full rounded-md border border-border bg-background/50 px-4 py-3 text-sm text-foreground outline-none focus:border-border"
         placeholder={placeholder}
       />
     </label>
@@ -191,7 +191,7 @@ function TextArea({
         rows={rows}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none focus:border-white/20"
+        className="mt-2 w-full rounded-md border border-border bg-background/50 px-4 py-3 text-sm text-foreground outline-none focus:border-border"
         placeholder={placeholder}
       />
     </label>
@@ -214,7 +214,7 @@ function ChoiceSingle({
   onChange: (v: string) => void;
 }) {
   return (
-    <fieldset className="rounded-2xl border border-white/5 bg-card/40 p-5 shadow-card backdrop-blur">
+    <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
         {label}{" "}
         {required ? (
@@ -225,7 +225,7 @@ function ChoiceSingle({
         {options.map((o) => (
           <label
             key={o.value}
-            className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/5 bg-background/40 px-4 py-3 hover:border-white/10"
+            className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-background/40 px-4 py-3 hover:border-border"
           >
             <input
               type="radio"
@@ -258,7 +258,7 @@ function ChoiceScale({
   onChange: (v: string) => void;
 }) {
   return (
-    <fieldset className="rounded-2xl border border-white/5 bg-card/40 p-5 shadow-card backdrop-blur">
+    <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
         {label}{" "}
         {required ? (
@@ -272,7 +272,7 @@ function ChoiceScale({
             className={`flex cursor-pointer flex-col items-center gap-1 rounded-lg border px-1 py-2 text-xs font-semibold ${
               value === n
                 ? "border-[var(--brand-turquoise)] bg-[var(--brand-turquoise)]/10 text-foreground"
-                : "border-white/5 bg-background/40 text-foreground/70 hover:border-white/10"
+                : "border-border bg-background/40 text-foreground/70 hover:border-border"
             }`}
           >
             <input
@@ -372,7 +372,7 @@ function QuestionnaireR2Page() {
   };
 
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       <section className="relative grid min-h-[55vh] place-items-center overflow-hidden py-20">
         <img
           src={BUREAU_IMAGE}
@@ -381,9 +381,9 @@ function QuestionnaireR2Page() {
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-100"
         />
         <div className="grid-bg absolute inset-0 -z-10 opacity-30" />
-        <div className="relative mx-4 max-w-2xl justify-self-center rounded-3xl border border-white/20 bg-white/5 px-6 py-10 text-center shadow-card backdrop-blur-2xl sm:px-10">
+        <div className="relative mx-4 max-w-2xl justify-self-center rounded-3xl border border-border bg-muted px-6 py-10 text-center shadow-card backdrop-blur-2xl sm:px-10">
           <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
             <ShieldCheck className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
             2 minutes · Confidentiel
           </div>
@@ -398,9 +398,9 @@ function QuestionnaireR2Page() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 py-16">
+      <section className="border-t border-border py-16">
         <div className="mx-auto max-w-3xl px-6">
-          <div className="relative mb-8 rounded-2xl border border-white/5 bg-card/40 p-5 text-sm text-muted-foreground shadow-card backdrop-blur">
+          <div className="relative mb-8 rounded-2xl border border-border bg-card/40 p-5 text-sm text-muted-foreground shadow-card backdrop-blur">
             <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
@@ -436,7 +436,7 @@ function QuestionnaireR2Page() {
               </label>
             </p>
 
-            <div className="rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
+            <div className="rounded-3xl border border-border bg-card/20 p-6 shadow-card">
               <TextInput
                 label="Quel est votre nom et votre prénom ?"
                 name="fullName"
@@ -528,7 +528,7 @@ function QuestionnaireR2Page() {
                 options={budgetOptions}
               />
             ) : (
-              <div className="rounded-2xl border border-dashed border-white/10 bg-card/20 p-5 text-sm text-muted-foreground">
+              <div className="rounded-2xl border border-dashed border-border bg-card/20 p-5 text-sm text-muted-foreground">
                 Choisissez d’abord votre priorité ci-dessus pour voir les fourchettes
                 de budget adaptées. ⭐
               </div>
@@ -603,10 +603,10 @@ function QuestionnaireR2Page() {
 
             <div
               id="submit"
-              className="relative rounded-2xl border border-white/10 bg-card/40 p-6 text-center shadow-card backdrop-blur"
+              className="relative rounded-2xl border border-border bg-card/40 p-6 text-center shadow-card backdrop-blur"
             >
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-              <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-[var(--brand-turquoise)]">
+              <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
                 <Check className="h-6 w-6" />
               </div>
               <h3 className="mt-4 text-2xl font-bold">Prêt·e à envoyer ?</h3>
@@ -621,7 +621,7 @@ function QuestionnaireR2Page() {
                   className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all ${
                     canSubmit && !isSubmitting
                       ? "bg-primary-gradient text-primary-foreground shadow-glow hover:scale-[1.02]"
-                      : "border border-white/10 bg-white/5 text-muted-foreground"
+                      : "border border-border bg-muted text-muted-foreground"
                   }`}
                 >
                   {isSubmitting ? "Envoi en cours…" : "Envoyer mes réponses"}

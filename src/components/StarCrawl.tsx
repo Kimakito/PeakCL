@@ -230,7 +230,7 @@ export function StarCrawl({ className = "" }: { className?: string }) {
         <div className="relative w-full">
           <div
             ref={sceneRef}
-            className="crawl-scene h-[76vh] min-h-[420px] rounded-2xl border border-white/10 bg-[oklch(0.16_0.07_295)] shadow-card"
+            className="crawl-scene h-[76vh] min-h-[420px] rounded-2xl border border-border bg-[var(--violet-800)] shadow-card"
           >
             {/* Ciel étoilé : hors du .crawl-tilt, donc épargné par le masque. */}
             <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -297,7 +297,7 @@ export function StarCrawl({ className = "" }: { className?: string }) {
 
           <button
             onClick={() => setForced("static")}
-            className="absolute bottom-3 right-3 z-10 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-xs font-semibold text-white/60 backdrop-blur transition-colors hover:text-white"
+            className="absolute bottom-3 right-3 z-10 rounded-full border border-border bg-black/40 px-3 py-1.5 text-xs font-semibold text-muted-foreground backdrop-blur transition-colors hover:text-white"
           >
             {copy.readAsText}
           </button>

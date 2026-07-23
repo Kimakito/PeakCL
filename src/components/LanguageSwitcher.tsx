@@ -25,7 +25,7 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
     <div
       role="group"
       aria-label={strings.label}
-      className={`flex items-center gap-0.5 rounded-full border border-white/10 bg-white/5 p-0.5 ${className}`}
+      className={`flex items-center gap-0.5 rounded-full border border-border bg-muted p-0.5 ${className}`}
     >
       {items.map(({ locale, flag, code, label }) => {
         const active = locale === current;
@@ -38,7 +38,7 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
             aria-current={active ? "true" : undefined}
             className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold transition-colors ${
               active
-                ? "bg-white/10 text-foreground"
+                ? "bg-muted text-foreground"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >

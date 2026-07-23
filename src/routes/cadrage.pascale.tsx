@@ -167,8 +167,8 @@ function CadragePascalePage() {
   };
 
   return (
-    <main className="min-h-screen border-t border-white/5">
-      <header className="border-b border-white/5 bg-background/80 py-4 backdrop-blur">
+    <main className="min-h-screen border-t border-border">
+      <header className="border-b border-border bg-background/80 py-4 backdrop-blur">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-6">
           <span className="font-display text-sm font-bold tracking-tight">
             Peak<span className="text-gradient">CL</span>
@@ -190,7 +190,7 @@ function CadragePascalePage() {
         <div className="absolute inset-0 -z-[15] bg-background/70" />
         <div className="grid-bg absolute inset-0 -z-10 opacity-30" />
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
             <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />
             30 à 45 min · en plusieurs fois si besoin
             <span className="opacity-40">·</span>
@@ -214,7 +214,7 @@ function CadragePascalePage() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 py-12">
+      <section className="border-t border-border py-12">
         <div className="mx-auto max-w-3xl px-6">
           <form
             name={FORM_NAME}
@@ -1006,7 +1006,7 @@ function CadragePascalePage() {
               />
             </QuestionBlock>
 
-            <div className="relative mt-12 rounded-2xl border border-white/10 bg-card/40 p-6 text-center shadow-card">
+            <div className="relative mt-12 rounded-2xl border border-border bg-card/40 p-6 text-center shadow-card">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <p className="text-sm text-muted-foreground">
                 Tu peux envoyer même si tout n'est pas rempli. Tes réponses sont

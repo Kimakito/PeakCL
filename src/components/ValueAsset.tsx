@@ -45,7 +45,7 @@ function Block({ block }: { block: AssetBlock }) {
     return (
       <div className="grid gap-3 sm:grid-cols-3">
         {block.cards.map((c, i) => (
-          <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+          <div key={i} className="rounded-2xl border border-border bg-muted p-4">
             <div className="text-xs font-bold text-[var(--brand-turquoise)]">{c.k}</div>
             <div className="mt-1 text-base font-bold text-foreground">{c.t}</div>
             <div className="mt-2 text-sm text-muted-foreground">{c.d}</div>
@@ -56,7 +56,7 @@ function Block({ block }: { block: AssetBlock }) {
   }
   // callout
   return (
-    <div className="relative rounded-2xl border border-white/10 bg-black/20 p-4">
+    <div className="relative rounded-2xl border border-border bg-black/20 p-4">
       <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       {block.callout.title && (
         <div className="text-sm font-semibold text-foreground">{block.callout.title}</div>
@@ -74,7 +74,7 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
   const testimonial = peakclTestimonials[0];
 
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       <style>{`
         @media print {
           .no-print { display: none !important; }
@@ -92,7 +92,7 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
           <div className="no-print flex flex-wrap items-center justify-between gap-3">
             <a
               href="/bienvenue"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-foreground hover:border-white/20"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-2 text-xs font-semibold text-foreground hover:border-border"
             >
               <ArrowLeft className="h-4 w-4" />
               Retour à la page Bienvenue
@@ -123,7 +123,7 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
           </div>
 
           {/* Paper */}
-          <div className="mt-5 rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card print-paper sm:p-8">
+          <div className="mt-5 rounded-3xl border border-border bg-card/20 p-6 shadow-card print-paper sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
                 {asset.eyebrow}
@@ -152,7 +152,7 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
             </div>
 
             {/* Credibility / social proof */}
-            <div className="relative mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+            <div className="relative mt-6 rounded-2xl border border-border bg-muted p-5">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-violet)]">
                 <Sparkles className="h-3.5 w-3.5" />
@@ -165,7 +165,7 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
                 la structure technique et l'image, exactement ce qui manque à la plupart des sites.
               </p>
               {testimonial && (
-                <div className="mt-4 rounded-xl border border-white/10 bg-black/20 p-4">
+                <div className="mt-4 rounded-xl border border-border bg-black/20 p-4">
                   <div className="flex gap-1 text-[var(--brand-yellow)]">
                     {Array.from({ length: testimonial.rating }).map((_, k) => (
                       <Star key={k} className="h-3.5 w-3.5 fill-current" />
@@ -220,7 +220,7 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
             {asset.next && (
               <a
                 href={asset.next.href}
-                className="group relative flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-card/40 p-5 transition-colors hover:border-white/20"
+                className="group relative flex items-center justify-between gap-4 rounded-2xl border border-border bg-card/40 p-5 transition-colors hover:border-border"
               >
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div>

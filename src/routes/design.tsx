@@ -46,7 +46,7 @@ export const Route = createFileRoute("/design")({
       title="Design graphique"
       tagline="Une identité visuelle et des supports qui rendent votre marque cohérente et mémorable."
       intro={
-        <div className="rounded-2xl border border-white/10 bg-card/40 p-6 shadow-card backdrop-blur">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-card backdrop-blur">
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-yellow)]">
             Certifiée
           </div>

@@ -44,7 +44,7 @@ export const Route = createFileRoute("/services")({
 function ServicesHub() {
   return (
     <div className="min-h-screen">
-      <main className="relative overflow-hidden border-t border-white/5 bg-hero">
+      <main className="relative overflow-hidden border-t border-border bg-hero">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div
           className="hero-aurora"
@@ -79,7 +79,7 @@ function ServicesHub() {
                 key={s.slug}
                 href={s.slug}
                 data-event="services_hub_card"
-                className="group relative rounded-2xl border border-white/5 bg-card/50 p-7 shadow-card transition-all hover:-translate-y-1 hover:border-white/15"
+                className="group relative rounded-2xl border border-border bg-card/50 p-7 shadow-card transition-all hover:-translate-y-1 hover:border-border"
               >
                 <GlowingEffect
                   spread={40}
@@ -128,7 +128,7 @@ function ServicesHub() {
                     className={`card-hover relative flex h-full flex-col rounded-2xl border p-6 shadow-card ${
                       pk.highlight
                         ? "border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_22%,transparent)] bg-card/60"
-                        : "border-white/5 bg-card/50"
+                        : "border-border bg-card/50"
                     }`}
                   >
                     <GlowingEffect
@@ -153,7 +153,7 @@ function ServicesHub() {
                       ))}
                     </ul>
                     {pk.economy ? (
-                      <div className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full border border-[color-mix(in_oklab,var(--brand-yellow)_35%,transparent)] bg-white/5 px-3 py-1 text-xs font-semibold text-[var(--brand-yellow)]">
+                      <div className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full border border-[color-mix(in_oklab,var(--brand-yellow)_35%,transparent)] bg-muted px-3 py-1 text-xs font-semibold text-[var(--brand-yellow)]">
                         🏷️ {pk.economy}
                       </div>
                     ) : null}
@@ -170,7 +170,7 @@ function ServicesHub() {
             </div>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-white/10 bg-card/40 p-7 text-center shadow-card backdrop-blur">
+          <div className="mt-16 rounded-2xl border border-border bg-card/40 p-7 text-center shadow-card backdrop-blur">
             <div className="mb-6 flex justify-center">
               <ExpressionPhoto
                 slug="sourire-malicieux"
@@ -199,7 +199,7 @@ function ServicesHub() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-event="cta_calendly_services_final"
-                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+                className="inline-flex items-center justify-center rounded-full border border-border bg-muted px-6 py-3 text-sm font-semibold text-foreground hover:border-border"
               >
                 Réserver un appel
               </a>

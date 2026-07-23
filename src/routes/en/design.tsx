@@ -42,7 +42,7 @@ export const Route = createFileRoute("/en/design")({
       title="Graphic design"
       tagline="A visual identity and materials that make your brand consistent and memorable."
       intro={
-        <div className="rounded-2xl border border-white/10 bg-card/40 p-6 shadow-card backdrop-blur">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-card backdrop-blur">
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-yellow)]">
             Certified
           </div>

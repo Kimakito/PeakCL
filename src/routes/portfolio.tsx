@@ -75,9 +75,9 @@ function MacbookFrame({ children }: { children: ReactNode }) {
   return (
     <div className="px-3 pt-4">
       {/* écran */}
-      <div className="relative rounded-t-lg border border-white/15 bg-[#0b0b14] p-1.5 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.85)]">
+      <div className="relative rounded-t-lg border border-border bg-[var(--indigo-900)] p-1.5 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.85)]">
         <span
-          className="absolute left-1/2 top-1 z-10 h-1 w-1 -translate-x-1/2 rounded-full bg-white/25"
+          className="absolute left-1/2 top-1 z-10 h-1 w-1 -translate-x-1/2 rounded-full bg-muted"
           aria-hidden
         />
         <div className="relative aspect-[16/10] overflow-hidden rounded-[3px] bg-black">
@@ -138,13 +138,13 @@ function CaseStudyModal({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl border border-white/10 bg-[#0c0c16] shadow-card sm:rounded-3xl"
+        className="relative max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl border border-border bg-[var(--indigo-900)] shadow-card sm:rounded-3xl"
       >
         <button
           type="button"
           onClick={onClose}
           aria-label="Fermer"
-          className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-black/50 text-white/70 backdrop-blur hover:text-white"
+          className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-black/50 text-muted-foreground backdrop-blur hover:text-white"
         >
           <X className="h-5 w-5" />
         </button>
@@ -183,7 +183,7 @@ function CaseStudyModal({
                 {p.tags.map((t) => (
                   <li
                     key={t}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-foreground/90"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1 text-xs text-foreground/90"
                   >
                     <Check className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
                     {t}
@@ -194,7 +194,7 @@ function CaseStudyModal({
           ) : null}
 
           {quote ? (
-            <blockquote className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm italic leading-relaxed text-foreground/90">
+            <blockquote className="mt-6 rounded-2xl border border-border bg-muted p-5 text-sm italic leading-relaxed text-foreground/90">
               « {quote.quote} »
               <footer className="mt-2 not-italic text-xs text-muted-foreground">
                 {quote.name} · {quote.sourceLabel}
@@ -209,7 +209,7 @@ function CaseStudyModal({
                 target="_blank"
                 rel="noopener noreferrer"
                 data-event="portfolio_visit"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-foreground hover:border-white/30"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-muted px-5 py-2.5 text-sm font-semibold text-foreground hover:border-border"
               >
                 Voir le site en ligne <ArrowUpRight className="h-4 w-4" />
               </a>
@@ -254,7 +254,7 @@ function SiteCard({
           />
         ) : (
           <div
-            className="absolute inset-0 flex items-center justify-center text-center text-xs text-white/40"
+            className="absolute inset-0 flex items-center justify-center text-center text-xs text-muted-foreground"
             style={{
               background: `radial-gradient(circle at 50% 40%, ${p.accent}22, transparent 70%)`,
             }}
@@ -267,7 +267,7 @@ function SiteCard({
         <div className="flex items-center justify-between gap-2">
           <h3 className="truncate text-sm font-semibold">{p.title}</h3>
           {p.status === "construction" ? (
-            <span className="shrink-0 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-muted-foreground">
+            <span className="shrink-0 rounded-full border border-border bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">
               en cours
             </span>
           ) : (
@@ -288,7 +288,7 @@ function SiteCard({
       type="button"
       onClick={() => onOpen(p)}
       data-event="portfolio_open"
-      className="group relative block w-full cursor-pointer overflow-hidden rounded-2xl border border-white/5 bg-card/40 text-left shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-white/15"
+      className="group relative block w-full cursor-pointer overflow-hidden rounded-2xl border border-border bg-card/40 text-left shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-border"
     >
       <GlowingEffect
         spread={40}
@@ -306,7 +306,7 @@ function SiteCard({
 /* ── Carte logo ──────────────────────────────────────────────── */
 function LogoCard({ l }: { l: (typeof LOGO_PROJECTS)[number] }) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-white/5 bg-card/40 shadow-card">
+    <div className="group relative overflow-hidden rounded-2xl border border-border bg-card/40 shadow-card">
       <GlowingEffect
         spread={40}
         glow
@@ -388,7 +388,7 @@ function PortfolioPage() {
       </section>
 
       {/* Barre de filtres (collante) */}
-      <div className="sticky top-[56px] z-30 border-y border-white/5 bg-background/85 backdrop-blur-xl">
+      <div className="sticky top-[56px] z-30 border-y border-border bg-background/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-2 px-6 py-3">
           {FILTERS.map((f) => {
             const on = active === f.key;
@@ -400,8 +400,8 @@ function PortfolioPage() {
                 aria-pressed={on}
                 className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-all ${
                   on
-                    ? "bg-white/10 text-foreground"
-                    : "border-white/10 text-muted-foreground hover:border-white/25 hover:text-foreground"
+                    ? "bg-muted text-foreground"
+                    : "border-border text-muted-foreground hover:border-border hover:text-foreground"
                 }`}
                 style={on ? { borderColor: f.accent } : undefined}
               >
@@ -449,7 +449,7 @@ function PortfolioPage() {
 
       {/* CTA */}
       <section className="mx-auto w-full max-w-5xl px-6 pb-16">
-        <div className="rounded-2xl border border-white/10 bg-card/40 p-8 text-center shadow-card backdrop-blur">
+        <div className="rounded-2xl border border-border bg-card/40 p-8 text-center shadow-card backdrop-blur">
           <div className="mb-6 flex justify-center">
             <ExpressionPhoto
               slug="grand-sourire"
@@ -478,7 +478,7 @@ function PortfolioPage() {
               target="_blank"
               rel="noopener noreferrer"
               data-event="cta_calendly_portfolio_end"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-card/40 px-6 py-3 text-sm font-semibold text-foreground backdrop-blur hover:border-white/30"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-6 py-3 text-sm font-semibold text-foreground backdrop-blur hover:border-border"
             >
               Réserver un appel
             </a>

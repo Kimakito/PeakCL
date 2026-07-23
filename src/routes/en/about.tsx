@@ -5,8 +5,7 @@ import { canonicalLink, hreflangLinks, ogLocaleMeta } from "@/seo/hreflang";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionGallery } from "@/components/ExpressionPhoto";
-import { TerminalBio } from "@/components/TerminalBio";
-import { StarCrawl } from "@/components/StarCrawl";
+import { MosaicBio } from "@/components/MosaicBio";
 
 const PHOTO = "/peakcl/photo/charlotte-portrait";
 
@@ -58,7 +57,7 @@ export const Route = createFileRoute("/en/about")({
 
 function Page() {
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       <SectionDots
         sections={SECTIONS.map((s) => ({ id: s.id, label: s.label }))}
       />
@@ -69,7 +68,7 @@ function Page() {
         >
           <div className="grid-bg absolute inset-0 -z-10" />
           <div className="mx-auto max-w-4xl px-6 text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-yellow-ink)]">
               Who am I?
             </span>
             <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-tight md:text-6xl">
@@ -85,12 +84,12 @@ function Page() {
 
         <SnapSection
           id="parcours"
-          className="flex items-center border-t border-white/5 py-20"
+          className="flex items-center border-t border-border py-20"
         >
           <div className="mx-auto max-w-3xl px-6">
-            <TerminalBio className="mb-12" />
+            <MosaicBio className="mb-12" />
 
-            <div className="relative mx-auto mb-8 max-w-md overflow-hidden rounded-2xl border border-white/10 shadow-card">
+            <div className="relative mx-auto mb-8 max-w-md overflow-hidden rounded-2xl border border-border shadow-card">
               <GlowingEffect
                 spread={40}
                 glow
@@ -122,9 +121,8 @@ function Page() {
               </picture>
             </div>
 
-            <StarCrawl />
 
-            <div className="relative mt-10 rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+            <div className="relative mt-10 rounded-2xl border border-border bg-card/50 p-6 shadow-card">
               <GlowingEffect
                 spread={40}
                 glow
@@ -177,7 +175,7 @@ function Page() {
 
         <SnapSection
           id="contact"
-          className="flex items-center border-t border-white/5 py-20"
+          className="flex items-center border-t border-border py-20"
         >
           <div className="mx-auto max-w-3xl px-6">
             <div className="relative rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] bg-card/40 p-6 text-center shadow-card">
@@ -214,7 +212,7 @@ function Page() {
             <div className="mt-10 text-center">
               <a
                 href="/en"
-                className="text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+                className="text-sm font-semibold text-[var(--link)] hover:text-foreground"
               >
                 ← Back to home
               </a>

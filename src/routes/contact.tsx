@@ -99,7 +99,7 @@ function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       <SectionDots
         sections={SECTIONS.map((s) => ({ id: s.id, label: s.label }))}
       />
@@ -111,7 +111,7 @@ function ContactPage() {
           <div className="grid-bg absolute inset-0 -z-10" />
           <div className="hero-aurora" aria-hidden />
           <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
-            <div className="relative grid overflow-hidden rounded-3xl border border-white/10 shadow-card md:grid-cols-2">
+            <div className="relative grid overflow-hidden rounded-3xl border border-border shadow-card md:grid-cols-2">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
 
               {/* Panneau gauche : photo bureau + moyens de contact */}
@@ -134,7 +134,7 @@ function ContactPage() {
                       rel="noopener noreferrer"
                       aria-label={s.label}
                       data-event={`contact_page_${s.label.toLowerCase()}`}
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-foreground backdrop-blur transition-colors hover:border-white/30 hover:text-[var(--brand-turquoise)]"
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-muted text-foreground backdrop-blur transition-colors hover:border-border hover:text-[var(--brand-turquoise)]"
                     >
                       <s.icon className="h-4 w-4" />
                     </a>
@@ -142,7 +142,7 @@ function ContactPage() {
                 </div>
 
                 <div className="mt-10">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-xs text-muted-foreground backdrop-blur">
                     <HeartHandshake className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
                     Toutes les questions sont les bienvenues
                   </div>
@@ -166,7 +166,7 @@ function ContactPage() {
                         data-event={c.dataEvent}
                         className="group flex items-center gap-3 text-sm"
                       >
-                        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[var(--brand-turquoise)] backdrop-blur">
+                        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-muted text-[var(--brand-turquoise)] backdrop-blur">
                           <c.icon className="h-4 w-4" />
                         </span>
                         <span className="flex flex-col">
@@ -181,7 +181,7 @@ function ContactPage() {
                     </li>
                   ))}
                   <li className="flex items-center gap-3 text-sm">
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[var(--brand-turquoise)] backdrop-blur">
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-muted text-[var(--brand-turquoise)] backdrop-blur">
                       <MapPin className="h-4 w-4" />
                     </span>
                     <span className="flex flex-col">
@@ -232,7 +232,7 @@ function ContactPage() {
                     <input
                       name="name"
                       required
-                      className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
+                      className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
                       placeholder="Votre nom"
                     />
                   </label>
@@ -244,7 +244,7 @@ function ContactPage() {
                       name="email"
                       type="email"
                       required
-                      className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
+                      className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
                       placeholder="vous@exemple.com"
                     />
                   </label>
@@ -255,7 +255,7 @@ function ContactPage() {
                     <input
                       name="telephone"
                       type="tel"
-                      className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
+                      className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
                       placeholder="06 12 34 56 78"
                     />
                   </label>
@@ -267,7 +267,7 @@ function ContactPage() {
                       name="message"
                       required
                       rows={4}
-                      className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
+                      className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
                       placeholder="Votre question, votre projet, votre situation..."
                     />
                   </label>
@@ -282,7 +282,7 @@ function ContactPage() {
                 </form>
 
                 {/* Alternative : ouvrir le chatbot PeakaBot */}
-                <div className="mt-1 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div className="mt-1 flex items-center gap-3 rounded-2xl border border-border bg-muted p-4">
                   <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-gradient text-primary-foreground">
                     <Sparkles className="h-5 w-5" />
                   </span>
@@ -298,7 +298,7 @@ function ContactPage() {
                     type="button"
                     onClick={() => window.dispatchEvent(new Event("peakabot:open"))}
                     data-event="contact_page_open_peakabot"
-                    className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-foreground transition-colors hover:border-white/30 hover:text-[var(--brand-turquoise)]"
+                    className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border bg-muted px-4 py-2 text-xs font-semibold text-foreground transition-colors hover:border-border hover:text-[var(--brand-turquoise)]"
                   >
                     <MessageCircle className="h-4 w-4" />
                     Discuter
@@ -311,10 +311,10 @@ function ContactPage() {
 
         <SnapSection
           id="lieu"
-          className="flex items-center border-t border-white/5 py-16"
+          className="flex items-center border-t border-border py-16"
         >
           <div className="mx-auto w-full max-w-5xl px-6">
-            <div className="relative rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
+            <div className="relative rounded-3xl border border-border bg-card/20 p-6 shadow-card">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
                 <MapPin className="h-4 w-4 text-[var(--brand-turquoise)]" />
@@ -324,7 +324,7 @@ function ContactPage() {
                 J’accompagne mes clients partout en France (visio, téléphone,
                 email). Une rencontre en Savoie est possible sur demande.
               </p>
-              <div className="mt-4 overflow-hidden rounded-2xl border border-white/10">
+              <div className="mt-4 overflow-hidden rounded-2xl border border-border">
                 <iframe
                   title="Localisation PeakCL, Gilly-sur-Isère, Savoie"
                   src={MAP_EMBED_SRC}
@@ -340,10 +340,10 @@ function ContactPage() {
 
         <SnapSection
           id="diagnostic"
-          className="flex items-center border-t border-white/5 py-16"
+          className="flex items-center border-t border-border py-16"
         >
           <div className="mx-auto max-w-3xl px-6">
-            <div className="relative rounded-3xl border border-white/10 bg-card/20 p-6 text-center shadow-card">
+            <div className="relative rounded-3xl border border-border bg-card/20 p-6 text-center shadow-card">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="mb-6 flex justify-center">
                 <ExpressionPhoto slug="sourire-exterieur" caption="À vous lire" tilt={-3} imgClassName="aspect-[3/4] w-28" />

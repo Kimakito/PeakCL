@@ -71,7 +71,7 @@ export function SectionDots({ sections }: { sections: { id: string; label: strin
             className={`block h-2 w-2 rounded-full transition-all duration-300 ${
               activeId === s.id
                 ? "scale-150 bg-[var(--brand-turquoise)] shadow-[0_0_8px_var(--brand-turquoise)]"
-                : "bg-white/25 group-hover:bg-white/60"
+                : "bg-muted group-hover:bg-muted"
             }`}
           />
           <span className="pointer-events-none absolute right-6 whitespace-nowrap rounded-md bg-card/90 px-2 py-1 text-xs font-medium opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">

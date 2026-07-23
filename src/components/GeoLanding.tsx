@@ -85,12 +85,12 @@ export function GeoLanding({
 }: GeoLandingProps) {
   const faq = geoLandingFaq(city, region, serviceLabel);
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       {/* Hero */}
       <section className="relative overflow-hidden bg-hero py-20">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
             <MapPin className="h-3.5 w-3.5" />
             {city} · {region}
           </div>
@@ -109,7 +109,7 @@ export function GeoLanding({
       </section>
 
       {/* Free audit strip */}
-      <section className="border-t border-white/5 bg-card/30 py-8">
+      <section className="border-t border-border bg-card/30 py-8">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 px-6 text-center sm:flex-row sm:text-left">
           <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[color-mix(in_oklab,var(--brand-yellow)_18%,transparent)] text-[var(--brand-yellow)]">
             <Gift className="h-5 w-5" />
@@ -130,7 +130,7 @@ export function GeoLanding({
       </section>
 
       {/* Unique angle */}
-      <section className="border-t border-white/5 py-20">
+      <section className="border-t border-border py-20">
         <div className="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-2">
           <div>
             <h2 className="text-2xl font-bold">{angleTitle}</h2>
@@ -149,7 +149,7 @@ export function GeoLanding({
               </p>
             ) : null}
           </div>
-          <div className="relative rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+          <div className="relative rounded-2xl border border-border bg-card/50 p-6 shadow-card">
             <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <h3 className="text-base font-semibold">Ce que vous obtenez</h3>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
@@ -175,7 +175,7 @@ export function GeoLanding({
       </section>
 
       {/* Services */}
-      <section className="border-t border-white/5 py-20">
+      <section className="border-t border-border py-20">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-2xl font-bold md:text-3xl">
             Toute votre communication à {city}, au même endroit
@@ -189,7 +189,7 @@ export function GeoLanding({
               <a
                 key={s.title}
                 href={s.href}
-                className="group relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card transition-colors hover:border-white/15"
+                className="group relative rounded-2xl border border-border bg-card/50 p-5 shadow-card transition-colors hover:border-border"
               >
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] text-[var(--brand-violet)]">
@@ -208,7 +208,7 @@ export function GeoLanding({
 
       {/* Local SEO */}
       {seoSection ? (
-        <section className="border-t border-white/5 py-20">
+        <section className="border-t border-border py-20">
           <div className="mx-auto max-w-5xl px-6">
             <h2 className="text-2xl font-bold md:text-3xl">{seoSection.title}</h2>
             <p className="mt-3 max-w-2xl text-muted-foreground">{seoSection.text}</p>
@@ -217,12 +217,12 @@ export function GeoLanding({
       ) : null}
 
       {/* Process */}
-      <section className="border-t border-white/5 py-20">
+      <section className="border-t border-border py-20">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-2xl font-bold md:text-3xl">Comment ça se passe</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((step) => (
-              <div key={step.n} className="relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
+              <div key={step.n} className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card">
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="text-sm font-bold text-[var(--brand-turquoise)]">{step.n}</div>
                 <h3 className="mt-2 text-base font-semibold">{step.title}</h3>
@@ -234,12 +234,12 @@ export function GeoLanding({
       </section>
 
       {/* Mini FAQ */}
-      <section className="border-t border-white/5 py-20">
+      <section className="border-t border-border py-20">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-2xl font-bold">Questions fréquentes</h2>
           <div className="mt-6 space-y-4">
             {faq.map((item) => (
-              <div key={item.question} className="relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card">
+              <div key={item.question} className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card">
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <h3 className="text-base font-semibold">{item.question}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{item.answerHtml}</p>
@@ -250,7 +250,7 @@ export function GeoLanding({
       </section>
 
       {/* Nearby + about */}
-      <section className="border-t border-white/5 py-16">
+      <section className="border-t border-border py-16">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-xl font-bold">Aux alentours de {city}</h2>
           <div className="mt-5 flex flex-wrap gap-2">
@@ -258,7 +258,7 @@ export function GeoLanding({
               <a
                 key={z.href}
                 href={z.href}
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-border hover:text-foreground"
               >
                 <MapPin className="h-3 w-3" />
                 {z.name}
@@ -266,7 +266,7 @@ export function GeoLanding({
             ))}
             <a
               href="/qui-suis-je"
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-border hover:text-foreground"
             >
               Qui suis-je ?
             </a>
@@ -275,7 +275,7 @@ export function GeoLanding({
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden border-t border-white/5 py-20">
+      <section className="relative overflow-hidden border-t border-border py-20">
         <div className="absolute inset-0 -z-10 bg-hero" />
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mb-6 flex justify-center">

@@ -131,21 +131,21 @@ function BacASableVideoPage() {
       <button
         type="button"
         onClick={() => execClipboard("cut")}
-        className="rounded-lg border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-foreground hover:bg-white/15"
+        className="rounded-lg border border-border bg-muted px-3 py-1.5 text-xs font-semibold text-foreground hover:bg-muted"
       >
         Couper
       </button>
       <button
         type="button"
         onClick={() => execClipboard("copy")}
-        className="rounded-lg border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-foreground hover:bg-white/15"
+        className="rounded-lg border border-border bg-muted px-3 py-1.5 text-xs font-semibold text-foreground hover:bg-muted"
       >
         Copier
       </button>
       <button
         type="button"
         onClick={() => execClipboard("paste")}
-        className="rounded-lg border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-foreground hover:bg-white/15"
+        className="rounded-lg border border-border bg-muted px-3 py-1.5 text-xs font-semibold text-foreground hover:bg-muted"
       >
         Coller
       </button>
@@ -155,7 +155,7 @@ function BacASableVideoPage() {
           setText("");
           focusTextarea();
         }}
-        className="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground"
+        className="rounded-lg border border-border bg-muted px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground"
       >
         Vider
       </button>
@@ -165,7 +165,7 @@ function BacASableVideoPage() {
           setText(DEFAULT_TEXT);
           focusTextarea();
         }}
-        className="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground"
+        className="rounded-lg border border-border bg-muted px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground"
       >
         Texte démo
       </button>
@@ -177,11 +177,11 @@ function BacASableVideoPage() {
       className={
         recordMode
           ? "min-h-screen bg-black"
-          : "min-h-screen bg-[#0a0a0f] text-foreground"
+          : "min-h-screen bg-[var(--indigo-900)] text-foreground"
       }
     >
       {!recordMode && (
-        <header className="sticky top-0 z-50 border-b border-white/10 bg-background/90 backdrop-blur-xl">
+        <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-3">
             <div>
               <h1 className="font-display text-sm font-bold">Bac à sable vidéo</h1>
@@ -207,7 +207,7 @@ function BacASableVideoPage() {
         <button
           type="button"
           onClick={() => setRecordMode(false)}
-          className="fixed right-4 top-4 z-[100] rounded-full border border-white/20 bg-black/70 px-4 py-2 text-xs font-semibold text-white backdrop-blur hover:bg-black/90"
+          className="fixed right-4 top-4 z-[100] rounded-full border border-border bg-black/70 px-4 py-2 text-xs font-semibold text-white backdrop-blur hover:bg-black/90"
         >
           Quitter le mode capture
         </button>
@@ -275,13 +275,13 @@ function BacASableVideoPage() {
                 <img
                   src={logo}
                   alt="PeakCL"
-                  className="h-16 w-16 rounded-xl object-cover shadow-lg ring-2 ring-white/10"
+                  className="h-16 w-16 rounded-xl object-cover shadow-lg ring-2 ring-border"
                 />
                 <div>
                   <div className="font-gabriela text-3xl tracking-tight text-white">
                     Peak<span className="text-gradient">CL</span>
                   </div>
-                  <div className="font-gabriela text-lg text-white/55">peakcl.com</div>
+                  <div className="font-gabriela text-lg text-muted-foreground">peakcl.com</div>
                 </div>
               </div>
 
@@ -290,19 +290,19 @@ function BacASableVideoPage() {
                 <span className="text-gradient">gagner du temps</span>
               </h2>
 
-              <p className="font-gabriela mt-5 text-2xl text-white/60">
+              <p className="font-gabriela mt-5 text-2xl text-muted-foreground">
                 Cliquez et apprenez à bosser efficacement !
               </p>
 
               {/* Zone démo (dans le cadre capture) */}
-              <div className="relative mt-8 flex min-h-0 flex-1 flex-col rounded-3xl border border-white/15 bg-white/[0.06] p-3 shadow-card backdrop-blur-sm">
+              <div className="relative mt-8 flex min-h-0 flex-1 flex-col rounded-3xl border border-border bg-muted p-3 shadow-card backdrop-blur-sm">
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="mb-3 flex flex-wrap items-center justify-between gap-3 px-2">
                   <div className="flex items-center gap-2">
                     <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
                     <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
                     <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-                    <span className="font-gabriela ml-2 text-lg text-white/45">
+                    <span className="font-gabriela ml-2 text-lg text-muted-foreground">
                       Zone de texte
                     </span>
                   </div>
@@ -324,7 +324,7 @@ function BacASableVideoPage() {
                 />
               </div>
 
-              <div className="font-gabriela mt-6 flex items-center justify-between text-xl text-white/50">
+              <div className="font-gabriela mt-6 flex items-center justify-between text-xl text-muted-foreground">
                 <span>★★★★★ 5/5 Google</span>
                 <span className="text-[var(--brand-turquoise)]">@peakcl</span>
               </div>

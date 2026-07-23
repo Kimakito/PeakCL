@@ -160,16 +160,16 @@ export function TerminalBio({ className = "" }: { className?: string }) {
   return (
     <div
       ref={rootRef}
-      className={`relative overflow-hidden rounded-2xl border border-white/10 bg-[oklch(0.19_0.04_290)] shadow-card ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-border bg-[var(--violet-800)] shadow-card ${className}`}
     >
       {/* Barre de titre : les 3 pastilles reprennent les couleurs de marque. */}
       <div
         aria-hidden
-        className="flex items-center gap-2 border-b border-white/10 bg-white/[0.03] px-4 py-3"
+        className="flex items-center gap-2 border-b border-border bg-muted px-4 py-3"
       >
         <span className="h-3 w-3 rounded-full bg-[var(--brand-yellow)]/80" />
         <span className="h-3 w-3 rounded-full bg-[var(--brand-turquoise)]/80" />
-        <span className="h-3 w-3 rounded-full bg-white/25" />
+        <span className="h-3 w-3 rounded-full bg-muted" />
         <span className="ml-2 font-mono text-xs text-muted-foreground">
           charlotte@peakcl : {promptPath(locale)}
         </span>

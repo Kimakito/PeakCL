@@ -55,7 +55,7 @@ export function VideoPresentation() {
           subtitle={t.subtitle}
         />
         <div className="mx-auto w-full max-w-[340px]">
-          <div className="card-hover relative rounded-[2rem] border border-white/10 bg-card/50 p-2.5 shadow-card backdrop-blur">
+          <div className="card-hover relative rounded-[2rem] border border-border bg-card/50 p-2.5 shadow-card backdrop-blur">
             <GlowingEffect
               spread={40}
               glow

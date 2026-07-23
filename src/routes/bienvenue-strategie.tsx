@@ -31,11 +31,11 @@ export const Route = createFileRoute("/bienvenue-strategie")({
 
 function BienvenueStrategiePage() {
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       <section className="relative overflow-hidden bg-hero py-20">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
             <CheckCircle2 className="h-4 w-4 text-[var(--brand-turquoise)]" />
             Redirection…
           </div>

@@ -54,7 +54,7 @@ function TextInput({
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-white/20"
+        className="mt-2 w-full rounded-md border border-border bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-border"
         placeholder={placeholder}
       />
     </label>
@@ -77,7 +77,7 @@ function ChoiceSingle({
   onChange: (v: string) => void;
 }) {
   return (
-    <fieldset className="relative rounded-2xl border border-white/10 bg-card/30 p-5">
+    <fieldset className="relative rounded-2xl border border-border bg-card/30 p-5">
       <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       <legend className="px-2">
         <FieldLabel label={label} required={required} />
@@ -86,7 +86,7 @@ function ChoiceSingle({
         {options.map((o) => (
           <label
             key={o.value}
-            className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/5 bg-white/5 px-4 py-3 text-sm text-foreground hover:border-white/10"
+            className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-muted px-4 py-3 text-sm text-foreground hover:border-border"
           >
             <input
               type="radio"
@@ -122,7 +122,7 @@ function ChoiceMulti({
 }) {
   const hasAny = value.length > 0;
   return (
-    <fieldset className="relative rounded-2xl border border-white/10 bg-card/30 p-5">
+    <fieldset className="relative rounded-2xl border border-border bg-card/30 p-5">
       <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       <legend className="px-2">
         <FieldLabel label={label} required={required} />
@@ -135,7 +135,7 @@ function ChoiceMulti({
           return (
             <label
               key={o.value}
-              className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/5 bg-white/5 px-4 py-3 text-sm text-foreground hover:border-white/10"
+              className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-muted px-4 py-3 text-sm text-foreground hover:border-border"
             >
               <input
                 type="checkbox"
@@ -171,7 +171,7 @@ function Scale10({
   onChange: (v: number) => void;
 }) {
   return (
-    <fieldset className="relative rounded-2xl border border-white/10 bg-card/30 p-5">
+    <fieldset className="relative rounded-2xl border border-border bg-card/30 p-5">
       <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
       <legend className="px-2">
         <FieldLabel label={label} required={required} />
@@ -179,7 +179,7 @@ function Scale10({
       <div className="mt-4">
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <span>0</span>
-          <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-foreground">{value}</span>
+          <span className="rounded-full border border-border bg-muted px-3 py-1 text-foreground">{value}</span>
           <span>10</span>
         </div>
         <input type="hidden" name={name} value={String(value)} />
@@ -267,7 +267,7 @@ function DiagnosticPage() {
   };
 
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       <section className="relative overflow-hidden bg-hero py-20">
         <img
           src="/peakcl/assets/images/bureau-peakcl.webp"
@@ -278,7 +278,7 @@ function DiagnosticPage() {
         <div className="absolute inset-0 -z-[15] bg-background/70" />
         <div className="grid-bg absolute inset-0 -z-10 opacity-30" />
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
             <CheckCircle2 className="h-4 w-4 text-[var(--brand-turquoise)]" />
             Diagnostic · 3 à 5 minutes
           </div>
@@ -295,7 +295,7 @@ function DiagnosticPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 py-16">
+      <section className="border-t border-border py-16">
         <div className="mx-auto max-w-3xl px-6">
           <form
             name="diagnostic"
@@ -314,7 +314,7 @@ function DiagnosticPage() {
               </label>
             </p>
 
-            <div className="relative rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card">
+            <div className="relative rounded-3xl border border-border bg-card/20 p-6 shadow-card">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="grid gap-5">
                 <TextInput
@@ -379,7 +379,7 @@ function DiagnosticPage() {
               onChange={setImportanceProbleme}
             />
 
-            <label className="relative block rounded-2xl border border-white/10 bg-card/30 p-5">
+            <label className="relative block rounded-2xl border border-border bg-card/30 p-5">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <FieldLabel label="Classez (par ordre) vos priorités du moment." required />
               <div className="mt-2 text-xs text-muted-foreground">
@@ -391,7 +391,7 @@ function DiagnosticPage() {
                 value={ranking}
                 onChange={(e) => setRanking(e.target.value)}
                 rows={4}
-                className="mt-3 w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-white/20"
+                className="mt-3 w-full rounded-md border border-border bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-border"
                 placeholder="Écris simplement une liste numérotée."
               />
             </label>
@@ -440,7 +440,7 @@ function DiagnosticPage() {
               onChange={setEngagement}
             />
 
-            <div className="relative flex flex-col items-stretch justify-between gap-3 rounded-3xl border border-white/10 bg-card/20 p-6 shadow-card sm:flex-row sm:items-center">
+            <div className="relative flex flex-col items-stretch justify-between gap-3 rounded-3xl border border-border bg-card/20 p-6 shadow-card sm:flex-row sm:items-center">
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
               <div className="text-sm text-muted-foreground">
                 Champs obligatoires marqués d’une <span className="text-[var(--brand-turquoise)]">⭐</span>

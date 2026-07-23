@@ -49,7 +49,7 @@ export function ExpressionPhoto({
         />
       </div>
       {caption ? (
-        <figcaption className="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-card/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.04em] text-foreground shadow-card backdrop-blur">
+        <figcaption className="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-card/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.04em] text-foreground shadow-card backdrop-blur">
           {caption}
         </figcaption>
       ) : null}
@@ -115,7 +115,7 @@ export function SectionAvatarCard({
   const c = SECTION_CARDS[slug];
   return (
     <div
-      className={`group overflow-hidden rounded-3xl border border-white/10 shadow-card transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${className}`}
+      className={`group overflow-hidden rounded-3xl border border-border shadow-card transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${className}`}
     >
       <img
         src={c.src}

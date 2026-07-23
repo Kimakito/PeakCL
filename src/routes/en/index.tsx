@@ -197,7 +197,7 @@ function ProblemPanel() {
             {points.map((point) => (
               <li
                 key={point}
-                className="flex items-start gap-3 rounded-2xl border border-white/5 bg-card/40 p-4 shadow-card backdrop-blur"
+                className="flex items-start gap-3 rounded-2xl border border-border bg-card/40 p-4 shadow-card backdrop-blur"
               >
                 <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_oklab,var(--brand-violet)_30%,transparent)] text-[var(--brand-yellow)] text-xs">
                   ✓
@@ -287,7 +287,7 @@ function MethodPanel() {
               viewport={{ once: true }}
               variants={fadeUp}
               transition={{ delay: i * 0.07 }}
-              className="card-hover relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card"
+              className="card-hover relative rounded-2xl border border-border bg-card/50 p-5 shadow-card"
             >
               <GlowingEffect
                 spread={40}
@@ -374,7 +374,7 @@ function OffersPanel() {
           {offers.map((o, i) => (
             <Reveal key={o.title} delay={i * 0.06} className="h-full">
               <div
-                className={`card-hover relative h-full rounded-2xl border bg-card/50 p-5 shadow-card backdrop-blur ${o.highlight ? "border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_22%,transparent)]" : "border-white/5"}`}
+                className={`card-hover relative h-full rounded-2xl border bg-card/50 p-5 shadow-card backdrop-blur ${o.highlight ? "border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_22%,transparent)]" : "border-border"}`}
               >
                 <GlowingEffect
                   spread={40}
@@ -450,7 +450,7 @@ function PortfolioPanel() {
               key={c.slug}
               href={`/en/portfolio?cat=${c.slug}`}
               data-event="home_cat_filter"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-card/40 px-3.5 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-white/25 hover:text-foreground"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-3.5 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-border hover:text-foreground"
             >
               <span
                 className="h-1.5 w-1.5 rounded-full"
@@ -473,7 +473,7 @@ function PortfolioPanel() {
               viewport={{ once: true }}
               variants={fadeUp}
               transition={{ delay: i * 0.05 }}
-              className="group relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card transition-all hover:-translate-y-1 hover:border-white/15"
+              className="group relative rounded-2xl border border-border bg-card/50 p-5 shadow-card transition-all hover:-translate-y-1 hover:border-border"
             >
               <GlowingEffect
                 spread={40}
@@ -490,12 +490,12 @@ function PortfolioPanel() {
                     alt={p.title}
                     width={40}
                     height={40}
-                    className="h-10 w-10 rounded-xl bg-white/5 object-contain p-1.5"
+                    className="h-10 w-10 rounded-xl bg-muted object-contain p-1.5"
                     loading="lazy"
                     decoding="async"
                   />
                 ) : (
-                  <div className="h-10 w-10 rounded-xl bg-white/5" />
+                  <div className="h-10 w-10 rounded-xl bg-muted" />
                 )}
                 <div>
                   <div className="text-sm font-semibold">{p.title}</div>
@@ -511,7 +511,7 @@ function PortfolioPanel() {
                   {p.tags.slice(0, 3).map((t) => (
                     <span
                       key={`${p.siteUrl}-${t}`}
-                      className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs text-muted-foreground"
+                      className="rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs text-muted-foreground"
                     >
                       {t}
                     </span>
@@ -610,11 +610,11 @@ function FAQPanel() {
           {peakclFaqHomeEn.map((f) => (
             <details
               key={f.question}
-              className="group rounded-2xl border border-white/5 bg-card/50 p-4 shadow-card open:bg-card/70"
+              className="group rounded-2xl border border-border bg-card/50 p-4 shadow-card open:bg-card/70"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-sm font-semibold">
                 {f.question}
-                <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 text-[var(--brand-turquoise)] transition-transform group-open:rotate-45 text-base">
+                <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border text-[var(--brand-turquoise)] transition-transform group-open:rotate-45 text-base">
                   +
                 </span>
               </summary>
@@ -660,7 +660,7 @@ function ContactPanel() {
       <div className="grid-bg absolute inset-0 -z-10" />
       <SectionMascot pose="reseaux" side="right" heightClass="h-[42vh]" />
       <div className="mx-auto max-w-4xl px-8 md:px-16 w-full text-center">
-        <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-yellow)_35%,transparent)] bg-white/5 px-4 py-1.5 text-xs font-semibold text-[var(--brand-yellow)]">
+        <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-yellow)_35%,transparent)] bg-muted px-4 py-1.5 text-xs font-semibold text-[var(--brand-yellow)]">
           <Sparkles className="h-3.5 w-3.5" />
           Free diagnosis: site, brand and social
         </div>
@@ -679,7 +679,7 @@ function ContactPanel() {
             loading="lazy"
             decoding="async"
             alt="Charlotte Lacroix"
-            className="h-14 w-14 rounded-full object-cover ring-2 ring-white/15"
+            className="h-14 w-14 rounded-full object-cover ring-2 ring-border"
           />
           <p className="text-left text-sm text-muted-foreground">
             You'll talk directly with{" "}
@@ -699,7 +699,7 @@ function ContactPanel() {
           </CTAButton>
         </div>
         <form
-          className="relative mx-auto mt-7 max-w-xl space-y-3 rounded-2xl border border-white/10 bg-card/40 p-5 text-left shadow-card backdrop-blur"
+          className="relative mx-auto mt-7 max-w-xl space-y-3 rounded-2xl border border-border bg-card/40 p-5 text-left shadow-card backdrop-blur"
           name="contact"
           method="POST"
           action="/merci"
@@ -732,7 +732,7 @@ function ContactPanel() {
               <input
                 name="name"
                 required
-                className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
+                className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
                 placeholder="Your name"
               />
             </label>
@@ -744,7 +744,7 @@ function ContactPanel() {
                 name="email"
                 type="email"
                 required
-                className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
+                className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
                 placeholder="you@example.com"
               />
             </label>
@@ -756,7 +756,7 @@ function ContactPanel() {
             <input
               name="telephone"
               type="tel"
-              className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
+              className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
               placeholder="+1 555 123 4567"
             />
           </label>
@@ -768,7 +768,7 @@ function ContactPanel() {
               name="message"
               required
               rows={4}
-              className="mt-1.5 w-full rounded-md border border-white/10 bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-white/20"
+              className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
               placeholder="Your business, your location, your goal..."
             />
           </label>
@@ -794,7 +794,7 @@ function ContactPanel() {
 
 function MobileStickyContact() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-white/10 bg-background/90 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-xl md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-background/90 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-xl md:hidden">
       <div className="mx-auto flex max-w-lg gap-2 px-4">
         <a
           href={PHONE_TEL}
@@ -823,7 +823,7 @@ function MobileStickyContact() {
 
 function Footer() {
   return (
-    <footer className="border-t border-white/5 py-8 md:hidden">
+    <footer className="border-t border-border py-8 md:hidden">
       <img
         src="/peakcl/photo/charlotte-round-192.webp"
         width={192}
@@ -831,7 +831,7 @@ function Footer() {
         alt="Charlotte Lacroix, PeakCL"
         loading="lazy"
         decoding="async"
-        className="mx-auto mb-5 h-20 w-20 rounded-full object-cover ring-2 ring-white/10"
+        className="mx-auto mb-5 h-20 w-20 rounded-full object-cover ring-2 ring-border"
       />
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 text-sm text-muted-foreground">
         <div className="flex items-center gap-2">
@@ -978,7 +978,7 @@ function ReassuranceBar() {
   return (
     <section
       aria-label="Reassurance"
-      className="border-y border-white/5 bg-card/30 py-4"
+      className="border-y border-border bg-card/30 py-4"
     >
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 text-sm">
         <Stat

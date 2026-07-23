@@ -29,10 +29,10 @@ function BienvenuePage() {
       <section className="relative overflow-hidden px-6 pt-16 pb-20 text-center">
         <div className="pointer-events-none absolute top-0 left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] blur-[120px]" />
         <div className="relative z-10 mx-auto max-w-3xl">
-          <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+          <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
             Étape 3 · Après votre créneau Calendly
           </div>
-          <div className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-[var(--brand-turquoise)]">
+          <div className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-5 py-2 text-sm text-[var(--brand-turquoise)]">
             <TriangleAlert className="h-4 w-4" />
             <span>Regarde cette page jusqu&apos;au bout.</span>
             <TriangleAlert className="h-4 w-4" />
@@ -73,7 +73,7 @@ function BienvenuePage() {
             </div>
           </div>
 
-          <div className="relative rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card">
+          <div className="relative rounded-2xl border border-border bg-card/30 p-6 shadow-card">
             <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <p className="text-base leading-relaxed text-foreground/90">
               Je m&apos;appelle Charlotte, fondatrice de PeakCL. J&apos;aide les
@@ -107,7 +107,7 @@ function BienvenuePage() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-card">
+          <div className="relative overflow-hidden rounded-2xl border border-border bg-card/30 shadow-card">
             <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <img
               src={AGENDA_HELP_IMAGE}
@@ -138,7 +138,7 @@ function BienvenuePage() {
             {peakclTestimonials.map((t) => (
               <div
                 key={t.name}
-                className="relative h-full rounded-2xl border border-white/10 bg-card/30 p-6 shadow-card"
+                className="relative h-full rounded-2xl border border-border bg-card/30 p-6 shadow-card"
               >
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="flex gap-1 text-[var(--brand-yellow)]">
@@ -149,7 +149,7 @@ function BienvenuePage() {
                 <p className="mt-4 text-sm leading-relaxed text-foreground/90">
                   “{t.quote}”
                 </p>
-                <div className="mt-6 border-t border-white/10 pt-4">
+                <div className="mt-6 border-t border-border pt-4">
                   <div className="text-sm font-semibold text-foreground">
                     {t.name}
                   </div>
@@ -179,7 +179,7 @@ function BienvenuePage() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-card">
+          <div className="relative overflow-hidden rounded-2xl border border-border bg-card/30 shadow-card">
             <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] via-transparent to-[color-mix(in_oklab,var(--brand-turquoise)_12%,transparent)]" />
             <div className="relative p-6">
@@ -209,7 +209,7 @@ function BienvenuePage() {
                   <a
                     key={r.href}
                     href={r.href}
-                    className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+                    className="flex items-center justify-between gap-4 rounded-2xl border border-border bg-muted px-4 py-3 text-sm font-semibold text-foreground hover:border-border"
                     data-event="resource_open"
                   >
                     <span className="flex items-center gap-2">

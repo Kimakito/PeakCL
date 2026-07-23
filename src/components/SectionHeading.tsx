@@ -3,10 +3,10 @@ import { Reveal } from "@/components/ui/Reveal";
 
 type Accent = "turquoise" | "yellow" | "violet";
 
-const ACCENT_VAR: Record<Accent, string> = {
-  turquoise: "var(--brand-turquoise)",
-  yellow: "var(--brand-yellow)",
-  violet: "var(--brand-violet)",
+const ACCENT: Record<Accent, { text: string; dot: string }> = {
+  turquoise: { text: "var(--accent-turquoise-ink)", dot: "var(--brand-turquoise)" },
+  yellow: { text: "var(--accent-yellow-ink)", dot: "var(--brand-yellow)" },
+  violet: { text: "var(--accent-violet-ink)", dot: "var(--brand-violet)" },
 };
 
 /**
@@ -29,16 +29,16 @@ export function SectionHeading({
   subtitle?: ReactNode;
   className?: string;
 }) {
-  const color = ACCENT_VAR[accent];
+  const a = ACCENT[accent];
   return (
     <Reveal className={`${align === "center" ? "text-center" : ""} ${className}`}>
       <span
         className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em]"
-        style={{ color }}
+        style={{ color: a.text }}
       >
         <span
           className="h-1.5 w-1.5 rounded-full"
-          style={{ background: color, boxShadow: `0 0 8px ${color}` }}
+          style={{ background: a.dot, boxShadow: `0 0 8px ${a.dot}` }}
         />
         {eyebrow}
       </span>

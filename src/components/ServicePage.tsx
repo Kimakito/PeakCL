@@ -49,7 +49,7 @@ function CatalogCard({
       className={`card-hover relative rounded-2xl border bg-card/50 p-7 shadow-card ${
         p.highlight
           ? "border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_22%,transparent)]"
-          : "border-white/5"
+          : "border-border"
       }`}
     >
       <GlowingEffect
@@ -82,7 +82,7 @@ function CatalogCard({
       ) : null}
 
       <div className="mt-6 grid gap-5 md:grid-cols-2">
-        <div className="rounded-xl border border-white/5 bg-background/40 p-5">
+        <div className="rounded-xl border border-border bg-background/40 p-5">
           <div className="text-sm font-semibold">{t.deliverables}</div>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             {p.included.map((x) => (
@@ -94,7 +94,7 @@ function CatalogCard({
           </ul>
         </div>
         {p.notIncluded?.length ? (
-          <div className="rounded-xl border border-white/5 bg-background/40 p-5">
+          <div className="rounded-xl border border-border bg-background/40 p-5">
             <div className="text-sm font-semibold">{t.outOfScope}</div>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
               {p.notIncluded.map((x) => (
@@ -103,7 +103,7 @@ function CatalogCard({
             </ul>
           </div>
         ) : (
-          <div className="rounded-xl border border-white/5 bg-background/40 p-5">
+          <div className="rounded-xl border border-border bg-background/40 p-5">
             <div className="text-sm font-semibold">{t.howWeWork}</div>
             <p className="mt-4 text-sm text-muted-foreground">
               {t.howWeWorkBody}
@@ -131,7 +131,7 @@ function ForfaitCard({ f, t }: { f: Forfait; t: ServicePageStrings }) {
       className={`card-hover relative flex flex-col rounded-2xl border p-6 shadow-card ${
         f.highlight
           ? "border-[color-mix(in_oklab,var(--brand-turquoise)_35%,transparent)] ring-1 ring-[color-mix(in_oklab,var(--brand-turquoise)_25%,transparent)] bg-card/70"
-          : "border-white/5 bg-card/50"
+          : "border-border bg-card/50"
       }`}
     >
       {f.highlight ? (
@@ -245,7 +245,7 @@ export function ServicePage({
   ];
   return (
     <div className="min-h-screen">
-      <main className="border-t border-white/5">
+      <main className="border-t border-border">
         <SectionDots sections={SECTIONS} />
         <SnapPage>
           <SnapSection
@@ -256,7 +256,7 @@ export function ServicePage({
             <div className="hero-aurora" aria-hidden />
             {heroSpline || heroImage ? (
               <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
-                <Card className="relative overflow-hidden rounded-3xl border-white/10 bg-[color-mix(in_oklab,var(--brand-violet)_10%,#07060d)] shadow-card">
+                <Card className="relative overflow-hidden rounded-3xl border-border bg-[color-mix(in_oklab,var(--brand-violet)_10%,#07060d)] shadow-card">
                   <Spotlight
                     className="-top-40 left-0 md:-top-20 md:left-60"
                     fill="oklch(0.83 0.14 185)"
@@ -287,7 +287,7 @@ export function ServicePage({
                           target="_blank"
                           rel="noopener noreferrer"
                           data-event="cta_calendly_service_hero"
-                          className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+                          className="inline-flex items-center justify-center rounded-full border border-border bg-muted px-6 py-3 text-sm font-semibold text-foreground hover:border-border"
                         >
                           {t.bookCall}
                         </a>
@@ -347,7 +347,7 @@ export function ServicePage({
                     target="_blank"
                     rel="noopener noreferrer"
                     data-event="cta_calendly_service_hero"
-                    className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+                    className="inline-flex items-center justify-center rounded-full border border-border bg-muted px-6 py-3 text-sm font-semibold text-foreground hover:border-border"
                   >
                     {t.bookCall}
                   </a>
@@ -368,7 +368,7 @@ export function ServicePage({
           {highlights?.length ? (
             <SnapSection
               id="expertises"
-              className="flex items-center border-t border-white/5 py-16"
+              className="flex items-center border-t border-border py-16"
             >
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
@@ -385,7 +385,7 @@ export function ServicePage({
                   {highlights.map((h) => (
                     <div
                       key={h.title}
-                      className="card-hover relative rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card"
+                      className="card-hover relative rounded-2xl border border-border bg-card/50 p-6 shadow-card"
                     >
                       <GlowingEffect
                         spread={40}
@@ -410,7 +410,7 @@ export function ServicePage({
           {forfaits?.length ? (
             <SnapSection
               id="forfaits"
-              className="flex items-center border-t border-white/5 py-16"
+              className="flex items-center border-t border-border py-16"
             >
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
@@ -434,7 +434,7 @@ export function ServicePage({
 
           <SnapSection
             id="prestations"
-            className="flex items-center border-t border-white/5 py-16"
+            className="flex items-center border-t border-border py-16"
           >
             <div className="mx-auto w-full max-w-5xl px-6">
               <div className="mb-6">
@@ -462,7 +462,7 @@ export function ServicePage({
                   <a
                     href={portfolioLink.to}
                     data-event="cta_portfolio_service"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-white/30"
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-border"
                   >
                     {portfolioLink.label} <ArrowUpRight className="h-4 w-4" />
                   </a>
@@ -474,7 +474,7 @@ export function ServicePage({
           {gallery?.length ? (
             <SnapSection
               id="galerie"
-              className="flex items-center border-t border-white/5 py-16"
+              className="flex items-center border-t border-border py-16"
             >
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
@@ -490,7 +490,7 @@ export function ServicePage({
                 <div className="gap-5 [column-fill:_balance] sm:columns-2 lg:columns-3">
                   {gallery.map((m, i) => (
                     <Reveal key={m.slug} delay={i * 0.05}>
-                      <figure className="group relative mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-white/5 bg-card/40 shadow-card">
+                      <figure className="group relative mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-border bg-card/40 shadow-card">
                         <GlowingEffect
                           spread={40}
                           glow
@@ -521,7 +521,7 @@ export function ServicePage({
           {socials?.length ? (
             <SnapSection
               id="reseaux"
-              className="flex items-center border-t border-white/5 py-16"
+              className="flex items-center border-t border-border py-16"
             >
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
@@ -542,7 +542,7 @@ export function ServicePage({
                       target="_blank"
                       rel="noopener noreferrer"
                       data-event="social_account_open"
-                      className="card-hover relative flex items-start gap-4 rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card"
+                      className="card-hover relative flex items-start gap-4 rounded-2xl border border-border bg-card/50 p-6 shadow-card"
                     >
                       <GlowingEffect
                         spread={40}
@@ -584,10 +584,10 @@ export function ServicePage({
 
           <SnapSection
             id="contact"
-            className="flex items-center border-t border-white/5 py-16"
+            className="flex items-center border-t border-border py-16"
           >
             <div className="mx-auto w-full max-w-5xl px-6">
-              <div className="rounded-2xl border border-white/10 bg-card/40 p-7 text-center shadow-card backdrop-blur">
+              <div className="rounded-2xl border border-border bg-card/40 p-7 text-center shadow-card backdrop-blur">
                 <div className="mb-6 flex justify-center">
                   <ExpressionPhoto
                     slug="grand-sourire"
@@ -615,7 +615,7 @@ export function ServicePage({
                     target="_blank"
                     rel="noopener noreferrer"
                     data-event="cta_calendly_service_final"
-                    className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+                    className="inline-flex items-center justify-center rounded-full border border-border bg-muted px-6 py-3 text-sm font-semibold text-foreground hover:border-border"
                   >
                     {t.bookCall}
                   </a>

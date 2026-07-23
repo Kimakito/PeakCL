@@ -72,12 +72,12 @@ const ZONES = [
 
 function Page() {
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       {/* Hero */}
       <section className="relative overflow-hidden bg-hero py-20">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
             <MapPin className="h-3.5 w-3.5" />
             Albertville · Savoie · partout en France
           </div>
@@ -102,7 +102,7 @@ function Page() {
       </section>
 
       {/* Free audit strip */}
-      <section className="border-t border-white/5 bg-card/30 py-8">
+      <section className="border-t border-border bg-card/30 py-8">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 px-6 text-center sm:flex-row sm:text-left">
           <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[color-mix(in_oklab,var(--brand-yellow)_18%,transparent)] text-[var(--brand-yellow)]">
             <Gift className="h-5 w-5" />
@@ -120,7 +120,7 @@ function Page() {
       </section>
 
       {/* Why + included */}
-      <section className="border-t border-white/5 py-20">
+      <section className="border-t border-border py-20">
         <div className="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-2">
           <div>
             <h2 className="text-2xl font-bold">Pourquoi soigner votre identité visuelle ?</h2>
@@ -135,7 +135,7 @@ function Page() {
               pensé pour fonctionner ensemble.
             </p>
           </div>
-          <div className="relative rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+          <div className="relative rounded-2xl border border-border bg-card/50 p-6 shadow-card">
             <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] text-[var(--brand-violet)]">
               <Palette className="h-5 w-5" />
@@ -160,7 +160,7 @@ function Page() {
       </section>
 
       {/* Zones */}
-      <section className="border-t border-white/5 py-16">
+      <section className="border-t border-border py-16">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-xl font-bold">Graphiste en Savoie et alentours</h2>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
@@ -172,7 +172,7 @@ function Page() {
               <a
                 key={z.href}
                 href={z.href}
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-border hover:text-foreground"
               >
                 <MapPin className="h-3 w-3" />
                 {z.name}
@@ -180,7 +180,7 @@ function Page() {
             ))}
             <a
               href="/community-manager-savoie"
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-border hover:text-foreground"
             >
               Community management
             </a>
@@ -189,7 +189,7 @@ function Page() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden border-t border-white/5 py-20">
+      <section className="relative overflow-hidden border-t border-border py-20">
         <div className="absolute inset-0 -z-10 bg-hero" />
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mb-6 flex justify-center">

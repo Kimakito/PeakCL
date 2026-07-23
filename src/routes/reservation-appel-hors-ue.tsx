@@ -120,7 +120,7 @@ function ReservationAppelHorsUePage() {
   };
 
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       <section className="relative grid min-h-[55vh] place-items-center overflow-hidden py-24">
         <img
           src={BUREAU_IMAGE}
@@ -129,9 +129,9 @@ function ReservationAppelHorsUePage() {
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-100"
         />
         <div className="grid-bg absolute inset-0 -z-10 opacity-30" />
-        <div className="relative mx-4 max-w-2xl justify-self-center rounded-3xl border border-white/20 bg-white/5 px-6 py-10 text-center shadow-card backdrop-blur-2xl sm:px-10">
+        <div className="relative mx-4 max-w-2xl justify-self-center rounded-3xl border border-border bg-muted px-6 py-10 text-center shadow-card backdrop-blur-2xl sm:px-10">
           <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground backdrop-blur">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground backdrop-blur">
             <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />2 à 3
             minutes
             <span className="opacity-40">·</span>
@@ -159,9 +159,9 @@ function ReservationAppelHorsUePage() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 py-16">
+      <section className="border-t border-border py-16">
         <div className="mx-auto max-w-3xl px-6">
-          <div className="relative mb-8 rounded-2xl border border-white/5 bg-card/40 p-5 text-sm text-muted-foreground shadow-card backdrop-blur">
+          <div className="relative mb-8 rounded-2xl border border-border bg-card/40 p-5 text-sm text-muted-foreground shadow-card backdrop-blur">
             <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
@@ -368,10 +368,10 @@ function ReservationAppelHorsUePage() {
 
             <div
               id="submit"
-              className="relative rounded-2xl border border-white/10 bg-card/40 p-6 text-center shadow-card backdrop-blur"
+              className="relative rounded-2xl border border-border bg-card/40 p-6 text-center shadow-card backdrop-blur"
             >
               <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-              <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-[var(--brand-turquoise)]">
+              <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
                 <Check className="h-6 w-6" />
               </div>
               <h3 className="mt-4 text-2xl font-bold">Prêt·e à envoyer ?</h3>
@@ -386,7 +386,7 @@ function ReservationAppelHorsUePage() {
                   className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all ${
                     canSubmit && !isSubmitting
                       ? "bg-primary-gradient text-primary-foreground shadow-glow hover:scale-[1.02]"
-                      : "cursor-not-allowed border border-white/10 bg-white/5 text-muted-foreground"
+                      : "cursor-not-allowed border border-border bg-muted text-muted-foreground"
                   }`}
                 >
                   {isSubmitting
@@ -396,7 +396,7 @@ function ReservationAppelHorsUePage() {
                 </button>
                 <a
                   href="/"
-                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+                  className="inline-flex items-center justify-center rounded-full border border-border bg-muted px-6 py-3 text-sm font-semibold text-foreground hover:border-border"
                 >
                   Retour au site
                 </a>

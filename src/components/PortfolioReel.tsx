@@ -182,7 +182,7 @@ export function PortfolioReel({
         aria-label={t.reelLabel}
         tabIndex={0}
         onKeyDown={onKeyDown}
-        className="relative overflow-hidden rounded-2xl border border-white/10 bg-[oklch(0.12_0.05_295)] shadow-card outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-turquoise)]"
+        className="relative overflow-hidden rounded-2xl border border-border bg-[var(--indigo-900)] shadow-card outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-turquoise)]"
       >
         {/* Spotlight néon DANS la bande, au-dessus du fond mais derrière les
             photogrammes (frames en z-10) : sinon le fond opaque le masquerait. */}
@@ -204,7 +204,7 @@ export function PortfolioReel({
               }}
               onClick={() => onOpen(p)}
               data-event="portfolio_open"
-              className="reel-frame group relative block w-[clamp(230px,60vw,400px)] cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-black/40 text-left"
+              className="reel-frame group relative block w-[clamp(230px,60vw,400px)] cursor-pointer overflow-hidden rounded-xl border border-border bg-black/40 text-left"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 {p.shot ? (
@@ -217,7 +217,7 @@ export function PortfolioReel({
                   />
                 ) : (
                   <div
-                    className="absolute inset-0 flex items-center justify-center text-center text-xs text-white/40"
+                    className="absolute inset-0 flex items-center justify-center text-center text-xs text-muted-foreground"
                     style={{
                       background: `radial-gradient(circle at 50% 40%, ${p.accent}22, transparent 70%)`,
                     }}
@@ -226,12 +226,12 @@ export function PortfolioReel({
                   </div>
                 )}
                 {p.status !== "construction" ? (
-                  <span className="absolute right-2 top-2 rounded-full bg-black/50 p-1 text-white/80 backdrop-blur">
+                  <span className="absolute right-2 top-2 rounded-full bg-black/50 p-1 text-muted-foreground backdrop-blur">
                     <ArrowUpRight className="h-3.5 w-3.5" />
                   </span>
                 ) : null}
               </div>
-              <figcaption className="flex items-center justify-between gap-2 border-t border-white/5 px-3 py-2.5">
+              <figcaption className="flex items-center justify-between gap-2 border-t border-border px-3 py-2.5">
                 <div className="min-w-0">
                   <div className="truncate text-sm font-semibold">
                     {p.title}
@@ -243,7 +243,7 @@ export function PortfolioReel({
                   ) : null}
                 </div>
                 {p.status === "construction" ? (
-                  <span className="shrink-0 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-muted-foreground">
+                  <span className="shrink-0 rounded-full border border-border bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">
                     {t.inProgress}
                   </span>
                 ) : null}
@@ -278,7 +278,7 @@ export function PortfolioReel({
           type="button"
           aria-label={t.prev}
           onClick={() => scrollToFrame(Math.max(active - 1, 0))}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-foreground transition-colors hover:border-white/30 disabled:opacity-30"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-muted text-foreground transition-colors hover:border-border disabled:opacity-30"
           disabled={active === 0}
         >
           <ChevronLeft className="h-5 w-5" />
@@ -288,7 +288,7 @@ export function PortfolioReel({
           <span className="font-mono text-xs tabular-nums text-muted-foreground">
             {t.progress(active + 1, projects.length)}
           </span>
-          <div className="h-1 w-32 overflow-hidden rounded-full bg-white/10">
+          <div className="h-1 w-32 overflow-hidden rounded-full bg-muted">
             <div
               className="h-full rounded-full bg-[linear-gradient(90deg,var(--brand-violet),var(--brand-turquoise))] transition-[width] duration-300"
               style={{
@@ -304,7 +304,7 @@ export function PortfolioReel({
           onClick={() =>
             scrollToFrame(Math.min(active + 1, projects.length - 1))
           }
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-foreground transition-colors hover:border-white/30 disabled:opacity-30"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-muted text-foreground transition-colors hover:border-border disabled:opacity-30"
           disabled={active === projects.length - 1}
         >
           <ChevronRight className="h-5 w-5" />

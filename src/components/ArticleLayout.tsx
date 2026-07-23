@@ -18,7 +18,7 @@ export function ArticleLayout({ conseil }: { conseil: Conseil }) {
   const related = conseils.filter((c) => c.slug !== conseil.slug).slice(0, 2);
 
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       {/* Hero */}
       <section className="relative overflow-hidden bg-hero py-16">
         <div className="grid-bg absolute inset-0 -z-10" />
@@ -40,7 +40,7 @@ export function ArticleLayout({ conseil }: { conseil: Conseil }) {
       </section>
 
       {/* Body */}
-      <article className="border-t border-white/5 py-14">
+      <article className="border-t border-border py-14">
         <div className="mx-auto max-w-3xl px-6">
           <div className="space-y-10">
             {conseil.sections.map((section) => (
@@ -94,7 +94,7 @@ export function ArticleLayout({ conseil }: { conseil: Conseil }) {
                   <a
                     key={r.slug}
                     href={`/${r.slug}`}
-                    className="group relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card transition-colors hover:border-white/15"
+                    className="group relative rounded-2xl border border-border bg-card/50 p-5 shadow-card transition-colors hover:border-border"
                   >
                     <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                     <h3 className="text-base font-semibold">{r.h1}</h3>

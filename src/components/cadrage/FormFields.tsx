@@ -54,7 +54,7 @@ export function TextInput({
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm text-foreground outline-none focus:border-white/20"
+      className="w-full rounded-md border border-border bg-background/50 px-4 py-3 text-sm text-foreground outline-none focus:border-border"
     />
   );
 }
@@ -82,7 +82,7 @@ export function TextArea({
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full rounded-md border border-white/10 bg-background/50 px-4 py-3 text-sm leading-relaxed text-foreground outline-none focus:border-white/20"
+      className="w-full rounded-md border border-border bg-background/50 px-4 py-3 text-sm leading-relaxed text-foreground outline-none focus:border-border"
     />
   );
 }
@@ -105,7 +105,7 @@ export function CheckboxGroup({
         return (
           <label
             key={o.value}
-            className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/5 bg-background/40 px-4 py-3 hover:border-white/10"
+            className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-background/40 px-4 py-3 hover:border-border"
           >
             <input
               type="checkbox"
@@ -144,7 +144,7 @@ export function RadioGroup({
       {options.map((o) => (
         <label
           key={o.value}
-          className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/5 bg-background/40 px-4 py-3 hover:border-white/10"
+          className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-background/40 px-4 py-3 hover:border-border"
         >
           <input
             type="radio"

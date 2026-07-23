@@ -85,6 +85,7 @@
 
 :root {
   --radius: 1rem;
+  color-scheme: light;
 
   /* ===== Palette PeakCL v2 — primitives (design-system/tokens/colors.css) ===== */
   --turquoise-200: #96F0F7;
@@ -132,7 +133,10 @@
   --brand-turquoise: var(--turquoise-500);
 
   /* ===== Semantique shadcn en clair v2 ===== */
-  --background: var(--blanc);
+  /* Fond unique du site (homogene) — jaune pale de marque */
+  --pk-base: #FFEAA9;
+
+  --background: var(--pk-base);
   --foreground: var(--indigo-900);
 
   --card: var(--blanc);
@@ -147,7 +151,7 @@
   --secondary-foreground: var(--indigo-900);
 
   --muted: var(--neutre-100);
-  --muted-foreground: var(--neutre-600);
+  --muted-foreground: #574F82;
 
   --accent: var(--turquoise-200);
   --accent-foreground: var(--indigo-900);
@@ -158,6 +162,11 @@
   --border: var(--neutre-200);
   --input: var(--neutre-200);
   --ring: var(--bleu-400);
+  --link: #2F5FD6;
+  /* Accents lisibles pour sur-titres (texte) — foncés sur le fond clair */
+  --accent-turquoise-ink: #157180;
+  --accent-yellow-ink: #7A5E00;
+  --accent-violet-ink: #360099;
 
   /* ===== Degrades applicatifs (repointes v2) ===== */
   --gradient-hero:
@@ -169,11 +178,56 @@
 
   --shadow-glow: 0 20px 60px -20px color-mix(in oklab, var(--violet-700) 40%, transparent);
   --shadow-card: var(--shadow-md);
+  --hero-vignette: transparent;
+  --grad-title: linear-gradient(100deg, #360099, #2F5FD6, #157180, #360099);
 }
 
 .dark {
-  /* v2 est clair par defaut ; le mode sombre de marque se pose au cas par cas
-     via --grad-bg-dark sur des sections precises (heros, fins de page). */
+  color-scheme: dark;
+
+  /* Fond unique du site (homogene) — indigo profond */
+  --pk-base: #13004D;
+
+  --background: var(--pk-base);
+  --foreground: var(--neutre-50);
+
+  --card: color-mix(in oklab, #ffffff 7%, #2a1566);
+  --card-foreground: var(--neutre-50);
+  --popover: color-mix(in oklab, #ffffff 7%, #2a1566);
+  --popover-foreground: var(--neutre-50);
+
+  --primary: var(--bleu-500);
+  --primary-foreground: #ffffff;
+
+  --secondary: #2a1566;
+  --secondary-foreground: var(--neutre-50);
+
+  --muted: #241155;
+  --muted-foreground: #B7AEE0;
+
+  --accent: color-mix(in oklab, var(--turquoise-500) 30%, #1b0a4d);
+  --accent-foreground: var(--neutre-50);
+
+  --destructive: #FF5A68;
+  --destructive-foreground: #2a0206;
+
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: var(--bleu-400);
+  --link: var(--bleu-400);
+  /* Accents lisibles pour sur-titres — clairs sur le fond sombre */
+  --accent-turquoise-ink: #86E7F2;
+  --accent-yellow-ink: #F2D96A;
+  --accent-violet-ink: #C3B0FF;
+
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 14px 40px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.5);
+
+  --gradient-text: linear-gradient(100deg, var(--jaune-500) 0%, var(--turquoise-500) 45%, var(--lavande-500) 100%);
+  --shadow-glow: 0 20px 60px -20px color-mix(in oklab, var(--violet-600) 60%, transparent);
+  --hero-vignette: oklch(0.17 0.05 290 / 0.9);
+  --grad-title: linear-gradient(100deg, var(--jaune-500), var(--turquoise-500), var(--lavande-500), var(--jaune-500));
 }
 
 @layer base {
@@ -198,6 +252,9 @@
     letter-spacing: -0.01em;
     line-height: 1.05;
   }
+
+  a { color: var(--link); }
+  a:hover { text-decoration: underline; }
 }
 
 @layer utilities {
@@ -362,7 +419,7 @@
   }
 
   .text-gradient-anim {
-    background: linear-gradient(100deg, var(--brand-yellow), var(--brand-turquoise), var(--brand-violet), var(--brand-yellow));
+    background: var(--grad-title);
     background-size: 300% 100%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -435,7 +492,7 @@
   inset: 0;
   background:
     radial-gradient(30% 32% at 50% 47%, color-mix(in oklab, var(--brand-turquoise) 26%, transparent), transparent 62%),
-    radial-gradient(115% 85% at 50% 32%, transparent 52%, oklch(0.17 0.05 290 / 0.9) 100%);
+    radial-gradient(115% 85% at 50% 32%, transparent 52%, var(--hero-vignette) 100%);
 }
 /* petits grains d'étoiles très discrets sur le halo */
 .hero-stars {
@@ -1093,3 +1150,7 @@
     will-change: auto;
   }
 }
+
+/* Logotype de marque : violet sur fond clair, blanc sur fond sombre */
+.logo-adaptive { transition: filter .35s ease; }
+.dark .logo-adaptive { filter: brightness(0) invert(1); }

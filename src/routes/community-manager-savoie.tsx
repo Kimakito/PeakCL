@@ -90,12 +90,12 @@ const ZONES = [
 
 function Page() {
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       {/* Hero */}
       <section className="relative overflow-hidden bg-hero py-20">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-muted-foreground">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
             <MapPin className="h-3.5 w-3.5" />
             Savoie · Albertville · partout en France
           </div>
@@ -121,7 +121,7 @@ function Page() {
       </section>
 
       {/* Free audit strip */}
-      <section className="border-t border-white/5 bg-card/30 py-8">
+      <section className="border-t border-border bg-card/30 py-8">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 px-6 text-center sm:flex-row sm:text-left">
           <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[color-mix(in_oklab,var(--brand-yellow)_18%,transparent)] text-[var(--brand-yellow)]">
             <Gift className="h-5 w-5" />
@@ -139,7 +139,7 @@ function Page() {
       </section>
 
       {/* Pourquoi déléguer */}
-      <section className="border-t border-white/5 py-20">
+      <section className="border-t border-border py-20">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-2xl font-bold md:text-3xl">
             Pourquoi déléguer vos réseaux sociaux ?
@@ -153,7 +153,7 @@ function Page() {
             {PAINS.map((p) => (
               <li
                 key={p}
-                className="relative rounded-2xl border border-white/5 bg-card/50 p-5 text-sm text-muted-foreground shadow-card"
+                className="relative rounded-2xl border border-border bg-card/50 p-5 text-sm text-muted-foreground shadow-card"
               >
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 {p}
@@ -164,7 +164,7 @@ function Page() {
       </section>
 
       {/* Ce qui est inclus + formules */}
-      <section className="border-t border-white/5 py-20">
+      <section className="border-t border-border py-20">
         <div className="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-2">
           <div>
             <h2 className="text-2xl font-bold">Ce qui est inclus</h2>
@@ -177,7 +177,7 @@ function Page() {
               ))}
             </ul>
           </div>
-          <div className="relative rounded-2xl border border-white/5 bg-card/50 p-6 shadow-card">
+          <div className="relative rounded-2xl border border-border bg-card/50 p-6 shadow-card">
             <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <h3 className="text-base font-semibold">Formules mensuelles</h3>
             <p className="mt-1 text-xs text-muted-foreground">
@@ -185,7 +185,7 @@ function Page() {
             </p>
             <ul className="mt-4 space-y-3">
               {FORMULES.map((f) => (
-                <li key={f.name} className="rounded-xl border border-white/5 bg-background/40 p-3">
+                <li key={f.name} className="rounded-xl border border-border bg-background/40 p-3">
                   <div className="text-sm font-semibold text-[var(--brand-turquoise)]">{f.name}</div>
                   <div className="mt-0.5 text-xs text-muted-foreground">{f.detail}</div>
                 </li>
@@ -202,9 +202,9 @@ function Page() {
       </section>
 
       {/* Pourquoi moi (E-E-A-T) */}
-      <section className="border-t border-white/5 py-20">
+      <section className="border-t border-border py-20">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs text-[var(--brand-turquoise)]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-[var(--brand-turquoise)]">
             <Sparkles className="h-3.5 w-3.5" />
             Une CM qui maîtrise aussi le site et le design
           </div>
@@ -243,7 +243,7 @@ function Page() {
       </section>
 
       {/* Zones */}
-      <section className="border-t border-white/5 py-16">
+      <section className="border-t border-border py-16">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-xl font-bold">Community management en Savoie et alentours</h2>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
@@ -255,7 +255,7 @@ function Page() {
               <a
                 key={z.href}
                 href={z.href}
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-border hover:text-foreground"
               >
                 <MapPin className="h-3 w-3" />
                 {z.name}
@@ -266,7 +266,7 @@ function Page() {
       </section>
 
       {/* CTA final */}
-      <section className="relative overflow-hidden border-t border-white/5 py-20">
+      <section className="relative overflow-hidden border-t border-border py-20">
         <div className="absolute inset-0 -z-10 bg-hero" />
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mb-6 flex justify-center">

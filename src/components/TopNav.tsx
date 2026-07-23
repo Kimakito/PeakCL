@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useRouterState, type LinkProps } from "@tanstack/react-router";
 import { ChevronDown, Menu, X } from "lucide-react";
-import logo from "@/assets/peakcl-logo.png";
 import { SERVICES } from "@/content/peakcl/services";
 import { localeFromPath } from "@/i18n/config";
 import { ui } from "@/i18n/ui";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
@@ -149,22 +149,19 @@ export function TopNav() {
         transform: `translateY(${offset ?? 0}px)`,
         opacity: offset === null ? 0 : 1,
       }}
-      className={`fixed inset-x-0 top-0 z-[60] border-b border-white/5 bg-background/80 backdrop-blur-xl transition-opacity duration-300 ${
+      className={`fixed inset-x-0 top-0 z-[60] border-b border-border bg-background/80 backdrop-blur-xl transition-opacity duration-300 ${
         offset === 0 ? "shadow-card" : ""
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
-        <a href={homeHref} className="flex items-center gap-2.5">
+        <a href={homeHref} className="flex items-center" aria-label="PeakCL, accueil">
           <img
-            src={logo}
-            alt="PeakCL logo"
-            width={32}
-            height={32}
-            className="h-8 w-8 rounded-lg object-cover"
+            src="/design-system/logotype-horizontal.png"
+            alt="PeakCL"
+            width={170}
+            height={34}
+            className="logo-adaptive h-7 w-auto md:h-8"
           />
-          <span className="font-display text-base font-bold tracking-tight md:text-lg">
-            Peak<span className="text-gradient">CL</span>
-          </span>
         </a>
 
         {/* Nav desktop : libellés texte + menu déroulant Services */}
@@ -195,24 +192,24 @@ export function TopNav() {
               <div className="absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-2">
                 <div
                   role="menu"
-                  className="rounded-2xl border border-white/10 bg-card/95 p-2 shadow-card backdrop-blur-xl"
+                  className="rounded-2xl border border-border bg-card/95 p-2 shadow-card backdrop-blur-xl"
                 >
                   <Link
                     to={servicesOverview as To}
                     role="menuitem"
                     onClick={() => setServicesOpen(false)}
-                    className={`block rounded-xl px-3 py-2 text-sm transition-colors hover:bg-white/5 ${path === servicesOverview ? "font-semibold text-foreground" : "text-muted-foreground"}`}
+                    className={`block rounded-xl px-3 py-2 text-sm transition-colors hover:bg-muted ${path === servicesOverview ? "font-semibold text-foreground" : "text-muted-foreground"}`}
                   >
                     {t.nav.overview}
                   </Link>
-                  <div className="my-1 h-px bg-white/5" />
+                  <div className="my-1 h-px bg-muted" />
                   {serviceItems.map((s) => (
                     <Link
                       key={s.to}
                       to={s.to as To}
                       role="menuitem"
                       onClick={() => setServicesOpen(false)}
-                      className={`flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm transition-colors hover:bg-white/5 ${isActive(s.to) ? "font-semibold text-foreground" : "text-muted-foreground"}`}
+                      className={`flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm transition-colors hover:bg-muted ${isActive(s.to) ? "font-semibold text-foreground" : "text-muted-foreground"}`}
                     >
                       <span aria-hidden className="text-base">
                         {s.emoji}
@@ -239,6 +236,7 @@ export function TopNav() {
 
         <div className="flex items-center gap-2">
           <LanguageSwitcher className="hidden sm:flex" />
+          <ThemeToggle className="hidden sm:inline-flex" />
           <a
             href={CALENDLY_URL}
             target="_blank"
@@ -253,7 +251,7 @@ export function TopNav() {
             aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-foreground md:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground md:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -264,24 +262,24 @@ export function TopNav() {
       {open ? (
         <nav
           aria-label="Navigation mobile"
-          className="border-t border-white/5 bg-background/95 px-4 py-3 md:hidden"
+          className="border-t border-border bg-background/95 px-4 py-3 md:hidden"
         >
           <ul className="flex flex-col gap-1">
             <li>
               <Link
                 to={servicesOverview as To}
                 onClick={() => setOpen(false)}
-                className={`block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-white/5 ${path === servicesOverview ? "font-semibold text-foreground" : "text-muted-foreground"}`}
+                className={`block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-muted ${path === servicesOverview ? "font-semibold text-foreground" : "text-muted-foreground"}`}
               >
                 {t.nav.services}
               </Link>
-              <ul className="ml-3 mt-1 flex flex-col gap-0.5 border-l border-white/10 pl-3">
+              <ul className="ml-3 mt-1 flex flex-col gap-0.5 border-l border-border pl-3">
                 {serviceItems.map((s) => (
                   <li key={s.to}>
                     <Link
                       to={s.to as To}
                       onClick={() => setOpen(false)}
-                      className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors hover:bg-white/5 ${isActive(s.to) ? "font-semibold text-foreground" : "text-muted-foreground"}`}
+                      className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors hover:bg-muted ${isActive(s.to) ? "font-semibold text-foreground" : "text-muted-foreground"}`}
                     >
                       <span aria-hidden>{s.emoji}</span>
                       {s.label}
@@ -295,14 +293,15 @@ export function TopNav() {
                 <Link
                   to={to as To}
                   onClick={() => setOpen(false)}
-                  className={`block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-white/5 ${isActive(to) ? "font-semibold text-foreground" : "text-muted-foreground"}`}
+                  className={`block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-muted ${isActive(to) ? "font-semibold text-foreground" : "text-muted-foreground"}`}
                 >
                   {label}
                 </Link>
               </li>
             ))}
-            <li className="mt-2 border-t border-white/5 pt-3">
+            <li className="mt-2 flex items-center gap-3 border-t border-border pt-3">
               <LanguageSwitcher className="w-max" />
+              <ThemeToggle />
             </li>
           </ul>
         </nav>

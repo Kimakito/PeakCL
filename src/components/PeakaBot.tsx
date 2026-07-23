@@ -125,7 +125,7 @@ export function PeakaBot() {
           onClick={() => setOpen(true)}
           aria-label="Ouvrir PeakaBot, l’assistant PeakCL"
           data-event="peakabot_open"
-          className="peakabot-btn fixed bottom-5 right-5 z-[55] flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-card shadow-glow transition-transform hover:scale-105 md:h-16 md:w-16"
+          className="peakabot-btn fixed bottom-5 right-5 z-[55] flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-border bg-card shadow-glow transition-transform hover:scale-105 md:h-16 md:w-16"
         >
           <img src={AVATAR.happy} alt="" width={64} height={64} className="h-full w-full object-cover" />
           <span className="absolute -right-0.5 -top-0.5 flex h-3.5 w-3.5">
@@ -141,11 +141,11 @@ export function PeakaBot() {
           ref={panelRef}
           role="dialog"
           aria-label="PeakaBot, l’assistant PeakCL"
-          className="fixed bottom-4 right-4 z-[70] flex max-h-[72vh] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-3xl border border-white/10 bg-card/95 shadow-card backdrop-blur-xl sm:w-[360px]"
+          className="fixed bottom-4 right-4 z-[70] flex max-h-[72vh] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-3xl border border-border bg-card/95 shadow-card backdrop-blur-xl sm:w-[360px]"
         >
           {/* Header */}
-          <div className="flex items-center gap-3 border-b border-white/10 bg-background/40 px-4 py-3">
-            <span className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-white/15">
+          <div className="flex items-center gap-3 border-b border-border bg-background/40 px-4 py-3">
+            <span className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-border">
               <img src={AVATAR[mood]} alt="PeakaBot" width={40} height={40} className="h-full w-full object-cover" />
             </span>
             <div className="min-w-0 flex-1">
@@ -158,7 +158,7 @@ export function PeakaBot() {
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Fermer PeakaBot"
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-muted-foreground hover:text-foreground"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground"
             >
               <X className="h-4 w-4" />
             </button>
@@ -168,7 +168,7 @@ export function PeakaBot() {
           <div ref={scrollRef} className="flex-1 space-y-2.5 overflow-y-auto px-4 py-4">
             {messages.map((m, i) =>
               m.from === "bot" ? (
-                <div key={i} className="max-w-[85%] rounded-2xl rounded-bl-md bg-white/5 px-3.5 py-2 text-sm leading-relaxed text-foreground">
+                <div key={i} className="max-w-[85%] rounded-2xl rounded-bl-md bg-muted px-3.5 py-2 text-sm leading-relaxed text-foreground">
                   {m.text}
                 </div>
               ) : (
@@ -178,7 +178,7 @@ export function PeakaBot() {
               ),
             )}
             {busy ? (
-              <div className="flex max-w-[85%] items-center gap-1 rounded-2xl rounded-bl-md bg-white/5 px-3.5 py-3">
+              <div className="flex max-w-[85%] items-center gap-1 rounded-2xl rounded-bl-md bg-muted px-3.5 py-3">
                 <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground [animation-delay:-0.2s]" />
                 <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground [animation-delay:-0.1s]" />
                 <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground" />
@@ -187,14 +187,14 @@ export function PeakaBot() {
           </div>
 
           {/* Choix */}
-          <div className="flex flex-wrap gap-2 border-t border-white/10 bg-background/40 px-4 py-3">
+          <div className="flex flex-wrap gap-2 border-t border-border bg-background/40 px-4 py-3">
             {node.choices.map((c) => (
               <button
                 key={c.label}
                 type="button"
                 onClick={() => onChoice(c)}
                 data-event={c.event}
-                className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-semibold text-foreground transition-colors hover:border-[var(--brand-turquoise)] hover:text-[var(--brand-turquoise)]"
+                className="inline-flex items-center rounded-full border border-border bg-muted px-3.5 py-1.5 text-xs font-semibold text-foreground transition-colors hover:border-[var(--brand-turquoise)] hover:text-[var(--brand-turquoise)]"
               >
                 {c.label}
               </button>
@@ -211,7 +211,7 @@ export function PeakaBot() {
           </div>
 
           {/* Champ libre : question posée en langage naturel (répond via Claude) */}
-          <form onSubmit={onSend} className="flex items-center gap-2 border-t border-white/10 bg-background/40 px-3 py-2.5">
+          <form onSubmit={onSend} className="flex items-center gap-2 border-t border-border bg-background/40 px-3 py-2.5">
             <input
               type="text"
               value={input}
@@ -219,7 +219,7 @@ export function PeakaBot() {
               disabled={busy}
               placeholder="Posez votre question..."
               aria-label="Votre question"
-              className="min-w-0 flex-1 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--brand-turquoise)] focus:outline-none disabled:opacity-60"
+              className="min-w-0 flex-1 rounded-full border border-border bg-muted px-3.5 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-[var(--brand-turquoise)] focus:outline-none disabled:opacity-60"
             />
             <button
               type="submit"
@@ -238,7 +238,7 @@ export function PeakaBot() {
             target="_blank"
             rel="noopener noreferrer"
             data-event="peakabot_whatsapp"
-            className="flex items-center justify-center gap-2 border-t border-white/10 bg-background/60 px-4 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:text-[var(--brand-turquoise)]"
+            className="flex items-center justify-center gap-2 border-t border-border bg-background/60 px-4 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:text-[var(--brand-turquoise)]"
           >
             <MessageCircle className="h-3.5 w-3.5" />
             Une autre question ? Écrivez à Charlotte sur WhatsApp

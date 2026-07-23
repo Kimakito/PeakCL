@@ -9,7 +9,6 @@ import {
 import { useRouterState } from "@tanstack/react-router";
 import { SOCIAL, FREELANCE, CONTACT } from "@/lib/links";
 import { localeFromPath, type Locale } from "@/i18n/config";
-import logo from "@/assets/peakcl-logo.png";
 
 const SOCIALS = [
   { href: SOCIAL.instagram, label: "Instagram", icon: Instagram },
@@ -101,9 +100,9 @@ export function DeckFooter() {
     <section className="flex h-full w-full items-center justify-center overflow-y-auto">
       <div className="mx-auto w-full max-w-3xl px-8 py-10 text-center">
         <img
-          src={logo}
+          src="/design-system/logotype-horizontal.png"
           alt="PeakCL"
-          className="mx-auto h-12 w-12 rounded-xl object-cover"
+          className="logo-adaptive mx-auto h-12 w-auto"
         />
         <h2 className="mt-4 text-2xl font-bold md:text-3xl">{t.headline}</h2>
         <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
@@ -119,7 +118,7 @@ export function DeckFooter() {
               rel="noopener noreferrer"
               title={label}
               aria-label={label}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-colors hover:border-[var(--brand-turquoise)] hover:text-[var(--brand-turquoise)]"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-muted text-muted-foreground transition-colors hover:border-[var(--brand-turquoise)] hover:text-[var(--brand-turquoise)]"
             >
               <Icon className="h-[18px] w-[18px]" />
             </a>

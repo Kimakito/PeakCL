@@ -51,7 +51,7 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
       title="L’IA au service de votre TPE"
       tagline="Mettre l’intelligence artificielle et l’automatisation au travail dans votre petite structure : moins de tâches répétitives, plus de temps pour votre vrai métier."
       intro={
-        <div className="rounded-2xl border border-white/10 bg-card/40 p-6 shadow-card backdrop-blur">
+        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-card backdrop-blur">
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-yellow)]">
             Nouveau · en cours de certification
           </div>

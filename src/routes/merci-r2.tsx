@@ -83,11 +83,11 @@ export const Route = createFileRoute("/merci-r2")({
 
 function MerciR2Page() {
   return (
-    <main className="min-h-screen border-t border-white/5">
+    <main className="min-h-screen border-t border-border">
       <section className="relative overflow-hidden bg-hero py-24">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto max-w-2xl px-6 text-center">
-          <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-[var(--brand-turquoise)]">
+          <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
             <Check className="h-6 w-6" />
           </div>
           <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">
@@ -98,10 +98,10 @@ function MerciR2Page() {
             en tête ! En attendant, voici comment on va travailler ensemble.
           </p>
 
-          <div className="relative mx-auto mt-10 max-w-xl rounded-2xl border border-white/10 bg-card/40 p-6 text-left shadow-card backdrop-blur">
+          <div className="relative mx-auto mt-10 max-w-xl rounded-2xl border border-border bg-card/40 p-6 text-left shadow-card backdrop-blur">
             <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 text-[var(--brand-turquoise)]">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-muted text-[var(--brand-turquoise)]">
                 <TrendingUp className="h-5 w-5" />
               </span>
               <h2 className="text-lg font-bold text-foreground">
@@ -121,7 +121,7 @@ function MerciR2Page() {
             {KEY_STATS.map((s) => (
               <div
                 key={s.figure}
-                className="relative rounded-2xl border border-white/5 bg-card/40 p-4 text-center shadow-card backdrop-blur"
+                className="relative rounded-2xl border border-border bg-card/40 p-4 text-center shadow-card backdrop-blur"
               >
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="text-2xl font-bold text-gradient">
@@ -136,7 +136,7 @@ function MerciR2Page() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 py-20">
+      <section className="border-t border-border py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
@@ -154,7 +154,7 @@ function MerciR2Page() {
             {ROADMAP_STEPS.map((step) => (
               <div
                 key={step.n}
-                className="relative rounded-2xl border border-white/5 bg-card/40 p-5 shadow-card backdrop-blur"
+                className="relative rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur"
               >
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="text-3xl font-bold text-gradient">{step.n}</div>
@@ -170,7 +170,7 @@ function MerciR2Page() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 py-20">
+      <section className="border-t border-border py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
@@ -184,7 +184,7 @@ function MerciR2Page() {
             {peakclTestimonials.map((t) => (
               <div
                 key={t.name}
-                className="relative rounded-2xl border border-white/5 bg-card/50 p-5 shadow-card"
+                className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card"
               >
                 <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
                 <div className="flex gap-1 text-[var(--brand-yellow)]">
@@ -195,7 +195,7 @@ function MerciR2Page() {
                 <p className="mt-3 text-sm leading-relaxed text-foreground/90">
                   "{t.quote}"
                 </p>
-                <div className="mt-4 border-t border-white/5 pt-3">
+                <div className="mt-4 border-t border-border pt-3">
                   <div className="text-sm font-semibold">{t.name}</div>
                   <div className="text-xs text-muted-foreground">
                     {[t.sourceLabel, t.dateLabel].filter(Boolean).join(" · ")}
@@ -207,7 +207,7 @@ function MerciR2Page() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 py-20">
+      <section className="border-t border-border py-20">
         <div className="mx-auto max-w-3xl px-6">
           <div className="text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
@@ -221,11 +221,11 @@ function MerciR2Page() {
             {faqHighlights.map((f) => (
               <details
                 key={f.question}
-                className="group rounded-2xl border border-white/5 bg-card/50 p-4 shadow-card open:bg-card/70"
+                className="group rounded-2xl border border-border bg-card/50 p-4 shadow-card open:bg-card/70"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-sm font-semibold">
                   {f.question}
-                  <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 text-[var(--brand-turquoise)] transition-transform group-open:rotate-45 text-base">
+                  <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border text-[var(--brand-turquoise)] transition-transform group-open:rotate-45 text-base">
                     +
                   </span>
                 </summary>
@@ -239,7 +239,7 @@ function MerciR2Page() {
         </div>
       </section>
 
-      <section className="border-t border-white/5 py-20 text-center">
+      <section className="border-t border-border py-20 text-center">
         <div className="mx-auto max-w-2xl px-6">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
             Mon engagement
@@ -268,7 +268,7 @@ function MerciR2Page() {
             </a>
             <a
               href="/portfolio"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground hover:border-white/20"
+              className="inline-flex items-center justify-center rounded-full border border-border bg-muted px-6 py-3 text-sm font-semibold text-foreground hover:border-border"
             >
               Voir le portfolio
             </a>

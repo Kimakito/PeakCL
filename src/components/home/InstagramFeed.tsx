@@ -53,7 +53,7 @@ export function InstagramFeed() {
   return (
     <section
       id="instagram"
-      className="relative w-full overflow-hidden border-t border-white/5 py-12 md:py-16"
+      className="relative w-full overflow-hidden border-t border-border py-12 md:py-16"
     >
       <div className="mx-auto w-full max-w-3xl px-8 md:px-16">
         <SectionHeading
@@ -74,7 +74,7 @@ export function InstagramFeed() {
             target="_blank"
             rel="noopener noreferrer"
             data-event="cta_instagram_follow"
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-[color-mix(in_oklab,var(--brand-violet)_40%,transparent)]"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-[color-mix(in_oklab,var(--brand-violet)_40%,transparent)]"
           >
             <Instagram className="h-4 w-4 text-[var(--brand-violet)]" />
             {t.follow}
