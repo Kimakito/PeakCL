@@ -1,0 +1,5 @@
+/* Polices — substitution Google Fonts (aucun fichier de police fourni).
+   Le logotype PeakCL est un lettrage custom (formes rondes et pleines) : ne pas le recomposer en texte.
+   Baloo 2 = affichage (rond, plein, joyeux — écho du logotype).
+   Nunito = texte courant (ronde, lisible, chaleureuse). */
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap");

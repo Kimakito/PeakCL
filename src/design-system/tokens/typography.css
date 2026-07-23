@@ -1,0 +1,27 @@
+:root {
+  --font-display: "Baloo 2", system-ui, sans-serif;   /* titres — rond et plein comme le logotype */
+  --font-body: "Nunito", system-ui, sans-serif;        /* texte courant */
+
+  --fs-hero: 56px;
+  --fs-h1: 44px;
+  --fs-h2: 32px;
+  --fs-h3: 24px;
+  --fs-h4: 19px;
+  --fs-body-lg: 18px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-caption: 12.5px;
+
+  --fw-display: 700;      /* Baloo 2 bold par défaut pour les titres */
+  --fw-display-max: 800;
+  --fw-body: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-tight: 1.05;       /* titres */
+  --lh-snug: 1.25;
+  --lh-body: 1.55;
+
+  --ls-display: -0.01em;
+  --ls-kicker: 0.14em;    /* sur-titres en majuscules Nunito 700 */
+}
