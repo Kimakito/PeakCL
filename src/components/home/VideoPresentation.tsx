@@ -4,7 +4,7 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { localeFromPath, type Locale } from "@/i18n/config";
 
 const VIDEO_SRC = "/peakcl/video-presentation.mp4";
-const VIDEO_POSTER = "/peakcl/video-presentation-poster.jpg";
+const VIDEO_POSTER = "/design-system/logo-carre-compo.png";
 
 /** Textes de la section selon la langue. En anglais : angle international. */
 function videoText(locale: Locale) {
@@ -65,7 +65,7 @@ export function VideoPresentation() {
               borderWidth={3}
             />
             <video
-              className="w-full rounded-3xl bg-black"
+              className="w-full rounded-3xl bg-white object-cover"
               controls
               playsInline
               preload="none"
