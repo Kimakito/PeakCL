@@ -38,7 +38,7 @@ function sanitize(messages: ChatTurn[]): ChatTurn[] {
 }
 
 export const askPeakaBot = createServerFn({ method: "POST" })
-  .inputValidator((input: AskInput) => {
+  .validator((input: AskInput) => {
     if (!input || !Array.isArray(input.messages))
       throw new Error("messages requis");
     return { messages: sanitize(input.messages) } satisfies AskInput;
