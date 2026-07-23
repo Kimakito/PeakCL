@@ -1,0 +1,57 @@
+:root {
+  /* ===== Palette PeakCL — 5 familles × clair/foncé (source : carres-couleurs.svg) ===== */
+  --turquoise-200: #96F0F7;
+  --turquoise-500: #4DAFC9;
+  --bleu-200: #94D4FF;
+  --bleu-400: #6191FF;
+  --bleu-500: #427CFF;
+  --lavande-200: #BABAFF;
+  --lavande-500: #875FD5;
+  --jaune-200: #F2EB96;
+  --jaune-500: #F2D04B;
+  --violet-700: #360099;   /* violet profond */
+  --indigo-900: #13004D;   /* encre de marque (trait mascotte, texte) */
+
+  /* Intermédiaires du logo (stops réels) */
+  --violet-600: #5F3AB9;
+  --violet-800: #291267;
+
+  /* ===== Dégradés officiels (stops exacts des SVG) ===== */
+  --grad-turquoise: linear-gradient(135deg, #97F0F7 0%, #4DAFC9 100%);
+  --grad-bleu: linear-gradient(135deg, #94D4FF 8%, #6191FF 100%);
+  --grad-lavande: linear-gradient(135deg, #BABAFF 0%, #875FD5 100%);
+  --grad-jaune: linear-gradient(135deg, #F2EB96 0%, #F2D966 50%, #F2D04B 100%);
+  --grad-violet: linear-gradient(135deg, #BABAFF 0%, #7F66D1 33%, #5F3AB9 54%, #481AA7 73%, #360099 100%);
+  --grad-indigo: linear-gradient(135deg, #875FD5 0%, #442887 44%, #291267 67%, #13004D 100%);
+
+  /* ===== Neutres (dérivés de l'encre indigo) ===== */
+  --blanc: #FFFFFF;
+  --neutre-50: #FAFAFF;
+  --neutre-100: #F3F2FC;
+  --neutre-200: #E6E4F5;
+  --neutre-400: #A9A3C9;
+  --neutre-600: #6C6493;
+
+  /* ===== Sémantique ===== */
+  --bg: var(--blanc);
+  --bg-soft: var(--neutre-50);
+  --surface-card: var(--blanc);
+  --ink: var(--indigo-900);
+  --text-body: var(--indigo-900);
+  --text-muted: var(--neutre-600);
+  --text-inverse: var(--blanc);
+  --border: var(--neutre-200);
+  --border-strong: var(--lavande-200);
+  --accent: var(--bleu-500);
+  --accent-press: #2F63D9;
+  --link: var(--bleu-500);
+  --link-hover: var(--violet-700);
+  --cta: var(--jaune-500);
+  --cta-ink: var(--indigo-900);
+  --positive: var(--turquoise-500);
+  --focus-ring: var(--bleu-400);
+
+  /* Fond sombre de marque (cf. fond-fonce-logo) */
+  --bg-dark: #2E0296;
+  --grad-bg-dark: radial-gradient(circle at 50% 45%, #3A07A8 0%, #2E0296 55%, #250085 100%);
+}

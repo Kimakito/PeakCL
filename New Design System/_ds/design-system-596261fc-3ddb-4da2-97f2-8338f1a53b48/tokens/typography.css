@@ -1,0 +1,42 @@
+/* ============================================================
+   PeakCL — Typography tokens
+   ============================================================ */
+:root {
+  --font-display: 'Space Grotesk', 'Hanken Grotesk', system-ui, sans-serif;
+  --font-body:    'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono:    'Space Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Type scale — fluid-ish, tuned for a dark techy display brand */
+  --text-2xs:  11px;
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   21px;
+  --text-xl:   26px;
+  --text-2xl:  33px;
+  --text-3xl:  42px;
+  --text-4xl:  54px;
+  --text-5xl:  70px;
+  --text-6xl:  92px;
+
+  /* Weights */
+  --fw-regular:  400; /* @kind font */
+  --fw-medium:   500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold:     700; /* @kind font */
+  --fw-black:    800; /* @kind font */
+
+  /* Line heights */
+  --lh-tight:   1.04; /* @kind font */
+  --lh-snug:    1.18; /* @kind font */
+  --lh-normal:  1.5; /* @kind font */
+  --lh-relaxed: 1.65; /* @kind font */
+
+  /* Letter spacing */
+  --ls-tight:  -0.02em; /* @kind font */
+  --ls-snug:   -0.01em; /* @kind font */
+  --ls-normal: 0; /* @kind font */
+  --ls-wide:   0.04em; /* @kind font */
+  --ls-kicker: 0.16em; /* @kind font */
+}

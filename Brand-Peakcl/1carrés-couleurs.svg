@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 453.8 480">
+  <defs>
+    <clipPath id="clippath">
+      <rect width="453.8" height="480" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="Dégradé_sans_nom_14" data-name="Dégradé sans nom 14" x1="229.2" y1="235.9" x2="-126.37" y2="-57.95" gradientUnits="userSpaceOnUse">
+      <stop offset=".08" stop-color="#94d4ff"/>
+      <stop offset="1" stop-color="#6191ff"/>
+    </linearGradient>
+    <linearGradient id="Dégradé_sans_nom_240" data-name="Dégradé sans nom 240" x1="588.63" y1="-95.63" x2="270.1" y2="171.05" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4dafc9"/>
+      <stop offset="1" stop-color="#97f0f7"/>
+    </linearGradient>
+    <linearGradient id="Dégradé_sans_nom_15" data-name="Dégradé sans nom 15" x1="283.88" y1="219.41" x2="550.59" y2="575.71" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2eb96"/>
+      <stop offset=".14" stop-color="#f2e587"/>
+      <stop offset=".5" stop-color="#f2d966"/>
+      <stop offset=".8" stop-color="#f2d252"/>
+      <stop offset="1" stop-color="#f2d04b"/>
+    </linearGradient>
+    <linearGradient id="Dégradé_sans_nom_9" data-name="Dégradé sans nom 9" x1="215.72" y1="301.82" x2="-266.52" y2="678.66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#babaff"/>
+      <stop offset=".1" stop-color="#a69ff0"/>
+      <stop offset=".33" stop-color="#7f66d1"/>
+      <stop offset=".54" stop-color="#5f3ab9"/>
+      <stop offset=".73" stop-color="#481aa7"/>
+      <stop offset=".89" stop-color="#3a079c"/>
+      <stop offset="1" stop-color="#360099"/>
+    </linearGradient>
+  </defs>
+  <g id="Calque_1-2" data-name="Calque 1">
+    <g style="clip-path: url(#clippath);">
+      <path d="M194.02-24.32l-212.41,3.71c-12.32.21-22.13,10.37-21.91,22.69l5.03,243.24c.21,12.32,10.37,22.13,22.69,21.91l213.26-4.03c12.32-.22,22.13-10.37,21.91-22.69L216.71-2.4c-.21-12.32-10.37-22.13-22.69-21.91Z" style="fill: url(#Dégradé_sans_nom_14);"/>
+      <path d="M509.83,161.77c.21,12.32-9.6,22.48-21.91,22.69l-212.41,3.71c-12.32.21-22.48-9.6-22.69-21.91l-2.96-169.68c-.21-12.32,9.6-22.48,21.91-22.69l212.41-3.71c12.32-.22,22.48,9.6,22.69,21.91l2.96,169.68Z" style="fill: url(#Dégradé_sans_nom_240);"/>
+      <path d="M493.42,487.99c12.32-.21,22.13-10.37,21.91-22.69l-4.18-222.77c-.22-12.32-10.37-22.13-22.69-21.91l-212.21,3.71c-12.32.21-22.13,10.37-21.91,22.69l4.31,219.15c.22,12.32,10.37,22.13,22.69,21.91l212.08-.08Z" style="fill: url(#Dégradé_sans_nom_15);"/>
+      <path d="M204.05,487.99c12.5,0,22.57-10.23,22.36-22.69l-2.91-144.54c-.22-12.32-10.4-22.13-22.75-21.91l-212.93,3.71c-12.35.21-22.18,10.37-21.96,22.69l2.84,140.83c.21,12.17,10.16,21.92,22.36,21.92h212.99Z" style="fill: url(#Dégradé_sans_nom_9);"/>
+    </g>
+  </g>
+</svg>

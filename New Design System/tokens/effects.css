@@ -1,0 +1,13 @@
+:root {
+  /* Ombres douces teintées indigo — jamais de noir pur */
+  --shadow-sm: 0 2px 8px rgba(19, 0, 77, 0.08);
+  --shadow-md: 0 6px 20px rgba(19, 0, 77, 0.12);
+  --shadow-lg: 0 16px 40px rgba(19, 0, 77, 0.16);
+  --shadow-cta: 0 6px 18px rgba(242, 208, 75, 0.45);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 120ms;
+  --dur-med: 220ms;
+  --dur-slow: 420ms;
+}

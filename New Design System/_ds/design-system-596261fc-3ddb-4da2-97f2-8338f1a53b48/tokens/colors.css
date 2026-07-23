@@ -1,0 +1,112 @@
+/* ============================================================
+   PeakCL — Color tokens
+   Brand: mountain · ascension · visibility · technology
+   Dark-first system. Yellow + Turquoise carry the brand;
+   Violet is an ACCENT ONLY (use sparingly, never as a surface).
+   ============================================================ */
+:root {
+  /* --- Brand palette (sampled from the PeakCL badge) --- */
+  --peak-yellow:          #E9DE1F;  /* primary — summit light */
+  --peak-yellow-bright:   #F6EC3F;  /* hover / glow highlight */
+  --peak-yellow-deep:     #C9BE10;  /* pressed / on-light text */
+
+  --peak-turquoise:       #19BDBD;  /* secondary — glacier */
+  --peak-turquoise-bright:#3FD8D8;  /* hover / glow */
+  --peak-turquoise-deep:  #0E8C8C;  /* pressed / deep water */
+
+  --peak-violet:          #A618CC;  /* ACCENT ONLY — signal */
+  --peak-violet-bright:   #C53BE8;
+
+  /* --- Neutral scale (dark VIOLET-tinted aubergine — brand recall) --- */
+  --ink-950: #120A1E;
+  --ink-900: #1A0E2B;  /* deep */
+  --ink-850: #1F1233;  /* app background — violet foncé lumineux */
+  --ink-800: #271640;
+  --ink-700: #321E4F;  /* surface */
+  --ink-600: #3F2862;  /* raised surface */
+  --ink-500: #553A70;  /* hairline / strong border */
+  --ink-400: #6E5288;
+  --ink-300: #9585A8;  /* subtle text */
+  --ink-200: #B6A9C6;  /* muted text */
+  --ink-100: #D6CDE2;
+  --ink-050: #EFE9F4;
+  --paper:   #F6F7F9;  /* light surface option */
+  --white:   #FFFFFF;
+
+  /* --- Status --- */
+  --success: #2FBF71;
+  --warning: var(--peak-yellow);
+  --danger:  #F0533E;
+  --info:    var(--peak-turquoise);
+
+  /* ===========================================================
+     Semantic aliases — author UIs against these (dark-first)
+     =========================================================== */
+  --bg:               var(--ink-850);
+  --bg-deep:          var(--ink-950);
+  --surface:          var(--ink-700);
+  --surface-raised:   var(--ink-600);
+  --surface-sunken:   var(--ink-800);
+
+  --border:           rgba(255,255,255,0.09);
+  --border-strong:    var(--ink-500);
+  --border-accent:    var(--peak-turquoise);
+
+  --text:             #F1F3F7;
+  --text-muted:       var(--ink-200);
+  --text-subtle:      var(--ink-300);
+  --text-inverse:     var(--ink-900);   /* on yellow/turquoise fills */
+
+  --accent:           var(--peak-yellow);       /* primary CTA */
+  --accent-hover:     var(--peak-yellow-bright);
+  --accent-press:     var(--peak-yellow-deep);
+  --accent-2:         var(--peak-turquoise);    /* secondary */
+  --accent-2-hover:   var(--peak-turquoise-bright);
+  --accent-pop:       var(--peak-violet);       /* rare emphasis */
+
+  --on-accent:        var(--ink-900);  /* text on yellow */
+  --on-accent-2:      var(--ink-900);  /* text on turquoise */
+  --on-pop:           var(--white);    /* text on violet */
+
+  --focus-ring:       var(--peak-turquoise);
+  --link:             var(--peak-turquoise-bright);
+
+  /* Surface helpers */
+  --grid-line:        rgba(255,255,255,0.045);  /* circuit-grid texture */
+  --on-surface-soft:  rgba(255,255,255,0.04);
+}
+
+/* ===========================================================
+   LIGHT THEME — set data-theme="light" on a root element.
+   Brand accents stay; only the canvas/neutrals flip.
+   =========================================================== */
+[data-theme="light"] {
+  --bg:               var(--paper);
+  --bg-deep:          var(--white);
+  --surface:          var(--white);
+  --surface-raised:   var(--white);
+  --surface-sunken:   #EDEFF3;
+
+  --border:           rgba(15,18,25,0.10);
+  --border-strong:    #D6DAE2;
+  --border-accent:    var(--peak-turquoise-deep);
+
+  --text:             #14161B;
+  --text-muted:       #4A5160;
+  --text-subtle:      #717A8A;
+  --text-inverse:     var(--white);
+
+  --accent-hover:     var(--peak-yellow-deep);
+  --accent-2:         var(--peak-turquoise-deep);
+  --accent-2-hover:   var(--peak-turquoise);
+
+  --link:             var(--peak-turquoise-deep);
+
+  --grid-line:        rgba(15,18,25,0.05);
+  --on-surface-soft:  rgba(15,18,25,0.03);
+
+  --shadow-sm: 0 1px 2px rgba(20,22,30,0.08);
+  --shadow-md: 0 6px 20px rgba(20,22,30,0.10);
+  --shadow-lg: 0 18px 48px rgba(20,22,30,0.14);
+  --shadow-xl: 0 32px 80px rgba(20,22,30,0.16);
+}

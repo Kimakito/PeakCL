@@ -15,3 +15,6 @@ dist/
 /arl5_11xm_221223.jpg
 /7609.jpg
 /45930.jpg
+
+# Illustrator temp files
+~ai-*.tmp

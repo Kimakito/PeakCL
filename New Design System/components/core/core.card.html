@@ -1,0 +1,69 @@
+<!-- @dsCard group="Components" viewport="700x620" name="Core" subtitle="Button · IconButton · Badge · Tag · Card · Input · Select · Checkbox · Radio · Switch · Tabs · Alert" -->
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body{margin:0;padding:24px;background:var(--bg);font-family:var(--font-body)}
+  .sec{margin-bottom:22px}
+  .lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script>window.__dsBase="../../";</script>
+<script src="../../ds-loader.js"></script>
+</head><body>
+<div id="root"></div>
+<script type="text/babel">
+
+const Arrow = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>;
+const Pen = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/></svg>;
+
+function Demo(){
+  const [tab,setTab]=React.useState('web');
+  return <div>
+    <div className="sec"><div className="lbl">Buttons</div><div className="row">
+      <Button variant="primary">Réserver un appel</Button>
+      <Button variant="secondary" iconRight={<Arrow/>}>Voir le portfolio</Button>
+      <Button variant="ghost">Comment je travaille</Button>
+      <Button variant="primary" disabled>Indisponible</Button>
+      <IconButton aria-label="éditer" icon={<Pen/>} />
+      <IconButton aria-label="éditer" solid icon={<Pen/>} />
+    </div></div>
+    <div className="sec"><div className="lbl">Badges & tags</div><div className="row">
+      <Badge tone="jaune" dot>Nouveau</Badge>
+      <Badge tone="turquoise">SEO</Badge>
+      <Badge tone="bleu">Site web</Badge>
+      <Badge tone="lavande">Identité</Badge>
+      <Badge tone="violet" dot>Premium</Badge>
+      <Tag>Identité</Tag>
+      <Tag active onClick={()=>{}}>Site web</Tag>
+      <Tag onRemove={()=>{}}>Réseaux</Tag>
+    </div></div>
+    <div className="sec"><div className="lbl">Tabs</div><div className="row">
+      <Tabs items={[{value:'web',label:'Site web'},{value:'id',label:'Identité'},{value:'rs',label:'Réseaux'}]} value={tab} onChange={setTab} />
+      <Tabs variant="underline" items={[{value:'a',label:'Méthode'},{value:'b',label:'Tarifs'}]} defaultValue="a" />
+    </div></div>
+    <div className="sec"><div className="lbl">Form</div><div className="grid2">
+      <Input label="Ton prénom" placeholder="Camille" />
+      <Select label="Ton besoin" placeholder="Choisir…" options={['Site web','Identité de marque','Réseaux sociaux','Être trouvé sur Google']} />
+    </div>
+    <div className="row" style={{marginTop:'14px'}}>
+      <Switch label="Newsletter" defaultChecked />
+      <Checkbox label="J'accepte d'être recontactée" defaultChecked />
+      <Radio name="o" label="Formule complète" defaultChecked />
+      <Radio name="o" label="À la carte" />
+    </div></div>
+    <div className="sec"><div className="lbl">Card & alert</div><div className="grid2">
+      <Card kicker="Palier 01" title="On fait le point">Un appel de 30 min pour cadrer tes besoins et ton budget.</Card>
+      <Card tone="lavande" title="Identité visuelle" hover={false}>Logo, couleurs, typographies : une image cohérente partout.</Card>
+      <Alert tone="success" title="Brief envoyé !">Je te réponds sous 48 h avec un devis.</Alert>
+      <Alert tone="warning" title="Place limitée">Je ne prends que 2 nouveaux projets par mois.</Alert>
+    </div></div>
+  </div>;
+}
+window.__dsReady.then(NS => { Object.assign(window, NS); ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+});
+</script>
+</body></html>
