@@ -46,7 +46,7 @@ export const Route = createFileRoute("/sites-web")({
       }}
       eyebrow="Développement web"
       title="Sites web sur mesure"
-      tagline="Sites vitrines, e-commerce et refontes : rapides, optimisés et pensés pour convertir vos visiteurs en clients."
+      tagline="Sites vitrines, e-commerce et refontes pour thérapeutes, artisans et indépendants de Savoie : rapides, bien référencés et pensés pour transformer un visiteur en rendez-vous ou en devis."
       highlights={sitesWebHighlights}
       highlightsTitle="Ce que j’apporte à votre site"
       highlightsSubtitle="Un site rapide, bien référencé et pensé pour convertir, sur tous les écrans."
