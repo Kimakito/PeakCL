@@ -138,9 +138,9 @@ function SectionMascot(_props: {
 
 function ProblemPanel() {
   const points = [
-    "Vous avez besoin d’une présence en ligne claire, crédible et facile à comprendre.",
-    "Vous n’avez pas le temps de gérer site, design, réseaux et prise de contact à la main.",
-    "Vous voulez un accompagnement simple, avec un seul interlocuteur et des décisions rapides.",
+    "Thérapeute, praticien ou indépendant : vos patients vous cherchent en ligne et doivent vous trouver crédible en cinq secondes.",
+    "Entre les consultations et le reste, vous n’avez pas le temps de gérer site, design, réseaux et prise de contact à la main.",
+    "Vous voulez un seul interlocuteur qui connaît votre métier, des décisions rapides et rien à rattraper vous-même.",
   ];
 
   return (

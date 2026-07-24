@@ -50,10 +50,10 @@ export const Route = createFileRoute("/community-management")({
       }}
       eyebrow="Réseaux sociaux"
       title="Community management"
-      tagline="Rester visible et cohérent sur vos réseaux, sans y passer vos soirées. Des forfaits clairs, sans engagement long."
+      tagline="Thérapeutes, praticiens, indépendants de Savoie : rester visible et inspirer confiance sur vos réseaux, sans y passer vos soirées. Des forfaits clairs, sans engagement long."
       highlights={communityHighlights}
       highlightsTitle="Ce que je gère pour vos réseaux"
-      highlightsSubtitle="Une présence régulière et à votre image, sans que ça vous mange vos soirées."
+      highlightsSubtitle="Une présence régulière, à votre image et dans le ton de votre métier — sans que ça vous mange vos soirées."
       forfaits={cmForfaits}
       forfaitsTitle="📱 Forfaits mensuels"
       forfaitsNote="Tarifs HT · révisions du visuel incluses · option +1 réseau supplémentaire disponible. Sans engagement de durée."

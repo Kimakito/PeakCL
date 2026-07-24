@@ -18,7 +18,7 @@ export const peakclFaqHomeEn: PeakclFaqItem[] = [
   {
     question: "Why have a website if I already have Instagram / Facebook?",
     answerHtml:
-      "Social platforms are useful, but you don't control them (algorithms, restrictions, account bans). Your site is your home base: one clear place where people quickly understand what you do, with a simple way to get in touch. And search engines send people to web pages and business listings first, not to your posts.",
+      "Social platforms are useful, but you don't control them (algorithms, restrictions, account bans) — I've seen a practitioner lose access to her account for a week, with no recourse. Your site is your home base: one clear place where people quickly understand what you do, with a simple way to get in touch. And search engines send people to web pages and business listings first, not to your posts.",
   },
   {
     question: "I don't have time to prepare the content. How does that work?",

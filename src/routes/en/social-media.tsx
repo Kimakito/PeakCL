@@ -49,7 +49,7 @@ export const Route = createFileRoute("/en/social-media")({
       }}
       eyebrow="Social media"
       title="Social media management"
-      tagline="Stay visible and consistent on your channels, without spending your evenings on it. Clear plans, no long-term commitment."
+      tagline="For therapists and independents: stay visible and consistent on your channels, and build trust, without spending your evenings on it. Clear plans, no long-term commitment."
       highlights={communityHighlightsEn}
       highlightsTitle="What I handle for your channels"
       highlightsSubtitle="A steady presence that looks like your brand, without eating up your evenings."

@@ -328,7 +328,7 @@ function heroText(locale: Locale) {
       titleLead:
         "Want an online presence that's clear, credible and simple to run?",
       titleAccent: "One person for your site, design and social, end to end.",
-      sub: "From strategy to launch, with a clear plan, concrete deliverables and a human on the other end.",
+      sub: "Built for therapists, practitioners and independents who want a sharp online image without spending their evenings on it — from strategy to launch, with a clear plan, concrete deliverables and a human on the other end.",
       ctaPrimary: "Book a free call",
       ctaSecondary: "See services",
       servicesHref: "/en/services",
@@ -345,7 +345,7 @@ function heroText(locale: Locale) {
     titleLead:
       "Vous voulez une présence en ligne claire, crédible et sans complication ?",
     titleAccent: "Je vous accompagne de A à Z.",
-    sub: "De la stratégie au lancement, avec un plan clair, des livrables concrets et un accompagnement humain.",
+    sub: "Pensé pour les thérapeutes, praticiens et indépendants de Savoie qui veulent une image nette sans y passer leurs soirées — de la stratégie au lancement, avec un plan clair, des livrables concrets et un seul interlocuteur.",
     ctaPrimary: "Réserver un appel gratuit",
     ctaSecondary: "Voir les services",
     servicesHref: "/services",

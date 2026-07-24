@@ -30,7 +30,7 @@ const SERVICE_CARDS = [
     eyebrow: "Social media",
     title: "Social media management",
     tagline:
-      "Strategy and content: stay visible without spending your evenings on it.",
+      "For therapists and independents: stay visible and build trust, without spending your evenings on it.",
   },
   {
     slug: "/en/design",
