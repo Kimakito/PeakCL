@@ -50,7 +50,7 @@ jamais survendus.
 - Héros : « Pas le temps pour ton site, tes réseaux et ton image ? Délègue-moi toute ta communication en ligne. »
 - CTA : « Remplir le brief (8 min) » · « Réserver un appel » · « Voir le portfolio »
 - Réassurance : « Un seul interlocuteur, du diagnostic à la mise en ligne. » · « Devis sous 48 h. »
-- Preuves : *5/5 sur Google · +20 projets livrés · délai moyen 14 j.*
+- Preuves : *5/5 sur Google · 18 projets clients livrés · délai moyen 14 j.*
 
 **Émojis** : non. La personnalité passe par la couleur, les carrés arrondis et la mascotte.
 

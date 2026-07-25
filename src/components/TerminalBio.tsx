@@ -38,7 +38,7 @@ const LINES_FR: Line[] = [
 
   { kind: "cmd", text: "ls ~/projets | wc -l" },
   { kind: "out", text: "19", tone: "strong" },
-  { kind: "out", text: "# 19 projets livrés, notés 5/5 sur Google" },
+  { kind: "out", text: "# 18 projets clients livrés, notés 5/5 sur Google" },
   { kind: "gap" },
 
   { kind: "cmd", text: "cat stack.txt" },
@@ -65,7 +65,7 @@ const LINES_EN: Line[] = [
 
   { kind: "cmd", text: "ls ~/projects | wc -l" },
   { kind: "out", text: "19", tone: "strong" },
-  { kind: "out", text: "# 19 projects delivered, rated 5/5 on Google" },
+  { kind: "out", text: "# 18 client projects delivered, rated 5/5 on Google" },
   { kind: "gap" },
 
   { kind: "cmd", text: "cat stack.txt" },

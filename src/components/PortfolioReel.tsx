@@ -8,7 +8,7 @@ import {
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 import { localeFromPath, type Locale } from "@/i18n/config";
-import type { DeckProject } from "@/content/peakcl/portfolioDeck";
+import { scopeBadge, type DeckProject } from "@/content/peakcl/portfolioDeck";
 
 /**
  * Pellicule de cinéma horizontale : chaque projet est un photogramme.
@@ -68,7 +68,8 @@ export function PortfolioReel({
   resetKey?: string;
 }) {
   const path = useRouterState({ select: (s) => s.location.pathname });
-  const t = STRINGS[localeFromPath(path)];
+  const lang = localeFromPath(path);
+  const t = STRINGS[lang];
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const frameRefs = useRef<(HTMLElement | null)[]>([]);
@@ -228,6 +229,15 @@ export function PortfolioReel({
                 {p.status !== "construction" ? (
                   <span className="absolute right-2 top-2 rounded-full bg-black/50 p-1 text-muted-foreground backdrop-blur">
                     <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
+                ) : null}
+                {/* Étendue de la mission : lisible sans ouvrir l'étude de cas. */}
+                {scopeBadge(p, lang) ? (
+                  <span
+                    className="absolute bottom-2 left-2 max-w-[calc(100%-1rem)] truncate rounded-full bg-black/65 px-2.5 py-1 text-[11px] font-semibold backdrop-blur"
+                    style={{ color: p.accent }}
+                  >
+                    {scopeBadge(p, lang)}
                   </span>
                 ) : null}
               </div>

@@ -16,7 +16,7 @@ function trustedText(locale: Locale, count: number) {
           Professionals who chose <span className="text-gradient">PeakCL</span>.
         </>
       ),
-      subtitle: `${count} projects delivered for craftspeople, coaches, health, travel and e-commerce.`,
+      subtitle: `${count} client projects delivered for craftspeople, coaches, health, travel and e-commerce.`,
       cta: "See all projects",
       portfolioHref: "/en/portfolio",
     };
@@ -28,7 +28,7 @@ function trustedText(locale: Locale, count: number) {
         Des pros qui ont choisi <span className="text-gradient">PeakCL</span>.
       </>
     ),
-    subtitle: `${count} projets livrés, artisans, coachs, santé, voyage, e-commerce… en Savoie et en France.`,
+    subtitle: `${count} projets clients livrés, artisans, coachs, santé, voyage, e-commerce… en Savoie et en France.`,
     cta: "Voir tous les projets",
     portfolioHref: "/portfolio",
   };

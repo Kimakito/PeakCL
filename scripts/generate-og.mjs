@@ -38,7 +38,7 @@ const svg = `
 
   <text x="90" y="430" font-family="Arial, sans-serif" font-size="30" fill="#c8cede">Site · Identité · Réseaux · Google. Un seul interlocuteur.</text>
 
-  <text x="90" y="512" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#FFD500">★★★★★ 5/5 Google<tspan fill="#9aa2b5" font-weight="400"> · 20+ projets · Savoie &amp; France</tspan></text>
+  <text x="90" y="512" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#FFD500">★★★★★ 5/5 Google<tspan fill="#9aa2b5" font-weight="400"> · 18 projets clients · Savoie &amp; France</tspan></text>
 
   <circle cx="1000" cy="315" r="150" fill="none" stroke="#00E5D4" stroke-width="4" opacity="0.85"/>
 </svg>`;

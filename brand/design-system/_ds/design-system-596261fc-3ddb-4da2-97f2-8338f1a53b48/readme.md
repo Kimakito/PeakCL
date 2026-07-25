@@ -61,7 +61,7 @@ Exemples : « Atteignons votre sommet », « On trace la voie », « Visibilité
 - CTA primaire (réel) : « Remplir le brief (8 min) » · « Réserver un appel » · « Je veux déléguer »
 - CTA secondaire : « Voir le portfolio » · « Comment je travaille »
 - Réassurance : « Un seul interlocuteur, du diagnostic à la mise en ligne. » · « Devis sous 48 h. »
-- Preuves réelles : *5/5 sur Google · +20 projets livrés · délai moyen 14 j.*
+- Preuves réelles : *5/5 sur Google · 18 projets clients livrés · délai moyen 14 j.*
 - Anti-jargon : « être trouvé sur Google » plutôt que « stratégie SEO omnicanale ».
 
 **Émojis** : **non** dans l'UI et le marketing. La personnalité passe par la couleur, la

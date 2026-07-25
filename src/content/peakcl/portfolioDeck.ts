@@ -1,4 +1,4 @@
-import { peakclPortfolio, type PeakclProject } from "./portfolio";
+import { peakclPortfolio, type PeakclProject, type ScopeLevel } from "./portfolio";
 
 /** Catégorie de métier — sert au hub de filtrage du portfolio. */
 export type Category = { slug: string; label: string; short: string; accent: string };
@@ -32,6 +32,7 @@ const accentOf = (cat: string) => CATEGORIES.find((c) => c.slug === cat)?.accent
 
 /** title → { catégorie, slug, capture? }. La capture pointe vers /peakcl/portfolio/<shot>.webp */
 const META: Record<string, { category: string; slug: string; shot?: string; categories?: string[] }> = {
+  "Ikami": { category: "pme", slug: "ikami", shot: "ikami" },
   "Adelante Voyages": { category: "tourisme-animaux", slug: "adelante", shot: "adelante" },
   "Cabinet Johanna Alfonso": { category: "droit", slug: "alfonso", shot: "alfonso" },
   "Plumes Poils & Compagnie": { category: "tourisme-animaux", slug: "plumes", shot: "plumes" },
@@ -41,7 +42,6 @@ const META: Record<string, { category: string; slug: string; shot?: string; cate
   "SP Services Rénovation": { category: "artisan", slug: "sp-renovation", shot: "sp-renovation" },
   "Laboratoire Sanchez Randon": { category: "pro-sante", slug: "sanchez-randon", shot: "sanchez-randon" },
   "Mordant Équin": { category: "equestre", slug: "mordant-equin", shot: "mordant-equin" },
-  "TrackDM": { category: "pme", slug: "trackdm" },
   "Jean-Baptiste Lacroix": { category: "ecrivain", slug: "jb-lacroix", shot: "jb-lacroix" },
   "DoodleIdoo": { category: "artiste", slug: "doodleidoo", shot: "doodleidoo" },
   "LM Équitation Western": { category: "equestre", slug: "lm-equitation", shot: "lm-equitation" },
@@ -67,20 +67,26 @@ const shotPath = (s?: string) => (s ? `/peakcl/portfolio/${s}.webp` : undefined)
 const CONSTRUCTION: DeckProject[] = [
   {
     title: "Véronique Kaba", subtitle: "Thérapeute · Savoie",
-    description: "Site en cours de création : une présence en ligne chaleureuse et rassurante pour son accompagnement thérapeutique.",
+    description: "Véronique voulait une image qui lui ressemble vraiment. Je lui construis son site, et je lui ai dessiné une mascotte à son effigie qu'elle utilise sur ses réseaux comme sur son site. Son logo est en cours.",
     tags: ["Site vitrine", "Bien-être"], category: "therapeute", status: "construction",
+    scope: ["Site internet", "Création d'une mascotte à son image", "Création du logo (en cours)"],
+    scopeLevel: "global",
     slug: "veronique-kaba", accent: accentOf("therapeute"),
   },
   {
     title: "Pascale Vert", subtitle: "Thérapeute · Savoie",
-    description: "Site en cours de création : une vitrine claire et apaisante pour présenter sa pratique et faciliter la prise de contact.",
+    description: "Site en cours de création : une vitrine claire et apaisante pour présenter sa pratique et faciliter la prise de contact. Mise en ligne dès que son nom de domaine sera disponible.",
     tags: ["Site vitrine", "Bien-être"], category: "therapeute", status: "construction",
+    scope: ["Site internet (en cours)"],
+    scopeLevel: "site",
     slug: "pascale-vert", accent: accentOf("therapeute"),
   },
   {
     title: "VS-Taxi", subtitle: "Taxi · Savoie",
-    description: "Site en cours de création : réservation simple, zones desservies et contact rapide pour un service de taxi local.",
+    description: "Mission en cours : je modernise son logo et je construis son site — réservation simple, zones desservies et contact rapide. Sa page Facebook suivra.",
     tags: ["Site vitrine", "Réservation"], category: "taxi", status: "construction",
+    scope: ["Modernisation du logo", "Site internet", "Création de la page Facebook"],
+    scopeLevel: "global",
     slug: "vs-taxi", accent: accentOf("taxi"),
   },
 ];
@@ -100,6 +106,39 @@ export const DECK_PROJECTS: DeckProject[] = [
   }),
   ...CONSTRUCTION,
 ];
+
+/* ── Étendue de la mission ───────────────────────────────────── */
+/** Libellé du badge « ce que j'ai pris en charge », par niveau de mission. */
+const SCOPE_LABELS: Record<ScopeLevel, string> = {
+  global: "Com' complète",
+  identite: "Site + identité",
+  reseaux: "Site + réseaux",
+  site: "Site internet",
+};
+
+const SCOPE_LABELS_EN: Record<ScopeLevel, string> = {
+  global: "Full launch",
+  identite: "Site + brand",
+  reseaux: "Site + socials",
+  site: "Website",
+};
+
+/** Texte du badge d'étendue, ou undefined si le projet n'en déclare pas. */
+export function scopeBadge(p: Pick<DeckProject, "scopeLevel" | "scopeLabel">, lang: "fr" | "en" = "fr") {
+  if (p.scopeLabel) return p.scopeLabel; // libellé sur-mesure, non traduit
+  if (!p.scopeLevel) return undefined;
+  return (lang === "en" ? SCOPE_LABELS_EN : SCOPE_LABELS)[p.scopeLevel];
+}
+
+/**
+ * Projets mis en avant sur la home : les missions les plus complètes d'abord,
+ * pour que l'étendue de la prestation saute aux yeux dès l'accueil.
+ */
+export function featuredProjects(n = 6): PeakclProject[] {
+  return [...peakclPortfolio]
+    .sort((a, b) => (b.scope?.length ?? 0) - (a.scope?.length ?? 0))
+    .slice(0, n);
+}
 
 /** Un projet appartient-il à une catégorie (gère le multi-catégories) ? */
 export const inCategory = (p: DeckProject, cat: string) => (p.categories ?? [p.category]).includes(cat);
@@ -137,6 +176,6 @@ export const LOGO_PROJECTS: LogoProject[] = [
   { name: "PeakCL", metier: "Studio web & design", file: "/peakcl/logos/peakcl.webp", accent: "#00E5D4", note: "Identité maison : sommet + circuit, énergie tech." },
   { name: "La Vieille Roue", metier: "Artisan automobile · Albertville", file: "/peakcl/logos/lavieilleroue.svg", accent: "#F59E0B", note: "Roue, route de montagne et savoir-faire mécanique." },
   { name: "SETIC Fluides", metier: "Bureau d'études · BTP", file: "/peakcl/logos/setic.svg", accent: "#1D9E75", note: "Sommet stylisé, sobriété technique." },
-  { name: "Fiona Espitallier", metier: "Artiste comédie musicale", file: "/peakcl/logos/fiona.svg", accent: "#0F6E56", note: "Monogramme FE, silhouette en mouvement." },
+  { name: "Fiona Espitallier", metier: "Artiste comédie musicale", file: "/peakcl/logos/fiona.svg", accent: "#0F6E56", note: "Un micro qui se lit aussi comme une scène." },
   { name: "Peak Training", metier: "Coaching sportif · Ugine", file: "/peakcl/logos/peak-training.svg", accent: "#6B7F3A", note: "Blason montagne, texture kaki sportive." },
 ];

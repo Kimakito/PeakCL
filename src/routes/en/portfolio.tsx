@@ -6,6 +6,7 @@ import {
   CATEGORIES,
   DECK_PROJECTS,
   LOGO_PROJECTS,
+  scopeBadge,
   type Category,
   type DeckProject,
 } from "@/content/peakcl/portfolioDeck";
@@ -174,10 +175,34 @@ function CaseStudyModal({
             </p>
           ) : null}
 
+          {p.scope?.length ? (
+            <div className="mt-6 rounded-2xl border border-border bg-muted/60 p-5">
+              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand-turquoise)]">
+                What I took charge of
+              </div>
+              <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                {p.scope.map((s) => (
+                  <li
+                    key={s}
+                    className="flex items-start gap-2 text-sm text-foreground/90"
+                  >
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
+                    {s}
+                  </li>
+                ))}
+              </ul>
+              {p.scopeNote ? (
+                <p className="mt-4 border-t border-border pt-3 text-xs leading-relaxed text-muted-foreground">
+                  {p.scopeNote}
+                </p>
+              ) : null}
+            </div>
+          ) : null}
+
           {p.tags?.length ? (
-            <div className="mt-6">
+            <div className="mt-5">
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                What was delivered
+                {p.scope?.length ? "Stack & keywords" : "What was delivered"}
               </div>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {p.tags.map((t) => (
@@ -185,7 +210,9 @@ function CaseStudyModal({
                     key={t}
                     className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1 text-xs text-foreground/90"
                   >
-                    <Check className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
+                    {p.scope?.length ? null : (
+                      <Check className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
+                    )}
                     {t}
                   </li>
                 ))}
@@ -278,6 +305,18 @@ function SiteCard({
           <p className="mt-0.5 truncate text-xs text-muted-foreground">
             {p.subtitle}
           </p>
+        ) : null}
+        {scopeBadge(p, "en") ? (
+          <span
+            className="mt-2 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold"
+            style={{ borderColor: `${p.accent}66`, color: p.accent }}
+          >
+            <span
+              className="h-1.5 w-1.5 rounded-full"
+              style={{ background: p.accent }}
+            />
+            {scopeBadge(p, "en")}
+          </span>
         ) : null}
       </div>
     </>

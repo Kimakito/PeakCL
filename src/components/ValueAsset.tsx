@@ -160,7 +160,7 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
               </div>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 <span className="font-semibold text-foreground">Charlotte Lacroix (PeakCL).</span>{" "}
-                Développeuse web, graphiste et formée au community management. Plus de 20 projets
+                Développeuse web, graphiste et formée au community management. 18 projets clients
                 livrés, notés 5/5 sur Google. Je code <em>et</em> je dessine : je vois donc à la fois
                 la structure technique et l'image, exactement ce qui manque à la plupart des sites.
               </p>

@@ -6,7 +6,7 @@ import { peakclTestimonials } from "@/content/peakcl/testimonials";
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 import { peakclFaqHome } from "@/content/peakcl/faq";
 import { peakclPortfolio } from "@/content/peakcl/portfolio";
-import { CATEGORIES } from "@/content/peakcl/portfolioDeck";
+import { CATEGORIES, featuredProjects } from "@/content/peakcl/portfolioDeck";
 import { DeckFooter } from "@/components/DeckFooter";
 import { TrustedBySection } from "@/components/TrustedBySection";
 import { optimizedLogoUrl } from "@/lib/optimizedLogo";
@@ -407,7 +407,7 @@ function OffersPanel() {
 /* ── Portfolio panel ─────────────────────────────────────────── */
 
 function PortfolioPanel() {
-  const featured = peakclPortfolio.slice(0, 6);
+  const featured = featuredProjects(6);
   return (
     <section
       id="portfolio"
@@ -490,16 +490,24 @@ function PortfolioPanel() {
                   )}
                 </div>
               </div>
-              {p.tags.length > 0 && (
+              {/* Prestations livrées : l'étendue de la mission, pas la stack. */}
+              {(p.scope?.length ? p.scope : p.tags).length > 0 && (
                 <div className="mt-3 flex flex-wrap gap-1.5">
-                  {p.tags.slice(0, 3).map((t) => (
-                    <span
-                      key={`${p.siteUrl}-${t}`}
-                      className="rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs text-muted-foreground"
-                    >
-                      {t}
+                  {(p.scope?.length ? p.scope : p.tags)
+                    .slice(0, 3)
+                    .map((t) => (
+                      <span
+                        key={`${p.siteUrl}-${t}`}
+                        className="rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs text-muted-foreground"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  {p.scope && p.scope.length > 3 ? (
+                    <span className="rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs font-semibold text-[var(--brand-turquoise)]">
+                      +{p.scope.length - 3}
                     </span>
-                  ))}
+                  ) : null}
                 </div>
               )}
               <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--brand-turquoise)]">
@@ -984,7 +992,7 @@ function ReassuranceBar() {
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 text-sm">
         <Stat
           target={peakclPortfolio.filter((p) => p.logoUrl).length}
-          label="projets livrés"
+          label="projets clients livrés"
         />
         <Stat literal="5/5" label="sur Google" />
         <Stat target={100} suffix="%" label="clients satisfaits" />
