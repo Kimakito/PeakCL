@@ -142,8 +142,21 @@
   status = 301
   force = true
 
+# Anciennes URL de blog datees (/conseils/2025/04/18/hebergement).
+#
+# ATTENTION : ne PAS ecrire `from = "/conseils/*"` vers `/conseils`. Le splat
+# Netlify matche aussi le chemin nu `/conseils`, la regle boucle sur elle-meme
+# et Netlify la desactive en silence — c'est pourquoi ces URL renvoyaient encore
+# 404 en production alors que la regle existait depuis des mois.
+# Les placeholders `:a` exigent un segment non vide : pas de boucle possible.
 [[redirects]]
-  from = "/conseils/*"
+  from = "/conseils/:a"
+  to = "/conseils"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/conseils/:a/*"
   to = "/conseils"
   status = 301
   force = true
@@ -194,33 +207,46 @@
   status = 301
   force = true
 
+# Anciennes URL d'offres. Elles visaient /packs, qui redirige lui-meme vers
+# /services : on evite la chaine 301 -> 301 en pointant la cible finale.
+# Chacune vise la page la plus proche de son intention d'origine plutot que le
+# hub generique : une redirection vers une page hors sujet est traitee par
+# Google comme un soft 404 et ne transmet pas le signal de l'ancienne URL.
 [[redirects]]
   from = "/graphisme"
-  to = "/services"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/creation-site-vitrine"
-  to = "/services"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/maintenance-site-web"
-  to = "/services"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/maintenance-site-web.html"
-  to = "/services"
+  to = "/design"
   status = 301
   force = true
 
 [[redirects]]
   from = "/graphisme.html"
-  to = "/services"
+  to = "/design"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/creation-site-vitrine"
+  to = "/sites-web"
+  status = 301
+  force = true
+
+# 404 relevee dans Search Console (dernier crawl 12/07/2026) : aucune regle ne
+# la couvrait, contrairement a sa jumelle /creation-site-vitrine.
+[[redirects]]
+  from = "/creation-site-ecommerce"
+  to = "/sites-web"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/maintenance-site-web"
+  to = "/sites-web"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/maintenance-site-web.html"
+  to = "/sites-web"
   status = 301
   force = true
 
