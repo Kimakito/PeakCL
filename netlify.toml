@@ -148,11 +148,11 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/contact"
-  to = "/reservation-appel"
-  status = 301
-  force = true
+# NOTE: pas de redirection sur /contact. La page existe (src/routes/contact.tsx),
+# porte le NAP local (téléphone, email, Gilly-sur-Isère) et sa propre canonical.
+# Le 301 vers /reservation-appel qui vivait ici la rendait inaccessible :
+# Search Console la classait « autre page avec balise canonique correcte »
+# alors qu'elle est déclarée dans le sitemap. Ne pas le réintroduire.
 
 [[redirects]]
   from = "/brief"
@@ -167,6 +167,9 @@
   force = true
 
 # Guides linked from /bienvenue (canonical + sitemap use /ressources/…)
+# NOTE: les anciennes URL d'offres visaient /packs, qui redirige lui-même vers
+# /services (src/routes/packs.tsx). Elles pointent maintenant directement sur
+# /services : un seul saut, pas de chaîne 301 → 301 à faire suivre par Google.
 [[redirects]]
   from = "/ressources/systeme"
   to = "/ressources-systeme"
@@ -193,31 +196,37 @@
 
 [[redirects]]
   from = "/graphisme"
-  to = "/packs"
+  to = "/services"
   status = 301
   force = true
 
 [[redirects]]
   from = "/creation-site-vitrine"
-  to = "/packs"
+  to = "/services"
   status = 301
   force = true
 
 [[redirects]]
   from = "/maintenance-site-web"
-  to = "/packs"
+  to = "/services"
   status = 301
   force = true
 
 [[redirects]]
   from = "/maintenance-site-web.html"
-  to = "/packs"
+  to = "/services"
   status = 301
   force = true
 
 [[redirects]]
   from = "/graphisme.html"
-  to = "/packs"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/packs"
+  to = "/services"
   status = 301
   force = true
 
@@ -229,7 +238,7 @@
 
 [[redirects]]
   from = "/contact.html"
-  to = "/reservation-appel"
+  to = "/contact"
   status = 301
   force = true
 
