@@ -27,6 +27,7 @@ import { Route as MerciR2RouteImport } from './routes/merci-r2'
 import { Route as MerciDiagnosticRouteImport } from './routes/merci-diagnostic'
 import { Route as MerciBriefRouteImport } from './routes/merci-brief'
 import { Route as MerciRouteImport } from './routes/merci'
+import { Route as LaComDesPepitesRouteImport } from './routes/la-com-des-pepites'
 import { Route as DiagnosticRouteImport } from './routes/diagnostic'
 import { Route as DesignRouteImport } from './routes/design'
 import { Route as CreationLogoAlbertvilleRouteImport } from './routes/creation-logo-albertville'
@@ -158,6 +159,11 @@ const MerciBriefRoute = MerciBriefRouteImport.update({
 const MerciRoute = MerciRouteImport.update({
   id: '/merci',
   path: '/merci',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaComDesPepitesRoute = LaComDesPepitesRouteImport.update({
+  id: '/la-com-des-pepites',
+  path: '/la-com-des-pepites',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DiagnosticRoute = DiagnosticRouteImport.update({
@@ -410,6 +416,7 @@ export interface FileRoutesByFullPath {
   '/creation-logo-albertville': typeof CreationLogoAlbertvilleRoute
   '/design': typeof DesignRoute
   '/diagnostic': typeof DiagnosticRoute
+  '/la-com-des-pepites': typeof LaComDesPepitesRoute
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
   '/merci-diagnostic': typeof MerciDiagnosticRoute
@@ -472,6 +479,7 @@ export interface FileRoutesByTo {
   '/creation-logo-albertville': typeof CreationLogoAlbertvilleRoute
   '/design': typeof DesignRoute
   '/diagnostic': typeof DiagnosticRoute
+  '/la-com-des-pepites': typeof LaComDesPepitesRoute
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
   '/merci-diagnostic': typeof MerciDiagnosticRoute
@@ -535,6 +543,7 @@ export interface FileRoutesById {
   '/creation-logo-albertville': typeof CreationLogoAlbertvilleRoute
   '/design': typeof DesignRoute
   '/diagnostic': typeof DiagnosticRoute
+  '/la-com-des-pepites': typeof LaComDesPepitesRoute
   '/merci': typeof MerciRoute
   '/merci-brief': typeof MerciBriefRoute
   '/merci-diagnostic': typeof MerciDiagnosticRoute
@@ -599,6 +608,7 @@ export interface FileRouteTypes {
     | '/creation-logo-albertville'
     | '/design'
     | '/diagnostic'
+    | '/la-com-des-pepites'
     | '/merci'
     | '/merci-brief'
     | '/merci-diagnostic'
@@ -661,6 +671,7 @@ export interface FileRouteTypes {
     | '/creation-logo-albertville'
     | '/design'
     | '/diagnostic'
+    | '/la-com-des-pepites'
     | '/merci'
     | '/merci-brief'
     | '/merci-diagnostic'
@@ -723,6 +734,7 @@ export interface FileRouteTypes {
     | '/creation-logo-albertville'
     | '/design'
     | '/diagnostic'
+    | '/la-com-des-pepites'
     | '/merci'
     | '/merci-brief'
     | '/merci-diagnostic'
@@ -786,6 +798,7 @@ export interface RootRouteChildren {
   CreationLogoAlbertvilleRoute: typeof CreationLogoAlbertvilleRoute
   DesignRoute: typeof DesignRoute
   DiagnosticRoute: typeof DiagnosticRoute
+  LaComDesPepitesRoute: typeof LaComDesPepitesRoute
   MerciRoute: typeof MerciRoute
   MerciBriefRoute: typeof MerciBriefRoute
   MerciDiagnosticRoute: typeof MerciDiagnosticRoute
@@ -943,6 +956,13 @@ declare module '@tanstack/react-router' {
       path: '/merci'
       fullPath: '/merci'
       preLoaderRoute: typeof MerciRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/la-com-des-pepites': {
+      id: '/la-com-des-pepites'
+      path: '/la-com-des-pepites'
+      fullPath: '/la-com-des-pepites'
+      preLoaderRoute: typeof LaComDesPepitesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/diagnostic': {
@@ -1295,6 +1315,7 @@ const rootRouteChildren: RootRouteChildren = {
   CreationLogoAlbertvilleRoute: CreationLogoAlbertvilleRoute,
   DesignRoute: DesignRoute,
   DiagnosticRoute: DiagnosticRoute,
+  LaComDesPepitesRoute: LaComDesPepitesRoute,
   MerciRoute: MerciRoute,
   MerciBriefRoute: MerciBriefRoute,
   MerciDiagnosticRoute: MerciDiagnosticRoute,
