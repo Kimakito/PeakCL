@@ -108,11 +108,28 @@ Palette **5 familles × déclinaisons (claire / foncée / dégradé)** issues de
 
 Deux familles rondes et chaleureuses (substitutions Google Fonts, le logotype lui-même est un **lettrage custom « bubble » à ne jamais recomposer en texte**).
 
-- **Display / titres — `Baloo 2`** (rond, plein, joyeux, écho du logotype). Graisses 500/600/**700**/800.
-- **Corps — `Nunito`** (ronde, lisible, chaleureuse). Graisses 400/600/700/800 + italique 400.
-- Fallback : `system-ui, sans-serif`.
+### Familles principales
 
-> *Estimation :* les polices sont des substituts (aucun fichier fourni). Le lettrage réel du logo est un dessin custom aux formes très rondes et pleines — s'en inspirer sans le reproduire au texte.
+| Rôle | Police | Graisses | Variables CSS | Fallback |
+|---|---|---|---|---|
+| Display / titres | **Baloo 2** (rond, plein, joyeux, écho du logotype) | 500 / 600 / **700** / 800 | `--font-display`, `--font-pk-display` | `ui-sans-serif, system-ui, sans-serif` |
+| Corps | **Nunito** (ronde, lisible, chaleureuse) | 400 / 600 / 700 / 800 + italique 400 | `--font-sans`, `--font-body`, `--font-pk-body` | `ui-sans-serif, system-ui, sans-serif` |
+| Code / mono | monospace système | 400 | — | — |
+
+Chargement : Google Fonts, une seule requête `css2` avec `display=swap` + preconnect (`src/routes/__root.tsx`, `src/design-system/tokens/fonts.css`).
+
+### Familles secondaires (usage limité)
+
+Auto-hébergées en `.ttf` dans `public/fonts/`, réservées au **bac à sable vidéo** (`src/routes/bac-a-sable-video.tsx`) — pas d'usage sur les pages publiques du site.
+
+| Police | Fichier | Variable CSS | Classe | Fallback |
+|---|---|---|---|---|
+| **Style Script** (manuscrite, accroches) | `StyleScript-Regular.ttf` | `--font-script` | `.font-script` | `"Segoe Script", cursive` |
+| **Gabriela** (serif, sous-titres et corps vidéo) | `Gabriela-Regular.ttf` | `--font-gabriela` | `.font-gabriela` | `Georgia, "Times New Roman", serif` |
+
+Les deux sont scopées à `.bac-sable-studio` et préchargées par la route. Ne pas les introduire ailleurs sans décision de charte.
+
+> *Note :* Baloo 2 et Nunito sont des **substituts** du lettrage du logo (aucun fichier de la police du logotype fourni). Le lettrage réel est un dessin custom aux formes très rondes et pleines — s'en inspirer sans le reproduire au texte.
 
 ### Échelle & hiérarchie
 
