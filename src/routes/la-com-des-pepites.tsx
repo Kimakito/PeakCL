@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   motion,
   useReducedMotion,
@@ -12,6 +12,7 @@ import {
   Clock,
   GraduationCap,
   HandHeart,
+  Instagram,
   Sparkles,
   Wand2,
 } from "lucide-react";
@@ -113,17 +114,21 @@ body:has(main.pepites) [aria-label^="PeakaBot"] {
 .pepites label,
 .pepites span,
 .pepites input,
+.pepites textarea,
+.pepites select,
 .pepites button {
   font-style: normal;
+  font-family: var(--font-sans);
 }
 .pepites a { color: var(--pep-ink); text-decoration: none; }
 .pepites a:hover { text-decoration: underline; }
-.pepites :is(a, button, input):focus-visible {
+/* L'outline suit le border-radius propre à chaque champ (pilule pour le hero,
+   arrondi doux pour le formulaire de contact) : pas d'override global ici. */
+.pepites :is(a, button, input, textarea, select):focus-visible {
   outline: 3px solid var(--pep-ink);
   outline-offset: 3px;
-  border-radius: 9999px;
 }
-.pepites input::placeholder { color: #7E6A46; opacity: 1; }
+.pepites :is(input, textarea)::placeholder { color: #7E6A46; opacity: 1; }
 
 /* Bandeau défilant */
 .pep-marquee { display: flex; width: max-content; animation: pep-slide 26s linear infinite; }
@@ -279,7 +284,10 @@ function EmailForm({ id, buttonLabel, microCopy }: EmailFormProps) {
       </div>
 
       {status === "error" && (
-        <p role="alert" className="mt-2 text-sm font-bold text-[var(--pep-red)]">
+        <p
+          role="alert"
+          className="mt-2 text-sm font-bold text-[var(--pep-red)]"
+        >
           Oups, l’envoi n’a pas marché. Réessaie dans un instant.
         </p>
       )}
@@ -290,6 +298,194 @@ function EmailForm({ id, buttonLabel, microCopy }: EmailFormProps) {
       <p className="mt-1 max-w-md text-xs leading-relaxed text-[var(--pep-muted)]">
         En laissant ton email, tu acceptes qu’on te recontacte au sujet de La
         com’ des pépites. Désinscription à tout moment.{" "}
+        <a
+          href={LEGAL_URL}
+          className="underline underline-offset-2"
+          data-event="pepites_legal_link"
+        >
+          Mentions légales
+        </a>
+        .
+      </p>
+    </form>
+  );
+}
+
+/** Choix proposé dans le formulaire de contact — miroir de public/netlify-forms.html. */
+const BESOINS = [
+  "Me former (Pépite Académie)",
+  "Déléguer ma com",
+  "Je ne sais pas encore",
+] as const;
+
+const PEP_FIELD_CLASS =
+  "w-full rounded-2xl border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] px-4 py-3 text-base font-semibold text-[var(--pep-ink)] outline-none transition-shadow focus:shadow-[4px_4px_0_var(--pep-ink)]";
+const PEP_LABEL_CLASS =
+  "mb-1.5 block text-sm font-extrabold text-[var(--pep-ink)]";
+
+/**
+ * Formulaire de contact classique (bas de page).
+ * Form Netlify distinct de `pepites` (capture email du hero) : ici on récupère
+ * une vraie demande qualifiée, donc les deux ne doivent pas se mélanger dans
+ * le dashboard Netlify. Le form jumeau vit dans public/netlify-forms.html,
+ * seul fichier scanné au build (le site est en SSR).
+ */
+function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">(
+    "idle",
+  );
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (status === "sending") return;
+    const form = e.currentTarget;
+    setStatus("sending");
+    try {
+      await submitNetlifyForm(form);
+      setStatus("done");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  if (status === "done") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.35, ease: EASE }}
+        role="status"
+        className="flex items-center gap-3 rounded-3xl border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] px-5 py-4 text-base font-bold shadow-[4px_4px_0_var(--pep-ink)]"
+      >
+        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--pep-gold)]">
+          <Check className="h-5 w-5 text-[var(--pep-ink)]" />
+        </span>
+        Message reçu ! On te répond très vite.
+      </motion.div>
+    );
+  }
+
+  return (
+    <form
+      name="pepites-contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      data-event="pepites_contact_submit"
+      onSubmit={handleSubmit}
+      className="w-full text-left"
+    >
+      <input type="hidden" name="form-name" value="pepites-contact" />
+      <input type="hidden" name="source" value="la_com_des_pepites" />
+      <input type="hidden" name="leadType" value="pepites_contact" />
+      <p className="hidden">
+        <label>
+          Ne pas remplir: <input name="bot-field" tabIndex={-1} />
+        </label>
+      </p>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label htmlFor="pepites-contact-name" className={PEP_LABEL_CLASS}>
+            Prénom et nom
+          </label>
+          <input
+            id="pepites-contact-name"
+            name="name"
+            type="text"
+            required
+            autoComplete="name"
+            placeholder="Camille Martin"
+            className={PEP_FIELD_CLASS}
+          />
+        </div>
+        <div>
+          <label htmlFor="pepites-contact-email" className={PEP_LABEL_CLASS}>
+            Email
+          </label>
+          <input
+            id="pepites-contact-email"
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            placeholder="ton@email.fr"
+            className={PEP_FIELD_CLASS}
+          />
+        </div>
+        <div>
+          <label htmlFor="pepites-contact-tel" className={PEP_LABEL_CLASS}>
+            Téléphone{" "}
+            <span className="font-semibold text-[var(--pep-muted)]">
+              (facultatif)
+            </span>
+          </label>
+          <input
+            id="pepites-contact-tel"
+            name="telephone"
+            type="tel"
+            autoComplete="tel"
+            placeholder="06 12 34 56 78"
+            className={PEP_FIELD_CLASS}
+          />
+        </div>
+        <div>
+          <label htmlFor="pepites-contact-besoin" className={PEP_LABEL_CLASS}>
+            Ton besoin
+          </label>
+          <select
+            id="pepites-contact-besoin"
+            name="besoin"
+            defaultValue={BESOINS[0]}
+            className={PEP_FIELD_CLASS}
+          >
+            {BESOINS.map((b) => (
+              <option key={b} value={b}>
+                {b}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <label htmlFor="pepites-contact-message" className={PEP_LABEL_CLASS}>
+          Ton message
+        </label>
+        <textarea
+          id="pepites-contact-message"
+          name="message"
+          required
+          rows={4}
+          placeholder="Raconte-nous ton activité et ce qui te bloque aujourd’hui."
+          className={`${PEP_FIELD_CLASS} resize-y`}
+        />
+      </div>
+
+      <motion.button
+        type="submit"
+        disabled={status === "sending"}
+        whileHover={{ y: -2 }}
+        whileTap={{ y: 2 }}
+        className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-[var(--pep-ink)] bg-[var(--pep-gold)] px-6 py-3.5 text-base font-extrabold text-[var(--pep-ink)] shadow-[4px_4px_0_var(--pep-ink)] transition-colors hover:bg-[var(--pep-gold-deep)] disabled:opacity-60 sm:w-auto"
+      >
+        {status === "sending" ? "Envoi en cours…" : "Envoyer mon message"}
+        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+      </motion.button>
+
+      {status === "error" && (
+        <p
+          role="alert"
+          className="mt-2 text-sm font-bold text-[var(--pep-red)]"
+        >
+          Oups, l’envoi n’a pas marché. Réessaie dans un instant.
+        </p>
+      )}
+
+      <p className="mt-3 text-xs leading-relaxed text-[var(--pep-muted)]">
+        Tes informations servent uniquement à te recontacter au sujet de La com’
+        des pépites. Aucune revente, désinscription à tout moment.{" "}
         <a
           href={LEGAL_URL}
           className="underline underline-offset-2"
@@ -399,6 +595,89 @@ function Marquee() {
   );
 }
 
+const ELFSIGHT_SRC = "https://elfsightcdn.com/platform.js";
+/** Widget Elfsight — Instagram Feed « La com' des pépites ». */
+const ELFSIGHT_APP_CLASS = "elfsight-app-b30d514d-5261-4e43-b54e-30d5256f026a";
+const PEPITES_INSTAGRAM = "https://www.instagram.com/comdespepites/";
+
+/**
+ * Feed Instagram du compte La com' des pépites.
+ * platform.js scanne le DOM et hydrate le div `.elfsight-app-<id>`.
+ * Le script n'est injecté qu'une fois (idempotent), côté client uniquement.
+ * Compte tout neuf : la section est cadrée « on démarre », pas « regarde nos
+ * milliers d'abonnés » — elle vit donc bas de page, avant le CTA final.
+ */
+function InstagramSection() {
+  useEffect(() => {
+    if (document.querySelector(`script[src="${ELFSIGHT_SRC}"]`)) return;
+    const s = document.createElement("script");
+    s.src = ELFSIGHT_SRC;
+    s.async = true;
+    document.body.appendChild(s);
+  }, []);
+
+  return (
+    <section id="instagram" className="px-5 py-16 sm:px-8 md:py-24">
+      <div className="mx-auto w-full max-w-4xl">
+        <div className="flex flex-col items-center text-center">
+          <Mascotte
+            src="/pepites/pepita-pouce.png"
+            alt="La mascotte pépite lève le pouce"
+            className="w-24 sm:w-28"
+            width={408}
+            height={405}
+            delay={0.3}
+          />
+          <motion.span
+            {...reveal()}
+            className="mt-4 inline-flex items-center gap-2 rounded-full border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] px-4 py-1.5 text-sm font-extrabold shadow-[3px_3px_0_var(--pep-ink)]"
+          >
+            <Instagram className="h-4 w-4 text-[var(--pep-gold-deep)]" />
+            Instagram
+          </motion.span>
+          <motion.h2
+            {...reveal()}
+            className="mt-4 text-3xl font-extrabold sm:text-4xl"
+          >
+            On démarre, viens voir la suite
+          </motion.h2>
+          <motion.p
+            {...reveal()}
+            className="mt-4 max-w-2xl text-lg leading-relaxed"
+          >
+            Le compte vient d’ouvrir. Conseils IA, coulisses et astuces com’ y
+            arrivent au fil des semaines : abonne-toi, tu verras tout naître en
+            direct.
+          </motion.p>
+        </div>
+
+        <motion.div
+          {...reveal(0.1)}
+          className="mt-10 overflow-hidden rounded-[2rem] border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] p-4 shadow-[8px_8px_0_var(--pep-ink)] sm:p-6"
+        >
+          <div className={ELFSIGHT_APP_CLASS} data-elfsight-app-lazy />
+        </motion.div>
+
+        <motion.div {...reveal(0.15)} className="mt-8 text-center">
+          <motion.a
+            href={PEPITES_INSTAGRAM}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-event="pepites_instagram_follow"
+            whileHover={{ y: -2 }}
+            whileTap={{ y: 1 }}
+            className="group inline-flex items-center gap-2 rounded-full border-2 border-[var(--pep-ink)] bg-[var(--pep-gold)] px-6 py-3 text-base font-extrabold text-[var(--pep-ink)] shadow-[4px_4px_0_var(--pep-ink)] transition-colors hover:bg-[var(--pep-gold-deep)]"
+          >
+            <Instagram className="h-4 w-4" />
+            Suivre @comdespepites
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </motion.a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function PepitesPage() {
   const reduce = useReducedMotion();
   const heroRef = useRef<HTMLElement>(null);
@@ -462,9 +741,15 @@ function PepitesPage() {
             >
               <motion.span
                 animate={
-                  reduce ? undefined : { rotate: [0, 18, -18, 0], scale: [1, 1.15, 1] }
+                  reduce
+                    ? undefined
+                    : { rotate: [0, 18, -18, 0], scale: [1, 1.15, 1] }
                 }
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="inline-flex"
               >
                 <Sparkles className="h-4 w-4 text-[var(--pep-gold-deep)]" />
@@ -493,8 +778,8 @@ function PepitesPage() {
               {...reveal()}
               className="mt-5 max-w-xl text-lg leading-relaxed"
             >
-              Plus de clients, une image qui inspire confiance, et enfin l’IA qui
-              bosse pour toi. On te forme pour devenir autonome, ou on s’en
+              Plus de clients, une image qui inspire confiance, et enfin l’IA
+              qui bosse pour toi. On te forme pour devenir autonome, ou on s’en
               occupe à ta place.
             </motion.p>
 
@@ -576,9 +861,7 @@ function PepitesPage() {
 
       {/* 3) L'IA CONCRETE */}
       <section className="relative px-5 py-16 sm:px-8 md:py-24">
-        <motion.div
-                    className="mx-auto w-full max-w-6xl rounded-[2.5rem] border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] p-6 shadow-[10px_10px_0_var(--pep-ink)] sm:p-10"
-        >
+        <motion.div className="mx-auto w-full max-w-6xl rounded-[2.5rem] border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] p-6 shadow-[10px_10px_0_var(--pep-ink)] sm:p-10">
           <div className="grid items-center gap-10 md:grid-cols-[0.75fr_1.25fr]">
             <div className="flex justify-center">
               <Mascotte
@@ -603,9 +886,9 @@ function PepitesPage() {
                 className="mt-4 max-w-2xl text-lg leading-relaxed"
               >
                 Pas de blabla, pas de théorie. Des usages simples qui te font
-                gagner des heures dès la première semaine : rédiger tes contenus,
-                créer tes visuels, t’organiser. Et si tu veux animer tes réseaux
-                toi-même, on te forme aussi.
+                gagner des heures dès la première semaine : rédiger tes
+                contenus, créer tes visuels, t’organiser. Et si tu veux animer
+                tes réseaux toi-même, on te forme aussi.
               </motion.p>
 
               <ul className="mt-8 grid gap-3">
@@ -630,9 +913,7 @@ function PepitesPage() {
 
       {/* 4) GESTION */}
       <section className="px-5 py-16 sm:px-8 md:py-24">
-        <motion.div
-                    className="mx-auto flex w-full max-w-4xl flex-col items-center text-center"
-        >
+        <motion.div className="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
           <div>
             <Mascotte
               src="/pepites/pepita-help.png"
@@ -665,7 +946,7 @@ function PepitesPage() {
             whileTap={{ y: 1 }}
             className="group mt-7 inline-flex items-center gap-2 rounded-full border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] px-6 py-3 text-base font-extrabold shadow-[4px_4px_0_var(--pep-ink)]"
           >
-            Laisse-moi ton email
+            Parle-nous de ton projet
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </motion.a>
         </motion.div>
@@ -740,14 +1021,15 @@ function PepitesPage() {
         </motion.div>
       </section>
 
-      {/* 7) CTA FINAL */}
+      {/* 7) INSTAGRAM */}
+      <InstagramSection />
+
+      {/* 8) CTA FINAL */}
       <section
         id="rejoindre"
         className="scroll-mt-24 px-5 pb-16 pt-16 sm:px-8 md:pb-24 md:pt-24"
       >
-        <motion.div
-                    className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-[2.5rem] border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] p-6 text-center shadow-[10px_10px_0_var(--pep-ink)] sm:p-10"
-        >
+        <motion.div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-[2.5rem] border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] p-6 text-center shadow-[10px_10px_0_var(--pep-ink)] sm:p-10">
           <div className="flex justify-center">
             <Mascotte
               src="/pepites/mascotte.png"
@@ -768,19 +1050,12 @@ function PepitesPage() {
             {...reveal()}
             className="mx-auto mt-4 max-w-xl text-lg leading-relaxed"
           >
-            Laisse ton email : on te prévient en avant-première dès l’ouverture
-            des places.
+            Dis-nous où tu en es : on te répond avec des pistes concrètes, sans
+            jargon ni engagement.
           </motion.p>
 
-          <motion.div
-            {...reveal()}
-            className="mx-auto mt-8 max-w-xl text-left"
-          >
-            <EmailForm
-              id="final"
-              buttonLabel="Rejoindre les pépites"
-              microCopy="Laisse ton email pour être prévenu·e dès l’ouverture des places. Pas de spam."
-            />
+          <motion.div {...reveal()} className="mx-auto mt-8 max-w-xl">
+            <ContactForm />
           </motion.div>
         </motion.div>
       </section>
