@@ -1,6 +1,6 @@
 # Signature e-mail PeakCL
 
-`signature-peakcl.html` — signature HTML aux couleurs du design system v2 (indigo `#13004D`, bleu `#427CFF`, lavande `#875FD5`, motif carrés turquoise/bleu/jaune/lavande), avec le **logotype horizontal actuel**.
+`signature-peakcl.html` — signature HTML aux couleurs du design system v2 (indigo `#13004D`, bleu `#427CFF`, lavande `#875FD5`), avec le **logo carré à la mascotte**.
 
 ## Contenu
 
@@ -9,8 +9,10 @@ Tél 07 43 51 76 27 · Mail peakcl73@gmail.com · Web www.peakcl.com · Zone Sav
 
 ## Logo
 
-Chargé à distance depuis le site : `https://peakcl.com/design-system/logotype-horizontal.png`
-(source dans le repo : `public/design-system/logotype-horizontal.png`).
+Chargé à distance depuis le site : `https://peakcl.com/peakcl/logo-mark.png`
+(source dans le repo : `public/peakcl/logo-mark.png`).
+
+Le logo carré ne contient pas de « PeakCL » lisible : le nom est donc écrit en toutes lettres dans la ligne « PeakCL · Votre partenaire digital ».
 
 ⚠️ Ne pas déplacer ni renommer ce fichier : la signature de tous les mails déjà envoyés casserait.
 
@@ -34,7 +36,7 @@ Chargé à distance depuis le site : `https://peakcl.com/design-system/logotype-
 ## Installation Outlook
 
 Coller le rendu (même méthode que Gmail) dans Insertion → Signature → Signatures.
-Outlook ignore les `border-radius` : les carrés du motif s'affichent carrés, c'est voulu et sans casse.
+Outlook ignore les `border-radius` : les coins du logo s'affichent droits, sans casse par ailleurs.
 
 ## Modifier
 
