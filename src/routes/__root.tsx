@@ -14,7 +14,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { PeakaBot } from "@/components/PeakaBot";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { absUrl } from "@/seo/site";
-import { organizationJsonLd, professionalServiceJsonLd } from "@/seo/jsonld";
+import { professionalServiceJsonLd } from "@/seo/jsonld";
 import { localeFromPath, HTML_LANG } from "@/i18n/config";
 
 function NotFoundComponent() {
@@ -80,7 +80,11 @@ export const Route = createRootRoute({
       },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: absUrl("/peakcl/og-cover.jpg") },
-      { "script:ld+json": organizationJsonLd() },
+      // Un seul nœud d'entreprise. Le site émettait en plus un `Organization`
+      // sans @id décrivant la même société : deux entités concurrentes pour
+      // une seule réalité, ce qui brouille le lien PeakCL -> Charlotte Lacroix
+      // au lieu de le renforcer. ProfessionalService porte déjà tout (nom,
+      // logo, contact, adresse, sameAs, avis, fondatrice).
       { "script:ld+json": professionalServiceJsonLd() },
     ],
     links: [

@@ -1,6 +1,65 @@
+# robots.txt — peakcl.com
+#
+# Politique : tout est ouvert, recherche comme entrainement. Le contenu du site
+# est deja public et l'objectif est la visibilite, y compris dans les reponses
+# generees par les assistants IA.
+#
+# ATTENTION en modifiant ce fichier : un groupe `User-agent:` nomme REMPLACE le
+# groupe `*`, il ne s'y ajoute pas (regle du groupe le plus specifique). Chaque
+# groupe nomme doit donc repeter le `Disallow: /cadrage/`, sinon les decks
+# clients deviennent crawlables par ce bot precis. C'est la raison d'etre de la
+# repetition ci-dessous, qui a l'air redondante mais ne l'est pas.
+
 User-agent: *
 Allow: /
 Disallow: /cadrage/
 
-Sitemap: https://peakcl.com/sitemap.xml
+# ── Moteurs de recherche IA ──────────────────────────────────────────
+# Ces groupes ne changent rien au comportement actuel (le groupe `*` les
+# autorisait deja). Ils sont explicites pour deux raisons : documenter
+# l'intention, et empecher qu'un futur durcissement du groupe `*` ne coupe
+# la visibilite dans les assistants sans qu'on s'en rende compte.
 
+# ChatGPT Search (OpenAI) — decouverte et citation dans les reponses.
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /cadrage/
+
+# Claude Search (Anthropic) — indexation pour la recherche.
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /cadrage/
+
+# Claude-User (Anthropic) — recuperation d'une page a la demande d'un
+# utilisateur, pas d'indexation.
+User-agent: Claude-User
+Allow: /
+Disallow: /cadrage/
+
+# Perplexity.
+User-agent: PerplexityBot
+Allow: /
+Disallow: /cadrage/
+
+# ── Bots d'entrainement ──────────────────────────────────────────────
+# Autorises volontairement. Etre present dans les poids d'un modele permet
+# d'etre cite sans recherche live ; le contenu est deja public. A rebasculer
+# en Disallow si cette position change.
+
+User-agent: GPTBot
+Allow: /
+Disallow: /cadrage/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /cadrage/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /cadrage/
+
+User-agent: CCBot
+Allow: /
+Disallow: /cadrage/
+
+Sitemap: https://peakcl.com/sitemap.xml

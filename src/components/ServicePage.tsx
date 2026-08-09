@@ -161,10 +161,42 @@ function ForfaitCard({ f, t }: { f: Forfait; t: ServicePageStrings }) {
   );
 }
 
+/**
+ * Attributs commerciaux explicites d'une prestation.
+ *
+ * Pourquoi ce bloc existe : une page de service qui n'annonce que « donnez vie
+ * à votre projet » n'est pas exploitable par un moteur génératif à qui on
+ * demande « une agence qui fait des sites pour indépendants en Savoie ». Ces
+ * champs répondent aux questions de qualification (pour qui, où, combien de
+ * temps, comment ça se passe) en texte brut, lisible autant par un visiteur
+ * pressé que par une machine.
+ *
+ * Ils doivent rester le reflet exact du contenu de la page : ce bloc alimente
+ * aussi le JSON-LD Service de chaque route, et un écart entre les deux est
+ * précisément ce que Google demande d'éviter.
+ */
+export type ServiceFacts = {
+  /** Clientèle visée, en clair. */
+  audience: string;
+  /** Zone géographique réellement couverte. */
+  area: string;
+  /** Fourchette de délai observée. */
+  delay: string;
+  /** Mode de tarification. Le site affiche « Sur devis » hors forfaits CM. */
+  pricing: string;
+  /** Étapes de la mission, dans l'ordre. */
+  process: string[];
+  /** Ce que la prestation ne couvre pas — cadre les attentes et évite les
+   *  demandes hors périmètre. */
+  excludes?: string;
+};
+
 export type ServicePageProps = {
   eyebrow: string;
   title: string;
   tagline: string;
+  /** Fiche d'identité de l'offre, affichée juste sous le hero. */
+  facts?: ServiceFacts;
   /** Bloc optionnel affiché sous le tagline dans le hero. */
   intro?: ReactNode;
   /** Section optionnelle « expertises » (grille de cartes) entre le hero et le catalogue. */
@@ -204,10 +236,68 @@ export type ServicePageProps = {
   socialsSubtitle?: string;
 };
 
+/**
+ * Fiche récapitulative de l'offre. Rendue en `<dl>` : la relation
+ * libellé/valeur est portée par le balisage, pas seulement par la mise en page.
+ */
+function ServiceFactSheet({ facts, title }: { facts: ServiceFacts; title: string }) {
+  const rows: Array<[string, string]> = [
+    ["Pour qui", facts.audience],
+    ["Zone desservie", facts.area],
+    ["Délai moyen", facts.delay],
+    ["Tarif", facts.pricing],
+  ];
+  return (
+    <section
+      id="fiche"
+      className="border-t border-border bg-card/30 py-12"
+      aria-labelledby="fiche-titre"
+    >
+      <div className="mx-auto w-full max-w-5xl px-6">
+        <h2 id="fiche-titre" className="text-xl font-bold text-foreground">
+          {title} en bref
+        </h2>
+        <dl className="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+          {rows.map(([label, value]) => (
+            <div key={label}>
+              <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                {label}
+              </dt>
+              <dd className="mt-1 text-sm text-foreground">{value}</dd>
+            </div>
+          ))}
+        </dl>
+        <div className="mt-8">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Comment ça se passe
+          </h3>
+          <ol className="mt-3 grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
+            {facts.process.map((step, i) => (
+              <li key={step} className="flex gap-2">
+                <span className="font-semibold text-[var(--brand-turquoise)]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span>{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+        {facts.excludes ? (
+          <p className="mt-6 text-sm text-muted-foreground">
+            <span className="font-semibold text-foreground">Non couvert : </span>
+            {facts.excludes}
+          </p>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
 export function ServicePage({
   eyebrow,
   title,
   tagline,
+  facts,
   intro,
   highlights,
   highlightsTitle,
@@ -236,6 +326,7 @@ export function ServicePage({
   const bookHref = locale === "en" ? "/en/book-a-call" : "/reservation-appel";
   const SECTIONS = [
     { id: "intro", label: t.sections[0] },
+    ...(facts ? [{ id: "fiche-section", label: t.sections[7] }] : []),
     ...(highlights?.length ? [{ id: "expertises", label: t.sections[1] }] : []),
     ...(forfaits?.length ? [{ id: "forfaits", label: t.sections[2] }] : []),
     { id: "prestations", label: t.sections[3] },
@@ -364,6 +455,14 @@ export function ServicePage({
               </div>
             )}
           </SnapSection>
+
+          {facts ? (
+            <SnapSection id="fiche-section" className="flex items-center">
+              <div className="w-full">
+                <ServiceFactSheet facts={facts} title={title} />
+              </div>
+            </SnapSection>
+          ) : null}
 
           {highlights?.length ? (
             <SnapSection

@@ -126,6 +126,10 @@ const UI: Record<Locale, UIStrings> = {
         "Illustration",
         "Réseaux",
         "Contact",
+        // Index 7 : ajouté en fin de tableau parce que les libellés sont
+        // référencés par position dans ServicePage. Insérer au milieu
+        // décalerait tous les suivants.
+        "En bref",
       ],
     },
   },
@@ -182,6 +186,7 @@ const UI: Record<Locale, UIStrings> = {
         "Showcase",
         "Social",
         "Contact",
+        "At a glance",
       ],
     },
   },

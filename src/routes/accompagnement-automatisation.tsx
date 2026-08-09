@@ -26,6 +26,11 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
             "Audit, automatisations no-code (Make, Zapier), IA appliquée et formation pour les TPE de Savoie et Haute-Savoie.",
           serviceType: "Automatisation des processus métier",
           path: "/accompagnement-automatisation",
+          audience:
+            "TPE, cabinets et indépendants qui perdent du temps sur des tâches répétitives.",
+          // Reprend le catalogue reellement affiche sur la page : les donnees
+          // structurees decrivent ce que le visiteur voit, pas une offre ideale.
+          offers: automatisation.map((o) => ({ title: o.title, desc: o.desc })),
         }),
       },
       {
@@ -50,6 +55,23 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
       eyebrow="Automatisation & IA"
       title="L’IA au service de votre TPE"
       tagline="Mettre l’intelligence artificielle et l’automatisation au travail dans votre petite structure : relances, prises de rendez-vous et emails qui tournent tout seuls, pour rendre du temps à votre vrai métier — soigner, créer, accompagner."
+      facts={{
+        audience:
+          "TPE, cabinets et indépendants qui perdent du temps sur des tâches répétitives (relances, prises de rendez-vous, saisie, emails types).",
+        area: "Sessions à distance, ou sur site en Savoie et Haute-Savoie.",
+        delay:
+          "Rapport d'audit livré en 1 semaine. Mise en place : 1 à 2 semaines selon le nombre de process, jusqu'à 4 semaines pour un chantier complexe.",
+        pricing: "Sur devis, après audit gratuit des process à automatiser.",
+        process: [
+          "Audit des tâches répétitives et de leur coût en temps réel",
+          "Sélection des process qui valent la peine d'être automatisés",
+          "Choix des outils selon votre existant et votre budget",
+          "Mise en place, tests et documentation",
+          "Formation pour que vous restiez autonome",
+        ],
+        excludes:
+          "le développement d'un logiciel métier sur mesure, la migration de données lourdes, et les abonnements aux outils tiers, qui restent à votre charge.",
+      }}
       intro={
         <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-card backdrop-blur">
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-yellow)]">

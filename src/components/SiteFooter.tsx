@@ -9,6 +9,7 @@ import {
 import { useRouterState } from "@tanstack/react-router";
 import { SOCIAL, FREELANCE, CONTACT } from "@/lib/links";
 import { localeFromPath, type Locale } from "@/i18n/config";
+import { geoPagesFor } from "@/seo/geo";
 import { ui } from "@/i18n/ui";
 
 const SOCIALS = [
@@ -37,17 +38,15 @@ const SERVICES: Record<Locale, FooterLink[]> = {
   ],
 };
 
-/** Pages villes : SEO local français uniquement, aucun équivalent anglais. */
-const VILLES = [
-  { href: "/agence-web-albertville", label: "Albertville" },
-  { href: "/agence-web-chambery", label: "Chambéry" },
-  { href: "/agence-web-annecy", label: "Annecy" },
-  { href: "/agence-web-aix-les-bains", label: "Aix-les-Bains" },
-  { href: "/agence-web-gilly-sur-isere", label: "Gilly-sur-Isère" },
-  { href: "/agence-web-ugine", label: "Ugine" },
-  { href: "/agence-web-moutiers", label: "Moûtiers" },
-  { href: "/agence-web-beaufort", label: "Beaufort" },
-];
+/**
+ * Pages villes : SEO local français uniquement, aucun équivalent anglais.
+ * Derivé de `geoPages` plutôt que réécrit ici : la liste était auparavant
+ * dupliquée, et une page ajoutée d'un côté manquait de l'autre.
+ */
+const VILLES = geoPagesFor("site").map((p) => ({
+  href: `/${p.slug}`,
+  label: p.city,
+}));
 
 const PAGES: Record<Locale, FooterLink[]> = {
   fr: [

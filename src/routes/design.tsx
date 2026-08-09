@@ -24,6 +24,11 @@ export const Route = createFileRoute("/design")({
             "Logo, charte graphique, supports print et visuels réseaux sociaux pour une marque cohérente et mémorable, en Savoie et Haute-Savoie.",
           serviceType: "Identité visuelle et création de logo",
           path: "/design",
+          audience:
+            "Indépendants, thérapeutes, artisans et petites structures qui créent leur marque ou modernisent une image datée.",
+          // Reprend le catalogue reellement affiche sur la page : les donnees
+          // structurees decrivent ce que le visiteur voit, pas une offre ideale.
+          offers: design.map((o) => ({ title: o.title, desc: o.desc })),
         }),
       },
       {
@@ -45,6 +50,24 @@ export const Route = createFileRoute("/design")({
       eyebrow="Design graphique"
       title="Design graphique"
       tagline="Une identité visuelle et des supports qui rendent votre activité — cabinet, atelier ou marque indépendante — cohérente et reconnaissable partout, du site à la fiche Google."
+      facts={{
+        audience:
+          "Indépendants, thérapeutes, artisans et petites structures qui créent leur marque ou modernisent une image devenue datée.",
+        area: "Savoie et Haute-Savoie sur place, partout en France à distance.",
+        delay:
+          "1 à 2 semaines pour un logo et sa charte, 3 à 5 jours pour des supports print ou des visuels réseaux, 48h pour une bannière seule.",
+        pricing:
+          "Sur devis, tarif dégressif dès 3 supports. Audit gratuit avant devis.",
+        process: [
+          "Échange sur l'activité, les valeurs et les préférences visuelles",
+          "Moodboard et pistes de direction artistique",
+          "Propositions de logo et allers-retours de validation",
+          "Charte graphique : couleurs, typographies, usages",
+          "Livraison des fichiers sources et déclinaisons web et print",
+        ],
+        excludes:
+          "le dépôt de marque à l'INPI, l'impression physique des supports, et la photographie professionnelle.",
+      }}
       intro={
         <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-card backdrop-blur">
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-yellow)]">

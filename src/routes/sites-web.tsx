@@ -23,6 +23,11 @@ export const Route = createFileRoute("/sites-web")({
             "Sites vitrines, e-commerce et refontes : des sites web custom, rapides et optimisés pour le référencement local en Savoie et Haute-Savoie.",
           serviceType: "Création de site internet",
           path: "/sites-web",
+          audience:
+            "Indépendants, thérapeutes, artisans, commerces et TPE, en création comme en refonte.",
+          // Reprend le catalogue reellement affiche sur la page : les donnees
+          // structurees decrivent ce que le visiteur voit, pas une offre ideale.
+          offers: sitesWeb.map((o) => ({ title: o.title, desc: o.desc })),
         }),
       },
       {
@@ -47,6 +52,25 @@ export const Route = createFileRoute("/sites-web")({
       eyebrow="Développement web"
       title="Sites web sur mesure"
       tagline="Sites vitrines, e-commerce et refontes pour thérapeutes, artisans et indépendants de Savoie : rapides, bien référencés et pensés pour transformer un visiteur en rendez-vous ou en devis."
+      facts={{
+        audience:
+          "Indépendants, thérapeutes, artisans, commerces et TPE, en création comme en refonte.",
+        area: "Savoie et Haute-Savoie sur place, partout en France à distance (visio).",
+        delay:
+          "3 à 5 semaines pour un site vitrine, 4 à 7 semaines pour une boutique en ligne, 1 à 2 semaines pour une landing page.",
+        pricing:
+          "Sur devis, envoyé sous 48h ouvrées après l'appel de cadrage. L'audit préalable est gratuit.",
+        process: [
+          "Appel de diagnostic gratuit pour comprendre l'activité et l'objectif",
+          "Devis précis et planning sous 48h ouvrées",
+          "Maquettage et validation avant toute ligne de code",
+          "Développement, rédaction et intégration des contenus",
+          "Mise en ligne, optimisation SEO et indexation",
+          "Support inclus après livraison (1 à 3 mois selon l'offre)",
+        ],
+        excludes:
+          "la rédaction juridique (CGV, mentions légales) au-delà des modèles fournis, la photographie professionnelle, et l'achat de licences tierces (thèmes premium, banques d'images).",
+      }}
       highlights={sitesWebHighlights}
       highlightsTitle="Ce que j’apporte à votre site"
       highlightsSubtitle="Un site rapide, bien référencé et pensé pour convertir, sur tous les écrans."

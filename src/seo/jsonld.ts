@@ -2,24 +2,40 @@ import { absUrl } from "@/seo/site";
 
 export type JsonLd = Record<string, unknown>;
 
-export function organizationJsonLd(): JsonLd {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "PeakCL",
-    url: absUrl("/"),
-    logo: absUrl("/peakcl/PeakCL.svg"),
-    email: "peakcl73@gmail.com",
-    sameAs: ["https://www.linkedin.com/in/charlotte-lacroix-peakcl/"],
-  };
-}
+/**
+ * Identifiants stables du graphe d'entites.
+ *
+ * Toute reference d'une entite a une autre passe par ces @id plutot que par un
+ * objet inline reduplique. Un moteur qui rencontre `{"@id": ".../#charlotte"}`
+ * a deux endroits sait qu'il s'agit de la meme personne ; deux objets Person
+ * identiques mais anonymes peuvent etre lus comme deux individus distincts.
+ *
+ * Le noeud entreprise n'est emis qu'UNE fois, par `professionalServiceJsonLd`.
+ * Le site emettait auparavant en plus un noeud `Organization` sans @id decrivant
+ * la meme societe : deux entites concurrentes pour une seule realite, ce qui
+ * brouille exactement le lien PeakCL -> Charlotte Lacroix -> prestations que
+ * l'on cherche a rendre evident.
+ */
+export const ENTITY_ID = {
+  business: absUrl("/#business"),
+  person: absUrl("/qui-suis-je#charlotte"),
+} as const;
+
+/** Profils officiels — memes URLs partout, c'est ce qui permet de corroborer l'entite. */
+const SAME_AS = [
+  "https://www.instagram.com/peakcl73/",
+  "https://www.facebook.com/PeakCL73/",
+  "https://www.linkedin.com/in/charlotte-lacroix-peakcl/",
+  "https://github.com/PeakCL",
+];
 
 export function professionalServiceJsonLd(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": absUrl("/#business"),
+    "@id": ENTITY_ID.business,
     name: "PeakCL · Charlotte Lacroix",
+    alternateName: "PeakCL",
     description:
       "Création et refonte de sites web, identité visuelle (logo) et community management pour indépendants et petites structures, à Albertville et en Savoie.",
     url: absUrl("/"),
@@ -28,10 +44,11 @@ export function professionalServiceJsonLd(): JsonLd {
     email: "peakcl73@gmail.com",
     telephone: "+33743517627",
     priceRange: "€€",
-    founder: {
-      "@type": "Person",
-      name: "Charlotte Lacroix",
-    },
+    // Entreprise individuelle : la fondatrice EST l'unique intervenante. Le
+    // triple lien founder/employee/vers l'@id Person rend explicite que
+    // PeakCL et Charlotte Lacroix designent la meme realite operationnelle.
+    founder: { "@id": ENTITY_ID.person },
+    employee: { "@id": ENTITY_ID.person },
     address: {
       "@type": "PostalAddress",
       // Établissement de service : pas de rue affichée (cohérent avec la fiche Google en zone masquée)
@@ -64,12 +81,20 @@ export function professionalServiceJsonLd(): JsonLd {
       "Community management",
       "SEO local",
     ],
-    sameAs: [
-      "https://www.instagram.com/peakcl73/",
-      "https://www.facebook.com/PeakCL73/",
-      "https://www.linkedin.com/in/charlotte-lacroix-peakcl/",
-      "https://github.com/PeakCL",
-    ],
+    sameAs: SAME_AS,
+    // Les quatre prestations, rattachees par @id aux noeuds Service emis sur
+    // leurs pages respectives : le graphe relie l'entreprise a son offre au
+    // lieu de laisser chaque page isolee.
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Prestations PeakCL",
+      itemListElement: [
+        { "@id": `${absUrl("/sites-web")}#service` },
+        { "@id": `${absUrl("/design")}#service` },
+        { "@id": `${absUrl("/community-management")}#service` },
+        { "@id": `${absUrl("/accompagnement-automatisation")}#service` },
+      ],
+    },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5",
@@ -117,11 +142,13 @@ export function personJsonLd(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": ENTITY_ID.person,
     name: "Charlotte Lacroix",
     url: absUrl("/qui-suis-je"),
     jobTitle: "Développeuse web & graphiste",
     image: absUrl("/peakcl/photo/charlotte-round-800.webp"),
-    worksFor: { "@type": "Organization", name: "PeakCL", "@id": absUrl("/#business") },
+    worksFor: { "@id": ENTITY_ID.business },
+    founderOf: { "@id": ENTITY_ID.business },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Gilly-sur-Isère",
@@ -137,12 +164,7 @@ export function personJsonLd(): JsonLd {
       "Community management",
       "SEO local",
     ],
-    sameAs: [
-      "https://www.instagram.com/peakcl73/",
-      "https://www.facebook.com/PeakCL73/",
-      "https://www.linkedin.com/in/charlotte-lacroix-peakcl/",
-      "https://github.com/PeakCL",
-    ],
+    sameAs: SAME_AS,
   };
 }
 
@@ -196,17 +218,56 @@ export function serviceJsonLd(opts: {
   serviceType: string;
   path: string;
   areaServed?: JsonLd[];
+  /** Clientèle visée — doit reprendre le « Pour qui » affiché sur la page. */
+  audience?: string;
+  /**
+   * Offres du catalogue, telles qu'affichées. Les montants ne sont PAS repris :
+   * les pages affichent « Sur devis » (showPrices=false), et un prix présent
+   * dans le balisage mais absent de la page est une incohérence entre données
+   * structurées et contenu visible.
+   *
+   * Les délais ne sont pas repris non plus. Schema.org n'a pas de propriété
+   * juste pour « 3 à 5 semaines » sur un Service : `serviceOutput` décrit ce
+   * que la prestation produit, pas son délai, et le détourner reviendrait à
+   * publier une donnée structurée fausse. Le délai reste sur la page, où il
+   * est lisible.
+   */
+  offers?: Array<{ title: string; desc: string }>;
 }): JsonLd {
-  return {
+  const node: JsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
+    // @id stable : c'est cette ancre que référence le hasOfferCatalog de
+    // l'entreprise. Changer la forme ici casse le lien du graphe.
+    "@id": `${absUrl(opts.path)}#service`,
     name: opts.name,
     description: opts.description,
     serviceType: opts.serviceType,
     url: absUrl(opts.path),
-    provider: { "@id": absUrl("/#business") },
+    provider: { "@id": ENTITY_ID.business },
     areaServed: opts.areaServed ?? DEFAULT_AREA_SERVED,
   };
+
+  if (opts.audience) {
+    node.audience = { "@type": "Audience", audienceType: opts.audience };
+  }
+
+  if (opts.offers?.length) {
+    node.hasOfferCatalog = {
+      "@type": "OfferCatalog",
+      name: opts.name,
+      itemListElement: opts.offers.map((o) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: o.title,
+          description: o.desc,
+        },
+      })),
+    };
+  }
+
+  return node;
 }
 
 /**

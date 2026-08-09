@@ -27,6 +27,11 @@ export const Route = createFileRoute("/community-management")({
             "Stratégie et contenus réseaux sociaux : forfaits mensuels, audit, contenu à la carte et formation, pour les indépendants et TPE de Savoie et Haute-Savoie.",
           serviceType: "Community management",
           path: "/community-management",
+          audience:
+            "Thérapeutes, praticiens et indépendants qui doivent rester visibles sans avoir le temps de publier eux-mêmes.",
+          // Reprend le catalogue reellement affiche sur la page : les donnees
+          // structurees decrivent ce que le visiteur voit, pas une offre ideale.
+          offers: community.map((o) => ({ title: o.title, desc: o.desc })),
         }),
       },
       {
@@ -51,6 +56,24 @@ export const Route = createFileRoute("/community-management")({
       eyebrow="Réseaux sociaux"
       title="Community management"
       tagline="Thérapeutes, praticiens, indépendants de Savoie : rester visible et inspirer confiance sur vos réseaux, sans y passer vos soirées. Des forfaits clairs, sans engagement long."
+      facts={{
+        audience:
+          "Thérapeutes, praticiens et indépendants qui doivent rester visibles sans avoir le temps de publier eux-mêmes.",
+        area: "Savoie et Haute-Savoie, et partout en France à distance.",
+        delay:
+          "Premières publications sous 5 jours ouvrés après validation de la ligne éditoriale. Engagement 3 mois minimum.",
+        pricing:
+          "Forfaits mensuels affichés publiquement, de 200 € à 900 €/mois selon la fréquence de publication. Pack de lancement sur devis.",
+        process: [
+          "Audit gratuit de vos réseaux actuels",
+          "Définition de la ligne éditoriale et des piliers de contenu",
+          "Création des templates à vos couleurs",
+          "Production et programmation des publications chaque mois",
+          "Rapport mensuel de performance",
+        ],
+        excludes:
+          "la publicité payante (budget média et gestion de campagnes), la réponse aux messages privés, et le tournage vidéo sur place.",
+      }}
       highlights={communityHighlights}
       highlightsTitle="Ce que je gère pour vos réseaux"
       highlightsSubtitle="Une présence régulière, à votre image et dans le ton de votre métier — sans que ça vous mange vos soirées."
