@@ -56,7 +56,7 @@ suffisent à porter l'identité. Trois couches, identiques sur les deux supports
 
 Côté flyer, les illustrations ont été remplacées :
 
-- la mascotte du recto → un **ornement organique** (nappes turquoise/lavande + contours or) posé dans le décor SVG ;
+- la mascotte du recto → un **ornement organique** (nappes turquoise/lavande + contours or) posé dans le décor SVG, avec le **logo carré** en médaillon au centre de l'anneau or (`assets/logo-carre-mascotte.svg`, 34 mm, coins arrondis 4,5 mm, liseré or) ;
 - les vignettes rondes des services (`cover-*.png`, qui montraient la mascotte) → des **pictos au trait** dans une pastille blob dégradée ;
 - les mascottes des 3 étapes → des **blobs dégradés avec le numéro en indigo**.
 
@@ -79,7 +79,7 @@ Côté flyer, les illustrations ont été remplacées :
 - **Noir 100 % sur blanc** : le noir n'est pas une encre ici, il dit à l'imprimeur où poser la feuille d'or.
 - Dorés sur la **carte** : logotype, « Charlotte Lacroix », les deux filets, les pastilles et pictos du verso, les pictos réseaux.
 - Dorés sur le **flyer** : logotype, « simplifiée. », les deux filets, le titre du CTA, les titres d'étapes, les 5 étoiles, « Charlotte Lacroix » au pied.
-- Pas dorés (absents des fichiers) : fonds, motif gaufré, textes courants, cartes services, pastilles, QR codes.
+- Pas dorés (absents des fichiers) : fonds, motif gaufré, logo carré du recto flyer, textes courants, cartes services, pastilles, QR codes.
 - Les **filets sont plus courts** que sur la quadri : la quadri les fait mourir en dégradé, la dorure ne sait faire que de l'aplat.
 - Traits fins : les pictos de la carte font environ **0,2 mm**. Si l'imprimeur annonce une limite au-dessus, décommenter `.puce, .reseaux svg{ display:none }` dans le HTML de la forme (équivalent sur le flyer : `.etape b{ color:transparent }` pour retirer les petits corps) — le reste de la forme ne bouge pas.
 - Si l'imprimeur demande une **couleur d'accompagnement nommée** plutôt que du noir (`Dorure`, `Foil`, un Pantone en surimpression), le lui dire : c'est une conversion à faire de son côté, le tracé est déjà bon.
@@ -102,7 +102,7 @@ d'un support, reporter les mêmes coordonnées dans sa forme et vérifier la sup
 - Les blobs sont des courbes fermées lissées, réutilisées d'un support à l'autre. Les masques (`clipPath` en `objectBoundingBox`) servent aux pastilles et aux vignettes des étapes.
 - **Pas de noir pur, pas de gris neutre** : tout sombre est de l'indigo (charte §17).
 - Le jaune `#F2D04B` reste un accent : CTA, titres d'étapes, un mot de la baseline. **Sur les supports print**, il joue le rôle d'or et porte le logotype, les noms et les filets.
-- **Pas de mascotte sur le print** : ce qui doit occuper l'espace se construit avec les blobs (nappes translucides, contours or, pastilles masquées).
+- **Pas de mascotte sur le print**, à une exception près : le logo carré au centre de l'ornement du flyer. Le reste de l'espace se construit avec les blobs (nappes translucides, contours or, pastilles masquées).
 
 ## Contenu à tenir à jour
 
@@ -129,6 +129,7 @@ Réseaux : Instagram **@peakcl73**, Facebook **PeakCL73** (`https://www.facebook
 |---|---|
 | `logo-carre-fond-fonce.svg`, `logotype-horizontal.svg` | recadrages de `public/design-system/` (fond d'origine retiré) |
 | `logotype-horizontal-noir.svg` | même copie, lettres en noir 100 % — sert au fichier de forme de dorure |
+| `logo-carre-mascotte.svg` | copie de `brand/logos/1PeakCL-logo-carré.svg` — médaillon au centre de l'ornement du flyer (seul endroit où la mascotte reste sur le print) |
 | `logotype-horizontal-or.svg` | copie de `logotype-horizontal.svg` dont le dégradé violet→indigo des lettres est remplacé par une rampe or (`#FBF1C4 → #F2EB96 → #F2D04B → #E3B23C → #D6A02A`) — carte **et** flyer |
 | `mascotte-*.png` (7 poses) | `brand/mascotte émotions/`, détourées, hauteur 1400 px — **plus utilisées sur le print** depuis le passage en premium, conservées pour le web et les réseaux |
 | `cover-sites-web / reseaux / design / automatisation.png` | couvertures des stories à la une Instagram — **plus utilisées sur le flyer** (elles montraient la mascotte), conservées pour Instagram |

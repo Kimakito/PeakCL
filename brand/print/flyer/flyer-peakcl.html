@@ -49,6 +49,17 @@
   .h1 em{ font-style:normal; color:var(--or); }
   .chapo{ margin-top:5mm; font-size:10.2pt; line-height:1.5; color:var(--lavande); width:104mm; }
 
+  /* logo carré posé en médaillon au centre de l'ornement organique */
+  .logo-ornement{
+    position:absolute; left:64mm; top:109.5mm; width:34mm;
+    transform:translate(-50%,-50%);
+    border-radius:4.5mm; overflow:hidden; display:block;
+    box-shadow:0 1.5mm 5mm rgba(0,0,0,.42);
+    outline:.3mm solid rgba(242,208,75,.55); outline-offset:-.3mm;
+    /* variante organique : remplacer les 3 lignes ci-dessus par
+       clip-path:url(#blobPastille); — le logo prend alors la forme d'un blob */
+  }
+
   .atouts{ position:absolute; left:14mm; right:14mm; top:133mm; display:grid; gap:4.2mm; }
   .atout{ display:flex; gap:3.6mm; align-items:flex-start; font-size:9.8pt; line-height:1.4;
           color:var(--lavande); }
@@ -250,6 +261,8 @@
         un plan clair, des livrables concrets. Et quelqu'un qui décroche quand vous appelez.
       </p>
     </div>
+
+    <img class="logo-ornement" src="../assets/logo-carre-mascotte.svg" alt="PeakCL">
 
     <div class="atouts">
       <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#96F0F7,#4DAFC9)"></span>
