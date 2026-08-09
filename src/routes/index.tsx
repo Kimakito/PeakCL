@@ -866,7 +866,7 @@ function useCountUp(target: number, duration = 1200) {
     // requestAnimationFrame, IntersectionObserver qui ne se déclenche jamais),
     // la valeur finale s'affiche. Un compteur figé à mi-course ("52%") ou resté
     // à 0 est pire que pas d'animation.
-    let fallback = window.setTimeout(() => setValue(target), duration + 2500);
+    const fallback = window.setTimeout(() => setValue(target), duration + 2500);
 
     const run = () => {
       if (done) return;
