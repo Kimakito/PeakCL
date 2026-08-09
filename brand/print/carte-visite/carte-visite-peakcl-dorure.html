@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Carte de visite PeakCL — forme de dorure</title>
+<!--
+  FICHIER DE FORME — DORURE À CHAUD OR
+  Carte de visite PeakCL, 85 x 55 mm + 3 mm de fond perdu (page 91 x 61 mm).
+  Page 1 = recto · Page 2 = verso, MÊME géométrie que carte-visite-peakcl.html.
+
+  Ce fichier ne contient QUE les zones à dorer, en NOIR 100 % sur BLANC.
+  Le noir n'est pas une couleur d'impression ici : il indique à l'imprimeur
+  où poser la feuille d'or. Il se superpose au PDF quadri au repérage.
+
+  Zones dorées : logotype PeakCL, « Charlotte Lacroix », les deux filets (raccourcis :
+  la quadri les fait mourir en dégradé, la dorure ne fait que de l'aplat),
+  les pastilles + pictos du verso, les pictos réseaux.
+  NON dorés (donc absents) : mascotte, textes de coordonnées, QR code, fonds.
+
+  ⚠ Si on modifie carte-visite-peakcl.html, reporter ici les mêmes coordonnées :
+  les deux fichiers doivent se superposer au dixième de millimètre près.
+  ⚠ Traits fins : les pictos font ~0,2 mm de trait. Si l'imprimeur juge que
+  la feuille d'or ne tient pas en dessous de sa limite, décommenter la règle
+  « .puce, .reseaux svg { display:none } » plus bas et les laisser en quadri.
+
+  Export : Chrome > Imprimer > PDF, marges "aucune", arrière-plans cochés, 100 %.
+-->
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  /* ── Géométrie : copie conforme de carte-visite-peakcl.html ─── */
+  :root{
+    --display:"Baloo 2", ui-rounded, system-ui, sans-serif;
+    --body:"Nunito", ui-sans-serif, system-ui, sans-serif;
+    --rayon:3mm;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{background:#B9B9B9;}
+  body{font-family:var(--body); color:#000; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+
+  @page{ size:91mm 61mm; margin:0; }
+
+  .card{ position:relative; width:91mm; height:61mm; overflow:hidden; background:#FFFFFF; }
+  .deco{ position:absolute; inset:0; width:91mm; height:61mm; display:block; }
+  .layer{ position:absolute; inset:0; }
+  .kicker{ font-size:6.1pt; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+
+  .trim{ position:absolute; inset:3mm; border:.2mm dashed rgba(0,0,0,.35);
+         border-radius:var(--rayon); pointer-events:none; }
+  .safe{ position:absolute; inset:8mm; border:.2mm dotted rgba(0,0,0,.20);
+         border-radius:1.5mm; pointer-events:none; }
+
+  /* RECTO */
+  .bloc-logo{ position:absolute; left:0; right:0; top:10mm;
+              display:flex; align-items:center; justify-content:center; gap:1mm; }
+  .mascotte-recto{ width:24mm; display:block; }
+  .logotype-or{ width:38mm; display:block; }
+  .nom-recto{ position:absolute; left:0; right:0; top:42.4mm; text-align:center;
+              font-family:var(--display); font-weight:700; font-size:12.5pt; line-height:1.05;
+              letter-spacing:-.005em; color:#000; }
+  .role-recto{ position:absolute; left:0; right:0; top:48.8mm; text-align:center; }
+
+  /* VERSO */
+  .logotype-verso{ position:absolute; left:8mm; top:7.5mm; width:23mm; }
+  .nom{ position:absolute; left:8mm; top:15.5mm;
+        font-family:var(--display); font-weight:700; font-size:12pt; line-height:1.05;
+        letter-spacing:-.005em; color:#000; }
+  .role{ position:absolute; left:8mm; top:21.4mm; font-size:7pt; }
+  .contacts{ position:absolute; left:8mm; top:26.5mm; display:grid; gap:1.5mm; }
+  .ligne{ display:flex; align-items:center; gap:1.8mm; font-size:7.3pt; line-height:1.15; }
+  .puce{ width:4.2mm; height:4.2mm; flex:none; border-radius:50%;
+         border:.22mm solid #000; background:none;
+         display:flex; align-items:center; justify-content:center; }
+  .puce svg{ width:2.4mm; height:2.4mm; color:#000; }
+  .reseaux{ position:absolute; left:8mm; bottom:7.2mm; display:flex; align-items:center; gap:2.6mm;
+            font-size:6.4pt; }
+  .reseaux span{ display:flex; align-items:center; gap:1mm; }
+  .reseaux svg{ width:2.6mm; height:2.6mm; color:#000; flex:none; }
+  .qr-carte{ position:absolute; right:7mm; top:50%; transform:translateY(-50%);
+             width:23mm; border-radius:2.6mm; padding:1.8mm 1.8mm 1.4mm; text-align:center; }
+  .qr-carte img{ width:100%; display:block; }
+  .qr-legende{ margin-top:1mm; font-family:var(--display); font-weight:700;
+               font-size:6.1pt; line-height:1.1; }
+
+  /* ── Spécifique forme de dorure ─────────────────────────────── */
+  /* Non dorés : masqués mais ils gardent leur place, pour que les
+     éléments dorés tombent exactement aux mêmes coordonnées. */
+  .hors-dorure{ visibility:hidden; }
+  .txt{ font-style:normal; visibility:hidden; }
+
+  /* Décommenter si l'imprimeur refuse les traits < 0,2 mm :
+  .puce, .reseaux svg{ display:none; }
+  */
+
+  @media screen{
+    body{ padding:12mm; display:flex; flex-wrap:wrap; gap:12mm; }
+    .card{ box-shadow:0 5mm 14mm rgba(0,0,0,.28); }
+  }
+  @media print{
+    body{ padding:0; }
+    .trim, .safe{ display:none; }
+    .card{ box-shadow:none; break-after:page; page-break-after:always; }
+    .card:last-child{ break-after:auto; page-break-after:auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ RECTO — forme de dorure ══════════════ -->
+<section class="card recto">
+
+  <svg class="deco" viewBox="0 0 91 61" aria-hidden="true">
+    <!-- filet : la quadri est un dégradé qui s'éteint aux deux bouts ;
+         la dorure ne fait que de l'aplat, on ne dore donc que la partie dense -->
+    <rect x="44.7" y="40.2" width="26.6" height=".28" fill="#000000"/>
+  </svg>
+
+  <div class="layer">
+    <div class="bloc-logo">
+      <!-- mascotte : non dorée, conservée en réserve invisible pour caler le logotype -->
+      <img class="mascotte-recto hors-dorure" src="../assets/mascotte-joie.png" alt="">
+      <img class="logotype-or" src="../assets/logotype-horizontal-noir.svg" alt="PeakCL">
+    </div>
+    <p class="nom-recto">Charlotte Lacroix</p>
+    <p class="kicker role-recto hors-dorure">Web · Design · Réseaux — Savoie</p>
+  </div>
+
+  <span class="safe"></span>
+  <span class="trim"></span>
+</section>
+
+<!-- ══════════════ VERSO — forme de dorure ══════════════ -->
+<section class="card verso">
+
+  <svg class="deco" viewBox="0 0 91 61" aria-hidden="true">
+    <!-- filet : idem, seule la partie dense du dégradé est dorée -->
+    <rect x="8" y="25.4" width="17" height=".28" fill="#000000"/>
+  </svg>
+
+  <div class="layer">
+    <img class="logotype-verso" src="../assets/logotype-horizontal-noir.svg" alt="PeakCL">
+    <p class="nom">Charlotte Lacroix</p>
+    <p class="role hors-dorure">Sites web · Design · Réseaux</p>
+
+    <div class="contacts">
+      <p class="ligne">
+        <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <i class="txt">07&nbsp;43&nbsp;51&nbsp;76&nbsp;27</i>
+      </p>
+      <p class="ligne">
+        <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+        <i class="txt">peakcl73@gmail.com</i>
+      </p>
+      <p class="ligne">
+        <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
+        <i class="txt">peakcl.com</i>
+      </p>
+      <p class="ligne">
+        <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.99-5.29 10.7-7.29 12.6a1 1 0 0 1-1.42 0C9.29 20.7 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <i class="txt">Albertville &amp; toute la Savoie</i>
+      </p>
+    </div>
+
+    <div class="reseaux">
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+        <i class="txt">@peakcl73</i>
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3h-2.2A4.3 4.3 0 0 0 9 7.3V10H6.5v3.5H9V21h3.5v-7.5h2.6l.4-3.5h-3V7.6c0-.6.4-1.1 1-1.1h2V3z"/></svg>
+        <i class="txt">PeakCL73</i>
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="4"/><path d="M7 10.5V17M7 7.2v.1M11.5 17v-3.9a2.4 2.4 0 0 1 4.8 0V17"/></svg>
+        <i class="txt">charlotte-lacroix-peakcl</i>
+      </span>
+    </div>
+
+    <!-- QR : jamais doré (il doit rester scannable), réserve invisible -->
+    <div class="qr-carte hors-dorure">
+      <img src="../assets/qr-rdv.svg" alt="">
+      <p class="qr-legende">On en parle&nbsp;?<br>20 min, offertes</p>
+    </div>
+  </div>
+
+  <span class="safe"></span>
+  <span class="trim"></span>
+</section>
+
+</body>
+</html>
