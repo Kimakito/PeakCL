@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Flyer A5 — PeakCL · Charlotte Lacroix</title>
+<!--
+  Flyer PeakCL — A5 148 x 210 mm + 3 mm de fond perdu (page 154 x 216 mm).
+  Page 1 = recto (fond crème) · Page 2 = verso (fond indigo).
+  Export : Chrome > Imprimer > Enregistrer au format PDF, marges "aucune",
+  "Graphiques d'arrière-plan" coché, échelle 100 %.
+-->
+<link rel="stylesheet" href="../assets/fonts.css"><!-- Baloo 2 + Nunito embarquees : impression hors ligne OK -->
+<style>
+  /* ── Tokens PeakCL (design system v2) ───────────────────────── */
+  :root{
+    --indigo:#13004D; --violet:#360099; --violet-mid:#5F3AB9; --lavande:#BABAFF;
+    --lavande-fonce:#875FD5; --bleu:#427CFF; --bleu-clair:#94D4FF;
+    --turquoise:#96F0F7; --turquoise-fonce:#4DAFC9; --jaune:#F2D04B; --jaune-clair:#F2EB96;
+    --creme:#FFEAA9; --blanc:#FFFFFF; --muted:#574F82;
+    --display:"Baloo 2", ui-rounded, system-ui, sans-serif;
+    --body:"Nunito", ui-sans-serif, system-ui, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{background:#E6E4F5;}
+  body{font-family:var(--body); color:var(--indigo); -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+
+  @page{ size:154mm 216mm; margin:0; }
+
+  .page{ position:relative; width:154mm; height:216mm; overflow:hidden; }
+  .safe{ position:absolute; inset:9mm; display:flex; flex-direction:column; }
+
+  .blob{ position:absolute; border-radius:999px; filter:blur(22mm); }
+  .mosaic{ position:absolute; display:grid; grid-template-columns:repeat(3,6mm); gap:2mm; }
+  .mosaic i{ width:6mm; height:6mm; border-radius:1.8mm; display:block; }
+
+  .kicker{ font-size:7.6pt; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+  .trim{ position:absolute; inset:3mm; border:.2mm dashed rgba(19,0,77,.3); pointer-events:none; }
+
+  /* ══════════ RECTO ══════════ */
+  .recto{ background:var(--creme); }
+  .recto .blob-1{ width:90mm; height:90mm; left:-30mm; top:-25mm; background:var(--bleu-clair); opacity:.5; }
+  .recto .blob-2{ width:80mm; height:80mm; right:-26mm; top:40mm; background:var(--lavande); opacity:.6; }
+  .recto .blob-3{ width:70mm; height:70mm; left:10mm; bottom:-24mm; background:var(--jaune-clair); opacity:.55; }
+  .recto .mosaic{ right:8mm; top:26mm; transform:rotate(3deg); opacity:.9; }
+
+  .entete{ display:flex; align-items:center; justify-content:space-between; }
+  .entete img{ width:36mm; height:auto; display:block; }
+  .entete .kicker{ color:var(--lavande-fonce); }
+
+  .h1{ font-family:var(--display); font-weight:800; font-size:28pt; line-height:1.04;
+       letter-spacing:-.015em; margin-top:11mm; max-width:112mm; }
+  .h1 em{ font-style:normal; color:var(--violet); }
+  .chapo{ margin-top:5mm; font-size:11pt; line-height:1.5; color:var(--muted); max-width:88mm; }
+
+  .atouts{ margin-top:7mm; display:grid; gap:3.4mm; max-width:86mm; }
+  .atout{ display:flex; gap:3.2mm; align-items:flex-start; font-size:9.6pt; line-height:1.4; }
+  .atout b{ font-weight:700; }
+  .pastille{ width:3.6mm; height:3.6mm; border-radius:1.1mm; flex:none; margin-top:1.1mm; }
+
+  .mascotte-recto{ position:absolute; right:-6mm; bottom:36mm; height:112mm; width:auto; }
+
+  .cta{
+    margin-top:auto; background:var(--blanc); border-radius:8mm; padding:6mm 7mm;
+    display:flex; align-items:center; gap:6mm; box-shadow:0 4mm 12mm rgba(19,0,77,.14);
+    position:relative; z-index:2;
+  }
+  .cta-qr{ width:26mm; height:26mm; flex:none; }
+  .cta-qr img{ width:100%; height:100%; display:block; }
+  .cta-txt .kicker{ color:var(--turquoise-fonce); }
+  .cta-titre{ font-family:var(--display); font-weight:700; font-size:15pt; line-height:1.1;
+              letter-spacing:-.01em; margin-top:1.5mm; }
+  .cta-sous{ font-size:9pt; line-height:1.45; color:var(--muted); margin-top:1.5mm; }
+  .cta-sous b{ color:var(--indigo); font-weight:700; }
+
+  /* ══════════ VERSO ══════════ */
+  .verso{
+    background:radial-gradient(circle at 50% 32%, #3A07A8 0%, #2E0296 55%, #250085 100%);
+    color:#fff;
+  }
+  .verso .blob-1{ width:80mm; height:80mm; left:-24mm; top:22mm; background:var(--turquoise-fonce); opacity:.4; }
+  .verso .blob-2{ width:76mm; height:76mm; right:-24mm; bottom:26mm; background:var(--lavande-fonce); opacity:.45; }
+  .verso .kicker{ color:var(--turquoise); }
+
+  .h2{ font-family:var(--display); font-weight:700; font-size:17.5pt; line-height:1.08;
+       letter-spacing:-.01em; margin-top:2mm; }
+
+  .services{ margin-top:5mm; display:grid; grid-template-columns:1fr 1fr; gap:3.5mm; }
+  .service{
+    background:rgba(255,255,255,.08); border:.25mm solid rgba(150,240,247,.28);
+    border-radius:6mm; padding:4mm 4mm 4.5mm;
+  }
+  .service svg{ width:6.5mm; height:6.5mm; color:var(--turquoise); }
+  .service h3{ font-family:var(--display); font-weight:700; font-size:11.5pt; line-height:1.15;
+               margin-top:2.5mm; letter-spacing:-.01em; }
+  .service p{ font-size:8.2pt; line-height:1.45; color:var(--lavande); margin-top:1.5mm; }
+
+  .etapes{ margin-top:6mm; display:grid; grid-template-columns:repeat(3,1fr); gap:4mm; }
+  .etape{ display:flex; gap:2.8mm; align-items:flex-start; }
+  .num{ width:6.4mm; height:6.4mm; border-radius:2mm; background:var(--jaune); color:var(--indigo);
+        font-family:var(--display); font-weight:700; font-size:9.5pt;
+        display:flex; align-items:center; justify-content:center; flex:none; }
+  .etape b{ display:block; font-family:var(--display); font-weight:700; font-size:10pt; line-height:1.15; }
+  .etape span{ display:block; font-size:8pt; line-height:1.4; color:var(--lavande); margin-top:.8mm; }
+
+  .avis{
+    margin-top:6mm; background:rgba(255,255,255,.08); border-radius:6mm; padding:4mm 5mm;
+    border-left:1.4mm solid var(--jaune); display:flex; gap:5mm; align-items:center;
+  }
+  .etoiles{ display:flex; gap:.9mm; }
+  .etoiles svg{ width:3.6mm; height:3.6mm; color:var(--jaune); }
+  .avis q{ display:block; font-size:9pt; line-height:1.45; font-style:italic; quotes:"«\00a0" "\00a0»"; }
+  .avis footer{ font-size:7.6pt; color:var(--lavande); margin-top:1.8mm; font-style:normal; }
+  .avis-mascotte{ width:19mm; height:auto; flex:none; }
+
+  .pied{ margin-top:auto; display:flex; align-items:flex-end; justify-content:space-between; gap:6mm; }
+  .pied-logo{ width:16mm; height:auto; display:block; margin-bottom:2.5mm; }
+  .pied-nom{ font-family:var(--display); font-weight:700; font-size:13pt; line-height:1.1; }
+  .pied-role{ font-size:8pt; color:var(--lavande); margin-top:.8mm; }
+  .contacts{ margin-top:3mm; display:grid; gap:1.6mm; }
+  .ligne{ display:flex; align-items:center; gap:2.2mm; font-size:9pt; line-height:1.15; color:#fff; }
+  .ligne svg{ width:3.8mm; height:3.8mm; flex:none; color:var(--turquoise); }
+  .qr-bloc{ background:#fff; border-radius:4mm; padding:2.4mm 2.4mm 2mm; width:30mm; text-align:center; }
+  .qr-bloc img{ width:100%; display:block; }
+  .qr-bloc p{ font-family:var(--display); font-weight:700; font-size:7pt; line-height:1.15;
+              color:var(--indigo); margin-top:1.4mm; }
+  .bande{ position:absolute; left:0; right:0; bottom:0; height:4.6mm; display:flex; }
+  .bande i{ flex:1; }
+
+  @media screen{
+    body{ padding:10mm; display:flex; flex-wrap:wrap; gap:10mm; }
+    .page{ box-shadow:0 5mm 16mm rgba(19,0,77,.22); }
+  }
+  @media print{
+    body{ padding:0; }
+    .trim{ display:none; }
+    .page{ break-after:page; page-break-after:always; }
+    .page:last-child{ break-after:auto; page-break-after:auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ RECTO ══════════════════ -->
+<section class="page recto">
+  <span class="blob blob-1"></span>
+  <span class="blob blob-2"></span>
+  <span class="blob blob-3"></span>
+  <div class="mosaic">
+    <i style="background:#94D4FF"></i><i style="background:#96F0F7"></i><i style="background:#BABAFF"></i>
+    <i style="background:#F2D04B"></i><i style="background:#875FD5"></i><i style="background:#4DAFC9"></i>
+  </div>
+
+  <img class="mascotte-recto" src="../assets/mascotte-salut.svg" alt="">
+
+  <div class="safe">
+    <div class="entete">
+      <img src="../assets/logotype-horizontal.svg" alt="PeakCL">
+      <p class="kicker">Albertville · toute la Savoie</p>
+    </div>
+
+    <h1 class="h1">Votre présence en ligne,<br><em>simplifiée.</em></h1>
+
+    <p class="chapo">
+      Site web, identité visuelle, réseaux sociaux&nbsp;: une seule interlocutrice,
+      un plan clair, des livrables concrets. Et quelqu'un qui décroche quand vous appelez.
+    </p>
+
+    <div class="atouts">
+      <p class="atout"><span class="pastille" style="background:#4DAFC9"></span>
+        <span><b>Un seul interlocuteur</b>, du premier café à la mise en ligne.</span></p>
+      <p class="atout"><span class="pastille" style="background:#875FD5"></span>
+        <span><b>Un devis annoncé d'avance</b> et des délais tenus, sans mauvaise surprise.</span></p>
+      <p class="atout"><span class="pastille" style="background:#F2D04B"></span>
+        <span><b>Vous restez autonome</b>&nbsp;: je forme, je documente, vous gardez la main.</span></p>
+    </div>
+
+    <div class="cta">
+      <div class="cta-qr"><img src="../assets/qr-diagnostic.svg" alt="QR code vers le diagnostic PeakCL"></div>
+      <div class="cta-txt">
+        <p class="kicker">Premier pas, sans engagement</p>
+        <p class="cta-titre">Faisons le point sur votre com'&nbsp;— c'est offert.</p>
+        <p class="cta-sous">
+          Scannez le code, ou appelez&#8209;moi&nbsp;: <b>07 43 51 76 27</b><br>
+          <b>peakcl.com</b> · peakcl73@gmail.com
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <span class="trim"></span>
+</section>
+
+<!-- ══════════════════ VERSO ══════════════════ -->
+<section class="page verso">
+  <span class="blob blob-1"></span>
+  <span class="blob blob-2"></span>
+
+  <div class="safe">
+    <p class="kicker">Ce que je fais pour vous</p>
+    <h2 class="h2">Quatre façons de travailler ensemble.</h2>
+
+    <div class="services">
+      <div class="service">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+        <h3>Sites web sur mesure</h3>
+        <p>Vitrine, e&#8209;commerce ou refonte&nbsp;: rapide, bien référencé, fait pour durer.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5a8.5 8.5 0 0 1 8.5-8.5 8.38 8.38 0 0 1 8.5 8.5z"/></svg>
+        <h3>Community management</h3>
+        <p>Rester visible et inspirer confiance, sans y passer vos soirées.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0 0 18c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1a1.5 1.5 0 0 1 1.09-2.5H16a5 5 0 0 0 5-5c0-4.42-4.03-8-9-8z"/><circle cx="7.5" cy="10.5" r="1.2"/><circle cx="12" cy="7.5" r="1.2"/><circle cx="16.5" cy="10.5" r="1.2"/></svg>
+        <h3>Design graphique</h3>
+        <p>Logo, charte, supports print&nbsp;: une image cohérente et mémorable.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3m0 12v3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M3 12h3m12 0h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
+        <h3>Automatisation &amp; IA</h3>
+        <p>Devis, rappels, relances&nbsp;: la paperasse tourne toute seule, vous gardez le contrôle.</p>
+      </div>
+    </div>
+
+    <div class="etapes">
+      <div class="etape"><span class="num">1</span>
+        <span><b>On se parle</b><span>20 min pour comprendre votre activité et votre priorité n°1.</span></span></div>
+      <div class="etape"><span class="num">2</span>
+        <span><b>Je cadre</b><span>Un plan écrit, un budget, une date de livraison.</span></span></div>
+      <div class="etape"><span class="num">3</span>
+        <span><b>Je crée, vous validez</b><span>Livré, formé, documenté — vous gardez la main.</span></span></div>
+    </div>
+
+    <div class="avis">
+      <img class="avis-mascotte" src="../assets/mascotte-victoire.webp" alt="">
+      <div>
+        <div class="etoiles">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
+        </div>
+        <q>Charlotte a très vite compris mes besoins et m'a proposé une direction plus moderne,
+           plus claire et plus adaptée à mon activité.</q>
+        <footer>Mathilde T. · avis Google vérifié</footer>
+      </div>
+    </div>
+
+    <div class="pied">
+      <div>
+        <img class="pied-logo" src="../assets/logo-carre-fond-fonce.svg" alt="PeakCL">
+        <p class="pied-nom">Charlotte Lacroix</p>
+        <p class="pied-role">PeakCL · com' &amp; web en Savoie</p>
+        <div class="contacts">
+          <p class="ligne">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            07&nbsp;43&nbsp;51&nbsp;76&nbsp;27
+          </p>
+          <p class="ligne">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            peakcl73@gmail.com
+          </p>
+          <p class="ligne">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            peakcl.com
+          </p>
+        </div>
+      </div>
+
+      <div class="qr-bloc">
+        <img src="../assets/qr-rdv.svg" alt="QR code de prise de rendez-vous">
+        <p>Réservez vos 20 min</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bande">
+    <i style="background:#94D4FF"></i><i style="background:#96F0F7"></i><i style="background:#BABAFF"></i>
+    <i style="background:#875FD5"></i><i style="background:#F2D04B"></i>
+  </div>
+  <span class="trim" style="border-color:rgba(255,255,255,.3)"></span>
+</section>
+
+</body>
+</html>
