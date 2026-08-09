@@ -5,7 +5,8 @@
 <title>Carte de visite — PeakCL · Charlotte Lacroix</title>
 <!--
   Carte de visite PeakCL — 85 x 55 mm + 3 mm de fond perdu (page 91 x 61 mm).
-  Page 1 = recto (fond indigo) · Page 2 = verso (fond crème).
+  Page 1 = recto (indigo) · Page 2 = verso (crème).
+  Le décor est en SVG : viewBox 0 0 91 61, donc 1 unité SVG = 1 mm de page.
   Export : Chrome > Imprimer > Enregistrer au format PDF, marges "aucune",
   "Graphiques d'arrière-plan" coché, échelle 100 %.
 -->
@@ -20,88 +21,56 @@
     --display:"Baloo 2", ui-rounded, system-ui, sans-serif;
     --body:"Nunito", ui-sans-serif, system-ui, sans-serif;
   }
-
   *{box-sizing:border-box; margin:0; padding:0;}
   html,body{background:#E6E4F5;}
-  body{font-family:var(--body); -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  body{font-family:var(--body); color:var(--indigo); -webkit-print-color-adjust:exact; print-color-adjust:exact;}
 
   /* ── Format : 85x55 mm + 3 mm de fond perdu ─────────────────── */
   @page{ size:91mm 61mm; margin:0; }
 
-  .card{
-    position:relative; width:91mm; height:61mm; overflow:hidden;
-    display:block; color:var(--indigo);
-  }
-  /* zone de sécurité : 3 mm de fond perdu + 5 mm de marge intérieure */
-  .safe{ position:absolute; inset:8mm; display:flex; }
+  .card{ position:relative; width:91mm; height:61mm; overflow:hidden; }
+  .deco{ position:absolute; inset:0; width:91mm; height:61mm; display:block; }
+  .layer{ position:absolute; inset:0; }
+  .kicker{ font-size:6.2pt; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+  /* liseré de coupe, écran seulement : 3 mm de fond perdu + 5 mm de marge utile */
+  .trim{ position:absolute; inset:3mm; border:.2mm dashed rgba(19,0,77,.35); pointer-events:none; }
 
   /* ── RECTO ──────────────────────────────────────────────────── */
-  .recto{
-    background:
-      radial-gradient(circle at 28% 26%, #3A07A8 0%, #2E0296 55%, #250085 100%);
-    color:#fff;
-  }
-  .blob{ position:absolute; border-radius:999px; filter:blur(14mm); opacity:.55; }
-  .blob-t{ width:46mm; height:46mm; left:-14mm; top:-16mm; background:var(--turquoise-fonce); }
-  .blob-v{ width:52mm; height:52mm; right:-16mm; bottom:-20mm; background:var(--lavande-fonce); }
-  .blob-j{ width:26mm; height:26mm; right:26mm; top:-12mm; background:var(--jaune); opacity:.30; }
-  .blob-m{ width:34mm; height:34mm; right:-4mm; bottom:2mm; background:var(--turquoise-fonce); opacity:.38; }
-
-  /* mosaïque de carrés arrondis, légèrement désaxée */
-  .mosaic{ position:absolute; right:4.5mm; top:3.5mm; transform:rotate(-3deg); display:grid;
-           grid-template-columns:repeat(3,3.4mm); gap:1.1mm; opacity:.9; }
-  .mosaic i{ display:block; width:3.4mm; height:3.4mm; border-radius:1mm; }
-
-  .recto .safe{ flex-direction:column; justify-content:space-between; }
-  .logo-carre{ width:16mm; height:auto; display:block; }
+  .recto{ background:#1B0068; color:#fff; }
+  .logo-carre{ position:absolute; left:8mm; top:7.5mm; width:13mm; }
   .baseline{
+    position:absolute; left:8mm; bottom:9mm; width:46mm;
     font-family:var(--display); font-weight:700; font-size:12.5pt; line-height:1.06;
-    letter-spacing:-.01em; max-width:47mm;
+    letter-spacing:-.01em;
   }
   .baseline em{ font-style:normal; color:var(--jaune); }
-  .sous-baseline{
-    margin-top:1.8mm; font-size:6.4pt; font-weight:700; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--lavande);
-  }
-  .mascotte-recto{
-    position:absolute; right:2.5mm; bottom:4.4mm; height:43mm; width:auto; display:block;
-  }
-  /* bande de couleurs : 1.6 mm visibles après coupe, le reste part au fond perdu */
-  .filet{ position:absolute; left:0; right:0; bottom:0; height:4.6mm; display:flex; }
-  .filet i{ flex:1; }
+  .sous-baseline{ position:absolute; left:8mm; bottom:5mm; color:var(--lavande); }
+  .mascotte-recto{ position:absolute; right:4.5mm; bottom:3.5mm; width:33mm; }
 
   /* ── VERSO ──────────────────────────────────────────────────── */
   .verso{ background:var(--creme); }
-  .verso .safe{ align-items:stretch; gap:5mm; }
-  .col-infos{ flex:1; display:flex; flex-direction:column; }
-  .logotype{ width:27mm; height:auto; display:block; }
-  .nom{ font-family:var(--display); font-weight:700; font-size:13pt; line-height:1.05;
-        letter-spacing:-.01em; margin-top:auto; }
-  .role{ font-size:7.4pt; line-height:1.35; color:var(--muted); margin-top:.8mm; }
-  .contacts{ margin-top:3mm; display:grid; gap:1.35mm; }
+  .logotype{ position:absolute; left:8mm; top:8mm; width:26mm; }
+  .nom{ position:absolute; left:8mm; top:20mm;
+        font-family:var(--display); font-weight:700; font-size:13pt; line-height:1.05;
+        letter-spacing:-.01em; }
+  .role{ position:absolute; left:8mm; top:26.5mm; font-size:7.4pt; line-height:1.35; color:var(--muted); }
+  .contacts{ position:absolute; left:8mm; bottom:7.5mm; display:grid; gap:1.35mm; }
   .contacts a, .contacts span{ color:var(--indigo); text-decoration:none; }
   .ligne{ display:flex; align-items:center; gap:1.8mm; font-size:7.6pt; line-height:1.15; }
   .ligne svg{ width:3.1mm; height:3.1mm; flex:none; color:var(--lavande-fonce); }
 
-  .col-qr{ width:25mm; display:flex; flex-direction:column; justify-content:center; align-items:center; }
   .qr-carte{
-    width:25mm; background:var(--blanc); border-radius:3.2mm; padding:2mm 2mm 1.6mm;
-    box-shadow:0 1mm 3mm rgba(19,0,77,.12); text-align:center;
+    position:absolute; right:6.5mm; top:50%; transform:translateY(-50%);
+    width:25mm; background:var(--blanc); border-radius:5mm 5mm 5mm 1.8mm; padding:2mm 2mm 1.6mm;
+    box-shadow:0 1mm 3mm rgba(19,0,77,.14); text-align:center;
   }
-  .qr-carte img{ width:100%; height:auto; display:block; }
+  .qr-carte img{ width:100%; display:block; }
   .qr-legende{ margin-top:1.2mm; font-family:var(--display); font-weight:700;
                font-size:6.4pt; line-height:1.1; color:var(--indigo); }
-  .puces{ margin-top:2mm; display:flex; gap:1.1mm; }
-  .puces i{ width:2.6mm; height:2.6mm; border-radius:.8mm; display:block; }
-
-  /* ── Repères de coupe (écran seulement) ─────────────────────── */
-  .trim{ position:absolute; inset:3mm; border:.2mm dashed rgba(19,0,77,.35); pointer-events:none; }
-  .verso .trim{ border-color:rgba(19,0,77,.3); }
-  .recto .trim{ border-color:rgba(255,255,255,.35); }
 
   @media screen{
     body{ padding:10mm; display:flex; flex-wrap:wrap; gap:10mm; }
-    .card{ box-shadow:0 4mm 12mm rgba(19,0,77,.22); border-radius:1mm; }
+    .card{ box-shadow:0 4mm 12mm rgba(19,0,77,.22); }
   }
   @media print{
     body{ padding:0; }
@@ -115,76 +84,113 @@
 
 <!-- ══════════════════ RECTO ══════════════════ -->
 <section class="card recto">
-  <span class="blob blob-t"></span>
-  <span class="blob blob-v"></span>
-  <span class="blob blob-j"></span>
-  <span class="blob blob-m"></span>
 
-  <div class="mosaic">
-    <i style="background:#94D4FF"></i><i style="background:#96F0F7"></i><i style="background:#BABAFF"></i>
-    <i style="background:#F2D04B"></i><i style="background:#875FD5"></i><i style="background:#4DAFC9"></i>
-  </div>
+  <svg class="deco" viewBox="0 0 91 61" aria-hidden="true">
+    <defs>
+      <linearGradient id="cTurq" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#96F0F7"/><stop offset="1" stop-color="#4DAFC9"/>
+      </linearGradient>
+      <linearGradient id="cLav" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#BABAFF"/><stop offset="1" stop-color="#5F3AB9"/>
+      </linearGradient>
+      <linearGradient id="cBleu" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#94D4FF"/><stop offset="1" stop-color="#427CFF"/>
+      </linearGradient>
+      <linearGradient id="cJaune" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#F2EB96"/><stop offset="1" stop-color="#F2D04B"/>
+      </linearGradient>
+    </defs>
 
-  <img class="mascotte-recto" src="../assets/mascotte-salut.svg" alt="">
+    <rect width="91" height="61" fill="#1B0068"/>
 
-  <div class="safe">
+    <!-- nappes organiques translucides -->
+    <g style="mix-blend-mode:screen">
+      <path opacity=".30" fill="url(#cLav)"  transform="translate(30,-14) scale(.72)"
+            d="M98.88,51.92C99.44,64.57 89.24,85.74 78.53,93.67C67.82,101.60 45.49,102.61 34.62,99.51C23.75,96.41 17.31,87.73 13.31,75.08C9.31,62.42 5.12,34.20 10.62,23.59C16.12,12.99 35.52,12.41 46.28,11.44C57.04,10.48 66.41,11.03 75.18,17.78C83.95,24.52 98.32,39.27 98.88,51.92Z"/>
+      <path opacity=".22" fill="url(#cBleu)" transform="translate(-26,4) scale(.62)"
+            d="M97.61,56.22C98.74,69.36 87.69,86.15 78.59,92.90C69.50,99.64 55.90,101.17 43.06,96.69C30.22,92.21 6.28,76.80 1.55,66.01C-3.18,55.23 8.83,43.19 14.69,31.97C20.56,20.75 27.22,1.67 36.75,-1.32C46.28,-4.30 61.71,4.46 71.85,14.05C82.00,23.64 96.49,43.07 97.61,56.22Z"/>
+    </g>
+
+    <!-- forme organique turquoise sur laquelle se pose la mascotte -->
+    <path fill="url(#cTurq)" opacity=".95" transform="translate(48,14) scale(.44)"
+          d="M97.98,45.09C97.06,56.51 87.45,72.99 77.78,81.28C68.10,89.56 51.36,96.68 39.93,94.80C28.50,92.92 14.14,80.03 9.20,69.97C4.27,59.92 4.71,44.95 10.33,34.46C15.96,23.96 30.77,10.62 42.93,7.00C55.09,3.38 74.11,6.39 83.29,12.74C92.46,19.09 98.90,33.67 97.98,45.09Z"/>
+
+    <!-- petits éclats de marque -->
+    <path fill="url(#cJaune)" transform="translate(41,3) scale(.075)"
+          d="M97.90,46.30C98.39,59.28 87.61,83.01 78.74,90.74C69.87,98.47 55.54,95.67 44.69,92.70C33.84,89.72 18.80,83.49 13.64,72.88C8.47,62.28 9.16,39.83 13.70,29.04C18.24,18.25 30.53,10.84 40.89,8.14C51.24,5.44 66.32,6.49 75.83,12.85C85.33,19.21 97.42,33.32 97.90,46.30Z"/>
+    <path fill="url(#cLav)" transform="translate(78,44) scale(.11)"
+          d="M97.98,45.09C97.06,56.51 87.45,72.99 77.78,81.28C68.10,89.56 51.36,96.68 39.93,94.80C28.50,92.92 14.14,80.03 9.20,69.97C4.27,59.92 4.71,44.95 10.33,34.46C15.96,23.96 30.77,10.62 42.93,7.00C55.09,3.38 74.11,6.39 83.29,12.74C92.46,19.09 98.90,33.67 97.98,45.09Z"/>
+  </svg>
+
+  <div class="layer">
     <img class="logo-carre" src="../assets/logo-carre-fond-fonce.svg" alt="PeakCL">
-    <div>
-      <p class="baseline">Votre présence en ligne,<br><em>simplifiée.</em></p>
-      <p class="sous-baseline">Web · Design · Réseaux — Savoie</p>
-    </div>
+    <img class="mascotte-recto" src="../assets/mascotte-joie.png" alt="">
+    <p class="baseline">Votre présence en ligne,<br><em>simplifiée.</em></p>
+    <p class="kicker sous-baseline">Web · Design · Réseaux — Savoie</p>
   </div>
 
-  <div class="filet">
-    <i style="background:#94D4FF"></i><i style="background:#96F0F7"></i><i style="background:#BABAFF"></i>
-    <i style="background:#875FD5"></i><i style="background:#F2D04B"></i>
-  </div>
-
-  <span class="trim"></span>
+  <span class="trim" style="border-color:rgba(255,255,255,.35)"></span>
 </section>
 
 <!-- ══════════════════ VERSO ══════════════════ -->
 <section class="card verso">
-  <div class="safe">
 
-    <div class="col-infos">
-      <img class="logotype" src="../assets/logotype-horizontal.svg" alt="PeakCL">
+  <svg class="deco" viewBox="0 0 91 61" aria-hidden="true">
+    <defs>
+      <linearGradient id="wTurq" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#96F0F7"/><stop offset="1" stop-color="#4DAFC9"/>
+      </linearGradient>
+      <linearGradient id="wLav" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#BABAFF"/><stop offset="1" stop-color="#875FD5"/>
+      </linearGradient>
+      <linearGradient id="wJaune" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#F2EB96"/><stop offset="1" stop-color="#F2D04B"/>
+      </linearGradient>
+    </defs>
 
-      <p class="nom">Charlotte Lacroix</p>
-      <p class="role">Sites web · Design · Réseaux sociaux</p>
+    <rect width="91" height="61" fill="#FFEAA9"/>
 
-      <div class="contacts">
-        <p class="ligne">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <a href="tel:+33743517627">07&nbsp;43&nbsp;51&nbsp;76&nbsp;27</a>
-        </p>
-        <p class="ligne">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <a href="mailto:peakcl73@gmail.com">peakcl73@gmail.com</a>
-        </p>
-        <p class="ligne">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-          <a href="https://peakcl.com">peakcl.com</a>
-        </p>
-        <p class="ligne">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.99-5.29 10.7-7.29 12.6a1 1 0 0 1-1.42 0C9.29 20.7 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Albertville &amp; toute la Savoie</span>
-        </p>
-      </div>
+    <!-- masse organique indigo qui déborde à droite, derrière le QR -->
+    <path fill="#13004D" transform="translate(59,-13) scale(.66)"
+          d="M97.61,56.22C98.74,69.36 87.69,86.15 78.59,92.90C69.50,99.64 55.90,101.17 43.06,96.69C30.22,92.21 6.28,76.80 1.55,66.01C-3.18,55.23 8.83,43.19 14.69,31.97C20.56,20.75 27.22,1.67 36.75,-1.32C46.28,-4.30 61.71,4.46 71.85,14.05C82.00,23.64 96.49,43.07 97.61,56.22Z"/>
+    <path fill="#BABAFF" opacity=".20" transform="translate(-24,20) scale(.58)"
+          d="M98.88,51.92C99.44,64.57 89.24,85.74 78.53,93.67C67.82,101.60 45.49,102.61 34.62,99.51C23.75,96.41 17.31,87.73 13.31,75.08C9.31,62.42 5.12,34.20 10.62,23.59C16.12,12.99 35.52,12.41 46.28,11.44C57.04,10.48 66.41,11.03 75.18,17.78C83.95,24.52 98.32,39.27 98.88,51.92Z"/>
+    <path fill="url(#wTurq)" transform="translate(-3,50) scale(.085)"
+          d="M97.98,45.09C97.06,56.51 87.45,72.99 77.78,81.28C68.10,89.56 51.36,96.68 39.93,94.80C28.50,92.92 14.14,80.03 9.20,69.97C4.27,59.92 4.71,44.95 10.33,34.46C15.96,23.96 30.77,10.62 42.93,7.00C55.09,3.38 74.11,6.39 83.29,12.74C92.46,19.09 98.90,33.67 97.98,45.09Z"/>
+    <path fill="url(#wJaune)" transform="translate(46,-4) scale(.07)"
+          d="M97.90,46.30C98.39,59.28 87.61,83.01 78.74,90.74C69.87,98.47 55.54,95.67 44.69,92.70C33.84,89.72 18.80,83.49 13.64,72.88C8.47,62.28 9.16,39.83 13.70,29.04C18.24,18.25 30.53,10.84 40.89,8.14C51.24,5.44 66.32,6.49 75.83,12.85C85.33,19.21 97.42,33.32 97.90,46.30Z"/>
+  </svg>
+
+  <div class="layer">
+    <img class="logotype" src="../assets/logotype-horizontal.svg" alt="PeakCL">
+    <p class="nom">Charlotte Lacroix</p>
+    <p class="role">Sites web · Design · Réseaux</p>
+
+    <div class="contacts">
+      <p class="ligne">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+33743517627">07&nbsp;43&nbsp;51&nbsp;76&nbsp;27</a>
+      </p>
+      <p class="ligne">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <a href="mailto:peakcl73@gmail.com">peakcl73@gmail.com</a>
+      </p>
+      <p class="ligne">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        <a href="https://peakcl.com">peakcl.com</a>
+      </p>
+      <p class="ligne">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.99-5.29 10.7-7.29 12.6a1 1 0 0 1-1.42 0C9.29 20.7 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Albertville &amp; toute la Savoie</span>
+      </p>
     </div>
 
-    <div class="col-qr">
-      <div class="qr-carte">
-        <img src="../assets/qr-rdv.svg" alt="QR code de prise de rendez-vous">
-        <p class="qr-legende">On en parle&nbsp;?<br>20 min, offertes</p>
-      </div>
-      <div class="puces">
-        <i style="background:#94D4FF"></i><i style="background:#96F0F7"></i>
-        <i style="background:#BABAFF"></i><i style="background:#F2D04B"></i>
-      </div>
+    <div class="qr-carte">
+      <img src="../assets/qr-rdv.svg" alt="QR code de prise de rendez-vous">
+      <p class="qr-legende">On en parle&nbsp;?<br>20 min, offertes</p>
     </div>
-
   </div>
+
   <span class="trim"></span>
 </section>
 

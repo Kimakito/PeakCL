@@ -6,6 +6,8 @@
 <!--
   Flyer PeakCL — A5 148 x 210 mm + 3 mm de fond perdu (page 154 x 216 mm).
   Page 1 = recto (fond crème) · Page 2 = verso (fond indigo).
+  Le décor est en SVG : les <svg class="deco"> ont un viewBox 0 0 154 216,
+  donc 1 unité SVG = 1 mm de page. Les blobs sont des courbes fermées lissées.
   Export : Chrome > Imprimer > Enregistrer au format PDF, marges "aucune",
   "Graphiques d'arrière-plan" coché, échelle 100 %.
 -->
@@ -27,104 +29,105 @@
   @page{ size:154mm 216mm; margin:0; }
 
   .page{ position:relative; width:154mm; height:216mm; overflow:hidden; }
-  .safe{ position:absolute; inset:9mm; display:flex; flex-direction:column; }
-
-  .blob{ position:absolute; border-radius:999px; filter:blur(22mm); }
-  .mosaic{ position:absolute; display:grid; grid-template-columns:repeat(3,6mm); gap:2mm; }
-  .mosaic i{ width:6mm; height:6mm; border-radius:1.8mm; display:block; }
-
+  .deco{ position:absolute; inset:0; width:154mm; height:216mm; display:block; }
+  .layer{ position:absolute; inset:0; }             /* contenu au-dessus du décor */
   .kicker{ font-size:7.6pt; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
   .trim{ position:absolute; inset:3mm; border:.2mm dashed rgba(19,0,77,.3); pointer-events:none; }
 
   /* ══════════ RECTO ══════════ */
   .recto{ background:var(--creme); }
-  .recto .blob-1{ width:90mm; height:90mm; left:-30mm; top:-25mm; background:var(--bleu-clair); opacity:.5; }
-  .recto .blob-2{ width:80mm; height:80mm; right:-26mm; top:40mm; background:var(--lavande); opacity:.6; }
-  .recto .blob-3{ width:70mm; height:70mm; left:10mm; bottom:-24mm; background:var(--jaune-clair); opacity:.55; }
-  .recto .mosaic{ right:8mm; top:26mm; transform:rotate(3deg); opacity:.9; }
 
-  .entete{ display:flex; align-items:center; justify-content:space-between; }
-  .entete img{ width:36mm; height:auto; display:block; }
-  .entete .kicker{ color:var(--lavande-fonce); }
+  .logo-carre{ position:absolute; left:12mm; top:13mm; width:15mm; }
+  .entete-lieu{ position:absolute; right:12mm; top:16mm; color:var(--turquoise); }
 
-  .h1{ font-family:var(--display); font-weight:800; font-size:28pt; line-height:1.04;
-       letter-spacing:-.015em; margin-top:11mm; max-width:112mm; }
-  .h1 em{ font-style:normal; color:var(--violet); }
-  .chapo{ margin-top:5mm; font-size:11pt; line-height:1.5; color:var(--muted); max-width:88mm; }
+  .bloc-titre{ position:absolute; left:12mm; top:34mm; width:96mm; color:#fff; }
+  .h1{ font-family:var(--display); font-weight:800; font-size:27pt; line-height:1.04;
+       letter-spacing:-.015em; }
+  .h1 em{ font-style:normal; color:var(--jaune); }
+  .chapo{ margin-top:4.5mm; font-size:10.2pt; line-height:1.5; color:#DCD6FF; width:72mm; }
 
-  .atouts{ margin-top:7mm; display:grid; gap:3.4mm; max-width:86mm; }
-  .atout{ display:flex; gap:3.2mm; align-items:flex-start; font-size:9.6pt; line-height:1.4; }
+  .mascotte-recto{ position:absolute; right:4mm; top:56mm; width:58mm; }
+
+  .atouts{ position:absolute; left:12mm; top:118mm; width:82mm; display:grid; gap:3.6mm; }
+  .atout{ display:flex; gap:3.4mm; align-items:flex-start; font-size:9.8pt; line-height:1.4; }
   .atout b{ font-weight:700; }
-  .pastille{ width:3.6mm; height:3.6mm; border-radius:1.1mm; flex:none; margin-top:1.1mm; }
-
-  .mascotte-recto{ position:absolute; right:-6mm; bottom:36mm; height:112mm; width:auto; }
+  .pastille{ width:4.4mm; height:4.4mm; flex:none; margin-top:.7mm; clip-path:url(#blobPastille); }
 
   .cta{
-    margin-top:auto; background:var(--blanc); border-radius:8mm; padding:6mm 7mm;
-    display:flex; align-items:center; gap:6mm; box-shadow:0 4mm 12mm rgba(19,0,77,.14);
-    position:relative; z-index:2;
+    position:absolute; left:12mm; right:12mm; bottom:13mm;
+    background:var(--blanc); border-radius:11mm 11mm 11mm 4mm; padding:6mm 7mm;
+    display:flex; align-items:center; gap:6mm; box-shadow:0 4mm 14mm rgba(19,0,77,.16);
   }
-  .cta-qr{ width:26mm; height:26mm; flex:none; }
-  .cta-qr img{ width:100%; height:100%; display:block; }
+  .cta-qr{ width:25mm; flex:none; }
+  .cta-qr img{ width:100%; display:block; }
   .cta-txt .kicker{ color:var(--turquoise-fonce); }
-  .cta-titre{ font-family:var(--display); font-weight:700; font-size:15pt; line-height:1.1;
+  .cta-titre{ font-family:var(--display); font-weight:700; font-size:14.5pt; line-height:1.1;
               letter-spacing:-.01em; margin-top:1.5mm; }
-  .cta-sous{ font-size:9pt; line-height:1.45; color:var(--muted); margin-top:1.5mm; }
+  .cta-sous{ font-size:9pt; line-height:1.5; color:var(--muted); margin-top:1.8mm; }
   .cta-sous b{ color:var(--indigo); font-weight:700; }
 
   /* ══════════ VERSO ══════════ */
-  .verso{
-    background:radial-gradient(circle at 50% 32%, #3A07A8 0%, #2E0296 55%, #250085 100%);
-    color:#fff;
-  }
-  .verso .blob-1{ width:80mm; height:80mm; left:-24mm; top:22mm; background:var(--turquoise-fonce); opacity:.4; }
-  .verso .blob-2{ width:76mm; height:76mm; right:-24mm; bottom:26mm; background:var(--lavande-fonce); opacity:.45; }
+  .verso{ background:#250085; color:#fff; }
   .verso .kicker{ color:var(--turquoise); }
 
-  .h2{ font-family:var(--display); font-weight:700; font-size:17.5pt; line-height:1.08;
-       letter-spacing:-.01em; margin-top:2mm; }
+  .v-entete{ position:absolute; left:12mm; top:13mm; right:12mm; }
+  .h2{ font-family:var(--display); font-weight:700; font-size:17pt; line-height:1.08;
+       letter-spacing:-.01em; margin-top:1.5mm; }
 
-  .services{ margin-top:5mm; display:grid; grid-template-columns:1fr 1fr; gap:3.5mm; }
+  .services{ position:absolute; left:12mm; right:12mm; top:33mm;
+             display:grid; grid-template-columns:1fr 1fr; gap:3.5mm; }
   .service{
-    background:rgba(255,255,255,.08); border:.25mm solid rgba(150,240,247,.28);
-    border-radius:6mm; padding:4mm 4mm 4.5mm;
+    background:rgba(255,255,255,.09); border:.25mm solid rgba(150,240,247,.3);
+    border-radius:7mm; padding:3.5mm 4mm 4mm;
+    display:grid; grid-template-columns:16.5mm 1fr; column-gap:3mm; align-items:center;
   }
-  .service svg{ width:6.5mm; height:6.5mm; color:var(--turquoise); }
-  .service h3{ font-family:var(--display); font-weight:700; font-size:11.5pt; line-height:1.15;
-               margin-top:2.5mm; letter-spacing:-.01em; }
-  .service p{ font-size:8.2pt; line-height:1.45; color:var(--lavande); margin-top:1.5mm; }
+  .service img{ width:16.5mm; display:block; grid-row:span 2; }
+  .service h3{ font-family:var(--display); font-weight:700; font-size:10.5pt; line-height:1.12;
+               letter-spacing:-.01em; align-self:end; }
+  .service p{ font-size:7.8pt; line-height:1.35; color:var(--lavande); margin-top:.8mm; align-self:start; }
 
-  .etapes{ margin-top:6mm; display:grid; grid-template-columns:repeat(3,1fr); gap:4mm; }
-  .etape{ display:flex; gap:2.8mm; align-items:flex-start; }
-  .num{ width:6.4mm; height:6.4mm; border-radius:2mm; background:var(--jaune); color:var(--indigo);
-        font-family:var(--display); font-weight:700; font-size:9.5pt;
-        display:flex; align-items:center; justify-content:center; flex:none; }
-  .etape b{ display:block; font-family:var(--display); font-weight:700; font-size:10pt; line-height:1.15; }
-  .etape span{ display:block; font-size:8pt; line-height:1.4; color:var(--lavande); margin-top:.8mm; }
+  .etapes{ position:absolute; left:12mm; right:12mm; top:90mm;
+           display:grid; grid-template-columns:repeat(3,1fr); gap:5mm; }
+  .etape{ text-align:center; }
+  .etape figure{ position:relative; width:27mm; height:27mm; margin:0 auto 2mm; }
+  .etape figure .fond{ position:absolute; inset:0; clip-path:url(#blobEtape1); opacity:.9; }
+  .etape:nth-child(2) figure .fond{ clip-path:url(#blobEtape2); }
+  .etape:nth-child(3) figure .fond{ clip-path:url(#blobPastille); }
+  .etape figure img{ position:absolute; left:50%; bottom:1mm; width:23.5mm;
+                     transform:translateX(-50%); display:block; }
+  .etape .num{
+    position:absolute; left:1mm; top:0; width:6.6mm; height:6.6mm; border-radius:2.2mm;
+    background:var(--jaune); color:var(--indigo); font-family:var(--display); font-weight:700;
+    font-size:9.5pt; display:flex; align-items:center; justify-content:center;
+  }
+  .etape b{ display:block; font-family:var(--display); font-weight:700; font-size:10.5pt; line-height:1.15; }
+  .etape span{ display:block; font-size:8.1pt; line-height:1.4; color:var(--lavande); margin-top:1mm; }
 
   .avis{
-    margin-top:6mm; background:rgba(255,255,255,.08); border-radius:6mm; padding:4mm 5mm;
-    border-left:1.4mm solid var(--jaune); display:flex; gap:5mm; align-items:center;
+    position:absolute; left:12mm; right:12mm; top:134mm;
+    background:rgba(255,255,255,.09); border-radius:7mm 7mm 7mm 2.5mm; padding:4mm 5.5mm;
+    border-left:1.4mm solid var(--jaune);
   }
   .etoiles{ display:flex; gap:.9mm; }
-  .etoiles svg{ width:3.6mm; height:3.6mm; color:var(--jaune); }
-  .avis q{ display:block; font-size:9pt; line-height:1.45; font-style:italic; quotes:"«\00a0" "\00a0»"; }
-  .avis footer{ font-size:7.6pt; color:var(--lavande); margin-top:1.8mm; font-style:normal; }
-  .avis-mascotte{ width:19mm; height:auto; flex:none; }
+  .etoiles svg{ width:3.4mm; height:3.4mm; color:var(--jaune); }
+  .avis q{ display:block; font-size:9pt; line-height:1.45; font-style:italic; margin-top:1.5mm;
+           quotes:"«\00a0" "\00a0»"; }
+  .avis footer{ font-size:7.6pt; color:var(--lavande); margin-top:1.5mm; }
 
-  .pied{ margin-top:auto; display:flex; align-items:flex-end; justify-content:space-between; gap:6mm; }
-  .pied-logo{ width:16mm; height:auto; display:block; margin-bottom:2.5mm; }
+  .pied{ position:absolute; left:12mm; right:12mm; bottom:12mm;
+         display:flex; align-items:flex-end; justify-content:space-between; gap:6mm; }
   .pied-nom{ font-family:var(--display); font-weight:700; font-size:13pt; line-height:1.1; }
-  .pied-role{ font-size:8pt; color:var(--lavande); margin-top:.8mm; }
+  .pied-role{ font-size:8pt; color:var(--lavande); margin-top:.6mm; }
   .contacts{ margin-top:3mm; display:grid; gap:1.6mm; }
-  .ligne{ display:flex; align-items:center; gap:2.2mm; font-size:9pt; line-height:1.15; color:#fff; }
+  .ligne{ display:flex; align-items:center; gap:2.2mm; font-size:9pt; line-height:1.15; }
   .ligne svg{ width:3.8mm; height:3.8mm; flex:none; color:var(--turquoise); }
-  .qr-bloc{ background:#fff; border-radius:4mm; padding:2.4mm 2.4mm 2mm; width:30mm; text-align:center; }
+  .reseaux{ display:grid; grid-template-columns:auto auto; gap:1.6mm 5mm; margin-top:3.2mm; }
+  .reseaux span{ display:flex; align-items:center; gap:2mm; font-size:8pt; line-height:1.15; }
+  .reseaux svg{ width:4mm; height:4mm; flex:none; color:var(--turquoise); }
+  .qr-bloc{ background:#fff; border-radius:4.5mm; padding:2.4mm 2.4mm 2mm; width:29mm; text-align:center; }
   .qr-bloc img{ width:100%; display:block; }
   .qr-bloc p{ font-family:var(--display); font-weight:700; font-size:7pt; line-height:1.15;
-              color:var(--indigo); margin-top:1.4mm; }
-  .bande{ position:absolute; left:0; right:0; bottom:0; height:4.6mm; display:flex; }
-  .bande i{ flex:1; }
+              color:var(--indigo); margin-top:1.2mm; }
 
   @media screen{
     body{ padding:10mm; display:flex; flex-wrap:wrap; gap:10mm; }
@@ -140,37 +143,77 @@
 </head>
 <body>
 
+<!-- Formes réutilisées en masque (coordonnées 0→1 = boîte de l'élément) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="blobPastille" clipPathUnits="objectBoundingBox">
+      <path d="M0.97,0.48C0.97,0.59 0.89,0.77 0.80,0.85C0.70,0.94 0.52,1.00 0.40,0.98C0.29,0.96 0.13,0.85 0.08,0.74C0.02,0.64 0.02,0.48 0.07,0.37C0.12,0.26 0.26,0.12 0.38,0.09C0.51,0.06 0.71,0.11 0.80,0.17C0.90,0.24 0.97,0.37 0.97,0.48Z"/>
+    </clipPath>
+    <clipPath id="blobEtape1" clipPathUnits="objectBoundingBox">
+      <path d="M0.99,0.46C1.00,0.60 0.89,0.84 0.80,0.92C0.70,1.00 0.56,0.96 0.45,0.93C0.34,0.90 0.18,0.84 0.13,0.73C0.08,0.62 0.09,0.40 0.13,0.29C0.18,0.18 0.30,0.10 0.41,0.07C0.51,0.05 0.67,0.06 0.76,0.12C0.86,0.19 0.99,0.33 0.99,0.46Z"/>
+    </clipPath>
+    <clipPath id="blobEtape2" clipPathUnits="objectBoundingBox">
+      <path d="M0.99,0.45C0.99,0.56 0.87,0.79 0.78,0.88C0.68,0.97 0.55,1.04 0.43,1.00C0.31,0.97 0.11,0.78 0.06,0.66C0.00,0.55 0.06,0.41 0.11,0.31C0.15,0.21 0.22,0.10 0.33,0.08C0.44,0.06 0.66,0.12 0.77,0.18C0.88,0.24 0.99,0.33 0.99,0.45Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
 <!-- ══════════════════ RECTO ══════════════════ -->
 <section class="page recto">
-  <span class="blob blob-1"></span>
-  <span class="blob blob-2"></span>
-  <span class="blob blob-3"></span>
-  <div class="mosaic">
-    <i style="background:#94D4FF"></i><i style="background:#96F0F7"></i><i style="background:#BABAFF"></i>
-    <i style="background:#F2D04B"></i><i style="background:#875FD5"></i><i style="background:#4DAFC9"></i>
-  </div>
 
-  <img class="mascotte-recto" src="../assets/mascotte-salut.svg" alt="">
+  <svg class="deco" viewBox="0 0 154 216" aria-hidden="true">
+    <defs>
+      <linearGradient id="gHero" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0"  stop-color="#5F3AB9"/>
+        <stop offset=".45" stop-color="#360099"/>
+        <stop offset="1"  stop-color="#13004D"/>
+      </linearGradient>
+      <linearGradient id="gTurq" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#96F0F7"/><stop offset="1" stop-color="#4DAFC9"/>
+      </linearGradient>
+      <linearGradient id="gLav" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#BABAFF"/><stop offset="1" stop-color="#875FD5"/>
+      </linearGradient>
+      <linearGradient id="gJaune" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#F2EB96"/><stop offset="1" stop-color="#F2D04B"/>
+      </linearGradient>
+    </defs>
 
-  <div class="safe">
-    <div class="entete">
-      <img src="../assets/logotype-horizontal.svg" alt="PeakCL">
-      <p class="kicker">Albertville · toute la Savoie</p>
+    <!-- masse jaune pâle qui structure le bas de page -->
+    <path fill="#F2EB96" opacity=".85" transform="translate(6,118) scale(1.25)"
+          d="M97.61,56.22C98.74,69.36 87.69,86.15 78.59,92.90C69.50,99.64 55.90,101.17 43.06,96.69C30.22,92.21 6.28,76.80 1.55,66.01C-3.18,55.23 8.83,43.19 14.69,31.97C20.56,20.75 27.22,1.67 36.75,-1.32C46.28,-4.30 61.71,4.46 71.85,14.05C82.00,23.64 96.49,43.07 97.61,56.22Z"/>
+
+    <!-- grande masse indigo du haut : bord bas en vague organique -->
+    <path fill="url(#gHero)"
+          d="M-8,-8 H162 V96 C140,88 132,105 112,108 C88,112 74,99.5 52,102.5 C32,105.3 18,115 -8,109 Z"/>
+
+    <!-- éclats de couleur posés sur la vague -->
+    <path fill="url(#gTurq)" transform="translate(-13,88) scale(.26)"
+          d="M97.98,45.09C97.06,56.51 87.45,72.99 77.78,81.28C68.10,89.56 51.36,96.68 39.93,94.80C28.50,92.92 14.14,80.03 9.20,69.97C4.27,59.92 4.71,44.95 10.33,34.46C15.96,23.96 30.77,10.62 42.93,7.00C55.09,3.38 74.11,6.39 83.29,12.74C92.46,19.09 98.90,33.67 97.98,45.09Z"/>
+    <path fill="url(#gJaune)" transform="translate(30,92) scale(.13)"
+          d="M97.90,46.30C98.39,59.28 87.61,83.01 78.74,90.74C69.87,98.47 55.54,95.67 44.69,92.70C33.84,89.72 18.80,83.49 13.64,72.88C8.47,62.28 9.16,39.83 13.70,29.04C18.24,18.25 30.53,10.84 40.89,8.14C51.24,5.44 66.32,6.49 75.83,12.85C85.33,19.21 97.42,33.32 97.90,46.30Z"/>
+  </svg>
+
+  <div class="layer">
+    <img class="logo-carre" src="../assets/logo-carre-fond-fonce.svg" alt="PeakCL">
+    <p class="kicker entete-lieu">Albertville · toute la Savoie</p>
+
+    <div class="bloc-titre">
+      <h1 class="h1">Votre présence en ligne,<br><em>simplifiée.</em></h1>
+      <p class="chapo">
+        Site web, identité visuelle, réseaux sociaux&nbsp;: une seule interlocutrice,
+        un plan clair, des livrables concrets. Et quelqu'un qui décroche quand vous appelez.
+      </p>
     </div>
 
-    <h1 class="h1">Votre présence en ligne,<br><em>simplifiée.</em></h1>
-
-    <p class="chapo">
-      Site web, identité visuelle, réseaux sociaux&nbsp;: une seule interlocutrice,
-      un plan clair, des livrables concrets. Et quelqu'un qui décroche quand vous appelez.
-    </p>
+    <img class="mascotte-recto" src="../assets/mascotte-joie.png" alt="">
 
     <div class="atouts">
-      <p class="atout"><span class="pastille" style="background:#4DAFC9"></span>
+      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#96F0F7,#4DAFC9)"></span>
         <span><b>Un seul interlocuteur</b>, du premier café à la mise en ligne.</span></p>
-      <p class="atout"><span class="pastille" style="background:#875FD5"></span>
+      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#BABAFF,#875FD5)"></span>
         <span><b>Un devis annoncé d'avance</b> et des délais tenus, sans mauvaise surprise.</span></p>
-      <p class="atout"><span class="pastille" style="background:#F2D04B"></span>
+      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#F2EB96,#F2D04B)"></span>
         <span><b>Vous restez autonome</b>&nbsp;: je forme, je documente, vous gardez la main.</span></p>
     </div>
 
@@ -178,7 +221,7 @@
       <div class="cta-qr"><img src="../assets/qr-diagnostic.svg" alt="QR code vers le diagnostic PeakCL"></div>
       <div class="cta-txt">
         <p class="kicker">Premier pas, sans engagement</p>
-        <p class="cta-titre">Faisons le point sur votre com'&nbsp;— c'est offert.</p>
+        <p class="cta-titre">Faisons le point&nbsp;: c'est offert.</p>
         <p class="cta-sous">
           Scannez le code, ou appelez&#8209;moi&nbsp;: <b>07 43 51 76 27</b><br>
           <b>peakcl.com</b> · peakcl73@gmail.com
@@ -192,64 +235,104 @@
 
 <!-- ══════════════════ VERSO ══════════════════ -->
 <section class="page verso">
-  <span class="blob blob-1"></span>
-  <span class="blob blob-2"></span>
 
-  <div class="safe">
-    <p class="kicker">Ce que je fais pour vous</p>
-    <h2 class="h2">Quatre façons de travailler ensemble.</h2>
+  <svg class="deco" viewBox="0 0 154 216" aria-hidden="true">
+    <defs>
+      <linearGradient id="vTurq" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#96F0F7"/><stop offset="1" stop-color="#4DAFC9"/>
+      </linearGradient>
+      <linearGradient id="vLav" x1="0" y1="0" x2=".9" y2="1">
+        <stop offset="0" stop-color="#BABAFF"/><stop offset="1" stop-color="#5F3AB9"/>
+      </linearGradient>
+      <linearGradient id="vBleu" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#94D4FF"/><stop offset="1" stop-color="#427CFF"/>
+      </linearGradient>
+      <linearGradient id="vJaune" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#F2EB96"/><stop offset="1" stop-color="#F2D04B"/>
+      </linearGradient>
+    </defs>
+
+    <rect width="154" height="216" fill="#1B0068"/>
+
+    <!-- nappes organiques translucides qui se recouvrent -->
+    <g style="mix-blend-mode:screen">
+      <path opacity=".26" fill="url(#vLav)"  transform="translate(-40,-46) scale(1.6)"
+            d="M98.88,51.92C99.44,64.57 89.24,85.74 78.53,93.67C67.82,101.60 45.49,102.61 34.62,99.51C23.75,96.41 17.31,87.73 13.31,75.08C9.31,62.42 5.12,34.20 10.62,23.59C16.12,12.99 35.52,12.41 46.28,11.44C57.04,10.48 66.41,11.03 75.18,17.78C83.95,24.52 98.32,39.27 98.88,51.92Z"/>
+      <path opacity=".17" fill="url(#vTurq)" transform="translate(44,-30) scale(1.35)"
+            d="M97.61,56.22C98.74,69.36 87.69,86.15 78.59,92.90C69.50,99.64 55.90,101.17 43.06,96.69C30.22,92.21 6.28,76.80 1.55,66.01C-3.18,55.23 8.83,43.19 14.69,31.97C20.56,20.75 27.22,1.67 36.75,-1.32C46.28,-4.30 61.71,4.46 71.85,14.05C82.00,23.64 96.49,43.07 97.61,56.22Z"/>
+      <path opacity=".14" fill="url(#vBleu)" transform="translate(-38,100) scale(1.5)"
+            d="M100.08,53.41C101.09,66.37 96.16,80.30 86.81,87.60C77.46,94.91 56.95,99.03 43.99,97.23C31.03,95.43 15.62,87.33 9.05,76.80C2.47,66.27 -1.03,46.62 4.55,34.07C10.13,21.52 29.83,5.54 42.54,1.50C55.25,-2.53 71.21,1.21 80.80,9.86C90.39,18.51 99.08,40.45 100.08,53.41Z"/>
+      <path opacity=".11" fill="url(#vLav)"  transform="translate(56,126) scale(1.45)"
+            d="M95.60,46.17C95.47,57.33 89.90,78.64 80.66,85.33C71.42,92.01 52.25,87.34 40.17,86.26C28.10,85.18 12.87,87.35 8.23,78.86C3.58,70.37 5.83,47.51 12.31,35.30C18.78,23.09 35.56,8.43 47.07,5.60C58.59,2.77 73.30,11.56 81.39,18.32C89.48,25.08 95.72,35.00 95.60,46.17Z"/>
+    </g>
+
+    <!-- petite bille jaune, rappel du CTA -->
+    <path fill="url(#vJaune)" transform="translate(130,140) scale(.13)"
+          d="M97.90,46.30C98.39,59.28 87.61,83.01 78.74,90.74C69.87,98.47 55.54,95.67 44.69,92.70C33.84,89.72 18.80,83.49 13.64,72.88C8.47,62.28 9.16,39.83 13.70,29.04C18.24,18.25 30.53,10.84 40.89,8.14C51.24,5.44 66.32,6.49 75.83,12.85C85.33,19.21 97.42,33.32 97.90,46.30Z"/>
+  </svg>
+
+  <div class="layer">
+    <div class="v-entete">
+      <p class="kicker">Ce que je fais pour vous</p>
+      <h2 class="h2">Quatre façons de travailler ensemble.</h2>
+    </div>
 
     <div class="services">
       <div class="service">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+        <img src="../assets/cover-sites-web.png" alt="">
         <h3>Sites web sur mesure</h3>
-        <p>Vitrine, e&#8209;commerce ou refonte&nbsp;: rapide, bien référencé, fait pour durer.</p>
+        <p>Vitrine, e&#8209;commerce, refonte. Rapide et bien référencé.</p>
       </div>
       <div class="service">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5a8.5 8.5 0 0 1 8.5-8.5 8.38 8.38 0 0 1 8.5 8.5z"/></svg>
+        <img src="../assets/cover-reseaux.png" alt="">
         <h3>Community management</h3>
-        <p>Rester visible et inspirer confiance, sans y passer vos soirées.</p>
+        <p>Rester visible sans y passer vos soirées.</p>
       </div>
       <div class="service">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0 0 18c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1a1.5 1.5 0 0 1 1.09-2.5H16a5 5 0 0 0 5-5c0-4.42-4.03-8-9-8z"/><circle cx="7.5" cy="10.5" r="1.2"/><circle cx="12" cy="7.5" r="1.2"/><circle cx="16.5" cy="10.5" r="1.2"/></svg>
+        <img src="../assets/cover-design.png" alt="">
         <h3>Design graphique</h3>
-        <p>Logo, charte, supports print&nbsp;: une image cohérente et mémorable.</p>
+        <p>Logo, charte, supports print cohérents.</p>
       </div>
       <div class="service">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3m0 12v3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M3 12h3m12 0h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
+        <img src="../assets/cover-automatisation.png" alt="">
         <h3>Automatisation &amp; IA</h3>
-        <p>Devis, rappels, relances&nbsp;: la paperasse tourne toute seule, vous gardez le contrôle.</p>
+        <p>Devis, rappels, relances&nbsp;: en pilote automatique.</p>
       </div>
     </div>
 
     <div class="etapes">
-      <div class="etape"><span class="num">1</span>
-        <span><b>On se parle</b><span>20 min pour comprendre votre activité et votre priorité n°1.</span></span></div>
-      <div class="etape"><span class="num">2</span>
-        <span><b>Je cadre</b><span>Un plan écrit, un budget, une date de livraison.</span></span></div>
-      <div class="etape"><span class="num">3</span>
-        <span><b>Je crée, vous validez</b><span>Livré, formé, documenté — vous gardez la main.</span></span></div>
+      <div class="etape">
+        <figure><span class="fond" style="background:linear-gradient(135deg,#96F0F7,#4DAFC9)"></span><img src="../assets/mascotte-reflexion.png" alt=""><span class="num">1</span></figure>
+        <b>On se parle</b>
+        <span>20 min pour cerner votre priorité n°1.</span>
+      </div>
+      <div class="etape">
+        <figure><span class="fond" style="background:linear-gradient(135deg,#BABAFF,#875FD5)"></span><img src="../assets/mascotte-idee-bust.png" alt=""><span class="num">2</span></figure>
+        <b>Je cadre</b>
+        <span>Un plan écrit, un budget, une date.</span>
+      </div>
+      <div class="etape">
+        <figure><span class="fond" style="background:linear-gradient(135deg,#F2EB96,#F2D04B)"></span><img src="../assets/mascotte-explosion-joie.png" alt=""><span class="num">3</span></figure>
+        <b>Je crée, vous validez</b>
+        <span>Livré, formé, documenté.</span>
+      </div>
     </div>
 
     <div class="avis">
-      <img class="avis-mascotte" src="../assets/mascotte-victoire.webp" alt="">
-      <div>
-        <div class="etoiles">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
-        </div>
-        <q>Charlotte a très vite compris mes besoins et m'a proposé une direction plus moderne,
-           plus claire et plus adaptée à mon activité.</q>
-        <footer>Mathilde T. · avis Google vérifié</footer>
+      <div class="etoiles">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>
       </div>
+      <q>Charlotte a très vite compris mes besoins et m'a proposé une direction plus moderne,
+         plus claire et plus adaptée à mon activité.</q>
+      <footer>Mathilde T. · avis Google vérifié</footer>
     </div>
 
     <div class="pied">
       <div>
-        <img class="pied-logo" src="../assets/logo-carre-fond-fonce.svg" alt="PeakCL">
         <p class="pied-nom">Charlotte Lacroix</p>
         <p class="pied-role">PeakCL · com' &amp; web en Savoie</p>
         <div class="contacts">
@@ -266,6 +349,21 @@
             peakcl.com
           </p>
         </div>
+
+        <div class="reseaux">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+            @peakcl73
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3h-2.2A4.3 4.3 0 0 0 9 7.3V10H6.5v3.5H9V21h3.5v-7.5h2.6l.4-3.5h-3V7.6c0-.6.4-1.1 1-1.1h2V3z"/></svg>
+            web.peakcl
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="4"/><path d="M7 10.5V17M7 7.2v.1M11.5 17v-3.9a2.4 2.4 0 0 1 4.8 0V17"/></svg>
+            charlotte-lacroix-peakcl
+          </span>
+        </div>
       </div>
 
       <div class="qr-bloc">
@@ -275,10 +373,6 @@
     </div>
   </div>
 
-  <div class="bande">
-    <i style="background:#94D4FF"></i><i style="background:#96F0F7"></i><i style="background:#BABAFF"></i>
-    <i style="background:#875FD5"></i><i style="background:#F2D04B"></i>
-  </div>
   <span class="trim" style="border-color:rgba(255,255,255,.3)"></span>
 </section>
 
