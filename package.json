@@ -14,7 +14,17 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "pdf:generate": "node ./scripts/generate-peakcl-pdfs.mjs",
-    "logos:optimize": "node ./scripts/optimize-client-logos.mjs"
+    "logos:optimize": "node ./scripts/optimize-client-logos.mjs",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,mjs,cjs}": [
+      "eslint --fix --no-warn-ignored",
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{css,json,jsonc,yml,yaml}": [
+      "prettier --write --ignore-unknown"
+    ]
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.111.0",
@@ -92,6 +102,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
     "playwright": "^1.59.1",
     "prettier": "^3.7.3",
     "sharp": "^0.34.5",
