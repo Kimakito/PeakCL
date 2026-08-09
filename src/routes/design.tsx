@@ -49,7 +49,7 @@ export const Route = createFileRoute("/design")({
       avatarCard="logos"
       eyebrow="Design graphique"
       title="Design graphique"
-      tagline="Une identité visuelle et des supports qui rendent votre activité — cabinet, atelier ou marque indépendante — cohérente et reconnaissable partout, du site à la fiche Google."
+      tagline="Une identité visuelle et des supports qui rendent votre activité (cabinet, atelier ou marque indépendante) cohérente et reconnaissable partout, du site à la fiche Google."
       facts={{
         audience:
           "Indépendants, thérapeutes, artisans et petites structures qui créent leur marque ou modernisent une image devenue datée.",

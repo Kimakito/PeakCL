@@ -126,6 +126,92 @@ export const sitesWeb: CatalogItem[] = [
   },
 ];
 
+/* ── Refonte PME (landing /refonte-site-pme) ─────────────────── */
+
+/**
+ * Échelle de valeur de la landing PME : mini-audit offert → audit complet
+ * 500 € → refonte → maintenance. Prix AFFICHÉS (showPrices=true) : une PME
+ * compare des budgets, pas des promesses.
+ */
+export const refontePme: CatalogItem[] = [
+  {
+    title: "Mini-audit de votre site actuel",
+    desc: "Vous m'envoyez l'adresse de votre site, je vous renvoie une page : ce qui fait fuir vos visiteurs, ce qui freine Google, et les 3 corrections les plus rentables.",
+    price: "Offert",
+    delay: "Livré sous 72h, sans engagement",
+    included: [
+      "Test mobile et vitesse (Core Web Vitals mesurés, pas estimés)",
+      "Points bloquants SEO (balises, structure, erreurs techniques)",
+      "Analyse du parcours de contact : où vous perdez des demandes",
+      "3 priorités classées par impact",
+      "15 minutes de restitution au téléphone si vous le souhaitez",
+    ],
+  },
+  {
+    title: "Audit complet avant refonte",
+    desc: "Avant d'investir dans une refonte, posez les chiffres : ce qui doit changer, ce qui doit surtout être préservé, et ce que ça coûte.",
+    price: "500 €",
+    delay: "Rapport livré en 1 semaine",
+    included: [
+      "Audit UX page par page (parcours, friction, crédibilité)",
+      "Performance complète : Core Web Vitals, poids, hébergement",
+      "SEO technique et contenu : ce qui ranke aujourd'hui et doit survivre à la refonte",
+      "Comparaison avec 3 concurrents directs",
+      "Plan de refonte priorisé avec budget estimé par lot",
+      "Montant déduit du devis si vous me confiez la refonte",
+    ],
+  },
+  {
+    title: "Refonte complète",
+    desc: "Votre site a 5 ou 8 ans : lent sur mobile, design daté, contenu figé. Je le reconstruis sur des bases saines, sans perdre votre référencement acquis.",
+    delay: "Délai : 4 à 8 semaines selon périmètre",
+    included: [
+      "Architecture et maquettes validées ensemble avant développement",
+      "Développement sur mesure ou WordPress, selon l'autonomie de votre équipe",
+      "Migration des contenus et redirections 301 : vos positions Google sont préservées",
+      "Core Web Vitals au vert, mesurés avant et après",
+      "Suivi de conversion configuré (formulaires, appels, devis)",
+      "Formation de votre équipe et documentation",
+      "3 mois de support inclus",
+    ],
+  },
+  {
+    title: "Maintenance & évolutions",
+    desc: "Un site de PME n'est jamais fini : pages qui s'ajoutent, offres qui changent, sécurité à suivre. Un forfait mensuel pour qu'il reste rapide, à jour et vivant.",
+    price: "À partir de 199 €/mois",
+    delay: "Engagement 6 mois",
+    included: [
+      "Mises à jour, sauvegardes et monitoring de disponibilité",
+      "Crédit mensuel d'évolutions : nouvelles pages, contenus, landing de campagne",
+      "Rapport mensuel : trafic, positions Google, demandes générées",
+      "Support prioritaire sous 24h ouvrées",
+    ],
+  },
+];
+
+export const refontePmeHighlights: ServiceHighlight[] = [
+  {
+    emoji: "🧱",
+    title: "Des fondations refaites, pas du maquillage",
+    desc: "Une refonte n'est pas un coup de peinture : structure, code et vitesse sont repris. C'est mon métier depuis 7 ans, dont la refonte complète du site corporate d'une entreprise internationale.",
+  },
+  {
+    emoji: "🔒",
+    title: "Votre SEO acquis est protégé",
+    desc: "Redirections 301, préservation des URL qui rankent, suivi des positions : une refonte ratée peut vous faire disparaître de Google. La mienne commence par un inventaire de ce qui doit survivre.",
+  },
+  {
+    emoji: "📊",
+    title: "Des chiffres avant et après",
+    desc: "Vitesse mesurée, suivi de conversion configuré : vous voyez ce que la refonte change en demandes entrantes, pas seulement en esthétique.",
+  },
+  {
+    emoji: "🤝",
+    title: "Une interlocutrice senior, pas une équipe junior",
+    desc: "Vous parlez directement à la personne qui audite, maquette et code : 7 ans dans le digital, des plateformes à fort trafic aux sites d'indépendants, 18 projets notés 5/5 sur Google.",
+  },
+];
+
 /* ── Design ──────────────────────────────────────────────────── */
 
 export const design: CatalogItem[] = [
@@ -228,21 +314,36 @@ export const cmForfaits: Forfait[] = [
     emoji: "🚀",
     name: "Dynamique",
     freq: "12 publications/mois (3/semaine)",
-    inclus: ["12 visuels", "12 textes + hashtags", "1 story/semaine", "Rapport mensuel"],
+    inclus: [
+      "12 visuels",
+      "12 textes + hashtags",
+      "1 story/semaine",
+      "Rapport mensuel",
+    ],
     price: "650 €/mois",
   },
   {
     emoji: "🔥",
     name: "Intensif",
     freq: "20 publications/mois (5/semaine, hors LinkedIn)",
-    inclus: ["20 visuels", "20 textes + hashtags", "Stories + Reels (2/mois)", "Rapport mensuel"],
+    inclus: [
+      "20 visuels",
+      "20 textes + hashtags",
+      "Stories + Reels (2/mois)",
+      "Rapport mensuel",
+    ],
     price: "900 €/mois",
   },
   {
     emoji: "🎯",
     name: "Sur mesure",
     freq: "Fréquence définie ensemble",
-    inclus: ["Volume personnalisé", "Toutes plateformes", "Accompagnement stratégique", "Rapport mensuel"],
+    inclus: [
+      "Volume personnalisé",
+      "Toutes plateformes",
+      "Accompagnement stratégique",
+      "Rapport mensuel",
+    ],
     price: "sur devis",
   },
 ];
@@ -299,7 +400,8 @@ export const automatisation: CatalogItem[] = [
       "Entretien de cadrage et recensement des tâches chronophages",
       "Cartographie des processus actuels (schéma clair)",
       "Repérage des points d’automatisation à fort impact",
-      "Estimation du temps et du budget gagnés",
+      "3 à 5 automatisations prioritaires, chiffrées en heures gagnées par mois",
+      "Estimation du budget outils (abonnements, mise en place)",
       "Plan d’action IA priorisé (quick wins d’abord)",
     ],
   },
@@ -470,7 +572,8 @@ export const packages: Pack[] = [
   {
     emoji: "🌐",
     name: "Pack Présence Web",
-    tagline: "Lancer sa présence en ligne de façon professionnelle et cohérente.",
+    tagline:
+      "Lancer sa présence en ligne de façon professionnelle et cohérente.",
     points: [
       "Site vitrine sur mesure ou WordPress (au choix), jusqu’à 5 pages",
       "Identité visuelle : logo + charte graphique",
@@ -483,7 +586,8 @@ export const packages: Pack[] = [
   {
     emoji: "🛒",
     name: "Pack E-commerce Complet",
-    tagline: "Lancer ou refondre une boutique en ligne performante et bien brandée.",
+    tagline:
+      "Lancer ou refondre une boutique en ligne performante et bien brandée.",
     points: [
       "Site e-commerce (Shopify ou WooCommerce), jusqu’à 30 produits",
       "Identité visuelle adaptée au e-commerce",
@@ -497,7 +601,8 @@ export const packages: Pack[] = [
   {
     emoji: "🎨",
     name: "Pack Brand & Social",
-    tagline: "Construire une identité forte et l’exprimer sur les réseaux sociaux.",
+    tagline:
+      "Construire une identité forte et l’exprimer sur les réseaux sociaux.",
     points: [
       "Identité visuelle complète (logo + charte)",
       "Pack visuels réseaux sociaux (10 templates)",
@@ -562,6 +667,23 @@ export type ServiceMeta = {
   tagline: string;
 };
 
+/**
+ * Landings hors hub /services : pages d'atterrissage de campagnes sortantes.
+ * Volontairement absentes de SERVICES (donc de la nav et du hub), mais exposees
+ * au sitemap et a llms.txt pour rester decouvrables par Google et les IA.
+ */
+export const LANDINGS: ServiceMeta[] = [
+  {
+    slug: "/refonte-site-pme",
+    navLabel: "Refonte PME",
+    emoji: "🔧",
+    eyebrow: "Refonte de site web",
+    title: "Refonte de site pour PME",
+    tagline:
+      "Refonte de sites vieillissants pour PME de 10 a 50 salaries, sans perdre le referencement acquis. Mini-audit offert sous 72h.",
+  },
+];
+
 export const SERVICES: ServiceMeta[] = [
   {
     slug: "/sites-web",
@@ -569,7 +691,8 @@ export const SERVICES: ServiceMeta[] = [
     emoji: "💻",
     eyebrow: "Développement web",
     title: "Sites web sur mesure",
-    tagline: "Sites custom, performants et pérennes, avec un accompagnement de bout en bout.",
+    tagline:
+      "Sites custom, performants et pérennes, avec un accompagnement de bout en bout.",
   },
   {
     slug: "/community-management",
@@ -577,7 +700,8 @@ export const SERVICES: ServiceMeta[] = [
     emoji: "📱",
     eyebrow: "Réseaux sociaux",
     title: "Community management",
-    tagline: "Pour thérapeutes et indépendants : rester visible et inspirer confiance, sans y passer vos soirées.",
+    tagline:
+      "Pour thérapeutes et indépendants : rester visible et inspirer confiance, sans y passer vos soirées.",
   },
   {
     slug: "/design",
@@ -585,14 +709,16 @@ export const SERVICES: ServiceMeta[] = [
     emoji: "🎨",
     eyebrow: "Design graphique",
     title: "Design graphique",
-    tagline: "Identité visuelle et supports pour une marque cohérente et mémorable.",
+    tagline:
+      "Identité visuelle et supports pour une marque cohérente et mémorable.",
   },
   {
     slug: "/accompagnement-automatisation",
     navLabel: "Automatisation",
     emoji: "⚙️",
     eyebrow: "Automatisation & IA",
-    title: "Automatisation & IA pour votre TPE",
-    tagline: "Mettre l’IA et l’automatisation au service de votre petite structure, pour gagner du temps sans y perdre le contrôle.",
+    title: "Automatisation & IA pour TPE et PME",
+    tagline:
+      "Mettre l’IA et l’automatisation au service de votre structure, pour gagner du temps sans y perdre le contrôle.",
   },
 ];

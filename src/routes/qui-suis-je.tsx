@@ -25,7 +25,7 @@ export const Route = createFileRoute("/qui-suis-je")({
       {
         name: "description",
         content:
-          "Charlotte Lacroix (PeakCL), développeuse web & graphiste près d'Albertville (Savoie). Sites internet, logos et community management pour indépendants.",
+          "Charlotte Lacroix (PeakCL), développeuse web & graphiste près d'Albertville (Savoie). 7 ans dans le digital : sites, refontes et SEO local pour indépendants, TPE et PME.",
       },
       {
         property: "og:title",
@@ -76,9 +76,10 @@ function Page() {
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
               Développeuse web et graphiste à Gilly-sur-Isère, près
-              d'Albertville (Savoie). Mon objectif : transformer votre présence
-              en ligne en un outil qui génère des demandes, pas juste des
-              visites.
+              d'Albertville (Savoie). 7 ans dans le digital, des plateformes à
+              fort trafic aux sites d'indépendants. Mon objectif : transformer
+              votre présence en ligne en un outil qui génère des demandes, pas
+              juste des visites.
             </p>
           </div>
         </SnapSection>
@@ -121,7 +122,6 @@ function Page() {
                 />
               </picture>
             </div>
-
 
             <div className="relative mt-10 rounded-2xl border border-border bg-card/50 p-6 shadow-card">
               <GlowingEffect

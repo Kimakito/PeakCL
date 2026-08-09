@@ -28,7 +28,7 @@ const TMP_DIR = join(ROOT, "node_modules", ".cache", "llms-txt");
 
 /** Point d'entree synthetique : re-exporte tout ce dont le generateur a besoin. */
 const ENTRY = `
-export { SERVICES, sitesWeb, design, community, automatisation, cmForfaits, packages } from "@/content/peakcl/services";
+export { SERVICES, LANDINGS, sitesWeb, refontePme, design, community, automatisation, cmForfaits, packages } from "@/content/peakcl/services";
 export { conseils } from "@/content/peakcl/conseils";
 export { peakclPortfolio } from "@/content/peakcl/portfolio";
 export { geoPages, geoPagesFor, GEO_SERVICE_LABEL } from "@/seo/geo";
@@ -101,7 +101,12 @@ function render(c) {
     "/design": c.design,
     "/community-management": c.community,
     "/accompagnement-automatisation": c.automatisation,
+    "/refonte-site-pme": c.refontePme,
   };
+
+  // Les landings hors hub sont exposees a llms.txt au meme titre que les
+  // services : invisibles dans la nav, mais decouvrables par les IA.
+  const allPages = [...c.SERVICES, ...c.LANDINGS];
 
   const out = [];
   const push = (...lines) => out.push(...lines);
@@ -113,7 +118,7 @@ function render(c) {
     "> graphiste independante basee a Gilly-sur-Isere (73200), pres d'Albertville en",
     "> Savoie. Creation et refonte de sites internet (sur mesure ou WordPress),",
     "> identite visuelle et logo, community management et automatisation, pour des",
-    "> independants, artisans, therapeutes et petites structures de Savoie,",
+    "> independants, artisans, therapeutes, PME et petites structures de Savoie,",
     "> Haute-Savoie et partout en France a distance.",
   );
   push("");
@@ -126,7 +131,7 @@ function render(c) {
   // ── Services ────────────────────────────────────────────────────
   push("## Services");
   push("");
-  for (const s of c.SERVICES) {
+  for (const s of allPages) {
     push(link(s.title, s.slug, oneLine(s.tagline)));
   }
   push(
@@ -141,7 +146,7 @@ function render(c) {
   // ── Detail des offres ───────────────────────────────────────────
   push("## Detail des offres");
   push("");
-  for (const s of c.SERVICES) {
+  for (const s of allPages) {
     const items = catalogBySlug[s.slug];
     if (!items?.length) continue;
     push(`### ${s.title} — ${abs(s.slug)}`);

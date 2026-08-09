@@ -4,7 +4,7 @@
 > graphiste independante basee a Gilly-sur-Isere (73200), pres d'Albertville en
 > Savoie. Creation et refonte de sites internet (sur mesure ou WordPress),
 > identite visuelle et logo, community management et automatisation, pour des
-> independants, artisans, therapeutes et petites structures de Savoie,
+> independants, artisans, therapeutes, PME et petites structures de Savoie,
 > Haute-Savoie et partout en France a distance.
 
 Interlocutrice unique : la meme personne code le site, dessine l'identite et
@@ -15,7 +15,8 @@ gere les reseaux. Contact : peakcl73@gmail.com, 07 43 51 76 27.
 - [Sites web sur mesure](https://peakcl.com/sites-web) : Sites custom, performants et pérennes, avec un accompagnement de bout en bout.
 - [Community management](https://peakcl.com/community-management) : Pour thérapeutes et indépendants : rester visible et inspirer confiance, sans y passer vos soirées.
 - [Design graphique](https://peakcl.com/design) : Identité visuelle et supports pour une marque cohérente et mémorable.
-- [Automatisation & IA pour votre TPE](https://peakcl.com/accompagnement-automatisation) : Mettre l’IA et l’automatisation au service de votre petite structure, pour gagner du temps sans y perdre le contrôle.
+- [Automatisation & IA pour TPE et PME](https://peakcl.com/accompagnement-automatisation) : Mettre l’IA et l’automatisation au service de votre structure, pour gagner du temps sans y perdre le contrôle.
+- [Refonte de site pour PME](https://peakcl.com/refonte-site-pme) : Refonte de sites vieillissants pour PME de 10 a 50 salaries, sans perdre le referencement acquis. Mini-audit offert sous 72h.
 - [Tous les services](https://peakcl.com/services) : Vue d'ensemble des prestations et des packs.
 
 ## Detail des offres
@@ -230,7 +231,7 @@ Inclus :
 - Respect des spécifications de chaque plateforme
 - Jusqu’à 5 formats inclus
 
-### Automatisation & IA pour votre TPE — https://peakcl.com/accompagnement-automatisation
+### Automatisation & IA pour TPE et PME — https://peakcl.com/accompagnement-automatisation
 
 #### Audit & cartographie des processus
 
@@ -242,7 +243,8 @@ Inclus :
 - Entretien de cadrage et recensement des tâches chronophages
 - Cartographie des processus actuels (schéma clair)
 - Repérage des points d’automatisation à fort impact
-- Estimation du temps et du budget gagnés
+- 3 à 5 automatisations prioritaires, chiffrées en heures gagnées par mois
+- Estimation du budget outils (abonnements, mise en place)
 - Plan d’action IA priorisé (quick wins d’abord)
 
 #### Mise en place d’automatisations no-code
@@ -295,6 +297,62 @@ Inclus :
 - Nouvelles automatisations au fil des besoins
 - Monitoring et corrections
 - Point de conseil sur l’organisation et les outils
+
+### Refonte de site pour PME — https://peakcl.com/refonte-site-pme
+
+#### Mini-audit de votre site actuel
+
+Vous m'envoyez l'adresse de votre site, je vous renvoie une page : ce qui fait fuir vos visiteurs, ce qui freine Google, et les 3 corrections les plus rentables.
+
+**Livré sous 72h, sans engagement**
+
+Inclus :
+- Test mobile et vitesse (Core Web Vitals mesurés, pas estimés)
+- Points bloquants SEO (balises, structure, erreurs techniques)
+- Analyse du parcours de contact : où vous perdez des demandes
+- 3 priorités classées par impact
+- 15 minutes de restitution au téléphone si vous le souhaitez
+
+#### Audit complet avant refonte
+
+Avant d'investir dans une refonte, posez les chiffres : ce qui doit changer, ce qui doit surtout être préservé, et ce que ça coûte.
+
+**Rapport livré en 1 semaine**
+
+Inclus :
+- Audit UX page par page (parcours, friction, crédibilité)
+- Performance complète : Core Web Vitals, poids, hébergement
+- SEO technique et contenu : ce qui ranke aujourd'hui et doit survivre à la refonte
+- Comparaison avec 3 concurrents directs
+- Plan de refonte priorisé avec budget estimé par lot
+- Montant déduit du devis si vous me confiez la refonte
+
+#### Refonte complète
+
+Votre site a 5 ou 8 ans : lent sur mobile, design daté, contenu figé. Je le reconstruis sur des bases saines, sans perdre votre référencement acquis.
+
+**Délai : 4 à 8 semaines selon périmètre**
+
+Inclus :
+- Architecture et maquettes validées ensemble avant développement
+- Développement sur mesure ou WordPress, selon l'autonomie de votre équipe
+- Migration des contenus et redirections 301 : vos positions Google sont préservées
+- Core Web Vitals au vert, mesurés avant et après
+- Suivi de conversion configuré (formulaires, appels, devis)
+- Formation de votre équipe et documentation
+- 3 mois de support inclus
+
+#### Maintenance & évolutions
+
+Un site de PME n'est jamais fini : pages qui s'ajoutent, offres qui changent, sécurité à suivre. Un forfait mensuel pour qu'il reste rapide, à jour et vivant.
+
+**Engagement 6 mois**
+
+Inclus :
+- Mises à jour, sauvegardes et monitoring de disponibilité
+- Crédit mensuel d'évolutions : nouvelles pages, contenus, landing de campagne
+- Rapport mensuel : trafic, positions Google, demandes générées
+- Support prioritaire sous 24h ouvrées
 
 ### Forfaits community management (tarifs publics)
 
@@ -449,21 +507,21 @@ le bassin albertvillois et la Savoie, et a distance partout en France.
 
 - [Portfolio](https://peakcl.com/portfolio) : Projets clients avec le perimetre reellement livre sur chacun.
 
-- **Ikami** (Portail immobilier · France · Espagne · Suisse) — Le plus gros morceau de ma carrière : un portail d'annonces immobilières décliné dans trois pays. J'ai tout construit en full stack, backend PHP compris — la base des annonces, celle des agents immobiliers, et autant de bases à faire tourner que de pays. Conception, développement, mise en ligne et maintenance : c'était moi, du premier schéma de base de données aux mises à jour quotidiennes. Perimetre : Conception et développement full stack, Backend PHP intégral, Base de données des annonces immobilières, Base de données des agents immobiliers, Déclinaisons France, Espagne et Suisse, Gestion d'une base par pays, Mise en ligne et maintenance. Projet mené dans le cadre de mon poste salarié, et non en freelance.
-- **Adelante Voyages** (Agence de voyage · France) — Face aux géants du tourisme en ligne, Victor voulait se faire une place avec une approche humaine. Derrière la vitrine — catalogue de destinations et storytelling des séjours — j'ai développé un vrai back-office : suivi des devis, des ventes et des commissions, dans un seul tableau de bord. C'est la partie invisible qui a demandé le plus de travail. Perimetre : Site internet et catalogue de destinations, Dashboard de gestion des devis, Suivi des ventes, Calcul et suivi des commissions, Système de demande de devis personnalisé.
+- **Ikami** (Portail immobilier · France · Espagne · Suisse) — Le plus gros morceau de ma carrière : un portail d'annonces immobilières décliné dans trois pays. J'ai tout construit en full stack, backend PHP compris : la base des annonces, celle des agents immobiliers, et autant de bases à faire tourner que de pays. Conception, développement, mise en ligne et maintenance : c'était moi, du premier schéma de base de données aux mises à jour quotidiennes. Perimetre : Conception et développement full stack, Backend PHP intégral, Base de données des annonces immobilières, Base de données des agents immobiliers, Déclinaisons France, Espagne et Suisse, Gestion d'une base par pays, Mise en ligne et maintenance. Projet mené dans le cadre de mon poste salarié, et non en freelance.
+- **Adelante Voyages** (Agence de voyage · France) — Face aux géants du tourisme en ligne, Victor voulait se faire une place avec une approche humaine. Derrière la vitrine (catalogue de destinations et storytelling des séjours), j'ai développé un vrai back-office : suivi des devis, des ventes et des commissions, dans un seul tableau de bord. C'est la partie invisible qui a demandé le plus de travail. Perimetre : Site internet et catalogue de destinations, Dashboard de gestion des devis, Suivi des ventes, Calcul et suivi des commissions, Système de demande de devis personnalisé.
 - **Cabinet Johanna Alfonso** (Avocate · Grenoble) — Maître Alfonso plaidait brillamment, mais son cabinet était invisible en ligne. Amélie Brunet avait signé les maquettes ; j'ai pris le relais côté technique et développé le site avec des pages spécialisées par domaine de droit, pour capter des clients en recherche active et urgente. Perimetre : Développement du site, Intégration fidèle des maquettes Adobe, Pages spécialisées par domaine de droit. Direction artistique et maquettes signées Amélie Brunet, graphiste : j'ai assuré l'intégration et le développement.
 - **Plumes Poils & Compagnie** (Ferme pédagogique · Savoie) — Camille et ses animaux interviennent en EHPAD, écoles et IME avec ses 40+ animaux médiateurs. J'ai créé un site chaleureux présentant la richesse de l'offre, les animaux, et facilitant la prise de contact pour les établissements. Perimetre : Site internet complet, Intégration de la charte existante. Le logo et la charte graphique venaient d'un autre graphiste : j'ai construit le site en respectant son identité au pixel près.
 - **Fiona Espitallier Dick** (Artiste comédie musicale) — Fiona est artiste de comédie musicale, et elle avait besoin d'un portfolio qui impressionne les directeurs de casting dès les premières secondes. Je lui ai dessiné un logo qui se lit à la fois comme un micro et comme une scène, puis conçu un one-page visuel et immersif : démo-reel intégré, galerie photos, identité digitale qui rayonne. Perimetre : Création du logo (micro et scène), Site internet one-page, Intégration démo-reel et galerie.
-- **Jantes 73 : La Vieille Roue** (Artisan automobile · Albertville) — Johan avait ce projet en tête depuis des années, mais partait de zéro : ni logo, ni site, ni adresse pro. J'ai lancé toute sa communication, du logo aux flyers, du site à la fiche Google, jusqu'à la prise de rendez-vous en ligne. Il n'a eu qu'à ouvrir l'atelier — les clients ont suivi. Perimetre : Création du logo, Charte graphique, Site internet, Flyers, Fiche Google Business Profile, Page Facebook + premières publications, Adresse e-mail professionnelle, Prise de rendez-vous en ligne (Cal.com).
+- **Jantes 73 : La Vieille Roue** (Artisan automobile · Albertville) — Johan avait ce projet en tête depuis des années, mais partait de zéro : ni logo, ni site, ni adresse pro. J'ai lancé toute sa communication, du logo aux flyers, du site à la fiche Google, jusqu'à la prise de rendez-vous en ligne. Il n'a eu qu'à ouvrir l'atelier : les clients ont suivi. Perimetre : Création du logo, Charte graphique, Site internet, Flyers, Fiche Google Business Profile, Page Facebook + premières publications, Adresse e-mail professionnelle, Prise de rendez-vous en ligne (Cal.com).
 - **SETIC Fluides** (Bureau d'études · BTP · Savoie) — Spécialisé en thermique, fluides et sécurité incendie, SETIC travaillait sans présence en ligne. J'ai conçu un site institutionnel sobre et professionnel, mettant en valeur leurs expertises techniques et leurs projets en Savoie et Rhône-Alpes. Perimetre : Création du logo, Charte graphique, Site internet, Création de la page LinkedIn, Calendrier éditorial.
 - **SP Services Rénovation** (Artisan rénovation · Isère) — Stéphane transforme les intérieurs et extérieurs avec un savoir-faire polyvalent (salles de bain, terrasses, électricité). J'ai créé un site moderne avec galerie de chantiers, formulaire de contact et fil Instagram intégré pour valoriser ses réalisations. Perimetre : Amélioration du logo, Site internet, Fiche Google Business Profile, Création des pages Facebook et Instagram, Intégration du fil Instagram au site.
 - **Laboratoire Sanchez Randon** (Prothésiste dentaire · Chambéry) — Un laboratoire avec 25 ans d'expertise, et un site géré par une agence qui a arrêté l'abonnement du jour au lendemain. J'ai repris le site en urgence, l'ai réhébergé, puis refondu entièrement : pages spécialisées implants, prothèses et logiciels Exocad / 3Shape, plus le fil Instagram intégré. Perimetre : Reprise du site laissé par l'ancienne agence, Réhébergement sur Netlify, Refonte totale du site, Intégration du fil Instagram.
 - **Mordant Équin** (Dentiste équin · Savoie) — Laura pratique la dentisterie équine moderne, une spécialité rare et indispensable. J'ai créé son site avec un SEO géolocalisé précis pour qu'elle soit trouvée par les propriétaires de chevaux en Savoie et Haute-Savoie, dans un rayon de 250 km. Perimetre : Site internet, Création de la page Facebook.
-- **Jean-Baptiste Lacroix** (Écriture · Drone · Échecs · Savoie) — Jean-Baptiste mène trois vies : auteur de fantasy, pilote de drone et passionné d'échecs. Plutôt que trois sites éparpillés, je lui en ai construit un seul, avec un onglet par univers — son écriture et son blog, ses captations aériennes et sa partie échecs — pour rassembler toute son audience au même endroit. Perimetre : Site internet, Architecture des trois univers (écriture, drone, échecs), Blog intégré.
+- **Jean-Baptiste Lacroix** (Écriture · Drone · Échecs · Savoie) — Jean-Baptiste mène trois vies : auteur de fantasy, pilote de drone et passionné d'échecs. Plutôt que trois sites éparpillés, je lui en ai construit un seul, avec un onglet par univers (son écriture et son blog, ses captations aériennes et sa partie échecs) pour rassembler toute son audience au même endroit. Perimetre : Site internet, Architecture des trois univers (écriture, drone, échecs), Blog intégré.
 - **DoodleIdoo** (Artiste illustratrice) — Une illustratrice créative dont les œuvres méritaient une vitrine à la hauteur. J'ai conçu un portfolio minimaliste et ultra-rapide, pensé pour les mobiles, qui met ses créations en lumière sans les noyer dans le décor. Perimetre : Site internet, Lancement du compte Instagram, Lancement du compte TikTok.
 - **LM Équitation Western** (Monitrice · Savoie) — Maya, monitrice western, cherchait à attirer de nouveaux élèves en Savoie. J'ai bâti sa vitrine locale avec galerie, présentation des cours et pages optimisées pour les recherches équitation western en Savoie. Perimetre : Site internet, Pages optimisées pour le référencement local.
 - **C'mieux comme ça** (Architecte d'intérieur · Albertville) — Céline a une phrase signature : "Votre habitat s'adapte à vous, et non l'inverse !" Il fallait que son site transmette cette philosophie au premier coup d'œil. Site élégant, galerie de réalisations soignée, formulaire qui convertit. Perimetre : Site internet, Charte graphique, Amélioration du logo. Le logo d'origine n'est pas de moi : je l'ai retravaillé pour qu'il tienne sur tous les supports.
-- **Les 9 Poilus** (Communauté animaux · React + IA) — Une communauté pour les passionnés d'animaux de compagnie. J'ai développé une application React performante avec optimisation SEO automatisée et analytics intégrés, et je pilote les réseaux — TikTok, Instagram, Facebook — qui ont fait grossir la communauté. Perimetre : Site internet (application React), Optimisation SEO automatisée et analytics, Compte TikTok, Compte Instagram, Page Facebook.
+- **Les 9 Poilus** (Communauté animaux · React + IA) — Une communauté pour les passionnés d'animaux de compagnie. J'ai développé une application React performante avec optimisation SEO automatisée et analytics intégrés, et je pilote les réseaux (TikTok, Instagram, Facebook) qui ont fait grossir la communauté. Perimetre : Site internet (application React), Optimisation SEO automatisée et analytics, Compte TikTok, Compte Instagram, Page Facebook.
 - **Ostéo Animal Care** (Ostéopathie animale · WordPress) — Une praticienne en ostéopathie animale qui voulait garder la main sur son site. Elle avait installé son WordPress : j'ai construit toutes les pages et écrit tous les contenus, puis je lui ai laissé les clés. Depuis, elle publie seule. Perimetre : Création de toutes les pages du site, Rédaction intégrale des contenus, Passage de relais pour une gestion autonome. Le WordPress avait été installé par la cliente : elle gère seule son site au quotidien.
 - **Le Juste Plan** (Architecture · WordPress) — Un cabinet d'architecture cherchant à valoriser son approche singulière. J'ai conçu un portfolio WordPress haut de gamme, avec présentation des projets en pleine page et interface de demande d'étude personnalisée. Perimetre : Site WordPress sur-mesure, créé intégralement, Présentation des projets en pleine page, Formulaire de demande d'étude.
 - **Natural Riders** (E-commerce équestre · PrestaShop) — Une boutique d'équipement naturel pour cavaliers coincée sur Jimdo, trop limité pour vendre sérieusement. J'ai migré toute la boutique vers PrestaShop : catalogue, photos et charte graphique repris un par un, sans rien perdre en route. Perimetre : Migration du site Jimdo vers PrestaShop, Intégration du catalogue produits, Intégration des photos, Application de la charte graphique.

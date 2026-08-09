@@ -23,7 +23,7 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
         "script:ld+json": serviceJsonLd({
           name: "Automatisation des processus & IA",
           description:
-            "Audit, automatisations no-code (Make, Zapier), IA appliquée et formation pour les TPE de Savoie et Haute-Savoie.",
+            "Audit, automatisations no-code (Make, Zapier), IA appliquée et formation pour les TPE et PME de Savoie et Haute-Savoie.",
           serviceType: "Automatisation des processus métier",
           path: "/accompagnement-automatisation",
           audience:
@@ -53,18 +53,18 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
     <ServicePage
       heroSpline="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
       eyebrow="Automatisation & IA"
-      title="L’IA au service de votre TPE"
-      tagline="Mettre l’intelligence artificielle et l’automatisation au travail dans votre petite structure : relances, prises de rendez-vous et emails qui tournent tout seuls, pour rendre du temps à votre vrai métier — soigner, créer, accompagner."
+      title="L’IA au service de votre TPE ou PME"
+      tagline="Mettre l’intelligence artificielle et l’automatisation au travail dans votre structure : relances, prises de rendez-vous et emails qui tournent tout seuls, pour rendre du temps à votre vrai métier, que vous soyez thérapeute, artisan ou dirigeant de PME."
       facts={{
         audience:
-          "TPE, cabinets et indépendants qui perdent du temps sur des tâches répétitives (relances, prises de rendez-vous, saisie, emails types).",
+          "TPE, PME, cabinets et indépendants qui perdent du temps sur des tâches répétitives (relances, prises de rendez-vous, saisie, emails types).",
         area: "Sessions à distance, ou sur site en Savoie et Haute-Savoie.",
         delay:
           "Rapport d'audit livré en 1 semaine. Mise en place : 1 à 2 semaines selon le nombre de process, jusqu'à 4 semaines pour un chantier complexe.",
         pricing: "Sur devis, après audit gratuit des process à automatiser.",
         process: [
           "Audit des tâches répétitives et de leur coût en temps réel",
-          "Sélection des process qui valent la peine d'être automatisés",
+          "3 à 5 automatisations prioritaires, chiffrées en heures gagnées par mois",
           "Choix des outils selon votre existant et votre budget",
           "Mise en place, tests et documentation",
           "Formation pour que vous restiez autonome",
@@ -73,20 +73,34 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
           "le développement d'un logiciel métier sur mesure, la migration de données lourdes, et les abonnements aux outils tiers, qui restent à votre charge.",
       }}
       intro={
-        <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-card backdrop-blur">
-          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-yellow)]">
-            Nouveau · en cours de certification
+        <div className="space-y-4">
+          <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-card backdrop-blur">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-turquoise)]">
+              Je pratique ce que je propose
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Mon propre suivi commercial tourne sur un outil que j'ai
+              développé, et mes relances, rapports et sauvegardes partent sans
+              moi. Un audit commence toujours par vos processus réels, jamais
+              par l'outil à la mode : vous repartez avec 3 à 5 automatisations
+              chiffrées en heures gagnées par mois.
+            </p>
           </div>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Je me forme pour obtenir la certification{" "}
-            <span className="text-foreground">
-              RS7311 « Améliorer l’efficacité de sa TPE à l’aide de l’IA »
-            </span>{" "}
-            (21 h, pensée pour les dirigeants de petites structures). Objectif :
-            vous accompagner concrètement pour intégrer l’IA de façon
-            stratégique, accessible et opérationnelle, avec des outils fiables,
-            documentés et maîtrisés.
-          </p>
+          <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-card backdrop-blur">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-yellow)]">
+              Nouveau · en cours de certification
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Je me forme pour obtenir la certification{" "}
+              <span className="text-foreground">
+                RS7311 « Améliorer l’efficacité de sa TPE à l’aide de l’IA »
+              </span>{" "}
+              (21 h, pensée pour les dirigeants de petites structures). Objectif
+              : vous accompagner concrètement pour intégrer l’IA de façon
+              stratégique, accessible et opérationnelle, avec des outils
+              fiables, documentés et maîtrisés.
+            </p>
+          </div>
         </div>
       }
       highlights={automatisationHighlights}

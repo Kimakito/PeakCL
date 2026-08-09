@@ -19,6 +19,7 @@ import { Route as RessourcesConversionRouteImport } from './routes/ressources-co
 import { Route as RessourcesConfianceRouteImport } from './routes/ressources-confiance'
 import { Route as ReservationAppelHorsUeRouteImport } from './routes/reservation-appel-hors-ue'
 import { Route as ReservationAppelRouteImport } from './routes/reservation-appel'
+import { Route as RefonteSitePmeRouteImport } from './routes/refonte-site-pme'
 import { Route as QuiSuisJeRouteImport } from './routes/qui-suis-je'
 import { Route as QuestionnaireR2RouteImport } from './routes/questionnaire-r2'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
@@ -120,6 +121,11 @@ const ReservationAppelHorsUeRoute = ReservationAppelHorsUeRouteImport.update({
 const ReservationAppelRoute = ReservationAppelRouteImport.update({
   id: '/reservation-appel',
   path: '/reservation-appel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefonteSitePmeRoute = RefonteSitePmeRouteImport.update({
+  id: '/refonte-site-pme',
+  path: '/refonte-site-pme',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuiSuisJeRoute = QuiSuisJeRouteImport.update({
@@ -433,6 +439,7 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRoute
   '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
+  '/refonte-site-pme': typeof RefonteSitePmeRoute
   '/reservation-appel': typeof ReservationAppelRoute
   '/reservation-appel-hors-ue': typeof ReservationAppelHorsUeRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
@@ -497,6 +504,7 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
+  '/refonte-site-pme': typeof RefonteSitePmeRoute
   '/reservation-appel': typeof ReservationAppelRoute
   '/reservation-appel-hors-ue': typeof ReservationAppelHorsUeRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
@@ -562,6 +570,7 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRoute
   '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
+  '/refonte-site-pme': typeof RefonteSitePmeRoute
   '/reservation-appel': typeof ReservationAppelRoute
   '/reservation-appel-hors-ue': typeof ReservationAppelHorsUeRoute
   '/ressources-confiance': typeof RessourcesConfianceRoute
@@ -628,6 +637,7 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/questionnaire-r2'
     | '/qui-suis-je'
+    | '/refonte-site-pme'
     | '/reservation-appel'
     | '/reservation-appel-hors-ue'
     | '/ressources-confiance'
@@ -692,6 +702,7 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/questionnaire-r2'
     | '/qui-suis-je'
+    | '/refonte-site-pme'
     | '/reservation-appel'
     | '/reservation-appel-hors-ue'
     | '/ressources-confiance'
@@ -756,6 +767,7 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/questionnaire-r2'
     | '/qui-suis-je'
+    | '/refonte-site-pme'
     | '/reservation-appel'
     | '/reservation-appel-hors-ue'
     | '/ressources-confiance'
@@ -821,6 +833,7 @@ export interface RootRouteChildren {
   PortfolioRoute: typeof PortfolioRoute
   QuestionnaireR2Route: typeof QuestionnaireR2Route
   QuiSuisJeRoute: typeof QuiSuisJeRoute
+  RefonteSitePmeRoute: typeof RefonteSitePmeRoute
   ReservationAppelRoute: typeof ReservationAppelRoute
   ReservationAppelHorsUeRoute: typeof ReservationAppelHorsUeRoute
   RessourcesConfianceRoute: typeof RessourcesConfianceRoute
@@ -914,6 +927,13 @@ declare module '@tanstack/react-router' {
       path: '/reservation-appel'
       fullPath: '/reservation-appel'
       preLoaderRoute: typeof ReservationAppelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refonte-site-pme': {
+      id: '/refonte-site-pme'
+      path: '/refonte-site-pme'
+      fullPath: '/refonte-site-pme'
+      preLoaderRoute: typeof RefonteSitePmeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/qui-suis-je': {
@@ -1346,6 +1366,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioRoute: PortfolioRoute,
   QuestionnaireR2Route: QuestionnaireR2Route,
   QuiSuisJeRoute: QuiSuisJeRoute,
+  RefonteSitePmeRoute: RefonteSitePmeRoute,
   ReservationAppelRoute: ReservationAppelRoute,
   ReservationAppelHorsUeRoute: ReservationAppelHorsUeRoute,
   RessourcesConfianceRoute: RessourcesConfianceRoute,

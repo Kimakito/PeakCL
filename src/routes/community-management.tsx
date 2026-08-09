@@ -76,7 +76,7 @@ export const Route = createFileRoute("/community-management")({
       }}
       highlights={communityHighlights}
       highlightsTitle="Ce que je gère pour vos réseaux"
-      highlightsSubtitle="Une présence régulière, à votre image et dans le ton de votre métier — sans que ça vous mange vos soirées."
+      highlightsSubtitle="Une présence régulière, à votre image et dans le ton de votre métier, sans que ça vous mange vos soirées."
       forfaits={cmForfaits}
       forfaitsTitle="📱 Forfaits mensuels"
       forfaitsNote="Tarifs HT · révisions du visuel incluses · option +1 réseau supplémentaire disponible. Sans engagement de durée."

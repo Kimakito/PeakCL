@@ -1,31 +1,32 @@
 /** Étendue de la mission — sert au badge affiché sur les cartes. */
-export type ScopeLevel = "global" | "identite" | "reseaux" | "site"
+export type ScopeLevel = "global" | "identite" | "reseaux" | "site";
 
 export type PeakclProject = {
-  title: string
-  subtitle?: string
-  description?: string
-  tags: string[]
-  siteUrl: string
-  logoUrl?: string
+  title: string;
+  subtitle?: string;
+  description?: string;
+  tags: string[];
+  siteUrl: string;
+  logoUrl?: string;
   /** Prestations réellement livrées sur le projet, listées dans l'étude de cas. */
-  scope?: string[]
+  scope?: string[];
   /** Précision honnête sur ce qui n'est pas de moi (logo d'un autre graphiste, client autonome…). */
-  scopeNote?: string
+  scopeNote?: string;
   /** Niveau de mission, pour le badge de carte. */
-  scopeLevel?: ScopeLevel
+  scopeLevel?: ScopeLevel;
   /** Remplace le libellé du badge quand le niveau ne raconte pas bien la mission. */
-  scopeLabel?: string
-}
+  scopeLabel?: string;
+};
 
-const withPublicPrefix = (path?: string) => (path ? `/peakcl${path}` : undefined)
+const withPublicPrefix = (path?: string) =>
+  path ? `/peakcl${path}` : undefined;
 
 export const peakclPortfolio: PeakclProject[] = [
   {
     title: "Ikami",
     subtitle: "Portail immobilier · France · Espagne · Suisse",
     description:
-      "Le plus gros morceau de ma carrière : un portail d'annonces immobilières décliné dans trois pays. J'ai tout construit en full stack, backend PHP compris — la base des annonces, celle des agents immobiliers, et autant de bases à faire tourner que de pays. Conception, développement, mise en ligne et maintenance : c'était moi, du premier schéma de base de données aux mises à jour quotidiennes.",
+      "Le plus gros morceau de ma carrière : un portail d'annonces immobilières décliné dans trois pays. J'ai tout construit en full stack, backend PHP compris : la base des annonces, celle des agents immobiliers, et autant de bases à faire tourner que de pays. Conception, développement, mise en ligne et maintenance : c'était moi, du premier schéma de base de données aux mises à jour quotidiennes.",
     tags: ["PHP", "Bases de données", "Multi-pays"],
     scope: [
       "Conception et développement full stack",
@@ -46,7 +47,7 @@ export const peakclPortfolio: PeakclProject[] = [
     title: "Adelante Voyages",
     subtitle: "Agence de voyage · France",
     description:
-      "Face aux géants du tourisme en ligne, Victor voulait se faire une place avec une approche humaine. Derrière la vitrine — catalogue de destinations et storytelling des séjours — j'ai développé un vrai back-office : suivi des devis, des ventes et des commissions, dans un seul tableau de bord. C'est la partie invisible qui a demandé le plus de travail.",
+      "Face aux géants du tourisme en ligne, Victor voulait se faire une place avec une approche humaine. Derrière la vitrine (catalogue de destinations et storytelling des séjours), j'ai développé un vrai back-office : suivi des devis, des ventes et des commissions, dans un seul tableau de bord. C'est la partie invisible qui a demandé le plus de travail.",
     tags: ["Jekyll", "Catalogue", "Dashboard sur-mesure"],
     scope: [
       "Site internet et catalogue de destinations",
@@ -110,7 +111,7 @@ export const peakclPortfolio: PeakclProject[] = [
     title: "Jantes 73 : La Vieille Roue",
     subtitle: "Artisan automobile · Albertville",
     description:
-      "Johan avait ce projet en tête depuis des années, mais partait de zéro : ni logo, ni site, ni adresse pro. J'ai lancé toute sa communication, du logo aux flyers, du site à la fiche Google, jusqu'à la prise de rendez-vous en ligne. Il n'a eu qu'à ouvrir l'atelier — les clients ont suivi.",
+      "Johan avait ce projet en tête depuis des années, mais partait de zéro : ni logo, ni site, ni adresse pro. J'ai lancé toute sa communication, du logo aux flyers, du site à la fiche Google, jusqu'à la prise de rendez-vous en ligne. Il n'a eu qu'à ouvrir l'atelier : les clients ont suivi.",
     tags: ["Jekyll", "SEO local", "Site vitrine"],
     scope: [
       "Création du logo",
@@ -193,7 +194,7 @@ export const peakclPortfolio: PeakclProject[] = [
     title: "Jean-Baptiste Lacroix",
     subtitle: "Écriture · Drone · Échecs · Savoie",
     description:
-      "Jean-Baptiste mène trois vies : auteur de fantasy, pilote de drone et passionné d'échecs. Plutôt que trois sites éparpillés, je lui en ai construit un seul, avec un onglet par univers — son écriture et son blog, ses captations aériennes et sa partie échecs — pour rassembler toute son audience au même endroit.",
+      "Jean-Baptiste mène trois vies : auteur de fantasy, pilote de drone et passionné d'échecs. Plutôt que trois sites éparpillés, je lui en ai construit un seul, avec un onglet par univers (son écriture et son blog, ses captations aériennes et sa partie échecs) pour rassembler toute son audience au même endroit.",
     tags: ["Écriture", "Drone", "Échecs"],
     scope: [
       "Site internet",
@@ -234,7 +235,7 @@ export const peakclPortfolio: PeakclProject[] = [
     title: "C'mieux comme ça",
     subtitle: "Architecte d'intérieur · Albertville",
     description:
-      'Céline a une phrase signature : "Votre habitat s\'adapte à vous, et non l\'inverse !" Il fallait que son site transmette cette philosophie au premier coup d\'œil. Site élégant, galerie de réalisations soignée, formulaire qui convertit.',
+      "Céline a une phrase signature : \"Votre habitat s'adapte à vous, et non l'inverse !\" Il fallait que son site transmette cette philosophie au premier coup d'œil. Site élégant, galerie de réalisations soignée, formulaire qui convertit.",
     tags: ["Jekyll", "Galerie", "Architecture intérieure"],
     scope: ["Site internet", "Charte graphique", "Amélioration du logo"],
     scopeNote:
@@ -247,7 +248,7 @@ export const peakclPortfolio: PeakclProject[] = [
     title: "Les 9 Poilus",
     subtitle: "Communauté animaux · React + IA",
     description:
-      "Une communauté pour les passionnés d'animaux de compagnie. J'ai développé une application React performante avec optimisation SEO automatisée et analytics intégrés, et je pilote les réseaux — TikTok, Instagram, Facebook — qui ont fait grossir la communauté.",
+      "Une communauté pour les passionnés d'animaux de compagnie. J'ai développé une application React performante avec optimisation SEO automatisée et analytics intégrés, et je pilote les réseaux (TikTok, Instagram, Facebook) qui ont fait grossir la communauté.",
     tags: ["React", "IA SEO", "Réseaux sociaux"],
     scope: [
       "Site internet (application React)",
@@ -327,4 +328,4 @@ export const peakclPortfolio: PeakclProject[] = [
     siteUrl: "https://peaktraining.fr/",
     logoUrl: withPublicPrefix("/assets/logo/Peak-training.png"),
   },
-]
+];

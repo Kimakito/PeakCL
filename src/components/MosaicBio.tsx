@@ -36,13 +36,16 @@ function copyFor(locale: Locale): Copy {
       statValue: "18",
       statLabel: "client projects delivered, rated 5/5 on Google",
       techTitle: "Solid under the hood",
-      tech: "Hand-coded sites, no CMS, no plugins. Core Web Vitals in the green, clean SEO.",
+      tech: "Hand-coded sites, no CMS, no plugins. 7 years of code, including high-traffic platforms and a full corporate-site redesign. Core Web Vitals in the green, clean SEO.",
       socialTitle: "More than pretty posts",
-      social: "I build consistent communication, designed to convert, from your website to your social channels.",
+      social:
+        "I build consistent communication, designed to convert, from your website to your social channels.",
       clientsTitle: "Who I work with",
-      clients: "Freelancers, makers, therapists, shop owners and small teams. A travel agency, a law firm, a dental technician, coaches, an equestrian store, and more.",
+      clients:
+        "Freelancers, makers, therapists, shop owners, SMBs and small teams. A travel agency, a law firm, a dental technician, coaches, an equestrian store, and more.",
       locationTitle: "Where I work from",
-      location: "Remotely, with clients across France and worldwide, over video calls.",
+      location:
+        "Remotely, with clients across France and worldwide, over video calls.",
     };
   }
   return {
@@ -56,13 +59,16 @@ function copyFor(locale: Locale): Copy {
     statValue: "18",
     statLabel: "projets clients livrés, notés 5/5 sur Google",
     techTitle: "Du solide sous le capot",
-    tech: "Sites codés à la main, sans CMS ni plugins. Core Web Vitals au vert, SEO local propre.",
+    tech: "Sites codés à la main, sans CMS ni plugins. 7 ans de code, dont des plateformes à fort trafic et la refonte d'un site corporate international. Core Web Vitals au vert, SEO local propre.",
     socialTitle: "Plus que de jolis posts",
-    social: "Je construis une communication cohérente, pensée pour la conversion, du site web jusqu'aux réseaux.",
+    social:
+      "Je construis une communication cohérente, pensée pour la conversion, du site web jusqu'aux réseaux.",
     clientsTitle: "Pour qui",
-    clients: "Indépendants, artisans, thérapeutes, commerçants et petites structures. Agence de voyage, cabinet d'avocate, prothésiste dentaire, coachs, e-commerce équestre…",
+    clients:
+      "Indépendants, artisans, thérapeutes, commerçants, PME et petites structures. Agence de voyage, cabinet d'avocate, prothésiste dentaire, coachs, e-commerce équestre…",
     locationTitle: "D'où je travaille",
-    location: "Basée à Gilly-sur-Isère, près d'Albertville. Toute la Savoie et partout en France, en visio.",
+    location:
+      "Basée à Gilly-sur-Isère, près d'Albertville. Toute la Savoie et partout en France, en visio.",
   };
 }
 
@@ -99,7 +105,9 @@ export function MosaicBio({ className = "" }: { className?: string }) {
         style={{ backgroundImage: "var(--grad-turquoise)" }}
       >
         <div>
-          <p className="font-display text-lg font-extrabold">{c.metiersTitle}</p>
+          <p className="font-display text-lg font-extrabold">
+            {c.metiersTitle}
+          </p>
           <ul className="mt-3 space-y-1.5 text-sm font-bold">
             {c.metiers.map((m) => (
               <li key={m} className="flex items-center gap-2">
