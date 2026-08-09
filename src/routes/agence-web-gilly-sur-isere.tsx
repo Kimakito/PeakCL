@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { breadcrumbJsonLd, faqPageJsonLd } from "@/seo/jsonld";
+import { breadcrumbJsonLd, faqPageJsonLd, localBusinessJsonLd } from "@/seo/jsonld";
 import { GeoLanding, geoLandingFaq } from "@/components/GeoLanding";
 
 export const Route = createFileRoute("/agence-web-gilly-sur-isere")({
@@ -33,6 +33,16 @@ export const Route = createFileRoute("/agence-web-gilly-sur-isere")({
         "script:ld+json": faqPageJsonLd(
           geoLandingFaq("Gilly-sur-Isère", "Savoie", "site internet"),
         ),
+      },
+      {
+        "script:ld+json": localBusinessJsonLd({
+          city: "Gilly-sur-Isère",
+          region: "Savoie",
+          path: "/agence-web-gilly-sur-isere",
+          description:
+            "Agence web basée à Gilly-sur-Isère : création de site internet et référencement local pour les indépendants et artisans de la vallée de la Tarentaise.",
+          nearbyCities: ["Albertville", "Tours-en-Savoie", "Grignon", "Frontenex"],
+        }),
       },
     ],
     links: [{ rel: "canonical", href: absUrl("/agence-web-gilly-sur-isere") }],

@@ -1,16 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { breadcrumbJsonLd, faqPageJsonLd } from "@/seo/jsonld";
+import { breadcrumbJsonLd, faqPageJsonLd, localBusinessJsonLd } from "@/seo/jsonld";
 import { GeoLanding, geoLandingFaq } from "@/components/GeoLanding";
 
 export const Route = createFileRoute("/agence-web-albertville")({
   head: () => ({
     meta: [
-      { title: "Agence web à Albertville : création de site internet · PeakCL" },
+      // Le title porte les deux requêtes GSC de cette page : « agence web
+      // albertville » et « agence seo albertville ». Elles partagent la même
+      // intention (prestataire local), donc la même URL — les séparer sur deux
+      // pages créerait une cannibalisation.
+      { title: "Agence web & SEO à Albertville · Création de site internet" },
       {
         name: "description",
         content:
-          "Agence web à Albertville : création de sites internet premium avec référencement SEO local inclus. Rapide, clair, pensé pour générer des prises de contact.",
+          "Agence web à Albertville : création de site internet et référencement SEO local pour être trouvé sur les recherches du bassin albertvillois. Audit gratuit sous 24h.",
       },
       { property: "og:title", content: "Agence web à Albertville · PeakCL" },
       {
@@ -27,6 +31,23 @@ export const Route = createFileRoute("/agence-web-albertville")({
         ]),
       },
       { "script:ld+json": faqPageJsonLd(geoLandingFaq("Albertville", "Savoie", "site internet")) },
+      {
+        "script:ld+json": localBusinessJsonLd({
+          city: "Albertville",
+          region: "Savoie",
+          path: "/agence-web-albertville",
+          description:
+            "Agence web et SEO à Albertville : création de site internet, identité visuelle et référencement local pour indépendants, artisans et commerces du bassin albertvillois.",
+          nearbyCities: ["Gilly-sur-Isère", "Ugine", "Moûtiers", "Beaufort"],
+          services: [
+            "Agence web Albertville",
+            "Agence SEO Albertville",
+            "Création de site internet",
+            "Référencement local (SEO)",
+            "Création de logo",
+          ],
+        }),
+      },
     ],
     links: [{ rel: "canonical", href: absUrl("/agence-web-albertville") }],
   }),

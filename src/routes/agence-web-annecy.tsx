@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { breadcrumbJsonLd, faqPageJsonLd } from "@/seo/jsonld";
+import { breadcrumbJsonLd, faqPageJsonLd, localBusinessJsonLd } from "@/seo/jsonld";
 import { GeoLanding, geoLandingFaq } from "@/components/GeoLanding";
 
 export const Route = createFileRoute("/agence-web-annecy")({
@@ -33,6 +33,16 @@ export const Route = createFileRoute("/agence-web-annecy")({
         "script:ld+json": faqPageJsonLd(
           geoLandingFaq("Annecy", "Haute-Savoie", "site web"),
         ),
+      },
+      {
+        "script:ld+json": localBusinessJsonLd({
+          city: "Annecy",
+          region: "Haute-Savoie",
+          path: "/agence-web-annecy",
+          description:
+            "Agence web à Annecy : création de site internet, refonte et référencement local pour indépendants, commerces et professions libérales du bassin annécien.",
+          nearbyCities: ["Annecy-le-Vieux", "Seynod", "Cran-Gevrier", "Rumilly"],
+        }),
       },
     ],
     links: [{ rel: "canonical", href: absUrl("/agence-web-annecy") }],

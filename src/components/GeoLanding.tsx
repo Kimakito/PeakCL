@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   ArrowRight,
   Check,
@@ -31,6 +32,12 @@ export type GeoLandingProps = {
   region: string;
   /** "site web" (default) or "site internet" */
   serviceLabel?: string;
+  /**
+   * Remplace le H1 par défaut (« Agence web à {city} : création de {serviceLabel} »).
+   * À n'utiliser que si la requête ciblée ne rentre pas dans ce gabarit
+   * (ex. « agence wordpress aix-les-bains »). Le H1 reste unique par page.
+   */
+  headline?: ReactNode;
   /** Hero subtitle, ideally city-specific */
   intro: string;
   /** Unique angle heading (avoids duplicate content across cities) */
@@ -76,6 +83,7 @@ export function GeoLanding({
   city,
   region,
   serviceLabel = "site web",
+  headline,
   intro,
   angleTitle,
   angleText,
@@ -95,7 +103,11 @@ export function GeoLanding({
             {city} · {region}
           </div>
           <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-tight md:text-6xl">
-            Agence web à <span className="text-gradient">{city}</span> : création de {serviceLabel}
+            {headline ?? (
+              <>
+                Agence web à <span className="text-gradient">{city}</span> : création de {serviceLabel}
+              </>
+            )}
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{intro}</p>
           <a

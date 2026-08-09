@@ -163,6 +163,12 @@ export function SiteFooter() {
             : `© ${year} PeakCL · Charlotte Lacroix · Gilly-sur-Isère (73200), Savoie`}
         </p>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+          {/* Lien legal : obligatoire (art. 13 RGPD) et attendu par Google sur
+              un site commercial. Affiche en FR comme en EN, la page etant la
+              meme entite juridique. */}
+          <a href="/politique-confidentialite" className="hover:text-foreground">
+            {locale === "en" ? "Privacy policy" : "Politique de confidentialité"}
+          </a>
           <span>{t.alsoOn}&nbsp;</span>
           <a
             href={FREELANCE.malt}

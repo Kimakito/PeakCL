@@ -22,6 +22,7 @@ import { Route as ReservationAppelRouteImport } from './routes/reservation-appel
 import { Route as QuiSuisJeRouteImport } from './routes/qui-suis-je'
 import { Route as QuestionnaireR2RouteImport } from './routes/questionnaire-r2'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as PolitiqueConfidentialiteRouteImport } from './routes/politique-confidentialite'
 import { Route as PacksRouteImport } from './routes/packs'
 import { Route as MerciR2RouteImport } from './routes/merci-r2'
 import { Route as MerciDiagnosticRouteImport } from './routes/merci-diagnostic'
@@ -136,6 +137,12 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PolitiqueConfidentialiteRoute =
+  PolitiqueConfidentialiteRouteImport.update({
+    id: '/politique-confidentialite',
+    path: '/politique-confidentialite',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PacksRoute = PacksRouteImport.update({
   id: '/packs',
   path: '/packs',
@@ -422,6 +429,7 @@ export interface FileRoutesByFullPath {
   '/merci-diagnostic': typeof MerciDiagnosticRoute
   '/merci-r2': typeof MerciR2Route
   '/packs': typeof PacksRoute
+  '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/portfolio': typeof PortfolioRoute
   '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
@@ -485,6 +493,7 @@ export interface FileRoutesByTo {
   '/merci-diagnostic': typeof MerciDiagnosticRoute
   '/merci-r2': typeof MerciR2Route
   '/packs': typeof PacksRoute
+  '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/portfolio': typeof PortfolioRoute
   '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
@@ -549,6 +558,7 @@ export interface FileRoutesById {
   '/merci-diagnostic': typeof MerciDiagnosticRoute
   '/merci-r2': typeof MerciR2Route
   '/packs': typeof PacksRoute
+  '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/portfolio': typeof PortfolioRoute
   '/questionnaire-r2': typeof QuestionnaireR2Route
   '/qui-suis-je': typeof QuiSuisJeRoute
@@ -614,6 +624,7 @@ export interface FileRouteTypes {
     | '/merci-diagnostic'
     | '/merci-r2'
     | '/packs'
+    | '/politique-confidentialite'
     | '/portfolio'
     | '/questionnaire-r2'
     | '/qui-suis-je'
@@ -677,6 +688,7 @@ export interface FileRouteTypes {
     | '/merci-diagnostic'
     | '/merci-r2'
     | '/packs'
+    | '/politique-confidentialite'
     | '/portfolio'
     | '/questionnaire-r2'
     | '/qui-suis-je'
@@ -740,6 +752,7 @@ export interface FileRouteTypes {
     | '/merci-diagnostic'
     | '/merci-r2'
     | '/packs'
+    | '/politique-confidentialite'
     | '/portfolio'
     | '/questionnaire-r2'
     | '/qui-suis-je'
@@ -804,6 +817,7 @@ export interface RootRouteChildren {
   MerciDiagnosticRoute: typeof MerciDiagnosticRoute
   MerciR2Route: typeof MerciR2Route
   PacksRoute: typeof PacksRoute
+  PolitiqueConfidentialiteRoute: typeof PolitiqueConfidentialiteRoute
   PortfolioRoute: typeof PortfolioRoute
   QuestionnaireR2Route: typeof QuestionnaireR2Route
   QuiSuisJeRoute: typeof QuiSuisJeRoute
@@ -921,6 +935,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio'
       fullPath: '/portfolio'
       preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politique-confidentialite': {
+      id: '/politique-confidentialite'
+      path: '/politique-confidentialite'
+      fullPath: '/politique-confidentialite'
+      preLoaderRoute: typeof PolitiqueConfidentialiteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packs': {
@@ -1321,6 +1342,7 @@ const rootRouteChildren: RootRouteChildren = {
   MerciDiagnosticRoute: MerciDiagnosticRoute,
   MerciR2Route: MerciR2Route,
   PacksRoute: PacksRoute,
+  PolitiqueConfidentialiteRoute: PolitiqueConfidentialiteRoute,
   PortfolioRoute: PortfolioRoute,
   QuestionnaireR2Route: QuestionnaireR2Route,
   QuiSuisJeRoute: QuiSuisJeRoute,

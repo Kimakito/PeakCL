@@ -209,3 +209,69 @@ export function serviceJsonLd(opts: {
   };
 }
 
+/**
+ * Schéma LocalBusiness pour une page ville.
+ *
+ * Le `__root` émet déjà une ProfessionalService globale, mais elle est
+ * identique sur toutes les pages : elle ne dit pas à Google que
+ * /agence-web-chambery traite spécifiquement de Chambéry. Ce bloc porte un
+ * `areaServed` centré sur la ville de la page et se rattache à l'entité
+ * principale via `parentOrganization`, sans dupliquer les avis (un
+ * aggregateRating répété sur 14 URLs est traité comme du balisage abusif).
+ *
+ * L'adresse reste celle de l'établissement réel (Gilly-sur-Isère) : déclarer
+ * une adresse dans chaque ville desservie serait faux et sanctionnable.
+ */
+export function localBusinessJsonLd(opts: {
+  /** Ville cible de la page. */
+  city: string;
+  /** Département / région affichée (« Savoie », « Haute-Savoie »…). */
+  region: string;
+  /** Chemin de la page, sert d'@id et d'url. */
+  path: string;
+  /** Description reprenant la requête ciblée. */
+  description: string;
+  /** Communes alentour couvertes par cette page. */
+  nearbyCities?: string[];
+  /** Prestations mises en avant sur la page. */
+  services?: string[];
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${absUrl(opts.path)}#localbusiness`,
+    name: `PeakCL · Agence web à ${opts.city}`,
+    description: opts.description,
+    url: absUrl(opts.path),
+    image: absUrl("/peakcl/PeakCL.svg"),
+    email: "peakcl73@gmail.com",
+    telephone: "+33743517627",
+    priceRange: "€€",
+    parentOrganization: { "@id": absUrl("/#business") },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Gilly-sur-Isère",
+      postalCode: "73200",
+      addressRegion: "Savoie",
+      addressCountry: "FR",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 45.6608,
+      longitude: 6.3736,
+    },
+    areaServed: [
+      { "@type": "City", name: opts.city },
+      ...(opts.nearbyCities ?? []).map((name) => ({ "@type": "City", name })),
+      { "@type": "AdministrativeArea", name: opts.region },
+    ],
+    knowsAbout: opts.services ?? [
+      "Création de site internet",
+      "Refonte de site web",
+      "Référencement local (SEO)",
+      "Création de logo",
+      "Community management",
+    ],
+  };
+}
+

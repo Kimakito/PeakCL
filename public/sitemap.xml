@@ -137,6 +137,13 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Legal -->
+  <url>
+    <loc>https://peakcl.com/politique-confidentialite</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
   <!-- Conseils (contenu) -->
   <url>
     <loc>https://peakcl.com/conseils</loc>

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { breadcrumbJsonLd, faqPageJsonLd } from "@/seo/jsonld";
+import { breadcrumbJsonLd, faqPageJsonLd, localBusinessJsonLd } from "@/seo/jsonld";
 import { GeoLanding, geoLandingFaq } from "@/components/GeoLanding";
 
 export const Route = createFileRoute("/agence-web-beaufort")({
@@ -27,6 +27,16 @@ export const Route = createFileRoute("/agence-web-beaufort")({
         ]),
       },
       { "script:ld+json": faqPageJsonLd(geoLandingFaq("Beaufort", "Savoie", "site internet")) },
+      {
+        "script:ld+json": localBusinessJsonLd({
+          city: "Beaufort",
+          region: "Savoie",
+          path: "/agence-web-beaufort",
+          description:
+            "Agence web à Beaufort : création de site internet et référencement local pour producteurs, artisans et hébergeurs du Beaufortain.",
+          nearbyCities: ["Albertville", "Arêches", "Queige", "Villard-sur-Doron"],
+        }),
+      },
     ],
     links: [{ rel: "canonical", href: absUrl("/agence-web-beaufort") }],
   }),

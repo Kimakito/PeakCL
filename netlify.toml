@@ -75,22 +75,29 @@
   status = 301
   force = true
 
+# /developpement-web visait l'accueil : Google traite une redirection vers une
+# page hors sujet comme un soft 404, et le signal de l'ancienne URL est perdu.
+# /sites-web EST la page service developpement web (elle porte deja la paire
+# hreflang avec /en/web-development), donc c'est la cible legitime. Pas de page
+# /developpement-web dediee : elle cannibaliserait /sites-web sur la meme requete.
 [[redirects]]
   from = "/developpement-web"
-  to = "/"
+  to = "/sites-web"
   status = 301
   force = true
 
 [[redirects]]
   from = "/developpement-web/*"
-  to = "/"
+  to = "/sites-web"
   status = 301
   force = true
 
 # Other legacy pages spotted in Search Console export
+# /react/* etait une categorie d'articles de l'ancien blog : le hub editorial
+# /conseils est la cible thematiquement la plus proche, pas l'accueil.
 [[redirects]]
   from = "/react/*"
-  to = "/"
+  to = "/conseils"
   status = 301
   force = true
 
@@ -136,11 +143,11 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/politique-confidentialite"
-  to = "/"
-  status = 301
-  force = true
+# NOTE: pas de redirection sur /politique-confidentialite. La page existe
+# desormais (src/routes/politique-confidentialite.tsx). Le 301 vers l'accueil
+# qui vivait ici etait doublement fautif : Google le lisait comme un soft 404,
+# et l'obligation d'information de l'article 13 du RGPD n'etait plus remplie.
+# Ne jamais rediriger une page legale vers l'accueil.
 
 # Anciennes URL de blog datees (/conseils/2025/04/18/hebergement).
 #
@@ -258,7 +265,7 @@
 
 [[redirects]]
   from = "/developpement-web.html"
-  to = "/"
+  to = "/sites-web"
   status = 301
   force = true
 
@@ -268,21 +275,24 @@
   status = 301
   force = true
 
+# Anciennes URL editoriales (categorie + archives datees). Toutes vers le hub
+# /conseils : c'est le contenu qui a remplace ces articles. Rediriger vers "/"
+# faisait perdre le signal thematique de chaque ancienne URL.
 [[redirects]]
   from = "/web-strategy/*"
-  to = "/"
+  to = "/conseils"
   status = 301
   force = true
 
 [[redirects]]
   from = "/2025/*"
-  to = "/"
+  to = "/conseils"
   status = 301
   force = true
 
 [[redirects]]
   from = "/2026/*"
-  to = "/"
+  to = "/conseils"
   status = 301
   force = true
 

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { breadcrumbJsonLd, faqPageJsonLd } from "@/seo/jsonld";
+import { breadcrumbJsonLd, faqPageJsonLd, localBusinessJsonLd } from "@/seo/jsonld";
 import { GeoLanding, geoLandingFaq } from "@/components/GeoLanding";
 
 export const Route = createFileRoute("/agence-web-ugine")({
@@ -27,6 +27,16 @@ export const Route = createFileRoute("/agence-web-ugine")({
         ]),
       },
       { "script:ld+json": faqPageJsonLd(geoLandingFaq("Ugine", "Savoie", "site internet")) },
+      {
+        "script:ld+json": localBusinessJsonLd({
+          city: "Ugine",
+          region: "Savoie",
+          path: "/agence-web-ugine",
+          description:
+            "Agence web à Ugine : création de site internet et référencement local pour artisans, commerces et indépendants du Val d’Arly.",
+          nearbyCities: ["Albertville", "Marthod", "Faverges", "Flumet"],
+        }),
+      },
     ],
     links: [{ rel: "canonical", href: absUrl("/agence-web-ugine") }],
   }),

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { breadcrumbJsonLd, faqPageJsonLd } from "@/seo/jsonld";
+import { breadcrumbJsonLd, faqPageJsonLd, localBusinessJsonLd } from "@/seo/jsonld";
 import { GeoLanding, geoLandingFaq } from "@/components/GeoLanding";
 
 export const Route = createFileRoute("/agence-web-moutiers")({
@@ -27,6 +27,16 @@ export const Route = createFileRoute("/agence-web-moutiers")({
         ]),
       },
       { "script:ld+json": faqPageJsonLd(geoLandingFaq("Moûtiers", "Savoie", "site internet")) },
+      {
+        "script:ld+json": localBusinessJsonLd({
+          city: "Moûtiers",
+          region: "Savoie",
+          path: "/agence-web-moutiers",
+          description:
+            "Agence web à Moûtiers : création de site internet et référencement local pour commerces, saisonniers et hébergeurs de Tarentaise.",
+          nearbyCities: ["Albertville", "Bozel", "Aime-la-Plagne", "Salins-Fontaine"],
+        }),
+      },
     ],
     links: [{ rel: "canonical", href: absUrl("/agence-web-moutiers") }],
   }),
