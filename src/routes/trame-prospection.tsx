@@ -155,7 +155,8 @@ function TrameProspectionPage() {
               <div
                 className="absolute -inset-1 rounded-xl opacity-60 blur-md"
                 style={{
-                  background: "linear-gradient(135deg, var(--brand-violet), var(--brand-turquoise))",
+                  background:
+                    "linear-gradient(135deg, var(--brand-violet), var(--brand-turquoise))",
                 }}
                 aria-hidden
               />
@@ -185,7 +186,11 @@ function TrameProspectionPage() {
 
           <div className="grid w-full grid-cols-3 gap-1.5 sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:gap-2">
             <ActionBtn href="/reservation-appel" icon={FileText} label="Réservation" />
-            <ActionBtn href="https://calendly.com/peakcl73/faisons-connaissance" icon={Calendar} label="Calendly" />
+            <ActionBtn
+              href="https://calendly.com/peakcl73/faisons-connaissance"
+              icon={Calendar}
+              label="Calendly"
+            />
             <button
               type="button"
               onClick={() => setFullscreen((v) => !v)}

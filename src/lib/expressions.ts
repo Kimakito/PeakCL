@@ -149,13 +149,49 @@ export interface SectionCard {
 }
 
 export const SECTION_CARDS: Record<SectionCardSlug, SectionCard> = {
-  portfolio: { slug: "portfolio", src: `${BASE}/carte-portfolio.webp`, alt: "Charlotte présente le portfolio PeakCL" },
-  logos: { slug: "logos", src: `${BASE}/carte-logos.webp`, alt: "Charlotte crée un logo sur sa tablette" },
-  "avis-clients": { slug: "avis-clients", src: `${BASE}/carte-avis-clients.webp`, alt: "Charlotte, bras levés, célèbre les avis clients" },
-  contact: { slug: "contact", src: `${BASE}/carte-contact.webp`, alt: "Charlotte vient vers vous, contact" },
-  tips: { slug: "tips", src: `${BASE}/carte-tips.webp`, alt: "Charlotte partage une astuce, ampoule allumée" },
-  reseaux: { slug: "reseaux", src: `${BASE}/carte-reseaux.webp`, alt: "Charlotte en selfie entourée des réseaux sociaux" },
-  "qui-suis-je": { slug: "qui-suis-je", src: `${BASE}/carte-qui-suis-je.webp`, alt: "Charlotte assise, présentation" },
-  offres: { slug: "offres", src: `${BASE}/carte-offres.webp`, alt: "Charlotte présente les offres, courbe qui monte" },
-  "sites-web": { slug: "sites-web", src: `${BASE}/carte-sites-web.webp`, alt: "Charlotte à son bureau, création de sites web" },
+  portfolio: {
+    slug: "portfolio",
+    src: `${BASE}/carte-portfolio.webp`,
+    alt: "Charlotte présente le portfolio PeakCL",
+  },
+  logos: {
+    slug: "logos",
+    src: `${BASE}/carte-logos.webp`,
+    alt: "Charlotte crée un logo sur sa tablette",
+  },
+  "avis-clients": {
+    slug: "avis-clients",
+    src: `${BASE}/carte-avis-clients.webp`,
+    alt: "Charlotte, bras levés, célèbre les avis clients",
+  },
+  contact: {
+    slug: "contact",
+    src: `${BASE}/carte-contact.webp`,
+    alt: "Charlotte vient vers vous, contact",
+  },
+  tips: {
+    slug: "tips",
+    src: `${BASE}/carte-tips.webp`,
+    alt: "Charlotte partage une astuce, ampoule allumée",
+  },
+  reseaux: {
+    slug: "reseaux",
+    src: `${BASE}/carte-reseaux.webp`,
+    alt: "Charlotte en selfie entourée des réseaux sociaux",
+  },
+  "qui-suis-je": {
+    slug: "qui-suis-je",
+    src: `${BASE}/carte-qui-suis-je.webp`,
+    alt: "Charlotte assise, présentation",
+  },
+  offres: {
+    slug: "offres",
+    src: `${BASE}/carte-offres.webp`,
+    alt: "Charlotte présente les offres, courbe qui monte",
+  },
+  "sites-web": {
+    slug: "sites-web",
+    src: `${BASE}/carte-sites-web.webp`,
+    alt: "Charlotte à son bureau, création de sites web",
+  },
 };

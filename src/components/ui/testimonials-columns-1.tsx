@@ -45,7 +45,14 @@ export const TestimonialsColumn = (props: {
                 aria-hidden={index === 1}
                 className="relative w-full max-w-xs rounded-3xl border border-border bg-card/50 p-8 text-left shadow-card backdrop-blur"
               >
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 {rating ? (
                   <div className="flex items-center gap-1 text-[var(--brand-yellow)]">
                     {Array.from({ length: rating }).map((_, k) => (

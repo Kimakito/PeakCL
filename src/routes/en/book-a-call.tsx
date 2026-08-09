@@ -1,11 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Clock, ShieldCheck } from "lucide-react";
-import {
-  MERCI_BRIEF_PATH,
-  stashCalendlyPrefill,
-  submitNetlifyForm,
-} from "@/lib/funnel";
+import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
 import { absUrl } from "@/seo/site";
 import { canonicalLink, hreflangLinks, ogLocaleMeta } from "@/seo/hreflang";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -71,10 +67,7 @@ function BookACallPage() {
   // Qualified path: only the contact fields and the main challenge are
   // required. The qualification questions (revenue, goals, commitment...) are
   // optional, so we don't put up a wall at the door.
-  const requiredNames = useMemo(
-    () => ["fullName", "phone", "email", "painPoints"],
-    [],
-  );
+  const requiredNames = useMemo(() => ["fullName", "phone", "email", "painPoints"], []);
 
   const completion = useFormCompletion(values, requiredNames);
 
@@ -83,9 +76,7 @@ function BookACallPage() {
     return Array.isArray(v) ? v.length > 0 : true;
   };
 
-  const canSubmit =
-    completion.filled === completion.total &&
-    forceRequiredMultiOk("painPoints");
+  const canSubmit = completion.filled === completion.total && forceRequiredMultiOk("painPoints");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -137,8 +128,7 @@ function BookACallPage() {
             borderWidth={3}
           />
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground backdrop-blur">
-            <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />2 to 3
-            minutes
+            <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />2 to 3 minutes
             <span className="opacity-40">·</span>
             45 min call
             <span className="opacity-40">·</span>
@@ -159,9 +149,9 @@ function BookACallPage() {
             Book a call · PeakCL
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Two options: book your slot directly, or fill in this short
-            diagnosis first (2 to 3 minutes) so I can prepare our conversation.
-            The call runs 45 minutes, and we meet online wherever you are.
+            Two options: book your slot directly, or fill in this short diagnosis first (2 to 3
+            minutes) so I can prepare our conversation. The call runs 45 minutes, and we meet online
+            wherever you are.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
@@ -267,8 +257,7 @@ function BookACallPage() {
                 options={[
                   {
                     value: "Site n'attire/convertit pas",
-                    label:
-                      "My website doesn't attract visitors or convert them into clients",
+                    label: "My website doesn't attract visitors or convert them into clients",
                   },
                   { value: "Manque de visibilité", label: "I lack visibility" },
                   {
@@ -278,8 +267,7 @@ function BookACallPage() {
                   },
                   {
                     value: "Résultat DIY insatisfaisant",
-                    label:
-                      "I tried to build my site myself but I'm not happy with the result",
+                    label: "I tried to build my site myself but I'm not happy with the result",
                   },
                   {
                     value: "Ne sait pas se différencier",
@@ -287,8 +275,7 @@ function BookACallPage() {
                   },
                   {
                     value: "Difficulté à justifier l'investissement",
-                    label:
-                      "I find it hard to justify investing in something I don't master",
+                    label: "I find it hard to justify investing in something I don't master",
                   },
                 ]}
               />
@@ -303,8 +290,8 @@ function BookACallPage() {
 
             <SectionTitle title="To prepare the call (optional)" />
             <p className="-mt-4 text-sm text-muted-foreground">
-              These questions help me prepare a more useful conversation. You
-              can leave them empty and book straight away.
+              These questions help me prepare a more useful conversation. You can leave them empty
+              and book straight away.
             </p>
             <div className="grid gap-5">
               <ChoiceScale
@@ -327,9 +314,7 @@ function BookACallPage() {
                 label="How important is it to you to improve your online presence today?"
                 name="importanceOnlinePresence"
                 value={String(values.importanceOnlinePresence)}
-                onChange={(v) =>
-                  setField(setValues, "importanceOnlinePresence", v)
-                }
+                onChange={(v) => setField(setValues, "importanceOnlinePresence", v)}
               />
               <ChoiceSingle
                 label="If you had a clear solution to improve your online presence, would you be open to getting support?"
@@ -431,8 +416,8 @@ function BookACallPage() {
 
               {!canSubmit ? (
                 <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">
-                  Some required fields ⭐ are still missing. You can fill them
-                  in later: the form saves automatically on your device.
+                  Some required fields ⭐ are still missing. You can fill them in later: the form
+                  saves automatically on your device.
                 </p>
               ) : null}
             </div>

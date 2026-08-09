@@ -98,7 +98,12 @@ export const PEAKABOT_NODES: Record<string, BotNode> = {
       "Je reviens ensuite vers vous avec un devis clair.",
     ],
     choices: [
-      { label: "Réserver un appel", href: CALENDLY_URL, external: true, event: "cta_calendly_peakabot" },
+      {
+        label: "Réserver un appel",
+        href: CALENDLY_URL,
+        external: true,
+        event: "cta_calendly_peakabot",
+      },
       { label: "Remplir le brief", href: "/reservation-appel", event: "cta_brief_peakabot" },
       { label: "↩︎ Retour", goto: "start" },
     ],

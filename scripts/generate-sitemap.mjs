@@ -50,14 +50,10 @@ function routeFileFor(pathname) {
 /** Date du dernier commit touchant un fichier, au format AAAA-MM-JJ. */
 function lastCommitDate(relPath) {
   try {
-    const out = execFileSync(
-      "git",
-      ["log", "-1", "--format=%cs", "--", relPath],
-      {
-        cwd: ROOT,
-        encoding: "utf8",
-      },
-    ).trim();
+    const out = execFileSync("git", ["log", "-1", "--format=%cs", "--", relPath], {
+      cwd: ROOT,
+      encoding: "utf8",
+    }).trim();
     return out || null;
   } catch {
     return null;
@@ -106,9 +102,7 @@ for (const loc of locs) {
     continue;
   }
 
-  const dates = [routeFile, ...localImports(routeFile)]
-    .map(lastCommitDate)
-    .filter(Boolean);
+  const dates = [routeFile, ...localImports(routeFile)].map(lastCommitDate).filter(Boolean);
   if (!dates.length) {
     missing.push(pathname);
     continue;
@@ -126,7 +120,5 @@ for (const loc of locs) {
 writeFileSync(SITEMAP, updated, "utf8");
 console.log(`sitemap : ${stamped}/${locs.length} URLs horodatees`);
 if (missing.length) {
-  console.warn(
-    `  sans date (fichier de route introuvable) : ${missing.join(", ")}`,
-  );
+  console.warn(`  sans date (fichier de route introuvable) : ${missing.join(", ")}`);
 }

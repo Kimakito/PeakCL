@@ -47,8 +47,7 @@ function ClientLogoCard({
   siteUrl: string;
   locale: Locale;
 }) {
-  const titleAttr =
-    locale === "en" ? `${title}: view the site` : `${title} : voir le site`;
+  const titleAttr = locale === "en" ? `${title}: view the site` : `${title} : voir le site`;
   return (
     <a
       href={siteUrl}
@@ -90,15 +89,10 @@ export function TrustedBySection() {
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
             {t.eyebrow}
           </span>
-          <h2
-            id="trusted-by-heading"
-            className="mt-4 text-balance text-3xl font-bold md:text-4xl"
-          >
+          <h2 id="trusted-by-heading" className="mt-4 text-balance text-3xl font-bold md:text-4xl">
             {t.heading}
           </h2>
-          <p className="mt-3 text-sm text-muted-foreground md:text-base">
-            {t.subtitle}
-          </p>
+          <p className="mt-3 text-sm text-muted-foreground md:text-base">{t.subtitle}</p>
         </div>
 
         <div className="relative mt-12 motion-reduce:hidden">

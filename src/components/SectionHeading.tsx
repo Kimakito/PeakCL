@@ -44,7 +44,11 @@ export function SectionHeading({
       </span>
       <h2 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">{title}</h2>
       {subtitle ? (
-        <p className={`mt-3 text-sm text-muted-foreground ${align === "center" ? "mx-auto max-w-xl" : ""}`}>{subtitle}</p>
+        <p
+          className={`mt-3 text-sm text-muted-foreground ${align === "center" ? "mx-auto max-w-xl" : ""}`}
+        >
+          {subtitle}
+        </p>
       ) : null}
     </Reveal>
   );

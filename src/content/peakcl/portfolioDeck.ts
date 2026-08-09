@@ -1,8 +1,4 @@
-import {
-  peakclPortfolio,
-  type PeakclProject,
-  type ScopeLevel,
-} from "./portfolio";
+import { peakclPortfolio, type PeakclProject, type ScopeLevel } from "./portfolio";
 
 /** Catégorie de métier — sert au hub de filtrage du portfolio. */
 export type Category = {
@@ -72,8 +68,7 @@ export const CATEGORIES: Category[] = [
 ];
 
 const ACCENT_FALLBACK = "#00E5D4";
-const accentOf = (cat: string) =>
-  CATEGORIES.find((c) => c.slug === cat)?.accent ?? ACCENT_FALLBACK;
+const accentOf = (cat: string) => CATEGORIES.find((c) => c.slug === cat)?.accent ?? ACCENT_FALLBACK;
 
 /** title → { catégorie, slug, capture? }. La capture pointe vers /peakcl/portfolio/<shot>.webp */
 const META: Record<
@@ -170,8 +165,7 @@ const slugify = (s: string) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
-const shotPath = (s?: string) =>
-  s ? `/peakcl/portfolio/${s}.webp` : undefined;
+const shotPath = (s?: string) => (s ? `/peakcl/portfolio/${s}.webp` : undefined);
 
 /** Clients en cours de construction (pas encore de site live). */
 const CONSTRUCTION: DeckProject[] = [
@@ -183,11 +177,7 @@ const CONSTRUCTION: DeckProject[] = [
     tags: ["Site vitrine", "Bien-être"],
     category: "therapeute",
     status: "construction",
-    scope: [
-      "Site internet",
-      "Création d'une mascotte à son image",
-      "Création du logo (en cours)",
-    ],
+    scope: ["Site internet", "Création d'une mascotte à son image", "Création du logo (en cours)"],
     scopeLevel: "global",
     slug: "veronique-kaba",
     accent: accentOf("therapeute"),
@@ -213,11 +203,7 @@ const CONSTRUCTION: DeckProject[] = [
     tags: ["Site vitrine", "Réservation"],
     category: "taxi",
     status: "construction",
-    scope: [
-      "Modernisation du logo",
-      "Site internet",
-      "Création de la page Facebook",
-    ],
+    scope: ["Modernisation du logo", "Site internet", "Création de la page Facebook"],
     scopeLevel: "global",
     slug: "vs-taxi",
     accent: accentOf("taxi"),
@@ -282,9 +268,7 @@ export const inCategory = (p: DeckProject, cat: string) =>
 
 /** Projets live d'une catégorie ("all" = tous). */
 export function liveProjects(cat: string = "all"): DeckProject[] {
-  return DECK_PROJECTS.filter(
-    (p) => p.status === "live" && (cat === "all" || inCategory(p, cat)),
-  );
+  return DECK_PROJECTS.filter((p) => p.status === "live" && (cat === "all" || inCategory(p, cat)));
 }
 
 /** Clients en cours d'une catégorie ("all" = tous). */
@@ -301,8 +285,7 @@ export function categoryProjects(cat: string): DeckProject[] {
 
 /** Nombre de réalisations live par catégorie. */
 export function liveCount(cat: string): number {
-  return DECK_PROJECTS.filter((p) => p.status === "live" && inCategory(p, cat))
-    .length;
+  return DECK_PROJECTS.filter((p) => p.status === "live" && inCategory(p, cat)).length;
 }
 
 /* ── Portfolio LOGOS (créations) ─────────────────────────────── */

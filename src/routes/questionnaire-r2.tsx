@@ -37,8 +37,7 @@ function useAutosaveForm(initial: FormValues) {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return;
       const parsed = JSON.parse(raw) as FormValues;
-      if (parsed && typeof parsed === "object")
-        setValues((v) => ({ ...v, ...parsed }));
+      if (parsed && typeof parsed === "object") setValues((v) => ({ ...v, ...parsed }));
     } catch {
       // ignore
     }
@@ -63,19 +62,10 @@ function setField(
   setValues((prev) => ({ ...prev, [name]: value }));
 }
 
-function FieldLabel({
-  label,
-  required,
-}: {
-  label: string;
-  required?: boolean;
-}) {
+function FieldLabel({ label, required }: { label: string; required?: boolean }) {
   return (
     <span className="text-sm font-semibold text-foreground">
-      {label}{" "}
-      {required ? (
-        <span className="text-[var(--brand-turquoise)]">⭐</span>
-      ) : null}
+      {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
     </span>
   );
 }
@@ -145,9 +135,7 @@ function TextInput({
   return (
     <label className="block">
       <FieldLabel label={label} required={required} />
-      {helper ? (
-        <div className="mt-1 text-xs text-muted-foreground">{helper}</div>
-      ) : null}
+      {helper ? <div className="mt-1 text-xs text-muted-foreground">{helper}</div> : null}
       <input
         name={name}
         required={required}
@@ -182,9 +170,7 @@ function TextArea({
   return (
     <label className="block">
       <FieldLabel label={label} required={required} />
-      {helper ? (
-        <div className="mt-1 text-xs text-muted-foreground">{helper}</div>
-      ) : null}
+      {helper ? <div className="mt-1 text-xs text-muted-foreground">{helper}</div> : null}
       <textarea
         name={name}
         required={required}
@@ -216,10 +202,7 @@ function ChoiceSingle({
   return (
     <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
-        {label}{" "}
-        {required ? (
-          <span className="text-[var(--brand-turquoise)]">⭐</span>
-        ) : null}
+        {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
       </legend>
       <div className="mt-4 grid gap-2">
         {options.map((o) => (
@@ -260,10 +243,7 @@ function ChoiceScale({
   return (
     <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
-        {label}{" "}
-        {required ? (
-          <span className="text-[var(--brand-turquoise)]">⭐</span>
-        ) : null}
+        {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
       </legend>
       <div className="mt-4 grid grid-cols-11 gap-1">
         {Array.from({ length: 11 }, (_, i) => String(i)).map((n) => (
@@ -328,8 +308,7 @@ function QuestionnaireR2Page() {
     global: ["2200 à 3200€", "3200 à 4500€", "4500€ et plus"],
   };
   const budgetSuggestions =
-    budgetSuggestionsByFocus[values.serviceFocus] ??
-    budgetSuggestionsByFocus.global;
+    budgetSuggestionsByFocus[values.serviceFocus] ?? budgetSuggestionsByFocus.global;
   const budgetOptions = [
     ...budgetSuggestions.map((s) => ({ value: s, label: s })),
     { value: "ne_sais_pas", label: "Je ne sais pas encore" },
@@ -382,18 +361,25 @@ function QuestionnaireR2Page() {
         />
         <div className="grid-bg absolute inset-0 -z-10 opacity-30" />
         <div className="relative mx-4 max-w-2xl justify-self-center rounded-3xl border border-border bg-muted px-6 py-10 text-center shadow-card backdrop-blur-2xl sm:px-10">
-          <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+          <GlowingEffect
+            spread={40}
+            glow
+            disabled={false}
+            proximity={64}
+            inactiveZone={0.01}
+            borderWidth={3}
+          />
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
-            <ShieldCheck className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
-            2 minutes · Confidentiel
+            <ShieldCheck className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />2 minutes ·
+            Confidentiel
           </div>
           <h1 className="mx-auto mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">
             Avant notre <span className="text-gradient">2ᵉ appel</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Pour préparer une proposition de communication digitale (site,
-            identité, réseaux, Google) qui correspond vraiment à votre situation,
-            j’ai besoin de quelques précisions. 2 minutes, pas plus.
+            Pour préparer une proposition de communication digitale (site, identité, réseaux,
+            Google) qui correspond vraiment à votre situation, j’ai besoin de quelques précisions. 2
+            minutes, pas plus.
           </p>
         </div>
       </section>
@@ -401,7 +387,14 @@ function QuestionnaireR2Page() {
       <section className="border-t border-border py-16">
         <div className="mx-auto max-w-3xl px-6">
           <div className="relative mb-8 rounded-2xl border border-border bg-card/40 p-5 text-sm text-muted-foreground shadow-card backdrop-blur">
-            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <GlowingEffect
+              spread={40}
+              glow
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={3}
+            />
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 Progression des champs ⭐ :{" "}
@@ -529,8 +522,8 @@ function QuestionnaireR2Page() {
               />
             ) : (
               <div className="rounded-2xl border border-dashed border-border bg-card/20 p-5 text-sm text-muted-foreground">
-                Choisissez d’abord votre priorité ci-dessus pour voir les fourchettes
-                de budget adaptées. ⭐
+                Choisissez d’abord votre priorité ci-dessus pour voir les fourchettes de budget
+                adaptées. ⭐
               </div>
             )}
 
@@ -565,8 +558,7 @@ function QuestionnaireR2Page() {
                 options={[
                   {
                     value: "oui",
-                    label:
-                      "Oui, si l'offre correspond à mes attentes je suis prêt·e à avancer",
+                    label: "Oui, si l'offre correspond à mes attentes je suis prêt·e à avancer",
                   },
                   {
                     value: "non",
@@ -575,14 +567,14 @@ function QuestionnaireR2Page() {
                 ]}
               />
               <p className="mt-2 px-2 text-xs text-muted-foreground">
-                La plupart des personnes qui font cette démarche sérieusement
-                sont prêtes à avancer dès que l'offre correspond à ce qu'elles
-                cherchent, c'est justement l'objectif de notre prochain appel.
+                La plupart des personnes qui font cette démarche sérieusement sont prêtes à avancer
+                dès que l'offre correspond à ce qu'elles cherchent, c'est justement l'objectif de
+                notre prochain appel.
               </p>
               {values.readyToDecide === "oui" ? (
                 <p className="mt-2 px-2 text-xs font-medium text-[var(--brand-turquoise)]">
-                  Parfait, on prépare tout pour notre appel afin que ce soit un
-                  oui aussi de votre côté.
+                  Parfait, on prépare tout pour notre appel afin que ce soit un oui aussi de votre
+                  côté.
                 </p>
               ) : null}
             </div>
@@ -605,7 +597,14 @@ function QuestionnaireR2Page() {
               id="submit"
               className="relative rounded-2xl border border-border bg-card/40 p-6 text-center shadow-card backdrop-blur"
             >
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
                 <Check className="h-6 w-6" />
               </div>
@@ -631,10 +630,9 @@ function QuestionnaireR2Page() {
 
               {!canSubmit ? (
                 <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">
-                  Il manque encore des champs ⭐ obligatoires. Clique sur
-                  "Envoyer mes réponses" : on t’emmène directement au premier
-                  champ à compléter. Vos réponses restent sauvegardées
-                  automatiquement sur votre appareil.
+                  Il manque encore des champs ⭐ obligatoires. Clique sur "Envoyer mes réponses" :
+                  on t’emmène directement au premier champ à compléter. Vos réponses restent
+                  sauvegardées automatiquement sur votre appareil.
                 </p>
               ) : null}
             </div>

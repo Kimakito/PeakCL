@@ -78,7 +78,14 @@ function ChoiceSingle({
 }) {
   return (
     <fieldset className="relative rounded-2xl border border-border bg-card/30 p-5">
-      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+      <GlowingEffect
+        spread={40}
+        glow
+        disabled={false}
+        proximity={64}
+        inactiveZone={0.01}
+        borderWidth={3}
+      />
       <legend className="px-2">
         <FieldLabel label={label} required={required} />
       </legend>
@@ -123,12 +130,21 @@ function ChoiceMulti({
   const hasAny = value.length > 0;
   return (
     <fieldset className="relative rounded-2xl border border-border bg-card/30 p-5">
-      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+      <GlowingEffect
+        spread={40}
+        glow
+        disabled={false}
+        proximity={64}
+        inactiveZone={0.01}
+        borderWidth={3}
+      />
       <legend className="px-2">
         <FieldLabel label={label} required={required} />
       </legend>
       {/* Ensures native required validation for multi-checkbox */}
-      {required ? <input tabIndex={-1} aria-hidden="true" className="sr-only" required={!hasAny} /> : null}
+      {required ? (
+        <input tabIndex={-1} aria-hidden="true" className="sr-only" required={!hasAny} />
+      ) : null}
       <div className="mt-3 grid gap-2">
         {options.map((o) => {
           const checked = value.includes(o.value);
@@ -172,14 +188,23 @@ function Scale10({
 }) {
   return (
     <fieldset className="relative rounded-2xl border border-border bg-card/30 p-5">
-      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+      <GlowingEffect
+        spread={40}
+        glow
+        disabled={false}
+        proximity={64}
+        inactiveZone={0.01}
+        borderWidth={3}
+      />
       <legend className="px-2">
         <FieldLabel label={label} required={required} />
       </legend>
       <div className="mt-4">
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <span>0</span>
-          <span className="rounded-full border border-border bg-muted px-3 py-1 text-foreground">{value}</span>
+          <span className="rounded-full border border-border bg-muted px-3 py-1 text-foreground">
+            {value}
+          </span>
           <span>10</span>
         </div>
         <input type="hidden" name={name} value={String(value)} />
@@ -223,11 +248,23 @@ function DiagnosticPage() {
 
   const problematiqueOptions = useMemo(
     () => [
-      { value: "site_pas_visiteurs", label: "Mon site web n'attire pas de visiteurs ou ne convertit pas en clients" },
+      {
+        value: "site_pas_visiteurs",
+        label: "Mon site web n'attire pas de visiteurs ou ne convertit pas en clients",
+      },
       { value: "manque_visibilite", label: "Je manque de visibilité" },
-      { value: "manque_temps", label: "Je n'ai pas le temps de gérer mon site et ma communication en parallèle" },
-      { value: "site_soi_meme", label: "J'ai essayé de créer mon site moi-même mais le résultat ne me satisfait pas" },
-      { value: "communiquer_diff", label: "Je ne sais pas quoi communiquer ni comment me différencier" },
+      {
+        value: "manque_temps",
+        label: "Je n'ai pas le temps de gérer mon site et ma communication en parallèle",
+      },
+      {
+        value: "site_soi_meme",
+        label: "J'ai essayé de créer mon site moi-même mais le résultat ne me satisfait pas",
+      },
+      {
+        value: "communiquer_diff",
+        label: "Je ne sais pas quoi communiquer ni comment me différencier",
+      },
       {
         value: "justifier_invest",
         label: "J'ai du mal à justifier l'investissement dans quelque chose que je ne maîtrise pas",
@@ -283,14 +320,19 @@ function DiagnosticPage() {
             Diagnostic · 3 à 5 minutes
           </div>
           <div className="mt-6 flex justify-center">
-            <ExpressionPhoto slug="lunettes-reflexion" caption="On regarde ça ensemble" tilt={-3} imgClassName="aspect-[3/4] w-24" />
+            <ExpressionPhoto
+              slug="lunettes-reflexion"
+              caption="On regarde ça ensemble"
+              tilt={-3}
+              imgClassName="aspect-[3/4] w-24"
+            />
           </div>
           <h1 className="mx-auto mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">
             Questionnaire <span className="text-gradient">diagnostic</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            L’objectif: comprendre votre situation, votre priorité n°1 et ce qui bloquerait aujourd’hui votre passage au niveau
-            supérieur.
+            L’objectif: comprendre votre situation, votre priorité n°1 et ce qui bloquerait
+            aujourd’hui votre passage au niveau supérieur.
           </p>
         </div>
       </section>
@@ -315,7 +357,14 @@ function DiagnosticPage() {
             </p>
 
             <div className="relative rounded-3xl border border-border bg-card/20 p-6 shadow-card">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <div className="grid gap-5">
                 <TextInput
                   label="Quels sont vos prénom et nom ?"
@@ -380,7 +429,14 @@ function DiagnosticPage() {
             />
 
             <label className="relative block rounded-2xl border border-border bg-card/30 p-5">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <FieldLabel label="Classez (par ordre) vos priorités du moment." required />
               <div className="mt-2 text-xs text-muted-foreground">
                 Ex: (1) plus de leads · (2) crédibilité · (3) gagner du temps · (4) visuels/branding
@@ -441,9 +497,17 @@ function DiagnosticPage() {
             />
 
             <div className="relative flex flex-col items-stretch justify-between gap-3 rounded-3xl border border-border bg-card/20 p-6 shadow-card sm:flex-row sm:items-center">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <div className="text-sm text-muted-foreground">
-                Champs obligatoires marqués d’une <span className="text-[var(--brand-turquoise)]">⭐</span>
+                Champs obligatoires marqués d’une{" "}
+                <span className="text-[var(--brand-turquoise)]">⭐</span>
               </div>
               <button
                 type="submit"
@@ -460,4 +524,3 @@ function DiagnosticPage() {
     </main>
   );
 }
-

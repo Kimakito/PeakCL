@@ -3,10 +3,7 @@ import { absUrl } from "@/seo/site";
 import { hreflangLinks } from "@/seo/hreflang";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
-import {
-  automatisation,
-  automatisationHighlights,
-} from "@/content/peakcl/services";
+import { automatisation, automatisationHighlights } from "@/content/peakcl/services";
 
 export const Route = createFileRoute("/accompagnement-automatisation")({
   head: () => ({
@@ -79,10 +76,9 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
               Je pratique ce que je propose
             </div>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Mon propre suivi commercial tourne sur un outil que j'ai
-              développé, et mes relances, rapports et sauvegardes partent sans
-              moi. Un audit commence toujours par vos processus réels, jamais
-              par l'outil à la mode : vous repartez avec 3 à 5 automatisations
+              Mon propre suivi commercial tourne sur un outil que j'ai développé, et mes relances,
+              rapports et sauvegardes partent sans moi. Un audit commence toujours par vos processus
+              réels, jamais par l'outil à la mode : vous repartez avec 3 à 5 automatisations
               chiffrées en heures gagnées par mois.
             </p>
           </div>
@@ -95,10 +91,9 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
               <span className="text-foreground">
                 RS7311 « Améliorer l’efficacité de sa TPE à l’aide de l’IA »
               </span>{" "}
-              (21 h, pensée pour les dirigeants de petites structures). Objectif
-              : vous accompagner concrètement pour intégrer l’IA de façon
-              stratégique, accessible et opérationnelle, avec des outils
-              fiables, documentés et maîtrisés.
+              (21 h, pensée pour les dirigeants de petites structures). Objectif : vous accompagner
+              concrètement pour intégrer l’IA de façon stratégique, accessible et opérationnelle,
+              avec des outils fiables, documentés et maîtrisés.
             </p>
           </div>
         </div>

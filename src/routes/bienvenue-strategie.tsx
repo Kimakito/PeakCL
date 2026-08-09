@@ -45,4 +45,3 @@ function BienvenueStrategiePage() {
     </main>
   );
 }
-

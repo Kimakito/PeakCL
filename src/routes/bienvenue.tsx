@@ -43,9 +43,9 @@ function BienvenuePage() {
             <span className="text-gradient">4 étapes</span> ci‑dessous
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Vous avez réservé votre diagnostic : parcourez les preuves et les guides
-            avant notre rendez‑vous. Si vous ne complétez pas ces étapes, je serai
-            obligée d&apos;annuler notre appel.
+            Vous avez réservé votre diagnostic : parcourez les preuves et les guides avant notre
+            rendez‑vous. Si vous ne complétez pas ces étapes, je serai obligée d&apos;annuler notre
+            appel.
           </p>
           <div className="mt-8">
             <a
@@ -67,25 +67,29 @@ function BienvenuePage() {
               1
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-foreground">
-                Qui je suis, ce que je fais
-              </h2>
+              <h2 className="text-2xl font-bold text-foreground">Qui je suis, ce que je fais</h2>
             </div>
           </div>
 
           <div className="relative rounded-2xl border border-border bg-card/30 p-6 shadow-card">
-            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <GlowingEffect
+              spread={40}
+              glow
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={3}
+            />
             <p className="text-base leading-relaxed text-foreground/90">
-              Je m&apos;appelle Charlotte, fondatrice de PeakCL. J&apos;aide les
-              indépendants et petites entreprises à structurer leur activité
-              pour attirer des clients sans s&apos;épuiser : site web, système
-              de prospection, image de marque, outils : j&apos;adapte
-              l&apos;accompagnement à ce qui vous fait vraiment avancer, pas une
+              Je m&apos;appelle Charlotte, fondatrice de PeakCL. J&apos;aide les indépendants et
+              petites entreprises à structurer leur activité pour attirer des clients sans
+              s&apos;épuiser : site web, système de prospection, image de marque, outils :
+              j&apos;adapte l&apos;accompagnement à ce qui vous fait vraiment avancer, pas une
               formule unique.
             </p>
             <p className="mt-3 text-base leading-relaxed text-foreground/90">
-              Notre appel sert à comprendre où vous en êtes et ce qui bloque, pour
-              vous proposer un plan concret, pas un pitch générique. À très vite !
+              Notre appel sert à comprendre où vous en êtes et ce qui bloque, pour vous proposer un
+              plan concret, pas un pitch générique. À très vite !
             </p>
           </div>
         </section>
@@ -101,14 +105,21 @@ function BienvenuePage() {
                 Ajoutez le rendez‑vous à votre agenda
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Quand vous recevez l&apos;invitation, cliquez sur “Je connais cet
-                expéditeur” puis confirmez pour l&apos;ajouter à votre calendrier.
+                Quand vous recevez l&apos;invitation, cliquez sur “Je connais cet expéditeur” puis
+                confirmez pour l&apos;ajouter à votre calendrier.
               </p>
             </div>
           </div>
 
           <div className="relative overflow-hidden rounded-2xl border border-border bg-card/30 shadow-card">
-            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <GlowingEffect
+              spread={40}
+              glow
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={3}
+            />
             <img
               src={AGENDA_HELP_IMAGE}
               alt="Aide agenda - confirmation du rendez-vous"
@@ -124,12 +135,9 @@ function BienvenuePage() {
               3
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-foreground">
-                Regarde des résultats clients
-              </h2>
+              <h2 className="text-2xl font-bold text-foreground">Regarde des résultats clients</h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Quelques retours récents de clients PeakCL (site, clarté,
-                conversion).
+                Quelques retours récents de clients PeakCL (site, clarté, conversion).
               </p>
             </div>
           </div>
@@ -140,19 +148,22 @@ function BienvenuePage() {
                 key={t.name}
                 className="relative h-full rounded-2xl border border-border bg-card/30 p-6 shadow-card"
               >
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 <div className="flex gap-1 text-[var(--brand-yellow)]">
                   {Array.from({ length: t.rating }).map((_, k) => (
                     <Star key={k} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-foreground/90">
-                  “{t.quote}”
-                </p>
+                <p className="mt-4 text-sm leading-relaxed text-foreground/90">“{t.quote}”</p>
                 <div className="mt-6 border-t border-border pt-4">
-                  <div className="text-sm font-semibold text-foreground">
-                    {t.name}
-                  </div>
+                  <div className="text-sm font-semibold text-foreground">{t.name}</div>
                   <div className="text-xs text-muted-foreground">
                     {[t.sourceLabel, t.dateLabel].filter(Boolean).join(" · ")}
                   </div>
@@ -169,18 +180,22 @@ function BienvenuePage() {
               4
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-foreground">
-                Récupère les ressources
-              </h2>
+              <h2 className="text-2xl font-bold text-foreground">Récupère les ressources</h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Télécharge les guides et garde‑les sous la main avant notre
-                rendez‑vous.
+                Télécharge les guides et garde‑les sous la main avant notre rendez‑vous.
               </p>
             </div>
           </div>
 
           <div className="relative overflow-hidden rounded-2xl border border-border bg-card/30 shadow-card">
-            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <GlowingEffect
+              spread={40}
+              glow
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={3}
+            />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] via-transparent to-[color-mix(in_oklab,var(--brand-turquoise)_12%,transparent)]" />
             <div className="relative p-6">
               <div className="grid gap-3">
@@ -216,9 +231,7 @@ function BienvenuePage() {
                       <Download className="h-4 w-4 text-muted-foreground" />
                       {r.title}
                     </span>
-                    <span className="text-xs text-muted-foreground">
-                      Ouvrir
-                    </span>
+                    <span className="text-xs text-muted-foreground">Ouvrir</span>
                   </a>
                 ))}
               </div>

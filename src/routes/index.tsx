@@ -164,15 +164,11 @@ function ProblemPanel() {
               }
             />
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              Pas besoin d’un projet énorme pour paraître professionnel. Il faut
-              surtout une direction claire, un bon rythme et quelqu’un qui vous
-              aide à avancer.
+              Pas besoin d’un projet énorme pour paraître professionnel. Il faut surtout une
+              direction claire, un bon rythme et quelqu’un qui vous aide à avancer.
             </p>
             <div className="mt-6">
-              <CTAButton
-                href="/reservation-appel"
-                dataEvent="cta_brief_problem"
-              >
+              <CTAButton href="/reservation-appel" dataEvent="cta_brief_problem">
                 Faire le diagnostic
               </CTAButton>
             </div>
@@ -285,9 +281,7 @@ function MethodPanel() {
                 {s.n}
               </div>
               <h3 className="mt-4 text-base font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {s.desc}
-              </p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -391,11 +385,7 @@ function OffersPanel() {
           <CTAButton href="/reservation-appel" dataEvent="cta_brief_offers">
             Faire le diagnostic
           </CTAButton>
-          <CTAButton
-            href="/services"
-            variant="ghost"
-            dataEvent="cta_services_detail"
-          >
+          <CTAButton href="/services" variant="ghost" dataEvent="cta_services_detail">
             Voir les services
           </CTAButton>
         </div>
@@ -421,8 +411,7 @@ function PortfolioPanel() {
           eyebrow="Réalisations"
           title={
             <>
-              Des projets livrés,{" "}
-              <span className="text-gradient">avec un vrai impact</span>.
+              Des projets livrés, <span className="text-gradient">avec un vrai impact</span>.
             </>
           }
           subtitle="Vous êtes dans quel métier ? Voyez ce que j’ai déjà livré dans votre secteur."
@@ -436,10 +425,7 @@ function PortfolioPanel() {
               data-event="home_cat_filter"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-3.5 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-border hover:text-foreground"
             >
-              <span
-                className="h-1.5 w-1.5 rounded-full"
-                style={{ background: c.accent }}
-              />
+              <span className="h-1.5 w-1.5 rounded-full" style={{ background: c.accent }} />
               {c.short}
             </a>
           ))}
@@ -484,25 +470,21 @@ function PortfolioPanel() {
                 <div>
                   <div className="text-sm font-semibold">{p.title}</div>
                   {p.subtitle && (
-                    <div className="mt-0.5 text-xs text-muted-foreground">
-                      {p.subtitle}
-                    </div>
+                    <div className="mt-0.5 text-xs text-muted-foreground">{p.subtitle}</div>
                   )}
                 </div>
               </div>
               {/* Prestations livrées : l'étendue de la mission, pas la stack. */}
               {(p.scope?.length ? p.scope : p.tags).length > 0 && (
                 <div className="mt-3 flex flex-wrap gap-1.5">
-                  {(p.scope?.length ? p.scope : p.tags)
-                    .slice(0, 3)
-                    .map((t) => (
-                      <span
-                        key={`${p.siteUrl}-${t}`}
-                        className="rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs text-muted-foreground"
-                      >
-                        {t}
-                      </span>
-                    ))}
+                  {(p.scope?.length ? p.scope : p.tags).slice(0, 3).map((t) => (
+                    <span
+                      key={`${p.siteUrl}-${t}`}
+                      className="rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs text-muted-foreground"
+                    >
+                      {t}
+                    </span>
+                  ))}
                   {p.scope && p.scope.length > 3 ? (
                     <span className="rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs font-semibold text-[var(--brand-turquoise)]">
                       +{p.scope.length - 3}
@@ -542,10 +524,7 @@ function ReviewsPanel() {
   const colA = reviews.slice(0, mid);
   const colB = reviews.slice(mid);
   return (
-    <section
-      id="avis"
-      className="relative flex w-full items-center overflow-hidden py-16 md:py-20"
-    >
+    <section id="avis" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <SectionMascot pose="graphique" side="left" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
         <SectionHeading
@@ -560,22 +539,10 @@ function ReviewsPanel() {
         <ExpressionGallery className="mt-2 mb-12" />
         <div className="mx-auto flex max-h-[58vh] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
           {/* Mobile : une colonne, les 4 avis une fois */}
-          <TestimonialsColumn
-            testimonials={reviews}
-            duration={22}
-            className="md:hidden"
-          />
+          <TestimonialsColumn testimonials={reviews} duration={22} className="md:hidden" />
           {/* Desktop : 2 colonnes, chaque avis une seule fois */}
-          <TestimonialsColumn
-            testimonials={colA}
-            duration={18}
-            className="hidden md:block"
-          />
-          <TestimonialsColumn
-            testimonials={colB}
-            duration={22}
-            className="hidden md:block"
-          />
+          <TestimonialsColumn testimonials={colA} duration={18} className="hidden md:block" />
+          <TestimonialsColumn testimonials={colB} duration={22} className="hidden md:block" />
         </div>
       </div>
     </section>
@@ -586,10 +553,7 @@ function ReviewsPanel() {
 
 function FAQPanel() {
   return (
-    <section
-      id="faq"
-      className="relative flex w-full items-center overflow-hidden py-16 md:py-20"
-    >
+    <section id="faq" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <SectionMascot pose="assise" side="right" />
       <div className="mx-auto max-w-3xl px-8 md:px-16 w-full">
         <SectionHeading
@@ -660,8 +624,8 @@ function ContactPanel() {
           Prêt à déléguer votre présence en ligne ?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-          Décrivez votre activité en 8 minutes : je vous dis ce qui vous manque
-          le plus et comment je peux vous aider à avancer.
+          Décrivez votre activité en 8 minutes : je vous dis ce qui vous manque le plus et comment
+          je peux vous aider à avancer.
         </p>
         <div className="mt-6 flex items-center justify-center gap-3">
           <img
@@ -682,11 +646,7 @@ function ContactPanel() {
           <CTAButton href="/reservation-appel" dataEvent="cta_brief_final">
             Faire le diagnostic
           </CTAButton>
-          <CTAButton
-            href={CALENDLY_URL}
-            dataEvent="cta_calendly_final"
-            variant="ghost"
-          >
+          <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_final" variant="ghost">
             Réserver un appel
           </CTAButton>
         </div>
@@ -718,9 +678,7 @@ function ContactPanel() {
           </p>
           <div className="grid gap-3 md:grid-cols-2">
             <label className="block">
-              <span className="text-xs font-semibold text-muted-foreground">
-                Nom
-              </span>
+              <span className="text-xs font-semibold text-muted-foreground">Nom</span>
               <input
                 name="name"
                 required
@@ -729,9 +687,7 @@ function ContactPanel() {
               />
             </label>
             <label className="block">
-              <span className="text-xs font-semibold text-muted-foreground">
-                Email
-              </span>
+              <span className="text-xs font-semibold text-muted-foreground">Email</span>
               <input
                 name="email"
                 type="email"
@@ -742,9 +698,7 @@ function ContactPanel() {
             </label>
           </div>
           <label className="block">
-            <span className="text-xs font-semibold text-muted-foreground">
-              Téléphone
-            </span>
+            <span className="text-xs font-semibold text-muted-foreground">Téléphone</span>
             <input
               name="telephone"
               type="tel"
@@ -753,9 +707,7 @@ function ContactPanel() {
             />
           </label>
           <label className="block">
-            <span className="text-xs font-semibold text-muted-foreground">
-              Message
-            </span>
+            <span className="text-xs font-semibold text-muted-foreground">Message</span>
             <textarea
               name="message"
               required
@@ -793,10 +745,7 @@ function MobileStickyContact() {
           data-event="cta_phone_sticky"
           className="flex flex-1 items-center justify-center gap-2 rounded-full border border-border bg-card/60 py-3 text-sm font-semibold text-foreground backdrop-blur hover:bg-card/80"
         >
-          <Phone
-            className="h-4 w-4 text-[var(--brand-turquoise)]"
-            aria-hidden
-          />
+          <Phone className="h-4 w-4 text-[var(--brand-turquoise)]" aria-hidden />
           Appeler
         </a>
         <a
@@ -985,10 +934,7 @@ function Stat({
 
 function ReassuranceBar() {
   return (
-    <section
-      aria-label="Réassurance"
-      className="border-y border-border bg-card/30 py-4"
-    >
+    <section aria-label="Réassurance" className="border-y border-border bg-card/30 py-4">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 text-sm">
         <Stat
           target={peakclPortfolio.filter((p) => p.logoUrl).length}

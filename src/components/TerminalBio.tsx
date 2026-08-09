@@ -102,9 +102,7 @@ export function TerminalBio({ className = "" }: { className?: string }) {
   // Une fois monté, on prend la main sur l'affichage : les lignes non révélées
   // passent en opacity 0. Avant ça (SSR / pas de JS), tout reste visible.
   useEffect(() => {
-    const reduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) return; // on ne masque rien : lecture statique
     setJsReady(true);
   }, []);
@@ -195,10 +193,7 @@ export function TerminalBio({ className = "" }: { className?: string }) {
             >
               {line.kind === "cmd" ? (
                 <>
-                  <span
-                    aria-hidden
-                    className="select-none text-[var(--brand-turquoise)]"
-                  >
+                  <span aria-hidden className="select-none text-[var(--brand-turquoise)]">
                     ${" "}
                   </span>
                   <span className="text-foreground">{text}</span>

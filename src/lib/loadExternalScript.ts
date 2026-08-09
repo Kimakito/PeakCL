@@ -13,4 +13,3 @@ export function loadExternalScript({ id, src }: LoadScriptOptions) {
   script.async = true;
   document.body.appendChild(script);
 }
-

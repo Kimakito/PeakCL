@@ -145,9 +145,9 @@ function Page() {
             Pourquoi déléguer vos réseaux sociaux ?
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Le community management, ce n&apos;est pas « poster pour poster ». C&apos;est une présence
-            régulière, cohérente avec votre image, pensée pour donner envie de vous contacter. Si vous
-            vous reconnaissez ici, c&apos;est le moment de déléguer :
+            Le community management, ce n&apos;est pas « poster pour poster ». C&apos;est une
+            présence régulière, cohérente avec votre image, pensée pour donner envie de vous
+            contacter. Si vous vous reconnaissez ici, c&apos;est le moment de déléguer :
           </p>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {PAINS.map((p) => (
@@ -155,7 +155,14 @@ function Page() {
                 key={p}
                 className="relative rounded-2xl border border-border bg-card/50 p-5 text-sm text-muted-foreground shadow-card"
               >
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 {p}
               </li>
             ))}
@@ -178,15 +185,25 @@ function Page() {
             </ul>
           </div>
           <div className="relative rounded-2xl border border-border bg-card/50 p-6 shadow-card">
-            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <GlowingEffect
+              spread={40}
+              glow
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={3}
+            />
             <h3 className="text-base font-semibold">Formules mensuelles</h3>
             <p className="mt-1 text-xs text-muted-foreground">
-              Un rythme adapté à votre énergie et vos objectifs. Sans engagement longue durée imposé.
+              Un rythme adapté à votre énergie et vos objectifs. Sans engagement longue durée
+              imposé.
             </p>
             <ul className="mt-4 space-y-3">
               {FORMULES.map((f) => (
                 <li key={f.name} className="rounded-xl border border-border bg-background/40 p-3">
-                  <div className="text-sm font-semibold text-[var(--brand-turquoise)]">{f.name}</div>
+                  <div className="text-sm font-semibold text-[var(--brand-turquoise)]">
+                    {f.name}
+                  </div>
                   <div className="mt-0.5 text-xs text-muted-foreground">{f.detail}</div>
                 </li>
               ))}
@@ -212,10 +229,10 @@ function Page() {
           <div className="mt-4 max-w-3xl space-y-4 text-muted-foreground">
             <p>
               Je suis Charlotte Lacroix (PeakCL), développeuse web et graphiste à Albertville, et je
-              suis <strong className="text-foreground">formée au community management</strong>. Concrètement,
-              vous ne jonglez pas entre un CM, un graphiste et un développeur : la même personne pense
-              votre site, votre identité visuelle et vos publications, pour un message parfaitement
-              cohérent partout.
+              suis <strong className="text-foreground">formée au community management</strong>.
+              Concrètement, vous ne jonglez pas entre un CM, un graphiste et un développeur : la
+              même personne pense votre site, votre identité visuelle et vos publications, pour un
+              message parfaitement cohérent partout.
             </p>
             <p>
               Vos visuels réseaux reprennent les codes de votre site et de votre logo. Vos
@@ -247,8 +264,8 @@ function Page() {
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-xl font-bold">Community management en Savoie et alentours</h2>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-            Basée à Gilly-sur-Isère, près d&apos;Albertville, j&apos;accompagne des indépendants et petites structures dans toute la
-            Savoie, la Haute-Savoie et partout en France (visio).
+            Basée à Gilly-sur-Isère, près d&apos;Albertville, j&apos;accompagne des indépendants et
+            petites structures dans toute la Savoie, la Haute-Savoie et partout en France (visio).
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
             {ZONES.map((z) => (
@@ -270,12 +287,17 @@ function Page() {
         <div className="absolute inset-0 -z-10 bg-hero" />
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mb-6 flex justify-center">
-            <ExpressionPhoto slug="grand-sourire" caption="Vos réseaux, gérés" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+            <ExpressionPhoto
+              slug="grand-sourire"
+              caption="Vos réseaux, gérés"
+              tilt={-3}
+              imgClassName="aspect-[3/4] w-28"
+            />
           </div>
           <h2 className="text-3xl font-bold md:text-4xl">On s&apos;occupe de vos réseaux ?</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Décrivez votre activité en 8 minutes : je vous propose le rythme de publication adapté et
-            un devis clair.
+            Décrivez votre activité en 8 minutes : je vous propose le rythme de publication adapté
+            et un devis clair.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a

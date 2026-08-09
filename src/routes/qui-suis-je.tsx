@@ -19,8 +19,7 @@ export const Route = createFileRoute("/qui-suis-je")({
   head: () => ({
     meta: [
       {
-        title:
-          "Charlotte Lacroix · Développeuse web & graphiste en Savoie | PeakCL",
+        title: "Charlotte Lacroix · Développeuse web & graphiste en Savoie | PeakCL",
       },
       {
         name: "description",
@@ -29,8 +28,7 @@ export const Route = createFileRoute("/qui-suis-je")({
       },
       {
         property: "og:title",
-        content:
-          "Charlotte Lacroix · Développeuse web & graphiste en Savoie | PeakCL",
+        content: "Charlotte Lacroix · Développeuse web & graphiste en Savoie | PeakCL",
       },
       {
         property: "og:description",
@@ -47,10 +45,7 @@ export const Route = createFileRoute("/qui-suis-je")({
         ]),
       },
     ],
-    links: [
-      { rel: "canonical", href: absUrl("/qui-suis-je") },
-      ...hreflangLinks("/qui-suis-je"),
-    ],
+    links: [{ rel: "canonical", href: absUrl("/qui-suis-je") }, ...hreflangLinks("/qui-suis-je")],
   }),
   component: Page,
 });
@@ -58,9 +53,7 @@ export const Route = createFileRoute("/qui-suis-je")({
 function Page() {
   return (
     <main className="min-h-screen border-t border-border">
-      <SectionDots
-        sections={SECTIONS.map((s) => ({ id: s.id, label: s.label }))}
-      />
+      <SectionDots sections={SECTIONS.map((s) => ({ id: s.id, label: s.label }))} />
       <SnapPage>
         <SnapSection
           id="intro"
@@ -75,19 +68,15 @@ function Page() {
               Charlotte Lacroix, <span className="text-gradient">PeakCL</span>.
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-              Développeuse web et graphiste à Gilly-sur-Isère, près
-              d'Albertville (Savoie). 7 ans dans le digital, des plateformes à
-              fort trafic aux sites d'indépendants. Mon objectif : transformer
-              votre présence en ligne en un outil qui génère des demandes, pas
-              juste des visites.
+              Développeuse web et graphiste à Gilly-sur-Isère, près d'Albertville (Savoie). 7 ans
+              dans le digital, des plateformes à fort trafic aux sites d'indépendants. Mon objectif
+              : transformer votre présence en ligne en un outil qui génère des demandes, pas juste
+              des visites.
             </p>
           </div>
         </SnapSection>
 
-        <SnapSection
-          id="parcours"
-          className="flex items-center border-t border-border py-20"
-        >
+        <SnapSection id="parcours" className="flex items-center border-t border-border py-20">
           <div className="mx-auto max-w-3xl px-6">
             <MosaicBio className="mb-12" />
 
@@ -135,50 +124,40 @@ function Page() {
               <h2 className="text-2xl font-bold">Ma façon de travailler</h2>
               <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
                 <li>
-                  <strong className="text-foreground">
-                    Stratégie &amp; structure
-                  </strong>{" "}
-                  : le message doit être clair en 5 secondes.
+                  <strong className="text-foreground">Stratégie &amp; structure</strong> : le
+                  message doit être clair en 5 secondes.
                 </li>
                 <li>
-                  <strong className="text-foreground">Design premium</strong> :
-                  cohérence, crédibilité, confiance avant même le premier appel.
+                  <strong className="text-foreground">Design premium</strong> : cohérence,
+                  crédibilité, confiance avant même le premier appel.
                 </li>
                 <li>
-                  <strong className="text-foreground">Conversion</strong> :
-                  preuves, appels à l'action, parcours simple et friction
-                  minimisée.
+                  <strong className="text-foreground">Conversion</strong> : preuves, appels à
+                  l'action, parcours simple et friction minimisée.
                 </li>
                 <li>
-                  <strong className="text-foreground">Sites rapides</strong> :
-                  codés sur mesure ou WordPress, optimisés pour la performance
-                  (Core Web Vitals).
+                  <strong className="text-foreground">Sites rapides</strong> : codés sur mesure ou
+                  WordPress, optimisés pour la performance (Core Web Vitals).
                 </li>
                 <li>
-                  <strong className="text-foreground">SEO local</strong> : des
-                  bases propres pour être trouvée par les bons clients, près de
-                  chez vous.
+                  <strong className="text-foreground">SEO local</strong> : des bases propres pour
+                  être trouvée par les bons clients, près de chez vous.
                 </li>
               </ul>
             </div>
 
             <div className="mt-14 text-center">
-              <h2 className="text-2xl font-bold">
-                Et sinon, en vrai&nbsp;: toutes mes têtes
-              </h2>
+              <h2 className="text-2xl font-bold">Et sinon, en vrai&nbsp;: toutes mes têtes</h2>
               <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
-                Sérieuse sur le travail, pas sur moi-même. Vous bossez avec une
-                vraie personne, pas avec un logo.
+                Sérieuse sur le travail, pas sur moi-même. Vous bossez avec une vraie personne, pas
+                avec un logo.
               </p>
               <ExpressionGallery className="mt-8" />
             </div>
           </div>
         </SnapSection>
 
-        <SnapSection
-          id="contact"
-          className="flex items-center border-t border-border py-20"
-        >
+        <SnapSection id="contact" className="flex items-center border-t border-border py-20">
           <div className="mx-auto max-w-3xl px-6">
             <div className="relative rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] bg-card/40 p-6 text-center shadow-card">
               <GlowingEffect
@@ -191,9 +170,8 @@ function Page() {
               />
               <h2 className="text-xl font-bold">On en parle ?</h2>
               <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
-                Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut
-                pour une présence en ligne cohérente, et comment je peux m'en
-                charger pour vous.
+                Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut pour une présence
+                en ligne cohérente, et comment je peux m'en charger pour vous.
               </p>
               <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a

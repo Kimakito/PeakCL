@@ -78,8 +78,7 @@ function crawlCopy(locale: Locale): CrawlCopy {
     paragraphs: PARAGRAPHS_FR,
     episode: "Épisode I",
     title: "Une seule interlocutrice",
-    endText:
-      "Une seule interlocutrice pour votre site, votre logo et vos réseaux.",
+    endText: "Une seule interlocutrice pour votre site, votre logo et vos réseaux.",
     ctaLabel: "Faire le diagnostic",
     ctaHref: "/reservation-appel",
     readAsText: "Lire en texte",
@@ -115,11 +114,9 @@ const STARS = makeStars(140, 20260717);
  * clamp (15px), justifié et gras, couché en perspective : illisible. Le mobile
  * reçoit donc la prose, qui est de toute façon ce qu'un prospect vient lire.
  */
-const CRAWL_MEDIA =
-  "(min-width: 768px) and (prefers-reduced-motion: no-preference)";
+const CRAWL_MEDIA = "(min-width: 768px) and (prefers-reduced-motion: no-preference)";
 
-const clamp = (v: number, min: number, max: number) =>
-  Math.min(max, Math.max(min, v));
+const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
 
 export function StarCrawl({ className = "" }: { className?: string }) {
   const path = useRouterState({ select: (s) => s.location.pathname });
@@ -254,8 +251,7 @@ export function StarCrawl({ className = "" }: { className?: string }) {
                 ref={textRef}
                 className="crawl-text px-[8%] text-[clamp(15px,2.4vw,26px)] text-[var(--brand-yellow)]"
                 style={{
-                  textShadow:
-                    "0 0 14px color-mix(in oklab, var(--brand-yellow) 45%, transparent)",
+                  textShadow: "0 0 14px color-mix(in oklab, var(--brand-yellow) 45%, transparent)",
                 }}
               >
                 <p className="text-center text-[0.8em] font-semibold uppercase tracking-[0.35em]">
@@ -282,9 +278,7 @@ export function StarCrawl({ className = "" }: { className?: string }) {
               nearEnd ? "opacity-100" : "opacity-0"
             }`}
           >
-            <p className="text-lg font-semibold text-foreground">
-              {copy.endText}
-            </p>
+            <p className="text-lg font-semibold text-foreground">{copy.endText}</p>
             <a
               href={copy.ctaHref}
               className={`inline-flex items-center justify-center rounded-full bg-primary-gradient px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:scale-[1.03] ${

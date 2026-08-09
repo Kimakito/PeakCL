@@ -60,10 +60,7 @@ function dayKey(now: number): string {
 }
 
 /** Lit, incrémente, réécrit. Renvoie le compteur après incrément. */
-async function bump(
-  store: ReturnType<typeof getStore>,
-  key: string,
-): Promise<number> {
+async function bump(store: ReturnType<typeof getStore>, key: string): Promise<number> {
   const current = await store.get(key, { type: "json" });
   const n = (typeof current?.n === "number" ? current.n : 0) + 1;
   await store.setJSON(key, { n });
@@ -92,10 +89,7 @@ export async function checkRateLimit(): Promise<RateVerdict> {
 
     return { ok: true };
   } catch (err) {
-    console.error(
-      "[rate-limit] store indisponible, requête laissée passer",
-      err,
-    );
+    console.error("[rate-limit] store indisponible, requête laissée passer", err);
     return { ok: true };
   }
 }

@@ -35,10 +35,7 @@ export function ExpressionPhoto({
 }: ExpressionPhotoProps) {
   const e = EXPRESSIONS[slug];
   return (
-    <figure
-      className={`group relative inline-block ${className}`}
-      style={{ rotate: `${tilt}deg` }}
-    >
+    <figure className={`group relative inline-block ${className}`} style={{ rotate: `${tilt}deg` }}>
       <div className="overflow-hidden rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_28%,transparent)] bg-card shadow-card transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:rotate-[-2deg] motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 motion-reduce:group-hover:rotate-0">
         <img
           src={e.src}

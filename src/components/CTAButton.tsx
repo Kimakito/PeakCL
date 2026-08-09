@@ -2,7 +2,11 @@ import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 
 export function CTAButton({
-  children, href = "#contact", variant = "primary", className = "", dataEvent,
+  children,
+  href = "#contact",
+  variant = "primary",
+  className = "",
+  dataEvent,
 }: {
   children: ReactNode;
   href?: string;
@@ -10,7 +14,8 @@ export function CTAButton({
   className?: string;
   dataEvent?: string;
 }) {
-  const base = "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300";
+  const base =
+    "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300";
   const styles =
     variant === "primary"
       ? "cta-anim bg-primary-gradient text-primary-foreground shadow-glow hover:scale-[1.03]"

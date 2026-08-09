@@ -31,9 +31,7 @@ function NotFoundComponent() {
           />
         </div>
         <h1 className="text-7xl font-bold text-gradient">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">
-          Page introuvable
-        </h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Page introuvable</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           Cette page a filé dans la nuit. Rentrons à l'accueil, c'est plus sûr.
         </p>

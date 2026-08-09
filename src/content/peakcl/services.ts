@@ -314,24 +314,14 @@ export const cmForfaits: Forfait[] = [
     emoji: "🚀",
     name: "Dynamique",
     freq: "12 publications/mois (3/semaine)",
-    inclus: [
-      "12 visuels",
-      "12 textes + hashtags",
-      "1 story/semaine",
-      "Rapport mensuel",
-    ],
+    inclus: ["12 visuels", "12 textes + hashtags", "1 story/semaine", "Rapport mensuel"],
     price: "650 €/mois",
   },
   {
     emoji: "🔥",
     name: "Intensif",
     freq: "20 publications/mois (5/semaine, hors LinkedIn)",
-    inclus: [
-      "20 visuels",
-      "20 textes + hashtags",
-      "Stories + Reels (2/mois)",
-      "Rapport mensuel",
-    ],
+    inclus: ["20 visuels", "20 textes + hashtags", "Stories + Reels (2/mois)", "Rapport mensuel"],
     price: "900 €/mois",
   },
   {
@@ -572,8 +562,7 @@ export const packages: Pack[] = [
   {
     emoji: "🌐",
     name: "Pack Présence Web",
-    tagline:
-      "Lancer sa présence en ligne de façon professionnelle et cohérente.",
+    tagline: "Lancer sa présence en ligne de façon professionnelle et cohérente.",
     points: [
       "Site vitrine sur mesure ou WordPress (au choix), jusqu’à 5 pages",
       "Identité visuelle : logo + charte graphique",
@@ -586,8 +575,7 @@ export const packages: Pack[] = [
   {
     emoji: "🛒",
     name: "Pack E-commerce Complet",
-    tagline:
-      "Lancer ou refondre une boutique en ligne performante et bien brandée.",
+    tagline: "Lancer ou refondre une boutique en ligne performante et bien brandée.",
     points: [
       "Site e-commerce (Shopify ou WooCommerce), jusqu’à 30 produits",
       "Identité visuelle adaptée au e-commerce",
@@ -601,8 +589,7 @@ export const packages: Pack[] = [
   {
     emoji: "🎨",
     name: "Pack Brand & Social",
-    tagline:
-      "Construire une identité forte et l’exprimer sur les réseaux sociaux.",
+    tagline: "Construire une identité forte et l’exprimer sur les réseaux sociaux.",
     points: [
       "Identité visuelle complète (logo + charte)",
       "Pack visuels réseaux sociaux (10 templates)",
@@ -691,8 +678,7 @@ export const SERVICES: ServiceMeta[] = [
     emoji: "💻",
     eyebrow: "Développement web",
     title: "Sites web sur mesure",
-    tagline:
-      "Sites custom, performants et pérennes, avec un accompagnement de bout en bout.",
+    tagline: "Sites custom, performants et pérennes, avec un accompagnement de bout en bout.",
   },
   {
     slug: "/community-management",
@@ -709,8 +695,7 @@ export const SERVICES: ServiceMeta[] = [
     emoji: "🎨",
     eyebrow: "Design graphique",
     title: "Design graphique",
-    tagline:
-      "Identité visuelle et supports pour une marque cohérente et mémorable.",
+    tagline: "Identité visuelle et supports pour une marque cohérente et mémorable.",
   },
   {
     slug: "/accompagnement-automatisation",

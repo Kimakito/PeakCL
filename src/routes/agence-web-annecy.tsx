@@ -18,8 +18,7 @@ export const Route = createFileRoute("/agence-web-annecy")({
       },
       {
         property: "og:description",
-        content:
-          "Création & refonte de sites web premium à Annecy. Audit gratuit sous 24h.",
+        content: "Création & refonte de sites web premium à Annecy. Audit gratuit sous 24h.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/agence-web-annecy") },
@@ -30,9 +29,7 @@ export const Route = createFileRoute("/agence-web-annecy")({
         ]),
       },
       {
-        "script:ld+json": faqPageJsonLd(
-          geoLandingFaq("Annecy", "Haute-Savoie", "site web"),
-        ),
+        "script:ld+json": faqPageJsonLd(geoLandingFaq("Annecy", "Haute-Savoie", "site web")),
       },
       {
         "script:ld+json": localBusinessJsonLd({

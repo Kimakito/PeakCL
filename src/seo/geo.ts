@@ -40,16 +40,14 @@ export const geoPages: GeoPage[] = [
     city: "Chambéry",
     regionLine: "Savoie",
     service: "site",
-    shortPitch:
-      "Agence web a Chambery : creation de site internet premium et referencement local.",
+    shortPitch: "Agence web a Chambery : creation de site internet premium et referencement local.",
   },
   {
     slug: "agence-web-annecy",
     city: "Annecy",
     regionLine: "Haute-Savoie",
     service: "site",
-    shortPitch:
-      "Creation et refonte de site web premium a Annecy (Haute-Savoie).",
+    shortPitch: "Creation et refonte de site web premium a Annecy (Haute-Savoie).",
   },
   {
     slug: "agence-web-aix-les-bains",
@@ -64,16 +62,14 @@ export const geoPages: GeoPage[] = [
     city: "Gilly-sur-Isère",
     regionLine: "Savoie",
     service: "site",
-    shortPitch:
-      "Creation de site internet a Gilly-sur-Isere, commune d'etablissement de PeakCL.",
+    shortPitch: "Creation de site internet a Gilly-sur-Isere, commune d'etablissement de PeakCL.",
   },
   {
     slug: "agence-web-ugine",
     city: "Ugine",
     regionLine: "Savoie",
     service: "site",
-    shortPitch:
-      "Creation de site internet a Ugine, avec referencement local inclus.",
+    shortPitch: "Creation de site internet a Ugine, avec referencement local inclus.",
   },
   {
     slug: "agence-web-moutiers",
@@ -106,8 +102,7 @@ export const geoPages: GeoPage[] = [
     city: "Albertville",
     regionLine: "Savoie",
     service: "community",
-    shortPitch:
-      "Community manager a Albertville : deleguer ses reseaux sociaux.",
+    shortPitch: "Community manager a Albertville : deleguer ses reseaux sociaux.",
   },
   {
     slug: "community-manager-chambery",
@@ -128,8 +123,7 @@ export const geoPages: GeoPage[] = [
     city: "Aix-les-Bains",
     regionLine: "Savoie",
     service: "community",
-    shortPitch:
-      "Community manager a Aix-les-Bains : deleguer ses reseaux sociaux.",
+    shortPitch: "Community manager a Aix-les-Bains : deleguer ses reseaux sociaux.",
   },
 
   // ── Identite visuelle ─────────────────────────────────────────

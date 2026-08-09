@@ -22,13 +22,10 @@ function MerciCadragePascalePage() {
           <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
             <Check className="h-6 w-6" />
           </div>
-          <h1 className="mt-6 text-balance text-3xl font-bold md:text-4xl">
-            Merci Pascale.
-          </h1>
+          <h1 className="mt-6 text-balance text-3xl font-bold md:text-4xl">Merci Pascale.</h1>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Ton questionnaire de cadrage est bien reçu. Je le parcours
-            attentivement et je reviens vers toi si une précision est nécessaire
-            avant la refonte de ton site.
+            Ton questionnaire de cadrage est bien reçu. Je le parcours attentivement et je reviens
+            vers toi si une précision est nécessaire avant la refonte de ton site.
           </p>
           <p className="mt-6 text-sm text-muted-foreground">Cha · PeakCL</p>
         </div>

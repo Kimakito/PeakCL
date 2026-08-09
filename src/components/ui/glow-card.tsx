@@ -21,15 +21,7 @@ interface GlowCardProps extends React.HTMLAttributes<HTMLDivElement> {
  */
 export const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(
   (
-    {
-      className,
-      children,
-      glowClassName,
-      spread = 40,
-      proximity = 64,
-      borderWidth = 3,
-      ...props
-    },
+    { className, children, glowClassName, spread = 40, proximity = 64, borderWidth = 3, ...props },
     ref,
   ) => (
     <div ref={ref} className={cn("relative", className)} {...props}>

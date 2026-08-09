@@ -49,8 +49,7 @@ export const Route = createFileRoute("/en/design")({
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Work delivered under the{" "}
             <span className="text-foreground">
-              RS7068 "Create communication materials with a graphic design tool"
-              certification
+              RS7068 "Create communication materials with a graphic design tool" certification
             </span>
             .
           </p>

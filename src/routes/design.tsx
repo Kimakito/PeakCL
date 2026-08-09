@@ -39,10 +39,7 @@ export const Route = createFileRoute("/design")({
         ]),
       },
     ],
-    links: [
-      { rel: "canonical", href: absUrl("/design") },
-      ...hreflangLinks("/design"),
-    ],
+    links: [{ rel: "canonical", href: absUrl("/design") }, ...hreflangLinks("/design")],
   }),
   component: () => (
     <ServicePage
@@ -56,8 +53,7 @@ export const Route = createFileRoute("/design")({
         area: "Savoie et Haute-Savoie sur place, partout en France à distance.",
         delay:
           "1 à 2 semaines pour un logo et sa charte, 3 à 5 jours pour des supports print ou des visuels réseaux, 48h pour une bannière seule.",
-        pricing:
-          "Sur devis, tarif dégressif dès 3 supports. Audit gratuit avant devis.",
+        pricing: "Sur devis, tarif dégressif dès 3 supports. Audit gratuit avant devis.",
         process: [
           "Échange sur l'activité, les valeurs et les préférences visuelles",
           "Moodboard et pistes de direction artistique",
@@ -76,8 +72,7 @@ export const Route = createFileRoute("/design")({
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Prestations réalisées dans le cadre de la certification{" "}
             <span className="text-foreground">
-              RS7068 « Créer des supports de communication avec un outil de
-              design graphique »
+              RS7068 « Créer des supports de communication avec un outil de design graphique »
             </span>
             .
           </p>

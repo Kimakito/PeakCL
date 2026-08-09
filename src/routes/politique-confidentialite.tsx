@@ -31,14 +31,13 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Le site <strong>peakcl.com</strong> est édité par Charlotte Lacroix,
-          exerçant sous le nom commercial <strong>PeakCL</strong>, entrepreneure
-          individuelle établie à Gilly-sur-Isère (73200), Savoie, France.
+          Le site <strong>peakcl.com</strong> est édité par Charlotte Lacroix, exerçant sous le nom
+          commercial <strong>PeakCL</strong>, entrepreneure individuelle établie à Gilly-sur-Isère
+          (73200), Savoie, France.
         </p>
         <p>
-          C'est elle qui décide des finalités et des moyens des traitements
-          décrits ci-dessous : elle est donc le responsable de traitement au
-          sens de l'article 4 du RGPD.
+          C'est elle qui décide des finalités et des moyens des traitements décrits ci-dessous :
+          elle est donc le responsable de traitement au sens de l'article 4 du RGPD.
         </p>
         <ul>
           <li>
@@ -52,19 +51,15 @@ const SECTIONS: Section[] = [
           </li>
           <li>
             Téléphone :{" "}
-            <a
-              href={CONTACT.phoneTel}
-              className="text-[var(--brand-turquoise)] hover:underline"
-            >
+            <a href={CONTACT.phoneTel} className="text-[var(--brand-turquoise)] hover:underline">
               {CONTACT.phoneDisplay}
             </a>
           </li>
         </ul>
         <p>
-          Compte tenu de la taille de la structure, aucun délégué à la
-          protection des données (DPO) n'a été désigné : ce n'est pas
-          obligatoire ici, et c'est Charlotte Lacroix qui répond directement à
-          vos demandes.
+          Compte tenu de la taille de la structure, aucun délégué à la protection des données (DPO)
+          n'a été désigné : ce n'est pas obligatoire ici, et c'est Charlotte Lacroix qui répond
+          directement à vos demandes.
         </p>
       </>
     ),
@@ -75,89 +70,77 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Aucune donnée n'est collectée à votre insu&nbsp;: tout part d'une
-          action de votre part (remplir un formulaire, réserver un appel, écrire
-          à l'assistant).
+          Aucune donnée n'est collectée à votre insu&nbsp;: tout part d'une action de votre part
+          (remplir un formulaire, réserver un appel, écrire à l'assistant).
         </p>
         <h3>Formulaires de contact et de diagnostic</h3>
         <p>
-          Les formulaires du site (page contact, diagnostic, brief,
-          questionnaires de cadrage) sont traités par{" "}
-          <strong>Netlify Forms</strong>. Les données transmises sont celles que
-          vous saisissez&nbsp;: nom, adresse e-mail, éventuellement téléphone,
-          nom de l'entreprise, et le contenu de votre message ou de vos
-          réponses.
+          Les formulaires du site (page contact, diagnostic, brief, questionnaires de cadrage) sont
+          traités par <strong>Netlify Forms</strong>. Les données transmises sont celles que vous
+          saisissez&nbsp;: nom, adresse e-mail, éventuellement téléphone, nom de l'entreprise, et le
+          contenu de votre message ou de vos réponses.
         </p>
         <ul>
           <li>
-            <strong>Finalité</strong> : répondre à votre demande, préparer un
-            devis, assurer le suivi de la relation commerciale.
+            <strong>Finalité</strong> : répondre à votre demande, préparer un devis, assurer le
+            suivi de la relation commerciale.
           </li>
           <li>
-            <strong>Base légale</strong> : votre consentement, et l'exécution de
-            mesures précontractuelles prises à votre demande (article 6.1.a et
-            6.1.b du RGPD).
+            <strong>Base légale</strong> : votre consentement, et l'exécution de mesures
+            précontractuelles prises à votre demande (article 6.1.a et 6.1.b du RGPD).
           </li>
           <li>
-            <strong>Durée de conservation</strong> : 3 ans à compter du dernier
-            contact si la demande n'aboutit pas. En cas de mission, les données
-            sont conservées pendant la durée de la relation contractuelle, puis
-            archivées le temps des obligations comptables et fiscales (10 ans
-            pour les pièces comptables).
+            <strong>Durée de conservation</strong> : 3 ans à compter du dernier contact si la
+            demande n'aboutit pas. En cas de mission, les données sont conservées pendant la durée
+            de la relation contractuelle, puis archivées le temps des obligations comptables et
+            fiscales (10 ans pour les pièces comptables).
           </li>
         </ul>
         <h3>Réservation d'appel (Calendly)</h3>
         <p>
-          Les pages de réservation intègrent un module <strong>Calendly</strong>
-          . Quand vous réservez un créneau, Calendly collecte votre nom, votre
-          e-mail et les informations du rendez-vous, selon sa propre politique
-          de confidentialité. Le simple chargement du module fait appel aux
-          serveurs de Calendly, qui reçoivent alors votre adresse IP.
+          Les pages de réservation intègrent un module <strong>Calendly</strong>. Quand vous
+          réservez un créneau, Calendly collecte votre nom, votre e-mail et les informations du
+          rendez-vous, selon sa propre politique de confidentialité. Le simple chargement du module
+          fait appel aux serveurs de Calendly, qui reçoivent alors votre adresse IP.
         </p>
         <ul>
           <li>
-            <strong>Finalité</strong> : planifier et confirmer un rendez-vous
-            téléphonique ou visio.
+            <strong>Finalité</strong> : planifier et confirmer un rendez-vous téléphonique ou visio.
           </li>
           <li>
-            <strong>Base légale</strong> : mesures précontractuelles prises à
-            votre demande.
+            <strong>Base légale</strong> : mesures précontractuelles prises à votre demande.
           </li>
         </ul>
         <h3>Assistant PeakaBot</h3>
         <p>
-          Le site propose un assistant conversationnel. Le contenu de vos
-          messages est transmis à l'API d'<strong>Anthropic</strong> (modèle
-          Claude) pour générer une réponse. N'y saisissez pas d'informations
-          sensibles ou confidentielles.
+          Le site propose un assistant conversationnel. Le contenu de vos messages est transmis à
+          l'API d'<strong>Anthropic</strong> (modèle Claude) pour générer une réponse. N'y saisissez
+          pas d'informations sensibles ou confidentielles.
         </p>
         <ul>
           <li>
-            <strong>Finalité</strong> : vous orienter vers la bonne page ou la
-            bonne offre.
+            <strong>Finalité</strong> : vous orienter vers la bonne page ou la bonne offre.
           </li>
           <li>
-            <strong>Base légale</strong> : votre consentement, matérialisé par
-            l'envoi du message.
+            <strong>Base légale</strong> : votre consentement, matérialisé par l'envoi du message.
           </li>
           <li>
-            <strong>Durée de conservation</strong> : les conversations ne sont
-            pas conservées à des fins de profilage. Un mécanisme anti-abus
-            mémorise en revanche un compteur de requêtes rattaché à votre
-            adresse IP, sur une fenêtre glissante de 5 minutes, ainsi qu'un
+            <strong>Durée de conservation</strong> : les conversations ne sont pas conservées à des
+            fins de profilage. Un mécanisme anti-abus mémorise en revanche un compteur de requêtes
+            rattaché à votre adresse IP, sur une fenêtre glissante de 5 minutes, ainsi qu'un
             compteur global quotidien.
           </li>
         </ul>
         <h3>Journaux techniques du serveur</h3>
         <p>
-          L'hébergeur enregistre automatiquement des journaux de connexion
-          (adresse IP, date et heure, page demandée, type de navigateur)
-          nécessaires au fonctionnement et à la sécurité du site.
+          L'hébergeur enregistre automatiquement des journaux de connexion (adresse IP, date et
+          heure, page demandée, type de navigateur) nécessaires au fonctionnement et à la sécurité
+          du site.
         </p>
         <ul>
           <li>
-            <strong>Base légale</strong> : intérêt légitime à assurer la
-            sécurité et la disponibilité du service (article 6.1.f du RGPD).
+            <strong>Base légale</strong> : intérêt légitime à assurer la sécurité et la
+            disponibilité du service (article 6.1.f du RGPD).
           </li>
         </ul>
       </>
@@ -170,25 +153,22 @@ const SECTIONS: Section[] = [
       <>
         <p>
           <strong>
-            Le site ne dépose aucun cookie publicitaire, aucun cookie de mesure
-            d'audience et aucun traceur tiers de suivi comportemental.
+            Le site ne dépose aucun cookie publicitaire, aucun cookie de mesure d'audience et aucun
+            traceur tiers de suivi comportemental.
           </strong>{" "}
-          Aucune bannière de consentement n'est donc affichée&nbsp;: il n'y a
-          rien à consentir.
+          Aucune bannière de consentement n'est donc affichée&nbsp;: il n'y a rien à consentir.
         </p>
         <p>
-          Le stockage local du navigateur (localStorage, sessionStorage) est
-          utilisé pour deux usages de confort&nbsp;: mémoriser votre préférence
-          de thème (clair ou sombre), et conserver le brouillon des formulaires
-          longs (diagnostic, questionnaires) pour que vous ne perdiez pas vos
-          réponses si vous fermez l'onglet. Ces informations restent sur votre
-          appareil&nbsp;: elles ne sont transmises que si vous validez le
-          formulaire.
+          Le stockage local du navigateur (localStorage, sessionStorage) est utilisé pour deux
+          usages de confort&nbsp;: mémoriser votre préférence de thème (clair ou sombre), et
+          conserver le brouillon des formulaires longs (diagnostic, questionnaires) pour que vous ne
+          perdiez pas vos réponses si vous fermez l'onglet. Ces informations restent sur votre
+          appareil&nbsp;: elles ne sont transmises que si vous validez le formulaire.
         </p>
         <p>
-          Les services tiers intégrés (Calendly sur les pages de réservation)
-          peuvent, eux, déposer leurs propres cookies lorsque vous interagissez
-          avec leur module. Ils relèvent de leurs politiques respectives.
+          Les services tiers intégrés (Calendly sur les pages de réservation) peuvent, eux, déposer
+          leurs propres cookies lorsque vous interagissez avec leur module. Ils relèvent de leurs
+          politiques respectives.
         </p>
       </>
     ),
@@ -199,33 +179,29 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Vos données ne sont ni vendues, ni louées, ni échangées. Elles sont
-          accessibles à Charlotte Lacroix et aux sous-traitants techniques
-          strictement nécessaires au fonctionnement du site&nbsp;:
+          Vos données ne sont ni vendues, ni louées, ni échangées. Elles sont accessibles à
+          Charlotte Lacroix et aux sous-traitants techniques strictement nécessaires au
+          fonctionnement du site&nbsp;:
         </p>
         <ul>
           <li>
-            <strong>Netlify</strong> — hébergement du site et traitement des
-            formulaires.
+            <strong>Netlify</strong> — hébergement du site et traitement des formulaires.
           </li>
           <li>
             <strong>Calendly</strong> — prise de rendez-vous.
           </li>
           <li>
-            <strong>Anthropic</strong> — génération des réponses de l'assistant
-            conversationnel.
+            <strong>Anthropic</strong> — génération des réponses de l'assistant conversationnel.
           </li>
           <li>
-            <strong>Google</strong> (Gmail) — réception et suivi des e-mails de
-            contact.
+            <strong>Google</strong> (Gmail) — réception et suivi des e-mails de contact.
           </li>
         </ul>
         <p>
-          Certains de ces prestataires sont établis aux États-Unis. Les
-          transferts hors Union européenne s'appuient sur les garanties prévues
-          au chapitre V du RGPD (clauses contractuelles types de la Commission
-          européenne et/ou certification au cadre de protection des données
-          UE–États-Unis, selon le prestataire).
+          Certains de ces prestataires sont établis aux États-Unis. Les transferts hors Union
+          européenne s'appuient sur les garanties prévues au chapitre V du RGPD (clauses
+          contractuelles types de la Commission européenne et/ou certification au cadre de
+          protection des données UE–États-Unis, selon le prestataire).
         </p>
       </>
     ),
@@ -236,10 +212,10 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Conformément aux articles 15 à 22 du RGPD, vous disposez d'un droit
-          d'accès, de rectification, d'effacement, de limitation du traitement,
-          d'opposition et de portabilité de vos données. Vous pouvez également
-          définir des directives sur leur sort après votre décès.
+          Conformément aux articles 15 à 22 du RGPD, vous disposez d'un droit d'accès, de
+          rectification, d'effacement, de limitation du traitement, d'opposition et de portabilité
+          de vos données. Vous pouvez également définir des directives sur leur sort après votre
+          décès.
         </p>
         <p>
           Pour exercer ces droits, écrivez à{" "}
@@ -249,13 +225,12 @@ const SECTIONS: Section[] = [
           >
             {CONTACT.email}
           </a>
-          . Une réponse vous sera apportée dans un délai d'un mois. Une pièce
-          justificative d'identité peut être demandée en cas de doute
-          raisonnable sur l'identité du demandeur.
+          . Une réponse vous sera apportée dans un délai d'un mois. Une pièce justificative
+          d'identité peut être demandée en cas de doute raisonnable sur l'identité du demandeur.
         </p>
         <p>
-          Si la réponse ne vous satisfait pas, vous pouvez introduire une
-          réclamation auprès de la CNIL&nbsp;:{" "}
+          Si la réponse ne vous satisfait pas, vous pouvez introduire une réclamation auprès de la
+          CNIL&nbsp;:{" "}
           <a
             href="https://www.cnil.fr/fr/plaintes"
             target="_blank"
@@ -275,15 +250,14 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Le site est servi exclusivement en HTTPS (chiffrement TLS), avec une
-          politique HSTS, des en-têtes de sécurité restrictifs et une protection
-          anti-spam sur les formulaires. L'accès aux données transmises est
-          limité à Charlotte Lacroix.
+          Le site est servi exclusivement en HTTPS (chiffrement TLS), avec une politique HSTS, des
+          en-têtes de sécurité restrictifs et une protection anti-spam sur les formulaires. L'accès
+          aux données transmises est limité à Charlotte Lacroix.
         </p>
         <p>
-          Aucun système n'est infaillible&nbsp;: en cas de violation de données
-          susceptible d'engendrer un risque pour vos droits et libertés, vous en
-          seriez informé conformément à l'article 34 du RGPD.
+          Aucun système n'est infaillible&nbsp;: en cas de violation de données susceptible
+          d'engendrer un risque pour vos droits et libertés, vous en seriez informé conformément à
+          l'article 34 du RGPD.
         </p>
       </>
     ),
@@ -293,8 +267,8 @@ const SECTIONS: Section[] = [
     title: "7. Hébergeur",
     body: (
       <p>
-        Le site est hébergé par <strong>Netlify, Inc.</strong>, 512 2nd Street,
-        Suite 200, San Francisco, CA 94107, États-Unis —{" "}
+        Le site est hébergé par <strong>Netlify, Inc.</strong>, 512 2nd Street, Suite 200, San
+        Francisco, CA 94107, États-Unis —{" "}
         <a
           href="https://www.netlify.com"
           target="_blank"
@@ -312,10 +286,9 @@ const SECTIONS: Section[] = [
     title: "8. Modifications de cette politique",
     body: (
       <p>
-        Cette politique peut évoluer, notamment si un nouvel outil est intégré
-        au site. La date de dernière mise à jour indiquée en haut de page fait
-        foi. En cas de changement substantiel, les personnes concernées en sont
-        informées par e-mail lorsque c'est possible.
+        Cette politique peut évoluer, notamment si un nouvel outil est intégré au site. La date de
+        dernière mise à jour indiquée en haut de page fait foi. En cas de changement substantiel,
+        les personnes concernées en sont informées par e-mail lorsque c'est possible.
       </p>
     ),
   },
@@ -366,23 +339,17 @@ function Page() {
             Politique de <span className="text-gradient">confidentialité</span>
           </h1>
           <p className="mt-5 text-muted-foreground">
-            Ce que PeakCL fait — et ne fait pas — de vos données personnelles
-            quand vous utilisez peakcl.com. Pas de formule creuse&nbsp;: chaque
-            traitement listé ici correspond à un outil réellement présent sur le
-            site.
+            Ce que PeakCL fait — et ne fait pas — de vos données personnelles quand vous utilisez
+            peakcl.com. Pas de formule creuse&nbsp;: chaque traitement listé ici correspond à un
+            outil réellement présent sur le site.
           </p>
-          <p className="mt-3 text-xs text-muted-foreground">
-            Dernière mise à jour : {UPDATED_AT}
-          </p>
+          <p className="mt-3 text-xs text-muted-foreground">Dernière mise à jour : {UPDATED_AT}</p>
         </div>
       </section>
 
       <section className="border-t border-border py-16">
         <div className="mx-auto max-w-3xl px-6">
-          <nav
-            aria-label="Sommaire"
-            className="rounded-2xl border border-border bg-card/50 p-5"
-          >
+          <nav aria-label="Sommaire" className="rounded-2xl border border-border bg-card/50 p-5">
             <h2 className="text-sm font-semibold text-foreground">Sommaire</h2>
             <ol className="mt-3 space-y-1.5 text-sm text-muted-foreground">
               {SECTIONS.map((s) => (

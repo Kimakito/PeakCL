@@ -18,8 +18,7 @@ export const Route = createFileRoute("/agence-web-gilly-sur-isere")({
       },
       {
         property: "og:description",
-        content:
-          "Création & refonte de sites web à Gilly-sur-Isère. Audit gratuit sous 24h.",
+        content: "Création & refonte de sites web à Gilly-sur-Isère. Audit gratuit sous 24h.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/agence-web-gilly-sur-isere") },

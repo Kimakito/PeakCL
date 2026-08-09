@@ -2,11 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { canonicalLink, hreflangLinks, ogLocaleMeta } from "@/seo/hreflang";
 import { ServicePage } from "@/components/ServicePage";
-import {
-  communityEn,
-  cmForfaitsEn,
-  communityHighlightsEn,
-} from "@/content/peakcl/services.en";
+import { communityEn, cmForfaitsEn, communityHighlightsEn } from "@/content/peakcl/services.en";
 
 export const Route = createFileRoute("/en/social-media")({
   head: () => ({

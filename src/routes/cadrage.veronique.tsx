@@ -129,7 +129,8 @@ function useFormState() {
     }
   }, [values]);
 
-  const set = (name: string, value: string | string[]) => setValues((prev) => ({ ...prev, [name]: value }));
+  const set = (name: string, value: string | string[]) =>
+    setValues((prev) => ({ ...prev, [name]: value }));
   const str = (name: string) => String(values[name] ?? "");
   const arr = (name: string) => (Array.isArray(values[name]) ? values[name] : []) as string[];
 
@@ -167,7 +168,9 @@ function CadrageVeroniquePage() {
         <div className="mx-auto flex max-w-3xl items-center justify-between px-6">
           <span className="font-display text-sm font-bold tracking-tight">
             Peak<span className="text-gradient">CL</span>
-            <span className="ml-2 font-sans text-xs font-normal text-muted-foreground">· Cadrage privé</span>
+            <span className="ml-2 font-sans text-xs font-normal text-muted-foreground">
+              · Cadrage privé
+            </span>
           </span>
           <span className="text-xs text-muted-foreground">Véronique</span>
         </div>
@@ -194,13 +197,15 @@ function CadrageVeroniquePage() {
             Questionnaire de cadrage
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground md:text-base">
-            Refonte du site · <span className="text-foreground">veronique-et-lenergie-doree.fr</span>
+            Refonte du site ·{" "}
+            <span className="text-foreground">veronique-et-lenergie-doree.fr</span>
             <br />
             Thérapeute magnétiseuse & énergéticienne
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-xs leading-relaxed text-muted-foreground">
-            Réponds librement, même de manière intuitive. L’objectif n’est pas la perfection : c’est de poser les bonnes
-            bases pour un site cohérent et aligné avec ton activité. Aucun champ n’est obligatoire.
+            Réponds librement, même de manière intuitive. L’objectif n’est pas la perfection : c’est
+            de poser les bonnes bases pour un site cohérent et aligné avec ton activité. Aucun champ
+            n’est obligatoire.
           </p>
         </div>
       </section>
@@ -220,9 +225,17 @@ function CadrageVeroniquePage() {
             <input type="hidden" name="leadType" value="cadrage_client" />
             <input type="hidden" name="source" value="cadrage_veronique_prive" />
             <input type="hidden" name="client_name" value="Véronique" />
-            <input type="hidden" name="client_activity" value="Thérapeute magnétiseuse & énergéticienne" />
+            <input
+              type="hidden"
+              name="client_activity"
+              value="Thérapeute magnétiseuse & énergéticienne"
+            />
             <input type="hidden" name="site_actuel" value="veronique-et-lenergie-doree.fr" />
-            <input type="hidden" name="subject" value="[PeakCL] Cadrage Véronique · questionnaire reçu" />
+            <input
+              type="hidden"
+              name="subject"
+              value="[PeakCL] Cadrage Véronique · questionnaire reçu"
+            />
             <p className="hidden">
               <label>
                 Ne pas remplir : <input name="bot-field" />
@@ -231,13 +244,29 @@ function CadrageVeroniquePage() {
 
             <SectionTitle title="1. Ton activité & ton parcours" />
             <QuestionBlock label="Peux-tu me raconter ton parcours et ce qui t’a amenée vers le magnétisme et l’énergétique ?">
-              <TextArea name="parcours" rows={6} value={str("parcours")} onChange={(v) => set("parcours", v)} placeholder="Ton histoire, ta formation, ce qui a donné sens à ta pratique…" />
+              <TextArea
+                name="parcours"
+                rows={6}
+                value={str("parcours")}
+                onChange={(v) => set("parcours", v)}
+                placeholder="Ton histoire, ta formation, ce qui a donné sens à ta pratique…"
+              />
             </QuestionBlock>
             <QuestionBlock label="Depuis combien de temps exerces-tu ?">
-              <TextInput name="depuis_quand" value={str("depuis_quand")} onChange={(v) => set("depuis_quand", v)} placeholder="Ex : 2018 · 5 ans" />
+              <TextInput
+                name="depuis_quand"
+                value={str("depuis_quand")}
+                onChange={(v) => set("depuis_quand", v)}
+                placeholder="Ex : 2018 · 5 ans"
+              />
             </QuestionBlock>
             <QuestionBlock label="Quelle est aujourd’hui ton activité principale ?">
-              <TextArea name="activite_principale" rows={3} value={str("activite_principale")} onChange={(v) => set("activite_principale", v)} />
+              <TextArea
+                name="activite_principale"
+                rows={3}
+                value={str("activite_principale")}
+                onChange={(v) => set("activite_principale", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Tu exerces (plusieurs choix possibles) :">
               <CheckboxGroup
@@ -253,38 +282,91 @@ function CadrageVeroniquePage() {
               />
             </QuestionBlock>
             <QuestionBlock label="Quelle est ta zone géographique d’intervention ?">
-              <TextArea name="zone_geographique" rows={2} value={str("zone_geographique")} onChange={(v) => set("zone_geographique", v)} placeholder="Ville, département, rayon, visio France entière…" />
+              <TextArea
+                name="zone_geographique"
+                rows={2}
+                value={str("zone_geographique")}
+                onChange={(v) => set("zone_geographique", v)}
+                placeholder="Ville, département, rayon, visio France entière…"
+              />
             </QuestionBlock>
             <QuestionBlock label="Tu travailles seule ou avec d’autres praticiens ?">
-              <TextArea name="seule_ou_equipe" rows={2} value={str("seule_ou_equipe")} onChange={(v) => set("seule_ou_equipe", v)} />
+              <TextArea
+                name="seule_ou_equipe"
+                rows={2}
+                value={str("seule_ou_equipe")}
+                onChange={(v) => set("seule_ou_equipe", v)}
+              />
             </QuestionBlock>
 
             <SectionTitle title="2. Ta vision & ton approche" />
             <QuestionBlock label="Comment décrirais-tu ton approche thérapeutique ?">
-              <TextArea name="approche" rows={5} value={str("approche")} onChange={(v) => set("approche", v)} />
+              <TextArea
+                name="approche"
+                rows={5}
+                value={str("approche")}
+                onChange={(v) => set("approche", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Quelles sont les valeurs les plus importantes dans ton accompagnement ?">
-              <TextArea name="valeurs" rows={4} value={str("valeurs")} onChange={(v) => set("valeurs", v)} />
+              <TextArea
+                name="valeurs"
+                rows={4}
+                value={str("valeurs")}
+                onChange={(v) => set("valeurs", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Que souhaites-tu que les personnes ressentent lorsqu’elles viennent te voir ?">
-              <TextArea name="ressenti_souhaite" rows={3} value={str("ressenti_souhaite")} onChange={(v) => set("ressenti_souhaite", v)} />
+              <TextArea
+                name="ressenti_souhaite"
+                rows={3}
+                value={str("ressenti_souhaite")}
+                onChange={(v) => set("ressenti_souhaite", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Quels types de problématiques accompagnes-tu le plus souvent ?">
-              <TextArea name="problematiques_frequentes" rows={5} value={str("problematiques_frequentes")} onChange={(v) => set("problematiques_frequentes", v)} />
+              <TextArea
+                name="problematiques_frequentes"
+                rows={5}
+                value={str("problematiques_frequentes")}
+                onChange={(v) => set("problematiques_frequentes", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Y a-t-il des sujets ou pratiques que tu ne souhaites pas associer à ton image ?">
-              <TextArea name="sujets_eviter" rows={3} value={str("sujets_eviter")} onChange={(v) => set("sujets_eviter", v)} />
+              <TextArea
+                name="sujets_eviter"
+                rows={3}
+                value={str("sujets_eviter")}
+                onChange={(v) => set("sujets_eviter", v)}
+              />
             </QuestionBlock>
 
             <SectionTitle title="3. Tes prestations" />
             <QuestionBlock label="Quelles prestations proposes-tu aujourd’hui ?">
-              <TextArea name="prestations_actuelles" rows={6} value={str("prestations_actuelles")} onChange={(v) => set("prestations_actuelles", v)} placeholder="Liste tes soins, durées, tarifs indicatifs si tu veux…" />
+              <TextArea
+                name="prestations_actuelles"
+                rows={6}
+                value={str("prestations_actuelles")}
+                onChange={(v) => set("prestations_actuelles", v)}
+                placeholder="Liste tes soins, durées, tarifs indicatifs si tu veux…"
+              />
             </QuestionBlock>
             <QuestionBlock label="Souhaites-tu détailler chaque soin / accompagnement individuellement sur le site ?">
-              <TextArea name="detail_soins" rows={3} value={str("detail_soins")} onChange={(v) => set("detail_soins", v)} placeholder="Oui / non / seulement certains, précise lesquels" />
+              <TextArea
+                name="detail_soins"
+                rows={3}
+                value={str("detail_soins")}
+                onChange={(v) => set("detail_soins", v)}
+                placeholder="Oui / non / seulement certains, précise lesquels"
+              />
             </QuestionBlock>
             <QuestionBlock label="Certaines prestations sont-elles plus importantes à mettre en avant ?">
-              <TextArea name="prestations_prioritaires" rows={3} value={str("prestations_prioritaires")} onChange={(v) => set("prestations_prioritaires", v)} />
+              <TextArea
+                name="prestations_prioritaires"
+                rows={3}
+                value={str("prestations_prioritaires")}
+                onChange={(v) => set("prestations_prioritaires", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Tu proposes (plusieurs choix possibles) :">
               <CheckboxGroup
@@ -301,32 +383,72 @@ function CadrageVeroniquePage() {
               />
             </QuestionBlock>
             <QuestionBlock label="Tes prestations évoluent-elles régulièrement ?">
-              <TextArea name="prestations_evolution" rows={2} value={str("prestations_evolution")} onChange={(v) => set("prestations_evolution", v)} />
+              <TextArea
+                name="prestations_evolution"
+                rows={2}
+                value={str("prestations_evolution")}
+                onChange={(v) => set("prestations_evolution", v)}
+              />
             </QuestionBlock>
 
             <SectionTitle title="4. Ta clientèle" />
             <QuestionBlock label="Qui sont les personnes qui viennent te consulter aujourd’hui ?">
-              <TextArea name="clientele" rows={4} value={str("clientele")} onChange={(v) => set("clientele", v)} />
+              <TextArea
+                name="clientele"
+                rows={4}
+                value={str("clientele")}
+                onChange={(v) => set("clientele", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="As-tu un public principal ?">
-              <TextArea name="public_principal" rows={3} value={str("public_principal")} onChange={(v) => set("public_principal", v)} />
+              <TextArea
+                name="public_principal"
+                rows={3}
+                value={str("public_principal")}
+                onChange={(v) => set("public_principal", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Quelles sont les problématiques ou besoins les plus fréquents ?">
-              <TextArea name="besoins_frequents" rows={4} value={str("besoins_frequents")} onChange={(v) => set("besoins_frequents", v)} />
+              <TextArea
+                name="besoins_frequents"
+                rows={4}
+                value={str("besoins_frequents")}
+                onChange={(v) => set("besoins_frequents", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Tes visiteurs connaissent-ils déjà bien le magnétisme et les soins énergétiques ?">
-              <TextArea name="connaissance_soins" rows={3} value={str("connaissance_soins")} onChange={(v) => set("connaissance_soins", v)} />
+              <TextArea
+                name="connaissance_soins"
+                rows={3}
+                value={str("connaissance_soins")}
+                onChange={(v) => set("connaissance_soins", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Faut-il expliquer davantage certaines notions pour rassurer et clarifier ?">
-              <TextArea name="explications_necessaires" rows={4} value={str("explications_necessaires")} onChange={(v) => set("explications_necessaires", v)} />
+              <TextArea
+                name="explications_necessaires"
+                rows={4}
+                value={str("explications_necessaires")}
+                onChange={(v) => set("explications_necessaires", v)}
+              />
             </QuestionBlock>
 
             <SectionTitle title="5. Objectifs du futur site" />
             <QuestionBlock label="Pourquoi souhaites-tu refaire ton site aujourd’hui ?">
-              <TextArea name="pourquoi_refonte" rows={4} value={str("pourquoi_refonte")} onChange={(v) => set("pourquoi_refonte", v)} />
+              <TextArea
+                name="pourquoi_refonte"
+                rows={4}
+                value={str("pourquoi_refonte")}
+                onChange={(v) => set("pourquoi_refonte", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Qu’est-ce qui ne te convient plus dans le site actuel ?">
-              <TextArea name="site_actuel_problemes" rows={4} value={str("site_actuel_problemes")} onChange={(v) => set("site_actuel_problemes", v)} />
+              <TextArea
+                name="site_actuel_problemes"
+                rows={4}
+                value={str("site_actuel_problemes")}
+                onChange={(v) => set("site_actuel_problemes", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Quels sont tes objectifs principaux ? (plusieurs choix)">
               <CheckboxGroup
@@ -344,7 +466,12 @@ function CadrageVeroniquePage() {
               />
             </QuestionBlock>
             <QuestionBlock label="Autres objectifs ?">
-              <TextArea name="objectifs_autre" rows={2} value={str("objectifs_autre")} onChange={(v) => set("objectifs_autre", v)} />
+              <TextArea
+                name="objectifs_autre"
+                rows={2}
+                value={str("objectifs_autre")}
+                onChange={(v) => set("objectifs_autre", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Que voudrais-tu que les visiteurs fassent après avoir visité le site ?">
               <CheckboxGroup
@@ -360,16 +487,32 @@ function CadrageVeroniquePage() {
                 onChange={(v) => set("actions_visiteurs", v)}
               />
               <div className="mt-3">
-                <TextArea name="actions_visiteurs_autre" rows={2} value={str("actions_visiteurs_autre")} onChange={(v) => set("actions_visiteurs_autre", v)} placeholder="Autre action souhaitée…" />
+                <TextArea
+                  name="actions_visiteurs_autre"
+                  rows={2}
+                  value={str("actions_visiteurs_autre")}
+                  onChange={(v) => set("actions_visiteurs_autre", v)}
+                  placeholder="Autre action souhaitée…"
+                />
               </div>
             </QuestionBlock>
 
             <SectionTitle title="6. Ton univers visuel & ton image" />
             <QuestionBlock label="Que souhaites-tu conserver du site actuel ?">
-              <TextArea name="conserver_actuel" rows={3} value={str("conserver_actuel")} onChange={(v) => set("conserver_actuel", v)} />
+              <TextArea
+                name="conserver_actuel"
+                rows={3}
+                value={str("conserver_actuel")}
+                onChange={(v) => set("conserver_actuel", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Que souhaites-tu changer complètement ?">
-              <TextArea name="changer_completement" rows={3} value={str("changer_completement")} onChange={(v) => set("changer_completement", v)} />
+              <TextArea
+                name="changer_completement"
+                rows={3}
+                value={str("changer_completement")}
+                onChange={(v) => set("changer_completement", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Quels mots décrivent l’univers que tu aimerais transmettre ?">
               <CheckboxGroup
@@ -389,18 +532,39 @@ function CadrageVeroniquePage() {
               />
             </QuestionBlock>
             <QuestionBlock label="As-tu des couleurs que tu apprécies particulièrement ?">
-              <TextArea name="couleurs_appreciees" rows={2} value={str("couleurs_appreciees")} onChange={(v) => set("couleurs_appreciees", v)} />
+              <TextArea
+                name="couleurs_appreciees"
+                rows={2}
+                value={str("couleurs_appreciees")}
+                onChange={(v) => set("couleurs_appreciees", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Y a-t-il des couleurs ou styles que tu ne veux surtout pas ?">
-              <TextArea name="couleurs_eviter" rows={2} value={str("couleurs_eviter")} onChange={(v) => set("couleurs_eviter", v)} />
+              <TextArea
+                name="couleurs_eviter"
+                rows={2}
+                value={str("couleurs_eviter")}
+                onChange={(v) => set("couleurs_eviter", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="As-tu des sites ou univers visuels qui t’inspirent ?">
-              <TextArea name="inspirations_sites" rows={4} value={str("inspirations_sites")} onChange={(v) => set("inspirations_sites", v)} placeholder="URLs ou descriptions…" />
+              <TextArea
+                name="inspirations_sites"
+                rows={4}
+                value={str("inspirations_sites")}
+                onChange={(v) => set("inspirations_sites", v)}
+                placeholder="URLs ou descriptions…"
+              />
             </QuestionBlock>
 
             <SectionTitle title="7. Logo & identité visuelle" />
             <QuestionBlock label="As-tu déjà un logo exploitable ?">
-              <TextArea name="logo_exploitable" rows={2} value={str("logo_exploitable")} onChange={(v) => set("logo_exploitable", v)} />
+              <TextArea
+                name="logo_exploitable"
+                rows={2}
+                value={str("logo_exploitable")}
+                onChange={(v) => set("logo_exploitable", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Pour le logo, tu souhaites :">
               <RadioGroup
@@ -415,7 +579,12 @@ function CadrageVeroniquePage() {
               />
             </QuestionBlock>
             <QuestionBlock label="Souhaites-tu une charte graphique complète ?">
-              <TextArea name="charte_graphique" rows={2} value={str("charte_graphique")} onChange={(v) => set("charte_graphique", v)} />
+              <TextArea
+                name="charte_graphique"
+                rows={2}
+                value={str("charte_graphique")}
+                onChange={(v) => set("charte_graphique", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="As-tu besoin de déclinaisons pour :">
               <CheckboxGroup
@@ -451,19 +620,44 @@ function CadrageVeroniquePage() {
               />
             </QuestionBlock>
             <QuestionBlock label="Souhaites-tu une page dédiée pour chaque soin ?">
-              <TextArea name="page_par_soin" rows={3} value={str("page_par_soin")} onChange={(v) => set("page_par_soin", v)} />
+              <TextArea
+                name="page_par_soin"
+                rows={3}
+                value={str("page_par_soin")}
+                onChange={(v) => set("page_par_soin", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Veux-tu intégrer un blog ou des articles ?">
-              <TextArea name="blog_souhaite" rows={2} value={str("blog_souhaite")} onChange={(v) => set("blog_souhaite", v)} />
+              <TextArea
+                name="blog_souhaite"
+                rows={2}
+                value={str("blog_souhaite")}
+                onChange={(v) => set("blog_souhaite", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Veux-tu intégrer des témoignages clients ?">
-              <TextArea name="temoignages_integration" rows={2} value={str("temoignages_integration")} onChange={(v) => set("temoignages_integration", v)} />
+              <TextArea
+                name="temoignages_integration"
+                rows={2}
+                value={str("temoignages_integration")}
+                onChange={(v) => set("temoignages_integration", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Souhaites-tu une section FAQ ?">
-              <TextArea name="faq_souhaite" rows={2} value={str("faq_souhaite")} onChange={(v) => set("faq_souhaite", v)} />
+              <TextArea
+                name="faq_souhaite"
+                rows={2}
+                value={str("faq_souhaite")}
+                onChange={(v) => set("faq_souhaite", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Remarques sur la structure ou l’arborescence du site :">
-              <TextArea name="structure_pages_commentaire" rows={3} value={str("structure_pages_commentaire")} onChange={(v) => set("structure_pages_commentaire", v)} />
+              <TextArea
+                name="structure_pages_commentaire"
+                rows={3}
+                value={str("structure_pages_commentaire")}
+                onChange={(v) => set("structure_pages_commentaire", v)}
+              />
             </QuestionBlock>
 
             <SectionTitle title="9. Prise de contact & réservation" />
@@ -481,10 +675,22 @@ function CadrageVeroniquePage() {
               />
             </QuestionBlock>
             <QuestionBlock label="As-tu besoin de :">
-              <TextArea name="formulaires_besoins" rows={3} value={str("formulaires_besoins")} onChange={(v) => set("formulaires_besoins", v)} placeholder="Formulaire simple · demande de RDV · les deux…" />
+              <TextArea
+                name="formulaires_besoins"
+                rows={3}
+                value={str("formulaires_besoins")}
+                onChange={(v) => set("formulaires_besoins", v)}
+                placeholder="Formulaire simple · demande de RDV · les deux…"
+              />
             </QuestionBlock>
             <QuestionBlock label="Utilises-tu déjà un agenda ou système de réservation en ligne ?">
-              <TextArea name="agenda_reservation" rows={3} value={str("agenda_reservation")} onChange={(v) => set("agenda_reservation", v)} placeholder="Doctolib, Calendly, autre, aucun…" />
+              <TextArea
+                name="agenda_reservation"
+                rows={3}
+                value={str("agenda_reservation")}
+                onChange={(v) => set("agenda_reservation", v)}
+                placeholder="Doctolib, Calendly, autre, aucun…"
+              />
             </QuestionBlock>
 
             <SectionTitle title="10. Contenus & médias" />
@@ -514,15 +720,30 @@ function CadrageVeroniquePage() {
               />
             </QuestionBlock>
             <QuestionBlock label="As-tu des photos de toi que tu souhaites utiliser ?">
-              <TextArea name="photos_utilisation" rows={3} value={str("photos_utilisation")} onChange={(v) => set("photos_utilisation", v)} />
+              <TextArea
+                name="photos_utilisation"
+                rows={3}
+                value={str("photos_utilisation")}
+                onChange={(v) => set("photos_utilisation", v)}
+              />
             </QuestionBlock>
 
             <SectionTitle title="11. Visibilité & référencement" />
             <QuestionBlock label="Souhaites-tu améliorer ta visibilité locale sur Google ?">
-              <TextArea name="visibilite_google" rows={3} value={str("visibilite_google")} onChange={(v) => set("visibilite_google", v)} />
+              <TextArea
+                name="visibilite_google"
+                rows={3}
+                value={str("visibilite_google")}
+                onChange={(v) => set("visibilite_google", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="As-tu déjà une fiche Google Business ?">
-              <TextArea name="fiche_google" rows={2} value={str("fiche_google")} onChange={(v) => set("fiche_google", v)} />
+              <TextArea
+                name="fiche_google"
+                rows={2}
+                value={str("fiche_google")}
+                onChange={(v) => set("fiche_google", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Pour Google, tu souhaites :">
               <CheckboxGroup
@@ -536,7 +757,13 @@ function CadrageVeroniquePage() {
               />
             </QuestionBlock>
             <QuestionBlock label="Quels mots-clés ou activités aimerais-tu voir associés à ton nom sur Google ?">
-              <TextArea name="mots_cles_google" rows={3} value={str("mots_cles_google")} onChange={(v) => set("mots_cles_google", v)} placeholder="Ex : magnétiseur Annecy, énergéticienne…" />
+              <TextArea
+                name="mots_cles_google"
+                rows={3}
+                value={str("mots_cles_google")}
+                onChange={(v) => set("mots_cles_google", v)}
+                placeholder="Ex : magnétiseur Annecy, énergéticienne…"
+              />
             </QuestionBlock>
 
             <SectionTitle title="12. Réseaux sociaux" />
@@ -552,14 +779,29 @@ function CadrageVeroniquePage() {
                 onChange={(v) => set("reseaux_presence", v)}
               />
               <div className="mt-3">
-                <TextInput name="reseaux_autre" value={str("reseaux_autre")} onChange={(v) => set("reseaux_autre", v)} placeholder="Si autre : précise (LinkedIn, YouTube…)" />
+                <TextInput
+                  name="reseaux_autre"
+                  value={str("reseaux_autre")}
+                  onChange={(v) => set("reseaux_autre", v)}
+                  placeholder="Si autre : précise (LinkedIn, YouTube…)"
+                />
               </div>
             </QuestionBlock>
             <QuestionBlock label="Souhaites-tu relier le site à tes réseaux sociaux ?">
-              <TextArea name="lier_reseaux" rows={2} value={str("lier_reseaux")} onChange={(v) => set("lier_reseaux", v)} />
+              <TextArea
+                name="lier_reseaux"
+                rows={2}
+                value={str("lier_reseaux")}
+                onChange={(v) => set("lier_reseaux", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Souhaites-tu une cohérence graphique globale (site, logo, réseaux) ?">
-              <TextArea name="coherence_graphique" rows={3} value={str("coherence_graphique")} onChange={(v) => set("coherence_graphique", v)} />
+              <TextArea
+                name="coherence_graphique"
+                rows={3}
+                value={str("coherence_graphique")}
+                onChange={(v) => set("coherence_graphique", v)}
+              />
             </QuestionBlock>
 
             <SectionTitle title="13. Technique & gestion" />
@@ -576,15 +818,30 @@ function CadrageVeroniquePage() {
               />
             </QuestionBlock>
             <QuestionBlock label="As-tu déjà un hébergement, nom de domaine ou des accès techniques ?">
-              <TextArea name="hebergement_acces" rows={4} value={str("hebergement_acces")} onChange={(v) => set("hebergement_acces", v)} />
+              <TextArea
+                name="hebergement_acces"
+                rows={4}
+                value={str("hebergement_acces")}
+                onChange={(v) => set("hebergement_acces", v)}
+              />
             </QuestionBlock>
 
             <SectionTitle title="14. Organisation du projet" />
             <QuestionBlock label="As-tu une date idéale pour la mise en ligne ?">
-              <TextInput name="date_mise_en_ligne" value={str("date_mise_en_ligne")} onChange={(v) => set("date_mise_en_ligne", v)} placeholder="Ex : septembre 2026 · pas de date fixe" />
+              <TextInput
+                name="date_mise_en_ligne"
+                value={str("date_mise_en_ligne")}
+                onChange={(v) => set("date_mise_en_ligne", v)}
+                placeholder="Ex : septembre 2026 · pas de date fixe"
+              />
             </QuestionBlock>
             <QuestionBlock label="Y a-t-il une période importante pour ton activité ?">
-              <TextArea name="periode_importante" rows={2} value={str("periode_importante")} onChange={(v) => set("periode_importante", v)} />
+              <TextArea
+                name="periode_importante"
+                rows={2}
+                value={str("periode_importante")}
+                onChange={(v) => set("periode_importante", v)}
+              />
             </QuestionBlock>
             <QuestionBlock label="Tu préfères avancer :">
               <RadioGroup
@@ -600,14 +857,27 @@ function CadrageVeroniquePage() {
 
             <SectionTitle title="15. Notes & idées libres" />
             <QuestionBlock label="Y a-t-il des éléments importants que nous n’avons pas abordés ?">
-              <TextArea name="notes_libres" rows={8} value={str("notes_libres")} onChange={(v) => set("notes_libres", v)} placeholder="Idées, envies, intuitions, contraintes, questions…" />
+              <TextArea
+                name="notes_libres"
+                rows={8}
+                value={str("notes_libres")}
+                onChange={(v) => set("notes_libres", v)}
+                placeholder="Idées, envies, intuitions, contraintes, questions…"
+              />
             </QuestionBlock>
 
             <div className="relative mt-12 rounded-2xl border border-border bg-card/40 p-6 text-center shadow-card">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <p className="text-sm text-muted-foreground">
-                Tu peux envoyer même si tout n’est pas rempli. Tes réponses sont sauvegardées sur cet appareil jusqu’à
-                l’envoi.
+                Tu peux envoyer même si tout n’est pas rempli. Tes réponses sont sauvegardées sur
+                cet appareil jusqu’à l’envoi.
               </p>
               <button
                 type="submit"

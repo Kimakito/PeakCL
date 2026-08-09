@@ -302,9 +302,7 @@ function para(text) {
 function list(items) {
   return `<ul class="list">
     ${items
-      .map(
-        (t) => `<li class="li"><span class="bullet"></span><span>${esc(t)}</span></li>`,
-      )
+      .map((t) => `<li class="li"><span class="bullet"></span><span>${esc(t)}</span></li>`)
       .join("")}
   </ul>`;
 }
@@ -313,7 +311,8 @@ function kpiTriplet(items) {
   return `<div class="kpi">
     ${items
       .map(
-        ({ label, value }) => `<div class="kpi__item"><div class="kpi__label">${esc(label)}</div><div class="kpi__value">${esc(value)}</div></div>`,
+        ({ label, value }) =>
+          `<div class="kpi__item"><div class="kpi__label">${esc(label)}</div><div class="kpi__value">${esc(value)}</div></div>`,
       )
       .join("")}
   </div>`;
@@ -324,7 +323,8 @@ const docs = [
     out: "public/peakcl/assets/ressources/peakcl_guide01_systeme.pdf",
     titleTop: "GUIDE 01",
     title: "Pourquoi tu n'as pas de clients",
-    subtitle: "Même si tu fais tout « comme il faut ». La visibilité seule ne suffit pas — ce guide t’explique le système à mettre en place.",
+    subtitle:
+      "Même si tu fais tout « comme il faut ». La visibilité seule ne suffit pas — ce guide t’explique le système à mettre en place.",
     chips: ["Système en 3 étapes", "Exemples concrets", "Actions immédiates"],
     pages: [
       [
@@ -354,7 +354,9 @@ const docs = [
       [
         card(
           "Le système en 3 étapes",
-          para("Un système simple et reproductible, qui fait le travail à ta place — même quand tu dors.") +
+          para(
+            "Un système simple et reproductible, qui fait le travail à ta place — même quand tu dors.",
+          ) +
             kpiTriplet([
               { label: "01", value: "Attirer" },
               { label: "02", value: "Convaincre" },
@@ -392,13 +394,16 @@ const docs = [
     out: "public/peakcl/assets/ressources/peakcl_guide02_site.pdf",
     titleTop: "GUIDE 02",
     title: "Pourquoi ton site ne convertit pas",
-    subtitle: "Et comment le transformer en outil de vente. Un site web n’est pas une vitrine: c’est un commercial disponible 24h/24.",
+    subtitle:
+      "Et comment le transformer en outil de vente. Un site web n’est pas une vitrine: c’est un commercial disponible 24h/24.",
     chips: ["Erreurs fréquentes", "Framework en 3 piliers", "Actions concrètes"],
     pages: [
       [
         card(
           "La majorité des sites sont inutiles",
-          para("Pas moches. Pas mal faits. Juste… inutiles. Ils existent. Mais ils ne travaillent pas.") +
+          para(
+            "Pas moches. Pas mal faits. Juste… inutiles. Ils existent. Mais ils ne travaillent pas.",
+          ) +
             `<div class="spacer"></div>` +
             para(
               "Si personne ne te contacte via ton site, c’est qu’il y a un problème structurel — pas esthétique.",
@@ -412,13 +417,17 @@ const docs = [
             "Pas de CTA visible: pas d’appel à l’action clair = pas de prochaine étape. Le visiteur lit, puis ferme l’onglet.",
           ]) +
             `<div class="spacer"></div>` +
-            para("Un bon site ne présente pas ce que tu fais. Il prouve que tu peux résoudre un problème."),
+            para(
+              "Un bon site ne présente pas ce que tu fais. Il prouve que tu peux résoudre un problème.",
+            ),
         ),
       ].join(""),
       [
         card(
           "Les 3 piliers d’un site qui convertit",
-          para("Un framework simple qui s’applique à n’importe quel site — vitrine, portfolio ou e‑commerce.") +
+          para(
+            "Un framework simple qui s’applique à n’importe quel site — vitrine, portfolio ou e‑commerce.",
+          ) +
             kpiTriplet([
               { label: "01", value: "Clarté" },
               { label: "02", value: "Structure" },
@@ -461,7 +470,8 @@ const docs = [
     out: "public/peakcl/assets/ressources/peakcl_guide03_confiance.pdf",
     titleTop: "GUIDE 03",
     title: "Pourquoi tes prospects ne te font pas confiance",
-    subtitle: "Et comment changer ça rapidement. Si tes prospects hésitent avant de te contacter, ce n’est pas un problème de prix — c’est un problème de confiance.",
+    subtitle:
+      "Et comment changer ça rapidement. Si tes prospects hésitent avant de te contacter, ce n’est pas un problème de prix — c’est un problème de confiance.",
     chips: ["Psychologie du client", "3 éléments clés", "Plan d’action"],
     pages: [
       [
@@ -483,13 +493,17 @@ const docs = [
             "Incohérence globale: ton site dit une chose, tes réseaux en montrent une autre, ton offre en propose une troisième.",
           ]) +
             `<div class="spacer"></div>` +
-            para("Le prix n’est jamais la vraie objection. C’est l’argument qu’on donne quand on n’est pas convaincu."),
+            para(
+              "Le prix n’est jamais la vraie objection. C’est l’argument qu’on donne quand on n’est pas convaincu.",
+            ),
         ),
       ].join(""),
       [
         card(
           "Comment fonctionne le cerveau de ton client",
-          para("Comprendre ce mécanisme, c’est comprendre pourquoi l’image et le message sont stratégiques — pas accessoires.") +
+          para(
+            "Comprendre ce mécanisme, c’est comprendre pourquoi l’image et le message sont stratégiques — pas accessoires.",
+          ) +
             kpiTriplet([
               { label: "Rapide", value: "Décision < 3 sec" },
               { label: "Émotionnel", value: "Ressenti > logique" },
@@ -516,7 +530,9 @@ const docs = [
               "Cohérence globale: site, réseaux, offre, communication — tout doit parler le même langage.",
             ]) +
             `<div class="spacer"></div>` +
-            para("Quand ces trois éléments sont alignés, le doute disparaît. Et la décision devient évidente."),
+            para(
+              "Quand ces trois éléments sont alignés, le doute disparaît. Et la décision devient évidente.",
+            ),
         ),
       ].join(""),
     ],
@@ -532,7 +548,9 @@ const docs = [
       [
         card(
           "Pourquoi la majorité des sites échouent",
-          para("La plupart des sites sont pensés comme des vitrines: ils parlent de l’entreprise, listent des services, sont “jolis”…") +
+          para(
+            "La plupart des sites sont pensés comme des vitrines: ils parlent de l’entreprise, listent des services, sont “jolis”…",
+          ) +
             `<div class="spacer"></div>` +
             para("Mais ils oublient l’essentiel: convertir un visiteur en client."),
         ),
@@ -617,4 +635,3 @@ async function run() {
 }
 
 await run();
-

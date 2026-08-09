@@ -57,13 +57,26 @@ export function ArticleLayout({ conseil }: { conseil: Conseil }) {
 
           {/* CTA */}
           <div className="relative mt-12 rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_30%,transparent)] bg-card/40 p-6 text-center shadow-card">
-            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <GlowingEffect
+              spread={40}
+              glow
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={3}
+            />
             <div className="mb-5 flex justify-center">
-              <ExpressionPhoto slug="lunettes-reflexion" caption="Bonne question" tilt={-3} imgClassName="aspect-[3/4] w-24" />
+              <ExpressionPhoto
+                slug="lunettes-reflexion"
+                caption="Bonne question"
+                tilt={-3}
+                imgClassName="aspect-[3/4] w-24"
+              />
             </div>
             <h2 className="text-lg font-bold">Un projet, ou juste une question ?</h2>
             <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-              Audit gratuit de votre site web et de vos réseaux sociaux, sous 24h et sans engagement.
+              Audit gratuit de votre site web et de vos réseaux sociaux, sous 24h et sans
+              engagement.
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
@@ -96,11 +109,19 @@ export function ArticleLayout({ conseil }: { conseil: Conseil }) {
                     href={`/${r.slug}`}
                     className="group relative rounded-2xl border border-border bg-card/50 p-5 shadow-card transition-colors hover:border-border"
                   >
-                    <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                    <GlowingEffect
+                      spread={40}
+                      glow
+                      disabled={false}
+                      proximity={64}
+                      inactiveZone={0.01}
+                      borderWidth={3}
+                    />
                     <h3 className="text-base font-semibold">{r.h1}</h3>
                     <p className="mt-2 text-sm text-muted-foreground">{r.excerpt}</p>
                     <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[var(--brand-turquoise)]">
-                      Lire <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                      Lire{" "}
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </a>
                 ))}

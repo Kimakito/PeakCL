@@ -1,11 +1,4 @@
-import {
-  Instagram,
-  Facebook,
-  Linkedin,
-  MessageCircle,
-  Mail,
-  Phone,
-} from "lucide-react";
+import { Instagram, Facebook, Linkedin, MessageCircle, Mail, Phone } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 import { SOCIAL, FREELANCE, CONTACT } from "@/lib/links";
 import { localeFromPath, type Locale } from "@/i18n/config";
@@ -74,9 +67,7 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-card/30">
       <div className="mx-auto grid max-w-5xl gap-8 px-6 py-14 sm:grid-cols-2 md:grid-cols-4">
         <nav aria-label={t.services}>
-          <h2 className="text-sm font-semibold text-foreground">
-            {t.services}
-          </h2>
+          <h2 className="text-sm font-semibold text-foreground">{t.services}</h2>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             {SERVICES[locale].map((l) => (
               <li key={l.href}>

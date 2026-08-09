@@ -58,7 +58,10 @@ export function PeakaBot() {
     } catch {
       setMessages((prev) => [
         ...prev,
-        { from: "bot", text: "Souci de connexion. Réessayez, ou écrivez à Charlotte sur WhatsApp." },
+        {
+          from: "bot",
+          text: "Souci de connexion. Réessayez, ou écrivez à Charlotte sur WhatsApp.",
+        },
       ]);
     } finally {
       setBusy(false);
@@ -67,7 +70,8 @@ export function PeakaBot() {
 
   // Auto-scroll en bas du transcript à chaque nouveau message.
   useEffect(() => {
-    if (open) scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
+    if (open)
+      scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, open, busy]);
 
   // Échap ferme le panneau.
@@ -127,7 +131,13 @@ export function PeakaBot() {
           data-event="peakabot_open"
           className="peakabot-btn fixed bottom-5 right-5 z-[55] flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-border bg-card shadow-glow transition-transform hover:scale-105 md:h-16 md:w-16"
         >
-          <img src={AVATAR.happy} alt="" width={64} height={64} className="h-full w-full object-cover" />
+          <img
+            src={AVATAR.happy}
+            alt=""
+            width={64}
+            height={64}
+            className="h-full w-full object-cover"
+          />
           <span className="absolute -right-0.5 -top-0.5 flex h-3.5 w-3.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--brand-turquoise)] opacity-75" />
             <span className="relative inline-flex h-3.5 w-3.5 rounded-full bg-[var(--brand-turquoise)]" />
@@ -146,7 +156,13 @@ export function PeakaBot() {
           {/* Header */}
           <div className="flex items-center gap-3 border-b border-border bg-background/40 px-4 py-3">
             <span className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-border">
-              <img src={AVATAR[mood]} alt="PeakaBot" width={40} height={40} className="h-full w-full object-cover" />
+              <img
+                src={AVATAR[mood]}
+                alt="PeakaBot"
+                width={40}
+                height={40}
+                className="h-full w-full object-cover"
+              />
             </span>
             <div className="min-w-0 flex-1">
               <div className="text-sm font-bold">
@@ -168,11 +184,17 @@ export function PeakaBot() {
           <div ref={scrollRef} className="flex-1 space-y-2.5 overflow-y-auto px-4 py-4">
             {messages.map((m, i) =>
               m.from === "bot" ? (
-                <div key={i} className="max-w-[85%] rounded-2xl rounded-bl-md bg-muted px-3.5 py-2 text-sm leading-relaxed text-foreground">
+                <div
+                  key={i}
+                  className="max-w-[85%] rounded-2xl rounded-bl-md bg-muted px-3.5 py-2 text-sm leading-relaxed text-foreground"
+                >
                   {m.text}
                 </div>
               ) : (
-                <div key={i} className="ml-auto max-w-[85%] rounded-2xl rounded-br-md bg-primary-gradient px-3.5 py-2 text-sm font-medium text-primary-foreground">
+                <div
+                  key={i}
+                  className="ml-auto max-w-[85%] rounded-2xl rounded-br-md bg-primary-gradient px-3.5 py-2 text-sm font-medium text-primary-foreground"
+                >
                   {m.text}
                 </div>
               ),
@@ -211,7 +233,10 @@ export function PeakaBot() {
           </div>
 
           {/* Champ libre : question posée en langage naturel (répond via Claude) */}
-          <form onSubmit={onSend} className="flex items-center gap-2 border-t border-border bg-background/40 px-3 py-2.5">
+          <form
+            onSubmit={onSend}
+            className="flex items-center gap-2 border-t border-border bg-background/40 px-3 py-2.5"
+          >
             <input
               type="text"
               value={input}

@@ -5,14 +5,12 @@ export type PeakclFaqItem = {
 
 export const peakclFaq: PeakclFaqItem[] = [
   {
-    question:
-      "Comment savoir quel type de présence en ligne est adapté à mon activité ?",
+    question: "Comment savoir quel type de présence en ligne est adapté à mon activité ?",
     answerHtml:
       "On part de votre activité (ce que vous faites, pour qui, où) et de l’action que vous voulez obtenir : un thérapeute vise surtout la prise de rendez-vous, un artisan la demande de devis, un commerce la visite en boutique. Un bon site ne commence pas par la technique, mais par un message clair et un parcours simple vers cette action.",
   },
   {
-    question:
-      "Combien de temps faut‑il pour créer un site (et le mettre vraiment en ligne) ?",
+    question: "Combien de temps faut‑il pour créer un site (et le mettre vraiment en ligne) ?",
     answerHtml:
       "Ça dépend du périmètre (site seul vs site + logo + réseaux + Google). L’idée, c’est d’avancer vite sans bâcler : on valide la structure et le ton, puis je produis. Le délai dépend aussi de votre disponibilité pour les infos de base (services, zone, photos).",
   },

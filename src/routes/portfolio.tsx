@@ -16,10 +16,7 @@ import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
 import { hreflangLinks } from "@/seo/hreflang";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import {
-  ExpressionPhoto,
-  SectionAvatarCard,
-} from "@/components/ExpressionPhoto";
+import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -45,10 +42,7 @@ export const Route = createFileRoute("/portfolio")({
         ]),
       },
     ],
-    links: [
-      { rel: "canonical", href: absUrl("/portfolio") },
-      ...hreflangLinks("/portfolio"),
-    ],
+    links: [{ rel: "canonical", href: absUrl("/portfolio") }, ...hreflangLinks("/portfolio")],
   }),
   component: PortfolioPage,
 });
@@ -107,13 +101,7 @@ function testimonialFor(p: DeckProject) {
   });
 }
 
-function CaseStudyModal({
-  p,
-  onClose,
-}: {
-  p: DeckProject;
-  onClose: () => void;
-}) {
+function CaseStudyModal({ p, onClose }: { p: DeckProject; onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -166,13 +154,9 @@ function CaseStudyModal({
             Étude de cas
           </span>
           <h3 className="mt-2 text-2xl font-bold">{p.title}</h3>
-          {p.subtitle ? (
-            <p className="mt-1 text-sm text-muted-foreground">{p.subtitle}</p>
-          ) : null}
+          {p.subtitle ? <p className="mt-1 text-sm text-muted-foreground">{p.subtitle}</p> : null}
           {p.description ? (
-            <p className="mt-5 text-sm leading-relaxed text-foreground/90">
-              {p.description}
-            </p>
+            <p className="mt-5 text-sm leading-relaxed text-foreground/90">{p.description}</p>
           ) : null}
 
           {p.scope?.length ? (
@@ -182,10 +166,7 @@ function CaseStudyModal({
               </div>
               <ul className="mt-3 grid gap-2 sm:grid-cols-2">
                 {p.scope.map((s) => (
-                  <li
-                    key={s}
-                    className="flex items-start gap-2 text-sm text-foreground/90"
-                  >
+                  <li key={s} className="flex items-start gap-2 text-sm text-foreground/90">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
                     {s}
                   </li>
@@ -256,13 +237,7 @@ function CaseStudyModal({
 }
 
 /* ── Carte site (élément de grille) ──────────────────────────── */
-function SiteCard({
-  p,
-  onOpen,
-}: {
-  p: DeckProject;
-  onOpen: (project: DeckProject) => void;
-}) {
+function SiteCard({ p, onOpen }: { p: DeckProject; onOpen: (project: DeckProject) => void }) {
   const Inner = (
     <>
       <div
@@ -302,19 +277,14 @@ function SiteCard({
           )}
         </div>
         {p.subtitle ? (
-          <p className="mt-0.5 truncate text-xs text-muted-foreground">
-            {p.subtitle}
-          </p>
+          <p className="mt-0.5 truncate text-xs text-muted-foreground">{p.subtitle}</p>
         ) : null}
         {scopeBadge(p) ? (
           <span
             className="mt-2 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold"
             style={{ borderColor: `${p.accent}66`, color: p.accent }}
           >
-            <span
-              className="h-1.5 w-1.5 rounded-full"
-              style={{ background: p.accent }}
-            />
+            <span className="h-1.5 w-1.5 rounded-full" style={{ background: p.accent }} />
             {scopeBadge(p)}
           </span>
         ) : null}
@@ -365,17 +335,12 @@ function LogoCard({ l }: { l: (typeof LOGO_PROJECTS)[number] }) {
       </div>
       <div className="p-4">
         <div className="flex items-center gap-2">
-          <span
-            className="h-2 w-2 rounded-full"
-            style={{ background: l.accent }}
-          />
+          <span className="h-2 w-2 rounded-full" style={{ background: l.accent }} />
           <h3 className="text-sm font-semibold">{l.name}</h3>
         </div>
         <p className="mt-0.5 text-xs text-muted-foreground">{l.metier}</p>
         {l.note ? (
-          <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground/70">
-            {l.note}
-          </p>
+          <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground/70">{l.note}</p>
         ) : null}
       </div>
     </div>
@@ -395,9 +360,7 @@ function PortfolioPage() {
 
   const showLogos = active === LOGOS_KEY;
   const projects =
-    active === ALL_KEY
-      ? DECK_PROJECTS
-      : DECK_PROJECTS.filter((p) => p.category === active);
+    active === ALL_KEY ? DECK_PROJECTS : DECK_PROJECTS.filter((p) => p.category === active);
   const count = showLogos ? LOGO_PROJECTS.length : projects.length;
   const noun = showLogos ? "création" : "réalisation";
 
@@ -414,14 +377,11 @@ function PortfolioPage() {
             Ils m'ont fait <span className="text-gradient">confiance</span>.
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Sites, boutiques et logos livrés, classés par métier. Filtrez par
-            secteur pour voir ce que j'ai fait dans le vôtre.
+            Sites, boutiques et logos livrés, classés par métier. Filtrez par secteur pour voir ce
+            que j'ai fait dans le vôtre.
           </p>
           <div className="mt-10 flex justify-center">
-            <SectionAvatarCard
-              slug="portfolio"
-              imgClassName="w-full max-w-[230px]"
-            />
+            <SectionAvatarCard slug="portfolio" imgClassName="w-full max-w-[230px]" />
           </div>
         </div>
       </section>
@@ -497,12 +457,10 @@ function PortfolioPage() {
               imgClassName="aspect-[3/4] w-28"
             />
           </div>
-          <h2 className="text-3xl font-bold md:text-4xl">
-            Votre métier mérite la même image.
-          </h2>
+          <h2 className="text-3xl font-bold md:text-4xl">Votre métier mérite la même image.</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-            Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut et
-            comment je peux m'en charger.
+            Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut et comment je peux m'en
+            charger.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
             <a
@@ -527,9 +485,7 @@ function PortfolioPage() {
 
       <DeckFooter />
 
-      {openP ? (
-        <CaseStudyModal p={openP} onClose={() => setOpenP(null)} />
-      ) : null}
+      {openP ? <CaseStudyModal p={openP} onClose={() => setOpenP(null)} /> : null}
     </div>
   );
 }

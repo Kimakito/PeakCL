@@ -151,7 +151,9 @@ export const valueAssets: ValueAsset[] = [
       {
         h2: "La majorité des sites sont inutiles",
         blocks: [
-          { p: "Pas moches. Pas mal faits. Juste… inutiles. Ils existent, mais ils ne travaillent pas." },
+          {
+            p: "Pas moches. Pas mal faits. Juste… inutiles. Ils existent, mais ils ne travaillent pas.",
+          },
           {
             p: "Si personne ne vous contacte via votre site, c'est qu'il y a un problème structurel, pas esthétique.",
           },
@@ -176,7 +178,10 @@ export const valueAssets: ValueAsset[] = [
               },
             ],
           },
-          { quote: "Un bon site ne présente pas ce que vous faites. Il prouve que vous pouvez résoudre un problème." },
+          {
+            quote:
+              "Un bon site ne présente pas ce que vous faites. Il prouve que vous pouvez résoudre un problème.",
+          },
         ],
       },
       {
@@ -271,9 +276,21 @@ export const valueAssets: ValueAsset[] = [
         blocks: [
           {
             cards: [
-              { k: "→", t: "Rapide", d: "La décision « confiance ou pas » se prend en moins de 3 secondes." },
-              { k: "→", t: "Émotionnel", d: "Si l'émotion est négative, le rationnel ne rattrape rien." },
-              { k: "→", t: "Visuel", d: "Le cerveau traite les images bien plus vite que le texte." },
+              {
+                k: "→",
+                t: "Rapide",
+                d: "La décision « confiance ou pas » se prend en moins de 3 secondes.",
+              },
+              {
+                k: "→",
+                t: "Émotionnel",
+                d: "Si l'émotion est négative, le rationnel ne rattrape rien.",
+              },
+              {
+                k: "→",
+                t: "Visuel",
+                d: "Le cerveau traite les images bien plus vite que le texte.",
+              },
             ],
           },
         ],
@@ -283,13 +300,22 @@ export const valueAssets: ValueAsset[] = [
         blocks: [
           {
             cards: [
-              { k: "01", t: "Image pro", d: "Cohérente, soignée, alignée avec ce que vous vendez." },
-              { k: "02", t: "Message clair", d: "Spécifique, concret, sans jargon, orienté problème." },
+              {
+                k: "01",
+                t: "Image pro",
+                d: "Cohérente, soignée, alignée avec ce que vous vendez.",
+              },
+              {
+                k: "02",
+                t: "Message clair",
+                d: "Spécifique, concret, sans jargon, orienté problème.",
+              },
               { k: "03", t: "Cohérence", d: "Site, réseaux, offre : un seul et même langage." },
             ],
           },
           {
-            quote: "Quand ces trois éléments sont alignés, le doute disparaît, et la décision devient évidente.",
+            quote:
+              "Quand ces trois éléments sont alignés, le doute disparaît, et la décision devient évidente.",
           },
         ],
       },
@@ -311,7 +337,10 @@ export const valueAssets: ValueAsset[] = [
         },
       ],
     },
-    next: { title: "Bonus : Transformer votre site en machine à clients", href: "/ressources-conversion" },
+    next: {
+      title: "Bonus : Transformer votre site en machine à clients",
+      href: "/ressources-conversion",
+    },
     metaTitle: "Ressource : Pourquoi vos prospects ne vous font pas confiance · PeakCL",
     metaDescription:
       "Ressource offerte PeakCL pour préparer votre appel : pourquoi vos prospects hésitent et les 3 leviers (image, message, cohérence) pour installer la confiance vite.",
@@ -423,7 +452,10 @@ export const valueAssets: ValueAsset[] = [
               },
             ],
           },
-          { quote: "Les réseaux sociaux ne remplacent pas votre offre. Ils la rendent crédible avant même le premier contact." },
+          {
+            quote:
+              "Les réseaux sociaux ne remplacent pas votre offre. Ils la rendent crédible avant même le premier contact.",
+          },
         ],
       },
       {
@@ -475,7 +507,8 @@ export const valueAssets: ValueAsset[] = [
             },
           },
           {
-            quote: "Mieux vaut 1 publication par semaine tenue pendant 6 mois que 10 publications en 3 jours puis plus rien.",
+            quote:
+              "Mieux vaut 1 publication par semaine tenue pendant 6 mois que 10 publications en 3 jours puis plus rien.",
           },
         ],
       },

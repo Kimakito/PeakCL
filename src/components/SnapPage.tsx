@@ -5,7 +5,9 @@ function useSectionObserver(ids: string[]) {
   const [activeId, setActiveId] = useState(ids[0]);
 
   useEffect(() => {
-    const els = ids.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => !!el);
+    const els = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => !!el);
     if (!els.length) return;
 
     const observer = new IntersectionObserver(
@@ -30,9 +32,19 @@ function useSectionObserver(ids: string[]) {
  * de leur contenu + padding). Passer `full` pour l'ancien mode "deck" plein
  * écran avec snap (utilisé par le portfolio, 1 section par écran).
  */
-export function SnapPage({ children, className = "", full = false }: { children: ReactNode; className?: string; full?: boolean }) {
+export function SnapPage({
+  children,
+  className = "",
+  full = false,
+}: {
+  children: ReactNode;
+  className?: string;
+  full?: boolean;
+}) {
   return (
-    <div className={`${full ? "md:h-screen md:snap-y md:snap-mandatory md:overflow-y-auto md:scroll-smooth" : ""} ${className}`}>
+    <div
+      className={`${full ? "md:h-screen md:snap-y md:snap-mandatory md:overflow-y-auto md:scroll-smooth" : ""} ${className}`}
+    >
       {children}
     </div>
   );
@@ -40,7 +52,10 @@ export function SnapPage({ children, className = "", full = false }: { children:
 
 /** Section à utiliser à l'intérieur de <SnapPage> : id requis pour la nav latérale. `full` = plein écran + snap. */
 export function SnapSection({
-  id, children, className = "", full = false,
+  id,
+  children,
+  className = "",
+  full = false,
 }: {
   id: string;
   children: ReactNode;
@@ -63,7 +78,9 @@ export function SectionDots({ sections }: { sections: { id: string; label: strin
       {sections.map((s) => (
         <button
           key={s.id}
-          onClick={() => document.getElementById(s.id)?.scrollIntoView({ behavior: "smooth", block: "start" })}
+          onClick={() =>
+            document.getElementById(s.id)?.scrollIntoView({ behavior: "smooth", block: "start" })
+          }
           title={s.label}
           className="group relative flex items-center justify-center"
         >

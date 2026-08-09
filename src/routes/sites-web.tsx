@@ -38,10 +38,7 @@ export const Route = createFileRoute("/sites-web")({
         ]),
       },
     ],
-    links: [
-      { rel: "canonical", href: absUrl("/sites-web") },
-      ...hreflangLinks("/sites-web"),
-    ],
+    links: [{ rel: "canonical", href: absUrl("/sites-web") }, ...hreflangLinks("/sites-web")],
   }),
   component: () => (
     <ServicePage

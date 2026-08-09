@@ -20,7 +20,14 @@ function Block({ block }: { block: AssetBlock }) {
   if ("quote" in block) {
     return (
       <div className="relative rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_28%,transparent)] bg-[color-mix(in_oklab,var(--brand-violet)_10%,transparent)] p-5">
-        <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+        <GlowingEffect
+          spread={40}
+          glow
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+          borderWidth={3}
+        />
         <Quote className="absolute right-4 top-4 h-5 w-5 text-[color-mix(in_oklab,var(--brand-turquoise)_55%,transparent)]" />
         <p className="pr-6 text-base font-semibold leading-snug text-foreground">{block.quote}</p>
       </div>
@@ -57,7 +64,14 @@ function Block({ block }: { block: AssetBlock }) {
   // callout
   return (
     <div className="relative rounded-2xl border border-border bg-black/20 p-4">
-      <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+      <GlowingEffect
+        spread={40}
+        glow
+        disabled={false}
+        proximity={64}
+        inactiveZone={0.01}
+        borderWidth={3}
+      />
       {block.callout.title && (
         <div className="text-sm font-semibold text-foreground">{block.callout.title}</div>
       )}
@@ -138,7 +152,14 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
 
             {/* Hook */}
             <div className="relative mt-6 rounded-2xl border border-[color-mix(in_oklab,var(--brand-yellow)_30%,transparent)] bg-[color-mix(in_oklab,var(--brand-yellow)_8%,transparent)] p-5">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <p className="text-base font-semibold leading-snug text-foreground">{asset.hook}</p>
             </div>
 
@@ -153,7 +174,14 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
 
             {/* Credibility / social proof */}
             <div className="relative mt-6 rounded-2xl border border-border bg-muted p-5">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-violet)]">
                 <Sparkles className="h-3.5 w-3.5" />
                 Qui te parle ?
@@ -161,8 +189,9 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 <span className="font-semibold text-foreground">Charlotte Lacroix (PeakCL).</span>{" "}
                 Développeuse web, graphiste et formée au community management. 18 projets clients
-                livrés, notés 5/5 sur Google. Je code <em>et</em> je dessine : je vois donc à la fois
-                la structure technique et l'image, exactement ce qui manque à la plupart des sites.
+                livrés, notés 5/5 sur Google. Je code <em>et</em> je dessine : je vois donc à la
+                fois la structure technique et l'image, exactement ce qui manque à la plupart des
+                sites.
               </p>
               {testimonial && (
                 <div className="mt-4 rounded-xl border border-border bg-black/20 p-4">
@@ -197,7 +226,14 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
 
             {/* Action */}
             <div className="relative mt-8 rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_28%,transparent)] bg-[color-mix(in_oklab,var(--brand-turquoise)_7%,transparent)] p-5">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <h2 className="text-base font-bold text-foreground">{asset.action.title}</h2>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {asset.action.items.map((item, i) => (
@@ -222,19 +258,35 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
                 href={asset.next.href}
                 className="group relative flex items-center justify-between gap-4 rounded-2xl border border-border bg-card/40 p-5 transition-colors hover:border-border"
               >
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-turquoise)]">
                     Ressource suivante
                   </div>
-                  <div className="mt-1 text-sm font-semibold text-foreground">{asset.next.title}</div>
+                  <div className="mt-1 text-sm font-semibold text-foreground">
+                    {asset.next.title}
+                  </div>
                 </div>
                 <ArrowRight className="h-5 w-5 shrink-0 text-[var(--brand-turquoise)] transition-transform group-hover:translate-x-0.5" />
               </a>
             )}
 
             <div className="relative rounded-2xl border border-[color-mix(in_oklab,var(--brand-violet)_35%,transparent)] bg-hero p-6 text-center">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <h2 className="text-lg font-bold text-foreground">On en parle pendant l'appel ?</h2>
               <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
                 L'objectif n'est pas de te vendre quelque chose à tout prix. C'est de comprendre ta

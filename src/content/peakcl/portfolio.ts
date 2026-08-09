@@ -18,8 +18,7 @@ export type PeakclProject = {
   scopeLabel?: string;
 };
 
-const withPublicPrefix = (path?: string) =>
-  path ? `/peakcl${path}` : undefined;
+const withPublicPrefix = (path?: string) => (path ? `/peakcl${path}` : undefined);
 
 export const peakclPortfolio: PeakclProject[] = [
   {
@@ -37,8 +36,7 @@ export const peakclPortfolio: PeakclProject[] = [
       "Gestion d'une base par pays",
       "Mise en ligne et maintenance",
     ],
-    scopeNote:
-      "Projet mené dans le cadre de mon poste salarié, et non en freelance.",
+    scopeNote: "Projet mené dans le cadre de mon poste salarié, et non en freelance.",
     scopeLevel: "site",
     scopeLabel: "Full stack · 3 pays",
     siteUrl: "https://ikami.fr/",
@@ -211,11 +209,7 @@ export const peakclPortfolio: PeakclProject[] = [
     description:
       "Une illustratrice créative dont les œuvres méritaient une vitrine à la hauteur. J'ai conçu un portfolio minimaliste et ultra-rapide, pensé pour les mobiles, qui met ses créations en lumière sans les noyer dans le décor.",
     tags: ["Jekyll", "Galerie", "Portfolio artiste"],
-    scope: [
-      "Site internet",
-      "Lancement du compte Instagram",
-      "Lancement du compte TikTok",
-    ],
+    scope: ["Site internet", "Lancement du compte Instagram", "Lancement du compte TikTok"],
     scopeLevel: "reseaux",
     siteUrl: "https://doodleidoo.com/",
     logoUrl: withPublicPrefix("/assets/logo/logo_doodleIdoo.png"),
@@ -319,11 +313,7 @@ export const peakclPortfolio: PeakclProject[] = [
     description:
       "Mathilde est coach certifiée CrossFit, Pilates et Musculation. Elle accompagnait des dizaines de clients, mais en ligne, elle n'existait pas. Je lui ai construit son identité : logo, site vitrine à son énergie, et les supports visuels qu'elle publie sur ses réseaux.",
     tags: ["Jekyll", "Coaching", "Site vitrine"],
-    scope: [
-      "Création du logo",
-      "Site internet",
-      "Supports visuels pour les réseaux sociaux",
-    ],
+    scope: ["Création du logo", "Site internet", "Supports visuels pour les réseaux sociaux"],
     scopeLevel: "global",
     siteUrl: "https://peaktraining.fr/",
     logoUrl: withPublicPrefix("/assets/logo/Peak-training.png"),

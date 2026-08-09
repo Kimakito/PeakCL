@@ -1,10 +1,10 @@
 export type PeakclTestimonial = {
-  name: string
-  sourceLabel?: string
-  dateLabel?: string
-  rating: 1 | 2 | 3 | 4 | 5
-  quote: string
-}
+  name: string;
+  sourceLabel?: string;
+  dateLabel?: string;
+  rating: 1 | 2 | 3 | 4 | 5;
+  quote: string;
+};
 
 export const peakclTestimonials: PeakclTestimonial[] = [
   {
@@ -38,5 +38,4 @@ export const peakclTestimonials: PeakclTestimonial[] = [
     quote:
       "Une collaboration très fluide, avec beaucoup de réactivité, d’idées et de conseils concrets pour faire avancer le projet.",
   },
-]
-
+];

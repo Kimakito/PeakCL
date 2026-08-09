@@ -7,11 +7,7 @@
  * stay identical so both language versions share the same rendering logic.
  */
 
-import type {
-  CatalogItem,
-  Forfait,
-  ServiceHighlight,
-} from "@/content/peakcl/services";
+import type { CatalogItem, Forfait, ServiceHighlight } from "@/content/peakcl/services";
 
 /* ── Web ─────────────────────────────────────────────────────── */
 
@@ -212,36 +208,21 @@ export const cmForfaitsEn: Forfait[] = [
     emoji: "🚀",
     name: "Dynamic",
     freq: "12 posts/month (3/week)",
-    inclus: [
-      "12 visuals",
-      "12 captions + hashtags",
-      "1 story/week",
-      "Monthly report",
-    ],
+    inclus: ["12 visuals", "12 captions + hashtags", "1 story/week", "Monthly report"],
     price: "650 €/month",
   },
   {
     emoji: "🔥",
     name: "Intensive",
     freq: "20 posts/month (5/week, excluding LinkedIn)",
-    inclus: [
-      "20 visuals",
-      "20 captions + hashtags",
-      "Stories + Reels (2/month)",
-      "Monthly report",
-    ],
+    inclus: ["20 visuals", "20 captions + hashtags", "Stories + Reels (2/month)", "Monthly report"],
     price: "900 €/month",
   },
   {
     emoji: "🎯",
     name: "Custom",
     freq: "Frequency defined together",
-    inclus: [
-      "Tailored volume",
-      "All platforms",
-      "Strategic guidance",
-      "Monthly report",
-    ],
+    inclus: ["Tailored volume", "All platforms", "Strategic guidance", "Monthly report"],
     price: "On request",
   },
 ];

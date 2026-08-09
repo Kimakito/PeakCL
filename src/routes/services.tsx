@@ -6,10 +6,7 @@ import { breadcrumbJsonLd } from "@/seo/jsonld";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Reveal } from "@/components/ui/Reveal";
 import { SERVICES, packages } from "@/content/peakcl/services";
-import {
-  ExpressionPhoto,
-  SectionAvatarCard,
-} from "@/components/ExpressionPhoto";
+import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 
 const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
@@ -33,10 +30,7 @@ export const Route = createFileRoute("/services")({
         ]),
       },
     ],
-    links: [
-      { rel: "canonical", href: absUrl("/services") },
-      ...hreflangLinks("/services"),
-    ],
+    links: [{ rel: "canonical", href: absUrl("/services") }, ...hreflangLinks("/services")],
   }),
   component: ServicesHub,
 });
@@ -46,30 +40,21 @@ function ServicesHub() {
     <div className="min-h-screen">
       <main className="relative overflow-hidden border-t border-border bg-hero">
         <div className="grid-bg absolute inset-0 -z-10" />
-        <div
-          className="hero-aurora"
-          aria-hidden
-          style={{ bottom: "auto", height: "680px" }}
-        />
+        <div className="hero-aurora" aria-hidden style={{ bottom: "auto", height: "680px" }} />
         <div className="relative z-10 mx-auto max-w-5xl px-6 py-20">
           <div className="text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
               Services
             </span>
             <h1 className="mt-4 text-balance text-4xl font-bold leading-tight md:text-6xl">
-              Un seul interlocuteur,{" "}
-              <span className="text-gradient">quatre expertises.</span>
+              Un seul interlocuteur, <span className="text-gradient">quatre expertises.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-              Site, réseaux, image et automatisation : choisissez ce dont vous
-              avez besoin, ou déléguez tout de A à Z. Tarifs sur devis selon
-              votre besoin.
+              Site, réseaux, image et automatisation : choisissez ce dont vous avez besoin, ou
+              déléguez tout de A à Z. Tarifs sur devis selon votre besoin.
             </p>
             <div className="mt-10 flex justify-center">
-              <SectionAvatarCard
-                slug="offres"
-                imgClassName="w-full max-w-[230px]"
-              />
+              <SectionAvatarCard slug="offres" imgClassName="w-full max-w-[230px]" />
             </div>
           </div>
 
@@ -94,9 +79,7 @@ function ServicesHub() {
                   {s.eyebrow}
                 </div>
                 <h2 className="mt-1 text-xl font-semibold">{s.title}</h2>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  {s.tagline}
-                </p>
+                <p className="mt-3 text-sm text-muted-foreground">{s.tagline}</p>
                 <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-turquoise)]">
                   Découvrir{" "}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -112,13 +95,11 @@ function ServicesHub() {
                 Packages combinés
               </span>
               <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-                Plus simple,{" "}
-                <span className="text-gradient">et plus rentable.</span>
+                Plus simple, <span className="text-gradient">et plus rentable.</span>
               </h2>
               <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-                Quand plusieurs besoins vont ensemble, un pack revient moins
-                cher que les prestations séparées. Tous sur devis selon votre
-                cahier des charges.
+                Quand plusieurs besoins vont ensemble, un pack revient moins cher que les
+                prestations séparées. Tous sur devis selon votre cahier des charges.
               </p>
             </div>
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -141,9 +122,7 @@ function ServicesHub() {
                     />
                     <div className="text-2xl">{pk.emoji}</div>
                     <h3 className="mt-3 text-lg font-semibold">{pk.name}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {pk.tagline}
-                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground">{pk.tagline}</p>
                     <ul className="mt-4 flex-1 space-y-2 text-sm text-muted-foreground">
                       {pk.points.map((x) => (
                         <li key={x} className="flex items-start gap-2">
@@ -179,12 +158,10 @@ function ServicesHub() {
                 imgClassName="aspect-[3/4] w-28"
               />
             </div>
-            <h2 className="text-2xl font-bold md:text-3xl">
-              Vous ne savez pas par où commencer ?
-            </h2>
+            <h2 className="text-2xl font-bold md:text-3xl">Vous ne savez pas par où commencer ?</h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-              Réservez un appel de diagnostic : je vous dis ce qui aura le plus
-              d’impact pour votre activité, et comment je peux m’en charger.
+              Réservez un appel de diagnostic : je vous dis ce qui aura le plus d’impact pour votre
+              activité, et comment je peux m’en charger.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a

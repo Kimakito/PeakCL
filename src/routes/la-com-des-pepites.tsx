@@ -1,11 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   Check,
@@ -24,8 +19,7 @@ export const Route = createFileRoute("/la-com-des-pepites")({
   head: () => ({
     meta: [
       {
-        title:
-          "La com' des pépites · Formez-vous à l'IA et à la com, ou déléguez",
+        title: "La com' des pépites · Formez-vous à l'IA et à la com, ou déléguez",
       },
       {
         name: "description",
@@ -202,9 +196,7 @@ type EmailFormProps = {
 };
 
 function EmailForm({ id, buttonLabel, microCopy }: EmailFormProps) {
-  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">(
-    "idle",
-  );
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
   const inputId = `pepites-email-${id}`;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -284,20 +276,15 @@ function EmailForm({ id, buttonLabel, microCopy }: EmailFormProps) {
       </div>
 
       {status === "error" && (
-        <p
-          role="alert"
-          className="mt-2 text-sm font-bold text-[var(--pep-red)]"
-        >
+        <p role="alert" className="mt-2 text-sm font-bold text-[var(--pep-red)]">
           Oups, l’envoi n’a pas marché. Réessaie dans un instant.
         </p>
       )}
 
-      <p className="mt-3 max-w-md text-sm leading-relaxed text-[var(--pep-muted)]">
-        {microCopy}
-      </p>
+      <p className="mt-3 max-w-md text-sm leading-relaxed text-[var(--pep-muted)]">{microCopy}</p>
       <p className="mt-1 max-w-md text-xs leading-relaxed text-[var(--pep-muted)]">
-        En laissant ton email, tu acceptes qu’on te recontacte au sujet de La
-        com’ des pépites. Désinscription à tout moment.{" "}
+        En laissant ton email, tu acceptes qu’on te recontacte au sujet de La com’ des pépites.
+        Désinscription à tout moment.{" "}
         <a
           href={LEGAL_URL}
           className="underline underline-offset-2"
@@ -320,8 +307,7 @@ const BESOINS = [
 
 const PEP_FIELD_CLASS =
   "w-full rounded-2xl border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] px-4 py-3 text-base font-semibold text-[var(--pep-ink)] outline-none transition-shadow focus:shadow-[4px_4px_0_var(--pep-ink)]";
-const PEP_LABEL_CLASS =
-  "mb-1.5 block text-sm font-extrabold text-[var(--pep-ink)]";
+const PEP_LABEL_CLASS = "mb-1.5 block text-sm font-extrabold text-[var(--pep-ink)]";
 
 /**
  * Formulaire de contact classique (bas de page).
@@ -331,9 +317,7 @@ const PEP_LABEL_CLASS =
  * seul fichier scanné au build (le site est en SSR).
  */
 function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">(
-    "idle",
-  );
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -416,10 +400,7 @@ function ContactForm() {
         </div>
         <div>
           <label htmlFor="pepites-contact-tel" className={PEP_LABEL_CLASS}>
-            Téléphone{" "}
-            <span className="font-semibold text-[var(--pep-muted)]">
-              (facultatif)
-            </span>
+            Téléphone <span className="font-semibold text-[var(--pep-muted)]">(facultatif)</span>
           </label>
           <input
             id="pepites-contact-tel"
@@ -475,17 +456,14 @@ function ContactForm() {
       </motion.button>
 
       {status === "error" && (
-        <p
-          role="alert"
-          className="mt-2 text-sm font-bold text-[var(--pep-red)]"
-        >
+        <p role="alert" className="mt-2 text-sm font-bold text-[var(--pep-red)]">
           Oups, l’envoi n’a pas marché. Réessaie dans un instant.
         </p>
       )}
 
       <p className="mt-3 text-xs leading-relaxed text-[var(--pep-muted)]">
-        Tes informations servent uniquement à te recontacter au sujet de La com’
-        des pépites. Aucune revente, désinscription à tout moment.{" "}
+        Tes informations servent uniquement à te recontacter au sujet de La com’ des pépites. Aucune
+        revente, désinscription à tout moment.{" "}
         <a
           href={LEGAL_URL}
           className="underline underline-offset-2"
@@ -635,19 +613,12 @@ function InstagramSection() {
             <Instagram className="h-4 w-4 text-[var(--pep-gold-deep)]" />
             Instagram
           </motion.span>
-          <motion.h2
-            {...reveal()}
-            className="mt-4 text-3xl font-extrabold sm:text-4xl"
-          >
+          <motion.h2 {...reveal()} className="mt-4 text-3xl font-extrabold sm:text-4xl">
             On démarre, viens voir la suite
           </motion.h2>
-          <motion.p
-            {...reveal()}
-            className="mt-4 max-w-2xl text-lg leading-relaxed"
-          >
-            Le compte vient d’ouvrir. Conseils IA, coulisses et astuces com’ y
-            arrivent au fil des semaines : abonne-toi, tu verras tout naître en
-            direct.
+          <motion.p {...reveal()} className="mt-4 max-w-2xl text-lg leading-relaxed">
+            Le compte vient d’ouvrir. Conseils IA, coulisses et astuces com’ y arrivent au fil des
+            semaines : abonne-toi, tu verras tout naître en direct.
           </motion.p>
         </div>
 
@@ -740,11 +711,7 @@ function PepitesPage() {
               className="inline-flex items-center gap-2 rounded-full border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] px-4 py-1.5 text-sm font-extrabold shadow-[3px_3px_0_var(--pep-ink)]"
             >
               <motion.span
-                animate={
-                  reduce
-                    ? undefined
-                    : { rotate: [0, 18, -18, 0], scale: [1, 1.15, 1] }
-                }
+                animate={reduce ? undefined : { rotate: [0, 18, -18, 0], scale: [1, 1.15, 1] }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
@@ -774,13 +741,9 @@ function PepitesPage() {
               </span>
             </motion.h1>
 
-            <motion.p
-              {...reveal()}
-              className="mt-5 max-w-xl text-lg leading-relaxed"
-            >
-              Plus de clients, une image qui inspire confiance, et enfin l’IA
-              qui bosse pour toi. On te forme pour devenir autonome, ou on s’en
-              occupe à ta place.
+            <motion.p {...reveal()} className="mt-5 max-w-xl text-lg leading-relaxed">
+              Plus de clients, une image qui inspire confiance, et enfin l’IA qui bosse pour toi. On
+              te forme pour devenir autonome, ou on s’en occupe à ta place.
             </motion.p>
 
             <motion.div {...reveal(0.25)} className="mt-8 max-w-xl">
@@ -809,10 +772,7 @@ function PepitesPage() {
       {/* 2) DEUX FAÇONS D'AVANCER */}
       <section className="px-5 py-16 sm:px-8 md:py-24">
         <motion.div className="mx-auto w-full max-w-6xl">
-          <motion.h2
-            {...reveal()}
-            className="text-3xl font-extrabold sm:text-4xl"
-          >
+          <motion.h2 {...reveal()} className="text-3xl font-extrabold sm:text-4xl">
             Deux façons d’avancer
           </motion.h2>
 
@@ -839,12 +799,8 @@ function PepitesPage() {
                 <p className="mt-4 text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--pep-muted)]">
                   {card.kicker}
                 </p>
-                <h3 className="mt-1 max-w-[16ch] text-2xl font-extrabold">
-                  {card.title}
-                </h3>
-                <p className="mt-3 flex-1 text-base leading-relaxed">
-                  {card.text}
-                </p>
+                <h3 className="mt-1 max-w-[16ch] text-2xl font-extrabold">{card.title}</h3>
+                <p className="mt-3 flex-1 text-base leading-relaxed">{card.text}</p>
                 <a
                   href="#rejoindre"
                   data-event="pepites_card_anchor"
@@ -875,20 +831,13 @@ function PepitesPage() {
             </div>
 
             <div>
-              <motion.h2
-                {...reveal()}
-                className="text-3xl font-extrabold sm:text-4xl"
-              >
+              <motion.h2 {...reveal()} className="text-3xl font-extrabold sm:text-4xl">
                 L’IA, enfin concrète pour ta TPE
               </motion.h2>
-              <motion.p
-                {...reveal()}
-                className="mt-4 max-w-2xl text-lg leading-relaxed"
-              >
-                Pas de blabla, pas de théorie. Des usages simples qui te font
-                gagner des heures dès la première semaine : rédiger tes
-                contenus, créer tes visuels, t’organiser. Et si tu veux animer
-                tes réseaux toi-même, on te forme aussi.
+              <motion.p {...reveal()} className="mt-4 max-w-2xl text-lg leading-relaxed">
+                Pas de blabla, pas de théorie. Des usages simples qui te font gagner des heures dès
+                la première semaine : rédiger tes contenus, créer tes visuels, t’organiser. Et si tu
+                veux animer tes réseaux toi-même, on te forme aussi.
               </motion.p>
 
               <ul className="mt-8 grid gap-3">
@@ -924,19 +873,13 @@ function PepitesPage() {
               delay={0.2}
             />
           </div>
-          <motion.h2
-            {...reveal()}
-            className="mt-4 text-3xl font-extrabold sm:text-4xl"
-          >
+          <motion.h2 {...reveal()} className="mt-4 text-3xl font-extrabold sm:text-4xl">
             Pas le temps ? On prend le relais
           </motion.h2>
-          <motion.p
-            {...reveal()}
-            className="mt-4 max-w-2xl text-lg leading-relaxed"
-          >
-            On crée ton site, on soigne ta fiche Google et on fait vivre tes
-            réseaux avec des contenus réguliers à ton image. Résultat : une
-            présence pro qui tourne pendant que tu bosses.
+          <motion.p {...reveal()} className="mt-4 max-w-2xl text-lg leading-relaxed">
+            On crée ton site, on soigne ta fiche Google et on fait vivre tes réseaux avec des
+            contenus réguliers à ton image. Résultat : une présence pro qui tourne pendant que tu
+            bosses.
           </motion.p>
           <motion.a
             {...reveal()}
@@ -955,10 +898,7 @@ function PepitesPage() {
       {/* 5) POURQUOI */}
       <section className="px-5 py-16 sm:px-8 md:py-24">
         <motion.div className="mx-auto w-full max-w-6xl">
-          <motion.h2
-            {...reveal()}
-            className="text-3xl font-extrabold sm:text-4xl"
-          >
+          <motion.h2 {...reveal()} className="text-3xl font-extrabold sm:text-4xl">
             Pourquoi La com’ des pépites
           </motion.h2>
 
@@ -995,10 +935,7 @@ function PepitesPage() {
       {/* 6) QUI SOMMES-NOUS */}
       <section className="px-5 py-16 sm:px-8 md:py-24">
         <motion.div className="mx-auto w-full max-w-4xl">
-          <motion.h2
-            {...reveal()}
-            className="text-3xl font-extrabold sm:text-4xl"
-          >
+          <motion.h2 {...reveal()} className="text-3xl font-extrabold sm:text-4xl">
             Qui sommes-nous
           </motion.h2>
 
@@ -1011,9 +948,7 @@ function PepitesPage() {
                 className="rounded-[2rem] border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] p-6 shadow-[6px_6px_0_var(--pep-ink)]"
               >
                 <h3 className="text-xl font-extrabold">{p.name}</h3>
-                <p className="mt-0.5 text-xs italic text-[var(--pep-muted)]">
-                  {p.nickname}
-                </p>
+                <p className="mt-0.5 text-xs italic text-[var(--pep-muted)]">{p.nickname}</p>
                 <p className="mt-2 text-base leading-relaxed">{p.text}</p>
               </motion.article>
             ))}
@@ -1025,10 +960,7 @@ function PepitesPage() {
       <InstagramSection />
 
       {/* 8) CTA FINAL */}
-      <section
-        id="rejoindre"
-        className="scroll-mt-24 px-5 pb-16 pt-16 sm:px-8 md:pb-24 md:pt-24"
-      >
+      <section id="rejoindre" className="scroll-mt-24 px-5 pb-16 pt-16 sm:px-8 md:pb-24 md:pt-24">
         <motion.div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-[2.5rem] border-2 border-[var(--pep-ink)] bg-[var(--pep-card)] p-6 text-center shadow-[10px_10px_0_var(--pep-ink)] sm:p-10">
           <div className="flex justify-center">
             <Mascotte
@@ -1040,18 +972,12 @@ function PepitesPage() {
             />
           </div>
 
-          <motion.h2
-            {...reveal()}
-            className="mt-4 text-3xl font-extrabold sm:text-4xl"
-          >
+          <motion.h2 {...reveal()} className="mt-4 text-3xl font-extrabold sm:text-4xl">
             Prêt·e à devenir une pépite ?
           </motion.h2>
-          <motion.p
-            {...reveal()}
-            className="mx-auto mt-4 max-w-xl text-lg leading-relaxed"
-          >
-            Dis-nous où tu en es : on te répond avec des pistes concrètes, sans
-            jargon ni engagement.
+          <motion.p {...reveal()} className="mx-auto mt-4 max-w-xl text-lg leading-relaxed">
+            Dis-nous où tu en es : on te répond avec des pistes concrètes, sans jargon ni
+            engagement.
           </motion.p>
 
           <motion.div {...reveal()} className="mx-auto mt-8 max-w-xl">

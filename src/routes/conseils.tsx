@@ -24,8 +24,7 @@ export const Route = createFileRoute("/conseils")({
       { property: "og:title", content: "Conseils PeakCL · site, réseaux & visibilité" },
       {
         property: "og:description",
-        content:
-          "Des réponses concrètes pour votre présence en ligne, sans jargon.",
+        content: "Des réponses concrètes pour votre présence en ligne, sans jargon.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/conseils") },
@@ -40,7 +39,10 @@ function Page() {
     <main className="min-h-screen border-t border-border">
       <SectionDots sections={SECTIONS} />
       <SnapPage>
-        <SnapSection id="intro" className="relative flex items-center overflow-hidden bg-hero py-20">
+        <SnapSection
+          id="intro"
+          className="relative flex items-center overflow-hidden bg-hero py-20"
+        >
           <div className="grid-bg absolute inset-0 -z-10" />
           <div className="mx-auto max-w-4xl px-6 text-center">
             <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
@@ -51,8 +53,8 @@ function Page() {
               Y voir clair sur votre <span className="text-gradient">présence en ligne</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-              Des réponses concrètes, sans jargon, aux questions que se posent les indépendants et les
-              petites structures avant de se lancer.
+              Des réponses concrètes, sans jargon, aux questions que se posent les indépendants et
+              les petites structures avant de se lancer.
             </p>
             <div className="mt-10 flex justify-center">
               <SectionAvatarCard slug="tips" imgClassName="w-full max-w-[230px]" />
@@ -69,7 +71,14 @@ function Page() {
                   href={`/${c.slug}`}
                   className="group relative flex flex-col rounded-2xl border border-border bg-card/50 p-6 shadow-card transition-colors hover:border-border"
                 >
-                  <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                  <GlowingEffect
+                    spread={40}
+                    glow
+                    disabled={false}
+                    proximity={64}
+                    inactiveZone={0.01}
+                    borderWidth={3}
+                  />
                   <h2 className="text-lg font-bold leading-snug">{c.h1}</h2>
                   <p className="mt-3 flex-1 text-sm text-muted-foreground">{c.excerpt}</p>
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[var(--brand-turquoise)]">
@@ -82,15 +91,24 @@ function Page() {
           </div>
         </SnapSection>
 
-        <SnapSection id="contact" className="relative flex items-center overflow-hidden border-t border-border py-16">
+        <SnapSection
+          id="contact"
+          className="relative flex items-center overflow-hidden border-t border-border py-16"
+        >
           <div className="absolute inset-0 -z-10 bg-hero" />
           <div className="mx-auto max-w-3xl px-6 text-center">
             <div className="mb-6 flex justify-center">
-              <ExpressionPhoto slug="lunettes-reflexion" caption="Mes conseils" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+              <ExpressionPhoto
+                slug="lunettes-reflexion"
+                caption="Mes conseils"
+                tilt={-3}
+                imgClassName="aspect-[3/4] w-28"
+              />
             </div>
             <h2 className="text-2xl font-bold md:text-3xl">Une question sur votre projet ?</h2>
             <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-              Audit gratuit de votre site web et de vos réseaux sociaux, sous 24h et sans engagement.
+              Audit gratuit de votre site web et de vos réseaux sociaux, sous 24h et sans
+              engagement.
             </p>
             <a
               href="/reservation-appel"

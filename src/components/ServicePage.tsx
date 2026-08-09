@@ -1,11 +1,5 @@
 import type { ReactNode } from "react";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Check,
-  Facebook,
-  Instagram,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, Facebook, Instagram } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 import { localeFromPath } from "@/i18n/config";
 import { ui } from "@/i18n/ui";
@@ -15,16 +9,9 @@ import { Card } from "@/components/ui/card";
 import { Spotlight } from "@/components/ui/spotlight";
 import { SplineScene } from "@/components/ui/splite";
 import { Reveal } from "@/components/ui/Reveal";
-import {
-  SectionAvatarCard,
-  ExpressionPhoto,
-} from "@/components/ExpressionPhoto";
+import { SectionAvatarCard, ExpressionPhoto } from "@/components/ExpressionPhoto";
 import type { SectionCardSlug } from "@/lib/expressions";
-import type {
-  CatalogItem,
-  Forfait,
-  ServiceHighlight,
-} from "@/content/peakcl/services";
+import type { CatalogItem, Forfait, ServiceHighlight } from "@/content/peakcl/services";
 import type { MascotShot } from "@/content/peakcl/mascots";
 
 const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
@@ -68,18 +55,12 @@ function CatalogCard({
           >
             {priceText}
           </div>
-          {isOnQuote ? (
-            <div className="text-xs text-muted-foreground/70">
-              {t.priceHint}
-            </div>
-          ) : null}
+          {isOnQuote ? <div className="text-xs text-muted-foreground/70">{t.priceHint}</div> : null}
         </div>
       </div>
 
       <p className="mt-3 text-sm text-muted-foreground">{p.desc}</p>
-      {p.delay ? (
-        <p className="mt-2 text-sm text-muted-foreground">{p.delay}</p>
-      ) : null}
+      {p.delay ? <p className="mt-2 text-sm text-muted-foreground">{p.delay}</p> : null}
 
       <div className="mt-6 grid gap-5 md:grid-cols-2">
         <div className="rounded-xl border border-border bg-background/40 p-5">
@@ -105,9 +86,7 @@ function CatalogCard({
         ) : (
           <div className="rounded-xl border border-border bg-background/40 p-5">
             <div className="text-sm font-semibold">{t.howWeWork}</div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              {t.howWeWorkBody}
-            </p>
+            <p className="mt-4 text-sm text-muted-foreground">{t.howWeWorkBody}</p>
           </div>
         )}
       </div>
@@ -141,13 +120,9 @@ function ForfaitCard({ f, t }: { f: Forfait; t: ServicePageStrings }) {
       ) : null}
       <div className="flex items-center gap-2">
         <span className="text-xl">{f.emoji}</span>
-        <span className="text-sm font-bold uppercase tracking-[0.14em]">
-          {f.name}
-        </span>
+        <span className="text-sm font-bold uppercase tracking-[0.14em]">{f.name}</span>
       </div>
-      <div className="mt-3 text-2xl font-bold text-[var(--brand-turquoise)]">
-        {f.price}
-      </div>
+      <div className="mt-3 text-2xl font-bold text-[var(--brand-turquoise)]">{f.price}</div>
       <p className="mt-1 text-xs text-muted-foreground">{f.freq}</p>
       <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
         {f.inclus.map((x) => (
@@ -361,17 +336,14 @@ export function ServicePage({
                       <h1 className="mt-4 text-balance bg-gradient-to-b from-white to-white/60 bg-clip-text text-4xl font-bold leading-tight text-transparent md:text-5xl">
                         {title}
                       </h1>
-                      <p className="mt-5 max-w-md text-muted-foreground">
-                        {tagline}
-                      </p>
+                      <p className="mt-5 max-w-md text-muted-foreground">{tagline}</p>
                       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                         <a
                           href={bookHref}
                           data-event="cta_brief_service_hero"
                           className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
                         >
-                          {t.requestQuoteHero}{" "}
-                          <ArrowRight className="h-4 w-4" />
+                          {t.requestQuoteHero} <ArrowRight className="h-4 w-4" />
                         </a>
                         <a
                           href={CALENDLY_URL}
@@ -387,10 +359,7 @@ export function ServicePage({
                     {/* Colonne visuel : robot 3D ou image */}
                     <div className="relative min-h-[280px] md:min-h-[440px]">
                       {heroSpline ? (
-                        <SplineScene
-                          scene={heroSpline}
-                          className="h-full w-full"
-                        />
+                        <SplineScene scene={heroSpline} className="h-full w-full" />
                       ) : heroImage ? (
                         <img
                           src={heroImage.src}
@@ -403,11 +372,7 @@ export function ServicePage({
                     </div>
                   </div>
                 </Card>
-                {intro ? (
-                  <div className="mx-auto mt-8 max-w-2xl text-left">
-                    {intro}
-                  </div>
-                ) : null}
+                {intro ? <div className="mx-auto mt-8 max-w-2xl text-left">{intro}</div> : null}
               </div>
             ) : (
               <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
@@ -417,14 +382,8 @@ export function ServicePage({
                 <h1 className="mt-4 text-balance text-4xl font-bold leading-tight md:text-6xl">
                   {title}
                 </h1>
-                <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-                  {tagline}
-                </p>
-                {intro ? (
-                  <div className="mx-auto mt-8 max-w-2xl text-left">
-                    {intro}
-                  </div>
-                ) : null}
+                <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{tagline}</p>
+                {intro ? <div className="mx-auto mt-8 max-w-2xl text-left">{intro}</div> : null}
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                   <a
                     href={bookHref}
@@ -465,10 +424,7 @@ export function ServicePage({
           ) : null}
 
           {highlights?.length ? (
-            <SnapSection
-              id="expertises"
-              className="flex items-center border-t border-border py-16"
-            >
+            <SnapSection id="expertises" className="flex items-center border-t border-border py-16">
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
                   <h2 className="text-2xl font-bold text-foreground md:text-3xl">
@@ -496,9 +452,7 @@ export function ServicePage({
                       />
                       <div className="text-2xl">{h.emoji}</div>
                       <h3 className="mt-3 text-lg font-semibold">{h.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                        {h.desc}
-                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{h.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -507,10 +461,7 @@ export function ServicePage({
           ) : null}
 
           {forfaits?.length ? (
-            <SnapSection
-              id="forfaits"
-              className="flex items-center border-t border-border py-16"
-            >
+            <SnapSection id="forfaits" className="flex items-center border-t border-border py-16">
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
                   <h2 className="text-2xl font-bold text-foreground md:text-3xl">
@@ -531,28 +482,16 @@ export function ServicePage({
             </SnapSection>
           ) : null}
 
-          <SnapSection
-            id="prestations"
-            className="flex items-center border-t border-border py-16"
-          >
+          <SnapSection id="prestations" className="flex items-center border-t border-border py-16">
             <div className="mx-auto w-full max-w-5xl px-6">
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-foreground">
-                  {sectionTitle}
-                </h2>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {sectionSubtitle}
-                </p>
+                <h2 className="text-2xl font-bold text-foreground">{sectionTitle}</h2>
+                <p className="mt-2 text-sm text-muted-foreground">{sectionSubtitle}</p>
               </div>
               <div className="space-y-6">
                 {items.map((p, i) => (
                   <Reveal key={p.title} delay={i * 0.05}>
-                    <CatalogCard
-                      p={p}
-                      showPrices={showPrices}
-                      t={t}
-                      bookHref={bookHref}
-                    />
+                    <CatalogCard p={p} showPrices={showPrices} t={t} bookHref={bookHref} />
                   </Reveal>
                 ))}
               </div>
@@ -571,10 +510,7 @@ export function ServicePage({
           </SnapSection>
 
           {gallery?.length ? (
-            <SnapSection
-              id="galerie"
-              className="flex items-center border-t border-border py-16"
-            >
+            <SnapSection id="galerie" className="flex items-center border-t border-border py-16">
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
                   <h2 className="text-2xl font-bold text-foreground md:text-3xl">
@@ -618,10 +554,7 @@ export function ServicePage({
           ) : null}
 
           {socials?.length ? (
-            <SnapSection
-              id="reseaux"
-              className="flex items-center border-t border-border py-16"
-            >
+            <SnapSection id="reseaux" className="flex items-center border-t border-border py-16">
               <div className="mx-auto w-full max-w-5xl px-6">
                 <div className="mb-8 text-center">
                   <h2 className="text-2xl font-bold text-foreground md:text-3xl">
@@ -660,15 +593,11 @@ export function ServicePage({
                       </span>
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <h3 className="truncate text-base font-semibold">
-                            {s.name}
-                          </h3>
+                          <h3 className="truncate text-base font-semibold">{s.name}</h3>
                           <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground" />
                         </div>
                         <div className="text-xs text-[var(--brand-turquoise)]">
-                          {s.platform === "facebook"
-                            ? "Facebook"
-                            : `@${s.handle}`}
+                          {s.platform === "facebook" ? "Facebook" : `@${s.handle}`}
                         </div>
                         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                           {s.desc}
@@ -681,10 +610,7 @@ export function ServicePage({
             </SnapSection>
           ) : null}
 
-          <SnapSection
-            id="contact"
-            className="flex items-center border-t border-border py-16"
-          >
+          <SnapSection id="contact" className="flex items-center border-t border-border py-16">
             <div className="mx-auto w-full max-w-5xl px-6">
               <div className="rounded-2xl border border-border bg-card/40 p-7 text-center shadow-card backdrop-blur">
                 <div className="mb-6 flex justify-center">
@@ -695,12 +621,8 @@ export function ServicePage({
                     imgClassName="aspect-[3/4] w-28"
                   />
                 </div>
-                <h2 className="text-3xl font-bold md:text-4xl">
-                  {t.contactTitle}
-                </h2>
-                <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-                  {t.contactBody}
-                </p>
+                <h2 className="text-3xl font-bold md:text-4xl">{t.contactTitle}</h2>
+                <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">{t.contactBody}</p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                   <a
                     href={bookHref}

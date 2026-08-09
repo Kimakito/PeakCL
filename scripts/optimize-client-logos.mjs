@@ -12,7 +12,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const logoDir = path.join(root, "public", "peakcl", "assets", "logo");
 const SIZE = 96;
 
-const files = fs.readdirSync(logoDir).filter((f) => /\.(png|jpe?g|webp)$/i.test(f) && !f.endsWith("-sm.webp"));
+const files = fs
+  .readdirSync(logoDir)
+  .filter((f) => /\.(png|jpe?g|webp)$/i.test(f) && !f.endsWith("-sm.webp"));
 
 let done = 0;
 for (const file of files) {

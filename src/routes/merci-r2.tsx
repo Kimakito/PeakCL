@@ -8,18 +8,15 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 const KEY_STATS = [
   {
     figure: "94%",
-    label:
-      "de la première impression sur une entreprise vient du design de son site web",
+    label: "de la première impression sur une entreprise vient du design de son site web",
   },
   {
     figure: "0,05s",
-    label:
-      "c'est le temps qu'il faut à un visiteur pour juger votre site crédible ou non",
+    label: "c'est le temps qu'il faut à un visiteur pour juger votre site crédible ou non",
   },
   {
     figure: "76%",
-    label:
-      "des recherches locales sur mobile débouchent sur une visite ou un contact sous 24h",
+    label: "des recherches locales sur mobile débouchent sur une visite ou un contact sous 24h",
   },
 ];
 
@@ -90,16 +87,21 @@ function MerciR2Page() {
           <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
             <Check className="h-6 w-6" />
           </div>
-          <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">
-            C’est noté. Merci !
-          </h1>
+          <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">C’est noté. Merci !</h1>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            J’ai bien reçu vos réponses. Je prépare notre prochain appel avec ça
-            en tête ! En attendant, voici comment on va travailler ensemble.
+            J’ai bien reçu vos réponses. Je prépare notre prochain appel avec ça en tête ! En
+            attendant, voici comment on va travailler ensemble.
           </p>
 
           <div className="relative mx-auto mt-10 max-w-xl rounded-2xl border border-border bg-card/40 p-6 text-left shadow-card backdrop-blur">
-            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <GlowingEffect
+              spread={40}
+              glow
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={3}
+            />
             <div className="flex items-center gap-3">
               <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-muted text-[var(--brand-turquoise)]">
                 <TrendingUp className="h-5 w-5" />
@@ -109,11 +111,10 @@ function MerciR2Page() {
               </h2>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
-              Ce qu’on va construire ensemble n’est pas un coût qui disparaît
-              une fois payé : c’est ce qui va augmenter votre visibilité, et donc
-              le nombre de clients ou de patients qui vous trouvent. Un seul
-              nouveau client ou patient qui vous trouve grâce à ça peut suffire à
-              rentabiliser l’investissement; et ça continue d’en amener après.
+              Ce qu’on va construire ensemble n’est pas un coût qui disparaît une fois payé : c’est
+              ce qui va augmenter votre visibilité, et donc le nombre de clients ou de patients qui
+              vous trouvent. Un seul nouveau client ou patient qui vous trouve grâce à ça peut
+              suffire à rentabiliser l’investissement; et ça continue d’en amener après.
             </p>
           </div>
 
@@ -123,13 +124,16 @@ function MerciR2Page() {
                 key={s.figure}
                 className="relative rounded-2xl border border-border bg-card/40 p-4 text-center shadow-card backdrop-blur"
               >
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-                <div className="text-2xl font-bold text-gradient">
-                  {s.figure}
-                </div>
-                <div className="mt-1 text-xs text-muted-foreground">
-                  {s.label}
-                </div>
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
+                <div className="text-2xl font-bold text-gradient">{s.figure}</div>
+                <div className="mt-1 text-xs text-muted-foreground">{s.label}</div>
               </div>
             ))}
           </div>
@@ -146,8 +150,8 @@ function MerciR2Page() {
               Un accompagnement, pas une livraison à l’aveugle.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              À chaque étape, vous voyez, vous validez, vous ajustez. Rien n’est figé
-              tant que vous ne vous y reconnaissez pas.
+              À chaque étape, vous voyez, vous validez, vous ajustez. Rien n’est figé tant que vous
+              ne vous y reconnaissez pas.
             </p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -156,14 +160,17 @@ function MerciR2Page() {
                 key={step.n}
                 className="relative rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur"
               >
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 <div className="text-3xl font-bold text-gradient">{step.n}</div>
-                <div className="mt-2 text-sm font-bold text-foreground">
-                  {step.title}
-                </div>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  {step.text}
-                </p>
+                <div className="mt-2 text-sm font-bold text-foreground">{step.title}</div>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{step.text}</p>
               </div>
             ))}
           </div>
@@ -186,15 +193,20 @@ function MerciR2Page() {
                 key={t.name}
                 className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card"
               >
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 <div className="flex gap-1 text-[var(--brand-yellow)]">
                   {Array.from({ length: t.rating }).map((_, k) => (
                     <Star key={k} className="h-3.5 w-3.5 fill-current" />
                   ))}
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/90">
-                  "{t.quote}"
-                </p>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/90">"{t.quote}"</p>
                 <div className="mt-4 border-t border-border pt-3">
                   <div className="text-sm font-semibold">{t.name}</div>
                   <div className="text-xs text-muted-foreground">
@@ -213,9 +225,7 @@ function MerciR2Page() {
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
               Questions fréquentes
             </span>
-            <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-              On lève les derniers doutes.
-            </h2>
+            <h2 className="mt-4 text-3xl font-bold md:text-4xl">On lève les derniers doutes.</h2>
           </div>
           <div className="mt-10 space-y-2">
             {faqHighlights.map((f) => (
@@ -244,20 +254,15 @@ function MerciR2Page() {
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
             Mon engagement
           </span>
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-            Pas de chiffre magique promis.
-          </h2>
+          <h2 className="mt-4 text-3xl font-bold md:text-4xl">Pas de chiffre magique promis.</h2>
           <p className="mt-4 text-muted-foreground">
-            Je ne vous garantis pas un chiffre d’affaires : personne ne le devrait
-            honnêtement. Ce que je m’engage à faire : t’écouter vraiment,
-            avancer avec vous à chaque étape, et livrer un résultat dans lequel
-            vous vous reconnaissez.
+            Je ne vous garantis pas un chiffre d’affaires : personne ne le devrait honnêtement. Ce
+            que je m’engage à faire : t’écouter vraiment, avancer avec vous à chaque étape, et
+            livrer un résultat dans lequel vous vous reconnaissez.
           </p>
 
           <p className="mt-10 text-sm text-muted-foreground">À très vite,</p>
-          <p className="text-sm font-semibold text-foreground">
-            Charlotte · PeakCL
-          </p>
+          <p className="text-sm font-semibold text-foreground">Charlotte · PeakCL</p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a

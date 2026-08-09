@@ -175,9 +175,7 @@ function BacASableVideoPage() {
   return (
     <div
       className={
-        recordMode
-          ? "min-h-screen bg-black"
-          : "min-h-screen bg-[var(--indigo-900)] text-foreground"
+        recordMode ? "min-h-screen bg-black" : "min-h-screen bg-[var(--indigo-900)] text-foreground"
       }
     >
       {!recordMode && (
@@ -244,8 +242,7 @@ function BacASableVideoPage() {
             <div
               className="absolute inset-0"
               style={{
-                background:
-                  "linear-gradient(160deg, #1a1230 0%, #2a1a52 45%, #1a2840 100%)",
+                background: "linear-gradient(160deg, #1a1230 0%, #2a1a52 45%, #1a2840 100%)",
               }}
             />
             <div className="bg-aurora absolute inset-[-20%] opacity-90" aria-hidden />
@@ -286,8 +283,7 @@ function BacASableVideoPage() {
               </div>
 
               <h2 className="font-script mt-8 text-[4.25rem] leading-[1.05] text-white">
-                Les raccourcis qui font{" "}
-                <span className="text-gradient">gagner du temps</span>
+                Les raccourcis qui font <span className="text-gradient">gagner du temps</span>
               </h2>
 
               <p className="font-gabriela mt-5 text-2xl text-muted-foreground">
@@ -296,7 +292,14 @@ function BacASableVideoPage() {
 
               {/* Zone démo (dans le cadre capture) */}
               <div className="relative mt-8 flex min-h-0 flex-1 flex-col rounded-3xl border border-border bg-muted p-3 shadow-card backdrop-blur-sm">
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 <div className="mb-3 flex flex-wrap items-center justify-between gap-3 px-2">
                   <div className="flex items-center gap-2">
                     <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
@@ -309,7 +312,11 @@ function BacASableVideoPage() {
                   <div className="flex gap-2">
                     <StageBtn label="Couper" onClick={() => execClipboard("cut")} accent="yellow" />
                     <StageBtn label="Copier" onClick={() => execClipboard("copy")} accent="teal" />
-                    <StageBtn label="Coller" onClick={() => execClipboard("paste")} accent="violet" />
+                    <StageBtn
+                      label="Coller"
+                      onClick={() => execClipboard("paste")}
+                      accent="violet"
+                    />
                   </div>
                 </div>
 
@@ -336,9 +343,9 @@ function BacASableVideoPage() {
       {!recordMode && (
         <aside className="mx-auto mt-6 max-w-lg px-4 pb-12 text-center text-xs text-muted-foreground">
           <p>
-            Enregistrez cette page en <strong className="text-foreground">1080×1920</strong> (OBS, QuickTime,
-            Loom…) en cadrant uniquement la zone violette. Utilisez le bouton « Mode capture » pour masquer
-            cette barre d’outils.
+            Enregistrez cette page en <strong className="text-foreground">1080×1920</strong> (OBS,
+            QuickTime, Loom…) en cadrant uniquement la zone violette. Utilisez le bouton « Mode
+            capture » pour masquer cette barre d’outils.
           </p>
           <p className="mt-2">
             Les raccourcis clavier fonctionnent dans la zone de texte : Ctrl/Cmd + C, X, V, A.

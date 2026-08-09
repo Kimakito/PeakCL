@@ -50,9 +50,10 @@ function MerciBriefPage() {
           </div>
           <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">C’est reçu.</h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Dernière étape avant l’appel : réservez votre créneau de <span className="font-semibold text-foreground">45 minutes</span>{" "}
-            (diagnostic, sans engagement). Après la réservation, vous accéderez à la page avec la vidéo et les ressources à
-            préparer.
+            Dernière étape avant l’appel : réservez votre créneau de{" "}
+            <span className="font-semibold text-foreground">45 minutes</span> (diagnostic, sans
+            engagement). Après la réservation, vous accéderez à la page avec la vidéo et les
+            ressources à préparer.
           </p>
 
           <ol className="mx-auto mt-8 flex max-w-lg flex-col gap-2 text-left text-sm">
@@ -66,7 +67,9 @@ function MerciBriefPage() {
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-gradient text-xs font-bold text-primary-foreground">
                 2
               </span>
-              <span className="font-semibold text-foreground">Choisissez votre créneau ci‑dessous</span>
+              <span className="font-semibold text-foreground">
+                Choisissez votre créneau ci‑dessous
+              </span>
             </li>
             <li className="flex items-center gap-3 rounded-xl border border-border bg-muted px-4 py-3 text-muted-foreground">
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border text-xs font-bold">
@@ -86,7 +89,9 @@ function MerciBriefPage() {
           <div className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
             <div>
               <h2 className="text-xl font-bold text-foreground">Réserver mon diagnostic (R1)</h2>
-              <p className="mt-1 text-sm text-muted-foreground">Visio · 45 min · gratuit · sans engagement</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Visio · 45 min · gratuit · sans engagement
+              </p>
             </div>
             <a
               href={calendlyUrl}
@@ -104,11 +109,14 @@ function MerciBriefPage() {
 
           <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-muted-foreground">
             Après confirmation du créneau, vous serez redirigé·e vers la page{" "}
-            <a href={BIENVENUE_PATH} className="font-semibold text-[var(--brand-turquoise)] hover:text-foreground">
+            <a
+              href={BIENVENUE_PATH}
+              className="font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+            >
               bienvenue
             </a>{" "}
-            (vidéo, preuves clients, guides). Si la redirection ne se fait pas, utilise le lien dans l’email Calendly ou
-            clique ci‑dessous.
+            (vidéo, preuves clients, guides). Si la redirection ne se fait pas, utilise le lien dans
+            l’email Calendly ou clique ci‑dessous.
           </p>
 
           <div className="mt-6 flex justify-center">

@@ -34,7 +34,10 @@ export const Route = createFileRoute("/creation-logo-albertville")({
         content:
           "Création de logo et identité visuelle à Albertville (Savoie) : logo pro, charte graphique, déclinaisons web/print. Par une graphiste qui code aussi votre site.",
       },
-      { property: "og:title", content: "Création de logo & identité visuelle à Albertville · PeakCL" },
+      {
+        property: "og:title",
+        content: "Création de logo & identité visuelle à Albertville · PeakCL",
+      },
       {
         property: "og:description",
         content:
@@ -82,7 +85,8 @@ function Page() {
             Albertville · Savoie · partout en France
           </div>
           <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-tight md:text-6xl">
-            Création de <span className="text-gradient">logo</span> &amp; identité visuelle à Albertville
+            Création de <span className="text-gradient">logo</span> &amp; identité visuelle à
+            Albertville
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
             Un logo professionnel et une identité cohérente, réutilisable partout : web, réseaux,
@@ -112,8 +116,8 @@ function Page() {
               Audit gratuit de votre image (site web + réseaux sociaux)
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
-              Logo daté, couleurs incohérentes, visuels réseaux brouillons ? Je regarde votre identité
-              actuelle et vous dis quoi améliorer, sous 24h, sans engagement.
+              Logo daté, couleurs incohérentes, visuels réseaux brouillons ? Je regarde votre
+              identité actuelle et vous dis quoi améliorer, sous 24h, sans engagement.
             </p>
           </div>
         </div>
@@ -130,13 +134,20 @@ function Page() {
               concurrence, et se réutilise partout sans repartir de zéro à chaque support.
             </p>
             <p className="mt-4 text-muted-foreground">
-              Mon avantage : je conçois votre identité <strong className="text-foreground">et</strong>{" "}
-              votre site. Pas de logo livré dans le vide qui ne s&apos;intègre nulle part, tout est
-              pensé pour fonctionner ensemble.
+              Mon avantage : je conçois votre identité{" "}
+              <strong className="text-foreground">et</strong> votre site. Pas de logo livré dans le
+              vide qui ne s&apos;intègre nulle part, tout est pensé pour fonctionner ensemble.
             </p>
           </div>
           <div className="relative rounded-2xl border border-border bg-card/50 p-6 shadow-card">
-            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <GlowingEffect
+              spread={40}
+              glow
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={3}
+            />
             <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] text-[var(--brand-violet)]">
               <Palette className="h-5 w-5" />
             </div>
@@ -164,8 +175,9 @@ function Page() {
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-xl font-bold">Graphiste en Savoie et alentours</h2>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-            Basée à Gilly-sur-Isère, près d&apos;Albertville, je crée des logos et identités visuelles pour des indépendants et
-            petites structures dans toute la Savoie et partout en France (visio).
+            Basée à Gilly-sur-Isère, près d&apos;Albertville, je crée des logos et identités
+            visuelles pour des indépendants et petites structures dans toute la Savoie et partout en
+            France (visio).
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
             {ZONES.map((z) => (
@@ -193,9 +205,16 @@ function Page() {
         <div className="absolute inset-0 -z-10 bg-hero" />
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mb-6 flex justify-center">
-            <ExpressionPhoto slug="sourire-malicieux" caption="Votre logo ?" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+            <ExpressionPhoto
+              slug="sourire-malicieux"
+              caption="Votre logo ?"
+              tilt={-3}
+              imgClassName="aspect-[3/4] w-28"
+            />
           </div>
-          <h2 className="text-3xl font-bold md:text-4xl">Donnons une vraie image à votre activité</h2>
+          <h2 className="text-3xl font-bold md:text-4xl">
+            Donnons une vraie image à votre activité
+          </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Décrivez votre projet en 8 minutes : je vous propose une direction visuelle et un devis
             clair.

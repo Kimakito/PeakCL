@@ -11,7 +11,12 @@ export const Route = createFileRoute("/ressources-reseaux")({
     <>
       <ValueAsset asset={asset} />
       <div className="no-print mx-auto flex max-w-3xl justify-center px-6 pb-16">
-        <ExpressionPhoto slug="sourire-malicieux" caption="Vos réseaux" tilt={-3} imgClassName="aspect-[3/4] w-24" />
+        <ExpressionPhoto
+          slug="sourire-malicieux"
+          caption="Vos réseaux"
+          tilt={-3}
+          imgClassName="aspect-[3/4] w-24"
+        />
       </div>
     </>
   ),

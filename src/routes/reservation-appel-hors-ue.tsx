@@ -1,11 +1,7 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Clock, ShieldCheck } from "lucide-react";
-import {
-  MERCI_BRIEF_PATH,
-  stashCalendlyPrefill,
-  submitNetlifyForm,
-} from "@/lib/funnel";
+import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
 import { absUrl } from "@/seo/site";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
@@ -31,8 +27,7 @@ export const Route = createFileRoute("/reservation-appel-hors-ue")({
       { title: "Réservation d’appel (Hors UE) · PeakCL" },
       {
         name: "description",
-        content:
-          "Questionnaire de diagnostic PeakCL avant votre appel, version internationale.",
+        content: "Questionnaire de diagnostic PeakCL avant votre appel, version internationale.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/reservation-appel-hors-ue") },
@@ -85,9 +80,7 @@ function ReservationAppelHorsUePage() {
     return Array.isArray(v) ? v.length > 0 : true;
   };
 
-  const canSubmit =
-    completion.filled === completion.total &&
-    forceRequiredMultiOk("painPoints");
+  const canSubmit = completion.filled === completion.total && forceRequiredMultiOk("painPoints");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -130,10 +123,16 @@ function ReservationAppelHorsUePage() {
         />
         <div className="grid-bg absolute inset-0 -z-10 opacity-30" />
         <div className="relative mx-4 max-w-2xl justify-self-center rounded-3xl border border-border bg-muted px-6 py-10 text-center shadow-card backdrop-blur-2xl sm:px-10">
-          <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+          <GlowingEffect
+            spread={40}
+            glow
+            disabled={false}
+            proximity={64}
+            inactiveZone={0.01}
+            borderWidth={3}
+          />
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground backdrop-blur">
-            <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />2 à 3
-            minutes
+            <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />2 à 3 minutes
             <span className="opacity-40">·</span>
             Diagnostic 45 min
             <span className="opacity-40">·</span>
@@ -142,16 +141,20 @@ function ReservationAppelHorsUePage() {
           </div>
 
           <div className="mt-6 flex justify-center">
-            <ExpressionPhoto slug="sourire-exterieur" caption="À tout de suite" tilt={-3} imgClassName="aspect-[3/4] w-24" />
+            <ExpressionPhoto
+              slug="sourire-exterieur"
+              caption="À tout de suite"
+              tilt={-3}
+              imgClassName="aspect-[3/4] w-24"
+            />
           </div>
 
           <h1 className="mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">
             Réservation d’appel · PeakCL
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Avant notre appel, j’ai besoin de comprendre votre situation. Ce
-            questionnaire prend 2 à 3 minutes. À la fin, vous pourrez réserver votre
-            créneau de diagnostic (45 min).
+            Avant notre appel, j’ai besoin de comprendre votre situation. Ce questionnaire prend 2 à
+            3 minutes. À la fin, vous pourrez réserver votre créneau de diagnostic (45 min).
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-xs text-muted-foreground">
             Vos réponses restent confidentielles.
@@ -162,7 +165,14 @@ function ReservationAppelHorsUePage() {
       <section className="border-t border-border py-16">
         <div className="mx-auto max-w-3xl px-6">
           <div className="relative mb-8 rounded-2xl border border-border bg-card/40 p-5 text-sm text-muted-foreground shadow-card backdrop-blur">
-            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <GlowingEffect
+              spread={40}
+              glow
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={3}
+            />
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 Progression des champs ⭐ :{" "}
@@ -188,16 +198,8 @@ function ReservationAppelHorsUePage() {
             className="space-y-8"
             onSubmit={handleSubmit}
           >
-            <input
-              type="hidden"
-              name="form-name"
-              value="reservation-appel-hors-ue"
-            />
-            <input
-              type="hidden"
-              name="leadType"
-              value="reservation_appel_hors_ue"
-            />
+            <input type="hidden" name="form-name" value="reservation-appel-hors-ue" />
+            <input type="hidden" name="leadType" value="reservation_appel_hors_ue" />
             <input type="hidden" name="source" value="site_peakcl" />
             <p className="hidden">
               <label>
@@ -286,8 +288,7 @@ function ReservationAppelHorsUePage() {
                 options={[
                   {
                     value: "Site n'attire/convertit pas",
-                    label:
-                      "Mon site web n’attire pas de visiteurs ou ne convertit pas en clients",
+                    label: "Mon site web n’attire pas de visiteurs ou ne convertit pas en clients",
                   },
                   {
                     value: "Manque de visibilité",
@@ -305,8 +306,7 @@ function ReservationAppelHorsUePage() {
                   },
                   {
                     value: "Ne sait pas se différencier",
-                    label:
-                      "Je ne sais pas quoi communiquer ni comment me différencier",
+                    label: "Je ne sais pas quoi communiquer ni comment me différencier",
                   },
                   {
                     value: "Difficulté à justifier l'investissement",
@@ -338,9 +338,7 @@ function ReservationAppelHorsUePage() {
                 name="importanceOnlinePresence"
                 required
                 value={String(values.importanceOnlinePresence)}
-                onChange={(v) =>
-                  setField(setValues, "importanceOnlinePresence", v)
-                }
+                onChange={(v) => setField(setValues, "importanceOnlinePresence", v)}
               />
               <ChoiceSingle
                 label="Si vous aviez une solution claire pour améliorer votre présence en ligne, seriez-vous ouvert(e) à vous faire accompagner ?"
@@ -370,7 +368,14 @@ function ReservationAppelHorsUePage() {
               id="submit"
               className="relative rounded-2xl border border-border bg-card/40 p-6 text-center shadow-card backdrop-blur"
             >
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
                 <Check className="h-6 w-6" />
               </div>
@@ -389,9 +394,7 @@ function ReservationAppelHorsUePage() {
                       : "cursor-not-allowed border border-border bg-muted text-muted-foreground"
                   }`}
                 >
-                  {isSubmitting
-                    ? "Envoi en cours…"
-                    : "Envoyer et réserver mon créneau"}
+                  {isSubmitting ? "Envoi en cours…" : "Envoyer et réserver mon créneau"}
                   <ArrowRight className="h-4 w-4" />
                 </button>
                 <a
@@ -404,9 +407,8 @@ function ReservationAppelHorsUePage() {
 
               {!canSubmit ? (
                 <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">
-                  Il manque encore des champs ⭐ obligatoires. Vous pouvez les
-                  remplir plus tard : le formulaire se sauvegarde
-                  automatiquement sur votre appareil.
+                  Il manque encore des champs ⭐ obligatoires. Vous pouvez les remplir plus tard :
+                  le formulaire se sauvegarde automatiquement sur votre appareil.
                 </p>
               ) : null}
             </div>

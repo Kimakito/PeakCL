@@ -27,8 +27,7 @@ function videoText(locale: Locale) {
         Faisons connaissance <span className="text-gradient">en vidéo</span>.
       </>
     ),
-    subtitle:
-      "Une courte présentation pour comprendre qui je suis et comment je peux vous aider.",
+    subtitle: "Une courte présentation pour comprendre qui je suis et comment je peux vous aider.",
     fallback: "Votre navigateur ne peut pas lire la vidéo.",
   };
 }

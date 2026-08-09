@@ -117,8 +117,7 @@ function useFormState() {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return;
       const parsed = JSON.parse(raw) as Values;
-      if (parsed && typeof parsed === "object")
-        setValues((v) => ({ ...v, ...parsed }));
+      if (parsed && typeof parsed === "object") setValues((v) => ({ ...v, ...parsed }));
     } catch {
       // ignore
     }
@@ -135,8 +134,7 @@ function useFormState() {
   const set = (name: string, value: string | string[]) =>
     setValues((prev) => ({ ...prev, [name]: value }));
   const str = (name: string) => String(values[name] ?? "");
-  const arr = (name: string) =>
-    (Array.isArray(values[name]) ? values[name] : []) as string[];
+  const arr = (name: string) => (Array.isArray(values[name]) ? values[name] : []) as string[];
 
   return { values, set, str, arr };
 }
@@ -201,15 +199,14 @@ function CadragePascalePage() {
             Questionnaire de cadrage
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground md:text-base">
-            Refonte du site ·{" "}
-            <span className="text-foreground">pascale-vert-magnetiseur.fr</span>
+            Refonte du site · <span className="text-foreground">pascale-vert-magnetiseur.fr</span>
             <br />
             Magnétiseuse
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-xs leading-relaxed text-muted-foreground">
-            Réponds librement, même de manière intuitive. L'objectif n'est pas
-            la perfection : c'est de poser les bonnes bases pour un site
-            cohérent et aligné avec ton activité. Aucun champ n'est obligatoire.
+            Réponds librement, même de manière intuitive. L'objectif n'est pas la perfection : c'est
+            de poser les bonnes bases pour un site cohérent et aligné avec ton activité. Aucun champ
+            n'est obligatoire.
           </p>
         </div>
       </section>
@@ -230,11 +227,7 @@ function CadragePascalePage() {
             <input type="hidden" name="source" value="cadrage_pascale_prive" />
             <input type="hidden" name="client_name" value="Pascale Vert" />
             <input type="hidden" name="client_activity" value="Magnétiseuse" />
-            <input
-              type="hidden"
-              name="site_actuel"
-              value="pascale-vert-magnetiseur.fr"
-            />
+            <input type="hidden" name="site_actuel" value="pascale-vert-magnetiseur.fr" />
             <input
               type="hidden"
               name="subject"
@@ -824,8 +817,7 @@ function CadragePascalePage() {
                   { value: "cliente", label: "Je rédige moi-même" },
                   {
                     value: "ensemble",
-                    label:
-                      "On travaille ensemble (j'apporte la matière, tu structures)",
+                    label: "On travaille ensemble (j'apporte la matière, tu structures)",
                   },
                 ]}
                 value={str("contenus_redaction")}
@@ -932,8 +924,7 @@ function CadragePascalePage() {
                   },
                   {
                     value: "autonomie",
-                    label:
-                      "Pouvoir modifier certains contenus toi-même (textes, tarifs…)",
+                    label: "Pouvoir modifier certains contenus toi-même (textes, tarifs…)",
                   },
                   {
                     value: "ponctuel",
@@ -1007,10 +998,17 @@ function CadragePascalePage() {
             </QuestionBlock>
 
             <div className="relative mt-12 rounded-2xl border border-border bg-card/40 p-6 text-center shadow-card">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <p className="text-sm text-muted-foreground">
-                Tu peux envoyer même si tout n'est pas rempli. Tes réponses sont
-                sauvegardées sur cet appareil jusqu'à l'envoi.
+                Tu peux envoyer même si tout n'est pas rempli. Tes réponses sont sauvegardées sur
+                cet appareil jusqu'à l'envoi.
               </p>
               <button
                 type="submit"

@@ -28,7 +28,11 @@ export function useAutosaveForm(storageKey: string, initial: FormValues) {
   return { values, setValues };
 }
 
-export function setField(setValues: React.Dispatch<React.SetStateAction<FormValues>>, name: string, value: string | string[]) {
+export function setField(
+  setValues: React.Dispatch<React.SetStateAction<FormValues>>,
+  name: string,
+  value: string | string[],
+) {
   setValues((prev) => ({ ...prev, [name]: value }));
 }
 
@@ -157,7 +161,10 @@ export function ChoiceSingle({
       {helper ? <div className="mt-2 px-2 text-xs text-muted-foreground">{helper}</div> : null}
       <div className="mt-4 grid gap-2">
         {options.map((o) => (
-          <label key={o.value} className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-background/40 px-4 py-3 hover:border-border">
+          <label
+            key={o.value}
+            className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-background/40 px-4 py-3 hover:border-border"
+          >
             <input
               type="radio"
               name={name}
@@ -200,12 +207,19 @@ export function ChoiceMulti({
         {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
       </legend>
       {helper ? <div className="mt-2 px-2 text-xs text-muted-foreground">{helper}</div> : null}
-      {required && !hasValue ? <div className="mt-2 px-2 text-xs text-[var(--brand-yellow)]">Choisis au moins une option.</div> : null}
+      {required && !hasValue ? (
+        <div className="mt-2 px-2 text-xs text-[var(--brand-yellow)]">
+          Choisis au moins une option.
+        </div>
+      ) : null}
       <div className="mt-4 grid gap-2 md:grid-cols-2">
         {options.map((o) => {
           const checked = values.includes(o.value);
           return (
-            <label key={o.value} className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-background/40 px-4 py-3 hover:border-border">
+            <label
+              key={o.value}
+              className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-background/40 px-4 py-3 hover:border-border"
+            >
               <input
                 type="checkbox"
                 name={name}
@@ -249,7 +263,9 @@ export function ChoiceScale({
           <label
             key={n}
             className={`flex cursor-pointer flex-col items-center gap-1 rounded-lg border px-1 py-2 text-xs font-semibold ${
-              value === n ? "border-[var(--brand-turquoise)] bg-[var(--brand-turquoise)]/10 text-foreground" : "border-border bg-background/40 text-foreground/70 hover:border-border"
+              value === n
+                ? "border-[var(--brand-turquoise)] bg-[var(--brand-turquoise)]/10 text-foreground"
+                : "border-border bg-background/40 text-foreground/70 hover:border-border"
             }`}
           >
             <input

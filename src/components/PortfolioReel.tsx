@@ -1,10 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type ReactNode,
-} from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 import { localeFromPath, type Locale } from "@/i18n/config";
@@ -129,8 +123,7 @@ export function PortfolioReel({
     const onWheel = (e: WheelEvent) => {
       const atStart = vp.scrollLeft <= 0;
       const atEnd = vp.scrollLeft >= vp.scrollWidth - vp.clientWidth - 1;
-      const delta =
-        Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
       // Aux extrémités dans le sens de sortie : on laisse la page scroller.
       if ((delta < 0 && atStart) || (delta > 0 && atEnd)) return;
       e.preventDefault();
@@ -187,10 +180,7 @@ export function PortfolioReel({
       >
         {/* Spotlight néon DANS la bande, au-dessus du fond mais derrière les
             photogrammes (frames en z-10) : sinon le fond opaque le masquerait. */}
-        <div
-          aria-hidden
-          className="reel-spotlight pointer-events-none absolute inset-0 z-0"
-        />
+        <div aria-hidden className="reel-spotlight pointer-events-none absolute inset-0 z-0" />
 
         <div
           ref={viewportRef}
@@ -243,13 +233,9 @@ export function PortfolioReel({
               </div>
               <figcaption className="flex items-center justify-between gap-2 border-t border-border px-3 py-2.5">
                 <div className="min-w-0">
-                  <div className="truncate text-sm font-semibold">
-                    {p.title}
-                  </div>
+                  <div className="truncate text-sm font-semibold">{p.title}</div>
                   {p.subtitle ? (
-                    <div className="truncate text-xs text-muted-foreground">
-                      {p.subtitle}
-                    </div>
+                    <div className="truncate text-xs text-muted-foreground">{p.subtitle}</div>
                   ) : null}
                 </div>
                 {p.status === "construction" ? (
@@ -272,14 +258,8 @@ export function PortfolioReel({
           aria-hidden
           className="reel-perf pointer-events-none absolute inset-x-0 bottom-0 z-20 h-4"
         />
-        <div
-          aria-hidden
-          className="reel-grain pointer-events-none absolute inset-0 z-20"
-        />
-        <div
-          aria-hidden
-          className="reel-vignette pointer-events-none absolute inset-0 z-20"
-        />
+        <div aria-hidden className="reel-grain pointer-events-none absolute inset-0 z-20" />
+        <div aria-hidden className="reel-vignette pointer-events-none absolute inset-0 z-20" />
       </div>
 
       {/* Contrôles : flèches + compteur façon pellicule. */}
@@ -311,9 +291,7 @@ export function PortfolioReel({
         <button
           type="button"
           aria-label={t.next}
-          onClick={() =>
-            scrollToFrame(Math.min(active + 1, projects.length - 1))
-          }
+          onClick={() => scrollToFrame(Math.min(active + 1, projects.length - 1))}
           className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-muted text-foreground transition-colors hover:border-border disabled:opacity-30"
           disabled={active === projects.length - 1}
         >
@@ -321,9 +299,7 @@ export function PortfolioReel({
         </button>
       </div>
 
-      <p className="mt-2 text-center text-[11px] text-muted-foreground/60">
-        {t.hint}
-      </p>
+      <p className="mt-2 text-center text-[11px] text-muted-foreground/60">{t.hint}</p>
     </div>
   );
 }

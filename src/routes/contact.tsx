@@ -100,9 +100,7 @@ function ContactPage() {
 
   return (
     <main className="min-h-screen border-t border-border">
-      <SectionDots
-        sections={SECTIONS.map((s) => ({ id: s.id, label: s.label }))}
-      />
+      <SectionDots sections={SECTIONS.map((s) => ({ id: s.id, label: s.label }))} />
       <SnapPage>
         <SnapSection
           id="intro"
@@ -112,7 +110,14 @@ function ContactPage() {
           <div className="hero-aurora" aria-hidden />
           <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
             <div className="relative grid overflow-hidden rounded-3xl border border-border shadow-card md:grid-cols-2">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
 
               {/* Panneau gauche : photo bureau + moyens de contact */}
               <div className="relative flex flex-col justify-between overflow-hidden p-8 md:p-10">
@@ -150,9 +155,8 @@ function ContactPage() {
                     On <span className="text-gradient">papote</span> ?
                   </h1>
                   <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                    Une question sur une offre, un tarif, un délai, ou juste
-                    envie d’en discuter avant de vous lancer ? Choisissez le
-                    canal qui vous convient, sans engagement.
+                    Une question sur une offre, un tarif, un délai, ou juste envie d’en discuter
+                    avant de vous lancer ? Choisissez le canal qui vous convient, sans engagement.
                   </p>
                 </div>
 
@@ -188,9 +192,7 @@ function ContactPage() {
                       <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                         Localisation
                       </span>
-                      <span className="font-semibold text-foreground">
-                        Gilly-sur-Isère, Savoie
-                      </span>
+                      <span className="font-semibold text-foreground">Gilly-sur-Isère, Savoie</span>
                     </span>
                   </li>
                 </ul>
@@ -226,9 +228,7 @@ function ContactPage() {
                     </label>
                   </p>
                   <label className="block">
-                    <span className="text-xs font-semibold text-muted-foreground">
-                      Votre nom
-                    </span>
+                    <span className="text-xs font-semibold text-muted-foreground">Votre nom</span>
                     <input
                       name="name"
                       required
@@ -237,9 +237,7 @@ function ContactPage() {
                     />
                   </label>
                   <label className="block">
-                    <span className="text-xs font-semibold text-muted-foreground">
-                      Email
-                    </span>
+                    <span className="text-xs font-semibold text-muted-foreground">Email</span>
                     <input
                       name="email"
                       type="email"
@@ -260,9 +258,7 @@ function ContactPage() {
                     />
                   </label>
                   <label className="block">
-                    <span className="text-xs font-semibold text-muted-foreground">
-                      Message
-                    </span>
+                    <span className="text-xs font-semibold text-muted-foreground">Message</span>
                     <textarea
                       name="message"
                       required
@@ -309,20 +305,24 @@ function ContactPage() {
           </div>
         </SnapSection>
 
-        <SnapSection
-          id="lieu"
-          className="flex items-center border-t border-border py-16"
-        >
+        <SnapSection id="lieu" className="flex items-center border-t border-border py-16">
           <div className="mx-auto w-full max-w-5xl px-6">
             <div className="relative rounded-3xl border border-border bg-card/20 p-6 shadow-card">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
                 <MapPin className="h-4 w-4 text-[var(--brand-turquoise)]" />
                 Basée à Gilly-sur-Isère, Savoie
               </div>
               <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-                J’accompagne mes clients partout en France (visio, téléphone,
-                email). Une rencontre en Savoie est possible sur demande.
+                J’accompagne mes clients partout en France (visio, téléphone, email). Une rencontre
+                en Savoie est possible sur demande.
               </p>
               <div className="mt-4 overflow-hidden rounded-2xl border border-border">
                 <iframe
@@ -338,19 +338,27 @@ function ContactPage() {
           </div>
         </SnapSection>
 
-        <SnapSection
-          id="diagnostic"
-          className="flex items-center border-t border-border py-16"
-        >
+        <SnapSection id="diagnostic" className="flex items-center border-t border-border py-16">
           <div className="mx-auto max-w-3xl px-6">
             <div className="relative rounded-3xl border border-border bg-card/20 p-6 text-center shadow-card">
-              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <GlowingEffect
+                spread={40}
+                glow
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={3}
+              />
               <div className="mb-6 flex justify-center">
-                <ExpressionPhoto slug="sourire-exterieur" caption="À vous lire" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+                <ExpressionPhoto
+                  slug="sourire-exterieur"
+                  caption="À vous lire"
+                  tilt={-3}
+                  imgClassName="aspect-[3/4] w-28"
+                />
               </div>
               <p className="text-sm text-muted-foreground">
-                Vous préférez qu’on en parle de vive voix pour cerner
-                précisément votre besoin ?
+                Vous préférez qu’on en parle de vive voix pour cerner précisément votre besoin ?
               </p>
               <div className="mt-4">
                 <a

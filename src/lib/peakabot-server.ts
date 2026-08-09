@@ -39,18 +39,14 @@ function sanitize(messages: ChatTurn[]): ChatTurn[] {
 
 export const askPeakaBot = createServerFn({ method: "POST" })
   .validator((input: AskInput) => {
-    if (!input || !Array.isArray(input.messages))
-      throw new Error("messages requis");
+    if (!input || !Array.isArray(input.messages)) throw new Error("messages requis");
     return { messages: sanitize(input.messages) } satisfies AskInput;
   })
   .handler(async ({ data }: { data: AskInput }): Promise<{ text: string }> => {
     // Variable Netlify nommée "Peakcl_site" ; ANTHROPIC_API_KEY reste prioritaire.
     const apiKey = process.env.ANTHROPIC_API_KEY ?? process.env.Peakcl_site;
     if (!apiKey) return { text: FALLBACK };
-    if (
-      !data.messages.length ||
-      data.messages[data.messages.length - 1].role !== "user"
-    ) {
+    if (!data.messages.length || data.messages[data.messages.length - 1].role !== "user") {
       return { text: FALLBACK };
     }
 
@@ -58,9 +54,7 @@ export const askPeakaBot = createServerFn({ method: "POST" })
     // réellement appeler l'API consomment du quota.
     const verdict = await checkRateLimit();
     if (!verdict.ok) {
-      console.warn(
-        `[peakabot] requête bloquée par le rate limit (${verdict.scope})`,
-      );
+      console.warn(`[peakabot] requête bloquée par le rate limit (${verdict.scope})`);
       return { text: RATE_LIMITED };
     }
 

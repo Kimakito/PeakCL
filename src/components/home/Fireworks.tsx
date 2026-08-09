@@ -36,7 +36,8 @@ function spawnBurst(cx: number, cy: number, particles: Particle[]) {
     const angle = (i / count) * Math.PI * 2;
     const speed = 2.5 + Math.random() * 3;
     particles.push({
-      x: cx, y: cy,
+      x: cx,
+      y: cy,
       vx: Math.cos(angle) * speed,
       vy: Math.sin(angle) * speed,
       alpha: 1,
@@ -56,7 +57,8 @@ function spawnRing(cx: number, cy: number, particles: Particle[]) {
     const angle = (i / count) * Math.PI * 2;
     const speed = 1.8 + Math.random() * 1.2;
     particles.push({
-      x: cx, y: cy,
+      x: cx,
+      y: cy,
       vx: Math.cos(angle) * speed,
       vy: Math.sin(angle) * speed,
       alpha: 1,
@@ -93,7 +95,8 @@ function spawnSparkle(cx: number, cy: number, particles: Particle[]) {
     const angle = Math.random() * Math.PI * 2;
     const speed = 1 + Math.random() * 4;
     particles.push({
-      x: cx, y: cy,
+      x: cx,
+      y: cy,
       vx: Math.cos(angle) * speed,
       vy: Math.sin(angle) * speed - 1,
       alpha: 1,
@@ -134,7 +137,8 @@ function spawnStar(cx: number, cy: number, particles: Particle[]) {
     const color = i % 2 === 0 ? COLORS.yellow : COLORS.white;
     for (let j = 0; j < 4; j++) {
       particles.push({
-        x: cx, y: cy,
+        x: cx,
+        y: cy,
         vx: Math.cos(angle + (Math.random() - 0.5) * 0.3) * (speed + Math.random()),
         vy: Math.sin(angle + (Math.random() - 0.5) * 0.3) * (speed + Math.random()),
         alpha: 1,
@@ -150,7 +154,14 @@ function spawnStar(cx: number, cy: number, particles: Particle[]) {
 }
 
 const STYLES: Style[] = ["burst", "ring", "comet", "sparkle", "spiral", "star"];
-const SPAWNERS = { burst: spawnBurst, ring: spawnRing, comet: spawnComet, sparkle: spawnSparkle, spiral: spawnSpiral, star: spawnStar };
+const SPAWNERS = {
+  burst: spawnBurst,
+  ring: spawnRing,
+  comet: spawnComet,
+  sparkle: spawnSparkle,
+  spiral: spawnSpiral,
+  star: spawnStar,
+};
 
 export function Fireworks({ className = "" }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -201,7 +212,10 @@ export function Fireworks({ className = "" }: { className?: string }) {
         p.vx *= 0.98;
         p.alpha -= p.decay;
 
-        if (p.alpha <= 0) { particles.splice(i, 1); continue; }
+        if (p.alpha <= 0) {
+          particles.splice(i, 1);
+          continue;
+        }
 
         ctx.save();
         ctx.globalAlpha = p.alpha;

@@ -15,11 +15,10 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
   const current = localeFromPath(path);
   const strings = ui(current).langSwitch;
 
-  const items: { locale: Locale; flag: string; code: string; label: string }[] =
-    [
-      { locale: "fr", flag: "🇫🇷", code: "FR", label: strings.toFr },
-      { locale: "en", flag: "🇬🇧", code: "EN", label: strings.toEn },
-    ];
+  const items: { locale: Locale; flag: string; code: string; label: string }[] = [
+    { locale: "fr", flag: "🇫🇷", code: "FR", label: strings.toFr },
+    { locale: "en", flag: "🇬🇧", code: "EN", label: strings.toEn },
+  ];
 
   return (
     <div
@@ -37,9 +36,7 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
             aria-label={label}
             aria-current={active ? "true" : undefined}
             className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold transition-colors ${
-              active
-                ? "bg-muted text-foreground"
-                : "text-muted-foreground hover:text-foreground"
+              active ? "bg-muted text-foreground" : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <span aria-hidden>{flag}</span>

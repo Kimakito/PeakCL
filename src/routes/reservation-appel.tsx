@@ -1,11 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Clock, ShieldCheck } from "lucide-react";
-import {
-  MERCI_BRIEF_PATH,
-  stashCalendlyPrefill,
-  submitNetlifyForm,
-} from "@/lib/funnel";
+import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
 import { absUrl } from "@/seo/site";
 import { hreflangLinks } from "@/seo/hreflang";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -65,10 +61,7 @@ function ReservationAppelPage() {
   // Voie qualifiée : seuls les champs de contact + la problématique sont
   // obligatoires. Les questions de qualification (CA, objectifs, engagement…)
   // sont facultatives, pour ne pas dresser un mur à l'entrée.
-  const requiredNames = useMemo(
-    () => ["fullName", "phone", "email", "painPoints"],
-    [],
-  );
+  const requiredNames = useMemo(() => ["fullName", "phone", "email", "painPoints"], []);
 
   const completion = useFormCompletion(values, requiredNames);
 
@@ -77,9 +70,7 @@ function ReservationAppelPage() {
     return Array.isArray(v) ? v.length > 0 : true;
   };
 
-  const canSubmit =
-    completion.filled === completion.total &&
-    forceRequiredMultiOk("painPoints");
+  const canSubmit = completion.filled === completion.total && forceRequiredMultiOk("painPoints");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -131,8 +122,7 @@ function ReservationAppelPage() {
             borderWidth={3}
           />
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground backdrop-blur">
-            <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />2 à 3
-            minutes
+            <Clock className="h-3.5 w-3.5 text-[var(--brand-yellow)]" />2 à 3 minutes
             <span className="opacity-40">·</span>
             Diagnostic 45 min
             <span className="opacity-40">·</span>
@@ -153,9 +143,8 @@ function ReservationAppelPage() {
             Réservation d’appel · PeakCL
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Deux options : réservez directement votre créneau, ou remplissez
-            d’abord ce diagnostic (2 à 3 minutes) pour que je prépare notre
-            échange. Appel de 45 minutes.
+            Deux options : réservez directement votre créneau, ou remplissez d’abord ce diagnostic
+            (2 à 3 minutes) pour que je prépare notre échange. Appel de 45 minutes.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
@@ -261,8 +250,7 @@ function ReservationAppelPage() {
                 options={[
                   {
                     value: "Site n'attire/convertit pas",
-                    label:
-                      "Mon site web n’attire pas de visiteurs ou ne convertit pas en clients",
+                    label: "Mon site web n’attire pas de visiteurs ou ne convertit pas en clients",
                   },
                   {
                     value: "Manque de visibilité",
@@ -280,8 +268,7 @@ function ReservationAppelPage() {
                   },
                   {
                     value: "Ne sait pas se différencier",
-                    label:
-                      "Je ne sais pas quoi communiquer ni comment me différencier",
+                    label: "Je ne sais pas quoi communiquer ni comment me différencier",
                   },
                   {
                     value: "Difficulté à justifier l'investissement",
@@ -301,8 +288,8 @@ function ReservationAppelPage() {
 
             <SectionTitle title="Pour préparer l’appel (facultatif)" />
             <p className="-mt-4 text-sm text-muted-foreground">
-              Ces questions m’aident à préparer un échange plus utile. Vous
-              pouvez les laisser vides et réserver directement.
+              Ces questions m’aident à préparer un échange plus utile. Vous pouvez les laisser vides
+              et réserver directement.
             </p>
             <div className="grid gap-5">
               <ChoiceScale
@@ -325,9 +312,7 @@ function ReservationAppelPage() {
                 label="À quel point est-ce important pour vous d’améliorer votre présence en ligne aujourd’hui ?"
                 name="importanceOnlinePresence"
                 value={String(values.importanceOnlinePresence)}
-                onChange={(v) =>
-                  setField(setValues, "importanceOnlinePresence", v)
-                }
+                onChange={(v) => setField(setValues, "importanceOnlinePresence", v)}
               />
               <ChoiceSingle
                 label="Si vous aviez une solution claire pour améliorer votre présence en ligne, seriez-vous ouvert(e) à vous faire accompagner ?"
@@ -410,9 +395,7 @@ function ReservationAppelPage() {
                       : "cursor-not-allowed border border-border bg-muted text-muted-foreground"
                   }`}
                 >
-                  {isSubmitting
-                    ? "Envoi en cours…"
-                    : "Envoyer et réserver mon créneau"}
+                  {isSubmitting ? "Envoi en cours…" : "Envoyer et réserver mon créneau"}
                   <ArrowRight className="h-4 w-4" />
                 </button>
                 <a
@@ -425,9 +408,8 @@ function ReservationAppelPage() {
 
               {!canSubmit ? (
                 <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">
-                  Il manque encore des champs ⭐ obligatoires. Vous pouvez les
-                  remplir plus tard : le formulaire se sauvegarde
-                  automatiquement sur votre appareil.
+                  Il manque encore des champs ⭐ obligatoires. Vous pouvez les remplir plus tard :
+                  le formulaire se sauvegarde automatiquement sur votre appareil.
                 </p>
               ) : null}
             </div>

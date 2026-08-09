@@ -44,8 +44,7 @@ function copyFor(locale: Locale): Copy {
       clients:
         "Freelancers, makers, therapists, shop owners, SMBs and small teams. A travel agency, a law firm, a dental technician, coaches, an equestrian store, and more.",
       locationTitle: "Where I work from",
-      location:
-        "Remotely, with clients across France and worldwide, over video calls.",
+      location: "Remotely, with clients across France and worldwide, over video calls.",
     };
   }
   return {
@@ -80,21 +79,14 @@ export function MosaicBio({ className = "" }: { className?: string }) {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const c = copyFor(localeFromPath(path));
   return (
-    <section
-      aria-label={c.aria}
-      className={`grid grid-cols-1 gap-4 sm:grid-cols-6 ${className}`}
-    >
+    <section aria-label={c.aria} className={`grid grid-cols-1 gap-4 sm:grid-cols-6 ${className}`}>
       {/* Lead — violet, texte blanc */}
       <article
         className={`${CARD} -rotate-1 p-7 text-white sm:col-span-4`}
         style={{ backgroundImage: "var(--grad-violet)" }}
       >
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80">
-          {c.kicker}
-        </p>
-        <h3 className="mt-2 font-display text-2xl font-extrabold md:text-3xl">
-          {c.leadTitle}
-        </h3>
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80">{c.kicker}</p>
+        <h3 className="mt-2 font-display text-2xl font-extrabold md:text-3xl">{c.leadTitle}</h3>
         <p className="mt-3 text-sm leading-relaxed text-white/90">{c.lead}</p>
         <p className="mt-4 text-xs font-semibold text-white/80">{c.role}</p>
       </article>
@@ -105,9 +97,7 @@ export function MosaicBio({ className = "" }: { className?: string }) {
         style={{ backgroundImage: "var(--grad-turquoise)" }}
       >
         <div>
-          <p className="font-display text-lg font-extrabold">
-            {c.metiersTitle}
-          </p>
+          <p className="font-display text-lg font-extrabold">{c.metiersTitle}</p>
           <ul className="mt-3 space-y-1.5 text-sm font-bold">
             {c.metiers.map((m) => (
               <li key={m} className="flex items-center gap-2">
@@ -130,9 +120,7 @@ export function MosaicBio({ className = "" }: { className?: string }) {
         className={`${CARD} rotate-1 flex flex-col justify-center text-[var(--indigo-900)] sm:col-span-2`}
         style={{ backgroundImage: "var(--grad-jaune)" }}
       >
-        <p className="font-display text-6xl font-extrabold leading-none">
-          {c.statValue}
-        </p>
+        <p className="font-display text-6xl font-extrabold leading-none">{c.statValue}</p>
         <p className="mt-2 text-sm font-semibold">{c.statLabel}</p>
       </article>
 

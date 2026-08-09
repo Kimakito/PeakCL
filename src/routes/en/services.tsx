@@ -4,10 +4,7 @@ import { breadcrumbJsonLd } from "@/seo/jsonld";
 import { canonicalLink, hreflangLinks, ogLocaleMeta } from "@/seo/hreflang";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Reveal } from "@/components/ui/Reveal";
-import {
-  ExpressionPhoto,
-  SectionAvatarCard,
-} from "@/components/ExpressionPhoto";
+import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 
 const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
@@ -21,8 +18,7 @@ const SERVICE_CARDS = [
     emoji: "💻",
     eyebrow: "Web development",
     title: "Custom websites",
-    tagline:
-      "Custom, high-performance and durable websites, with support from start to finish.",
+    tagline: "Custom, high-performance and durable websites, with support from start to finish.",
   },
   {
     slug: "/en/social-media",
@@ -94,8 +90,7 @@ const PACKS = [
   {
     emoji: "📱",
     name: "Web + Social Starter Pack",
-    tagline:
-      "Build your site AND launch your social channels at the same time.",
+    tagline: "Build your site AND launch your social channels at the same time.",
     points: [
       "WordPress showcase site (up to 5 pages)",
       "Creation & optimization of your social profiles",
@@ -121,8 +116,7 @@ const PACKS = [
   {
     emoji: "🚀",
     name: "All-In-One Pack",
-    tagline:
-      "The complete solution to hand everything to a single point of contact.",
+    tagline: "The complete solution to hand everything to a single point of contact.",
     points: [
       "Custom showcase or e-commerce site",
       "Complete visual identity",
@@ -167,29 +161,21 @@ function ServicesHub() {
     <div className="min-h-screen">
       <main className="relative overflow-hidden border-t border-border bg-hero">
         <div className="grid-bg absolute inset-0 -z-10" />
-        <div
-          className="hero-aurora"
-          aria-hidden
-          style={{ bottom: "auto", height: "680px" }}
-        />
+        <div className="hero-aurora" aria-hidden style={{ bottom: "auto", height: "680px" }} />
         <div className="relative z-10 mx-auto max-w-5xl px-6 py-20">
           <div className="text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
               Services
             </span>
             <h1 className="mt-4 text-balance text-4xl font-bold leading-tight md:text-6xl">
-              One point of contact,{" "}
-              <span className="text-gradient">four areas of expertise.</span>
+              One point of contact, <span className="text-gradient">four areas of expertise.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-              Site, social, image and automation: pick what you need, or hand it
-              all over from A to Z. Pricing on request, based on your needs.
+              Site, social, image and automation: pick what you need, or hand it all over from A to
+              Z. Pricing on request, based on your needs.
             </p>
             <div className="mt-10 flex justify-center">
-              <SectionAvatarCard
-                slug="offres"
-                imgClassName="w-full max-w-[230px]"
-              />
+              <SectionAvatarCard slug="offres" imgClassName="w-full max-w-[230px]" />
             </div>
           </div>
 
@@ -214,9 +200,7 @@ function ServicesHub() {
                   {s.eyebrow}
                 </div>
                 <h2 className="mt-1 text-xl font-semibold">{s.title}</h2>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  {s.tagline}
-                </p>
+                <p className="mt-3 text-sm text-muted-foreground">{s.tagline}</p>
                 <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-turquoise)]">
                   Discover{" "}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -232,12 +216,11 @@ function ServicesHub() {
                 Combined packages
               </span>
               <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-                Simpler,{" "}
-                <span className="text-gradient">and better value.</span>
+                Simpler, <span className="text-gradient">and better value.</span>
               </h2>
               <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-                When several needs go together, a pack costs less than the
-                services booked separately. All on request, based on your brief.
+                When several needs go together, a pack costs less than the services booked
+                separately. All on request, based on your brief.
               </p>
             </div>
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -260,9 +243,7 @@ function ServicesHub() {
                     />
                     <div className="text-2xl">{pk.emoji}</div>
                     <h3 className="mt-3 text-lg font-semibold">{pk.name}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {pk.tagline}
-                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground">{pk.tagline}</p>
                     <ul className="mt-4 flex-1 space-y-2 text-sm text-muted-foreground">
                       {pk.points.map((x) => (
                         <li key={x} className="flex items-start gap-2">
@@ -298,12 +279,10 @@ function ServicesHub() {
                 imgClassName="aspect-[3/4] w-28"
               />
             </div>
-            <h2 className="text-2xl font-bold md:text-3xl">
-              Not sure where to start?
-            </h2>
+            <h2 className="text-2xl font-bold md:text-3xl">Not sure where to start?</h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-              Book a diagnostic call: I will tell you what will have the most
-              impact for your business, and how I can take care of it.
+              Book a diagnostic call: I will tell you what will have the most impact for your
+              business, and how I can take care of it.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a

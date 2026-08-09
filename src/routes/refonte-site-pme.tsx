@@ -75,12 +75,11 @@ export const Route = createFileRoute("/refonte-site-pme")({
             Pourquoi me confier une refonte
           </div>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            <span className="text-foreground">7 ans dans le digital</span>, dont
-            plusieurs années comme développeuse sur des plateformes à fort
-            trafic et la refonte complète du site corporate d'une entreprise
-            internationale. J'applique aujourd'hui ce niveau d'exigence aux PME
-            de Savoie et d'ailleurs. Commencez par le mini-audit offert : sous
-            72h, vous savez si une refonte se justifie, et par quoi commencer.
+            <span className="text-foreground">7 ans dans le digital</span>, dont plusieurs années
+            comme développeuse sur des plateformes à fort trafic et la refonte complète du site
+            corporate d'une entreprise internationale. J'applique aujourd'hui ce niveau d'exigence
+            aux PME de Savoie et d'ailleurs. Commencez par le mini-audit offert : sous 72h, vous
+            savez si une refonte se justifie, et par quoi commencer.
           </p>
         </div>
       }

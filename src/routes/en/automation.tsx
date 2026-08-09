@@ -2,10 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { canonicalLink, hreflangLinks, ogLocaleMeta } from "@/seo/hreflang";
 import { ServicePage } from "@/components/ServicePage";
-import {
-  automatisationEn,
-  automatisationHighlightsEn,
-} from "@/content/peakcl/services.en";
+import { automatisationEn, automatisationHighlightsEn } from "@/content/peakcl/services.en";
 
 export const Route = createFileRoute("/en/automation")({
   head: () => ({
@@ -54,13 +51,11 @@ export const Route = createFileRoute("/en/automation")({
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             I am training for the{" "}
             <span className="text-foreground">
-              RS7311 "Improving your small business efficiency with AI"
-              certification
+              RS7311 "Improving your small business efficiency with AI" certification
             </span>{" "}
-            (21 hours, designed for leaders of small teams). The goal: to
-            support you concretely in bringing AI in strategically, accessibly
-            and operationally, with tools that are reliable, documented and
-            under control.
+            (21 hours, designed for leaders of small teams). The goal: to support you concretely in
+            bringing AI in strategically, accessibly and operationally, with tools that are
+            reliable, documented and under control.
           </p>
         </div>
       }

@@ -42,8 +42,7 @@ export function TopNav() {
   const closeTimer = useRef<number | undefined>(undefined);
 
   const isActive = (to: string) => path === to || path.startsWith(to + "/");
-  const servicesActive =
-    path === servicesOverview || servicePaths.some((p) => isActive(p));
+  const servicesActive = path === servicesOverview || servicePaths.some((p) => isActive(p));
 
   // La navbar est visible en permanence, posée sous le hero au chargement. Quand
   // on scrolle, elle remonte avec la page puis se colle en haut de l'écran :
@@ -53,8 +52,7 @@ export function TopNav() {
     let raf = 0;
     let restTop = 0;
     let heroEl: HTMLElement | null = null;
-    const scrollTop = () =>
-      document.scrollingElement?.scrollTop ?? window.scrollY;
+    const scrollTop = () => document.scrollingElement?.scrollTop ?? window.scrollY;
     const measure = () => {
       heroEl =
         document.querySelector<HTMLElement>("[data-hero]") ??
@@ -125,10 +123,7 @@ export function TopNav() {
   useEffect(() => {
     if (!servicesOpen) return;
     const onClick = (e: MouseEvent) => {
-      if (
-        servicesRef.current &&
-        !servicesRef.current.contains(e.target as Node)
-      )
+      if (servicesRef.current && !servicesRef.current.contains(e.target as Node))
         setServicesOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {

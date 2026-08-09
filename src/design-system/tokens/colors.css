@@ -1,36 +1,43 @@
 :root {
   /* ===== Palette PeakCL — 5 familles × clair/foncé (source : carres-couleurs.svg) ===== */
-  --turquoise-200: #96F0F7;
-  --turquoise-500: #4DAFC9;
-  --bleu-200: #94D4FF;
-  --bleu-400: #6191FF;
-  --bleu-500: #427CFF;
-  --lavande-200: #BABAFF;
-  --lavande-500: #875FD5;
-  --jaune-200: #F2EB96;
-  --jaune-500: #F2D04B;
-  --violet-700: #360099;   /* violet profond */
-  --indigo-900: #13004D;   /* encre de marque (trait mascotte, texte) */
+  --turquoise-200: #96f0f7;
+  --turquoise-500: #4dafc9;
+  --bleu-200: #94d4ff;
+  --bleu-400: #6191ff;
+  --bleu-500: #427cff;
+  --lavande-200: #babaff;
+  --lavande-500: #875fd5;
+  --jaune-200: #f2eb96;
+  --jaune-500: #f2d04b;
+  --violet-700: #360099; /* violet profond */
+  --indigo-900: #13004d; /* encre de marque (trait mascotte, texte) */
 
   /* Intermédiaires du logo (stops réels) */
-  --violet-600: #5F3AB9;
+  --violet-600: #5f3ab9;
   --violet-800: #291267;
 
   /* ===== Dégradés officiels (stops exacts des SVG) ===== */
-  --grad-turquoise: linear-gradient(135deg, #97F0F7 0%, #4DAFC9 100%);
-  --grad-bleu: linear-gradient(135deg, #94D4FF 8%, #6191FF 100%);
-  --grad-lavande: linear-gradient(135deg, #BABAFF 0%, #875FD5 100%);
-  --grad-jaune: linear-gradient(135deg, #F2EB96 0%, #F2D966 50%, #F2D04B 100%);
-  --grad-violet: linear-gradient(135deg, #BABAFF 0%, #7F66D1 33%, #5F3AB9 54%, #481AA7 73%, #360099 100%);
-  --grad-indigo: linear-gradient(135deg, #875FD5 0%, #442887 44%, #291267 67%, #13004D 100%);
+  --grad-turquoise: linear-gradient(135deg, #97f0f7 0%, #4dafc9 100%);
+  --grad-bleu: linear-gradient(135deg, #94d4ff 8%, #6191ff 100%);
+  --grad-lavande: linear-gradient(135deg, #babaff 0%, #875fd5 100%);
+  --grad-jaune: linear-gradient(135deg, #f2eb96 0%, #f2d966 50%, #f2d04b 100%);
+  --grad-violet: linear-gradient(
+    135deg,
+    #babaff 0%,
+    #7f66d1 33%,
+    #5f3ab9 54%,
+    #481aa7 73%,
+    #360099 100%
+  );
+  --grad-indigo: linear-gradient(135deg, #875fd5 0%, #442887 44%, #291267 67%, #13004d 100%);
 
   /* ===== Neutres (dérivés de l'encre indigo) ===== */
-  --blanc: #FFFFFF;
-  --neutre-50: #FAFAFF;
-  --neutre-100: #F3F2FC;
-  --neutre-200: #E6E4F5;
-  --neutre-400: #A9A3C9;
-  --neutre-600: #6C6493;
+  --blanc: #ffffff;
+  --neutre-50: #fafaff;
+  --neutre-100: #f3f2fc;
+  --neutre-200: #e6e4f5;
+  --neutre-400: #a9a3c9;
+  --neutre-600: #6c6493;
 
   /* ===== Sémantique ===== */
   --bg: var(--blanc);
@@ -43,7 +50,7 @@
   --border: var(--neutre-200);
   --border-strong: var(--lavande-200);
   --accent: var(--bleu-500);
-  --accent-press: #2F63D9;
+  --accent-press: #2f63d9;
   --link: var(--bleu-500);
   --link-hover: var(--violet-700);
   --cta: var(--jaune-500);
@@ -52,6 +59,6 @@
   --focus-ring: var(--bleu-400);
 
   /* Fond sombre de marque (cf. fond-fonce-logo) */
-  --bg-dark: #2E0296;
-  --grad-bg-dark: radial-gradient(circle at 50% 45%, #3A07A8 0%, #2E0296 55%, #250085 100%);
+  --bg-dark: #2e0296;
+  --grad-bg-dark: radial-gradient(circle at 50% 45%, #3a07a8 0%, #2e0296 55%, #250085 100%);
 }

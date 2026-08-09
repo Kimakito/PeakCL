@@ -39,7 +39,9 @@ export function CalendlyEmbed({ url, minHeight = 700 }: CalendlyEmbedProps) {
       .then(() => {
         if (cancelled || !hostRef.current) return;
         hostRef.current.innerHTML = "";
-        const Calendly = (window as Window & { Calendly?: { initInlineWidget: (o: object) => void } }).Calendly;
+        const Calendly = (
+          window as Window & { Calendly?: { initInlineWidget: (o: object) => void } }
+        ).Calendly;
         Calendly?.initInlineWidget({
           url,
           parentElement: hostRef.current,

@@ -1,13 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type React from "react";
-import {
-  ArrowRight,
-  CalendarCheck,
-  LayoutGrid,
-  MessageCircle,
-  Package,
-  Star,
-} from "lucide-react";
+import { ArrowRight, CalendarCheck, LayoutGrid, MessageCircle, Package, Star } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 import { CTAButton } from "@/components/CTAButton";
 import { localeFromPath, type Locale } from "@/i18n/config";
@@ -173,8 +166,7 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
     [],
   );
 
-  const dataEventFor = (label: string) =>
-    `cta_hero_${label.toLowerCase().replace(/\s+/g, "_")}`;
+  const dataEventFor = (label: string) => `cta_hero_${label.toLowerCase().replace(/\s+/g, "_")}`;
 
   return (
     <div
@@ -239,9 +231,7 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
           <a
             key={item.label}
             href={item.href}
-            {...(external
-              ? { target: "_blank", rel: "noopener noreferrer" }
-              : {})}
+            {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             data-event={dataEventFor(item.label)}
             className="absolute flex flex-col items-center transition-[opacity] duration-300"
             style={{
@@ -297,13 +287,9 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
             >
               <div className="flex items-center gap-2">
                 <Icon size={15} className="text-[var(--brand-turquoise)]" />
-                <span className="text-sm font-semibold text-foreground">
-                  {item.label}
-                </span>
+                <span className="text-sm font-semibold text-foreground">{item.label}</span>
               </div>
-              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                {item.desc}
-              </p>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{item.desc}</p>
               <CTAButton
                 href={item.href}
                 variant={item.variant}
@@ -325,8 +311,7 @@ function heroText(locale: Locale) {
   if (locale === "en") {
     return {
       badge: "5/5 Google · free audit · one point of contact",
-      titleLead:
-        "Want an online presence that's clear, credible and simple to run?",
+      titleLead: "Want an online presence that's clear, credible and simple to run?",
       titleAccent: "One person for your site, design and social, end to end.",
       sub: "Built for therapists, practitioners and independents who want a sharp online image without spending their evenings on it: from strategy to launch, with a clear plan, concrete deliverables and a human on the other end.",
       ctaPrimary: "Book a free call",
@@ -342,8 +327,7 @@ function heroText(locale: Locale) {
   }
   return {
     badge: "5/5 Google · diagnostic gratuit · un seul interlocuteur",
-    titleLead:
-      "Vous voulez une présence en ligne claire, crédible et sans complication ?",
+    titleLead: "Vous voulez une présence en ligne claire, crédible et sans complication ?",
     titleAccent: "Je vous accompagne de A à Z.",
     sub: "Pensé pour les thérapeutes, praticiens et indépendants de Savoie qui veulent une image nette sans y passer leurs soirées : de la stratégie au lancement, avec un plan clair, des livrables concrets et un seul interlocuteur.",
     ctaPrimary: "Réserver un appel gratuit",
@@ -396,20 +380,14 @@ export function HeroPanel() {
           <br />
           <span className="text-gradient-anim">{t.titleAccent}</span>
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground md:text-lg">
-          {t.sub}
-        </p>
+        <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground md:text-lg">{t.sub}</p>
 
         {/* CTA principaux visibles sans scroll */}
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_hero">
             {t.ctaPrimary}
           </CTAButton>
-          <CTAButton
-            href={t.servicesHref}
-            variant="ghost"
-            dataEvent="cta_services_hero"
-          >
+          <CTAButton href={t.servicesHref} variant="ghost" dataEvent="cta_services_hero">
             {t.ctaSecondary}
           </CTAButton>
         </div>
@@ -420,9 +398,7 @@ export function HeroPanel() {
               key={item.label}
               className="rounded-full border border-border bg-muted px-3 py-1.5 text-foreground/80 backdrop-blur"
             >
-              <span className="font-semibold text-[var(--brand-turquoise)]">
-                {item.value}
-              </span>{" "}
+              <span className="font-semibold text-[var(--brand-turquoise)]">{item.value}</span>{" "}
               <span>{item.label}</span>
             </div>
           ))}

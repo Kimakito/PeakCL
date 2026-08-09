@@ -16,8 +16,7 @@ function instagramText(locale: Locale) {
           The studio, <span className="text-gradient">day to day</span>.
         </>
       ),
-      subtitle:
-        "Behind the scenes and delivered projects: follow PeakCL on Instagram.",
+      subtitle: "Behind the scenes and delivered projects: follow PeakCL on Instagram.",
       follow: "Follow @peakcl73",
     };
   }

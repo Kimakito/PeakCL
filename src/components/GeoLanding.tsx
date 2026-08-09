@@ -1,13 +1,5 @@
 import type { ReactNode } from "react";
-import {
-  ArrowRight,
-  Check,
-  Gift,
-  Globe,
-  MapPin,
-  Megaphone,
-  Palette,
-} from "lucide-react";
+import { ArrowRight, Check, Gift, Globe, MapPin, Megaphone, Palette } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 
@@ -73,10 +65,26 @@ const SERVICES = [
 ];
 
 const STEPS = [
-  { n: "01", title: "Diagnostic", desc: "Réservation d’appel 3 min ou visio 20 min. Je comprends votre activité et votre objectif." },
-  { n: "02", title: "Cadrage", desc: "Devis précis sous 48h ouvrées + planning. Vous validez ou ajustez." },
-  { n: "03", title: "Production", desc: "Je code, je dessine, je rédige. Vous voyez le travail avancer." },
-  { n: "04", title: "Mise en ligne", desc: "Domaine, performance, indexation. Et un suivi sur la première semaine." },
+  {
+    n: "01",
+    title: "Diagnostic",
+    desc: "Réservation d’appel 3 min ou visio 20 min. Je comprends votre activité et votre objectif.",
+  },
+  {
+    n: "02",
+    title: "Cadrage",
+    desc: "Devis précis sous 48h ouvrées + planning. Vous validez ou ajustez.",
+  },
+  {
+    n: "03",
+    title: "Production",
+    desc: "Je code, je dessine, je rédige. Vous voyez le travail avancer.",
+  },
+  {
+    n: "04",
+    title: "Mise en ligne",
+    desc: "Domaine, performance, indexation. Et un suivi sur la première semaine.",
+  },
 ];
 
 export function GeoLanding({
@@ -105,7 +113,8 @@ export function GeoLanding({
           <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-tight md:text-6xl">
             {headline ?? (
               <>
-                Agence web à <span className="text-gradient">{city}</span> : création de {serviceLabel}
+                Agence web à <span className="text-gradient">{city}</span> : création de{" "}
+                {serviceLabel}
               </>
             )}
           </h1>
@@ -128,15 +137,21 @@ export function GeoLanding({
           </div>
           <div>
             <p className="text-sm font-semibold text-foreground">
-              Audit gratuit de votre site web <span className="text-[var(--brand-turquoise)]">et</span> de vos réseaux sociaux
+              Audit gratuit de votre site web{" "}
+              <span className="text-[var(--brand-turquoise)]">et</span> de vos réseaux sociaux
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
-              Je passe en revue votre présence en ligne à {city} et je vous renvoie des recommandations
-              concrètes, sous 24h, sans engagement.
+              Je passe en revue votre présence en ligne à {city} et je vous renvoie des
+              recommandations concrètes, sous 24h, sans engagement.
             </p>
           </div>
           <div className="hidden shrink-0 sm:block">
-            <ExpressionPhoto slug="lunettes-cool" caption="Cadeau" tilt={3} imgClassName="aspect-[3/4] w-20" />
+            <ExpressionPhoto
+              slug="lunettes-cool"
+              caption="Cadeau"
+              tilt={3}
+              imgClassName="aspect-[3/4] w-20"
+            />
           </div>
         </div>
       </section>
@@ -162,7 +177,14 @@ export function GeoLanding({
             ) : null}
           </div>
           <div className="relative rounded-2xl border border-border bg-card/50 p-6 shadow-card">
-            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <GlowingEffect
+              spread={40}
+              glow
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={3}
+            />
             <h3 className="text-base font-semibold">Ce que vous obtenez</h3>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -203,14 +225,22 @@ export function GeoLanding({
                 href={s.href}
                 className="group relative rounded-2xl border border-border bg-card/50 p-5 shadow-card transition-colors hover:border-border"
               >
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] text-[var(--brand-violet)]">
                   <s.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-4 text-base font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                 <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[var(--brand-turquoise)]">
-                  En savoir plus <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  En savoir plus{" "}
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </a>
             ))}
@@ -234,8 +264,18 @@ export function GeoLanding({
           <h2 className="text-2xl font-bold md:text-3xl">Comment ça se passe</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((step) => (
-              <div key={step.n} className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card">
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <div
+                key={step.n}
+                className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card"
+              >
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 <div className="text-sm font-bold text-[var(--brand-turquoise)]">{step.n}</div>
                 <h3 className="mt-2 text-base font-semibold">{step.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{step.desc}</p>
@@ -251,8 +291,18 @@ export function GeoLanding({
           <h2 className="text-2xl font-bold">Questions fréquentes</h2>
           <div className="mt-6 space-y-4">
             {faq.map((item) => (
-              <div key={item.question} className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card">
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <div
+                key={item.question}
+                className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card"
+              >
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 <h3 className="text-base font-semibold">{item.question}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{item.answerHtml}</p>
               </div>
@@ -291,11 +341,14 @@ export function GeoLanding({
         <div className="absolute inset-0 -z-10 bg-hero" />
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mb-6 flex justify-center">
-            <ExpressionPhoto slug="sourire-exterieur" caption="Ravie de vous lire" tilt={-2} imgClassName="aspect-[3/4] w-28" />
+            <ExpressionPhoto
+              slug="sourire-exterieur"
+              caption="Ravie de vous lire"
+              tilt={-2}
+              imgClassName="aspect-[3/4] w-28"
+            />
           </div>
-          <h2 className="text-3xl font-bold md:text-4xl">
-            Votre projet à {city}, on en parle ?
-          </h2>
+          <h2 className="text-3xl font-bold md:text-4xl">Votre projet à {city}, on en parle ?</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Décrivez votre activité en 8 minutes : je vous renvoie un audit gratuit et des
             recommandations concrètes.

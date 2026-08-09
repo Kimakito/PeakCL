@@ -1,11 +1,4 @@
-import {
-  Instagram,
-  Facebook,
-  Linkedin,
-  MessageCircle,
-  Mail,
-  Phone,
-} from "lucide-react";
+import { Instagram, Facebook, Linkedin, MessageCircle, Mail, Phone } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 import { SOCIAL, FREELANCE, CONTACT } from "@/lib/links";
 import { localeFromPath, type Locale } from "@/i18n/config";
@@ -41,8 +34,7 @@ function footerText(locale: Locale): FooterText {
   if (locale === "en") {
     return {
       headline: "Let's build your online presence.",
-      subtitle:
-        "Website, brand, social, Google: one person, from start to finish.",
+      subtitle: "Website, brand, social, Google: one person, from start to finish.",
       primaryNav: [
         { href: "/en", label: "Home" },
         { href: "/en/portfolio", label: "Portfolio" },
@@ -63,8 +55,7 @@ function footerText(locale: Locale): FooterText {
   }
   return {
     headline: "Construisons votre image en ligne.",
-    subtitle:
-      "Site, identité, réseaux, Google : un seul interlocuteur, de A à Z.",
+    subtitle: "Site, identité, réseaux, Google : un seul interlocuteur, de A à Z.",
     primaryNav: [
       { href: "/", label: "Accueil" },
       { href: "/portfolio", label: "Portfolio" },
@@ -105,9 +96,7 @@ export function DeckFooter() {
           className="logo-adaptive mx-auto h-12 w-auto"
         />
         <h2 className="mt-4 text-2xl font-bold md:text-3xl">{t.headline}</h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
-          {t.subtitle}
-        </p>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">{t.subtitle}</p>
 
         <div className="mt-6 flex items-center justify-center gap-3">
           {SOCIALS.map(({ href, label, icon: Icon }) => (
@@ -142,11 +131,7 @@ export function DeckFooter() {
 
         <div className="mt-7 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs">
           {t.primaryNav.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
-              className="text-muted-foreground hover:text-foreground"
-            >
+            <a key={href} href={href} className="text-muted-foreground hover:text-foreground">
               {label}
             </a>
           ))}
@@ -185,9 +170,7 @@ export function DeckFooter() {
           </div>
         ) : null}
 
-        <p className="mt-6 text-xs text-muted-foreground/60">
-          © {year} PeakCL · Charlotte Lacroix
-        </p>
+        <p className="mt-6 text-xs text-muted-foreground/60">© {year} PeakCL · Charlotte Lacroix</p>
       </div>
     </section>
   );

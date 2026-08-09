@@ -17,16 +17,17 @@ import { CONTACT, SOCIAL } from "@/lib/links";
 
 /** Retire le HTML simple des réponses FAQ pour un prompt texte propre. */
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+  return html
+    .replace(/<[^>]+>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 const FAQ_BLOCK = peakclFaq
   .map((f) => `Q: ${f.question}\nR: ${stripHtml(f.answerHtml)}`)
   .join("\n\n");
 
-const SERVICES_BLOCK = SERVICES.map(
-  (s) => `- ${s.navLabel} (${s.slug}) : ${s.tagline}`,
-).join("\n");
+const SERVICES_BLOCK = SERVICES.map((s) => `- ${s.navLabel} (${s.slug}) : ${s.tagline}`).join("\n");
 
 export const PEAKABOT_SYSTEM_PROMPT = `Tu es PeakaBot, l'assistant du site de PeakCL. PeakCL, c'est Charlotte Lacroix, freelance en communication digitale globale (sites web, réseaux sociaux, identité visuelle et automatisation/IA), basée à Gilly-sur-Isère près d'Albertville, en Savoie. Elle accompagne des clients partout en France.
 

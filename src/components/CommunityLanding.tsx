@@ -116,14 +116,23 @@ export function CommunityLanding({
       {/* Pourquoi déléguer */}
       <section className="border-t border-border py-20">
         <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-2xl font-bold md:text-3xl">Pourquoi déléguer vos réseaux sociaux ?</h2>
+          <h2 className="text-2xl font-bold md:text-3xl">
+            Pourquoi déléguer vos réseaux sociaux ?
+          </h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {PAINS.map((p) => (
               <li
                 key={p}
                 className="relative rounded-2xl border border-border bg-card/50 p-5 text-sm text-muted-foreground shadow-card"
               >
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 {p}
               </li>
             ))}
@@ -146,15 +155,25 @@ export function CommunityLanding({
             </ul>
           </div>
           <div className="relative rounded-2xl border border-border bg-card/50 p-6 shadow-card">
-            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <GlowingEffect
+              spread={40}
+              glow
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={3}
+            />
             <h3 className="text-base font-semibold">Formules mensuelles</h3>
             <p className="mt-1 text-xs text-muted-foreground">
-              Un rythme adapté à votre énergie et vos objectifs. Sans engagement longue durée imposé.
+              Un rythme adapté à votre énergie et vos objectifs. Sans engagement longue durée
+              imposé.
             </p>
             <ul className="mt-4 space-y-3">
               {FORMULES.map((f) => (
                 <li key={f.name} className="rounded-xl border border-border bg-background/40 p-3">
-                  <div className="text-sm font-semibold text-[var(--brand-turquoise)]">{f.name}</div>
+                  <div className="text-sm font-semibold text-[var(--brand-turquoise)]">
+                    {f.name}
+                  </div>
                   <div className="mt-0.5 text-xs text-muted-foreground">{f.detail}</div>
                 </li>
               ))}
@@ -179,15 +198,15 @@ export function CommunityLanding({
           <h2 className="mt-5 text-2xl font-bold md:text-3xl">Pourquoi me confier vos réseaux ?</h2>
           <div className="mt-4 max-w-3xl space-y-4 text-muted-foreground">
             <p>
-              Je suis Charlotte Lacroix (PeakCL), développeuse web et graphiste près d'Albertville, et
-              je suis <strong className="text-foreground">formée au community management</strong>. Pour
-              votre activité à {city}, la même personne pense votre site, votre identité visuelle et vos
-              publications, pour un message parfaitement cohérent partout.
+              Je suis Charlotte Lacroix (PeakCL), développeuse web et graphiste près d'Albertville,
+              et je suis <strong className="text-foreground">formée au community management</strong>
+              . Pour votre activité à {city}, la même personne pense votre site, votre identité
+              visuelle et vos publications, pour un message parfaitement cohérent partout.
             </p>
             <p>
-              Vos visuels réseaux reprennent les codes de votre site et de votre logo. Vos publications
-              renvoient vers les bonnes pages. Tout travaille ensemble, au lieu de trois prestataires
-              qui ne se parlent pas.
+              Vos visuels réseaux reprennent les codes de votre site et de votre logo. Vos
+              publications renvoient vers les bonnes pages. Tout travaille ensemble, au lieu de
+              trois prestataires qui ne se parlent pas.
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -215,8 +234,18 @@ export function CommunityLanding({
           <h2 className="text-2xl font-bold">Questions fréquentes</h2>
           <div className="mt-6 space-y-4">
             {faq.map((item) => (
-              <div key={item.question} className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card">
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <div
+                key={item.question}
+                className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card"
+              >
+                <GlowingEffect
+                  spread={40}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 <h3 className="text-base font-semibold">{item.question}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{item.answerHtml}</p>
               </div>
@@ -255,12 +284,17 @@ export function CommunityLanding({
         <div className="absolute inset-0 -z-10 bg-hero" />
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mb-6 flex justify-center">
-            <ExpressionPhoto slug="grand-sourire" caption="Vos réseaux, gérés" tilt={-3} imgClassName="aspect-[3/4] w-28" />
+            <ExpressionPhoto
+              slug="grand-sourire"
+              caption="Vos réseaux, gérés"
+              tilt={-3}
+              imgClassName="aspect-[3/4] w-28"
+            />
           </div>
           <h2 className="text-3xl font-bold md:text-4xl">On s'occupe de vos réseaux à {city} ?</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Décrivez votre activité en 8 minutes : je vous propose le rythme de publication adapté et un
-            devis clair.
+            Décrivez votre activité en 8 minutes : je vous propose le rythme de publication adapté
+            et un devis clair.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a

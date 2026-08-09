@@ -86,11 +86,7 @@ function formatOffer(item) {
     parts.push("", "Inclus :", ...item.included.map((i) => `- ${oneLine(i)}`));
   }
   if (item.notIncluded?.length) {
-    parts.push(
-      "",
-      "Non inclus :",
-      ...item.notIncluded.map((i) => `- ${oneLine(i)}`),
-    );
+    parts.push("", "Non inclus :", ...item.notIncluded.map((i) => `- ${oneLine(i)}`));
   }
   return parts.join("\n");
 }
@@ -134,13 +130,7 @@ function render(c) {
   for (const s of allPages) {
     push(link(s.title, s.slug, oneLine(s.tagline)));
   }
-  push(
-    link(
-      "Tous les services",
-      "/services",
-      "Vue d'ensemble des prestations et des packs.",
-    ),
-  );
+  push(link("Tous les services", "/services", "Vue d'ensemble des prestations et des packs."));
   push("");
 
   // ── Detail des offres ───────────────────────────────────────────
@@ -207,8 +197,7 @@ function render(c) {
     for (const g of pages) {
       // « Savoie (Savoie) » pour la page departementale : on n'affiche la
       // region que lorsqu'elle apporte une information.
-      const label =
-        g.city === g.regionLine ? g.city : `${g.city} (${g.regionLine})`;
+      const label = g.city === g.regionLine ? g.city : `${g.city} (${g.regionLine})`;
       push(link(label, `/${g.slug}`, oneLine(g.shortPitch)));
     }
     push("");
@@ -227,13 +216,9 @@ function render(c) {
   push("");
   for (const p of c.peakclPortfolio) {
     const subtitle = p.subtitle ? ` (${oneLine(p.subtitle)})` : "";
-    const scope = p.scope?.length
-      ? ` Perimetre : ${p.scope.map(oneLine).join(", ")}.`
-      : "";
+    const scope = p.scope?.length ? ` Perimetre : ${p.scope.map(oneLine).join(", ")}.` : "";
     const note = p.scopeNote ? ` ${oneLine(p.scopeNote)}` : "";
-    push(
-      `- **${p.title}**${subtitle} — ${oneLine(p.description ?? "")}${scope}${note}`,
-    );
+    push(`- **${p.title}**${subtitle} — ${oneLine(p.description ?? "")}${scope}${note}`);
   }
   push("");
 
@@ -249,21 +234,9 @@ function render(c) {
   // ── Entreprise ──────────────────────────────────────────────────
   push("## L'entreprise");
   push("");
-  push(
-    link(
-      "Qui suis-je",
-      "/qui-suis-je",
-      "Parcours et methode de Charlotte Lacroix.",
-    ),
-  );
+  push(link("Qui suis-je", "/qui-suis-je", "Parcours et methode de Charlotte Lacroix."));
   push(link("Contact", "/contact", "Formulaire, telephone et email."));
-  push(
-    link(
-      "Reserver un appel",
-      "/reservation-appel",
-      "Diagnostic gratuit, reponse sous 24h.",
-    ),
-  );
+  push(link("Reserver un appel", "/reservation-appel", "Diagnostic gratuit, reponse sous 24h."));
   push(link("Politique de confidentialite", "/politique-confidentialite"));
   push("");
 
@@ -278,6 +251,4 @@ function render(c) {
 const content = await loadContent();
 await writeFile(OUT, render(content), "utf8");
 await rm(TMP_DIR, { recursive: true, force: true });
-console.log(
-  `llms.txt genere (${(await import("node:fs")).statSync(OUT).size} octets)`,
-);
+console.log(`llms.txt genere (${(await import("node:fs")).statSync(OUT).size} octets)`);

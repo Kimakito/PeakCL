@@ -30,7 +30,8 @@ function MerciPage() {
           </div>
           <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">Merci.</h1>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Votre demande d’audit est bien envoyée. Je vous réponds sous 24h avec des recommandations concrètes.
+            Votre demande d’audit est bien envoyée. Je vous réponds sous 24h avec des
+            recommandations concrètes.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -52,4 +53,3 @@ function MerciPage() {
     </main>
   );
 }
-
