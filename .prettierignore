@@ -1,0 +1,32 @@
+# Sorties de build
+dist
+.output
+.vinxi
+.netlify
+node_modules
+
+# Design system et assets fournis, non edites a la main
+brand
+
+# Ancien site statique servi tel quel
+public/peakcl
+
+# Fichiers generes
+src/routeTree.gen.ts
+public/sitemap.xml
+public/llms.txt
+
+# Prose redigee a la main : le reformatage n'apporte rien et pollue les diffs
+*.md
+
+# Pages HTML statiques servies telles quelles
+public/*.html
+
+# Binaires et donnees
+*.svg
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.ico
+*.pdf
