@@ -45,6 +45,19 @@
     # toute première requête). Pas de `preload` : c'est quasi irréversible.
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
+# 3 bis) Decks clients : noindex au niveau HTTP.
+# Les 4 pages /cadrage/* servent déjà `<meta name="robots" content="noindex,
+# nofollow">` en SSR. Cet en-tête le double au niveau protocole : il couvre
+# les réponses non-HTML (un PDF de deck servi sous /cadrage/ ne peut pas
+# porter de balise meta).
+# Ces pages ne sont plus bloquées dans robots.txt pour les moteurs — c'est
+# volontaire et nécessaire : une page interdite au crawl ne peut pas être lue,
+# donc son noindex n'est jamais vu. Voir le commentaire de public/robots.txt.
+[[headers]]
+  for = "/cadrage/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 # 4) CSP en Report-Only d'abord.
 # Une CSP trop stricte casse le site en silence, et les en-têtes netlify.toml
 # ne sont pas testables en `vite dev`. On observe les violations en console

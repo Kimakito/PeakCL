@@ -5,14 +5,27 @@
 # generees par les assistants IA.
 #
 # ATTENTION en modifiant ce fichier : un groupe `User-agent:` nomme REMPLACE le
-# groupe `*`, il ne s'y ajoute pas (regle du groupe le plus specifique). Chaque
-# groupe nomme doit donc repeter le `Disallow: /cadrage/`, sinon les decks
-# clients deviennent crawlables par ce bot precis. C'est la raison d'etre de la
-# repetition ci-dessous, qui a l'air redondante mais ne l'est pas.
+# groupe `*`, il ne s'y ajoute pas (regle du groupe le plus specifique). Un
+# groupe nomme qui doit bloquer /cadrage/ doit donc repeter son `Disallow`,
+# sinon les decks clients deviennent crawlables par ce bot precis. C'est la
+# raison d'etre de la repetition plus bas, qui a l'air redondante mais ne
+# l'est pas.
+#
+# /cadrage/ (decks clients) n'est PLUS bloque pour les moteurs de recherche.
+# Un Disallow n'empeche pas l'indexation : il empeche la LECTURE de la page.
+# Google indexait donc l'URL sans jamais voir le
+# `<meta name="robots" content="noindex, nofollow">` que ces pages servent
+# deja en SSR — d'ou le « indexee malgre le blocage par robots.txt » de
+# Search Console. Le crawl est ouvert pour que ce noindex soit enfin lu et
+# applique. Un `X-Robots-Tag: noindex, nofollow` sur /cadrage/* dans
+# netlify.toml double la protection.
+# Les bots d'ENTRAINEMENT gardent le Disallow : eux n'obeissent qu'a
+# robots.txt et ignorent le meta noindex.
+# Ne pas remettre de `Disallow: /cadrage/` sur les groupes moteurs : cela
+# recreerait exactement le bug.
 
 User-agent: *
 Allow: /
-Disallow: /cadrage/
 
 # ── Moteurs de recherche IA ──────────────────────────────────────────
 # Ces groupes ne changent rien au comportement actuel (le groupe `*` les
@@ -23,28 +36,27 @@ Disallow: /cadrage/
 # ChatGPT Search (OpenAI) — decouverte et citation dans les reponses.
 User-agent: OAI-SearchBot
 Allow: /
-Disallow: /cadrage/
 
 # Claude Search (Anthropic) — indexation pour la recherche.
 User-agent: Claude-SearchBot
 Allow: /
-Disallow: /cadrage/
 
 # Claude-User (Anthropic) — recuperation d'une page a la demande d'un
 # utilisateur, pas d'indexation.
 User-agent: Claude-User
 Allow: /
-Disallow: /cadrage/
 
 # Perplexity.
 User-agent: PerplexityBot
 Allow: /
-Disallow: /cadrage/
 
 # ── Bots d'entrainement ──────────────────────────────────────────────
-# Autorises volontairement. Etre present dans les poids d'un modele permet
-# d'etre cite sans recherche live ; le contenu est deja public. A rebasculer
-# en Disallow si cette position change.
+# Autorises volontairement sur le site public. Etre present dans les poids
+# d'un modele permet d'etre cite sans recherche live ; le contenu est deja
+# public. A rebasculer en Disallow si cette position change.
+#
+# /cadrage/ reste bloque ICI et seulement ici : ces bots n'obeissent qu'a
+# robots.txt et ignorent le meta noindex des decks clients.
 
 User-agent: GPTBot
 Allow: /
