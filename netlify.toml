@@ -45,14 +45,18 @@
     # toute première requête). Pas de `preload` : c'est quasi irréversible.
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
-# 3 bis) Decks clients : noindex au niveau HTTP.
-# Les 4 pages /cadrage/* servent déjà `<meta name="robots" content="noindex,
-# nofollow">` en SSR. Cet en-tête le double au niveau protocole : il couvre
-# les réponses non-HTML (un PDF de deck servi sous /cadrage/ ne peut pas
-# porter de balise meta).
-# Ces pages ne sont plus bloquées dans robots.txt pour les moteurs — c'est
-# volontaire et nécessaire : une page interdite au crawl ne peut pas être lue,
-# donc son noindex n'est jamais vu. Voir le commentaire de public/robots.txt.
+# 3 bis) Decks clients : noindex au niveau HTTP, par défaut et à l'avance.
+# Aucune page /cadrage/* n'existe aujourd'hui (les decks Pascale et Véronique
+# ont été supprimés) : ces URL renvoient un 404 propre servi par la fonction
+# SSR, ce qui est le bon signal pour Google.
+# L'en-tête est conservé comme GARDE-FOU : le prochain deck client créé sous
+# /cadrage/ sera noindex dès sa mise en ligne, sans dépendre du fait qu'on
+# pense à ajouter une balise meta dans la route. Il couvre aussi les réponses
+# non-HTML (un PDF de deck ne peut pas porter de meta).
+# Ne PAS rebasculer /cadrage/ en Disallow dans robots.txt : une page interdite
+# au crawl n'est jamais lue, donc son noindex n'est jamais vu — c'est ce qui
+# avait produit le « indexée malgré le blocage » de Search Console. Voir le
+# commentaire de public/robots.txt.
 [[headers]]
   for = "/cadrage/*"
   [headers.values]

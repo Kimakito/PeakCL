@@ -68,10 +68,6 @@ import { Route as EnDesignRouteImport } from './routes/en/design'
 import { Route as EnBookACallRouteImport } from './routes/en/book-a-call'
 import { Route as EnAutomationRouteImport } from './routes/en/automation'
 import { Route as EnAboutRouteImport } from './routes/en/about'
-import { Route as CadrageVeroniqueRouteImport } from './routes/cadrage.veronique'
-import { Route as CadragePascaleRouteImport } from './routes/cadrage.pascale'
-import { Route as CadrageVeroniqueMerciRouteImport } from './routes/cadrage.veronique.merci'
-import { Route as CadragePascaleMerciRouteImport } from './routes/cadrage.pascale.merci'
 
 const TrameProspectionRoute = TrameProspectionRouteImport.update({
   id: '/trame-prospection',
@@ -378,26 +374,6 @@ const EnAboutRoute = EnAboutRouteImport.update({
   path: '/en/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CadrageVeroniqueRoute = CadrageVeroniqueRouteImport.update({
-  id: '/cadrage/veronique',
-  path: '/cadrage/veronique',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CadragePascaleRoute = CadragePascaleRouteImport.update({
-  id: '/cadrage/pascale',
-  path: '/cadrage/pascale',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CadrageVeroniqueMerciRoute = CadrageVeroniqueMerciRouteImport.update({
-  id: '/merci',
-  path: '/merci',
-  getParentRoute: () => CadrageVeroniqueRoute,
-} as any)
-const CadragePascaleMerciRoute = CadragePascaleMerciRouteImport.update({
-  id: '/merci',
-  path: '/merci',
-  getParentRoute: () => CadragePascaleRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -450,8 +426,6 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
-  '/cadrage/pascale': typeof CadragePascaleRouteWithChildren
-  '/cadrage/veronique': typeof CadrageVeroniqueRouteWithChildren
   '/en/about': typeof EnAboutRoute
   '/en/automation': typeof EnAutomationRoute
   '/en/book-a-call': typeof EnBookACallRoute
@@ -461,8 +435,6 @@ export interface FileRoutesByFullPath {
   '/en/social-media': typeof EnSocialMediaRoute
   '/en/web-development': typeof EnWebDevelopmentRoute
   '/en/': typeof EnIndexRoute
-  '/cadrage/pascale/merci': typeof CadragePascaleMerciRoute
-  '/cadrage/veronique/merci': typeof CadrageVeroniqueMerciRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -515,8 +487,6 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
-  '/cadrage/pascale': typeof CadragePascaleRouteWithChildren
-  '/cadrage/veronique': typeof CadrageVeroniqueRouteWithChildren
   '/en/about': typeof EnAboutRoute
   '/en/automation': typeof EnAutomationRoute
   '/en/book-a-call': typeof EnBookACallRoute
@@ -526,8 +496,6 @@ export interface FileRoutesByTo {
   '/en/social-media': typeof EnSocialMediaRoute
   '/en/web-development': typeof EnWebDevelopmentRoute
   '/en': typeof EnIndexRoute
-  '/cadrage/pascale/merci': typeof CadragePascaleMerciRoute
-  '/cadrage/veronique/merci': typeof CadrageVeroniqueMerciRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -581,8 +549,6 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
-  '/cadrage/pascale': typeof CadragePascaleRouteWithChildren
-  '/cadrage/veronique': typeof CadrageVeroniqueRouteWithChildren
   '/en/about': typeof EnAboutRoute
   '/en/automation': typeof EnAutomationRoute
   '/en/book-a-call': typeof EnBookACallRoute
@@ -592,8 +558,6 @@ export interface FileRoutesById {
   '/en/social-media': typeof EnSocialMediaRoute
   '/en/web-development': typeof EnWebDevelopmentRoute
   '/en/': typeof EnIndexRoute
-  '/cadrage/pascale/merci': typeof CadragePascaleMerciRoute
-  '/cadrage/veronique/merci': typeof CadrageVeroniqueMerciRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -648,8 +612,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/sites-web'
     | '/trame-prospection'
-    | '/cadrage/pascale'
-    | '/cadrage/veronique'
     | '/en/about'
     | '/en/automation'
     | '/en/book-a-call'
@@ -659,8 +621,6 @@ export interface FileRouteTypes {
     | '/en/social-media'
     | '/en/web-development'
     | '/en/'
-    | '/cadrage/pascale/merci'
-    | '/cadrage/veronique/merci'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -713,8 +673,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/sites-web'
     | '/trame-prospection'
-    | '/cadrage/pascale'
-    | '/cadrage/veronique'
     | '/en/about'
     | '/en/automation'
     | '/en/book-a-call'
@@ -724,8 +682,6 @@ export interface FileRouteTypes {
     | '/en/social-media'
     | '/en/web-development'
     | '/en'
-    | '/cadrage/pascale/merci'
-    | '/cadrage/veronique/merci'
   id:
     | '__root__'
     | '/'
@@ -778,8 +734,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/sites-web'
     | '/trame-prospection'
-    | '/cadrage/pascale'
-    | '/cadrage/veronique'
     | '/en/about'
     | '/en/automation'
     | '/en/book-a-call'
@@ -789,8 +743,6 @@ export interface FileRouteTypes {
     | '/en/social-media'
     | '/en/web-development'
     | '/en/'
-    | '/cadrage/pascale/merci'
-    | '/cadrage/veronique/merci'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -844,8 +796,6 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   SitesWebRoute: typeof SitesWebRoute
   TrameProspectionRoute: typeof TrameProspectionRoute
-  CadragePascaleRoute: typeof CadragePascaleRouteWithChildren
-  CadrageVeroniqueRoute: typeof CadrageVeroniqueRouteWithChildren
   EnAboutRoute: typeof EnAboutRoute
   EnAutomationRoute: typeof EnAutomationRoute
   EnBookACallRoute: typeof EnBookACallRoute
@@ -1272,59 +1222,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnAboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cadrage/veronique': {
-      id: '/cadrage/veronique'
-      path: '/cadrage/veronique'
-      fullPath: '/cadrage/veronique'
-      preLoaderRoute: typeof CadrageVeroniqueRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cadrage/pascale': {
-      id: '/cadrage/pascale'
-      path: '/cadrage/pascale'
-      fullPath: '/cadrage/pascale'
-      preLoaderRoute: typeof CadragePascaleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cadrage/veronique/merci': {
-      id: '/cadrage/veronique/merci'
-      path: '/merci'
-      fullPath: '/cadrage/veronique/merci'
-      preLoaderRoute: typeof CadrageVeroniqueMerciRouteImport
-      parentRoute: typeof CadrageVeroniqueRoute
-    }
-    '/cadrage/pascale/merci': {
-      id: '/cadrage/pascale/merci'
-      path: '/merci'
-      fullPath: '/cadrage/pascale/merci'
-      preLoaderRoute: typeof CadragePascaleMerciRouteImport
-      parentRoute: typeof CadragePascaleRoute
-    }
   }
 }
-
-interface CadragePascaleRouteChildren {
-  CadragePascaleMerciRoute: typeof CadragePascaleMerciRoute
-}
-
-const CadragePascaleRouteChildren: CadragePascaleRouteChildren = {
-  CadragePascaleMerciRoute: CadragePascaleMerciRoute,
-}
-
-const CadragePascaleRouteWithChildren = CadragePascaleRoute._addFileChildren(
-  CadragePascaleRouteChildren,
-)
-
-interface CadrageVeroniqueRouteChildren {
-  CadrageVeroniqueMerciRoute: typeof CadrageVeroniqueMerciRoute
-}
-
-const CadrageVeroniqueRouteChildren: CadrageVeroniqueRouteChildren = {
-  CadrageVeroniqueMerciRoute: CadrageVeroniqueMerciRoute,
-}
-
-const CadrageVeroniqueRouteWithChildren =
-  CadrageVeroniqueRoute._addFileChildren(CadrageVeroniqueRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -1377,8 +1276,6 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   SitesWebRoute: SitesWebRoute,
   TrameProspectionRoute: TrameProspectionRoute,
-  CadragePascaleRoute: CadragePascaleRouteWithChildren,
-  CadrageVeroniqueRoute: CadrageVeroniqueRouteWithChildren,
   EnAboutRoute: EnAboutRoute,
   EnAutomationRoute: EnAutomationRoute,
   EnBookACallRoute: EnBookACallRoute,

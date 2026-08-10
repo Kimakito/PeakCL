@@ -13,14 +13,17 @@
 #
 # /cadrage/ (decks clients) n'est PLUS bloque pour les moteurs de recherche.
 # Un Disallow n'empeche pas l'indexation : il empeche la LECTURE de la page.
-# Google indexait donc l'URL sans jamais voir le
-# `<meta name="robots" content="noindex, nofollow">` que ces pages servent
-# deja en SSR — d'ou le « indexee malgre le blocage par robots.txt » de
-# Search Console. Le crawl est ouvert pour que ce noindex soit enfin lu et
-# applique. Un `X-Robots-Tag: noindex, nofollow` sur /cadrage/* dans
-# netlify.toml double la protection.
+# Google indexait donc l'URL /cadrage/... sans jamais pouvoir lire le signal
+# de desindexation qu'elle portait — d'ou le « indexee malgre le blocage par
+# robots.txt » de Search Console. Le crawl reste ouvert pour que ce signal
+# soit lu.
+# Les decks Pascale et Veronique ont depuis ete supprimes : ces URL renvoient
+# un 404, que Google doit pouvoir constater. Le bloquer au crawl empecherait
+# leur sortie de l'index.
+# Un `X-Robots-Tag: noindex, nofollow` sur /cadrage/* (netlify.toml) couvre
+# d'avance le prochain deck client.
 # Les bots d'ENTRAINEMENT gardent le Disallow : eux n'obeissent qu'a
-# robots.txt et ignorent le meta noindex.
+# robots.txt et ignorent le noindex.
 # Ne pas remettre de `Disallow: /cadrage/` sur les groupes moteurs : cela
 # recreerait exactement le bug.
 
