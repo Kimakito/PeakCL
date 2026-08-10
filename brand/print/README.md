@@ -54,6 +54,23 @@ suffisent à porter l'identité. Trois couches, identiques sur les deux supports
 2. **Or** — logotype, nom, filets, titres et pictos en or (`#F2D04B`, rampe `#FBF1C4 → #D6A02A` pour le logotype). Prévu pour être **doré à chaud** si le budget le permet, sinon l'impression quadri suffit.
 3. **Contenu** — blocs « verre » (blanc à 7 % + bordure or) pour le CTA, les services et l'avis ; QR codes toujours sur pastille blanche (le blanc est **obligatoire** pour qu'ils restent scannables).
 
+### Couches de décor du flyer
+
+Le fond du flyer s'est enrichi de quatre couches, dans cet ordre de peinture
+(chacune est un calque du SVG `.deco`, jamais un élément de contenu) :
+
+| Couche | Rôle | À savoir |
+|---|---|---|
+| **Vignettage** | Bords assombris (`#04001A` jusqu'à 80 %) | C'est ce qui donne la profondeur. Sans lui le fond reste un aplat plat. Peint en **dernier** du décor, juste avant le contenu |
+| **Arcs or** | 3 à 4 courbes ouvertes traversant la page | En **or plein `#F2D04B`**, jamais avec le dégradé `filetOr` : celui-ci meurt en opacité 0 sur la largeur de sa boîte et fait lire les arcs en gris. L'atténuation se règle par `opacity` sur chaque tracé |
+| **Trame de points** | Texture discrète, coin gauche du recto | Doit rester **à l'écart du texte et de l'ornement** (qui occupe x 47→81) : c'est du meublage de vide, pas un fond de bloc |
+| **Billes** | 3 sphères (2 or, 1 turquoise) | Dégradé radial décentré (`cx .34 / cy .3`) = point de lumière, donc volume. Des pastilles plates lisent comme des gommettes |
+
+Le **motif gaufré** a été atténué (`.55/.20` → `.34/.12`) le jour où les arcs or
+sont arrivés : à deux réseaux de courbes superposés, le gaufré devenait du bruit
+gris et brouillait le fond au lieu de le texturer. Il reste le tracé de référence
+pour la plaque de gaufrage à sec.
+
 Côté flyer, les illustrations ont été remplacées :
 
 - la mascotte du recto → un **ornement organique** (nappes turquoise/lavande + contours or) posé dans le décor SVG, avec le **logo carré** en médaillon au centre de l'anneau or (`assets/logo-carre-mascotte.svg`, 34 mm, coins arrondis 4,5 mm, liseré or) ;
@@ -84,9 +101,31 @@ Côté flyer, les illustrations ont été remplacées :
 - Traits fins : les pictos de la carte font environ **0,2 mm**. Si l'imprimeur annonce une limite au-dessus, décommenter `.puce, .reseaux svg{ display:none }` dans le HTML de la forme (équivalent sur le flyer : `.etape b{ color:transparent }` pour retirer les petits corps) — le reste de la forme ne bouge pas.
 - Si l'imprimeur demande une **couleur d'accompagnement nommée** plutôt que du noir (`Dorure`, `Foil`, un Pantone en surimpression), le lui dire : c'est une conversion à faire de son côté, le tracé est déjà bon.
 
-Le fichier de dorure du flyer est une **copie du fichier quadri** dont seules les couleurs changent
-(les éléments non dorés passent en `transparent` et gardent leur place). Après toute modification
-d'un support, reporter les mêmes coordonnées dans sa forme et vérifier la superposition avant d'envoyer.
+#### Le flyer : forme **générée**, ne pas l'éditer à la main
+
+`flyer-peakcl-dorure.html` est **produit par un script** depuis le quadri :
+
+```bash
+node brand/print/flyer/build-dorure.mjs   # puis ré-exporter les DEUX PDF
+```
+
+Le flux est donc : éditer `flyer-peakcl.html` → relancer le script → ré-exporter.
+Toute retouche manuelle de la forme sera écrasée au prochain passage.
+
+Pourquoi : tant que les deux fichiers étaient tenus à la main, une retouche de
+mise en page dans l'un décalait silencieusement l'autre — et le décalage ne se
+voit qu'une fois la feuille d'or posée, donc après facturation. La géométrie
+n'est désormais écrite qu'à un seul endroit.
+
+Le script ne touche que les couleurs et le décor. **Piège en y ajoutant une
+règle** : une règle du quadri plus spécifique l'emporte sur la surcharge —
+`.sep i:first-child` et `.ligne.sec` sont passées au travers au premier essai et
+ressortaient en couleur dans la forme. Après chaque modification, ouvrir la
+forme et vérifier qu'elle ne contient que du **noir pur sur blanc**.
+
+La **carte de visite** reste maintenue à la main : sa forme est stable et son
+gabarit ne bouge plus. Si elle évolue, reporter les coordonnées à la main comme
+avant, ou lui écrire son propre script sur le modèle de celui du flyer.
 
 ## Ce que l'imprimeur doit savoir
 
@@ -103,6 +142,28 @@ d'un support, reporter les mêmes coordonnées dans sa forme et vérifier la sup
 - **Pas de noir pur, pas de gris neutre** : tout sombre est de l'indigo (charte §17).
 - Le jaune `#F2D04B` reste un accent : CTA, titres d'étapes, un mot de la baseline. **Sur les supports print**, il joue le rôle d'or et porte le logotype, les noms et les filets.
 - **Pas de mascotte sur le print**, à une exception près : le logo carré au centre de l'ornement du flyer. Le reste de l'espace se construit avec les blobs (nappes translucides, contours or, pastilles masquées).
+
+## ⚠ Mentions légales du flyer — deux trous à combler
+
+Le flyer porte un pied de mentions **sur ses deux faces** (un flyer se ramasse
+indifféremment d'un côté ou de l'autre). Corps 5 pt, à 8 mm du bord de page.
+
+Déjà renseigné : `EI Charlotte Lacroix — PeakCL`, `SIRET 884 220 054 00024`,
+`APE 6201Z`, et la mention `Ne pas jeter sur la voie publique` (obligatoire pour
+la distribution en boîte aux lettres). Le préfixe **« EI »** est obligatoire
+pour une entreprise individuelle.
+
+**À compléter avant tout envoi à l'imprimeur**, dans `flyer-peakcl.html` puis
+`node build-dorure.mjs` + ré-export :
+
+| Trou | Qui le fournit |
+|---|---|
+| `[adresse de domiciliation à compléter]` | toi |
+| `[nom et adresse de l'imprimeur]` | l'imprimeur, à la commande |
+
+Vérifier aussi auprès de l'imprimeur ou d'un juriste si ton activité impose
+d'ajouter la mention **RCS + ville d'immatriculation** : ce point dépend de ton
+statut exact, il n'est pas déductible du SIRET seul.
 
 ## Contenu à tenir à jour
 

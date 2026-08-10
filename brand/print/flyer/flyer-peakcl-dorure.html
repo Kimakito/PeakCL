@@ -7,16 +7,21 @@
   FICHIER DE FORME — DORURE À CHAUD OR
   Flyer A5 PeakCL, 148 x 210 mm + 3 mm de fond perdu (page 154 x 216 mm).
   Page 1 = recto · Page 2 = verso, MÊME géométrie que flyer-peakcl.html
-  (ce fichier en est une copie : seules les couleurs changent).
+  ⚠ FICHIER GÉNÉRÉ — NE PAS ÉDITER À LA MAIN.
+  Produit par build-dorure.mjs à partir de flyer-peakcl.html. Toute retouche
+  manuelle sera écrasée au prochain `node brand/print/flyer/build-dorure.mjs`.
+  Pour changer la mise en page : éditer le quadri, puis relancer le script.
 
   Ne contient QUE les zones à dorer, en NOIR 100 % sur BLANC. Le noir n'est pas
   une encre ici : il dit à l'imprimeur où poser la feuille d'or. Se superpose au
   PDF quadri au repérage.
 
   Dorés : logotype, « simplifiée. », les deux filets, le titre du CTA,
-  les titres d'étapes, les 5 étoiles, « Charlotte Lacroix » au pied.
-  NON dorés (absents) : fonds, motif gaufré, logo carré du recto, textes
-  courants, pastilles, cartes services, QR codes, pictos.
+  le sur-titre « Notre approche… », les titres d'étapes, les 5 étoiles,
+  « Charlotte Lacroix » au pied.
+  NON dorés (absents) : fonds, arcs or, motif gaufré, trame de points, billes,
+  logo carré du recto, textes courants, pastilles, cartes services, QR codes,
+  pictos, pointillés de liaison, mentions légales.
 
   ⚠ Toute modification de flyer-peakcl.html doit être reportée ici :
   les deux PDF doivent se superposer au dixième de millimètre près.
@@ -72,14 +77,19 @@
        clip-path:url(#blobPastille); — le logo prend alors la forme d'un blob */
   }
 
-  .atouts{ position:absolute; left:14mm; right:14mm; top:133mm; display:grid; gap:4.2mm; }
-  .atout{ display:flex; gap:3.6mm; align-items:flex-start; font-size:9.8pt; line-height:1.4;
+  .atouts{ position:absolute; left:14mm; right:14mm; top:132mm; display:grid; gap:3.8mm; }
+  .atout{ display:flex; gap:3.4mm; align-items:flex-start; font-size:9.8pt; line-height:1.4;
           color:var(--lavande); }
   .atout b{ font-weight:700; color:var(--blanc); }
-  .pastille{ width:4.6mm; height:4.6mm; flex:none; margin-top:.7mm; clip-path:url(#blobPastille); }
+  /* Puce = carré arrondi + coche, et non plus un rond plein : la coche dit
+     « acquis », le rond ne disait rien. Carré arrondi = langage des cartes du
+     verso et des pastilles du site (charte §formes). */
+  .pastille{ width:5mm; height:5mm; flex:none; margin-top:.4mm; border-radius:1.5mm;
+             display:flex; align-items:center; justify-content:center; }
+  .pastille svg{ width:3.1mm; height:3.1mm; color:var(--indigo); }
 
   .cta{
-    position:absolute; left:14mm; right:14mm; bottom:14mm;
+    position:absolute; left:14mm; right:14mm; bottom:17.5mm;
     background:var(--verre); border:.3mm solid var(--bord-or);
     border-radius:11mm 11mm 11mm 4mm; padding:6mm 7mm;
     display:flex; align-items:center; gap:6mm;
@@ -92,13 +102,22 @@
   .cta-sous{ font-size:9pt; line-height:1.5; color:var(--lavande); margin-top:2mm; }
   .cta-sous b{ color:var(--blanc); font-weight:700; }
 
+  /* Mentions légales — obligatoires sur un imprimé publicitaire diffusé.
+     Posées sur les DEUX faces : un flyer se ramasse indifféremment d'un côté
+     ou de l'autre. Corps 5 pt, c'est le plancher de lisibilité en offset ;
+     ne pas descendre plus bas. Le bloc reste à 8 mm du bord de page, soit
+     5 mm du trait de coupe — la marge de sécurité du README. */
+  .mentions{ position:absolute; left:14mm; right:14mm; bottom:8mm;
+             font-size:5pt; line-height:1.5; color:rgba(186,186,255,.62);
+             border-top:.2mm solid rgba(242,208,75,.22); padding-top:1.6mm; }
+
   /* ══════════ VERSO ══════════ */
   .v-entete{ position:absolute; left:14mm; top:14mm; right:14mm; }
   .v-entete .kicker{ color:var(--or); }
   .h2{ font-family:var(--display); font-weight:700; font-size:17pt; line-height:1.08;
        letter-spacing:-.01em; margin-top:2mm; }
 
-  .services{ position:absolute; left:14mm; right:14mm; top:35mm;
+  .services{ position:absolute; left:14mm; right:14mm; top:33mm;
              display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
   .service{
     background:var(--verre); border:.25mm solid var(--bord-or);
@@ -112,23 +131,40 @@
                letter-spacing:-.01em; align-self:end; }
   .service p{ font-size:7.8pt; line-height:1.35; color:var(--lavande); margin-top:.8mm; align-self:start; }
 
-  .etapes{ position:absolute; left:14mm; right:14mm; top:88mm;
+  /* Sur-titre encadré de deux filets or : il annonce la bascule « ce que je
+     fais » → « comment ça se passe ». Sans lui, les 3 pastilles chiffrées
+     arrivaient sans transition sous les cartes de services. */
+  .sep{ position:absolute; left:14mm; right:14mm; top:86mm;
+        display:flex; align-items:center; gap:4mm; }
+  .sep i{ flex:1; height:.3mm; }
+  .sep i:first-child{ background:linear-gradient(90deg,rgba(242,208,75,0),var(--or)); }
+  .sep i:last-child{ background:linear-gradient(90deg,var(--or),rgba(242,208,75,0)); }
+  .sep .kicker{ color:var(--or); font-size:6.8pt; white-space:nowrap; }
+
+  .etapes{ position:absolute; left:14mm; right:14mm; top:91mm;
            display:grid; grid-template-columns:repeat(3,1fr); gap:5mm; }
-  .etape{ text-align:center; }
-  .etape figure{ position:relative; width:24mm; height:24mm; margin:0 auto 2.5mm; }
+  .etape{ text-align:center; position:relative; }
+  /* Pointillé de liaison 1→2→3 : dit que les étapes s'enchaînent, ce que
+     trois pastilles isolées ne disaient pas. Tracé depuis le bord droit de
+     chaque étape sauf la dernière, à la hauteur du centre des pastilles. */
+  .etape:not(:last-child)::after{
+    content:""; position:absolute; top:10.5mm; left:calc(50% + 11.5mm); right:-4mm;
+    border-top:.35mm dotted rgba(242,208,75,.55);
+  }
+  .etape figure{ position:relative; width:21mm; height:21mm; margin:0 auto 2.5mm; }
   .etape figure .fond{ position:absolute; inset:0; clip-path:url(#blobEtape1); opacity:.92; }
   .etape:nth-child(2) figure .fond{ clip-path:url(#blobEtape2); }
   .etape:nth-child(3) figure .fond{ clip-path:url(#blobPastille); }
   .etape .num{
     position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    font-family:var(--display); font-weight:800; font-size:20pt; color:var(--indigo);
+    font-family:var(--display); font-weight:800; font-size:17.5pt; color:var(--indigo);
   }
   .etape b{ display:block; font-family:var(--display); font-weight:700; font-size:10.5pt; line-height:1.15;
             color:var(--or); }
   .etape span{ display:block; font-size:8.1pt; line-height:1.4; color:var(--lavande); margin-top:1mm; }
 
   .avis{
-    position:absolute; left:14mm; right:14mm; top:131mm;
+    position:absolute; left:14mm; right:14mm; top:130mm;
     background:var(--verre); border:.25mm solid var(--bord-or);
     border-left:1.4mm solid var(--or);
     border-radius:7mm 7mm 7mm 2.5mm; padding:4mm 5.5mm;
@@ -139,20 +175,21 @@
            quotes:"«\00a0" "\00a0»"; }
   .avis footer{ font-size:7.6pt; color:var(--lavande); margin-top:1.8mm; }
 
-  .pied{ position:absolute; left:14mm; right:14mm; bottom:12mm;
+  .pied{ position:absolute; left:14mm; right:14mm; bottom:17mm;
          display:flex; align-items:flex-end; justify-content:space-between; gap:6mm; }
   .pied-nom{ font-family:var(--display); font-weight:700; font-size:13pt; line-height:1.1; color:var(--or); }
   .pied-role{ font-size:8pt; color:var(--lavande); margin-top:.8mm; }
-  .contacts{ margin-top:2.8mm; display:grid; gap:1.5mm; }
-  .ligne{ display:flex; align-items:center; gap:2.4mm; font-size:9pt; line-height:1.15; }
-  .puce{ width:4.6mm; height:4.6mm; flex:none; border-radius:50%;
+  /* Coordonnées sur DEUX colonnes : joindre (gauche) / suivre (droite).
+     En une seule colonne, la pile de 6 lignes déséquilibrait le pied face au
+     QR et poussait le bloc sous la ligne de flottaison de la page. */
+  .coord{ margin-top:3mm; display:grid; grid-template-columns:auto auto;
+          gap:1.6mm 7mm; align-items:start; }
+  .ligne{ display:flex; align-items:center; gap:2.4mm; font-size:8.4pt; line-height:1.15; }
+  .ligne.sec{ color:var(--lavande); }
+  .puce{ width:4.4mm; height:4.4mm; flex:none; border-radius:50%;
          border:.25mm solid var(--bord-or); background:rgba(242,208,75,.10);
          display:flex; align-items:center; justify-content:center; }
-  .puce svg{ width:2.7mm; height:2.7mm; color:var(--or); }
-  .reseaux{ display:grid; grid-template-columns:auto auto; gap:1.5mm 5mm; margin-top:2.6mm; }
-  .reseaux span{ display:flex; align-items:center; gap:2mm; font-size:8pt; line-height:1.15;
-                 color:var(--lavande); }
-  .reseaux svg{ width:4mm; height:4mm; flex:none; color:var(--or); }
+  .puce svg{ width:2.6mm; height:2.6mm; color:var(--or); }
   .qr-bloc{ background:var(--blanc); border-radius:4.5mm; padding:2.4mm 2.4mm 2mm; width:29mm; text-align:center; }
   .qr-bloc img{ width:100%; display:block; }
   .qr-bloc p{ font-family:var(--display); font-weight:700; font-size:7pt; line-height:1.15;
@@ -168,7 +205,6 @@
     .page{ box-shadow:none; break-after:page; page-break-after:always; }
     .page:last-child{ break-after:auto; page-break-after:auto; }
   }
-
   /* ══════════ SURCHARGE FORME DE DORURE ══════════
      Les éléments non dorés passent en `transparent` (le texte garde sa place,
      donc les mots dorés restent exactement aux mêmes coordonnées) ou en
@@ -189,20 +225,36 @@
   .cta-qr{ visibility:hidden; }
   .cta-txt .kicker, .cta-sous, .cta-sous b{ color:transparent; }
   .cta-titre{ color:#000; }
+  /* Mentions légales : quadri uniquement. Corps 5 pt — trop fin pour la feuille
+     d'or, et une mention légale doit rester lisible en toute lumière, ce que
+     l'or ne garantit pas. */
+  .mentions{ color:transparent; border-top-color:transparent; }
 
   /* VERSO */
   .v-entete .kicker, .h2{ color:transparent; }
   .services{ visibility:hidden; }
+  /* Sur-titre doré, filets latéraux NON dorés : ce sont deux dégradés mourants
+     de 0,3 mm, que la dorure ne sait pas reproduire et qui multiplieraient les
+     zones de repérage pour un gain nul. */
+  .sep .kicker{ color:#000; }
+  /* Sélecteur répété sur :first-child/:last-child — sinon la règle du quadri,
+     plus spécifique, l'emporte et les filets ressortent en or dans la forme. */
+  .sep i, .sep i:first-child, .sep i:last-child{ background:none; }
   .etape figure{ visibility:hidden; }
   .etape b{ color:#000; }
   .etape span{ color:transparent; }
+  /* Pointillé de liaison : 0,35 mm en pointillé, sous le seuil de toutes les
+     dorures. Reste en quadri. */
+  .etape:not(:last-child)::after{ border-top-color:transparent; }
   .avis{ background:none; border-color:transparent; border-left-color:transparent; }
   .avis q, .avis footer{ color:transparent; }
   .etoiles svg{ color:#000; }
   .pied-nom{ color:#000; }
-  .pied-role, .ligne, .reseaux span{ color:transparent; }
+  /* `.ligne.sec` (colonne réseaux) est plus spécifique que `.ligne` : sans le
+     rappeler ici, les libellés de réseaux restaient visibles dans la forme. */
+  .pied-role, .ligne, .ligne.sec{ color:transparent; }
   .puce{ border-color:transparent; background:none; }
-  .puce svg, .reseaux svg{ color:transparent; }
+  .puce svg{ color:transparent; }
   .qr-bloc{ visibility:hidden; }
 
   /* Décommenter si l'imprimeur refuse les petits corps (< 8 pt) :
@@ -250,11 +302,11 @@
     <img class="logo-ornement" src="../assets/logo-carre-mascotte.svg" alt="PeakCL">
 
     <div class="atouts">
-      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#96F0F7,#4DAFC9)"></span>
+      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#96F0F7,#4DAFC9)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.6 4.6L19 7"/></svg></span>
         <span><b>Un seul interlocuteur</b>, du premier café à la mise en ligne.</span></p>
-      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#BABAFF,#875FD5)"></span>
+      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#BABAFF,#875FD5)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.6 4.6L19 7"/></svg></span>
         <span><b>Un devis annoncé d'avance</b> et des délais tenus, sans mauvaise surprise.</span></p>
-      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#F7E9A8,#D6A02A)"></span>
+      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#F7E9A8,#D6A02A)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.6 4.6L19 7"/></svg></span>
         <span><b>Vous restez autonome</b>&nbsp;: je forme, je documente, vous gardez la main.</span></p>
     </div>
 
@@ -269,6 +321,15 @@
         </p>
       </div>
     </div>
+
+    <!-- ⚠ Deux trous restent à combler avant l'envoi imprimeur : l'adresse de
+         domiciliation et l'imprimeur. Voir README. Le « EI » devant le nom est
+         obligatoire pour une entreprise individuelle. -->
+    <p class="mentions">
+      EI Charlotte Lacroix — PeakCL · SIRET 884&nbsp;220&nbsp;054&nbsp;00024 · APE 6201Z ·
+      [adresse de domiciliation à compléter]<br>
+      Imprimé par&nbsp;: [nom et adresse de l'imprimeur] · Ne pas jeter sur la voie publique.
+    </p>
   </div>
 
   <span class="safe"></span>
@@ -320,6 +381,10 @@
       </div>
     </div>
 
+    <div class="sep">
+      <i></i><p class="kicker">Notre approche en 3 étapes simples</p><i></i>
+    </div>
+
     <div class="etapes">
       <div class="etape">
         <figure><span class="fond" style="background:linear-gradient(135deg,#96F0F7,#4DAFC9)"></span><span class="num">1</span></figure>
@@ -355,42 +420,56 @@
       <div>
         <p class="pied-nom">Charlotte Lacroix</p>
         <p class="pied-role">PeakCL · com' &amp; web en Savoie</p>
-        <div class="contacts">
+        <!-- Colonne gauche = joindre · colonne droite = suivre.
+             Les libellés de réseaux sont ceux du README et de src/lib/links.ts :
+             Instagram @peakcl73, Facebook PeakCL73, LinkedIn charlotte-lacroix-peakcl.
+             Ne pas les recopier depuis une maquette : ils diffèrent entre eux. -->
+        <div class="coord">
           <p class="ligne">
             <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             07&nbsp;43&nbsp;51&nbsp;76&nbsp;27
+          </p>
+          <p class="ligne sec">
+            <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+            @peakcl73
           </p>
           <p class="ligne">
             <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
             peakcl73@gmail.com
           </p>
+          <p class="ligne sec">
+            <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3h-2.2A4.3 4.3 0 0 0 9 7.3V10H6.5v3.5H9V21h3.5v-7.5h2.6l.4-3.5h-3V7.6c0-.6.4-1.1 1-1.1h2V3z"/></svg></span>
+            PeakCL73
+          </p>
           <p class="ligne">
             <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
             peakcl.com
           </p>
-        </div>
-
-        <div class="reseaux">
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
-            @peakcl73
-          </span>
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3h-2.2A4.3 4.3 0 0 0 9 7.3V10H6.5v3.5H9V21h3.5v-7.5h2.6l.4-3.5h-3V7.6c0-.6.4-1.1 1-1.1h2V3z"/></svg>
-            PeakCL73
-          </span>
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="4"/><path d="M7 10.5V17M7 7.2v.1M11.5 17v-3.9a2.4 2.4 0 0 1 4.8 0V17"/></svg>
+          <p class="ligne sec">
+            <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="4"/><path d="M7 10.5V17M7 7.2v.1M11.5 17v-3.9a2.4 2.4 0 0 1 4.8 0V17"/></svg></span>
             charlotte-lacroix-peakcl
-          </span>
+          </p>
+          <p class="ligne">
+            <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.5c0 5.5-8 11.5-8 11.5s-8-6-8-11.5a8 8 0 0 1 16 0z"/><circle cx="12" cy="10.3" r="2.8"/></svg></span>
+            Albertville &amp; toute la Savoie
+          </p>
         </div>
       </div>
 
       <div class="qr-bloc">
         <img src="../assets/qr-rdv.svg" alt="QR code de prise de rendez-vous">
-        <p>Réservez vos 20 min</p>
+        <p>On en parle&nbsp;?<br>20 min, offertes</p>
       </div>
     </div>
+
+    <!-- ⚠ Deux trous restent à combler avant l'envoi imprimeur : l'adresse de
+         domiciliation et l'imprimeur. Voir README. Le « EI » devant le nom est
+         obligatoire pour une entreprise individuelle. -->
+    <p class="mentions">
+      EI Charlotte Lacroix — PeakCL · SIRET 884&nbsp;220&nbsp;054&nbsp;00024 · APE 6201Z ·
+      [adresse de domiciliation à compléter]<br>
+      Imprimé par&nbsp;: [nom et adresse de l'imprimeur] · Ne pas jeter sur la voie publique.
+    </p>
   </div>
 
   <span class="safe"></span>

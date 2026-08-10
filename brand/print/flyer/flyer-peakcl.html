@@ -60,14 +60,19 @@
        clip-path:url(#blobPastille); — le logo prend alors la forme d'un blob */
   }
 
-  .atouts{ position:absolute; left:14mm; right:14mm; top:133mm; display:grid; gap:4.2mm; }
-  .atout{ display:flex; gap:3.6mm; align-items:flex-start; font-size:9.8pt; line-height:1.4;
+  .atouts{ position:absolute; left:14mm; right:14mm; top:132mm; display:grid; gap:3.8mm; }
+  .atout{ display:flex; gap:3.4mm; align-items:flex-start; font-size:9.8pt; line-height:1.4;
           color:var(--lavande); }
   .atout b{ font-weight:700; color:var(--blanc); }
-  .pastille{ width:4.6mm; height:4.6mm; flex:none; margin-top:.7mm; clip-path:url(#blobPastille); }
+  /* Puce = carré arrondi + coche, et non plus un rond plein : la coche dit
+     « acquis », le rond ne disait rien. Carré arrondi = langage des cartes du
+     verso et des pastilles du site (charte §formes). */
+  .pastille{ width:5mm; height:5mm; flex:none; margin-top:.4mm; border-radius:1.5mm;
+             display:flex; align-items:center; justify-content:center; }
+  .pastille svg{ width:3.1mm; height:3.1mm; color:var(--indigo); }
 
   .cta{
-    position:absolute; left:14mm; right:14mm; bottom:14mm;
+    position:absolute; left:14mm; right:14mm; bottom:17.5mm;
     background:var(--verre); border:.3mm solid var(--bord-or);
     border-radius:11mm 11mm 11mm 4mm; padding:6mm 7mm;
     display:flex; align-items:center; gap:6mm;
@@ -80,13 +85,22 @@
   .cta-sous{ font-size:9pt; line-height:1.5; color:var(--lavande); margin-top:2mm; }
   .cta-sous b{ color:var(--blanc); font-weight:700; }
 
+  /* Mentions légales — obligatoires sur un imprimé publicitaire diffusé.
+     Posées sur les DEUX faces : un flyer se ramasse indifféremment d'un côté
+     ou de l'autre. Corps 5 pt, c'est le plancher de lisibilité en offset ;
+     ne pas descendre plus bas. Le bloc reste à 8 mm du bord de page, soit
+     5 mm du trait de coupe — la marge de sécurité du README. */
+  .mentions{ position:absolute; left:14mm; right:14mm; bottom:8mm;
+             font-size:5pt; line-height:1.5; color:rgba(186,186,255,.62);
+             border-top:.2mm solid rgba(242,208,75,.22); padding-top:1.6mm; }
+
   /* ══════════ VERSO ══════════ */
   .v-entete{ position:absolute; left:14mm; top:14mm; right:14mm; }
   .v-entete .kicker{ color:var(--or); }
   .h2{ font-family:var(--display); font-weight:700; font-size:17pt; line-height:1.08;
        letter-spacing:-.01em; margin-top:2mm; }
 
-  .services{ position:absolute; left:14mm; right:14mm; top:35mm;
+  .services{ position:absolute; left:14mm; right:14mm; top:33mm;
              display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
   .service{
     background:var(--verre); border:.25mm solid var(--bord-or);
@@ -100,23 +114,40 @@
                letter-spacing:-.01em; align-self:end; }
   .service p{ font-size:7.8pt; line-height:1.35; color:var(--lavande); margin-top:.8mm; align-self:start; }
 
-  .etapes{ position:absolute; left:14mm; right:14mm; top:88mm;
+  /* Sur-titre encadré de deux filets or : il annonce la bascule « ce que je
+     fais » → « comment ça se passe ». Sans lui, les 3 pastilles chiffrées
+     arrivaient sans transition sous les cartes de services. */
+  .sep{ position:absolute; left:14mm; right:14mm; top:86mm;
+        display:flex; align-items:center; gap:4mm; }
+  .sep i{ flex:1; height:.3mm; }
+  .sep i:first-child{ background:linear-gradient(90deg,rgba(242,208,75,0),var(--or)); }
+  .sep i:last-child{ background:linear-gradient(90deg,var(--or),rgba(242,208,75,0)); }
+  .sep .kicker{ color:var(--or); font-size:6.8pt; white-space:nowrap; }
+
+  .etapes{ position:absolute; left:14mm; right:14mm; top:91mm;
            display:grid; grid-template-columns:repeat(3,1fr); gap:5mm; }
-  .etape{ text-align:center; }
-  .etape figure{ position:relative; width:24mm; height:24mm; margin:0 auto 2.5mm; }
+  .etape{ text-align:center; position:relative; }
+  /* Pointillé de liaison 1→2→3 : dit que les étapes s'enchaînent, ce que
+     trois pastilles isolées ne disaient pas. Tracé depuis le bord droit de
+     chaque étape sauf la dernière, à la hauteur du centre des pastilles. */
+  .etape:not(:last-child)::after{
+    content:""; position:absolute; top:10.5mm; left:calc(50% + 11.5mm); right:-4mm;
+    border-top:.35mm dotted rgba(242,208,75,.55);
+  }
+  .etape figure{ position:relative; width:21mm; height:21mm; margin:0 auto 2.5mm; }
   .etape figure .fond{ position:absolute; inset:0; clip-path:url(#blobEtape1); opacity:.92; }
   .etape:nth-child(2) figure .fond{ clip-path:url(#blobEtape2); }
   .etape:nth-child(3) figure .fond{ clip-path:url(#blobPastille); }
   .etape .num{
     position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    font-family:var(--display); font-weight:800; font-size:20pt; color:var(--indigo);
+    font-family:var(--display); font-weight:800; font-size:17.5pt; color:var(--indigo);
   }
   .etape b{ display:block; font-family:var(--display); font-weight:700; font-size:10.5pt; line-height:1.15;
             color:var(--or); }
   .etape span{ display:block; font-size:8.1pt; line-height:1.4; color:var(--lavande); margin-top:1mm; }
 
   .avis{
-    position:absolute; left:14mm; right:14mm; top:131mm;
+    position:absolute; left:14mm; right:14mm; top:130mm;
     background:var(--verre); border:.25mm solid var(--bord-or);
     border-left:1.4mm solid var(--or);
     border-radius:7mm 7mm 7mm 2.5mm; padding:4mm 5.5mm;
@@ -127,20 +158,21 @@
            quotes:"«\00a0" "\00a0»"; }
   .avis footer{ font-size:7.6pt; color:var(--lavande); margin-top:1.8mm; }
 
-  .pied{ position:absolute; left:14mm; right:14mm; bottom:12mm;
+  .pied{ position:absolute; left:14mm; right:14mm; bottom:17mm;
          display:flex; align-items:flex-end; justify-content:space-between; gap:6mm; }
   .pied-nom{ font-family:var(--display); font-weight:700; font-size:13pt; line-height:1.1; color:var(--or); }
   .pied-role{ font-size:8pt; color:var(--lavande); margin-top:.8mm; }
-  .contacts{ margin-top:2.8mm; display:grid; gap:1.5mm; }
-  .ligne{ display:flex; align-items:center; gap:2.4mm; font-size:9pt; line-height:1.15; }
-  .puce{ width:4.6mm; height:4.6mm; flex:none; border-radius:50%;
+  /* Coordonnées sur DEUX colonnes : joindre (gauche) / suivre (droite).
+     En une seule colonne, la pile de 6 lignes déséquilibrait le pied face au
+     QR et poussait le bloc sous la ligne de flottaison de la page. */
+  .coord{ margin-top:3mm; display:grid; grid-template-columns:auto auto;
+          gap:1.6mm 7mm; align-items:start; }
+  .ligne{ display:flex; align-items:center; gap:2.4mm; font-size:8.4pt; line-height:1.15; }
+  .ligne.sec{ color:var(--lavande); }
+  .puce{ width:4.4mm; height:4.4mm; flex:none; border-radius:50%;
          border:.25mm solid var(--bord-or); background:rgba(242,208,75,.10);
          display:flex; align-items:center; justify-content:center; }
-  .puce svg{ width:2.7mm; height:2.7mm; color:var(--or); }
-  .reseaux{ display:grid; grid-template-columns:auto auto; gap:1.5mm 5mm; margin-top:2.6mm; }
-  .reseaux span{ display:flex; align-items:center; gap:2mm; font-size:8pt; line-height:1.15;
-                 color:var(--lavande); }
-  .reseaux svg{ width:4mm; height:4mm; flex:none; color:var(--or); }
+  .puce svg{ width:2.6mm; height:2.6mm; color:var(--or); }
   .qr-bloc{ background:var(--blanc); border-radius:4.5mm; padding:2.4mm 2.4mm 2mm; width:29mm; text-align:center; }
   .qr-bloc img{ width:100%; display:block; }
   .qr-bloc p{ font-family:var(--display); font-weight:700; font-size:7pt; line-height:1.15;
@@ -180,15 +212,43 @@
 
   <svg class="deco" viewBox="0 0 154 216" aria-hidden="true">
     <defs>
+      <!-- Fond assombri d'un cran par rapport à la v1 : l'indigo clair écrasait
+           l'or, qui ne ressortait plus comme un accent. Mêmes teintes de charte,
+           simplement prises plus bas dans la rampe. -->
       <linearGradient id="fondR" x1="0" y1="0" x2=".8" y2="1">
-        <stop offset="0" stop-color="#1E0072"/>
-        <stop offset=".5" stop-color="#13004D"/>
-        <stop offset="1" stop-color="#0A002C"/>
+        <stop offset="0" stop-color="#1B0566"/>
+        <stop offset=".5" stop-color="#110040"/>
+        <stop offset="1" stop-color="#06001C"/>
       </linearGradient>
-      <radialGradient id="haloR" cx=".5" cy=".52" r=".55">
-        <stop offset="0" stop-color="#5F3AB9" stop-opacity=".45"/>
+      <!-- Halo violet réduit de .45 à .26 : il délavait tout le centre de page. -->
+      <radialGradient id="haloR" cx=".5" cy=".5" r=".52">
+        <stop offset="0" stop-color="#5F3AB9" stop-opacity=".26"/>
         <stop offset="1" stop-color="#5F3AB9" stop-opacity="0"/>
       </radialGradient>
+      <!-- Vignettage : bords assombris. C'est ce qui donne la profondeur
+           « premium » — sans lui le fond reste un aplat plat. Peint APRÈS le
+           décor et AVANT le contenu. -->
+      <radialGradient id="vignetteR" cx=".5" cy=".46" r=".78">
+        <stop offset=".45" stop-color="#04001A" stop-opacity="0"/>
+        <stop offset="1" stop-color="#04001A" stop-opacity=".8"/>
+      </radialGradient>
+      <!-- Billes : dégradé décentré = point de lumière en haut à gauche, donc
+           volume. Les pastilles plates de la v1 lisaient comme des gommettes. -->
+      <radialGradient id="billeOr" cx=".34" cy=".3" r=".76">
+        <stop offset="0" stop-color="#FDF6D2"/>
+        <stop offset=".45" stop-color="#F2D04B"/>
+        <stop offset="1" stop-color="#A8761A"/>
+      </radialGradient>
+      <radialGradient id="billeTurq" cx=".34" cy=".3" r=".76">
+        <stop offset="0" stop-color="#D9FBFE"/>
+        <stop offset=".45" stop-color="#96F0F7"/>
+        <stop offset="1" stop-color="#2E7E96"/>
+      </radialGradient>
+      <!-- Trame de points : texture discrète qui occupe le vide en bas à
+           gauche du recto, sans ajouter de forme à lire. -->
+      <pattern id="trameR" width="3.1" height="3.1" patternUnits="userSpaceOnUse">
+        <circle cx=".55" cy=".55" r=".38" fill="#F2D04B"/>
+      </pattern>
       <linearGradient id="filetOr" x1="0" y1="0" x2="1" y2="0">
         <stop offset="0" stop-color="#F7E9A8" stop-opacity=".95"/>
         <stop offset="1" stop-color="#D6A02A" stop-opacity="0"/>
@@ -214,14 +274,43 @@
         <path transform="translate(-30,128) scale(1.1)"
               d="M95.60,46.17C95.47,57.33 89.90,78.64 80.66,85.33C71.42,92.01 52.25,87.34 40.17,86.26C28.10,85.18 12.87,87.35 8.23,78.86C3.58,70.37 5.83,47.51 12.31,35.30C18.78,23.09 35.56,8.43 47.07,5.60C58.59,2.77 73.30,11.56 81.39,18.32C89.48,25.08 95.72,35.00 95.60,46.17Z"/>
       </g>
+
+      <!-- Arcs or : courbes ouvertes qui traversent la page de bord à bord.
+           Les seuls tracés dorés du fond — la v1 n'avait que les blobs gaufrés
+           en gris sombre, qui ne se voyaient pas à l'impression et rendaient
+           le fond muet. Volontairement débordants (coordonnées négatives et
+           > 154/216) : ils sont coupés au massicot, donc pas de fin visible. -->
+      <!-- Or PLEIN (#F2D04B), pas le dégradé `filetOr` : celui-ci meurt en
+           opacité 0 sur la largeur de sa boîte, ce qui effaçait les trois
+           quarts de chaque arc et les faisait lire gris. L'atténuation se règle
+           ici par `opacity` sur chaque tracé, pas par le remplissage. -->
+      <g id="arcsR" fill="none" stroke="#F2D04B" stroke-linecap="round">
+        <path d="M-8,54 C40,26 98,32 170,-8"   stroke-width=".4"  opacity=".55"/>
+        <path d="M-8,88 C34,68 94,98 170,56"   stroke-width=".3"  opacity=".34"/>
+        <path d="M26,226 C64,178 132,164 172,180" stroke-width=".36" opacity=".45"/>
+        <path d="M-10,152 C18,130 46,152 62,196"  stroke-width=".26" opacity=".26"/>
+      </g>
     </defs>
 
     <rect width="154" height="216" fill="url(#fondR)"/>
     <rect width="154" height="216" fill="url(#haloR)"/>
 
-    <!-- gaufrage : ombre portée puis lumière rasante -->
-    <use href="#blobsR" x=".22" y=".22" stroke="#05001A" opacity=".55"/>
-    <use href="#blobsR" x="-.22" y="-.22" stroke="#8E7BE0" opacity=".20"/>
+    <!-- Gaufrage : ombre portée puis lumière rasante. Atténué (.55/.20 → .34/.12)
+         depuis l'ajout des arcs or : à deux réseaux de courbes, le gaufré
+         devenait du bruit gris et brouillait le fond au lieu de le texturer.
+         Il reste le tracé de référence pour la plaque de gaufrage à sec. -->
+    <use href="#blobsR" x=".22" y=".22" stroke="#05001A" opacity=".34"/>
+    <use href="#blobsR" x="-.22" y="-.22" stroke="#8E7BE0" opacity=".12"/>
+
+    <!-- Trame à GAUCHE de l'ornement (qui occupe x 47→81) et au-dessus des
+         atouts (qui commencent à y 132) : elle doit meubler du vide, pas
+         passer derrière du texte. -->
+    <rect x="10" y="95" width="27" height="27" fill="url(#trameR)" opacity=".4"/>
+
+    <use href="#arcsR"/>
+
+    <!-- vignettage : dernier calque du décor, avant le contenu -->
+    <rect width="154" height="216" fill="url(#vignetteR)"/>
 
     <!-- filet or sous l'en-tête -->
     <rect x="14" y="28.5" width="126" height=".3" fill="url(#filetOr)"/>
@@ -242,11 +331,12 @@
       <path fill="none" stroke="url(#gOr)" stroke-width=".28" opacity=".55" transform="translate(36,86) scale(.5)"
             d="M97.90,46.30C98.39,59.28 87.61,83.01 78.74,90.74C69.87,98.47 55.54,95.67 44.69,92.70C33.84,89.72 18.80,83.49 13.64,72.88C8.47,62.28 9.16,39.83 13.70,29.04C18.24,18.25 30.53,10.84 40.89,8.14C51.24,5.44 66.32,6.49 75.83,12.85C85.33,19.21 97.42,33.32 97.90,46.30Z"/>
 
-      <!-- petits éclats pleins -->
-      <path fill="url(#gOr)" transform="translate(96,92) scale(.1)"
-            d="M97.90,46.30C98.39,59.28 87.61,83.01 78.74,90.74C69.87,98.47 55.54,95.67 44.69,92.70C33.84,89.72 18.80,83.49 13.64,72.88C8.47,62.28 9.16,39.83 13.70,29.04C18.24,18.25 30.53,10.84 40.89,8.14C51.24,5.44 66.32,6.49 75.83,12.85C85.33,19.21 97.42,33.32 97.90,46.30Z"/>
-      <path fill="url(#gTurq)" opacity=".85" transform="translate(24,110) scale(.075)"
-            d="M97.98,45.09C97.06,56.51 87.45,72.99 77.78,81.28C68.10,89.56 51.36,96.68 39.93,94.80C28.50,92.92 14.14,80.03 9.20,69.97C4.27,59.92 4.71,44.95 10.33,34.46C15.96,23.96 30.77,10.62 42.93,7.00C55.09,3.38 74.11,6.39 83.29,12.74C92.46,19.09 98.90,33.67 97.98,45.09Z"/>
+      <!-- Billes : deux ors, un turquoise. Sphères et non plus blobs plats —
+           elles jouent le rôle de ponctuation dans le vide et donnent l'échelle
+           de l'ornement central. -->
+      <circle cx="106" cy="97"  r="4.6" fill="url(#billeOr)"/>
+      <circle cx="132" cy="76"  r="2.9" fill="url(#billeOr)"/>
+      <circle cx="26"  cy="115" r="2.4" fill="url(#billeTurq)"/>
     </g>
   </svg>
 
@@ -265,11 +355,11 @@
     <img class="logo-ornement" src="../assets/logo-carre-mascotte.svg" alt="PeakCL">
 
     <div class="atouts">
-      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#96F0F7,#4DAFC9)"></span>
+      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#96F0F7,#4DAFC9)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.6 4.6L19 7"/></svg></span>
         <span><b>Un seul interlocuteur</b>, du premier café à la mise en ligne.</span></p>
-      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#BABAFF,#875FD5)"></span>
+      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#BABAFF,#875FD5)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.6 4.6L19 7"/></svg></span>
         <span><b>Un devis annoncé d'avance</b> et des délais tenus, sans mauvaise surprise.</span></p>
-      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#F7E9A8,#D6A02A)"></span>
+      <p class="atout"><span class="pastille" style="background:linear-gradient(135deg,#F7E9A8,#D6A02A)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.6 4.6L19 7"/></svg></span>
         <span><b>Vous restez autonome</b>&nbsp;: je forme, je documente, vous gardez la main.</span></p>
     </div>
 
@@ -284,6 +374,15 @@
         </p>
       </div>
     </div>
+
+    <!-- ⚠ Deux trous restent à combler avant l'envoi imprimeur : l'adresse de
+         domiciliation et l'imprimeur. Voir README. Le « EI » devant le nom est
+         obligatoire pour une entreprise individuelle. -->
+    <p class="mentions">
+      EI Charlotte Lacroix — PeakCL · SIRET 884&nbsp;220&nbsp;054&nbsp;00024 · APE 6201Z ·
+      [adresse de domiciliation à compléter]<br>
+      Imprimé par&nbsp;: [nom et adresse de l'imprimeur] · Ne pas jeter sur la voie publique.
+    </p>
   </div>
 
   <span class="safe"></span>
@@ -295,15 +394,33 @@
 
   <svg class="deco" viewBox="0 0 154 216" aria-hidden="true">
     <defs>
+      <!-- Mêmes valeurs que le recto : les deux faces doivent sortir de presse
+           avec la même densité, sinon le retournement se voit. -->
       <linearGradient id="fondV" x1="1" y1="0" x2=".15" y2="1">
-        <stop offset="0" stop-color="#1E0072"/>
-        <stop offset=".5" stop-color="#13004D"/>
-        <stop offset="1" stop-color="#0A002C"/>
+        <stop offset="0" stop-color="#1B0566"/>
+        <stop offset=".5" stop-color="#110040"/>
+        <stop offset="1" stop-color="#06001C"/>
       </linearGradient>
-      <radialGradient id="haloV" cx=".62" cy=".38" r=".58">
-        <stop offset="0" stop-color="#5F3AB9" stop-opacity=".40"/>
+      <radialGradient id="haloV" cx=".62" cy=".38" r=".55">
+        <stop offset="0" stop-color="#5F3AB9" stop-opacity=".24"/>
         <stop offset="1" stop-color="#5F3AB9" stop-opacity="0"/>
       </radialGradient>
+      <radialGradient id="vignetteV" cx=".5" cy=".46" r=".78">
+        <stop offset=".45" stop-color="#04001A" stop-opacity="0"/>
+        <stop offset="1" stop-color="#04001A" stop-opacity=".8"/>
+      </radialGradient>
+      <radialGradient id="billeOrV" cx=".34" cy=".3" r=".76">
+        <stop offset="0" stop-color="#FDF6D2"/>
+        <stop offset=".45" stop-color="#F2D04B"/>
+        <stop offset="1" stop-color="#A8761A"/>
+      </radialGradient>
+      <!-- Arcs symétriques de ceux du recto : ils entrent par la droite pour
+           que les deux faces se répondent sans se superposer. -->
+      <g id="arcsV" fill="none" stroke="#F2D04B" stroke-linecap="round">
+        <path d="M162,40 C118,14 56,26 -10,-6"    stroke-width=".4"  opacity=".52"/>
+        <path d="M162,74 C126,60 70,88 -10,52"    stroke-width=".28" opacity=".32"/>
+        <path d="M170,150 C130,168 62,160 -12,198" stroke-width=".36" opacity=".42"/>
+      </g>
       <linearGradient id="filetOrV" x1="0" y1="0" x2="1" y2="0">
         <stop offset="0" stop-color="#F7E9A8" stop-opacity=".95"/>
         <stop offset="1" stop-color="#D6A02A" stop-opacity="0"/>
@@ -327,15 +444,18 @@
     <rect width="154" height="216" fill="url(#fondV)"/>
     <rect width="154" height="216" fill="url(#haloV)"/>
 
-    <use href="#blobsV" x=".22" y=".22" stroke="#05001A" opacity=".55"/>
-    <use href="#blobsV" x="-.22" y="-.22" stroke="#8E7BE0" opacity=".20"/>
+    <use href="#blobsV" x=".22" y=".22" stroke="#05001A" opacity=".34"/>
+    <use href="#blobsV" x="-.22" y="-.22" stroke="#8E7BE0" opacity=".12"/>
+
+    <use href="#arcsV"/>
+
+    <rect width="154" height="216" fill="url(#vignetteV)"/>
 
     <!-- filet or sous l'en-tête -->
     <rect x="14" y="31" width="100" height=".3" fill="url(#filetOrV)"/>
 
-    <!-- éclat or, rappel du CTA du recto -->
-    <path fill="url(#gOrV)" transform="translate(1,150) scale(.1)"
-          d="M97.90,46.30C98.39,59.28 87.61,83.01 78.74,90.74C69.87,98.47 55.54,95.67 44.69,92.70C33.84,89.72 18.80,83.49 13.64,72.88C8.47,62.28 9.16,39.83 13.70,29.04C18.24,18.25 30.53,10.84 40.89,8.14C51.24,5.44 66.32,6.49 75.83,12.85C85.33,19.21 97.42,33.32 97.90,46.30Z"/>
+    <!-- bille or, rappel du recto -->
+    <circle cx="7" cy="156" r="3.4" fill="url(#billeOrV)"/>
   </svg>
 
   <div class="layer">
@@ -375,6 +495,10 @@
       </div>
     </div>
 
+    <div class="sep">
+      <i></i><p class="kicker">Notre approche en 3 étapes simples</p><i></i>
+    </div>
+
     <div class="etapes">
       <div class="etape">
         <figure><span class="fond" style="background:linear-gradient(135deg,#96F0F7,#4DAFC9)"></span><span class="num">1</span></figure>
@@ -410,42 +534,56 @@
       <div>
         <p class="pied-nom">Charlotte Lacroix</p>
         <p class="pied-role">PeakCL · com' &amp; web en Savoie</p>
-        <div class="contacts">
+        <!-- Colonne gauche = joindre · colonne droite = suivre.
+             Les libellés de réseaux sont ceux du README et de src/lib/links.ts :
+             Instagram @peakcl73, Facebook PeakCL73, LinkedIn charlotte-lacroix-peakcl.
+             Ne pas les recopier depuis une maquette : ils diffèrent entre eux. -->
+        <div class="coord">
           <p class="ligne">
             <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             07&nbsp;43&nbsp;51&nbsp;76&nbsp;27
+          </p>
+          <p class="ligne sec">
+            <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+            @peakcl73
           </p>
           <p class="ligne">
             <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
             peakcl73@gmail.com
           </p>
+          <p class="ligne sec">
+            <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3h-2.2A4.3 4.3 0 0 0 9 7.3V10H6.5v3.5H9V21h3.5v-7.5h2.6l.4-3.5h-3V7.6c0-.6.4-1.1 1-1.1h2V3z"/></svg></span>
+            PeakCL73
+          </p>
           <p class="ligne">
             <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
             peakcl.com
           </p>
-        </div>
-
-        <div class="reseaux">
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
-            @peakcl73
-          </span>
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3h-2.2A4.3 4.3 0 0 0 9 7.3V10H6.5v3.5H9V21h3.5v-7.5h2.6l.4-3.5h-3V7.6c0-.6.4-1.1 1-1.1h2V3z"/></svg>
-            PeakCL73
-          </span>
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="4"/><path d="M7 10.5V17M7 7.2v.1M11.5 17v-3.9a2.4 2.4 0 0 1 4.8 0V17"/></svg>
+          <p class="ligne sec">
+            <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="4"/><path d="M7 10.5V17M7 7.2v.1M11.5 17v-3.9a2.4 2.4 0 0 1 4.8 0V17"/></svg></span>
             charlotte-lacroix-peakcl
-          </span>
+          </p>
+          <p class="ligne">
+            <span class="puce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.5c0 5.5-8 11.5-8 11.5s-8-6-8-11.5a8 8 0 0 1 16 0z"/><circle cx="12" cy="10.3" r="2.8"/></svg></span>
+            Albertville &amp; toute la Savoie
+          </p>
         </div>
       </div>
 
       <div class="qr-bloc">
         <img src="../assets/qr-rdv.svg" alt="QR code de prise de rendez-vous">
-        <p>Réservez vos 20 min</p>
+        <p>On en parle&nbsp;?<br>20 min, offertes</p>
       </div>
     </div>
+
+    <!-- ⚠ Deux trous restent à combler avant l'envoi imprimeur : l'adresse de
+         domiciliation et l'imprimeur. Voir README. Le « EI » devant le nom est
+         obligatoire pour une entreprise individuelle. -->
+    <p class="mentions">
+      EI Charlotte Lacroix — PeakCL · SIRET 884&nbsp;220&nbsp;054&nbsp;00024 · APE 6201Z ·
+      [adresse de domiciliation à compléter]<br>
+      Imprimé par&nbsp;: [nom et adresse de l'imprimeur] · Ne pas jeter sur la voie publique.
+    </p>
   </div>
 
   <span class="safe"></span>
