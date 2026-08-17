@@ -35,10 +35,19 @@ const SERVICES: Record<Locale, FooterLink[]> = {
  * Pages villes : SEO local français uniquement, aucun équivalent anglais.
  * Derivé de `geoPages` plutôt que réécrit ici : la liste était auparavant
  * dupliquée, et une page ajoutée d'un côté manquait de l'autre.
+ *
+ * Les pages community-manager par ville sont listées elles aussi : elles
+ * n'étaient atteignables que depuis leurs voisines et depuis le hub Savoie,
+ * donc quasi orphelines pour un crawler.
  */
 const VILLES = geoPagesFor("site").map((p) => ({
   href: `/${p.slug}`,
-  label: p.city,
+  label: `Agence web ${p.city}`,
+}));
+
+const VILLES_CM = geoPagesFor("community").map((p) => ({
+  href: `/${p.slug}`,
+  label: p.city === "Savoie" ? "Community manager en Savoie" : `Community manager ${p.city}`,
 }));
 
 const PAGES: Record<Locale, FooterLink[]> = {
@@ -84,10 +93,10 @@ export function SiteFooter() {
           <nav aria-label={t.areas}>
             <h2 className="text-sm font-semibold text-foreground">{t.areas}</h2>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              {VILLES.map((l) => (
+              {[...VILLES, ...VILLES_CM].map((l) => (
                 <li key={l.href}>
                   <a href={l.href} className="hover:text-foreground">
-                    Agence web {l.label}
+                    {l.label}
                   </a>
                 </li>
               ))}

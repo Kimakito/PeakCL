@@ -2,6 +2,7 @@ import { Instagram, Facebook, Linkedin, MessageCircle, Mail, Phone } from "lucid
 import { useRouterState } from "@tanstack/react-router";
 import { SOCIAL, FREELANCE, CONTACT } from "@/lib/links";
 import { localeFromPath, type Locale } from "@/i18n/config";
+import { geoPagesFor } from "@/seo/geo";
 
 const SOCIALS = [
   { href: SOCIAL.instagram, label: "Instagram", icon: Instagram },
@@ -18,6 +19,8 @@ const FREELANCE_LINKS = [
 
 type NavLink = { href: string; label: string };
 
+type CityGroup = { label: string; links: NavLink[] };
+
 type FooterText = {
   headline: string;
   subtitle: string;
@@ -25,8 +28,30 @@ type FooterText = {
   serviceLinks: NavLink[];
   alsoAvailable: string;
   /** Villes : SEO local français uniquement, retiré en anglais (angle international). */
-  cities: NavLink[] | null;
+  cityGroups: CityGroup[] | null;
 };
+
+/**
+ * Liens villes, derives de `geoPages` et non reecrits ici.
+ *
+ * Ce footer est celui de l'accueil et du portfolio, donc la source de liens
+ * internes la plus forte du site. Sa liste etait figee a cinq villes : Ugine,
+ * Moutiers et Beaufort n'y figuraient pas, et aucune page community-manager par
+ * ville non plus. Ces pages n'etaient atteignables que depuis leurs voisines,
+ * ce qui est exactement le profil que Google classe « Exploree, actuellement non
+ * indexee ». `SiteFooter` faisait deja ce derive ; la duplication ici avait
+ * silencieusement divergé.
+ */
+const CITY_GROUPS: CityGroup[] = [
+  {
+    label: "Sites web",
+    links: geoPagesFor("site").map((p) => ({ href: `/${p.slug}`, label: p.city })),
+  },
+  {
+    label: "Community management",
+    links: geoPagesFor("community").map((p) => ({ href: `/${p.slug}`, label: p.city })),
+  },
+];
 
 /** Contenu du footer selon la langue. En anglais : angle international
  *  (freelance à distance), on retire l'ancrage géographique Savoie / villes. */
@@ -50,7 +75,7 @@ function footerText(locale: Locale): FooterText {
         { href: "/en/design", label: "Graphic design" },
       ],
       alsoAvailable: "Also available on:",
-      cities: null,
+      cityGroups: null,
     };
   }
   return {
@@ -71,13 +96,7 @@ function footerText(locale: Locale): FooterText {
       { href: "/design", label: "Design graphique" },
     ],
     alsoAvailable: "Aussi disponible sur :",
-    cities: [
-      { href: "/agence-web-albertville", label: "Albertville" },
-      { href: "/agence-web-chambery", label: "Chambéry" },
-      { href: "/agence-web-annecy", label: "Annecy" },
-      { href: "/agence-web-aix-les-bains", label: "Aix-les-Bains" },
-      { href: "/agence-web-gilly-sur-isere", label: "Gilly-sur-Isère" },
-    ],
+    cityGroups: CITY_GROUPS,
   };
 }
 
@@ -160,15 +179,21 @@ export function DeckFooter() {
           ))}
         </div>
 
-        {t.cities ? (
-          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/60">
-            {t.cities.map(({ href, label }) => (
-              <a key={href} href={href} className="hover:text-foreground">
-                {label}
-              </a>
-            ))}
-          </div>
-        ) : null}
+        {t.cityGroups
+          ? t.cityGroups.map((group) => (
+              <div
+                key={group.label}
+                className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/60"
+              >
+                <span className="text-muted-foreground/50">{group.label} :</span>
+                {group.links.map(({ href, label }) => (
+                  <a key={href} href={href} className="hover:text-foreground">
+                    {label}
+                  </a>
+                ))}
+              </div>
+            ))
+          : null}
 
         <p className="mt-6 text-xs text-muted-foreground/60">© {year} PeakCL · Charlotte Lacroix</p>
       </div>
