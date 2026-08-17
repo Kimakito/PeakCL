@@ -5,8 +5,19 @@ import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 
 export type NearbyLink = { name: string; href: string };
 
-/** Mini-FAQ shown on every geo landing page — also used to build FAQPage JSON-LD in each route's head(). */
-export function geoLandingFaq(city: string, region: string, serviceLabel: string) {
+export type GeoFaqItem = { question: string; answerHtml: string };
+
+/**
+ * FAQ de repli, volontairement generique.
+ *
+ * A NE PLUS UTILISER pour une nouvelle page ville : servie a l'identique sur
+ * douze pages, elle etait le plus gros bloc duplique du site (texte visible ET
+ * JSON-LD FAQPage), et Search Console classait ces pages en « Exploree,
+ * actuellement non indexee ». Chaque route passe desormais sa propre liste via
+ * la prop `faq`. Ce repli ne reste la que pour ne pas casser une page qui
+ * l'oublierait.
+ */
+export function geoLandingFaq(city: string, region: string, serviceLabel: string): GeoFaqItem[] {
   return [
     {
       question: `Travaillez-vous uniquement à ${city} ?`,
@@ -40,8 +51,25 @@ export type GeoLandingProps = {
   localExample?: { text: string; linkLabel?: string; linkHref?: string };
   /** Optional dedicated local-SEO block (targets "agence seo {city}"-style queries) */
   seoSection?: { title: string; text: string };
+  /**
+   * FAQ propre a la ville. Fortement recommandee : sans elle, la page sert la
+   * FAQ de repli, identique partout (voir `geoLandingFaq`).
+   */
+  faq?: GeoFaqItem[];
+  /** Encadre « Ce que vous obtenez ». Sans valeur, la liste generique est servie. */
+  benefits?: string[];
+  /** Chapeau du bloc services, a formuler avec le vocabulaire du bassin. */
+  servicesIntro?: string;
   nearby: NearbyLink[];
 };
+
+/** Repli de l'encadre « Ce que vous obtenez » quand la route ne le personnalise pas. */
+const DEFAULT_BENEFITS = [
+  "Une structure pensée conversion (CTA, preuves, parcours simple)",
+  "Des bases SEO locales propres (balises, maillage, performance)",
+  "Un design premium, rapide et mobile-first",
+  "Une seule interlocutrice : site, identité et réseaux alignés",
+];
 
 const SERVICES = [
   {
@@ -97,9 +125,13 @@ export function GeoLanding({
   angleText,
   localExample,
   seoSection,
+  faq,
+  benefits,
+  servicesIntro,
   nearby,
 }: GeoLandingProps) {
-  const faq = geoLandingFaq(city, region, serviceLabel);
+  const faqItems = faq ?? geoLandingFaq(city, region, serviceLabel);
+  const benefitItems = benefits ?? DEFAULT_BENEFITS;
   return (
     <main className="min-h-screen border-t border-border">
       {/* Hero */}
@@ -187,22 +219,12 @@ export function GeoLanding({
             />
             <h3 className="text-base font-semibold">Ce que vous obtenez</h3>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
-                Une structure pensée conversion (CTA, preuves, parcours simple)
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
-                Des bases SEO locales propres (balises, maillage, performance)
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
-                Un design premium, rapide et mobile-first
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
-                Une seule interlocutrice : site, identité et réseaux alignés
-              </li>
+              {benefitItems.map((b) => (
+                <li key={b} className="flex items-start gap-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -215,8 +237,8 @@ export function GeoLanding({
             Toute votre communication à {city}, au même endroit
           </h2>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Site, identité visuelle et réseaux sociaux pensés ensemble, pour une image cohérente qui
-            inspire confiance avant même le premier appel.
+            {servicesIntro ??
+              "Site, identité visuelle et réseaux sociaux pensés ensemble, pour une image cohérente qui inspire confiance avant même le premier appel."}
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {SERVICES.map((s) => (
@@ -290,7 +312,7 @@ export function GeoLanding({
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-2xl font-bold">Questions fréquentes</h2>
           <div className="mt-6 space-y-4">
-            {faq.map((item) => (
+            {faqItems.map((item) => (
               <div
                 key={item.question}
                 className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card"

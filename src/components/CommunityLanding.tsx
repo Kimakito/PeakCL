@@ -4,6 +4,8 @@ import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto
 
 export type CmNearbyLink = { name: string; href: string };
 
+export type CmFaqItem = { question: string; answerHtml: string };
+
 export type CommunityLandingProps = {
   city: string;
   region: string;
@@ -12,11 +14,23 @@ export type CommunityLandingProps = {
   /** Angle unique par ville pour le bloc « pourquoi ici ». */
   angleTitle: string;
   angleText: string;
+  /** Preuve locale : un client réel du bassin, ou l'aveu honnête qu'il n'y en a pas encore. */
+  localProof?: { text: string; linkLabel?: string; linkHref?: string };
+  /** FAQ propre à la ville. Sans elle, la FAQ de repli — identique partout — est servie. */
+  faq?: CmFaqItem[];
+  /** Les freins, formulés avec le vocabulaire du métier dominant sur le bassin. */
+  pains?: string[];
   nearby: CmNearbyLink[];
 };
 
-/** Mini-FAQ community management par ville, sert aussi à construire le FAQPage JSON-LD. */
-export function communityFaq(city: string, region: string) {
+/**
+ * FAQ de repli, volontairement generique.
+ *
+ * Meme raison que du cote `GeoLanding` : servie a l'identique sur toutes les
+ * pages ville, elle dupliquait le texte visible et le JSON-LD FAQPage. Chaque
+ * route passe maintenant sa propre liste via `faq`.
+ */
+export function communityFaq(city: string, region: string): CmFaqItem[] {
   return [
     {
       question: `Faut-il être à ${city} pour travailler avec vous ?`,
@@ -29,7 +43,7 @@ export function communityFaq(city: string, region: string) {
   ];
 }
 
-const PAINS = [
+const DEFAULT_PAINS = [
   "Vous publiez par à-coups, puis plus rien pendant trois semaines.",
   "Canva le dimanche soir, ce n'est plus possible.",
   "Vos réseaux ne ressemblent pas à votre site ni à votre logo.",
@@ -57,9 +71,13 @@ export function CommunityLanding({
   intro,
   angleTitle,
   angleText,
+  localProof,
+  faq,
+  pains,
   nearby,
 }: CommunityLandingProps) {
-  const faq = communityFaq(city, region);
+  const faqItems = faq ?? communityFaq(city, region);
+  const painItems = pains ?? DEFAULT_PAINS;
   return (
     <main className="min-h-screen border-t border-border">
       {/* Hero */}
@@ -110,6 +128,19 @@ export function CommunityLanding({
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-2xl font-bold md:text-3xl">{angleTitle}</h2>
           <p className="mt-4 max-w-3xl text-muted-foreground">{angleText}</p>
+          {localProof ? (
+            <p className="mt-4 max-w-3xl text-muted-foreground">
+              {localProof.text}{" "}
+              {localProof.linkHref && localProof.linkLabel ? (
+                <a
+                  href={localProof.linkHref}
+                  className="font-medium text-[var(--brand-turquoise)] hover:underline"
+                >
+                  {localProof.linkLabel}
+                </a>
+              ) : null}
+            </p>
+          ) : null}
         </div>
       </section>
 
@@ -120,7 +151,7 @@ export function CommunityLanding({
             Pourquoi déléguer vos réseaux sociaux ?
           </h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-            {PAINS.map((p) => (
+            {painItems.map((p) => (
               <li
                 key={p}
                 className="relative rounded-2xl border border-border bg-card/50 p-5 text-sm text-muted-foreground shadow-card"
@@ -233,7 +264,7 @@ export function CommunityLanding({
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-2xl font-bold">Questions fréquentes</h2>
           <div className="mt-6 space-y-4">
-            {faq.map((item) => (
+            {faqItems.map((item) => (
               <div
                 key={item.question}
                 className="relative rounded-2xl border border-border bg-card/50 p-5 shadow-card"

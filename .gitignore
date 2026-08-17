@@ -11,3 +11,6 @@ dist/
 
 # Illustrator temp files
 ~ai-*.tmp
+
+# Genere par le bundler d edge functions quand on lance `netlify dev`.
+deno.lock

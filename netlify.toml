@@ -1,6 +1,9 @@
 [build]
   command = "npm run build"
   publish = "dist/client"
+  # Valeur par défaut de Netlify, déclarée explicitement : c'est de ce dossier
+  # que viennent les en-têtes de sécurité (voir la section 3 plus bas).
+  edge_functions = "netlify/edge-functions"
 
 # Netlify TanStack Start plugin outputs functions here
 [functions]
@@ -17,60 +20,36 @@
     Cache-Control = "no-cache"
 
 # 2) Hashed build assets are content-addressed and immutable: cache forever.
+# Ces deux chemins sont exclus de l'edge function (voir plus bas) pour ne pas
+# l'invoquer sur chaque fichier d'un chargement de page : ils portent donc leur
+# nosniff ici. Aucune autre clé de sécurité n'est nécessaire sur un .js ou un
+# .woff2, qui ne sont pas des documents.
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
 
 [[headers]]
   for = "/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
-
-# 3) En-têtes de sécurité.
-# Clés distinctes de Cache-Control : les blocs ci-dessus ne les écrasent pas.
-[[headers]]
-  for = "/*"
-  [headers.values]
-    # Empêche l'encadrement du site par un tiers (clickjacking). SAMEORIGIN
-    # plutôt que DENY : /contact intègre déjà une iframe interne.
-    X-Frame-Options = "SAMEORIGIN"
-    # Interdit au navigateur de deviner un type MIME différent de celui servi.
     X-Content-Type-Options = "nosniff"
-    # Ne fuite pas l'URL complète (chemins de deck client, params) vers l'externe.
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    # Le site n'utilise ni caméra, ni micro, ni géoloc : on les coupe.
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    # Force le HTTPS côté navigateur (les redirects 301 ne protègent pas la
-    # toute première requête). Pas de `preload` : c'est quasi irréversible.
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
-# 3 bis) Decks clients : noindex au niveau HTTP, par défaut et à l'avance.
-# Aucune page /cadrage/* n'existe aujourd'hui (les decks Pascale et Véronique
-# ont été supprimés) : ces URL renvoient un 404 propre servi par la fonction
-# SSR, ce qui est le bon signal pour Google.
-# L'en-tête est conservé comme GARDE-FOU : le prochain deck client créé sous
-# /cadrage/ sera noindex dès sa mise en ligne, sans dépendre du fait qu'on
-# pense à ajouter une balise meta dans la route. Il couvre aussi les réponses
-# non-HTML (un PDF de deck ne peut pas porter de meta).
-# Ne PAS rebasculer /cadrage/ en Disallow dans robots.txt : une page interdite
-# au crawl n'est jamais lue, donc son noindex n'est jamais vu — c'est ce qui
-# avait produit le « indexée malgré le blocage » de Search Console. Voir le
-# commentaire de public/robots.txt.
-[[headers]]
-  for = "/cadrage/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
-# 4) CSP en Report-Only d'abord.
-# Une CSP trop stricte casse le site en silence, et les en-têtes netlify.toml
-# ne sont pas testables en `vite dev`. On observe les violations en console
-# après déploiement, puis on renomme la clé en `Content-Security-Policy`.
-# `unsafe-inline` sur script-src est requis par l'hydratation TanStack Start.
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Security-Policy-Report-Only = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://calendly.com; frame-src https://calendly.com; form-action 'self'"
+# 3) En-têtes de sécurité et X-Robots-Tag : DÉPLACÉS.
+#
+# Ils vivaient ici, en `[[headers]]`, et ne s'appliquaient à AUCUNE page HTML.
+# Raison : ces blocs ne couvrent que les fichiers servis par le CDN, or le site
+# entier est rendu par la fonction SSR TanStack Start. Constaté en production le
+# 17/08/2026 — `/robots.txt` portait bien CSP, X-Frame-Options, Referrer-Policy
+# et Permissions-Policy, `/` et `/cadrage/*` n'en portaient aucun. Les seules
+# réponses qu'on cherchait à protéger étaient les seules non couvertes, et le
+# garde-fou noindex des decks clients ne s'appliquait pas.
+#
+# Ils sont désormais posés par `netlify/edge-functions/security-headers.ts`, qui
+# s'exécute devant l'origine et couvre donc le HTML SSR comme le statique.
+# NE PAS les réintroduire ici : deux sources pour la même clé divergent toujours.
+# Vérification après déploiement : `npm run headers:check`.
 
 # TanStack Start on Netlify runs via a serverless function.
 # SEO: redirect legacy URLs (previous site/blog) so Google doesn't see 404.
