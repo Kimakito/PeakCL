@@ -26,6 +26,20 @@
  * L'inclure daterait tout le sitemap du jour a chaque retouche de gabarit, ce
  * qui reviendrait a n'avoir aucune information — le defaut qu'on corrige ici.
  *
+ * Meme raison pour les modules d'INFRASTRUCTURE (voir INFRA_PREFIXES) : `absUrl`,
+ * les generateurs JSON-LD, les hreflang, les libelles i18n. Ils sont importes
+ * par presque toutes les routes, donc une retouche de l'un d'eux datait les 43
+ * URLs du meme jour — c'est exactement ce qui s'etait produit : le sitemap
+ * portait `2026-08-09` partout parce que `src/seo/site.ts` (six lignes, un
+ * helper d'URL absolue) avait ete touche ce jour-la. Un lastmod uniforme ne
+ * distingue plus rien et Google finit par cesser de s'y fier pour le domaine.
+ * Ces modules changent la FORME des metadonnees, jamais le contenu redactionnel
+ * de la page.
+ *
+ * Restent comptes : le fichier de route lui-meme, les composants de rendu
+ * (`src/components/…`) et les modules de contenu (`src/content/…`), ou une
+ * modification veut effectivement dire que la page a change.
+ *
  * La LISTE des URLs n'est pas deduite du repertoire des routes : elle est
  * relue depuis le sitemap existant, qui reste la liste curatee. Beaucoup de
  * routes ne doivent pas y figurer (pages noindex, decks clients, remerciements)
@@ -47,23 +61,68 @@ function routeFileFor(pathname) {
   return `src/routes${pathname}.tsx`;
 }
 
-/** Date du dernier commit touchant un fichier, au format AAAA-MM-JJ. */
+/**
+ * Commits COSMETIQUES, a ignorer dans le calcul de `lastmod`.
+ *
+ * Un passage de prettier, une config de lint ou un bump de dependance touchent
+ * des centaines de fichiers sans qu'une seule ligne visible par un lecteur ne
+ * change. Sans ce filtre, le sitemap datait ses 43 URLs du meme jour a cause du
+ * seul commit `style: applique prettier a src/ et scripts/` — une date unique
+ * partout ne distingue plus rien, et Google cesse de se fier au lastmod d'un
+ * domaine dont les dates ne correspondent a aucun changement reel.
+ *
+ * On filtre sur le type de commit conventionnel plutot que sur le contenu du
+ * diff : un `-w` de git ne suffirait pas (prettier deplace aussi des sauts de
+ * ligne et reecrit des quotes), et un commit `style:`/`chore:` annonce par son
+ * auteur qu'il ne change pas le rendu. Corollaire : ne pas ranger une vraie
+ * modification de contenu sous `chore:`, elle serait invisible au sitemap.
+ */
+const COSMETIC_SUBJECT = /^(style|chore|ci|build|test|docs)(\([^)]*\))?[:!]|prettier|lint|format/i;
+
+/**
+ * Date du dernier commit de CONTENU touchant un fichier, au format AAAA-MM-JJ.
+ * Remonte l'historique tant que les commits sont cosmetiques. Si le fichier n'a
+ * jamais connu que des commits cosmetiques, on retombe sur le plus ancien
+ * plutot que de ne rien renvoyer : une date approximative vaut mieux qu'une URL
+ * sans lastmod.
+ */
 function lastCommitDate(relPath) {
   try {
-    const out = execFileSync("git", ["log", "-1", "--format=%cs", "--", relPath], {
+    // Separateur explicite entre la date et le sujet : `%cs` est de longueur
+    // fixe, mais le sujet contient ses propres espaces et un split(" ") naif
+    // n'en garderait que le premier mot, ratant les mots-cles du filtre.
+    const out = execFileSync("git", ["log", "--format=%cs\t%s", "--", relPath], {
       cwd: ROOT,
       encoding: "utf8",
     }).trim();
-    return out || null;
+    if (!out) return null;
+    const commits = out.split("\n").map((line) => {
+      const [date, subject = ""] = line.split("\t");
+      return { date, subject };
+    });
+    const substantive = commits.find((c) => !COSMETIC_SUBJECT.test(c.subject));
+    return (substantive ?? commits[0]).date || null;
   } catch {
     return null;
   }
 }
 
 /**
+ * Modules transverses dont la date ne dit rien du contenu d'une page donnee.
+ * Voir l'en-tete du fichier : les inclure aplatit tout le sitemap sur une seule
+ * date des qu'un helper est touche.
+ */
+const INFRA_PREFIXES = ["src/seo/", "src/i18n/", "src/lib/"];
+
+function isInfra(relPath) {
+  return INFRA_PREFIXES.some((p) => relPath.startsWith(p));
+}
+
+/**
  * Dependances locales importees par un fichier de route (un seul niveau).
  * Resout les alias `@/` et les chemins relatifs, en essayant les extensions
  * usuelles. Les paquets npm sont ignores : leur date ne dit rien du contenu.
+ * Les modules d'infrastructure sont ecartes pour la meme raison.
  */
 function localImports(relRoutePath) {
   const abs = join(ROOT, relRoutePath);
@@ -79,7 +138,8 @@ function localImports(relRoutePath) {
     for (const ext of [".ts", ".tsx", "/index.ts", "/index.tsx", ""]) {
       const candidate = `${base}${ext}`;
       if (existsSync(candidate) && !candidate.endsWith("/")) {
-        out.push(candidate.slice(ROOT.length + 1));
+        const rel = candidate.slice(ROOT.length + 1);
+        if (!isInfra(rel)) out.push(rel);
         break;
       }
     }

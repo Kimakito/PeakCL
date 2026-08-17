@@ -254,6 +254,16 @@
   status = 301
   force = true
 
+# Variante .html de l'ancienne URL. Elle renvoyait 404 alors que sa jumelle
+# sans extension etait couverte : l'ancien site servait les deux formes, donc
+# les deux existent dans l'index et dans les backlinks. Meme oubli que celui
+# corrige plus haut pour /creation-site-ecommerce.
+[[redirects]]
+  from = "/creation-site-vitrine.html"
+  to = "/sites-web"
+  status = 301
+  force = true
+
 # 404 relevee dans Search Console (dernier crawl 12/07/2026) : aucune regle ne
 # la couvrait, contrairement a sa jumelle /creation-site-vitrine.
 [[redirects]]

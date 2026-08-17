@@ -15,6 +15,15 @@ export const Route = createFileRoute("/bienvenue")({
         content:
           "Pour confirmer votre appel et accéder aux ressources, suivez les étapes ci‑dessous.",
       },
+      // Page de confirmation post-reservation : elle n'a de sens qu'atteinte
+      // depuis Calendly, et son contenu (etapes a suivre, ressources privees)
+      // n'a aucune valeur pour quelqu'un qui arrive par la recherche. Indexee,
+      // elle produisait une entree sans intention de recherche correspondante.
+      // Retiree du sitemap en meme temps : declarer au sitemap une URL noindex
+      // est un signal contradictoire.
+      // Ne PAS la bloquer dans robots.txt : une page interdite au crawl n'est
+      // jamais lue, donc ce noindex ne serait jamais vu.
+      { name: "robots", content: "noindex, nofollow" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/bienvenue") },
     ],
