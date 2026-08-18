@@ -1,6 +1,7 @@
 import { Instagram, Facebook, Linkedin, MessageCircle, Mail, Phone } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 import { SOCIAL, FREELANCE, CONTACT } from "@/lib/links";
+import { resetConsent } from "@/lib/consent";
 import { localeFromPath, type Locale } from "@/i18n/config";
 import { geoPagesFor } from "@/seo/geo";
 import { ui } from "@/i18n/ui";
@@ -168,6 +169,12 @@ export function SiteFooter() {
           <a href="/politique-confidentialite" className="hover:text-foreground">
             {locale === "en" ? "Privacy policy" : "Politique de confidentialité"}
           </a>
+          {/* Le consentement doit pouvoir etre retire aussi facilement qu'il a
+              ete donne (RGPD art. 7-3). Ce lien efface le choix stocke, ce qui
+              refait apparaitre la banniere immediatement. */}
+          <button type="button" onClick={() => resetConsent()} className="hover:text-foreground">
+            {locale === "en" ? "Manage cookies" : "Gérer mes cookies"}
+          </button>
           <span>{t.alsoOn}&nbsp;</span>
           <a
             href={FREELANCE.malt}

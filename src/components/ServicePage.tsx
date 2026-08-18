@@ -13,8 +13,7 @@ import { SectionAvatarCard, ExpressionPhoto } from "@/components/ExpressionPhoto
 import type { SectionCardSlug } from "@/lib/expressions";
 import type { CatalogItem, Forfait, ServiceHighlight } from "@/content/peakcl/services";
 import type { MascotShot } from "@/content/peakcl/mascots";
-
-const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
+import { BOOKING_URL } from "@/lib/links";
 
 type ServicePageStrings = ReturnType<typeof ui>["servicePage"];
 
@@ -346,7 +345,7 @@ export function ServicePage({
                           {t.requestQuoteHero} <ArrowRight className="h-4 w-4" />
                         </a>
                         <a
-                          href={CALENDLY_URL}
+                          href={BOOKING_URL}
                           target="_blank"
                           rel="noopener noreferrer"
                           data-event="cta_calendly_service_hero"
@@ -393,7 +392,7 @@ export function ServicePage({
                     {t.requestQuoteHero} <ArrowRight className="h-4 w-4" />
                   </a>
                   <a
-                    href={CALENDLY_URL}
+                    href={BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-event="cta_calendly_service_hero"
@@ -632,7 +631,7 @@ export function ServicePage({
                     {t.requestQuoteHero} <ArrowRight className="h-4 w-4" />
                   </a>
                   <a
-                    href={CALENDLY_URL}
+                    href={BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-event="cta_calendly_service_final"

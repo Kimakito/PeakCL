@@ -17,6 +17,7 @@ import { breadcrumbJsonLd } from "@/seo/jsonld";
 import { canonicalLink, hreflangLinks, ogLocaleMeta } from "@/seo/hreflang";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
+import { BOOKING_URL } from "@/lib/links";
 
 export const Route = createFileRoute("/en/portfolio")({
   head: () => ({
@@ -45,8 +46,6 @@ export const Route = createFileRoute("/en/portfolio")({
   }),
   component: PortfolioPage,
 });
-
-const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
 /** Categories that have at least one project. */
 const PANEL_CATS: Category[] = CATEGORIES.filter((c) =>
@@ -470,7 +469,7 @@ function PortfolioPage() {
               Get your diagnosis <ArrowRight className="h-4 w-4" />
             </a>
             <a
-              href={CALENDLY_URL}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               data-event="cta_calendly_portfolio_end"

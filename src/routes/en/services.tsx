@@ -5,8 +5,7 @@ import { canonicalLink, hreflangLinks, ogLocaleMeta } from "@/seo/hreflang";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Reveal } from "@/components/ui/Reveal";
 import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
-
-const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
+import { BOOKING_URL } from "@/lib/links";
 
 /**
  * English service cards for the hub. Localized inline (English labels + English
@@ -293,7 +292,7 @@ function ServicesHub() {
                 Get your diagnostic <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href={CALENDLY_URL}
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-event="cta_calendly_services_final"

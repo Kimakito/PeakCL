@@ -6,8 +6,7 @@ import { localeFromPath } from "@/i18n/config";
 import { ui } from "@/i18n/ui";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
-
-const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
+import { BOOKING_URL } from "@/lib/links";
 
 /** Les chemins de route générés sont typés ; nos tables i18n portent des string. */
 type To = LinkProps["to"];
@@ -233,7 +232,7 @@ export function TopNav() {
           <LanguageSwitcher className="hidden sm:flex" />
           <ThemeToggle className="hidden sm:inline-flex" />
           <a
-            href={CALENDLY_URL}
+            href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             data-event="cta_calendly_nav"

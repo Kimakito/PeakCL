@@ -37,8 +37,58 @@ const SECURITY_HEADERS: Record<string, string> = {
   // CSP en Report-Only : on observe les violations en console avant de basculer
   // la cle en `Content-Security-Policy`. `unsafe-inline` sur script-src est
   // requis par l'hydratation TanStack Start.
-  "Content-Security-Policy-Report-Only":
-    "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://calendly.com; frame-src https://calendly.com; form-action 'self'",
+  //
+  // HubSpot eclate ses ressources sur une dizaine de sous-domaines (analytics,
+  // banniere, formulaires, meetings, CDN statique) et en ajoute au fil des
+  // versions. Les lister un par un garantit une regression silencieuse au
+  // prochain changement de leur cote, d'ou les jokers sur les domaines qu'ils
+  // controlent entierement.
+  //
+  // Calendly reste autorise tant que BOOKING_URL pointe dessus (voir
+  // src/lib/links.ts). A retirer une fois la bascule vers HubSpot Meetings
+  // confirmee en production.
+  "Content-Security-Policy-Report-Only": [
+    "default-src 'self'",
+    "base-uri 'self'",
+    "object-src 'none'",
+    "frame-ancestors 'self'",
+    [
+      "script-src 'self' 'unsafe-inline'",
+      "https://assets.calendly.com",
+      "https://www.googletagmanager.com",
+      "https://*.hs-scripts.com",
+      "https://*.hs-analytics.net",
+      "https://*.hs-banner.com",
+      "https://*.hsforms.net",
+      "https://*.hsleadflows.net",
+      "https://*.usemessages.com",
+      "https://static.hsappstatic.net",
+    ].join(" "),
+    [
+      "style-src 'self' 'unsafe-inline'",
+      "https://fonts.googleapis.com",
+      "https://assets.calendly.com",
+      "https://static.hsappstatic.net",
+      "https://*.hsforms.net",
+    ].join(" "),
+    "font-src 'self' data: https://fonts.gstatic.com https://static.hsappstatic.net",
+    "img-src 'self' data: blob: https:",
+    "media-src 'self'",
+    [
+      "connect-src 'self'",
+      "https://calendly.com",
+      "https://www.google-analytics.com",
+      "https://*.analytics.google.com",
+      "https://*.googletagmanager.com",
+      "https://*.hubspot.com",
+      "https://*.hubapi.com",
+      "https://*.hsforms.com",
+      "https://*.hs-analytics.net",
+      "https://*.hs-banner.com",
+    ].join(" "),
+    "frame-src https://calendly.com https://*.hubspot.com",
+    "form-action 'self'",
+  ].join("; "),
 };
 
 /**

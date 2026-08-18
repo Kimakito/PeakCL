@@ -23,6 +23,7 @@ import { ExpressionGallery } from "@/components/ExpressionPhoto";
 import { Reveal } from "@/components/ui/Reveal";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { type MascotPose } from "@/lib/mascot";
+import { BOOKING_URL } from "@/lib/links";
 
 const LOGO_NAV = "/peakcl/logo-nav.webp";
 
@@ -62,7 +63,6 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 const WHATSAPP_URL = "https://wa.me/33743517627";
 const PHONE_TEL = "tel:+33743517627";
 const PHONE_DISPLAY = "07 43 51 76 27";
@@ -646,7 +646,7 @@ function ContactPanel() {
           <CTAButton href="/reservation-appel" dataEvent="cta_brief_final">
             Faire le diagnostic
           </CTAButton>
-          <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_final" variant="ghost">
+          <CTAButton href={BOOKING_URL} dataEvent="cta_calendly_final" variant="ghost">
             Réserver un appel
           </CTAButton>
         </div>

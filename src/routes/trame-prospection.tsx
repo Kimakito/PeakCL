@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import logo from "@/assets/peakcl-logo.png";
 import { TRAME_PROSPECTION_MARKDOWN } from "@/content/peakcl/trame-prospection-markdown";
 import { absUrl } from "@/seo/site";
+import { BOOKING_URL } from "@/lib/links";
 
 const MARKMAP_LOADER = "https://cdn.jsdelivr.net/npm/markmap-autoloader@0.18";
 
@@ -186,11 +187,7 @@ function TrameProspectionPage() {
 
           <div className="grid w-full grid-cols-3 gap-1.5 sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:gap-2">
             <ActionBtn href="/reservation-appel" icon={FileText} label="Réservation" />
-            <ActionBtn
-              href="https://calendly.com/peakcl73/faisons-connaissance"
-              icon={Calendar}
-              label="Calendly"
-            />
+            <ActionBtn href={BOOKING_URL} icon={Calendar} label="Prendre RDV" />
             <button
               type="button"
               onClick={() => setFullscreen((v) => !v)}

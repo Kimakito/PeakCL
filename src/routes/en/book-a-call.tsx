@@ -6,6 +6,7 @@ import { absUrl } from "@/seo/site";
 import { canonicalLink, hreflangLinks, ogLocaleMeta } from "@/seo/hreflang";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
+import { BOOKING_URL } from "@/lib/links";
 import {
   ChoiceMulti,
   ChoiceScale,
@@ -46,7 +47,6 @@ export const Route = createFileRoute("/en/book-a-call")({
 });
 
 const STORAGE_KEY = "peakcl_book_a_call_en_v1";
-const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
 function BookACallPage() {
   const { values, setValues } = useAutosaveForm(STORAGE_KEY, {
@@ -155,7 +155,7 @@ function BookACallPage() {
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href={CALENDLY_URL}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               data-event="cta_calendly_direct"

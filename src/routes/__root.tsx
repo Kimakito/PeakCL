@@ -12,6 +12,8 @@ import { TopNav } from "@/components/TopNav";
 import { SiteChrome } from "@/components/SiteChrome";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PeakaBot } from "@/components/PeakaBot";
+import { CookieConsent } from "@/components/CookieConsent";
+import { Analytics } from "@/components/Analytics";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { absUrl } from "@/seo/site";
 import { professionalServiceJsonLd } from "@/seo/jsonld";
@@ -186,6 +188,11 @@ function RootComponent() {
       <Outlet />
       {!hasDeckFooter ? <SiteFooter /> : null}
       <PeakaBot />
+      {/* Banniere de consentement + chargement conditionnel de GA4/HubSpot.
+          Monte au niveau racine pour couvrir toutes les routes, y compris les
+          landings et les pages anglaises. */}
+      <CookieConsent />
+      <Analytics />
     </>
   );
 }

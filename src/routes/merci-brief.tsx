@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { ArrowRight, Calendar, Check, Video } from "lucide-react";
-import { CalendlyEmbed } from "@/components/CalendlyEmbed";
+import { BookingEmbed } from "@/components/BookingEmbed";
 import {
   BIENVENUE_PATH,
   CALENDLY_R1_URL,
@@ -105,7 +105,7 @@ function MerciBriefPage() {
             </a>
           </div>
 
-          <CalendlyEmbed url={calendlyUrl} />
+          <BookingEmbed url={calendlyUrl} />
 
           <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-muted-foreground">
             Après confirmation du créneau, vous serez redirigé·e vers la page{" "}

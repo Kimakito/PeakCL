@@ -10,8 +10,7 @@ import {
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import type { AssetBlock, ValueAsset as ValueAssetData } from "@/content/peakcl/value-assets";
-
-const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
+import { BOOKING_URL } from "@/lib/links";
 
 function Block({ block }: { block: AssetBlock }) {
   if ("p" in block) {
@@ -293,7 +292,7 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
                 situation, voir ce qui bloque, et te donner une direction claire.
               </p>
               <a
-                href={CALENDLY_URL}
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="mx-auto mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"

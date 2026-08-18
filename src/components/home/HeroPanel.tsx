@@ -5,12 +5,12 @@ import { useRouterState } from "@tanstack/react-router";
 import { CTAButton } from "@/components/CTAButton";
 import { localeFromPath, type Locale } from "@/i18n/config";
 import type { MascotPose } from "@/lib/mascot";
+import { BOOKING_URL } from "@/lib/links";
 
 const PHOTO_400 = "/peakcl/photo/charlotte-round-400.webp";
 const PHOTO_800 = "/peakcl/photo/charlotte-round-800.webp";
 
 const WHATSAPP_URL = "https://wa.me/33743517627";
-const CALENDLY_URL = "https://calendly.com/peakcl73/faisons-connaissance";
 
 type OrbitItem = {
   label: string;
@@ -384,7 +384,7 @@ export function HeroPanel() {
 
         {/* CTA principaux visibles sans scroll */}
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <CTAButton href={CALENDLY_URL} dataEvent="cta_calendly_hero">
+          <CTAButton href={BOOKING_URL} dataEvent="cta_calendly_hero">
             {t.ctaPrimary}
           </CTAButton>
           <CTAButton href={t.servicesHref} variant="ghost" dataEvent="cta_services_hero">

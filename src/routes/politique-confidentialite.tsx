@@ -96,7 +96,7 @@ const SECTIONS: Section[] = [
             fiscales (10 ans pour les pièces comptables).
           </li>
         </ul>
-        <h3>Réservation d'appel (Calendly)</h3>
+        <h3>Réservation d'appel</h3>
         <p>
           Les pages de réservation intègrent un module <strong>Calendly</strong>. Quand vous
           réservez un créneau, Calendly collecte votre nom, votre e-mail et les informations du
@@ -152,23 +152,42 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          <strong>
-            Le site ne dépose aucun cookie publicitaire, aucun cookie de mesure d'audience et aucun
-            traceur tiers de suivi comportemental.
-          </strong>{" "}
-          Aucune bannière de consentement n'est donc affichée&nbsp;: il n'y a rien à consentir.
+          <strong>Aucun cookie de mesure d'audience n'est déposé avant votre accord.</strong> À
+          votre première visite, une bannière vous propose deux choix de poids égal&nbsp;: tout
+          accepter ou tout refuser. Tant que vous n'avez pas choisi, et si vous refusez, aucun
+          script de mesure n'est chargé. Le site fonctionne à l'identique dans les deux cas.
+        </p>
+        <p>Les outils concernés, et eux seuls, sont&nbsp;:</p>
+        <ul>
+          <li>
+            <strong>Google Analytics 4</strong> — nombre de visites, pages consultées, provenance du
+            trafic. L'anonymisation de l'adresse IP est activée et aucune fonctionnalité
+            publicitaire n'est utilisée&nbsp;: le mode consentement de Google est initialisé avec le
+            stockage publicitaire refusé, et il le reste même si vous acceptez la mesure d'audience.
+          </li>
+          <li>
+            <strong>HubSpot</strong> — rattachement des pages consultées à votre fiche si vous
+            remplissez ensuite un formulaire, afin de savoir ce qui vous a amené à nous contacter.
+          </li>
+        </ul>
+        <p>
+          <strong>Base légale</strong>&nbsp;: votre consentement (article 82 de la loi Informatique
+          et Libertés). Votre choix est conservé sur votre appareil pendant 6 mois, après quoi la
+          question vous est reposée. Vous pouvez le modifier à tout moment via le lien{" "}
+          <strong>«&nbsp;Gérer mes cookies&nbsp;»</strong> en bas de chaque page, sans avoir à nous
+          écrire.
         </p>
         <p>
-          Le stockage local du navigateur (localStorage, sessionStorage) est utilisé pour deux
-          usages de confort&nbsp;: mémoriser votre préférence de thème (clair ou sombre), et
-          conserver le brouillon des formulaires longs (diagnostic, questionnaires) pour que vous ne
-          perdiez pas vos réponses si vous fermez l'onglet. Ces informations restent sur votre
-          appareil&nbsp;: elles ne sont transmises que si vous validez le formulaire.
+          Le stockage local du navigateur (localStorage, sessionStorage) est utilisé indépendamment
+          de ce choix, pour trois usages de confort qui ne quittent jamais votre appareil&nbsp;:
+          mémoriser votre préférence de thème (clair ou sombre), conserver le brouillon des
+          formulaires longs (diagnostic, questionnaires) pour que vous ne perdiez pas vos réponses
+          si vous fermez l'onglet, et retenir votre réponse à la bannière ci-dessus. Ces
+          informations ne sont transmises que si vous validez le formulaire concerné.
         </p>
         <p>
-          Les services tiers intégrés (Calendly sur les pages de réservation) peuvent, eux, déposer
-          leurs propres cookies lorsque vous interagissez avec leur module. Ils relèvent de leurs
-          politiques respectives.
+          Les modules de réservation de rendez-vous peuvent, eux, déposer leurs propres cookies
+          lorsque vous interagissez avec eux. Ils relèvent de leurs politiques respectives.
         </p>
       </>
     ),
@@ -189,6 +208,14 @@ const SECTIONS: Section[] = [
           </li>
           <li>
             <strong>Calendly</strong> — prise de rendez-vous.
+          </li>
+          <li>
+            <strong>HubSpot</strong> — outil de gestion de la relation client&nbsp;: réception des
+            demandes envoyées via les formulaires, prise de rendez-vous et suivi des échanges.
+          </li>
+          <li>
+            <strong>Google Analytics</strong> — mesure d'audience, uniquement si vous y avez
+            consenti.
           </li>
           <li>
             <strong>Anthropic</strong> — génération des réponses de l'assistant conversationnel.

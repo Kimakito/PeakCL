@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { conseils, type Conseil } from "@/content/peakcl/conseils";
+import { BOOKING_URL } from "@/lib/links";
 
 const DATE_FMT = new Intl.DateTimeFormat("fr-FR", {
   day: "numeric",
@@ -86,7 +87,7 @@ export function ArticleLayout({ conseil }: { conseil: Conseil }) {
                 Demander mon audit gratuit <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="https://calendly.com/peakcl73/faisons-connaissance"
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center rounded-full border border-border bg-card/60 px-6 py-3 text-sm font-semibold text-foreground hover:bg-card/80"
