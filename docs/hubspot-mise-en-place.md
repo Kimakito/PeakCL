@@ -10,6 +10,7 @@ Etat au 18/08/2026. Portail HubSpot 149057275 (heberge UE).
 |---|---|---|
 | Banniere de consentement cookies | `src/lib/consent.ts`, `src/components/CookieConsent.tsx` | fait |
 | GA4 + tracking HubSpot sous consentement | `src/lib/tracking.ts`, `src/components/Analytics.tsx` | fait |
+| Vues de page SPA (HubSpot + GA4) | `src/components/Analytics.tsx` | fait, 25/08/2026 |
 | Formulaires vers HubSpot | `netlify/edge-functions/hubspot-lead.ts`, `src/lib/funnel.ts` | fait, en attente du GUID |
 | Bascule Calendly vers HubSpot Meetings | `src/lib/links.ts`, `src/components/BookingEmbed.tsx` | prete, en attente du lien |
 | CSP ouverte a HubSpot et GA4 | `netlify/edge-functions/security-headers.ts` | fait |
@@ -17,6 +18,12 @@ Etat au 18/08/2026. Portail HubSpot 149057275 (heberge UE).
 | Pipeline deals | HubSpot (reglages) | a faire a la main, voir section 5 |
 
 Les 15 occurrences en dur de l'URL Calendly sont remplacees par une constante unique, `BOOKING_URL` dans `src/lib/links.ts`. Le composant d'embed detecte tout seul le fournisseur d'apres l'URL : changer cette seule ligne fait basculer tout le site.
+
+---
+
+### Vues de page en navigation interne
+
+Le site est une SPA : le loader HubSpot et `gtag('config')` ne comptent qu'une seule vue, celle du chargement initial. `Analytics.tsx` pousse donc manuellement `setPath` + `trackPageView` (HubSpot) et un evenement `page_view` (GA4) a chaque changement de route, la premiere vue exclue puisque les deux scripts la comptent deja eux-memes. Sans cela, un visiteur qui parcourt cinq pages n'en laisse qu'une dans les deux outils.
 
 ---
 

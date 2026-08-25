@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouterState } from "@tanstack/react-router";
 import { CONSENT_EVENT, hasAnalyticsConsent, type ConsentState } from "@/lib/consent";
 import { GA4_MEASUREMENT_ID, HAS_GA4, HUBSPOT_TRACKING_SRC } from "@/lib/tracking";
 
@@ -68,8 +69,39 @@ function loadHubSpot() {
   document.head.appendChild(script);
 }
 
+/**
+ * Envoie une vue de page a HubSpot et a GA4.
+ *
+ * Indispensable en SPA : le loader HubSpot et `gtag('config')` ne comptent
+ * qu'une seule vue, celle du chargement initial. Sans ces appels manuels, un
+ * visiteur qui parcourt cinq pages n'en laisse qu'une dans les deux outils, et
+ * toute la navigation interne est invisible.
+ */
+function trackPageView(path: string) {
+  const hsq = (window._hsq = window._hsq || []);
+  hsq.push(["setPath", path]);
+  hsq.push(["trackPageView"]);
+
+  if (HAS_GA4) {
+    window.gtag?.("event", "page_view", {
+      page_path: path,
+      page_location: window.location.href,
+      page_title: document.title,
+    });
+  }
+}
+
 export function Analytics() {
   const [granted, setGranted] = useState(false);
+  // `searchStr` porte la query string ; il n'existe pas sur toutes les versions
+  // du routeur, d'ou le repli sur une chaine vide plutot qu'un plantage.
+  const path = useRouterState({
+    select: (s) => s.location.pathname + (s.location.searchStr ?? ""),
+  });
+  // La toute premiere vue est deja comptee par le loader HubSpot et par
+  // `gtag('config')` au moment ou ils se chargent. La repousser ici la
+  // doublerait.
+  const skipFirst = useRef(true);
 
   useEffect(() => {
     const sync = () => setGranted(hasAnalyticsConsent());
@@ -93,6 +125,15 @@ export function Analytics() {
     loadGa4();
     loadHubSpot();
   }, [granted]);
+
+  useEffect(() => {
+    if (!granted) return;
+    if (skipFirst.current) {
+      skipFirst.current = false;
+      return;
+    }
+    trackPageView(path);
+  }, [granted, path]);
 
   return null;
 }
