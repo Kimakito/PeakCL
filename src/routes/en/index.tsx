@@ -847,25 +847,34 @@ function Footer() {
 
 /* ── Reassurance bar (animated counters) ─────────────────────── */
 
-/** Counts 0 -> target when the element enters the viewport (once).
- *  Jumps straight to the final value under prefers-reduced-motion. */
+/**
+ * Animated counter that ALWAYS renders its final value into the HTML.
+ *
+ * The initial state used to be `0`. Server rendering runs no animation, so the
+ * delivered page literally read "0 client projects delivered" and "0% happy
+ * clients" a few lines above a hardcoded "18 client projects delivered".
+ * Anything reading the HTML without executing JavaScript saw that: crawlers on
+ * a first pass, AI search bots, link previews.
+ *
+ * The animation is now what it should always have been — progressive
+ * enhancement. The final value is the starting point; we only drop back to
+ * zero on the client, and only for an element still below the fold, so the
+ * number never visibly falls from 18 to 0 right after hydration.
+ */
 function useCountUp(target: number, duration = 1200) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(target);
   const ref = useRef<HTMLSpanElement | null>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setValue(target);
-      return;
-    }
-    let done = false;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Already on screen at load (the bar sits right under the hero): keep the
+    // final value rather than flashing it away.
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
+
     let raf = 0;
-    // Safety net: whatever happens (a backgrounded tab freezing
-    // requestAnimationFrame, an IntersectionObserver that never fires), the
-    // final value shows. A counter stuck mid-way ("52%") or left at 0 is worse
-    // than no animation at all.
-    const fallback = window.setTimeout(() => setValue(target), duration + 2500);
+    let done = false;
+    setValue(0);
 
     const run = () => {
       if (done) return;
@@ -875,15 +884,15 @@ function useCountUp(target: number, duration = 1200) {
         const p = Math.min(1, (now - start) / duration);
         const eased = 1 - Math.pow(1 - p, 3);
         setValue(Math.round(target * eased));
-        if (p < 1) {
-          raf = requestAnimationFrame(tick);
-        } else {
-          setValue(target);
-          window.clearTimeout(fallback);
-        }
+        if (p < 1) raf = requestAnimationFrame(tick);
+        else setValue(target);
       };
       raf = requestAnimationFrame(tick);
     };
+
+    // Safety net: a backgrounded tab freezing requestAnimationFrame, an
+    // IntersectionObserver that never fires. The final value always lands.
+    const fallback = window.setTimeout(() => setValue(target), duration + 2500);
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -894,9 +903,6 @@ function useCountUp(target: number, duration = 1200) {
       { threshold: 0.5 },
     );
     io.observe(el);
-    // Already visible on load (the bar sits right under the hero): some
-    // browsers don't re-notify the observer, so we also start here.
-    if (el.getBoundingClientRect().top < window.innerHeight) run();
 
     return () => {
       io.disconnect();

@@ -864,25 +864,36 @@ function Footer() {
 
 /* ── Reassurance bar (compteurs animés) ──────────────────────── */
 
-/** Incrémente 0 -> target quand l'élément entre dans le viewport (une seule fois).
- *  Valeur finale immédiate si prefers-reduced-motion. */
+/**
+ * Compteur animé, qui rend TOUJOURS sa valeur finale dans le HTML.
+ *
+ * L'état initial valait `0` : le rendu serveur ne joue aucune animation, donc
+ * la page livrée contenait littéralement « 0 projets clients livrés » et
+ * « 0% clients satisfaits », à quelques lignes d'un « 18 projets clients
+ * livrés » écrit en dur plus bas. Tout ce qui lit le HTML sans exécuter le
+ * JavaScript le voyait : crawlers au premier passage, bots des moteurs IA,
+ * aperçus de partage. Un site qui annonce zéro client juste à côté de sa note
+ * 5/5 est pire que le même site sans compteur.
+ *
+ * L'animation redevient ce qu'elle aurait toujours dû être : une amélioration
+ * progressive. La valeur finale est le point de départ ; on ne repart de zéro
+ * que sur le client, et seulement pour un élément encore hors écran — sinon le
+ * visiteur verrait le chiffre chuter de 18 à 0 juste après l'hydratation.
+ */
 function useCountUp(target: number, duration = 1200) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(target);
   const ref = useRef<HTMLSpanElement | null>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setValue(target);
-      return;
-    }
-    let done = false;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Déjà à l'écran au chargement (la barre est juste sous le hero) : on
+    // laisse la valeur finale en place plutôt que de la faire clignoter.
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
+
     let raf = 0;
-    // Filet de sécurité : quoi qu'il arrive (onglet en arrière-plan qui gèle
-    // requestAnimationFrame, IntersectionObserver qui ne se déclenche jamais),
-    // la valeur finale s'affiche. Un compteur figé à mi-course ("52%") ou resté
-    // à 0 est pire que pas d'animation.
-    const fallback = window.setTimeout(() => setValue(target), duration + 2500);
+    let done = false;
+    setValue(0);
 
     const run = () => {
       if (done) return;
@@ -892,15 +903,16 @@ function useCountUp(target: number, duration = 1200) {
         const p = Math.min(1, (now - start) / duration);
         const eased = 1 - Math.pow(1 - p, 3);
         setValue(Math.round(target * eased));
-        if (p < 1) {
-          raf = requestAnimationFrame(tick);
-        } else {
-          setValue(target);
-          window.clearTimeout(fallback);
-        }
+        if (p < 1) raf = requestAnimationFrame(tick);
+        else setValue(target);
       };
       raf = requestAnimationFrame(tick);
     };
+
+    // Filet de sécurité : onglet en arrière-plan qui gèle requestAnimationFrame,
+    // IntersectionObserver qui ne se déclenche jamais. La valeur finale finit
+    // toujours par s'afficher.
+    const fallback = window.setTimeout(() => setValue(target), duration + 2500);
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -911,9 +923,6 @@ function useCountUp(target: number, duration = 1200) {
       { threshold: 0.5 },
     );
     io.observe(el);
-    // Déjà visible au chargement (la barre est juste sous le hero) : certains
-    // navigateurs ne rappellent pas l'observer, on démarre donc aussi ici.
-    if (el.getBoundingClientRect().top < window.innerHeight) run();
 
     return () => {
       io.disconnect();

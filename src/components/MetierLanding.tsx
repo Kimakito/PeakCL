@@ -192,7 +192,7 @@ export function MetierLanding({
             href="/portfolio"
             className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
           >
-            Voir les 19 projets du portfolio <ArrowRight className="h-4 w-4" />
+            Voir tout le portfolio <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </section>
