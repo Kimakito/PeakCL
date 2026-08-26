@@ -390,7 +390,7 @@ function BookACallPage() {
               </div>
               <h3 className="mt-4 text-2xl font-bold">Ready to send?</h3>
               <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-                Next, you'll pick your Calendly slot (45 min).
+                Next, you'll pick your slot straight from my calendar.
               </p>
 
               <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">

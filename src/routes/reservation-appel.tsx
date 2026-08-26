@@ -382,7 +382,7 @@ function ReservationAppelPage() {
               </div>
               <h3 className="mt-4 text-2xl font-bold">Prêt·e à envoyer ?</h3>
               <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-                Ensuite, vous choisirez votre créneau Calendly (45 min).
+                Ensuite, vous choisirez votre créneau directement dans mon agenda.
               </p>
 
               <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">

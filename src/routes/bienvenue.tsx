@@ -16,7 +16,7 @@ export const Route = createFileRoute("/bienvenue")({
           "Pour confirmer votre appel et accéder aux ressources, suivez les étapes ci‑dessous.",
       },
       // Page de confirmation post-reservation : elle n'a de sens qu'atteinte
-      // depuis Calendly, et son contenu (etapes a suivre, ressources privees)
+      // depuis la confirmation de rendez-vous, et son contenu (etapes a suivre,
       // n'a aucune valeur pour quelqu'un qui arrive par la recherche. Indexee,
       // elle produisait une entree sans intention de recherche correspondante.
       // Retiree du sitemap en meme temps : declarer au sitemap une URL noindex
@@ -39,7 +39,7 @@ function BienvenuePage() {
         <div className="pointer-events-none absolute top-0 left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-[color-mix(in_oklab,var(--brand-violet)_18%,transparent)] blur-[120px]" />
         <div className="relative z-10 mx-auto max-w-3xl">
           <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
-            Étape 3 · Après votre créneau Calendly
+            Étape 3 · Après avoir réservé votre créneau
           </div>
           <div className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-5 py-2 text-sm text-[var(--brand-turquoise)]">
             <TriangleAlert className="h-4 w-4" />

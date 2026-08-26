@@ -124,7 +124,7 @@ function MerciBriefPage() {
               bienvenue
             </a>{" "}
             (vidéo, preuves clients, guides). Si la redirection ne se fait pas, utilise le lien dans
-            l’email Calendly ou clique ci‑dessous.
+            l’e-mail de confirmation HubSpot ou clique ci‑dessous.
           </p>
 
           <div className="mt-6 flex justify-center">

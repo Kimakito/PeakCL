@@ -85,7 +85,7 @@ markmap:
   - froid envoyé : aucune (Q=1)
   - Étape 2-3 (trame) : Q=2-3
   - Douleur identifiée (É4) : Q=4
-  - Visio proposée (Calendly) : Q=5
+  - Visio proposée (lien de réservation) : Q=5
   - RDV confirmé / À relancer / Refus / 🤖 Autobot
 - Froids sur instagram.com ; actives/relances dans l'inbox Business Suite
 `;

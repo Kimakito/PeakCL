@@ -13,7 +13,7 @@ import { CONTACT } from "@/lib/links";
  * remplie. La redirection a été retirée de netlify.toml au profit de cette page.
  *
  * Le contenu décrit les traitements réellement en place dans le code :
- * formulaires Netlify Forms, embed Calendly, assistant PeakaBot (API Anthropic),
+ * formulaires Netlify Forms, embed HubSpot Meetings, assistant PeakaBot (API Anthropic),
  * hébergement Netlify. Aucun outil de mesure d'audience n'est chargé
  * aujourd'hui — le tracker de __root.tsx est un no-op tant que window.plausible
  * ou window.gtag n'existe pas. Si un tel outil est ajouté, la section
@@ -98,10 +98,11 @@ const SECTIONS: Section[] = [
         </ul>
         <h3>Réservation d'appel</h3>
         <p>
-          Les pages de réservation intègrent un module <strong>Calendly</strong>. Quand vous
-          réservez un créneau, Calendly collecte votre nom, votre e-mail et les informations du
+          Les pages de réservation intègrent un module <strong>HubSpot Meetings</strong>. Quand vous
+          réservez un créneau, HubSpot collecte votre nom, votre e-mail et les informations du
           rendez-vous, selon sa propre politique de confidentialité. Le simple chargement du module
-          fait appel aux serveurs de Calendly, qui reçoivent alors votre adresse IP.
+          fait appel aux serveurs de HubSpot, qui reçoivent alors votre adresse IP. Le portail
+          PeakCL est hébergé dans l’Union européenne.
         </p>
         <ul>
           <li>
@@ -207,11 +208,9 @@ const SECTIONS: Section[] = [
             <strong>Netlify</strong> — hébergement du site et traitement des formulaires.
           </li>
           <li>
-            <strong>Calendly</strong> — prise de rendez-vous.
-          </li>
-          <li>
             <strong>HubSpot</strong> — outil de gestion de la relation client&nbsp;: réception des
-            demandes envoyées via les formulaires, prise de rendez-vous et suivi des échanges.
+            demandes envoyées via les formulaires, prise de rendez-vous (module HubSpot Meetings) et
+            suivi des échanges. Portail hébergé dans l’Union européenne.
           </li>
           <li>
             <strong>Google Analytics</strong> — mesure d'audience, uniquement si vous y avez
