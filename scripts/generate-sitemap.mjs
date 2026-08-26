@@ -177,8 +177,86 @@ for (const loc of locs) {
   stamped += 1;
 }
 
+/* ── Annotations hreflang ─────────────────────────────────────────────
+ *
+ * Search Console rangeait /en, /en/automation et /en/book-a-call en
+ * « Detectee, actuellement non indexee », avec « Sans objet » en derniere
+ * exploration : Google connaissait ces URL sans jamais avoir depense de budget
+ * de crawl dessus. Les balises <link hreflang> existaient bien dans le <head>
+ * de chaque page, mais elles ne se lisent qu'APRES exploration — elles ne
+ * peuvent donc pas aider une page qui n'a jamais ete exploree.
+ *
+ * L'annotation dans le sitemap, elle, se lit AVANT : c'est la methode que
+ * Google documente pour signaler des alternatives a l'echelle d'un site. Une
+ * page FR deja exploree fait ainsi decouvrir son equivalent EN.
+ *
+ * ROUTE_MAP est lu depuis src/i18n/config.ts plutot que recopie ici : c'est
+ * deja la source unique du selecteur de langue et des balises hreflang du
+ * head. Une paire ajoutee la-bas doit se retrouver ici sans intervention,
+ * sinon les deux listes divergent en silence — le defaut exact que ce depot a
+ * deja corrige pour les pages villes.
+ */
+const CONFIG = join(ROOT, "src", "i18n", "config.ts");
+const configSrc = readFileSync(CONFIG, "utf8");
+const routeMapBlock = configSrc.match(/ROUTE_MAP[^=]*=\s*\[([\s\S]*?)\];/);
+const pairs = routeMapBlock
+  ? [...routeMapBlock[1].matchAll(/\{\s*fr:\s*"([^"]+)"\s*,\s*en:\s*"([^"]+)"\s*\}/g)].map((m) => ({
+      fr: m[1],
+      en: m[2],
+    }))
+  : [];
+
+if (!pairs.length) {
+  // Erreur bloquante et non avertissement : un sitemap publie sans alternates
+  // se deploie sans que rien ne signale la perte, et le probleme se paie en
+  // semaines d'indexation.
+  console.error("sitemap : ROUTE_MAP introuvable dans src/i18n/config.ts, alternates non generes");
+  process.exit(1);
+}
+
+// Idempotence : on retire les annotations d'une generation precedente avant de
+// les reecrire, sinon chaque execution les empile.
+updated = updated.replace(/\n\s*<xhtml:link[^>]*\/>/g, "");
+
+const inSitemap = new Set(locs);
+let annotated = 0;
+
+for (const { fr, en } of pairs) {
+  const frUrl = fr === "/" ? `${SITE_URL}/` : `${SITE_URL}${fr}`;
+  const enUrl = `${SITE_URL}${en}`;
+  // Une paire hreflang non reciproque est ignoree par Google. Si l'une des
+  // deux URL manque au sitemap, on n'annote ni l'une ni l'autre.
+  if (!inSitemap.has(frUrl) || !inSitemap.has(enUrl)) continue;
+
+  const alternates =
+    `\n    <xhtml:link rel="alternate" hreflang="fr" href="${frUrl}"/>` +
+    `\n    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>` +
+    `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${frUrl}"/>`;
+
+  for (const url of [frUrl, enUrl]) {
+    const esc = url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    // Insertion en fin de bloc <url> : le protocole n'impose pas l'ordre des
+    // enfants, et cela evite d'interferer avec l'insertion du <lastmod>.
+    const block = new RegExp(`(<loc>${esc}</loc>[\\s\\S]*?)(\\n  </url>)`);
+    if (block.test(updated)) {
+      updated = updated.replace(block, `$1${alternates}$2`);
+      annotated += 1;
+    }
+  }
+}
+
+// Le namespace xhtml doit etre declare sur <urlset>, sinon les balises sont
+// invalides et le sitemap entier peut etre rejete.
+if (annotated && !updated.includes("xmlns:xhtml=")) {
+  updated = updated.replace(
+    /<urlset([^>]*)>/,
+    '<urlset$1 xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+  );
+}
+
 writeFileSync(SITEMAP, updated, "utf8");
 console.log(`sitemap : ${stamped}/${locs.length} URLs horodatees`);
+console.log(`sitemap : ${annotated} URLs annotees hreflang (${pairs.length} paires FR/EN)`);
 if (missing.length) {
   console.warn(`  sans date (fichier de route introuvable) : ${missing.join(", ")}`);
 }
