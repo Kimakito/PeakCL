@@ -143,15 +143,16 @@ Inclus :
 
 #### Contenu à la carte
 
-Création de contenus ponctuels sans engagement mensuel. Idéal pour un besoin précis ou tester la collaboration.
+Création de contenus ponctuels sans engagement mensuel. Idéal pour un besoin précis ou pour tester la collaboration — le forfait mensuel revient moins cher dès que le rythme devient régulier.
 
 Inclus :
-- Post (texte + visuel) : 20 à 30 €/unité
-- Story animée : 30 à 50 €/unité
-- Reel / vidéo courte : 80 à 150 €/unité
-- Article de blog SEO (800-1200 mots) : 120 à 180 €
-- Newsletter rédigée et designée : 150 à 250 €
+- Post (texte + visuel) : 60 à 80 €/unité
+- Story animée : 50 à 70 €/unité
+- Reel / vidéo courte : 110 à 180 €/unité
+- Article de blog SEO (800-1200 mots) : 150 à 220 €
+- Newsletter rédigée et designée : 180 à 280 €
 - Calendrier éditorial 1 mois : 180 €
+- En forfait mensuel, la publication revient à 45–50 € : voir les forfaits
 
 #### Formation réseaux sociaux
 
@@ -411,13 +412,13 @@ Inclus :
 Lancer sa présence en ligne de façon professionnelle et cohérente.
 
 Comprend :
-- Site vitrine sur mesure ou WordPress (au choix), jusqu’à 5 pages
+- Site vitrine sur mesure (2 300 €) ou WordPress (2 700 €), jusqu’à 5 pages
 - Identité visuelle : logo + charte graphique
 - Visuels réseaux sociaux (5 templates brandés)
 - Optimisation SEO on-page
 - 1 mois de support inclus
 
-#### Pack E-commerce Complet (Économie ~20% vs offres séparées)
+#### Pack E-commerce Complet (Économie ~15% vs offres séparées)
 
 Lancer ou refondre une boutique en ligne performante et bien brandée.
 
@@ -440,7 +441,7 @@ Comprend :
 - Audit de vos réseaux existants
 - Formation Canva (2h) pour votre autonomie
 
-#### Pack Web + Social Starter (Économie ~18% + 1 mois de CM offert)
+#### Pack Web + Social Starter (Économie ~15% + 1 mois de CM offert)
 
 Créer son site ET lancer ses réseaux sociaux en même temps.
 
@@ -451,7 +452,7 @@ Comprend :
 - Calendrier éditorial 1 mois offert
 - Forfait CM Essentiel : 1 mois inclus
 
-#### Pack Relance Digitale (Économie ~20% vs offres séparées)
+#### Pack Relance Digitale (Économie ~15% vs offres séparées)
 
 Pour les entreprises qui veulent moderniser leur image digitale.
 
@@ -462,12 +463,12 @@ Comprend :
 - Optimisation SEO technique complète
 - Audit réseaux sociaux + recommandations
 
-#### Pack All-In-One (Économie ~25% · devis personnalisé)
+#### Pack All-In-One (Économie ~20% · devis personnalisé)
 
 La solution complète pour déléguer à un seul interlocuteur.
 
 Comprend :
-- Site vitrine ou e-commerce sur mesure
+- Site vitrine (4 100 €) ou e-commerce (5 550 €), sur mesure
 - Identité visuelle complète
 - Supports print (carte de visite + flyer)
 - Forfait CM Standard 3 mois (2 publications/semaine, 2 plateformes)

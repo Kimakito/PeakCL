@@ -301,7 +301,7 @@ const offers = [
   {
     eyebrow: "Le plus simple",
     title: "Pack présence en ligne",
-    price: "À partir de 2 200 € HT",
+    price: "À partir de 2 300 € HT",
     highlight: true,
     points: [
       "Site clair + image cohérente",

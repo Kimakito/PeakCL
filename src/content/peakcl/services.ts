@@ -361,16 +361,24 @@ export const community: CatalogItem[] = [
     ],
   },
   {
+    // Le contenu a l'unite doit rester PLUS CHER que le meme contenu dans un
+    // forfait. Il etait l'inverse : le forfait Essentiel revient a 50 € la
+    // publication (200 € pour 4), alors que l'unite etait affichee 20 à 30 €
+    // et le pack de 20 contenus 19 € piece. Un client qui compare n'avait
+    // aucune raison de prendre l'abonnement — c'est-a-dire la seule ligne du
+    // catalogue qui produise du revenu recurrent. L'a la carte redevient ce
+    // qu'il doit etre : depanner un besoin ponctuel, au prix du ponctuel.
     title: "Contenu à la carte",
-    desc: "Création de contenus ponctuels sans engagement mensuel. Idéal pour un besoin précis ou tester la collaboration.",
-    price: "Pack de 20 contenus : 380 €",
+    desc: "Création de contenus ponctuels sans engagement mensuel. Idéal pour un besoin précis ou pour tester la collaboration — le forfait mensuel revient moins cher dès que le rythme devient régulier.",
+    price: "À partir de 60 €/contenu",
     included: [
-      "Post (texte + visuel) : 20 à 30 €/unité",
-      "Story animée : 30 à 50 €/unité",
-      "Reel / vidéo courte : 80 à 150 €/unité",
-      "Article de blog SEO (800-1200 mots) : 120 à 180 €",
-      "Newsletter rédigée et designée : 150 à 250 €",
+      "Post (texte + visuel) : 60 à 80 €/unité",
+      "Story animée : 50 à 70 €/unité",
+      "Reel / vidéo courte : 110 à 180 €/unité",
+      "Article de blog SEO (800-1200 mots) : 150 à 220 €",
+      "Newsletter rédigée et designée : 180 à 280 €",
       "Calendrier éditorial 1 mois : 180 €",
+      "En forfait mensuel, la publication revient à 45–50 € : voir les forfaits",
     ],
   },
   {
@@ -569,14 +577,39 @@ export type Pack = {
   highlight?: boolean;
 };
 
+/**
+ * RÈGLE DE CALCUL DES PACKS — à respecter pour tout nouveau pack.
+ *
+ * `prix = somme des prestations incluses × (1 − remise)`, arrondi à 50 € près.
+ * Remise : 15 % en standard, 20 % sur l'All-In-One (volume et engagement).
+ *
+ * Les prix précédents étaient fixés pack par pack, au jugé. Résultat vérifié
+ * le 26/08/2026 : sur sept configurations, aucune étiquette « économie » ne
+ * correspondait au calcul, avec des écarts de −14 à +29 points. Deux packs
+ * coûtaient MOINS cher que leur composant principal — le Pack E-commerce à
+ * 3 200 € contenait une boutique facturée 3 800 € seule, et le Pack Web +
+ * Social à 2 400 € un WordPress à 2 500 €. Un prospect qui compare deux lignes
+ * de la grille n'a alors aucune raison d'acheter la prestation seule, et la
+ * remise annoncée décrédibilise le reste du catalogue.
+ *
+ * Deuxième règle, tirée de la même vérification : un pack ne doit jamais
+ * descendre sous le prix de sa prestation la plus chère. Si le calcul y mène,
+ * c'est que le contenu du pack est mal composé, pas que le prix est bon.
+ *
+ * Les configurations qui changent la base de calcul (site sur mesure OU
+ * WordPress, vitrine OU e-commerce) portent DEUX prix. Un prix unique pour
+ * deux options séparées par 1 800 € pousse mécaniquement tout le monde vers la
+ * plus chère.
+ */
+
 export const packages: Pack[] = [
   {
     emoji: "🌐",
     name: "Pack Présence Web",
-    price: "À partir de 2 200 €",
+    price: "2 300 € (sur mesure) · 2 700 € (WordPress)",
     tagline: "Lancer sa présence en ligne de façon professionnelle et cohérente.",
     points: [
-      "Site vitrine sur mesure ou WordPress (au choix), jusqu’à 5 pages",
+      "Site vitrine sur mesure (2 300 €) ou WordPress (2 700 €), jusqu’à 5 pages",
       "Identité visuelle : logo + charte graphique",
       "Visuels réseaux sociaux (5 templates brandés)",
       "Optimisation SEO on-page",
@@ -587,7 +620,7 @@ export const packages: Pack[] = [
   {
     emoji: "🛒",
     name: "Pack E-commerce Complet",
-    price: "À partir de 3 200 €",
+    price: "À partir de 4 100 €",
     tagline: "Lancer ou refondre une boutique en ligne performante et bien brandée.",
     points: [
       "Site e-commerce (Shopify ou WooCommerce), jusqu’à 30 produits",
@@ -597,12 +630,12 @@ export const packages: Pack[] = [
       "Configuration Google Analytics",
       "Formation à la gestion de la boutique",
     ],
-    economy: "Économie ~20% vs offres séparées",
+    economy: "Économie ~15% vs offres séparées",
   },
   {
     emoji: "🎨",
     name: "Pack Brand & Social",
-    price: "À partir de 750 €",
+    price: "À partir de 1 050 €",
     tagline: "Construire une identité forte et l’exprimer sur les réseaux sociaux.",
     points: [
       "Identité visuelle complète (logo + charte)",
@@ -616,7 +649,7 @@ export const packages: Pack[] = [
   {
     emoji: "📱",
     name: "Pack Web + Social Starter",
-    price: "À partir de 2 400 €",
+    price: "À partir de 2 600 €",
     tagline: "Créer son site ET lancer ses réseaux sociaux en même temps.",
     points: [
       "Site vitrine WordPress (jusqu’à 5 pages)",
@@ -625,12 +658,12 @@ export const packages: Pack[] = [
       "Calendrier éditorial 1 mois offert",
       "Forfait CM Essentiel : 1 mois inclus",
     ],
-    economy: "Économie ~18% + 1 mois de CM offert",
+    economy: "Économie ~15% + 1 mois de CM offert",
   },
   {
     emoji: "🔄",
     name: "Pack Relance Digitale",
-    price: "À partir de 2 500 €",
+    price: "À partir de 2 250 €",
     tagline: "Pour les entreprises qui veulent moderniser leur image digitale.",
     points: [
       "Refonte de site web",
@@ -639,15 +672,15 @@ export const packages: Pack[] = [
       "Optimisation SEO technique complète",
       "Audit réseaux sociaux + recommandations",
     ],
-    economy: "Économie ~20% vs offres séparées",
+    economy: "Économie ~15% vs offres séparées",
   },
   {
     emoji: "🚀",
     name: "Pack All-In-One",
-    price: "À partir de 4 500 €",
+    price: "4 100 € (vitrine) · 5 550 € (e-commerce)",
     tagline: "La solution complète pour déléguer à un seul interlocuteur.",
     points: [
-      "Site vitrine ou e-commerce sur mesure",
+      "Site vitrine (4 100 €) ou e-commerce (5 550 €), sur mesure",
       "Identité visuelle complète",
       "Supports print (carte de visite + flyer)",
       "Forfait CM Standard 3 mois (2 publications/semaine, 2 plateformes)",
@@ -655,7 +688,7 @@ export const packages: Pack[] = [
       "Rapport de performance mensuel",
       "Support prioritaire 6 mois",
     ],
-    economy: "Économie ~25% · devis personnalisé",
+    economy: "Économie ~20% · devis personnalisé",
     highlight: true,
   },
 ];
