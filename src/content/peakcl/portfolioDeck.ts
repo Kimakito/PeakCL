@@ -175,6 +175,26 @@ const shotPath = (s?: string) => (s ? `/peakcl/portfolio/${s}.webp` : undefined)
 /** Clients en cours de construction (pas encore de site live). */
 const CONSTRUCTION: DeckProject[] = [
   {
+    title: "Rock The Outdoor",
+    subtitle: "Média & boutique parapente · WordPress",
+    description:
+      "Guillaume édite un média 100% parapente doublé d'une boutique en ligne. Refonte en cours, et volontairement pas graphique : l'identité visuelle reste la sienne. Je reprends tout le fonctionnel — structure, performances, parcours entre les articles et la boutique.",
+    tags: ["WordPress", "Refonte technique", "Média & e-commerce"],
+    category: "tourisme-animaux",
+    status: "construction",
+    scope: [
+      "Refonte fonctionnelle du site existant",
+      "Reprise de la structure et des performances",
+      "Parcours entre le média et la boutique",
+    ],
+    scopeNote:
+      "Le visuel n'est pas retravaillé : la mission porte sur le fonctionnel, pas sur la direction artistique.",
+    scopeLevel: "site",
+    scopeLabel: "Refonte fonctionnelle",
+    slug: "rock-the-outdoor",
+    accent: accentOf("tourisme-animaux"),
+  },
+  {
     title: "Véronique Kaba",
     subtitle: "Thérapeute · Savoie",
     description:

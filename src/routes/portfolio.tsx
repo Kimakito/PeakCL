@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, Check, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 import { DELIVERED_COUNT } from "@/content/peakcl/portfolio";
+import { CircularGallery, type GalleryItem } from "@/components/ui/circular-gallery";
 import {
   CATEGORIES,
   DECK_PROJECTS,
@@ -61,6 +62,32 @@ const LOGOS_ACCENT = "#EC4899";
 type Filter = { key: string; label: string; accent: string };
 /** Chantiers en cours : la difference entre les cartes affichees ici et les
  *  projets livres annonces sur l'accueil. Derive, jamais ecrit en dur. */
+/**
+ * Cartes de l'anneau 3D : uniquement les projets qui ont une capture d'ecran.
+ *
+ * L'anneau est un objet de seduction, pas l'inventaire. La grille filtrable
+ * plus bas reste la source complete et indexable — c'est elle qui porte le
+ * referencement de la page, et elle n'est pas remplacee. Un projet sans visuel
+ * y figure normalement, mais n'a rien a faire dans l'anneau ou il apparaitrait
+ * comme une carte vide.
+ *
+ * Limite a douze : au-dela, l'arc disponible par carte devient trop court et
+ * l'anneau tourne a la bouillie. Les projets suivants restent tous dans la
+ * grille.
+ */
+const GALLERY_MAX = 12;
+
+const GALLERY_ITEMS: GalleryItem[] = DECK_PROJECTS.filter((p) => p.shot)
+  .slice(0, GALLERY_MAX)
+  .map((p) => ({
+    id: p.slug,
+    title: p.title,
+    subtitle: p.subtitle,
+    image: p.shot as string,
+    href: p.status === "construction" ? undefined : p.siteUrl,
+    badge: p.status === "construction" ? "En cours" : undefined,
+  }));
+
 const IN_PROGRESS_COUNT = DECK_PROJECTS.filter((p) => p.status === "construction").length;
 
 const FILTERS: Filter[] = [
@@ -401,6 +428,16 @@ function PortfolioPage() {
             <SectionAvatarCard slug="portfolio" imgClassName="w-full max-w-[230px]" />
           </div>
         </div>
+
+        {/* Anneau 3D : vitrine, pas inventaire. Il vit dans une boite a hauteur
+            fixe et ne detourne pas le defilement de la page — la grille
+            filtrable juste en dessous reste le contenu indexable et complet. */}
+        <div className="relative mt-14 h-[360px] w-full sm:h-[460px]">
+          <CircularGallery items={GALLERY_ITEMS} />
+        </div>
+        <p className="relative mt-4 text-center text-xs text-muted-foreground/70">
+          Faites glisser pour tourner · survolez pour mettre en pause
+        </p>
       </section>
 
       {/* Barre de filtres (collante) */}
