@@ -178,6 +178,20 @@ function ChoiceMulti({
   );
 }
 
+/**
+ * Curseur 0-10.
+ *
+ * Le champ cache n'est emis QUE si le visiteur a touche le curseur. Il partait
+ * auparavant a chaque envoi avec sa valeur par defaut : le premier lead reel
+ * du nouveau tunnel est arrive dans HubSpot avec « Importance de resoudre : 7 »
+ * et « Importance presence en ligne : 7 » alors que la personne n'avait ouvert
+ * ni l'un ni l'autre — tous les autres champs facultatifs etaient vides.
+ *
+ * Depuis que le bloc de qualification est repliable, la majorite des visiteurs
+ * ne le deroulera jamais. Sans ce garde-fou, chaque fiche contact afficherait
+ * un 7 invente, indiscernable d'une reponse donnee. Une donnee absente se voit
+ * et se demande ; une donnee fausse se croit.
+ */
 function Scale10({
   label,
   name,
@@ -191,6 +205,7 @@ function Scale10({
   value: number;
   onChange: (v: number) => void;
 }) {
+  const [touched, setTouched] = useState(false);
   return (
     <fieldset className="relative rounded-2xl border border-border bg-card/30 p-5">
       <GlowingEffect
@@ -212,14 +227,17 @@ function Scale10({
           </span>
           <span>10</span>
         </div>
-        <input type="hidden" name={name} value={String(value)} />
+        {touched ? <input type="hidden" name={name} value={String(value)} /> : null}
         <input
           type="range"
           min={0}
           max={10}
           step={1}
           value={value}
-          onChange={(e) => onChange(Number(e.target.value))}
+          onChange={(e) => {
+            setTouched(true);
+            onChange(Number(e.target.value));
+          }}
           className="mt-3 w-full accent-[var(--brand-violet)]"
           aria-label={label}
         />
@@ -409,12 +427,20 @@ function DiagnosticPage() {
                   onChange={setActivite}
                   placeholder="Ex: thérapeute, artisan menuisier, coach sportif…"
                 />
+                {/* Volontairement en texte libre et non en `type="url"` : la
+                    validation native rejette « monsite.fr » sans protocole, et
+                    un lead bloque par un message d'erreur qu'il ne comprend pas
+                    coute plus cher qu'une valeur a nettoyer dans le CRM.
+                    Le libelle precedent disait « l'adresse de votre site » : la
+                    premiere personne a remplir le formulaire y a mis son adresse
+                    postale, qui est partie dans la propriete `website` du
+                    contact HubSpot. « Le lien » leve l'ambiguite. */}
                 <TextInput
-                  label="L'adresse de votre site (si vous en avez un)"
+                  label="Le lien de votre site web"
                   name="website"
                   value={website}
                   onChange={setWebsite}
-                  placeholder="Ex: monsite.fr — laissez vide si vous n'en avez pas"
+                  placeholder="monsite.fr — laissez vide si vous n'en avez pas"
                 />
                 <TextInput
                   label="Votre ville"

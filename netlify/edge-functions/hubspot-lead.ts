@@ -43,7 +43,20 @@ const HUBSPOT_FIELDS = [
   "message",
 ] as const;
 
-/** Champs techniques du site, jamais recopies dans le recapitulatif. */
+/**
+ * Champs jamais recopies dans le recapitulatif.
+ *
+ * Deux categories, pour deux raisons differentes :
+ *
+ * 1. Ceux qui alimentent deja une propriete native du contact (`email`,
+ *    `website`, `company`...). Les repeter dans le champ Message affiche deux
+ *    fois la meme information sur la fiche.
+ * 2. Ceux qui sont du contexte technique (`pageUri`, `pageName`). Ils partent
+ *    deja dans l'objet `context` de la soumission, ou HubSpot sait les
+ *    exploiter. Ils atterrissaient en clair au milieu du recapitulatif lisible
+ *    par un humain — constate sur le premier lead reel du tunnel, dont la fiche
+ *    se terminait par « pageUri : https://peakcl.com/diagnostic ».
+ */
 const INTERNAL_FIELDS = new Set([
   "form-name",
   "bot-field",
@@ -55,6 +68,10 @@ const INTERNAL_FIELDS = new Set([
   "phone",
   "telephone",
   "message",
+  "company",
+  "website",
+  "pageUri",
+  "pageName",
 ]);
 
 /** Etiquettes lisibles pour le recapitulatif depose dans la note HubSpot. */
@@ -80,6 +97,20 @@ const LABELS: Record<string, string> = {
   infosNecessaires: "Informations necessaires",
   readyToDecide: "Pret a decider",
   reasonIfNot: "Raison si non",
+  // Champs du mini-audit (/diagnostic). Ils sont en snake_case la ou
+  // /reservation-appel utilise le camelCase, d'ou les doublons apparents
+  // ci-dessus : ce sont deux formulaires distincts qui posent des questions
+  // proches. Sans ces entrees, la fiche contact affichait « activite »,
+  // « ville » et « importance_regler_problematique » bruts, ce qui se lit comme
+  // un export de base de donnees et non comme un brief.
+  activite: "Activite",
+  ville: "Ville",
+  importance_regler_problematique: "Importance de resoudre (0-10)",
+  importance_presence_en_ligne: "Importance presence en ligne (0-10)",
+  ranking_priorites: "Priorites classees",
+  capable_par_soi_meme: "Capable seul(e)",
+  ouvert_accompagnement: "Ouvert a un accompagnement",
+  engagement_presence: "Engagement de presence",
 };
 
 function splitName(full: string): { firstname: string; lastname: string } {
