@@ -163,10 +163,12 @@ les URL existantes, il n'en ajoute pas).
 Rien de tout ça ne se fait depuis le dépôt.
 
 ### Immédiat
-1. **GA4** : marquer `generate_lead` comme événement clé.
-2. **HubSpot** : renseigner `HUBSPOT_FORM_GUID` dans Netlify si ce n'est pas
-   fait — sans lui, l'edge function répond `skipped: no_form_guid` et aucun
-   lead n'entre dans le CRM (le site fonctionne, la panne est silencieuse).
+1. **GA4** : propriété `G-ZCYTT94MMH`, ID codé dans `src/lib/tracking.ts` depuis le
+   26/08/2026 — il était absent du build et GA4 ne se chargeait pas du tout.
+   Reste à marquer `generate_lead` comme **événement clé** (Admin → Événements).
+2. **HubSpot** : `HUBSPOT_FORM_GUID` vérifié en production le 26/08/2026 — la
+   sonde `/api/hubspot-lead` répond `skipped: no_email` et non
+   `skipped: no_form_guid`, ce qui prouve que le GUID est bien lu.
 3. **Test de bout en bout** : remplir `/diagnostic` avec sa propre adresse,
    vérifier l'arrivée dans Netlify Forms **et** dans HubSpot.
 4. **Pipeline HubSpot** : renommer les étapes (voir

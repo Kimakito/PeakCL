@@ -63,11 +63,11 @@ Netlify > ton site > **Site configuration** > **Environment variables** > Add.
 |---|---|---|
 | `HUBSPOT_FORM_GUID` | le GUID de l'etape A | les formulaires n'envoient rien a HubSpot, le site fonctionne normalement |
 | `HUBSPOT_PORTAL_ID` | `149057275` | valeur par defaut deja codee, facultatif |
-| `VITE_GA4_ID` | ton `G-XXXXXXXXXX` | GA4 n'est pas charge, la banniere s'affiche quand meme |
+| `VITE_GA4_ID` | facultatif, surcharge l'ID par defaut | l'ID `G-ZCYTT94MMH` code dans `src/lib/tracking.ts` s'applique |
 
 Aucune de ces variables n'est bloquante : le site se deploie et fonctionne sans elles. C'est volontaire, pour que le deploiement ne depende pas de ton avancement cote HubSpot.
 
-**Redeploie apres avoir ajoute `VITE_GA4_ID`** : c'est une variable de build, elle est figee dans le bundle. Les deux autres sont lues a l'execution par l'edge function, elles prennent effet immediatement.
+**Si tu changes `VITE_GA4_ID`, redeploie** : c'est une variable de build, figee dans le bundle. Les deux autres sont lues a l'execution par l'edge function et prennent effet immediatement. L'ID GA4 par defaut vit desormais dans `src/lib/tracking.ts` : la variable n'est plus necessaire au fonctionnement, seulement pour pointer une autre propriete.
 
 ---
 
