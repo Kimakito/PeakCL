@@ -23,7 +23,7 @@ const FAQ = [
   {
     question: "Vous connaissez le milieu, ou vous découvrez ?",
     answerHtml:
-      "J'ai travaillé avec une monitrice d'équitation western, une dentiste équin, une ferme pédagogique et une boutique d'équipement équestre. Je ne prétends pas connaître votre discipline mieux que vous — mais je sais déjà que le vocabulaire, les attentes et le cycle de décision d'un propriétaire de cheval n'ont rien à voir avec ceux d'un client de commerce classique.",
+      "J'ai travaillé avec une monitrice d'équitation western, une dentiste équin et une boutique d'équipement équestre. Je ne prétends pas connaître votre discipline mieux que vous — mais je sais déjà que le vocabulaire, les attentes et le cycle de décision d'un propriétaire de cheval n'ont rien à voir avec ceux d'un client de commerce classique.",
   },
 ];
 
