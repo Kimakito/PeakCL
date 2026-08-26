@@ -538,7 +538,7 @@ function ReviewsPanel() {
         </p>
         <ExpressionGallery className="mt-2 mb-12" />
         <div className="mx-auto flex max-h-[58vh] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
-          {/* Mobile : une colonne, les 4 avis une fois */}
+          {/* Mobile : une colonne, chaque avis une fois */}
           <TestimonialsColumn testimonials={reviews} duration={22} className="md:hidden" />
           {/* Desktop : 2 colonnes, chaque avis une seule fois */}
           <TestimonialsColumn testimonials={colA} duration={18} className="hidden md:block" />

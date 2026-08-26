@@ -98,11 +98,32 @@ export function professionalServiceJsonLd(): JsonLd {
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5",
-      reviewCount: "4",
+      // Relevé sur la fiche Google Business Profile le 26/08/2026. À
+      // resynchroniser avec `peakclTestimonials` à chaque nouvel avis : un
+      // reviewCount qui ne correspond pas aux avis réellement publics est une
+      // incohérence entre balisage et réalité vérifiable.
+      reviewCount: "6",
       bestRating: "5",
       worstRating: "1",
     },
+    // Antéchronologique, comme l'affichage : l'avis le plus récent en premier.
     review: [
+      {
+        "@type": "Review",
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        author: { "@type": "Person", name: "Laura" },
+        datePublished: "2026-08",
+        reviewBody:
+          "Je suis plus que satisfaite de l'accompagnement de Charlotte ! En tant que jeune entrepreneure, j'avais besoin d'être conseillée et guidée tout en conservant l'identité, les valeurs et la vision de mon entreprise, et c'est exactement ce que j'ai trouvé auprès d'elle. Charlotte ne se contente pas de donner des conseils génériques : elle prend réellement le temps de comprendre l'entreprise, son fonctionnement, ses besoins et ce que l'on souhaite transmettre afin de proposer des solutions personnalisées et pertinentes. Un accompagnement à la fois rassurant, enrichissant et réellement personnalisé pour mes débuts d'entrepreneure.",
+      },
+      {
+        "@type": "Review",
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        author: { "@type": "Person", name: "Émilie Bailleux" },
+        datePublished: "2026-07",
+        reviewBody:
+          "Charlotte m'accompagne actuellement dans la création de ma e-boutique. Elle a su m'orienter dans mon choix d'un hébergement et d'une plateforme adaptée. Charlotte est réactive et a bien compris les besoins très spécifiques de mon site internet avec un grand choix de personnalisation en ligne et du paramétrage de diverses livraisons. Je la recommande fortement si vous cherchez un accompagnement personnalisé.",
+      },
       {
         "@type": "Review",
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
