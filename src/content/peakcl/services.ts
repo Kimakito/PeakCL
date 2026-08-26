@@ -1,3 +1,5 @@
+import { DELIVERED_COUNT } from "./portfolio";
+
 /**
  * Contenu des pages Services (Sites web, Community management, Design,
  * Accompagnement Automatisation) + packages combinés + métadonnées du hub.
@@ -216,7 +218,7 @@ export const refontePmeHighlights: ServiceHighlight[] = [
   {
     emoji: "🤝",
     title: "Une interlocutrice senior, pas une équipe junior",
-    desc: "Vous parlez directement à la personne qui audite, maquette et code : 7 ans dans le digital, des plateformes à fort trafic aux sites d'indépendants, 18 projets notés 5/5 sur Google.",
+    desc: `Vous parlez directement à la personne qui audite, maquette et code : 7 ans dans le digital, des plateformes à fort trafic aux sites d'indépendants, ${DELIVERED_COUNT} projets notés 5/5 sur Google.`,
   },
 ];
 

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { DELIVERED_COUNT } from "@/content/peakcl/portfolio";
 import { useRouterState } from "@tanstack/react-router";
 import { localeFromPath, type Locale } from "@/i18n/config";
 
@@ -38,7 +39,7 @@ const LINES_FR: Line[] = [
 
   { kind: "cmd", text: "ls ~/projets | wc -l" },
   { kind: "out", text: "19", tone: "strong" },
-  { kind: "out", text: "# 18 projets clients livrés, notés 5/5 sur Google" },
+  { kind: "out", text: `# ${DELIVERED_COUNT} projets clients livrés, notés 5/5 sur Google` },
   { kind: "gap" },
 
   { kind: "cmd", text: "cat stack.txt" },
@@ -65,7 +66,7 @@ const LINES_EN: Line[] = [
 
   { kind: "cmd", text: "ls ~/projects | wc -l" },
   { kind: "out", text: "19", tone: "strong" },
-  { kind: "out", text: "# 18 client projects delivered, rated 5/5 on Google" },
+  { kind: "out", text: `# ${DELIVERED_COUNT} client projects delivered, rated 5/5 on Google` },
   { kind: "gap" },
 
   { kind: "cmd", text: "cat stack.txt" },

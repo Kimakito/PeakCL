@@ -1,4 +1,5 @@
 import { useRouterState } from "@tanstack/react-router";
+import { DELIVERED_COUNT } from "@/content/peakcl/portfolio";
 import { localeFromPath, type Locale } from "@/i18n/config";
 
 const MASCOTTE = "/design-system/mascotte-ligne.svg";
@@ -33,7 +34,7 @@ function copyFor(locale: Locale): Copy {
       role: "Charlotte Lacroix · web developer & graphic designer · working remotely",
       metiersTitle: "Three crafts, one person",
       metiers: ["Code", "Design", "Social media"],
-      statValue: "18",
+      statValue: String(DELIVERED_COUNT),
       statLabel: "client projects delivered, rated 5/5 on Google",
       techTitle: "Solid under the hood",
       tech: "Hand-coded sites, no CMS, no plugins. 7 years of code, including high-traffic platforms and a full corporate-site redesign. Core Web Vitals in the green, clean SEO.",
@@ -55,7 +56,7 @@ function copyFor(locale: Locale): Copy {
     role: "Charlotte Lacroix · développeuse web & graphiste · Gilly-sur-Isère, Savoie",
     metiersTitle: "Trois métiers, une personne",
     metiers: ["Code", "Design", "Community"],
-    statValue: "18",
+    statValue: String(DELIVERED_COUNT),
     statLabel: "projets clients livrés, notés 5/5 sur Google",
     techTitle: "Du solide sous le capot",
     tech: "Sites codés à la main, sans CMS ni plugins. 7 ans de code, dont des plateformes à fort trafic et la refonte d'un site corporate international. Core Web Vitals au vert, SEO local propre.",

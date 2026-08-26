@@ -75,6 +75,11 @@ const META: Record<
   string,
   { category: string; slug: string; shot?: string; categories?: string[] }
 > = {
+  "Cime Stratégie": {
+    category: "pme",
+    slug: "cime-strategie",
+    shot: "cime-strategie",
+  },
   Ikami: { category: "pme", slug: "ikami", shot: "ikami" },
   "Adelante Voyages": {
     category: "tourisme-animaux",

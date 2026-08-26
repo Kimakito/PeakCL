@@ -20,25 +20,21 @@ export type PeakclProject = {
 
 const withPublicPrefix = (path?: string) => (path ? `/peakcl${path}` : undefined);
 
-/**
- * Nombre de projets clients livres, affiche sur l'accueil et dans le bandeau
- * de reassurance.
- *
- * Il etait calcule par `peakclPortfolio.filter((p) => p.logoUrl).length`, ce
- * qui comptait en realite les projets DISPOSANT D'UN FICHIER LOGO — 18 sur 19.
- * Le libelle disait « projets clients livres » : le chiffre affiche dependait
- * donc de la presence d'un fichier image, et ajouter un logo manquant aurait
- * silencieusement fait passer l'accueil de 18 a 19 sans que personne ne
- * l'ait decide.
- *
- * La liste des projets livres est la seule source legitime. Les projets en
- * cours vivent dans `CONSTRUCTION` (portfolioDeck.ts) et ne sont pas comptes
- * ici : d'ou l'ecart avec les 22 cartes affichees sur /portfolio, qui montre
- * les livres ET les chantiers en cours.
- */
-export const DELIVERED_COUNT = 19;
-
+/** Projets clients livrés, du plus récent au plus ancien. */
 export const peakclPortfolio: PeakclProject[] = [
+  {
+    title: "Cime Stratégie",
+    subtitle: "Assistanat de direction · Savoie",
+    description:
+      "Aurélie lance son activité de bras droit de dirigeant : gestion administrative, organisation, pilotage et appui RH pour des TPE et PME. Elle démarrait sans site. J'ai construit sa vitrine sous WordPress pour qu'elle publie seule, structurée autour de ses quatre domaines d'intervention et d'une prise de rendez-vous découverte.",
+    tags: ["WordPress", "Assistanat de direction", "Site vitrine"],
+    scope: ["Site internet WordPress", "Structure des pages et parcours de contact"],
+    scopeNote:
+      "Le logo n'est pas de moi : je l'ai intégré au site et décliné sur les différents fonds.",
+    scopeLevel: "site",
+    siteUrl: "https://cime-strategie.fr/",
+    logoUrl: withPublicPrefix("/assets/logo/cime-strategie.png"),
+  },
   {
     title: "Ikami",
     subtitle: "Portail immobilier · France · Espagne · Suisse",
@@ -337,3 +333,23 @@ export const peakclPortfolio: PeakclProject[] = [
     logoUrl: withPublicPrefix("/assets/logo/Peak-training.png"),
   },
 ];
+
+/**
+ * Nombre de projets clients livres, affiche sur l'accueil, sur /portfolio et
+ * dans le bandeau de reassurance.
+ *
+ * Il etait calcule par `peakclPortfolio.filter((p) => p.logoUrl).length`, ce
+ * qui comptait en realite les projets DISPOSANT D'UN FICHIER LOGO. Le libelle
+ * annoncait « projets clients livres » : le chiffre public dependait donc de
+ * la presence d'une image, et ajouter un logo manquant faisait bouger
+ * l'accueil sans que personne ne l'ait decide.
+ *
+ * Il a ensuite ete fige en dur, ce qui deplacait le probleme : ajouter un
+ * projet sans penser a incrementer la constante laissait le site mentir a la
+ * baisse. Il derive desormais de la liste elle-meme, seule source legitime.
+ *
+ * Les chantiers en cours vivent dans `CONSTRUCTION` (portfolioDeck.ts) et ne
+ * sont pas comptes ici : d'ou l'ecart avec le nombre de cartes affichees sur
+ * /portfolio, qui montre les projets livres ET les chantiers en cours.
+ */
+export const DELIVERED_COUNT = peakclPortfolio.length;

@@ -8,6 +8,7 @@ import {
   Star,
 } from "lucide-react";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
+import { DELIVERED_COUNT } from "@/content/peakcl/portfolio";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import type { AssetBlock, ValueAsset as ValueAssetData } from "@/content/peakcl/value-assets";
 import { BOOKING_URL } from "@/lib/links";
@@ -187,10 +188,10 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
               </div>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 <span className="font-semibold text-foreground">Charlotte Lacroix (PeakCL).</span>{" "}
-                Développeuse web, graphiste et formée au community management. 18 projets clients
-                livrés, notés 5/5 sur Google. Je code <em>et</em> je dessine : je vois donc à la
-                fois la structure technique et l'image, exactement ce qui manque à la plupart des
-                sites.
+                Développeuse web, graphiste et formée au community management. {DELIVERED_COUNT}{" "}
+                projets clients livrés, notés 5/5 sur Google. Je code <em>et</em> je dessine : je
+                vois donc à la fois la structure technique et l'image, exactement ce qui manque à la
+                plupart des sites.
               </p>
               {testimonial && (
                 <div className="mt-4 rounded-xl border border-border bg-black/20 p-4">
