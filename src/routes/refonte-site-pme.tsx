@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
-import { refontePme, refontePmeHighlights } from "@/content/peakcl/services";
+import { refontePme, refontePmeHighlights, retainers } from "@/content/peakcl/services";
 
 /**
  * Landing "Refonte de site pour PME" : page d'atterrissage des campagnes
@@ -90,6 +90,12 @@ export const Route = createFileRoute("/refonte-site-pme")({
       sectionSubtitle="Un parcours en 4 étapes : vous ne vous engagez qu'une fois les chiffres posés."
       items={refontePme}
       showPrices
+      // L'accompagnement mensuel ne s'affiche QUE sur la piste PME. Sur une
+      // page destinée à un indépendant, un tarif à 1 750 €/mois ne qualifie
+      // pas : il fait fermer l'onglet.
+      forfaits={retainers}
+      forfaitsTitle="Et après la refonte : l'accompagnement mensuel"
+      forfaitsNote="Engagement 3 mois minimum. Périmètre chiffré ligne par ligne, au-delà : 60 €/h. Rapport mensuel systématique."
       portfolioLink={{ to: "/portfolio", label: "Voir mes réalisations web" }}
     />
   ),

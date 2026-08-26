@@ -300,14 +300,14 @@ function MethodPanel() {
 const offers = [
   {
     eyebrow: "Le plus simple",
-    title: "Pack présence en ligne",
-    price: "À partir de 2 300 € HT",
+    title: "Lancement",
+    price: "À partir de 2 700 € HT",
     highlight: true,
     points: [
-      "Site clair + image cohérente",
+      "Site clair + identité visuelle complète",
       "Pages essentielles + parcours de contact",
-      "Premières publications et visuels de base",
-      "Mise en ligne et premiers réglages SEO",
+      "Profils réseaux créés, 10 visuels et un mois de publications",
+      "Mise en ligne, réglages SEO et un mois de support",
     ],
   },
   {

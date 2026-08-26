@@ -407,74 +407,65 @@ Inclus :
 
 ### Packs combines
 
-#### Pack Présence Web (Économie ~15% vs offres séparées)
+#### Identité & réseaux (Économie ~15% vs offres séparées)
 
-Lancer sa présence en ligne de façon professionnelle et cohérente.
-
-Comprend :
-- Site vitrine sur mesure (2 300 €) ou WordPress (2 700 €), jusqu’à 5 pages
-- Identité visuelle : logo + charte graphique
-- Visuels réseaux sociaux (5 templates brandés)
-- Optimisation SEO on-page
-- 1 mois de support inclus
-
-#### Pack E-commerce Complet (Économie ~15% vs offres séparées)
-
-Lancer ou refondre une boutique en ligne performante et bien brandée.
-
-Comprend :
-- Site e-commerce (Shopify ou WooCommerce), jusqu’à 30 produits
-- Identité visuelle adaptée au e-commerce
-- Bannières promotionnelles & visuels produits
-- Template email transactionnel & newsletter
-- Configuration Google Analytics
-- Formation à la gestion de la boutique
-
-#### Pack Brand & Social (Économie ~15% vs offres séparées)
-
-Construire une identité forte et l’exprimer sur les réseaux sociaux.
+Vous avez une activité, pas encore d’image. On pose la marque avant le site.
 
 Comprend :
 - Identité visuelle complète (logo + charte)
-- Pack visuels réseaux sociaux (10 templates)
-- Calendrier éditorial 1 mois
+- 10 visuels réseaux sociaux à vos couleurs
+- Calendrier éditorial d’un mois
 - Audit de vos réseaux existants
 - Formation Canva (2h) pour votre autonomie
 
-#### Pack Web + Social Starter (Économie ~15% + 1 mois de CM offert)
+#### Lancement (Économie ~15% vs offres séparées)
 
-Créer son site ET lancer ses réseaux sociaux en même temps.
-
-Comprend :
-- Site vitrine WordPress (jusqu’à 5 pages)
-- Création & optimisation des profils réseaux sociaux
-- Pack de 10 visuels brandés
-- Calendrier éditorial 1 mois offert
-- Forfait CM Essentiel : 1 mois inclus
-
-#### Pack Relance Digitale (Économie ~15% vs offres séparées)
-
-Pour les entreprises qui veulent moderniser leur image digitale.
+Vous partez de zéro : site, image et réseaux mis en place ensemble, pas les uns après les autres.
 
 Comprend :
-- Refonte de site web
-- Rafraîchissement identité visuelle (logo + charte)
-- Nouveaux visuels réseaux sociaux (10 templates)
+- Site vitrine sur mesure (2 700 €) ou WordPress (3 150 €), jusqu’à 5 pages
+- Identité visuelle : logo + charte graphique
+- 10 visuels réseaux sociaux réutilisables
+- Création et optimisation de vos profils réseaux
+- Calendrier éditorial d’un mois
+- Un mois de community management inclus
+- Un mois de support technique inclus
+
+#### Lancement e-commerce (Économie ~15% vs offres séparées)
+
+Vous vendez en ligne : la boutique, la marque et les supports de vente d’un bloc.
+
+Comprend :
+- Boutique en ligne (Shopify ou WooCommerce), jusqu’à 30 produits
+- Identité visuelle adaptée à la vente
+- Bannières promotionnelles et visuels produits
+- Template e-mail transactionnel et newsletter
+- Configuration Google Analytics
+- Formation à la gestion de la boutique
+
+#### Relance (Économie ~15% vs offres séparées)
+
+Vous avez déjà tout ça, mais ça ne travaille plus pour vous. On remet à niveau sans repartir de zéro.
+
+Comprend :
+- Refonte du site existant, référencement acquis préservé
+- Rafraîchissement de l’identité visuelle (logo + charte)
+- 10 nouveaux visuels réseaux sociaux
 - Optimisation SEO technique complète
-- Audit réseaux sociaux + recommandations
+- Audit réseaux sociaux et recommandations
 
-#### Pack All-In-One (Économie ~20% · devis personnalisé)
+#### Délégation (Économie ~20% vs offres séparées)
 
-La solution complète pour déléguer à un seul interlocuteur.
+Vous ne voulez plus vous en occuper du tout. Je prends la main sur l’ensemble, pendant six mois.
 
 Comprend :
-- Site vitrine (4 100 €) ou e-commerce (5 550 €), sur mesure
+- Site vitrine (4 200 €) ou e-commerce (5 650 €), sur mesure
 - Identité visuelle complète
-- Supports print (carte de visite + flyer)
-- Forfait CM Standard 3 mois (2 publications/semaine, 2 plateformes)
-- Template email + newsletter mensuelle x3
+- Supports print : carte de visite + flyer
+- Community management 3 mois (2 publications/semaine, 2 plateformes)
+- Template e-mail + 3 newsletters rédigées
 - Rapport de performance mensuel
-- Support prioritaire 6 mois
+- Support technique prioritaire 6 mois
 
 ## Zones desservies
 

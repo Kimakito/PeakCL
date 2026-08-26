@@ -292,7 +292,14 @@ export const design: CatalogItem[] = [
 
 /* ── Community management ─────────────────────────────────────── */
 
-/** Forfaits mensuels CM (seuls tarifs publics du site). */
+/**
+ * Forfaits mensuels de community management — production de contenu seule.
+ *
+ * Volontairement distincts de `retainers` : ici le client achète un volume de
+ * publications, là-bas un périmètre de responsabilité incluant le site et le
+ * pilotage. Les mélanger dans une seule grille rendait le passage de 900 € à
+ * 1 200 € incompréhensible, alors que ce ne sont pas les mêmes produits.
+ */
 export type Forfait = {
   emoji: string;
   name: string;
@@ -343,6 +350,61 @@ export const cmForfaits: Forfait[] = [
       "Rapport mensuel",
     ],
     price: "sur devis",
+  },
+];
+
+/**
+ * Accompagnement mensuel — la deuxième famille de récurrent, et la seule qui
+ * s'adresse à une entreprise avec une équipe.
+ *
+ * Différence avec `cmForfaits`, qui n'est pas une différence de volume : un
+ * forfait CM se facture au nombre de publications, donc le client compare au
+ * prix de la publication, donc il négocie la publication. Un accompagnement se
+ * facture sur un périmètre de responsabilité — le site, les contenus, la
+ * mesure — et remplace un poste que l'entreprise n'a pas à recruter.
+ *
+ * C'était le trou du catalogue : le récurrent plafonnait à 900 €/mois de
+ * production de contenu, sans jamais inclure le site ni le pilotage. Une PME
+ * qui veut déléguer sa présence en ligne n'avait donc rien à acheter.
+ *
+ * Trois règles pour que ça ne se retourne pas contre toi :
+ * 1. Le périmètre est chiffré, ligne par ligne. Au-delà, c'est 60 €/h — le
+ *    tarif horaire déjà annoncé dans le catalogue.
+ * 2. Engagement de 3 mois minimum. En dessous, tu absorbes le coût de
+ *    démarrage et le client part avant que le travail produise quoi que ce soit.
+ * 3. Le rapport mensuel n'est pas du confort : c'est ce qui rend le
+ *    prélèvement visible. Un client qui ne voit rien arriver résilie, même
+ *    quand le travail a été fait.
+ */
+export const retainers: Forfait[] = [
+  {
+    emoji: "🎯",
+    name: "Pilotage",
+    freq: "Site + contenus + mesure, tous les mois",
+    inclus: [
+      "Maintenance et évolutions du site",
+      "12 publications/mois + 1 story par semaine",
+      "2 articles de blog optimisés SEO",
+      "1 newsletter rédigée et designée",
+      "Rapport mensuel : trafic, positions, demandes entrantes",
+      "Un point stratégique de 30 minutes chaque mois",
+    ],
+    price: "1 200 €/mois",
+    highlight: true,
+  },
+  {
+    emoji: "🏔️",
+    name: "Département com'",
+    freq: "Votre pôle digital, externalisé",
+    inclus: [
+      "Maintenance, évolutions et support prioritaire du site",
+      "20 publications/mois + stories et reels",
+      "2 articles de blog optimisés SEO",
+      "2 newsletters rédigées et designées",
+      "Calendrier éditorial et pilotage de la ligne éditoriale",
+      "Rapport mensuel et point stratégique",
+    ],
+    price: "1 750 €/mois",
   },
 ];
 
@@ -604,92 +666,83 @@ export type Pack = {
 
 export const packages: Pack[] = [
   {
-    emoji: "🌐",
-    name: "Pack Présence Web",
-    price: "2 300 € (sur mesure) · 2 700 € (WordPress)",
-    tagline: "Lancer sa présence en ligne de façon professionnelle et cohérente.",
-    points: [
-      "Site vitrine sur mesure (2 300 €) ou WordPress (2 700 €), jusqu’à 5 pages",
-      "Identité visuelle : logo + charte graphique",
-      "Visuels réseaux sociaux (5 templates brandés)",
-      "Optimisation SEO on-page",
-      "1 mois de support inclus",
-    ],
-    economy: "Économie ~15% vs offres séparées",
-  },
-  {
-    emoji: "🛒",
-    name: "Pack E-commerce Complet",
-    price: "À partir de 4 100 €",
-    tagline: "Lancer ou refondre une boutique en ligne performante et bien brandée.",
-    points: [
-      "Site e-commerce (Shopify ou WooCommerce), jusqu’à 30 produits",
-      "Identité visuelle adaptée au e-commerce",
-      "Bannières promotionnelles & visuels produits",
-      "Template email transactionnel & newsletter",
-      "Configuration Google Analytics",
-      "Formation à la gestion de la boutique",
-    ],
-    economy: "Économie ~15% vs offres séparées",
-  },
-  {
     emoji: "🎨",
-    name: "Pack Brand & Social",
-    price: "À partir de 1 050 €",
-    tagline: "Construire une identité forte et l’exprimer sur les réseaux sociaux.",
+    name: "Identité & réseaux",
+    tagline: "Vous avez une activité, pas encore d’image. On pose la marque avant le site.",
+    price: "1 050 €",
     points: [
       "Identité visuelle complète (logo + charte)",
-      "Pack visuels réseaux sociaux (10 templates)",
-      "Calendrier éditorial 1 mois",
+      "10 visuels réseaux sociaux à vos couleurs",
+      "Calendrier éditorial d’un mois",
       "Audit de vos réseaux existants",
       "Formation Canva (2h) pour votre autonomie",
     ],
     economy: "Économie ~15% vs offres séparées",
   },
   {
-    emoji: "📱",
-    name: "Pack Web + Social Starter",
-    price: "À partir de 2 600 €",
-    tagline: "Créer son site ET lancer ses réseaux sociaux en même temps.",
+    emoji: "🚀",
+    name: "Lancement",
+    tagline:
+      "Vous partez de zéro : site, image et réseaux mis en place ensemble, pas les uns après les autres.",
+    price: "2 700 € (sur mesure) · 3 150 € (WordPress)",
     points: [
-      "Site vitrine WordPress (jusqu’à 5 pages)",
-      "Création & optimisation des profils réseaux sociaux",
-      "Pack de 10 visuels brandés",
-      "Calendrier éditorial 1 mois offert",
-      "Forfait CM Essentiel : 1 mois inclus",
+      "Site vitrine sur mesure (2 700 €) ou WordPress (3 150 €), jusqu’à 5 pages",
+      "Identité visuelle : logo + charte graphique",
+      "10 visuels réseaux sociaux réutilisables",
+      "Création et optimisation de vos profils réseaux",
+      "Calendrier éditorial d’un mois",
+      "Un mois de community management inclus",
+      "Un mois de support technique inclus",
     ],
-    economy: "Économie ~15% + 1 mois de CM offert",
+    economy: "Économie ~15% vs offres séparées",
+    highlight: true,
   },
   {
-    emoji: "🔄",
-    name: "Pack Relance Digitale",
-    price: "À partir de 2 250 €",
-    tagline: "Pour les entreprises qui veulent moderniser leur image digitale.",
+    emoji: "🛒",
+    name: "Lancement e-commerce",
+    tagline: "Vous vendez en ligne : la boutique, la marque et les supports de vente d’un bloc.",
+    price: "4 100 €",
     points: [
-      "Refonte de site web",
-      "Rafraîchissement identité visuelle (logo + charte)",
-      "Nouveaux visuels réseaux sociaux (10 templates)",
-      "Optimisation SEO technique complète",
-      "Audit réseaux sociaux + recommandations",
+      "Boutique en ligne (Shopify ou WooCommerce), jusqu’à 30 produits",
+      "Identité visuelle adaptée à la vente",
+      "Bannières promotionnelles et visuels produits",
+      "Template e-mail transactionnel et newsletter",
+      "Configuration Google Analytics",
+      "Formation à la gestion de la boutique",
     ],
     economy: "Économie ~15% vs offres séparées",
   },
   {
-    emoji: "🚀",
-    name: "Pack All-In-One",
-    price: "4 100 € (vitrine) · 5 550 € (e-commerce)",
-    tagline: "La solution complète pour déléguer à un seul interlocuteur.",
+    emoji: "🔄",
+    name: "Relance",
+    tagline:
+      "Vous avez déjà tout ça, mais ça ne travaille plus pour vous. On remet à niveau sans repartir de zéro.",
+    price: "2 250 €",
     points: [
-      "Site vitrine (4 100 €) ou e-commerce (5 550 €), sur mesure",
-      "Identité visuelle complète",
-      "Supports print (carte de visite + flyer)",
-      "Forfait CM Standard 3 mois (2 publications/semaine, 2 plateformes)",
-      "Template email + newsletter mensuelle x3",
-      "Rapport de performance mensuel",
-      "Support prioritaire 6 mois",
+      "Refonte du site existant, référencement acquis préservé",
+      "Rafraîchissement de l’identité visuelle (logo + charte)",
+      "10 nouveaux visuels réseaux sociaux",
+      "Optimisation SEO technique complète",
+      "Audit réseaux sociaux et recommandations",
     ],
-    economy: "Économie ~20% · devis personnalisé",
-    highlight: true,
+    economy: "Économie ~15% vs offres séparées",
+  },
+  {
+    emoji: "🤝",
+    name: "Délégation",
+    tagline:
+      "Vous ne voulez plus vous en occuper du tout. Je prends la main sur l’ensemble, pendant six mois.",
+    price: "4 200 € (vitrine) · 5 650 € (e-commerce)",
+    points: [
+      "Site vitrine (4 200 €) ou e-commerce (5 650 €), sur mesure",
+      "Identité visuelle complète",
+      "Supports print : carte de visite + flyer",
+      "Community management 3 mois (2 publications/semaine, 2 plateformes)",
+      "Template e-mail + 3 newsletters rédigées",
+      "Rapport de performance mensuel",
+      "Support technique prioritaire 6 mois",
+    ],
+    economy: "Économie ~20% vs offres séparées",
   },
 ];
 

@@ -69,6 +69,55 @@ d'être approximé.
 Seule exception conservée : l'accompagnement automatisation, réellement non
 standardisable.
 
+### Structure des offres (révisée le 26/08/2026)
+
+Les six packs, chiffrés au jugé un par un, sont devenus **cinq parcours nommés
+par la situation du client** — pas par leur contenu. Un prospect ne se demande
+pas « quel pack contient un logo », il se demande « je pars de zéro » ou « j'ai
+déjà quelque chose qui ne marche plus ».
+
+| Parcours | Situation | Prix |
+|---|---|---|
+| Identité & réseaux | Activité lancée, pas encore d'image | 1 050 € |
+| **Lancement** | Part de zéro | **2 700 €** / 3 150 € (WordPress) |
+| Lancement e-commerce | Vend en ligne | 4 100 € |
+| Relance | A déjà tout, ça ne travaille plus | 2 250 € |
+| Délégation | Ne veut plus s'en occuper | 4 200 € / 5 650 € (e-commerce) |
+
+Deux packs quasi identiques (Présence Web et Web + Social Starter) ont été
+fusionnés dans Lancement : ils décrivaient le même client et se
+cannibalisaient.
+
+Le `highlight` visuel est passé de l'All-In-One — le plus cher — à Lancement.
+Mettre en avant l'offre la plus chère fait lire « pas pour moi » ; on met en
+avant celle que la majorité devrait acheter.
+
+**Règle de calcul, à respecter pour tout nouveau pack** : prix = somme des
+prestations incluses × (1 − remise), arrondi à 50 €, remise 15 % (20 % sur
+Délégation). Un pack ne descend jamais sous le prix de sa prestation la plus
+chère. Toute configuration qui change la base de calcul porte deux prix.
+
+### Récurrent : deux familles distinctes
+
+Le catalogue plafonnait à 900 €/mois de production de contenu, sans jamais
+inclure le site ni le pilotage. Une entreprise avec une équipe n'avait donc
+rien à acheter en récurrent.
+
+- **Forfaits CM** (200 à 900 €/mois) — volume de publications. Le client
+  compare au prix de la publication.
+- **Accompagnement mensuel** (`retainers`, 1 200 et 1 750 €/mois) — périmètre
+  de responsabilité incluant site, contenus, mesure et point stratégique.
+  Affiché **uniquement sur `/refonte-site-pme`** : sur une page destinée à un
+  indépendant, 1 750 €/mois ne qualifie pas, il fait fermer l'onglet.
+
+Conditions non négociables du récurrent : engagement 3 mois minimum, périmètre
+chiffré ligne par ligne (au-delà : 60 €/h), rapport mensuel systématique.
+
+> **À valider commercialement** : aucun client n'est aujourd'hui en récurrent
+> haut de gamme. Avant d'investir dans la promotion de ces deux niveaux, un
+> appel à SETIC Fluides et au Laboratoire Sanchez Randon — les deux profils les
+> plus proches — dira en vingt minutes si le produit trouve preneur.
+
 ---
 
 ## 4. Pages métier (le vrai manque SEO)
