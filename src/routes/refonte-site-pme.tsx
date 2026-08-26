@@ -58,7 +58,7 @@ export const Route = createFileRoute("/refonte-site-pme")({
         delay:
           "Mini-audit offert sous 72h. Audit complet en 1 semaine. Refonte : 4 à 8 semaines selon le périmètre.",
         pricing:
-          "Mini-audit offert, audit complet 500 € déduits du devis de refonte, refonte sur devis, maintenance à partir de 199 €/mois.",
+          "Mini-audit offert, audit complet 500 € déduits du devis de refonte, refonte à partir de 1 200 €, maintenance à partir de 199 €/mois. Tarifs HT.",
         process: [
           "Mini-audit offert : les 3 corrections les plus rentables sur votre site actuel",
           "Audit complet : ce qui doit changer, ce qui doit être préservé, le budget par lot",

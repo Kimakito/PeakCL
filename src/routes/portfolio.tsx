@@ -222,7 +222,7 @@ function CaseStudyModal({ p, onClose }: { p: DeckProject; onClose: () => void })
               </a>
             ) : null}
             <a
-              href="/reservation-appel"
+              href="/diagnostic"
               data-event="cta_brief_case"
               className="cta-anim inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow hover:scale-[1.02]"
             >
@@ -458,16 +458,16 @@ function PortfolioPage() {
           </div>
           <h2 className="text-3xl font-bold md:text-4xl">Votre métier mérite la même image.</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-            Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut et comment je peux m'en
-            charger.
+            Deux minutes, trois champs : je regarde votre présence en ligne et je vous renvoie les 3
+            actions prioritaires.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="/reservation-appel"
+              href="/diagnostic"
               data-event="cta_brief_portfolio_end"
               className="inline-flex items-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]"
             >
-              Faire le diagnostic <ArrowRight className="h-4 w-4" />
+              Recevoir mon mini-audit <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href={BOOKING_URL}

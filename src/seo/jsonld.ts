@@ -41,7 +41,7 @@ export function professionalServiceJsonLd(): JsonLd {
     url: absUrl("/"),
     logo: absUrl("/peakcl/PeakCL.svg"),
     image: absUrl("/peakcl/PeakCL.svg"),
-    email: "peakcl73@gmail.com",
+    email: "charlotte@peakcl.com",
     telephone: "+33743517627",
     priceRange: "€€",
     // Entreprise individuelle : la fondatrice EST l'unique intervenante. Le
@@ -209,6 +209,43 @@ export const DEFAULT_AREA_SERVED: JsonLd[] = [
 ];
 
 /**
+ * Traduit un prix affiché (« 2 000 € », « À partir de 2 500 € », « 99 €/mois »)
+ * en PriceSpecification.
+ *
+ * Renvoie `undefined` des que le montant n'est pas lisible — « Sur devis »,
+ * « Offert », « Pack de 20 contenus : 380 € ». Mieux vaut une offre sans prix
+ * balisé qu'un prix approximatif : Google comme Bing rappellent qu'une donnée
+ * structurée qui ne correspond pas au contenu visible peut être ignorée, voire
+ * traitée comme trompeuse.
+ *
+ * Un « à partir de » devient `minPrice` et non `price` : c'est exactement la
+ * distinction que fait Schema.org, et l'annoncer comme prix ferme exposerait a
+ * une reclamation client parfaitement fondee.
+ */
+function priceSpecification(raw?: string): JsonLd | undefined {
+  if (!raw) return undefined;
+  const text = raw.trim();
+  // Un montant precede d'autre chose que « a partir de » (« Pack de 20
+  // contenus : 380 € ») n'est pas le prix de l'offre elle-meme : on s'abstient.
+  const isFrom = /^(à partir de|a partir de)\s/i.test(text);
+  const rest = isFrom ? text.replace(/^(à partir de|a partir de)\s/i, "") : text;
+  const match = /^([\d\u202f\u00a0 ]+)\s*€(\s*(?:HT)?)?(\/(mois|month))?$/i.exec(rest);
+  if (!match) return undefined;
+  const amount = Number(match[1].replace(/[\s\u202f\u00a0]/g, ""));
+  if (!Number.isFinite(amount) || amount <= 0) return undefined;
+
+  const spec: JsonLd = {
+    "@type": "PriceSpecification",
+    priceCurrency: "EUR",
+    valueAddedTaxIncluded: false,
+  };
+  if (isFrom) spec.minPrice = amount;
+  else spec.price = amount;
+  if (match[3]) spec.description = "Tarif mensuel";
+  return spec;
+}
+
+/**
  * Schéma Service pour les pages prestation (sites web, logo, community management…).
  * `provider` pointe vers l'@id de la ProfessionalService pour lier les deux entités.
  */
@@ -221,18 +258,22 @@ export function serviceJsonLd(opts: {
   /** Clientèle visée — doit reprendre le « Pour qui » affiché sur la page. */
   audience?: string;
   /**
-   * Offres du catalogue, telles qu'affichées. Les montants ne sont PAS repris :
-   * les pages affichent « Sur devis » (showPrices=false), et un prix présent
-   * dans le balisage mais absent de la page est une incohérence entre données
-   * structurées et contenu visible.
+   * Offres du catalogue, telles qu'affichées.
    *
-   * Les délais ne sont pas repris non plus. Schema.org n'a pas de propriété
-   * juste pour « 3 à 5 semaines » sur un Service : `serviceOutput` décrit ce
-   * que la prestation produit, pas son délai, et le détourner reviendrait à
-   * publier une donnée structurée fausse. Le délai reste sur la page, où il
-   * est lisible.
+   * Le montant EST repris depuis que les pages affichent leurs tarifs
+   * (`showPrices`). La règle reste la même dans les deux sens : ce qui est
+   * balisé doit correspondre exactement à ce que le visiteur lit. Un prix
+   * absent de la page ne doit jamais apparaître ici — et un `price` non
+   * parsable (« sur devis », « Offert ») est simplement ignoré plutôt que
+   * transformé en chiffre inventé.
+   *
+   * Les délais ne sont pas repris. Schema.org n'a pas de propriété juste pour
+   * « 3 à 5 semaines » sur un Service : `serviceOutput` décrit ce que la
+   * prestation produit, pas son délai, et le détourner reviendrait à publier
+   * une donnée structurée fausse. Le délai reste sur la page, où il est
+   * lisible.
    */
-  offers?: Array<{ title: string; desc: string }>;
+  offers?: Array<{ title: string; desc: string; price?: string }>;
 }): JsonLd {
   const node: JsonLd = {
     "@context": "https://schema.org",
@@ -256,14 +297,19 @@ export function serviceJsonLd(opts: {
     node.hasOfferCatalog = {
       "@type": "OfferCatalog",
       name: opts.name,
-      itemListElement: opts.offers.map((o) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: o.title,
-          description: o.desc,
-        },
-      })),
+      itemListElement: opts.offers.map((o) => {
+        const offer: JsonLd = {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: o.title,
+            description: o.desc,
+          },
+        };
+        const spec = priceSpecification(o.price);
+        if (spec) offer.priceSpecification = spec;
+        return offer;
+      }),
     };
   }
 
@@ -305,7 +351,7 @@ export function localBusinessJsonLd(opts: {
     description: opts.description,
     url: absUrl(opts.path),
     image: absUrl("/peakcl/PeakCL.svg"),
-    email: "peakcl73@gmail.com",
+    email: "charlotte@peakcl.com",
     telephone: "+33743517627",
     priceRange: "€€",
     parentOrganization: { "@id": absUrl("/#business") },

@@ -9,11 +9,11 @@ import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 export const Route = createFileRoute("/diagnostic")({
   head: () => ({
     meta: [
-      { title: "Diagnostic · PeakCL" },
+      { title: "Mini-audit gratuit de votre présence en ligne · PeakCL" },
       {
         name: "description",
         content:
-          "Questionnaire diagnostic (3 à 5 minutes) pour clarifier votre présence en ligne, vos objectifs et vos priorités.",
+          "Deux minutes, cinq champs : je regarde votre site, votre visibilité Google et vos réseaux, et je vous renvoie les 3 corrections prioritaires.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/diagnostic") },
@@ -38,6 +38,7 @@ function TextInput({
   placeholder,
   value,
   onChange,
+  type = "text",
 }: {
   label: string;
   name: string;
@@ -45,12 +46,16 @@ function TextInput({
   placeholder?: string;
   value: string;
   onChange: (v: string) => void;
+  /** `email` active la validation native du navigateur — un e-mail mal saisi
+   *  est un lead definitivement injoignable, autant le bloquer a la source. */
+  type?: "text" | "email" | "tel" | "url";
 }) {
   return (
     <label className="block">
       <FieldLabel label={label} required={required} />
       <input
         name={name}
+        type={type}
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -274,6 +279,10 @@ function DiagnosticPage() {
   );
 
   const [prenomNom, setPrenomNom] = useState("");
+  const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
+  const [activite, setActivite] = useState("");
+  const [ville, setVille] = useState("");
   const [instagram, setInstagram] = useState("");
   const [telephone, setTelephone] = useState("");
   const [caActuel, setCaActuel] = useState("");
@@ -291,7 +300,7 @@ function DiagnosticPage() {
     e.preventDefault();
     const form = e.currentTarget;
     setIsSubmitting(true);
-    stashCalendlyPrefill({ name: prenomNom });
+    stashCalendlyPrefill({ name: prenomNom, email });
 
     try {
       await submitNetlifyForm(form);
@@ -317,7 +326,7 @@ function DiagnosticPage() {
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
             <CheckCircle2 className="h-4 w-4 text-[var(--brand-turquoise)]" />
-            Diagnostic · 3 à 5 minutes
+            Mini-audit gratuit · 2 minutes
           </div>
           <div className="mt-6 flex justify-center">
             <ExpressionPhoto
@@ -328,11 +337,13 @@ function DiagnosticPage() {
             />
           </div>
           <h1 className="mx-auto mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">
-            Questionnaire <span className="text-gradient">diagnostic</span>
+            Votre mini-audit de <span className="text-gradient">visibilité en ligne</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            L’objectif: comprendre votre situation, votre priorité n°1 et ce qui bloquerait
-            aujourd’hui votre passage au niveau supérieur.
+            Dites-moi votre activité et l’adresse de votre site. Je regarde votre visibilité Google,
+            votre site, votre parcours client et vos réseaux, et je vous renvoie les
+            <span className="font-semibold text-foreground"> 3 actions prioritaires</span> pour
+            attirer plus de clients. Sans engagement, et sans appel obligatoire.
           </p>
         </div>
       </section>
@@ -350,6 +361,10 @@ function DiagnosticPage() {
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="diagnostic" />
+            {/* Sans `leadType` ni `source`, un lead arrive dans HubSpot sans
+                origine : impossible ensuite de dire quel canal l'a produit. */}
+            <input type="hidden" name="leadType" value="mini_audit" />
+            <input type="hidden" name="source" value="site_peakcl" />
             <p className="hidden">
               <label>
                 Don’t fill this out: <input name="bot-field" />
@@ -367,134 +382,177 @@ function DiagnosticPage() {
               />
               <div className="grid gap-5">
                 <TextInput
-                  label="Quels sont vos prénom et nom ?"
+                  label="Votre prénom et nom"
                   name="prenom_nom"
                   required
                   value={prenomNom}
                   onChange={setPrenomNom}
                   placeholder="Ex: Charlotte Lacroix"
                 />
+                {/* L'e-mail est le seul champ vraiment indispensable : c'est la
+                    cle de deduplication HubSpot, et sans lui l'edge function
+                    ignore purement et simplement la soumission. */}
                 <TextInput
-                  label="Quel est votre compte instagram ?"
-                  name="instagram"
+                  label="Votre e-mail"
+                  name="email"
+                  type="email"
                   required
-                  value={instagram}
-                  onChange={setInstagram}
-                  placeholder="Ex: @peakcl"
+                  value={email}
+                  onChange={setEmail}
+                  placeholder="vous@exemple.com"
                 />
                 <TextInput
-                  label="Quel est votre numéro de téléphone ?"
-                  name="telephone"
+                  label="Votre activité"
+                  name="activite"
                   required
-                  value={telephone}
-                  onChange={setTelephone}
-                  placeholder="Ex: 06 12 34 56 78"
+                  value={activite}
+                  onChange={setActivite}
+                  placeholder="Ex: thérapeute, artisan menuisier, coach sportif…"
+                />
+                <TextInput
+                  label="L'adresse de votre site (si vous en avez un)"
+                  name="website"
+                  value={website}
+                  onChange={setWebsite}
+                  placeholder="Ex: monsite.fr — laissez vide si vous n'en avez pas"
+                />
+                <TextInput
+                  label="Votre ville"
+                  name="ville"
+                  value={ville}
+                  onChange={setVille}
+                  placeholder="Ex: Albertville"
                 />
               </div>
             </div>
 
-            <ChoiceSingle
-              label="Quel est votre chiffre d'affaires actuel ?"
-              name="ca_actuel"
-              required
-              options={caOptions}
-              value={caActuel}
-              onChange={setCaActuel}
-            />
+            {/* Bloc de qualification, desormais FACULTATIF.
+                Il etait integralement obligatoire : un visiteur froid venu de
+                Google devait annoncer son chiffre d'affaires et s'engager a
+                honorer un rendez-vous avant d'avoir obtenu quoi que ce soit.
+                C'est un formulaire de closing pose a l'entree du tunnel. Les
+                questions restent — elles qualifient bien — mais ne bloquent
+                plus l'envoi : qui veut repondre repond, les autres deviennent
+                quand meme un lead. */}
+            <details className="group rounded-3xl border border-border bg-card/20 p-6 shadow-card">
+              <summary className="cursor-pointer list-none text-sm font-semibold text-foreground">
+                <span className="text-[var(--brand-turquoise)]">+</span> Aller plus loin
+                (facultatif) — plus vous m'en dites, plus l'audit est précis
+              </summary>
+              <div className="mt-6 space-y-6">
+                <div className="grid gap-5">
+                  <TextInput
+                    label="Votre numéro de téléphone"
+                    name="telephone"
+                    type="tel"
+                    value={telephone}
+                    onChange={setTelephone}
+                    placeholder="Ex: 06 12 34 56 78"
+                  />
+                  <TextInput
+                    label="Votre compte Instagram"
+                    name="instagram"
+                    value={instagram}
+                    onChange={setInstagram}
+                    placeholder="Ex: @peakcl"
+                  />
+                </div>
+                <ChoiceSingle
+                  label="Quel est votre chiffre d'affaires actuel ?"
+                  name="ca_actuel"
+                  options={caOptions}
+                  value={caActuel}
+                  onChange={setCaActuel}
+                />
 
-            <ChoiceSingle
-              label="Quel est votre objectif pour les prochains mois ?"
-              name="objectif_prochains_mois"
-              required
-              options={objectifOptions}
-              value={objectif}
-              onChange={setObjectif}
-            />
+                <ChoiceSingle
+                  label="Quel est votre objectif pour les prochains mois ?"
+                  name="objectif_prochains_mois"
+                  options={objectifOptions}
+                  value={objectif}
+                  onChange={setObjectif}
+                />
 
-            <ChoiceMulti
-              label="Quelle est votre problématique ? (Plusieurs réponses possibles)"
-              name="problematique"
-              required
-              options={problematiqueOptions}
-              value={problematique}
-              onChange={setProblematique}
-            />
+                <ChoiceMulti
+                  label="Quelle est votre problématique ? (Plusieurs réponses possibles)"
+                  name="problematique"
+                  options={problematiqueOptions}
+                  value={problematique}
+                  onChange={setProblematique}
+                />
 
-            <Scale10
-              label="À quel point est-ce important pour vous de régler cette problématique et d'atteindre vos objectifs ?"
-              name="importance_regler_problematique"
-              required
-              value={importanceProbleme}
-              onChange={setImportanceProbleme}
-            />
+                <Scale10
+                  label="À quel point est-ce important pour vous de régler cette problématique et d'atteindre vos objectifs ?"
+                  name="importance_regler_problematique"
+                  value={importanceProbleme}
+                  onChange={setImportanceProbleme}
+                />
 
-            <label className="relative block rounded-2xl border border-border bg-card/30 p-5">
-              <GlowingEffect
-                spread={40}
-                glow
-                disabled={false}
-                proximity={64}
-                inactiveZone={0.01}
-                borderWidth={3}
-              />
-              <FieldLabel label="Classez (par ordre) vos priorités du moment." required />
-              <div className="mt-2 text-xs text-muted-foreground">
-                Ex: (1) plus de leads · (2) crédibilité · (3) gagner du temps · (4) visuels/branding
+                <label className="relative block rounded-2xl border border-border bg-card/30 p-5">
+                  <GlowingEffect
+                    spread={40}
+                    glow
+                    disabled={false}
+                    proximity={64}
+                    inactiveZone={0.01}
+                    borderWidth={3}
+                  />
+                  <FieldLabel label="Classez (par ordre) vos priorités du moment." />
+                  <div className="mt-2 text-xs text-muted-foreground">
+                    Ex: (1) plus de leads · (2) crédibilité · (3) gagner du temps · (4)
+                    visuels/branding
+                  </div>
+                  <textarea
+                    name="ranking_priorites"
+                    value={ranking}
+                    onChange={(e) => setRanking(e.target.value)}
+                    rows={4}
+                    className="mt-3 w-full rounded-md border border-border bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-border"
+                    placeholder="Écris simplement une liste numérotée."
+                  />
+                </label>
+
+                <ChoiceSingle
+                  label="Est-ce que vous pensez honnêtement être capable de régler cette problématique par vous-même ?"
+                  name="capable_par_soi_meme"
+                  options={[
+                    { value: "oui", label: "Oui" },
+                    { value: "non", label: "Non" },
+                  ]}
+                  value={capableSeul}
+                  onChange={setCapableSeul}
+                />
+
+                <Scale10
+                  label="À quel point c'est important pour vous d'améliorer votre présence en ligne aujourd'hui ?"
+                  name="importance_presence_en_ligne"
+                  value={importancePresence}
+                  onChange={setImportancePresence}
+                />
+
+                <ChoiceSingle
+                  label="Si vous aviez une solution claire pour améliorer votre présence en ligne, seriez-vous ouvert(e) à vous faire accompagner ?"
+                  name="ouvert_accompagnement"
+                  options={[
+                    { value: "oui", label: "Oui" },
+                    { value: "non", label: "Non" },
+                  ]}
+                  value={ouvertAccompagnement}
+                  onChange={setOuvertAccompagnement}
+                />
+
+                <ChoiceSingle
+                  label="Est-ce que vous pouvez vous engager à être présent(e) et à prévenir en cas d'empêchement ?"
+                  name="engagement_presence"
+                  options={[
+                    { value: "oui", label: "Oui, je m'engage" },
+                    { value: "non", label: "Non" },
+                  ]}
+                  value={engagement}
+                  onChange={setEngagement}
+                />
               </div>
-              <textarea
-                name="ranking_priorites"
-                required
-                value={ranking}
-                onChange={(e) => setRanking(e.target.value)}
-                rows={4}
-                className="mt-3 w-full rounded-md border border-border bg-background/50 px-4 py-3 text-sm text-foreground outline-none ring-0 focus:border-border"
-                placeholder="Écris simplement une liste numérotée."
-              />
-            </label>
-
-            <ChoiceSingle
-              label="Est-ce que vous pensez honnêtement être capable de régler cette problématique par vous-même ?"
-              name="capable_par_soi_meme"
-              required
-              options={[
-                { value: "oui", label: "Oui" },
-                { value: "non", label: "Non" },
-              ]}
-              value={capableSeul}
-              onChange={setCapableSeul}
-            />
-
-            <Scale10
-              label="À quel point c'est important pour vous d'améliorer votre présence en ligne aujourd'hui ?"
-              name="importance_presence_en_ligne"
-              required
-              value={importancePresence}
-              onChange={setImportancePresence}
-            />
-
-            <ChoiceSingle
-              label="Si vous aviez une solution claire pour améliorer votre présence en ligne, seriez-vous ouvert(e) à vous faire accompagner ?"
-              name="ouvert_accompagnement"
-              required
-              options={[
-                { value: "oui", label: "Oui" },
-                { value: "non", label: "Non" },
-              ]}
-              value={ouvertAccompagnement}
-              onChange={setOuvertAccompagnement}
-            />
-
-            <ChoiceSingle
-              label="Est-ce que vous pouvez vous engager à être présent(e) et à prévenir en cas d'empêchement ?"
-              name="engagement_presence"
-              required
-              options={[
-                { value: "oui", label: "Oui, je m'engage" },
-                { value: "non", label: "Non" },
-              ]}
-              value={engagement}
-              onChange={setEngagement}
-            />
+            </details>
 
             <div className="relative flex flex-col items-stretch justify-between gap-3 rounded-3xl border border-border bg-card/20 p-6 shadow-card sm:flex-row sm:items-center">
               <GlowingEffect
@@ -507,14 +565,15 @@ function DiagnosticPage() {
               />
               <div className="text-sm text-muted-foreground">
                 Champs obligatoires marqués d’une{" "}
-                <span className="text-[var(--brand-turquoise)]">⭐</span>
+                <span className="text-[var(--brand-turquoise)]">⭐</span> — les autres sont
+                facultatifs.
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-7 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02] disabled:opacity-60"
               >
-                {isSubmitting ? "Envoi en cours…" : "Envoyer et réserver mon créneau"}
+                {isSubmitting ? "Envoi en cours…" : "Recevoir mon mini-audit"}
                 <ArrowRight className="h-4 w-4" />
               </button>
             </div>

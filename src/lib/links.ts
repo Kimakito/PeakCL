@@ -39,7 +39,7 @@ export function bookingProvider(url: string = BOOKING_URL): "hubspot" | "calendl
 }
 
 export const CONTACT = {
-  email: "peakcl73@gmail.com",
+  email: "charlotte@peakcl.com",
   phoneTel: "tel:+33743517627",
   phoneDisplay: "07 43 51 76 27",
   /** @deprecated Utiliser BOOKING_URL. Conserve pour compatibilite. */

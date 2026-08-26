@@ -71,9 +71,9 @@ function orbitItems(locale: Locale): OrbitItem[] {
   }
   return [
     {
-      label: "Réserver un appel",
-      href: "/reservation-appel",
-      desc: "Diagnostic offert, 45 min. Repartez sur un plan clair.",
+      label: "Mini-audit gratuit",
+      href: "/diagnostic",
+      desc: "Mini-audit offert, 2 minutes. Vos 3 priorités par e-mail.",
       icon: CalendarCheck,
       pose: "victoire",
       variant: "primary",

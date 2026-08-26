@@ -1,9 +1,10 @@
 import { Instagram, Facebook, Linkedin, MessageCircle, Mail, Phone } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
-import { SOCIAL, FREELANCE, CONTACT } from "@/lib/links";
+import { SOCIAL, CONTACT } from "@/lib/links";
 import { resetConsent } from "@/lib/consent";
 import { localeFromPath, type Locale } from "@/i18n/config";
 import { geoPagesFor } from "@/seo/geo";
+import { metierPages } from "@/seo/metiers";
 import { ui } from "@/i18n/ui";
 
 const SOCIALS = [
@@ -51,10 +52,17 @@ const VILLES_CM = geoPagesFor("community").map((p) => ({
   label: p.city === "Savoie" ? "Community manager en Savoie" : `Community manager ${p.city}`,
 }));
 
+/**
+ * Pages metier : FR uniquement, comme les pages villes. Listees au footer pour
+ * la meme raison qu'elles — sans lien interne, une page reste orpheline et
+ * Google la classe « Exploree, actuellement non indexee ».
+ */
+const METIERS = metierPages.map((m) => ({ href: `/${m.slug}`, label: m.label }));
+
 const PAGES: Record<Locale, FooterLink[]> = {
   fr: [
     { href: "/portfolio", label: "Portfolio" },
-    { href: "/diagnostic", label: "Diagnostic gratuit" },
+    { href: "/diagnostic", label: "Mini-audit gratuit" },
     { href: "/qui-suis-je", label: "Qui suis-je" },
     { href: "/conseils", label: "Conseils" },
     { href: "/contact", label: "Contact" },
@@ -89,12 +97,12 @@ export function SiteFooter() {
           </ul>
         </nav>
 
-        {/* Bloc villes : SEO local FR seulement, masqué en anglais. */}
+        {/* Bloc villes et métiers : SEO FR seulement, masqué en anglais. */}
         {locale === "fr" ? (
           <nav aria-label={t.areas}>
             <h2 className="text-sm font-semibold text-foreground">{t.areas}</h2>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              {[...VILLES, ...VILLES_CM].map((l) => (
+              {[...VILLES, ...VILLES_CM, ...METIERS].map((l) => (
                 <li key={l.href}>
                   <a href={l.href} className="hover:text-foreground">
                     {l.label}
@@ -175,31 +183,6 @@ export function SiteFooter() {
           <button type="button" onClick={() => resetConsent()} className="hover:text-foreground">
             {locale === "en" ? "Manage cookies" : "Gérer mes cookies"}
           </button>
-          <span>{t.alsoOn}&nbsp;</span>
-          <a
-            href={FREELANCE.malt}
-            target="_blank"
-            rel="noopener noreferrer nofollow sponsored"
-            className="hover:text-foreground"
-          >
-            Malt
-          </a>
-          <a
-            href={FREELANCE.fiverr}
-            target="_blank"
-            rel="noopener noreferrer nofollow sponsored"
-            className="hover:text-foreground"
-          >
-            Fiverr
-          </a>
-          <a
-            href={FREELANCE.comeup}
-            target="_blank"
-            rel="noopener noreferrer nofollow sponsored"
-            className="hover:text-foreground"
-          >
-            ComeUp
-          </a>
         </div>
       </div>
     </footer>

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/design")({
       {
         name: "description",
         content:
-          "Logo, charte graphique, supports print et visuels réseaux sociaux : une marque cohérente et mémorable. Sur devis.",
+          "Logo, charte graphique, supports print et visuels réseaux sociaux : une marque cohérente et mémorable. Identité complète à partir de 500 € HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/design") },
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/design")({
             "Indépendants, thérapeutes, artisans et petites structures qui créent leur marque ou modernisent une image datée.",
           // Reprend le catalogue reellement affiche sur la page : les donnees
           // structurees decrivent ce que le visiteur voit, pas une offre ideale.
-          offers: design.map((o) => ({ title: o.title, desc: o.desc })),
+          offers: design.map((o) => ({ title: o.title, desc: o.desc, price: o.price })),
         }),
       },
       {
@@ -43,6 +43,7 @@ export const Route = createFileRoute("/design")({
   }),
   component: () => (
     <ServicePage
+      showPrices
       avatarCard="logos"
       eyebrow="Design graphique"
       title="Design graphique"
@@ -53,7 +54,8 @@ export const Route = createFileRoute("/design")({
         area: "Savoie et Haute-Savoie sur place, partout en France à distance.",
         delay:
           "1 à 2 semaines pour un logo et sa charte, 3 à 5 jours pour des supports print ou des visuels réseaux, 48h pour une bannière seule.",
-        pricing: "Sur devis, tarif dégressif dès 3 supports. Audit gratuit avant devis.",
+        pricing:
+          "Identité visuelle complète à partir de 500 €, supports print à partir de 80 € l'unité (dégressif dès 3 supports), pack de 10 visuels réseaux à partir de 200 €. Tarifs HT. Mini-audit gratuit avant devis.",
         process: [
           "Échange sur l'activité, les valeurs et les préférences visuelles",
           "Moodboard et pistes de direction artistique",

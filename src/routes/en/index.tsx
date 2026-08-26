@@ -68,7 +68,7 @@ export const Route = createFileRoute("/en/")({
 const WHATSAPP_URL = "https://wa.me/33743517627";
 const PHONE_TEL = "tel:+33743517627";
 const PHONE_DISPLAY = "+33 7 43 51 76 27";
-const EMAIL = "peakcl73@gmail.com";
+const EMAIL = "charlotte@peakcl.com";
 const LINKEDIN_URL = "https://www.linkedin.com/in/charlotte-lacroix-peakcl/";
 const MALT_URL = "https://www.malt.fr/profile/peakcldev";
 const FIVERR_URL = "https://fr.fiverr.com/s/99W6WYa";
@@ -616,7 +616,7 @@ function ContactPanel() {
       await submitNetlifyForm(form);
       window.location.href = "/merci";
     } catch {
-      alert("Something went wrong. Email me directly at peakcl73@gmail.com.");
+      alert("Something went wrong. Email me directly at charlotte@peakcl.com.");
     } finally {
       setIsSubmitting(false);
     }

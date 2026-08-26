@@ -79,8 +79,8 @@ function crawlCopy(locale: Locale): CrawlCopy {
     episode: "Épisode I",
     title: "Une seule interlocutrice",
     endText: "Une seule interlocutrice pour votre site, votre logo et vos réseaux.",
-    ctaLabel: "Faire le diagnostic",
-    ctaHref: "/reservation-appel",
+    ctaLabel: "Recevoir mon mini-audit",
+    ctaHref: "/diagnostic",
     readAsText: "Lire en texte",
     replay: "Revoir le générique",
   };

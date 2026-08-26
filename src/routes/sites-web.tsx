@@ -12,7 +12,7 @@ export const Route = createFileRoute("/sites-web")({
       {
         name: "description",
         content:
-          "Sites vitrines, e-commerce et refontes : des sites web custom, rapides et optimisés SEO, avec un accompagnement de bout en bout. Sur devis.",
+          "Sites vitrines, e-commerce et refontes : des sites web sur mesure, rapides et optimisés SEO, à partir de 2 000 € HT. Mini-audit gratuit avant devis.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/sites-web") },
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/sites-web")({
             "Indépendants, thérapeutes, artisans, commerces et TPE, en création comme en refonte.",
           // Reprend le catalogue reellement affiche sur la page : les donnees
           // structurees decrivent ce que le visiteur voit, pas une offre ideale.
-          offers: sitesWeb.map((o) => ({ title: o.title, desc: o.desc })),
+          offers: sitesWeb.map((o) => ({ title: o.title, desc: o.desc, price: o.price })),
         }),
       },
       {
@@ -42,6 +42,7 @@ export const Route = createFileRoute("/sites-web")({
   }),
   component: () => (
     <ServicePage
+      showPrices
       heroImage={{
         src: "/peakcl/assets/images/bureau-peakcl.webp",
         alt: "Bureau PeakCL avec un site web affiché à l’écran",
@@ -56,7 +57,7 @@ export const Route = createFileRoute("/sites-web")({
         delay:
           "3 à 5 semaines pour un site vitrine, 4 à 7 semaines pour une boutique en ligne, 1 à 2 semaines pour une landing page.",
         pricing:
-          "Sur devis, envoyé sous 48h ouvrées après l'appel de cadrage. L'audit préalable est gratuit.",
+          "Site vitrine sur mesure 2 000 €, WordPress à partir de 2 500 €, e-commerce à partir de 3 800 €, refonte à partir de 1 200 €, landing page à partir de 800 €. Tarifs HT, devis précis sous 48h ouvrées après l'appel de cadrage. Le mini-audit préalable est gratuit.",
         process: [
           "Appel de diagnostic gratuit pour comprendre l'activité et l'objectif",
           "Devis précis et planning sous 48h ouvrées",

@@ -33,7 +33,6 @@ type UIStrings = {
     areas: string;
     studio: string;
     contact: string;
-    alsoOn: string;
   };
   servicePage: {
     onQuote: string;
@@ -96,7 +95,6 @@ const UI: Record<Locale, UIStrings> = {
       areas: "Zones desservies",
       studio: "Le studio",
       contact: "Contact",
-      alsoOn: "Aussi sur :",
     },
     servicePage: {
       onQuote: "Sur devis",
@@ -156,7 +154,6 @@ const UI: Record<Locale, UIStrings> = {
       areas: "Where I work",
       studio: "The studio",
       contact: "Contact",
-      alsoOn: "Also on:",
     },
     servicePage: {
       onQuote: "On request",

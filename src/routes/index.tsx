@@ -66,7 +66,7 @@ export const Route = createFileRoute("/")({
 const WHATSAPP_URL = "https://wa.me/33743517627";
 const PHONE_TEL = "tel:+33743517627";
 const PHONE_DISPLAY = "07 43 51 76 27";
-const EMAIL = "peakcl73@gmail.com";
+const EMAIL = "charlotte@peakcl.com";
 const LINKEDIN_URL = "https://www.linkedin.com/in/charlotte-lacroix-peakcl/";
 const MALT_URL = "https://www.malt.fr/profile/peakcldev";
 const FIVERR_URL = "https://fr.fiverr.com/s/99W6WYa";
@@ -168,8 +168,8 @@ function ProblemPanel() {
               direction claire, un bon rythme et quelqu’un qui vous aide à avancer.
             </p>
             <div className="mt-6">
-              <CTAButton href="/reservation-appel" dataEvent="cta_brief_problem">
-                Faire le diagnostic
+              <CTAButton href="/diagnostic" dataEvent="cta_mini_audit_problem">
+                Recevoir mon mini-audit
               </CTAButton>
             </div>
           </div>
@@ -286,8 +286,8 @@ function MethodPanel() {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <CTAButton href="/reservation-appel" dataEvent="cta_brief_method">
-            Obtenir un plan clair
+          <CTAButton href="/diagnostic" dataEvent="cta_mini_audit_method">
+            Obtenir mes 3 priorités
           </CTAButton>
         </div>
       </div>
@@ -301,7 +301,7 @@ const offers = [
   {
     eyebrow: "Le plus simple",
     title: "Pack présence en ligne",
-    price: "Sur devis",
+    price: "À partir de 2 200 € HT",
     highlight: true,
     points: [
       "Site clair + image cohérente",
@@ -313,7 +313,7 @@ const offers = [
   {
     eyebrow: "Pour un site rapide",
     title: "Site vitrine",
-    price: "Sur devis",
+    price: "À partir de 2 000 € HT",
     points: [
       "Structure pensée pour convertir",
       "Design sobre et mobile-friendly",
@@ -324,7 +324,7 @@ const offers = [
   {
     eyebrow: "Si vous avez déjà un socle",
     title: "Refonte / amélioration",
-    price: "Sur devis",
+    price: "À partir de 1 200 € HT",
     points: [
       "Clarification du message et du parcours",
       "Visuels et textes repensés",
@@ -382,8 +382,8 @@ function OffersPanel() {
           ))}
         </div>
         <div className="mt-6 text-center flex justify-center gap-3">
-          <CTAButton href="/reservation-appel" dataEvent="cta_brief_offers">
-            Faire le diagnostic
+          <CTAButton href="/diagnostic" dataEvent="cta_mini_audit_offers">
+            Recevoir mon mini-audit
           </CTAButton>
           <CTAButton href="/services" variant="ghost" dataEvent="cta_services_detail">
             Voir les services
@@ -600,7 +600,7 @@ function ContactPanel() {
       await submitNetlifyForm(form);
       window.location.href = "/merci";
     } catch {
-      alert("L'envoi a échoué. Écrivez-moi directement à peakcl73@gmail.com.");
+      alert("L'envoi a échoué. Écrivez-moi directement à charlotte@peakcl.com.");
     } finally {
       setIsSubmitting(false);
     }
@@ -624,8 +624,8 @@ function ContactPanel() {
           Prêt à déléguer votre présence en ligne ?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-          Décrivez votre activité en 8 minutes : je vous dis ce qui vous manque le plus et comment
-          je peux vous aider à avancer.
+          Deux minutes, trois champs : je regarde votre visibilité Google, votre site et vos
+          réseaux, et je vous renvoie les 3 actions prioritaires pour attirer plus de clients.
         </p>
         <div className="mt-6 flex items-center justify-center gap-3">
           <img
@@ -643,8 +643,8 @@ function ContactPanel() {
           </p>
         </div>
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <CTAButton href="/reservation-appel" dataEvent="cta_brief_final">
-            Faire le diagnostic
+          <CTAButton href="/diagnostic" dataEvent="cta_mini_audit_final">
+            Recevoir mon mini-audit
           </CTAButton>
           <CTAButton href={BOOKING_URL} dataEvent="cta_calendly_final" variant="ghost">
             Réserver un appel
@@ -669,7 +669,7 @@ function ContactPanel() {
             borderWidth={3}
           />
           <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="leadType" value="contact" />
+          <input type="hidden" name="leadType" value="mini_audit_home" />
           <input type="hidden" name="source" value="site_peakcl" />
           <p className="hidden">
             <label>
@@ -697,23 +697,39 @@ function ContactPanel() {
               />
             </label>
           </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {/* L'adresse du site est LE champ qui rend le mini-audit possible :
+                sans elle il n'y a rien a regarder, et la promesse tombe. */}
+            <label className="block">
+              <span className="text-xs font-semibold text-muted-foreground">
+                Votre site (ou Instagram)
+              </span>
+              <input
+                name="website"
+                className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
+                placeholder="monsite.fr — ou @moncompte"
+              />
+            </label>
+            <label className="block">
+              <span className="text-xs font-semibold text-muted-foreground">Téléphone</span>
+              <input
+                name="telephone"
+                type="tel"
+                className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
+                placeholder="06 12 34 56 78"
+              />
+            </label>
+          </div>
           <label className="block">
-            <span className="text-xs font-semibold text-muted-foreground">Téléphone</span>
-            <input
-              name="telephone"
-              type="tel"
-              className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
-              placeholder="06 12 34 56 78"
-            />
-          </label>
-          <label className="block">
-            <span className="text-xs font-semibold text-muted-foreground">Message</span>
+            <span className="text-xs font-semibold text-muted-foreground">
+              Votre activité et votre objectif
+            </span>
             <textarea
               name="message"
               required
-              rows={4}
+              rows={3}
               className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
-              placeholder="Votre activité, votre ville, votre objectif..."
+              placeholder="Ex : thérapeute à Chambéry, je veux plus de demandes de RDV."
             />
           </label>
           <div className="flex items-center justify-center gap-3">
@@ -723,7 +739,7 @@ function ContactPanel() {
               data-event="audit_submit_click"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:scale-[1.03] disabled:opacity-60"
             >
-              {isSubmitting ? "Envoi…" : "Recevoir mon plan"}
+              {isSubmitting ? "Envoi…" : "Recevoir mes 3 priorités"}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>

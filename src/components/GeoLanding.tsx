@@ -1,8 +1,18 @@
 import type { ReactNode } from "react";
-import { ArrowRight, Check, Gift, Globe, MapPin, Megaphone, Palette } from "lucide-react";
+import {
+  ArrowRight,
+  Briefcase,
+  Check,
+  Gift,
+  Globe,
+  MapPin,
+  Megaphone,
+  Palette,
+} from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { BOOKING_URL } from "@/lib/links";
+import { metierPages } from "@/seo/metiers";
 
 export type NearbyLink = { name: string; href: string };
 
@@ -153,12 +163,15 @@ export function GeoLanding({
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{intro}</p>
           <a
-            href="/#contact"
+            href="/diagnostic"
+            data-event="cta_mini_audit_geo_hero"
             className="mx-auto mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
           >
-            Demander mon audit gratuit <ArrowRight className="h-4 w-4" />
+            Recevoir mon mini-audit <ArrowRight className="h-4 w-4" />
           </a>
-          <p className="mt-3 text-xs text-muted-foreground">Réponse sous 24h · Sans engagement</p>
+          <p className="mt-3 text-xs text-muted-foreground">
+            2 minutes · gratuit · sans engagement
+          </p>
         </div>
       </section>
 
@@ -356,6 +369,24 @@ export function GeoLanding({
               Qui suis-je ?
             </a>
           </div>
+
+          <h2 className="mt-10 text-xl font-bold">Votre métier, en particulier</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Ce que je fais change selon l'activité. Voici les pages détaillées, avec de vrais
+            clients de chaque métier.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {metierPages.map((m) => (
+              <a
+                key={m.slug}
+                href={`/${m.slug}`}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-border hover:text-foreground"
+              >
+                <Briefcase className="h-3 w-3" />
+                {m.label}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -373,15 +404,15 @@ export function GeoLanding({
           </div>
           <h2 className="text-3xl font-bold md:text-4xl">Votre projet à {city}, on en parle ?</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Décrivez votre activité en 8 minutes : je vous renvoie un audit gratuit et des
-            recommandations concrètes.
+            Deux minutes, trois champs : je regarde votre visibilité locale sur Google, votre site
+            et vos réseaux, et je vous renvoie les 3 actions prioritaires.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="/reservation-appel"
+              href="/diagnostic"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
             >
-              Faire le diagnostic <ArrowRight className="h-4 w-4" />
+              Recevoir mon mini-audit <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href={BOOKING_URL}

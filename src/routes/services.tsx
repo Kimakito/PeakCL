@@ -18,7 +18,7 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Un seul interlocuteur pour votre communication : sites web, community management, design graphique et accompagnement à l’automatisation de vos processus. Sur devis.",
+          "Un seul interlocuteur pour votre communication : sites web (à partir de 2 000 €), community management (à partir de 200 €/mois), design graphique et automatisation. Tarifs affichés.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/services") },
@@ -50,7 +50,7 @@ function ServicesHub() {
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
               Site, réseaux, image et automatisation : choisissez ce dont vous avez besoin, ou
-              déléguez tout de A à Z. Tarifs sur devis selon votre besoin.
+              déléguez tout de A à Z. Tarifs affichés, HT, ajustés à votre cahier des charges.
             </p>
             <div className="mt-10 flex justify-center">
               <SectionAvatarCard slug="offres" imgClassName="w-full max-w-[230px]" />
@@ -98,7 +98,7 @@ function ServicesHub() {
               </h2>
               <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
                 Quand plusieurs besoins vont ensemble, un pack revient moins cher que les
-                prestations séparées. Tous sur devis selon votre cahier des charges.
+                prestations séparées. Tarifs HT indicatifs, ajustés à votre cahier des charges.
               </p>
             </div>
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -121,6 +121,11 @@ function ServicesHub() {
                     />
                     <div className="text-2xl">{pk.emoji}</div>
                     <h3 className="mt-3 text-lg font-semibold">{pk.name}</h3>
+                    {pk.price ? (
+                      <p className="mt-1 text-sm font-bold text-[var(--brand-turquoise)]">
+                        {pk.price}
+                      </p>
+                    ) : null}
                     <p className="mt-1 text-sm text-muted-foreground">{pk.tagline}</p>
                     <ul className="mt-4 flex-1 space-y-2 text-sm text-muted-foreground">
                       {pk.points.map((x) => (
@@ -136,8 +141,8 @@ function ServicesHub() {
                       </div>
                     ) : null}
                     <a
-                      href="/reservation-appel"
-                      data-event="cta_brief_pack"
+                      href="/diagnostic"
+                      data-event="cta_mini_audit_pack"
                       className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
                     >
                       Demander un devis <ArrowRight className="h-4 w-4" />
@@ -146,6 +151,16 @@ function ServicesHub() {
                 </Reveal>
               ))}
             </div>
+
+            {/* Les conditions qui accompagnent un prix affiche : sans elles, un
+                prix plancher se lit comme un prix ferme et la premiere
+                discussion commence par un malentendu. */}
+            <p className="mx-auto mt-8 max-w-3xl text-center text-xs text-muted-foreground">
+              Tous les tarifs sont indiqués HT et servent de base : un devis personnalisé est établi
+              selon votre cahier des charges. Acompte de 30 à 50 % à la signature, révisions
+              incluses selon l’offre (au-delà : 60 €/h), droits d’utilisation cédés à la livraison
+              du solde.
+            </p>
           </div>
 
           <div className="mt-16 rounded-2xl border border-border bg-card/40 p-7 text-center shadow-card backdrop-blur">
@@ -164,11 +179,11 @@ function ServicesHub() {
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="/reservation-appel"
-                data-event="cta_brief_services_final"
+                href="/diagnostic"
+                data-event="cta_mini_audit_services_final"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 hover:scale-[1.02]"
               >
-                Faire le diagnostic <ArrowRight className="h-4 w-4" />
+                Recevoir mon mini-audit <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href={BOOKING_URL}

@@ -12,7 +12,7 @@ export const Route = createFileRoute("/community-management")({
       {
         name: "description",
         content:
-          "Stratégie et contenus réseaux sociaux : forfaits mensuels, audit, contenu à la carte et formation. Rester visible sans y passer vos soirées. Sur devis.",
+          "Stratégie et contenus réseaux sociaux : forfaits mensuels de 200 à 900 €/mois, audit à partir de 250 €, contenu à la carte et formation. Rester visible sans y passer vos soirées.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/community-management") },
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/community-management")({
             "Thérapeutes, praticiens et indépendants qui doivent rester visibles sans avoir le temps de publier eux-mêmes.",
           // Reprend le catalogue reellement affiche sur la page : les donnees
           // structurees decrivent ce que le visiteur voit, pas une offre ideale.
-          offers: community.map((o) => ({ title: o.title, desc: o.desc })),
+          offers: community.map((o) => ({ title: o.title, desc: o.desc, price: o.price })),
         }),
       },
       {

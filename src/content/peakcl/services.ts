@@ -2,10 +2,17 @@
  * Contenu des pages Services (Sites web, Community management, Design,
  * Accompagnement Automatisation) + packages combinés + métadonnées du hub.
  *
- * Affichage des tarifs : seul le Community management est chiffré publiquement.
- * Les montants dev/design/packs sont stockés dans `price` mais masqués
- * (les pages passent showPrices=false → affichage « Sur devis »).
- * Pour révéler un prix plus tard : passer showPrices={true} sur la page.
+ * Affichage des tarifs : tous les prix sont désormais PUBLICS (les pages
+ * passent showPrices=true). Le « Sur devis » généralisé était le deuxième
+ * frein du tunnel après le formulaire : un artisan ou un thérapeute qui
+ * découvre le site ne demande pas un devis pour savoir s'il est dans le
+ * budget, il part. Un prix plancher affiché filtre les curieux, rassure les
+ * prospects qualifiés — et donne à Google comme aux moteurs IA une réponse
+ * citable sur « prix création site internet ».
+ *
+ * Tous les montants sont HT, indicatifs, et ajustés au cahier des charges.
+ * Un item sans `price` affiche « Sur devis » : c'est le comportement à
+ * conserver pour les prestations réellement non standardisables.
  */
 
 export type CatalogItem = {
@@ -25,7 +32,7 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Site vitrine sur mesure (code)",
     desc: "Site 100% codé, sans CMS ni dépendance à des plugins. Performances optimales, architecture maîtrisée de bout en bout, résultat unique et pérenne.",
-    price: "Sur devis",
+    price: "2 000 €",
     delay: "Délai : 3 à 5 semaines",
     included: [
       "Analyse des besoins & maquettage (wireframes)",
@@ -41,6 +48,7 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Site vitrine WordPress",
     desc: "Site professionnel sous WordPress avec back-office pour gérer votre contenu en autonomie. Idéal pour modifier vos pages sans faire appel à un développeur.",
+    price: "À partir de 2 500 €",
     delay: "Délai : 3 à 5 semaines",
     included: [
       "Analyse des besoins & maquettage",
@@ -56,7 +64,7 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Site e-commerce",
     desc: "Boutique en ligne complète et sécurisée. Plateforme recommandée selon votre projet : Shopify, PrestaShop ou WooCommerce.",
-    price: "Sur devis",
+    price: "À partir de 3 800 €",
     delay: "Délai : 4 à 7 semaines",
     included: [
       "Audit & recommandation de plateforme selon vos besoins",
@@ -72,7 +80,7 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Landing page / Page de vente",
     desc: "Une page unique à fort taux de conversion pour promouvoir une offre, un événement ou un produit.",
-    price: "Sur devis",
+    price: "À partir de 800 €",
     delay: "Délai : 1 à 2 semaines",
     included: [
       "Copywriting orienté conversion (structure AIDA)",
@@ -85,7 +93,7 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Refonte de site existant",
     desc: "Modernisation d’un site obsolète : nouveau design, meilleure expérience utilisateur, meilleures performances.",
-    price: "Sur devis",
+    price: "À partir de 1 200 €",
     delay: "Selon complexité du site actuel",
     included: [
       "Audit UX/UI et analyse des performances actuelles",
@@ -218,7 +226,7 @@ export const design: CatalogItem[] = [
   {
     title: "Identité visuelle complète",
     desc: "Logo, couleurs, typographies et charte graphique pour une marque cohérente et mémorable.",
-    price: "sur devis",
+    price: "À partir de 500 €",
     delay: "Délai : 1 à 2 semaines",
     included: [
       "Questionnaire de positionnement & brief",
@@ -232,20 +240,20 @@ export const design: CatalogItem[] = [
   {
     title: "Supports print",
     desc: "Flyers, plaquettes, cartes de visite et affiches prêts à l’impression.",
-    price: "Sur devis",
+    price: "À partir de 80 €/support",
     delay: "Tarif dégressif dès 3 supports",
     included: [
-      "Cartes de visite (recto/verso)",
-      "Flyers A5 ou A4 (recto/verso)",
-      "Plaquettes commerciales (4 à 8 pages)",
-      "Affiches (A3/A2)",
+      "Carte de visite (recto/verso) : à partir de 80 €",
+      "Flyer A5 ou A4 (recto/verso) : à partir de 120 €",
+      "Plaquette commerciale (4 à 8 pages) : à partir de 280 €",
+      "Affiche (A3/A2) : à partir de 150 €",
       "Fichiers HD prêts à l’impression (CMJN + fonds perdus)",
     ],
   },
   {
     title: "Visuels réseaux sociaux",
     desc: "Pack de 10 templates brandés et réutilisables pour animer vos réseaux avec professionnalisme.",
-    price: "Sur devis",
+    price: "À partir de 200 €",
     delay: "Délai : 3 à 5 jours",
     included: [
       "10 templates (posts, stories, couvertures)",
@@ -258,7 +266,7 @@ export const design: CatalogItem[] = [
   {
     title: "Template email & newsletter",
     desc: "Design responsive à votre image, compatible tous clients mail et plateformes d’emailing.",
-    price: "Sur devis",
+    price: "À partir de 180 €",
     delay: "Délai : 3 à 5 jours",
     included: [
       "Design responsive (mobile & desktop)",
@@ -271,7 +279,7 @@ export const design: CatalogItem[] = [
   {
     title: "Bannières publicitaires digitales",
     desc: "Bannières display pour vos campagnes, en formats standards ou sur mesure.",
-    price: "Sur devis",
+    price: "À partir de 150 € (5 formats)",
     delay: "Livraison en 48h",
     included: [
       "Formats standards (728x90, 300x250, 160x600, 320x50…)",
@@ -342,7 +350,7 @@ export const community: CatalogItem[] = [
   {
     title: "Audit réseaux sociaux",
     desc: "Analyse complète de votre présence sociale pour identifier forces, lacunes et opportunités.",
-    price: "Sur devis",
+    price: "À partir de 250 €",
     delay: "Livré en 5 jours ouvrés",
     included: [
       "Analyse de vos comptes existants (engagement, fréquence, ton…)",
@@ -554,6 +562,9 @@ export type Pack = {
   name: string;
   tagline: string;
   points: string[];
+  /** Prix plancher HT, affiché publiquement. Sans lui, un pack ne se compare
+   *  à rien et l'économie annoncée ne veut rien dire. */
+  price?: string;
   economy?: string;
   highlight?: boolean;
 };
@@ -562,6 +573,7 @@ export const packages: Pack[] = [
   {
     emoji: "🌐",
     name: "Pack Présence Web",
+    price: "À partir de 2 200 €",
     tagline: "Lancer sa présence en ligne de façon professionnelle et cohérente.",
     points: [
       "Site vitrine sur mesure ou WordPress (au choix), jusqu’à 5 pages",
@@ -575,6 +587,7 @@ export const packages: Pack[] = [
   {
     emoji: "🛒",
     name: "Pack E-commerce Complet",
+    price: "À partir de 3 200 €",
     tagline: "Lancer ou refondre une boutique en ligne performante et bien brandée.",
     points: [
       "Site e-commerce (Shopify ou WooCommerce), jusqu’à 30 produits",
@@ -589,6 +602,7 @@ export const packages: Pack[] = [
   {
     emoji: "🎨",
     name: "Pack Brand & Social",
+    price: "À partir de 750 €",
     tagline: "Construire une identité forte et l’exprimer sur les réseaux sociaux.",
     points: [
       "Identité visuelle complète (logo + charte)",
@@ -602,6 +616,7 @@ export const packages: Pack[] = [
   {
     emoji: "📱",
     name: "Pack Web + Social Starter",
+    price: "À partir de 2 400 €",
     tagline: "Créer son site ET lancer ses réseaux sociaux en même temps.",
     points: [
       "Site vitrine WordPress (jusqu’à 5 pages)",
@@ -615,6 +630,7 @@ export const packages: Pack[] = [
   {
     emoji: "🔄",
     name: "Pack Relance Digitale",
+    price: "À partir de 2 500 €",
     tagline: "Pour les entreprises qui veulent moderniser leur image digitale.",
     points: [
       "Refonte de site web",
@@ -628,6 +644,7 @@ export const packages: Pack[] = [
   {
     emoji: "🚀",
     name: "Pack All-In-One",
+    price: "À partir de 4 500 €",
     tagline: "La solution complète pour déléguer à un seul interlocuteur.",
     points: [
       "Site vitrine ou e-commerce sur mesure",

@@ -111,10 +111,10 @@ function Page() {
               engagement.
             </p>
             <a
-              href="/reservation-appel"
+              href="/diagnostic"
               className="mx-auto mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
             >
-              Demander mon audit gratuit <ArrowRight className="h-4 w-4" />
+              Recevoir mon mini-audit <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </SnapSection>

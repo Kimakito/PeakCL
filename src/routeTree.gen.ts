@@ -11,6 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrameProspectionRouteImport } from './routes/trame-prospection'
 import { Route as SitesWebRouteImport } from './routes/sites-web'
+import { Route as SiteInternetTherapeuteRouteImport } from './routes/site-internet-therapeute'
+import { Route as SiteInternetEquitationRouteImport } from './routes/site-internet-equitation'
+import { Route as SiteInternetArtisanRouteImport } from './routes/site-internet-artisan'
+import { Route as SiteInternetArchitecteInterieurRouteImport } from './routes/site-internet-architecte-interieur'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as RessourcesSystemeRouteImport } from './routes/ressources-systeme'
 import { Route as RessourcesSiteRouteImport } from './routes/ressources-site'
@@ -79,6 +83,27 @@ const SitesWebRoute = SitesWebRouteImport.update({
   path: '/sites-web',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SiteInternetTherapeuteRoute = SiteInternetTherapeuteRouteImport.update({
+  id: '/site-internet-therapeute',
+  path: '/site-internet-therapeute',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiteInternetEquitationRoute = SiteInternetEquitationRouteImport.update({
+  id: '/site-internet-equitation',
+  path: '/site-internet-equitation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiteInternetArtisanRoute = SiteInternetArtisanRouteImport.update({
+  id: '/site-internet-artisan',
+  path: '/site-internet-artisan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiteInternetArchitecteInterieurRoute =
+  SiteInternetArchitecteInterieurRouteImport.update({
+    id: '/site-internet-architecte-interieur',
+    path: '/site-internet-architecte-interieur',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -424,6 +449,10 @@ export interface FileRoutesByFullPath {
   '/ressources-site': typeof RessourcesSiteRoute
   '/ressources-systeme': typeof RessourcesSystemeRoute
   '/services': typeof ServicesRoute
+  '/site-internet-architecte-interieur': typeof SiteInternetArchitecteInterieurRoute
+  '/site-internet-artisan': typeof SiteInternetArtisanRoute
+  '/site-internet-equitation': typeof SiteInternetEquitationRoute
+  '/site-internet-therapeute': typeof SiteInternetTherapeuteRoute
   '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
   '/en/about': typeof EnAboutRoute
@@ -485,6 +514,10 @@ export interface FileRoutesByTo {
   '/ressources-site': typeof RessourcesSiteRoute
   '/ressources-systeme': typeof RessourcesSystemeRoute
   '/services': typeof ServicesRoute
+  '/site-internet-architecte-interieur': typeof SiteInternetArchitecteInterieurRoute
+  '/site-internet-artisan': typeof SiteInternetArtisanRoute
+  '/site-internet-equitation': typeof SiteInternetEquitationRoute
+  '/site-internet-therapeute': typeof SiteInternetTherapeuteRoute
   '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
   '/en/about': typeof EnAboutRoute
@@ -547,6 +580,10 @@ export interface FileRoutesById {
   '/ressources-site': typeof RessourcesSiteRoute
   '/ressources-systeme': typeof RessourcesSystemeRoute
   '/services': typeof ServicesRoute
+  '/site-internet-architecte-interieur': typeof SiteInternetArchitecteInterieurRoute
+  '/site-internet-artisan': typeof SiteInternetArtisanRoute
+  '/site-internet-equitation': typeof SiteInternetEquitationRoute
+  '/site-internet-therapeute': typeof SiteInternetTherapeuteRoute
   '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
   '/en/about': typeof EnAboutRoute
@@ -610,6 +647,10 @@ export interface FileRouteTypes {
     | '/ressources-site'
     | '/ressources-systeme'
     | '/services'
+    | '/site-internet-architecte-interieur'
+    | '/site-internet-artisan'
+    | '/site-internet-equitation'
+    | '/site-internet-therapeute'
     | '/sites-web'
     | '/trame-prospection'
     | '/en/about'
@@ -671,6 +712,10 @@ export interface FileRouteTypes {
     | '/ressources-site'
     | '/ressources-systeme'
     | '/services'
+    | '/site-internet-architecte-interieur'
+    | '/site-internet-artisan'
+    | '/site-internet-equitation'
+    | '/site-internet-therapeute'
     | '/sites-web'
     | '/trame-prospection'
     | '/en/about'
@@ -732,6 +777,10 @@ export interface FileRouteTypes {
     | '/ressources-site'
     | '/ressources-systeme'
     | '/services'
+    | '/site-internet-architecte-interieur'
+    | '/site-internet-artisan'
+    | '/site-internet-equitation'
+    | '/site-internet-therapeute'
     | '/sites-web'
     | '/trame-prospection'
     | '/en/about'
@@ -794,6 +843,10 @@ export interface RootRouteChildren {
   RessourcesSiteRoute: typeof RessourcesSiteRoute
   RessourcesSystemeRoute: typeof RessourcesSystemeRoute
   ServicesRoute: typeof ServicesRoute
+  SiteInternetArchitecteInterieurRoute: typeof SiteInternetArchitecteInterieurRoute
+  SiteInternetArtisanRoute: typeof SiteInternetArtisanRoute
+  SiteInternetEquitationRoute: typeof SiteInternetEquitationRoute
+  SiteInternetTherapeuteRoute: typeof SiteInternetTherapeuteRoute
   SitesWebRoute: typeof SitesWebRoute
   TrameProspectionRoute: typeof TrameProspectionRoute
   EnAboutRoute: typeof EnAboutRoute
@@ -821,6 +874,34 @@ declare module '@tanstack/react-router' {
       path: '/sites-web'
       fullPath: '/sites-web'
       preLoaderRoute: typeof SitesWebRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/site-internet-therapeute': {
+      id: '/site-internet-therapeute'
+      path: '/site-internet-therapeute'
+      fullPath: '/site-internet-therapeute'
+      preLoaderRoute: typeof SiteInternetTherapeuteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/site-internet-equitation': {
+      id: '/site-internet-equitation'
+      path: '/site-internet-equitation'
+      fullPath: '/site-internet-equitation'
+      preLoaderRoute: typeof SiteInternetEquitationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/site-internet-artisan': {
+      id: '/site-internet-artisan'
+      path: '/site-internet-artisan'
+      fullPath: '/site-internet-artisan'
+      preLoaderRoute: typeof SiteInternetArtisanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/site-internet-architecte-interieur': {
+      id: '/site-internet-architecte-interieur'
+      path: '/site-internet-architecte-interieur'
+      fullPath: '/site-internet-architecte-interieur'
+      preLoaderRoute: typeof SiteInternetArchitecteInterieurRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -1274,6 +1355,10 @@ const rootRouteChildren: RootRouteChildren = {
   RessourcesSiteRoute: RessourcesSiteRoute,
   RessourcesSystemeRoute: RessourcesSystemeRoute,
   ServicesRoute: ServicesRoute,
+  SiteInternetArchitecteInterieurRoute: SiteInternetArchitecteInterieurRoute,
+  SiteInternetArtisanRoute: SiteInternetArtisanRoute,
+  SiteInternetEquitationRoute: SiteInternetEquitationRoute,
+  SiteInternetTherapeuteRoute: SiteInternetTherapeuteRoute,
   SitesWebRoute: SitesWebRoute,
   TrameProspectionRoute: TrameProspectionRoute,
   EnAboutRoute: EnAboutRoute,

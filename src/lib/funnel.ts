@@ -111,6 +111,19 @@ async function sendToHubSpot(payload: Record<string, string>) {
   }
 }
 
+/**
+ * Pousse l'evenement de conversion GA4. Silencieux si GA4 n'est pas charge
+ * (consentement refuse, ou `VITE_GA4_ID` absent) : le lead est deja parti chez
+ * Netlify, la mesure ne doit jamais faire echouer l'envoi.
+ */
+function trackLead(formName: string) {
+  try {
+    window.gtag?.("event", "generate_lead", { form_name: formName });
+  } catch {
+    // ignore
+  }
+}
+
 export async function submitNetlifyForm(form: HTMLFormElement) {
   const data = new FormData(form);
   const body = new URLSearchParams();
@@ -139,6 +152,14 @@ export async function submitNetlifyForm(form: HTMLFormElement) {
   });
 
   if (!res.ok) throw new Error("netlify_form_submit_failed");
+
+  // Evenement de conversion unique, commun a TOUS les formulaires du site.
+  // Les `data-event` existants (`audit_submit`, `diagnostic_submit`, ...) sont
+  // utiles pour comparer les formulaires entre eux, mais aucun ne permet de
+  // lire un taux de conversion global dans GA4. `generate_lead` est le nom
+  // recommande par Google : a marquer comme evenement cle dans GA4
+  // (Admin > Evenements > marquer comme evenement cle), une seule fois.
+  trackLead(payload["form-name"] ?? "inconnu");
 
   // Apres le succes Netlify uniquement : on ne veut pas de contact HubSpot
   // pour une soumission qui a echoue cote site.

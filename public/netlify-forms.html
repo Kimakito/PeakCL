@@ -30,6 +30,9 @@
         <label>Email <input name="email" type="email" required /></label>
       </p>
       <p>
+        <label>Site web <input name="website" /></label>
+      </p>
+      <p>
         <label>Téléphone <input name="telephone" type="tel" /></label>
       </p>
       <p>
@@ -142,6 +145,13 @@
       <button type="submit">Envoyer</button>
     </form>
 
+    <!--
+      Mini-audit (/diagnostic). Netlify n'enregistre QUE les champs declares
+      ici : les reponses de qualification etaient donc perdues, et l'absence
+      d'`email` faisait rejeter la soumission par l'edge HubSpot
+      (`skipped: no_email`). Tout champ ajoute au formulaire React doit etre
+      repris ici, sinon il disparait silencieusement.
+    -->
     <form
       name="diagnostic"
       method="POST"
@@ -150,15 +160,58 @@
       data-netlify-honeypot="bot-field"
     >
       <input type="hidden" name="form-name" value="diagnostic" />
-      <input type="hidden" name="leadType" value="diagnostic_r1" />
+      <input type="hidden" name="leadType" value="mini_audit" />
+      <input type="hidden" name="source" value="site_peakcl" />
       <p style="display:none">
         <label>Ne pas remplir: <input name="bot-field" /></label>
       </p>
       <p>
-        <label>Prénom nom <input name="prenom_nom" /></label>
+        <label>Prénom nom <input name="prenom_nom" required /></label>
       </p>
       <p>
-        <label>Téléphone <input name="telephone" /></label>
+        <label>Email <input name="email" type="email" required /></label>
+      </p>
+      <p>
+        <label>Site web <input name="website" /></label>
+      </p>
+      <p>
+        <label>Activité <input name="activite" required /></label>
+      </p>
+      <p>
+        <label>Ville <input name="ville" /></label>
+      </p>
+      <p>
+        <label>Téléphone <input name="telephone" type="tel" /></label>
+      </p>
+      <p>
+        <label>Instagram <input name="instagram" /></label>
+      </p>
+      <p>
+        <label>Chiffre d'affaires actuel <input name="ca_actuel" /></label>
+      </p>
+      <p>
+        <label>Objectif prochains mois <input name="objectif_prochains_mois" /></label>
+      </p>
+      <p>
+        <label>Problématique <input name="problematique" /></label>
+      </p>
+      <p>
+        <label>Importance résoudre <input name="importance_regler_problematique" /></label>
+      </p>
+      <p>
+        <label>Priorités <textarea name="ranking_priorites"></textarea></label>
+      </p>
+      <p>
+        <label>Capable seul <input name="capable_par_soi_meme" /></label>
+      </p>
+      <p>
+        <label>Importance présence en ligne <input name="importance_presence_en_ligne" /></label>
+      </p>
+      <p>
+        <label>Ouvert accompagnement <input name="ouvert_accompagnement" /></label>
+      </p>
+      <p>
+        <label>Engagement <input name="engagement_presence" /></label>
       </p>
       <button type="submit">Envoyer</button>
     </form>

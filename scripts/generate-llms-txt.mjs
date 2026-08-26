@@ -32,6 +32,7 @@ export { SERVICES, LANDINGS, sitesWeb, refontePme, design, community, automatisa
 export { conseils } from "@/content/peakcl/conseils";
 export { peakclPortfolio } from "@/content/peakcl/portfolio";
 export { geoPages, geoPagesFor, GEO_SERVICE_LABEL } from "@/seo/geo";
+export { metierPages } from "@/seo/metiers";
 `;
 
 /** Bundle les modules TS en un seul ESM chargeable par Node. */
@@ -120,7 +121,7 @@ function render(c) {
   push("");
   push(
     "Interlocutrice unique : la meme personne code le site, dessine l'identite et",
-    "gere les reseaux. Contact : peakcl73@gmail.com, 07 43 51 76 27.",
+    "gere les reseaux. Contact : charlotte@peakcl.com, 07 43 51 76 27.",
   );
   push("");
 
@@ -202,6 +203,22 @@ function render(c) {
     }
     push("");
   }
+
+  // ── Pages metier ────────────────────────────────────────────────
+  // Pendant des pages villes : meme intention commerciale, autre facon de
+  // chercher. Les separer evite qu'un assistant les confonde avec des pages
+  // geographiques.
+  push("## Metiers accompagnes");
+  push("");
+  push(
+    "Pages dediees a un metier, appuyees sur des clients reels de ce metier.",
+    "Chacune precise les pages qui comptent, les tarifs et les limites annoncees.",
+  );
+  push("");
+  for (const m of c.metierPages) {
+    push(link(m.label, `/${m.slug}`, oneLine(m.shortPitch)));
+  }
+  push("");
 
   // ── Realisations ────────────────────────────────────────────────
   push("## Realisations");

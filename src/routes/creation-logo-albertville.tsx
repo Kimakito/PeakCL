@@ -217,15 +217,15 @@ function Page() {
             Donnons une vraie image à votre activité
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Décrivez votre projet en 8 minutes : je vous propose une direction visuelle et un devis
-            clair.
+            Deux minutes, trois champs : je regarde votre image actuelle et je vous renvoie les 3
+            actions prioritaires, direction visuelle comprise.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="/reservation-appel"
+              href="/diagnostic"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
             >
-              Faire le diagnostic <ArrowRight className="h-4 w-4" />
+              Recevoir mon mini-audit <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href={BOOKING_URL}

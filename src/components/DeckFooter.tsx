@@ -1,20 +1,15 @@
 import { Instagram, Facebook, Linkedin, MessageCircle, Mail, Phone } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
-import { SOCIAL, FREELANCE, CONTACT } from "@/lib/links";
+import { SOCIAL, CONTACT } from "@/lib/links";
 import { localeFromPath, type Locale } from "@/i18n/config";
 import { geoPagesFor } from "@/seo/geo";
+import { metierPages } from "@/seo/metiers";
 
 const SOCIALS = [
   { href: SOCIAL.instagram, label: "Instagram", icon: Instagram },
   { href: SOCIAL.facebook, label: "Facebook", icon: Facebook },
   { href: SOCIAL.linkedin, label: "LinkedIn", icon: Linkedin },
   { href: SOCIAL.whatsapp, label: "WhatsApp", icon: MessageCircle },
-];
-
-const FREELANCE_LINKS = [
-  { href: FREELANCE.malt, label: "Malt" },
-  { href: FREELANCE.fiverr, label: "Fiverr" },
-  { href: FREELANCE.comeup, label: "ComeUp" },
 ];
 
 type NavLink = { href: string; label: string };
@@ -26,7 +21,6 @@ type FooterText = {
   subtitle: string;
   primaryNav: NavLink[];
   serviceLinks: NavLink[];
-  alsoAvailable: string;
   /** Villes : SEO local français uniquement, retiré en anglais (angle international). */
   cityGroups: CityGroup[] | null;
 };
@@ -51,6 +45,13 @@ const CITY_GROUPS: CityGroup[] = [
     label: "Community management",
     links: geoPagesFor("community").map((p) => ({ href: `/${p.slug}`, label: p.city })),
   },
+  // Les pages metier partagent ce bloc pour la meme raison que les villes :
+  // c'est la source de liens internes la plus forte du site, et une page
+  // metier sans lien entrant ne serait jamais exploree.
+  {
+    label: "Par métier",
+    links: metierPages.map((m) => ({ href: `/${m.slug}`, label: m.label })),
+  },
 ];
 
 /** Contenu du footer selon la langue. En anglais : angle international
@@ -74,7 +75,6 @@ function footerText(locale: Locale): FooterText {
         { href: "/community-manager-savoie", label: "Social media management" },
         { href: "/en/design", label: "Graphic design" },
       ],
-      alsoAvailable: "Also available on:",
       cityGroups: null,
     };
   }
@@ -95,7 +95,6 @@ function footerText(locale: Locale): FooterText {
       { href: "/community-manager-savoie", label: "Community management" },
       { href: "/design", label: "Design graphique" },
     ],
-    alsoAvailable: "Aussi disponible sur :",
     cityGroups: CITY_GROUPS,
   };
 }
@@ -159,21 +158,6 @@ export function DeckFooter() {
         <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/80">
           {t.serviceLinks.map(({ href, label }) => (
             <a key={href} href={href} className="hover:text-foreground">
-              {label}
-            </a>
-          ))}
-        </div>
-
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/80">
-          <span>{t.alsoAvailable}</span>
-          {FREELANCE_LINKS.map(({ href, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer nofollow sponsored"
-              className="hover:text-foreground"
-            >
               {label}
             </a>
           ))}

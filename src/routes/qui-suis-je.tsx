@@ -170,15 +170,15 @@ function Page() {
               />
               <h2 className="text-xl font-bold">On en parle ?</h2>
               <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
-                Décrivez votre activité en 8 minutes : je vous dis ce qu'il faut pour une présence
-                en ligne cohérente, et comment je peux m'en charger pour vous.
+                Deux minutes, trois champs : je regarde votre présence en ligne et je vous renvoie
+                les 3 actions prioritaires. Sans engagement, et sans appel obligatoire.
               </p>
               <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
-                  href="/reservation-appel"
+                  href="/diagnostic"
                   className="inline-flex items-center justify-center rounded-full bg-primary-gradient px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:scale-[1.03]"
                 >
-                  Faire le diagnostic
+                  Recevoir mon mini-audit
                 </a>
                 <a
                   href="/portfolio"
