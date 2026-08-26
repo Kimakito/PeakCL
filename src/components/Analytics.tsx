@@ -32,9 +32,34 @@ function loadGa4() {
   if (document.getElementById("ga4-src")) return;
 
   window.dataLayer = window.dataLayer || [];
-  const gtag: (...args: unknown[]) => void = function (...args: unknown[]) {
-    window.dataLayer!.push(args);
-  };
+
+  /**
+   * ATTENTION : cette fonction doit pousser l'objet `arguments`, PAS un tableau.
+   *
+   * Elle poussait `[...args]` — un vrai `Array`, via un parametre rest. Le
+   * code paraissait equivalent et ne produisait aucune erreur : gtag.js se
+   * chargeait, `google_tag_manager` existait, le dataLayer contenait bien
+   * `consent`, `js` et `config`. Mais gtag.js ne reconnait une commande qu'a
+   * un objet `arguments`. Un `Array` est pousse comme une donnee inerte : le
+   * `config` n'etait donc jamais execute.
+   *
+   * Symptome exact, mesure en production le 26/08/2026 : aucun cookie `_ga`
+   * ni `_ga_<ID>`, aucune requete vers `/g/collect`, zero donnee dans GA4 —
+   * alors que tout, cote consentement et chargement, avait l'air correct.
+   * Rejouer la meme commande `config` via un `arguments` sur la page live a
+   * fait apparaitre les deux cookies et partir le `page_view` dans la seconde.
+   *
+   * C'est la forme du snippet officiel de Google, et la raison pour laquelle
+   * il s'ecrit avec `function` et non avec une fonction flechee.
+   */
+  function gtagRaw() {
+    // eslint-disable-next-line prefer-rest-params
+    window.dataLayer!.push(arguments);
+  }
+  // `gtagRaw` ne declare aucun parametre, par construction : c'est `arguments`
+  // qui porte la commande. On expose donc une vue typee pour l'appeler, sans
+  // toucher a l'implementation.
+  const gtag = gtagRaw as unknown as (...args: unknown[]) => void;
   window.gtag = gtag;
 
   // Consent Mode v2 : on part de tout refuse, puis on accorde explicitement.

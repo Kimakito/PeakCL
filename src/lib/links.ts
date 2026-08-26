@@ -31,7 +31,7 @@ export const FREELANCE = {
  * Tant que cette constante pointe vers Calendly, le comportement actuel est
  * strictement conserve. Aucun deploiement n'est bloque par cette migration.
  */
-export const BOOKING_URL = "https://calendly.com/peakcl73/faisons-connaissance";
+export const BOOKING_URL = "https://meetings-eu1.hubspot.com/charlotte-lacroix";
 
 /** Detecte le fournisseur a partir de l'URL, pour choisir le bon embed. */
 export function bookingProvider(url: string = BOOKING_URL): "hubspot" | "calendly" {

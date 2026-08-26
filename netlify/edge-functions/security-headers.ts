@@ -54,7 +54,6 @@ const SECURITY_HEADERS: Record<string, string> = {
     "frame-ancestors 'self'",
     [
       "script-src 'self' 'unsafe-inline'",
-      "https://assets.calendly.com",
       "https://www.googletagmanager.com",
       "https://*.hs-scripts.com",
       "https://*.hs-analytics.net",
@@ -67,7 +66,6 @@ const SECURITY_HEADERS: Record<string, string> = {
     [
       "style-src 'self' 'unsafe-inline'",
       "https://fonts.googleapis.com",
-      "https://assets.calendly.com",
       "https://static.hsappstatic.net",
       "https://*.hsforms.net",
     ].join(" "),
@@ -76,7 +74,6 @@ const SECURITY_HEADERS: Record<string, string> = {
     "media-src 'self'",
     [
       "connect-src 'self'",
-      "https://calendly.com",
       "https://www.google-analytics.com",
       "https://*.analytics.google.com",
       "https://*.googletagmanager.com",
@@ -86,7 +83,7 @@ const SECURITY_HEADERS: Record<string, string> = {
       "https://*.hs-analytics.net",
       "https://*.hs-banner.com",
     ].join(" "),
-    "frame-src https://calendly.com https://*.hubspot.com",
+    "frame-src https://*.hubspot.com https://meetings-eu1.hubspot.com",
     "form-action 'self'",
   ].join("; "),
 };
