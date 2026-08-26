@@ -20,6 +20,24 @@ export type PeakclProject = {
 
 const withPublicPrefix = (path?: string) => (path ? `/peakcl${path}` : undefined);
 
+/**
+ * Nombre de projets clients livres, affiche sur l'accueil et dans le bandeau
+ * de reassurance.
+ *
+ * Il etait calcule par `peakclPortfolio.filter((p) => p.logoUrl).length`, ce
+ * qui comptait en realite les projets DISPOSANT D'UN FICHIER LOGO — 18 sur 19.
+ * Le libelle disait « projets clients livres » : le chiffre affiche dependait
+ * donc de la presence d'un fichier image, et ajouter un logo manquant aurait
+ * silencieusement fait passer l'accueil de 18 a 19 sans que personne ne
+ * l'ait decide.
+ *
+ * La liste des projets livres est la seule source legitime. Les projets en
+ * cours vivent dans `CONSTRUCTION` (portfolioDeck.ts) et ne sont pas comptes
+ * ici : d'ou l'ecart avec les 22 cartes affichees sur /portfolio, qui montre
+ * les livres ET les chantiers en cours.
+ */
+export const DELIVERED_COUNT = 19;
+
 export const peakclPortfolio: PeakclProject[] = [
   {
     title: "Ikami",

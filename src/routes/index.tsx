@@ -5,7 +5,7 @@ import { ArrowRight, Check, Sparkles, Phone } from "lucide-react";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 import { peakclFaqHome } from "@/content/peakcl/faq";
-import { peakclPortfolio } from "@/content/peakcl/portfolio";
+import { DELIVERED_COUNT, peakclPortfolio } from "@/content/peakcl/portfolio";
 import { CATEGORIES, featuredProjects } from "@/content/peakcl/portfolioDeck";
 import { DeckFooter } from "@/components/DeckFooter";
 import { TrustedBySection } from "@/components/TrustedBySection";
@@ -961,10 +961,7 @@ function ReassuranceBar() {
   return (
     <section aria-label="Réassurance" className="border-y border-border bg-card/30 py-4">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 text-sm">
-        <Stat
-          target={peakclPortfolio.filter((p) => p.logoUrl).length}
-          label="projets clients livrés"
-        />
+        <Stat target={DELIVERED_COUNT} label="projets clients livrés" />
         <Stat literal="5/5" label="sur Google" />
         <Stat target={100} suffix="%" label="clients satisfaits" />
         <Stat literal="Savoie" label="& France" />

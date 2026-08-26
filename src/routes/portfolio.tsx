@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Check, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
+import { DELIVERED_COUNT } from "@/content/peakcl/portfolio";
 import {
   CATEGORIES,
   DECK_PROJECTS,
@@ -58,6 +59,10 @@ const ALL_KEY = "all";
 const LOGOS_ACCENT = "#EC4899";
 
 type Filter = { key: string; label: string; accent: string };
+/** Chantiers en cours : la difference entre les cartes affichees ici et les
+ *  projets livres annonces sur l'accueil. Derive, jamais ecrit en dur. */
+const IN_PROGRESS_COUNT = DECK_PROJECTS.filter((p) => p.status === "construction").length;
+
 const FILTERS: Filter[] = [
   { key: ALL_KEY, label: "Tous", accent: "var(--brand-turquoise)" },
   ...PANEL_CATS.map((c) => ({ key: c.slug, label: c.short, accent: c.accent })),
@@ -378,6 +383,19 @@ function PortfolioPage() {
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
             Sites, boutiques et logos livrés, classés par métier. Filtrez par secteur pour voir ce
             que j'ai fait dans le vôtre.
+          </p>
+          {/* Le decompte est explicite parce que l'accueil annonce
+              « {DELIVERED_COUNT} projets clients livres » quand cette page en
+              affiche davantage : la difference, ce sont les chantiers en cours.
+              Sans cette ligne, l'ecart ressemble a une incoherence. */}
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground/80">
+            <span className="font-semibold text-foreground">{DELIVERED_COUNT} projets livrés</span>
+            {IN_PROGRESS_COUNT > 0 ? (
+              <>
+                {" · "}
+                {IN_PROGRESS_COUNT} en cours de réalisation
+              </>
+            ) : null}
           </p>
           <div className="mt-10 flex justify-center">
             <SectionAvatarCard slug="portfolio" imgClassName="w-full max-w-[230px]" />

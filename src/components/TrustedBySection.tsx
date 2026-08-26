@@ -1,13 +1,17 @@
 import { useMemo } from "react";
 import { ArrowRight } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
-import { peakclPortfolio } from "@/content/peakcl/portfolio";
+import { DELIVERED_COUNT, peakclPortfolio } from "@/content/peakcl/portfolio";
 import { ClientLogo } from "@/components/ClientLogo";
 import { localeFromPath, type Locale } from "@/i18n/config";
 
 /** Textes de la section selon la langue. En anglais : angle international,
- *  on retire l'ancrage Savoie / France. */
-function trustedText(locale: Locale, count: number) {
+ *  on retire l'ancrage Savoie / France.
+ *
+ *  Le nombre vient de `DELIVERED_COUNT` et non plus du nombre de logos
+ *  affiches : le mur de logos ne montre que les clients qui en ont un, ce qui
+ *  n'a aucune raison d'etre le nombre de projets livres. */
+function trustedText(locale: Locale) {
   if (locale === "en") {
     return {
       eyebrow: "Trusted by",
@@ -16,7 +20,7 @@ function trustedText(locale: Locale, count: number) {
           Professionals who chose <span className="text-gradient">PeakCL</span>.
         </>
       ),
-      subtitle: `${count} client projects delivered for craftspeople, coaches, health, travel and e-commerce.`,
+      subtitle: `${DELIVERED_COUNT} client projects delivered for craftspeople, coaches, health, travel and e-commerce.`,
       cta: "See all projects",
       portfolioHref: "/en/portfolio",
     };
@@ -28,7 +32,7 @@ function trustedText(locale: Locale, count: number) {
         Des pros qui ont choisi <span className="text-gradient">PeakCL</span>.
       </>
     ),
-    subtitle: `${count} projets clients livrés, artisans, coachs, santé, voyage, e-commerce… en Savoie et en France.`,
+    subtitle: `${DELIVERED_COUNT} projets clients livrés, artisans, coachs, santé, voyage, e-commerce… en Savoie et en France.`,
     cta: "Voir tous les projets",
     portfolioHref: "/portfolio",
   };
@@ -77,7 +81,7 @@ export function TrustedBySection() {
   const locale = localeFromPath(path);
   const clients = useMemo(() => peakclPortfolio.filter((p) => p.logoUrl), []);
   const marqueeTrack = useMemo(() => [...clients, ...clients], [clients]);
-  const t = trustedText(locale, clients.length);
+  const t = trustedText(locale);
 
   return (
     <section
