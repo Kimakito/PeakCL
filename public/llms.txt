@@ -503,6 +503,9 @@ Chacune precise les pages qui comptent, les tarifs et les limites annoncees.
 - [Site internet artisan](https://peakcl.com/site-internet-artisan) : Creation de site internet pour artisans et entreprises du batiment : galerie de chantiers, fiche Google et demandes de devis.
 - [Site internet thérapeute](https://peakcl.com/site-internet-therapeute) : Creation de site internet pour therapeutes, praticiens et professions de sante : rassurer, expliquer, faire prendre rendez-vous.
 - [Site internet équitation](https://peakcl.com/site-internet-equitation) : Creation de site internet pour le monde du cheval : moniteurs, centres equestres, dentistes equins et professionnels itinerants.
+- [Site internet commerçant](https://peakcl.com/site-internet-commercant) : Creation de site internet pour commerces et boutiques : vitrine, horaires, fiche Google et vente en ligne quand elle se justifie.
+- [Site internet tourisme](https://peakcl.com/site-internet-tourisme) : Creation de site internet pour hebergeurs, activites de loisirs et agences de voyage : reservation, saisonnalite et referencement local.
+- [Site internet profession libérale](https://peakcl.com/site-internet-profession-liberale) : Creation de site internet pour avocats, cabinets de conseil et professions liberales : domaines d'intervention, reassurance et prise de rendez-vous.
 - [Site internet architecte d'intérieur](https://peakcl.com/site-internet-architecte-interieur) : Creation de site internet pour architectes d'interieur et decorateurs : portfolio de realisations et demandes d'etude qualifiees.
 
 ## Realisations

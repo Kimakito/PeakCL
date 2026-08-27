@@ -11,8 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrameProspectionRouteImport } from './routes/trame-prospection'
 import { Route as SitesWebRouteImport } from './routes/sites-web'
+import { Route as SiteInternetTourismeRouteImport } from './routes/site-internet-tourisme'
 import { Route as SiteInternetTherapeuteRouteImport } from './routes/site-internet-therapeute'
+import { Route as SiteInternetProfessionLiberaleRouteImport } from './routes/site-internet-profession-liberale'
 import { Route as SiteInternetEquitationRouteImport } from './routes/site-internet-equitation'
+import { Route as SiteInternetCommercantRouteImport } from './routes/site-internet-commercant'
 import { Route as SiteInternetArtisanRouteImport } from './routes/site-internet-artisan'
 import { Route as SiteInternetArchitecteInterieurRouteImport } from './routes/site-internet-architecte-interieur'
 import { Route as ServicesRouteImport } from './routes/services'
@@ -83,14 +86,30 @@ const SitesWebRoute = SitesWebRouteImport.update({
   path: '/sites-web',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SiteInternetTourismeRoute = SiteInternetTourismeRouteImport.update({
+  id: '/site-internet-tourisme',
+  path: '/site-internet-tourisme',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SiteInternetTherapeuteRoute = SiteInternetTherapeuteRouteImport.update({
   id: '/site-internet-therapeute',
   path: '/site-internet-therapeute',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SiteInternetProfessionLiberaleRoute =
+  SiteInternetProfessionLiberaleRouteImport.update({
+    id: '/site-internet-profession-liberale',
+    path: '/site-internet-profession-liberale',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SiteInternetEquitationRoute = SiteInternetEquitationRouteImport.update({
   id: '/site-internet-equitation',
   path: '/site-internet-equitation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiteInternetCommercantRoute = SiteInternetCommercantRouteImport.update({
+  id: '/site-internet-commercant',
+  path: '/site-internet-commercant',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SiteInternetArtisanRoute = SiteInternetArtisanRouteImport.update({
@@ -451,8 +470,11 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/site-internet-architecte-interieur': typeof SiteInternetArchitecteInterieurRoute
   '/site-internet-artisan': typeof SiteInternetArtisanRoute
+  '/site-internet-commercant': typeof SiteInternetCommercantRoute
   '/site-internet-equitation': typeof SiteInternetEquitationRoute
+  '/site-internet-profession-liberale': typeof SiteInternetProfessionLiberaleRoute
   '/site-internet-therapeute': typeof SiteInternetTherapeuteRoute
+  '/site-internet-tourisme': typeof SiteInternetTourismeRoute
   '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
   '/en/about': typeof EnAboutRoute
@@ -516,8 +538,11 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/site-internet-architecte-interieur': typeof SiteInternetArchitecteInterieurRoute
   '/site-internet-artisan': typeof SiteInternetArtisanRoute
+  '/site-internet-commercant': typeof SiteInternetCommercantRoute
   '/site-internet-equitation': typeof SiteInternetEquitationRoute
+  '/site-internet-profession-liberale': typeof SiteInternetProfessionLiberaleRoute
   '/site-internet-therapeute': typeof SiteInternetTherapeuteRoute
+  '/site-internet-tourisme': typeof SiteInternetTourismeRoute
   '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
   '/en/about': typeof EnAboutRoute
@@ -582,8 +607,11 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/site-internet-architecte-interieur': typeof SiteInternetArchitecteInterieurRoute
   '/site-internet-artisan': typeof SiteInternetArtisanRoute
+  '/site-internet-commercant': typeof SiteInternetCommercantRoute
   '/site-internet-equitation': typeof SiteInternetEquitationRoute
+  '/site-internet-profession-liberale': typeof SiteInternetProfessionLiberaleRoute
   '/site-internet-therapeute': typeof SiteInternetTherapeuteRoute
+  '/site-internet-tourisme': typeof SiteInternetTourismeRoute
   '/sites-web': typeof SitesWebRoute
   '/trame-prospection': typeof TrameProspectionRoute
   '/en/about': typeof EnAboutRoute
@@ -649,8 +677,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/site-internet-architecte-interieur'
     | '/site-internet-artisan'
+    | '/site-internet-commercant'
     | '/site-internet-equitation'
+    | '/site-internet-profession-liberale'
     | '/site-internet-therapeute'
+    | '/site-internet-tourisme'
     | '/sites-web'
     | '/trame-prospection'
     | '/en/about'
@@ -714,8 +745,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/site-internet-architecte-interieur'
     | '/site-internet-artisan'
+    | '/site-internet-commercant'
     | '/site-internet-equitation'
+    | '/site-internet-profession-liberale'
     | '/site-internet-therapeute'
+    | '/site-internet-tourisme'
     | '/sites-web'
     | '/trame-prospection'
     | '/en/about'
@@ -779,8 +813,11 @@ export interface FileRouteTypes {
     | '/services'
     | '/site-internet-architecte-interieur'
     | '/site-internet-artisan'
+    | '/site-internet-commercant'
     | '/site-internet-equitation'
+    | '/site-internet-profession-liberale'
     | '/site-internet-therapeute'
+    | '/site-internet-tourisme'
     | '/sites-web'
     | '/trame-prospection'
     | '/en/about'
@@ -845,8 +882,11 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   SiteInternetArchitecteInterieurRoute: typeof SiteInternetArchitecteInterieurRoute
   SiteInternetArtisanRoute: typeof SiteInternetArtisanRoute
+  SiteInternetCommercantRoute: typeof SiteInternetCommercantRoute
   SiteInternetEquitationRoute: typeof SiteInternetEquitationRoute
+  SiteInternetProfessionLiberaleRoute: typeof SiteInternetProfessionLiberaleRoute
   SiteInternetTherapeuteRoute: typeof SiteInternetTherapeuteRoute
+  SiteInternetTourismeRoute: typeof SiteInternetTourismeRoute
   SitesWebRoute: typeof SitesWebRoute
   TrameProspectionRoute: typeof TrameProspectionRoute
   EnAboutRoute: typeof EnAboutRoute
@@ -876,6 +916,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitesWebRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/site-internet-tourisme': {
+      id: '/site-internet-tourisme'
+      path: '/site-internet-tourisme'
+      fullPath: '/site-internet-tourisme'
+      preLoaderRoute: typeof SiteInternetTourismeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/site-internet-therapeute': {
       id: '/site-internet-therapeute'
       path: '/site-internet-therapeute'
@@ -883,11 +930,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteInternetTherapeuteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/site-internet-profession-liberale': {
+      id: '/site-internet-profession-liberale'
+      path: '/site-internet-profession-liberale'
+      fullPath: '/site-internet-profession-liberale'
+      preLoaderRoute: typeof SiteInternetProfessionLiberaleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/site-internet-equitation': {
       id: '/site-internet-equitation'
       path: '/site-internet-equitation'
       fullPath: '/site-internet-equitation'
       preLoaderRoute: typeof SiteInternetEquitationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/site-internet-commercant': {
+      id: '/site-internet-commercant'
+      path: '/site-internet-commercant'
+      fullPath: '/site-internet-commercant'
+      preLoaderRoute: typeof SiteInternetCommercantRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/site-internet-artisan': {
@@ -1357,8 +1418,11 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   SiteInternetArchitecteInterieurRoute: SiteInternetArchitecteInterieurRoute,
   SiteInternetArtisanRoute: SiteInternetArtisanRoute,
+  SiteInternetCommercantRoute: SiteInternetCommercantRoute,
   SiteInternetEquitationRoute: SiteInternetEquitationRoute,
+  SiteInternetProfessionLiberaleRoute: SiteInternetProfessionLiberaleRoute,
   SiteInternetTherapeuteRoute: SiteInternetTherapeuteRoute,
+  SiteInternetTourismeRoute: SiteInternetTourismeRoute,
   SitesWebRoute: SitesWebRoute,
   TrameProspectionRoute: TrameProspectionRoute,
   EnAboutRoute: EnAboutRoute,

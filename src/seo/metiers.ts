@@ -45,6 +45,24 @@ export const metierPages: MetierPage[] = [
       "Creation de site internet pour le monde du cheval : moniteurs, centres equestres, dentistes equins et professionnels itinerants.",
   },
   {
+    slug: "site-internet-commercant",
+    label: "Site internet commerçant",
+    shortPitch:
+      "Creation de site internet pour commerces et boutiques : vitrine, horaires, fiche Google et vente en ligne quand elle se justifie.",
+  },
+  {
+    slug: "site-internet-tourisme",
+    label: "Site internet tourisme",
+    shortPitch:
+      "Creation de site internet pour hebergeurs, activites de loisirs et agences de voyage : reservation, saisonnalite et referencement local.",
+  },
+  {
+    slug: "site-internet-profession-liberale",
+    label: "Site internet profession libérale",
+    shortPitch:
+      "Creation de site internet pour avocats, cabinets de conseil et professions liberales : domaines d'intervention, reassurance et prise de rendez-vous.",
+  },
+  {
     slug: "site-internet-architecte-interieur",
     label: "Site internet architecte d'intérieur",
     shortPitch:

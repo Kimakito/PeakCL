@@ -131,6 +131,14 @@ clients du même métier — jamais d'exemple inventé :
 | `/site-internet-therapeute` | Laboratoire Sanchez Randon, Ostéo Animal Care, Mordant Équin |
 | `/site-internet-equitation` | LM Équitation Western, Mordant Équin, Natural Riders |
 | `/site-internet-architecte-interieur` | C'mieux comme ça, Le Juste Plan, SETIC Fluides |
+| `/site-internet-commercant` | Jantes 73, Natural Riders |
+| `/site-internet-tourisme` | Adelante Voyages, Plumes Poils & Compagnie, Rock The Outdoor |
+| `/site-internet-profession-liberale` | Cabinet Johanna Alfonso, Le Juste Plan, Cime Stratégie |
+
+L'accueil ne décrit plus une cible unique : une rangée « Vous êtes… » y renvoie
+vers ces sept pages plus la piste PME. C'est le rôle d'un accueil — un
+aiguillage, pas un discours qui exclut. La niche reste entière là où elle sert
+le référencement, sans rétrécir la porte d'entrée.
 
 Chacune porte une limite honnête assumée (ce que PeakCL ne fait pas), un budget
 affiché, une FAQ propre et son JSON-LD `Service` + `FAQPage`.
