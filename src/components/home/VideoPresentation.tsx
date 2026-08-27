@@ -5,7 +5,17 @@ import { DeviceFrame } from "@/components/ui/device-frame";
 import { localeFromPath, type Locale } from "@/i18n/config";
 
 const VIDEO_SRC = "/peakcl/video-presentation.mp4";
-const VIDEO_POSTER = "/design-system/logo-carre-compo.png";
+
+/**
+ * Image d'attente : une vraie image extraite de la video (a 16 secondes),
+ * et non plus le logo carre.
+ *
+ * Le logo etait une composition carree recadree dans un ecran 9/16 : il y
+ * perdait ses bords et ne montrait pas le sujet. Une vignette ou l'on voit
+ * Charlotte, de face et souriante, donne davantage envie de lancer la lecture
+ * qu'un logo — c'est la seule chose que le visiteur voit avant de cliquer.
+ */
+const VIDEO_POSTER = "/peakcl/video-poster.webp";
 
 /** Textes de la section selon la langue. En anglais : angle international. */
 function videoText(locale: Locale) {
@@ -71,8 +81,13 @@ export function VideoPresentation() {
             borderWidth={3}
           />
           <DeviceFrame variant="phone">
+            {/* `scale-[1.06]` : la video porte deja un contour arrondi incruste
+                au montage. Dans un chassis d'iPhone, ca faisait un cadre dans
+                le cadre. On l'agrandit juste assez pour pousser ce contour
+                hors de l'ecran ; le sujet reste centre et rien d'utile n'est
+                rogne. */}
             <video
-              className="h-full w-full bg-black object-cover"
+              className="h-full w-full scale-[1.06] bg-black object-cover"
               controls
               playsInline
               preload="none"
