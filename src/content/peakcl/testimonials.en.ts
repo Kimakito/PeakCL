@@ -12,6 +12,7 @@ export const peakclTestimonialsEn: PeakclTestimonial[] = [
   {
     name: "Laura",
     sourceLabel: "Mordant Équin · Google review ✓",
+    logoUrl: "/peakcl/assets/logo/mordant-equin.png",
     dateLabel: "August 2026",
     rating: 5,
     quote:
@@ -20,6 +21,7 @@ export const peakclTestimonialsEn: PeakclTestimonial[] = [
   {
     name: "Émilie Bailleux",
     sourceLabel: "Natural Riders · Google review ✓",
+    logoUrl: "/peakcl/assets/logo/natural_riders.avif",
     dateLabel: "July 2026",
     rating: 5,
     quote:
@@ -28,6 +30,7 @@ export const peakclTestimonialsEn: PeakclTestimonial[] = [
   {
     name: "Camille Daldosso",
     sourceLabel: "Plumes Poils & Compagnie · Google review ✓",
+    logoUrl: "/peakcl/assets/logo/plumespoilsetcie.png",
     dateLabel: "June 2026",
     rating: 5,
     quote:
@@ -52,6 +55,7 @@ export const peakclTestimonialsEn: PeakclTestimonial[] = [
   {
     name: "Victor G.",
     sourceLabel: "Adelante Voyage · Google review ✓",
+    logoUrl: "/peakcl/assets/logo/logo-adelante.webp",
     rating: 5,
     quote:
       "Charlotte understood exactly what we were after and delivered a site that lived up to our ambitions, with great responsiveness and real practical sense.",

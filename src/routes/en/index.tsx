@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Sparkles, Phone } from "lucide-react";
 import { peakclTestimonialsEn } from "@/content/peakcl/testimonials.en";
-import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
+import { TestimonialWall } from "@/components/ui/testimonial-wall";
 import { peakclFaqHomeEn } from "@/content/peakcl/faq.en";
 import { DELIVERED_COUNT, peakclPortfolio } from "@/content/peakcl/portfolio";
 import { CATEGORIES, featuredProjects } from "@/content/peakcl/portfolioDeck";
@@ -527,22 +527,10 @@ function PortfolioPanel() {
 /* ── Reviews panel ───────────────────────────────────────────── */
 
 function ReviewsPanel() {
-  const reviews = peakclTestimonialsEn.map((t) => ({
-    quote: t.quote,
-    name: t.name,
-    role: [t.sourceLabel, t.dateLabel].filter(Boolean).join(" · "),
-    rating: t.rating,
-  }));
-  // Each review appears only once per layout. The internal duplication inside
-  // TestimonialsColumn is the marquee loop clone (continuous scroll), not a
-  // hard-coded repeat of the reviews.
-  const mid = Math.ceil(reviews.length / 2);
-  const colA = reviews.slice(0, mid);
-  const colB = reviews.slice(mid);
   return (
     <section id="avis" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <SectionMascot pose="graphique" side="left" heightClass="h-[40vh]" />
-      <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
+      <div className="mx-auto w-full max-w-7xl px-8 md:px-16">
         <SectionHeading
           className="mb-8"
           accent="turquoise"
@@ -553,13 +541,8 @@ function ReviewsPanel() {
           Behind PeakCL, a real person:
         </p>
         <ExpressionGallery className="mt-2 mb-12" />
-        <div className="mx-auto flex max-h-[58vh] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
-          {/* Mobile: one column, the 4 reviews once */}
-          <TestimonialsColumn testimonials={reviews} duration={22} className="md:hidden" />
-          {/* Desktop: 2 columns, each review only once */}
-          <TestimonialsColumn testimonials={colA} duration={18} className="hidden md:block" />
-          <TestimonialsColumn testimonials={colB} duration={22} className="hidden md:block" />
-        </div>
+        {/* Grid instead of a marquee: all six reviews read at once. */}
+        <TestimonialWall testimonials={peakclTestimonialsEn} />
       </div>
     </section>
   );

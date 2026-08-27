@@ -13,7 +13,7 @@
   <!-- Pages services (metier) -->
   <url>
     <loc>https://peakcl.com/services</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://peakcl.com/services"/>
@@ -66,13 +66,13 @@
   <!-- Pages metier + ville -->
   <url>
     <loc>https://peakcl.com/creation-logo-albertville</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://peakcl.com/community-manager-savoie</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -185,13 +185,13 @@
   </url>
   <url>
     <loc>https://peakcl.com/contact</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://peakcl.com/reservation-appel</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://peakcl.com/reservation-appel"/>
@@ -200,13 +200,13 @@
   </url>
   <url>
     <loc>https://peakcl.com/diagnostic</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://peakcl.com/qui-suis-je</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://peakcl.com/qui-suis-je"/>
@@ -231,7 +231,7 @@
   <!-- Conseils (contenu) -->
   <url>
     <loc>https://peakcl.com/conseils</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -279,7 +279,7 @@
   </url>
   <url>
     <loc>https://peakcl.com/en/services</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://peakcl.com/services"/>
@@ -324,7 +324,7 @@
   </url>
   <url>
     <loc>https://peakcl.com/en/portfolio</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://peakcl.com/portfolio"/>
@@ -333,7 +333,7 @@
   </url>
   <url>
     <loc>https://peakcl.com/en/about</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://peakcl.com/qui-suis-je"/>
@@ -342,7 +342,7 @@
   </url>
   <url>
     <loc>https://peakcl.com/en/book-a-call</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://peakcl.com/reservation-appel"/>
