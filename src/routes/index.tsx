@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Sparkles, Phone } from "lucide-react";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
+import { metierPages } from "@/seo/metiers";
 import { TestimonialWall } from "@/components/ui/testimonial-wall";
 import { peakclFaqHome } from "@/content/peakcl/faq";
 import { DELIVERED_COUNT, peakclPortfolio } from "@/content/peakcl/portfolio";
@@ -34,7 +35,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Vous avez besoin d’un site claire, d’une image cohérente et d’une présence en ligne fiable ? PeakCL vous accompagne de A à Z.",
+          "Site, image de marque et réseaux pour indépendants, artisans, professions libérales, TPE et PME. Un seul interlocuteur, de la stratégie au lancement. Savoie et toute la France.",
       },
       {
         property: "og:title",
@@ -136,11 +137,57 @@ function SectionMascot(_props: {
 
 /* ── Problem panel ───────────────────────────────────────────── */
 
+/**
+ * Rangee « Vous etes… ».
+ *
+ * L'accueil decrivait une seule cible — therapeutes, praticiens, independants —
+ * alors que PeakCL adresse aussi les artisans, les cabinets et les PME. Un
+ * visiteur qui ne se reconnait pas dans la premiere phrase repart, et aucune
+ * qualite de preuve plus bas ne rattrape ca.
+ *
+ * Plutot que d'allonger l'enumeration jusqu'a ne plus rien dire, l'accueil
+ * ORIENTE : chacun clique sur son cas et atterrit sur la page qui parle
+ * vraiment de son metier, avec de vrais clients de ce metier. C'est le role
+ * d'un accueil — un aiguillage, pas un discours unique.
+ *
+ * Effet secondaire utile : ces cinq pages sont recentes et Search Console les
+ * classe encore « Detectee, actuellement non indexee ». Un lien depuis
+ * l'accueil, la page la plus exploree du site, est le meilleur signal
+ * disponible pour les faire visiter.
+ */
+const AUDIENCES: { label: string; href: string }[] = [
+  ...metierPages.map((m) => ({
+    label: m.label.replace(/^Site internet /, ""),
+    href: `/${m.slug}`,
+  })),
+  { label: "TPE & PME", href: "/refonte-site-pme" },
+];
+
+function AudienceRow() {
+  return (
+    <div className="mt-8">
+      <p className="text-sm font-semibold text-foreground">Vous êtes…</p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {AUDIENCES.map((a) => (
+          <a
+            key={a.href}
+            href={a.href}
+            data-event="audience_router"
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-[var(--brand-turquoise)] hover:text-foreground"
+          >
+            {a.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ProblemPanel() {
   const points = [
-    "Thérapeute, praticien ou indépendant : vos patients vous cherchent en ligne et doivent vous trouver crédible en cinq secondes.",
-    "Entre les consultations et le reste, vous n’avez pas le temps de gérer site, design, réseaux et prise de contact à la main.",
-    "Vous voulez un seul interlocuteur qui connaît votre métier, des décisions rapides et rien à rattraper vous-même.",
+    "Indépendant, artisan, cabinet ou PME : vos clients vous cherchent en ligne et décident en cinq secondes si vous êtes crédible.",
+    "Entre votre métier et le reste, personne chez vous n’a le temps de gérer site, design, réseaux et demandes entrantes à la main.",
+    "Vous voulez un seul interlocuteur qui comprend votre activité, des décisions rapides et rien à rattraper vous-même.",
   ];
 
   return (
@@ -167,7 +214,8 @@ function ProblemPanel() {
               Pas besoin d’un projet énorme pour paraître professionnel. Il faut surtout une
               direction claire, un bon rythme et quelqu’un qui vous aide à avancer.
             </p>
-            <div className="mt-6">
+            <AudienceRow />
+            <div className="mt-8">
               <CTAButton href="/diagnostic" dataEvent="cta_mini_audit_problem">
                 Recevoir mon mini-audit
               </CTAButton>
@@ -714,7 +762,7 @@ function ContactPanel() {
               required
               rows={3}
               className="mt-1.5 w-full rounded-md border border-border bg-background/50 px-3 py-2.5 text-sm text-foreground outline-none focus:border-border"
-              placeholder="Ex : thérapeute à Chambéry, je veux plus de demandes de RDV."
+              placeholder="Ex : cabinet de kiné à Chambéry, ou PME du bâtiment — je veux plus de demandes."
             />
           </label>
           <div className="flex items-center justify-center gap-3">
