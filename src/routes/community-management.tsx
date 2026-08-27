@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { hreflangLinks } from "@/seo/hreflang";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
 import { community, cmForfaits, communityHighlights } from "@/content/peakcl/services";
@@ -38,10 +37,7 @@ export const Route = createFileRoute("/community-management")({
         ]),
       },
     ],
-    links: [
-      { rel: "canonical", href: absUrl("/community-management") },
-      ...hreflangLinks("/community-management"),
-    ],
+    links: [{ rel: "canonical", href: absUrl("/community-management") }],
   }),
   component: () => (
     <ServicePage

@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { hreflangLinks } from "@/seo/hreflang";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
 import { automatisation, automatisationHighlights } from "@/content/peakcl/services";
@@ -41,10 +40,7 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
         ]),
       },
     ],
-    links: [
-      { rel: "canonical", href: absUrl("/accompagnement-automatisation") },
-      ...hreflangLinks("/accompagnement-automatisation"),
-    ],
+    links: [{ rel: "canonical", href: absUrl("/accompagnement-automatisation") }],
   }),
   component: () => (
     <ServicePage

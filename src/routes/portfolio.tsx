@@ -16,7 +16,6 @@ import { DeckFooter } from "@/components/DeckFooter";
 import { PortfolioReel } from "@/components/PortfolioReel";
 import { absUrl } from "@/seo/site";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
-import { hreflangLinks } from "@/seo/hreflang";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 import { BOOKING_URL } from "@/lib/links";
@@ -45,7 +44,7 @@ export const Route = createFileRoute("/portfolio")({
         ]),
       },
     ],
-    links: [{ rel: "canonical", href: absUrl("/portfolio") }, ...hreflangLinks("/portfolio")],
+    links: [{ rel: "canonical", href: absUrl("/portfolio") }],
   }),
   component: PortfolioPage,
 });

@@ -13,7 +13,6 @@ import { TrustedBySection } from "@/components/TrustedBySection";
 import { optimizedLogoUrl } from "@/lib/optimizedLogo";
 import { absUrl } from "@/seo/site";
 import { faqPageJsonLd } from "@/seo/jsonld";
-import { hreflangLinks } from "@/seo/hreflang";
 import { submitNetlifyForm } from "@/lib/funnel";
 import { CTAButton } from "@/components/CTAButton";
 import { HeroPanel } from "@/components/home/HeroPanel";
@@ -51,7 +50,6 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: absUrl("/") },
-      ...hreflangLinks("/"),
       { rel: "preload", href: LOGO_NAV, as: "image", type: "image/webp" },
       {
         rel: "preload",

@@ -31,17 +31,25 @@ export const OG_LOCALE: Record<Locale, string> = {
  * (villes, decks, conseils) n'a pas d'équivalent anglais et pointera vers
  * l'accueil dans l'autre langue.
  */
-export const ROUTE_MAP: { fr: string; en: string }[] = [
-  { fr: "/", en: "/en" },
-  { fr: "/services", en: "/en/services" },
-  { fr: "/sites-web", en: "/en/web-development" },
-  { fr: "/community-management", en: "/en/social-media" },
-  { fr: "/design", en: "/en/design" },
-  { fr: "/accompagnement-automatisation", en: "/en/automation" },
-  { fr: "/portfolio", en: "/en/portfolio" },
-  { fr: "/qui-suis-je", en: "/en/about" },
-  { fr: "/reservation-appel", en: "/en/book-a-call" },
-];
+/**
+ * Paires FR/EN. VIDE depuis le 27/08/2026 : la version anglaise a ete
+ * supprimee.
+ *
+ * Les neuf pages `/en` etaient en « Detectee, actuellement non indexee » dans
+ * Search Console — Google en connaissait l'existence sans jamais les explorer,
+ * homepage anglaise comprise. Elles ne produisaient aucun trafic, tout en
+ * imposant de traduire chaque changement de prix, chaque avis et chaque page
+ * metier. Pour une activite qui vend en Savoie a des clients francophones,
+ * c'etait un cout sans retour.
+ *
+ * Le tableau reste declare plutot que supprime : `alternatePath` et le
+ * selecteur de langue s'appuient dessus, et une paire ajoutee ici suffirait a
+ * reactiver le mecanisme si une version anglaise redevenait pertinente. Les
+ * anciennes URL sont redirigees en 301 vers leur equivalent francais
+ * (netlify.toml), pour ne pas transformer neuf pages connues de Google en
+ * autant de 404.
+ */
+export const ROUTE_MAP: { fr: string; en: string }[] = [];
 
 /** Normalise un pathname : retire le slash final (sauf racine). */
 function normalize(pathname: string): string {

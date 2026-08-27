@@ -548,7 +548,3 @@ Chacune precise les pages qui comptent, les tarifs et les limites annoncees.
 - [Contact](https://peakcl.com/contact) : Formulaire, telephone et email.
 - [Reserver un appel](https://peakcl.com/reservation-appel) : Diagnostic gratuit, reponse sous 24h.
 - [Politique de confidentialite](https://peakcl.com/politique-confidentialite)
-
-## Version anglaise
-
-- [English version](https://peakcl.com/en) : Same services, presented in English.

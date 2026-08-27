@@ -206,13 +206,18 @@ const pairs = routeMapBlock
     }))
   : [];
 
-if (!pairs.length) {
-  // Erreur bloquante et non avertissement : un sitemap publie sans alternates
-  // se deploie sans que rien ne signale la perte, et le probleme se paie en
+if (!routeMapBlock) {
+  // ROUTE_MAP introuvable : le fichier a bouge ou change de forme. Erreur
+  // bloquante et non avertissement — un sitemap publie sans alternates se
+  // deploie sans que rien ne signale la perte, et le probleme se paie en
   // semaines d'indexation.
-  console.error("sitemap : ROUTE_MAP introuvable dans src/i18n/config.ts, alternates non generes");
+  console.error("sitemap : ROUTE_MAP introuvable dans src/i18n/config.ts");
   process.exit(1);
 }
+
+// ROUTE_MAP present mais VIDE : cas legitime depuis la suppression de la
+// version anglaise (27/08/2026). Le site est monolingue, il n'y a plus
+// d'alternate a ecrire, et la boucle ci-dessous ne fait simplement rien.
 
 // Idempotence : on retire les annotations d'une generation precedente avant de
 // les reecrire, sinon chaque execution les empile.

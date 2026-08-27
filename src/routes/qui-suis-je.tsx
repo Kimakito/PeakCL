@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { hreflangLinks } from "@/seo/hreflang";
 import { personJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -45,7 +44,7 @@ export const Route = createFileRoute("/qui-suis-je")({
         ]),
       },
     ],
-    links: [{ rel: "canonical", href: absUrl("/qui-suis-je") }, ...hreflangLinks("/qui-suis-je")],
+    links: [{ rel: "canonical", href: absUrl("/qui-suis-je") }],
   }),
   component: Page,
 });

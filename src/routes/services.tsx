@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { absUrl } from "@/seo/site";
-import { hreflangLinks } from "@/seo/hreflang";
 import { breadcrumbJsonLd } from "@/seo/jsonld";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Reveal } from "@/components/ui/Reveal";
@@ -29,7 +28,7 @@ export const Route = createFileRoute("/services")({
         ]),
       },
     ],
-    links: [{ rel: "canonical", href: absUrl("/services") }, ...hreflangLinks("/services")],
+    links: [{ rel: "canonical", href: absUrl("/services") }],
   }),
   component: ServicesHub,
 });

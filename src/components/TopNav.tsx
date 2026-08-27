@@ -4,7 +4,6 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { SERVICES } from "@/content/peakcl/services";
 import { localeFromPath } from "@/i18n/config";
 import { ui } from "@/i18n/ui";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { BOOKING_URL } from "@/lib/links";
 
@@ -229,7 +228,6 @@ export function TopNav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <LanguageSwitcher className="hidden sm:flex" />
           <ThemeToggle className="hidden sm:inline-flex" />
           <a
             href={BOOKING_URL}
@@ -294,7 +292,6 @@ export function TopNav() {
               </li>
             ))}
             <li className="mt-2 flex items-center gap-3 border-t border-border pt-3">
-              <LanguageSwitcher className="w-max" />
               <ThemeToggle />
             </li>
           </ul>

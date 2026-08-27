@@ -257,11 +257,6 @@ function render(c) {
   push(link("Politique de confidentialite", "/politique-confidentialite"));
   push("");
 
-  push("## Version anglaise");
-  push("");
-  push(link("English version", "/en", "Same services, presented in English."));
-  push("");
-
   return out.join("\n").replace(/\n{3,}/g, "\n\n");
 }
 

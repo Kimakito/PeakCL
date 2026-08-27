@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
 import { SiteShowcase, type ShowcaseSite } from "@/components/ui/site-showcase";
 import { DECK_PROJECTS } from "@/content/peakcl/portfolioDeck";
-import { hreflangLinks } from "@/seo/hreflang";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
 import { sitesWeb, sitesWebHighlights } from "@/content/peakcl/services";
@@ -71,7 +70,7 @@ export const Route = createFileRoute("/sites-web")({
         ]),
       },
     ],
-    links: [{ rel: "canonical", href: absUrl("/sites-web") }, ...hreflangLinks("/sites-web")],
+    links: [{ rel: "canonical", href: absUrl("/sites-web") }],
   }),
   component: () => (
     <ServicePage

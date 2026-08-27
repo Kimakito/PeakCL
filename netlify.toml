@@ -302,6 +302,81 @@
   status = 301
   force = true
 
+# ── Version anglaise supprimee (27/08/2026) ─────────────────────────
+#
+# Les neuf pages /en etaient en « Detectee, actuellement non indexee » dans
+# Search Console : Google en connaissait l'existence sans les avoir jamais
+# explorees, homepage anglaise comprise. Aucun trafic, mais l'obligation de
+# traduire chaque changement de prix, chaque avis et chaque page metier.
+#
+# Elles sont redirigees et non supprimees seches : neuf URL connues de l'index
+# qui basculeraient en 404 d'un coup enverraient un mauvais signal, et le peu
+# d'autorite qu'elles portent est ainsi transfere vers la page francaise
+# equivalente. Le joker /en/* attrape tout ce qui aurait ete oublie.
+#
+# `force = true` est necessaire : sans lui, la fonction SSR (redirection /*
+# plus bas) traiterait la requete avant d'arriver ici.
+
+[[redirects]]
+  from = "/en"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/services"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/web-development"
+  to = "/sites-web"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/social-media"
+  to = "/community-management"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/design"
+  to = "/design"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/automation"
+  to = "/accompagnement-automatisation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/portfolio"
+  to = "/portfolio"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/about"
+  to = "/qui-suis-je"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/book-a-call"
+  to = "/reservation-appel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/en/*"
+  to = "/"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/server"

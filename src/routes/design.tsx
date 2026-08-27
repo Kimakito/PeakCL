@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
-import { hreflangLinks } from "@/seo/hreflang";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
 import { design, designHighlights } from "@/content/peakcl/services";
@@ -39,7 +38,7 @@ export const Route = createFileRoute("/design")({
         ]),
       },
     ],
-    links: [{ rel: "canonical", href: absUrl("/design") }, ...hreflangLinks("/design")],
+    links: [{ rel: "canonical", href: absUrl("/design") }],
   }),
   component: () => (
     <ServicePage

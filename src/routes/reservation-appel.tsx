@@ -3,7 +3,6 @@ import { useMemo, useState, type FormEvent } from "react";
 import { ArrowRight, Check, Clock, ShieldCheck } from "lucide-react";
 import { MERCI_BRIEF_PATH, stashCalendlyPrefill, submitNetlifyForm } from "@/lib/funnel";
 import { absUrl } from "@/seo/site";
-import { hreflangLinks } from "@/seo/hreflang";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { BOOKING_URL } from "@/lib/links";
@@ -32,10 +31,7 @@ export const Route = createFileRoute("/reservation-appel")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/reservation-appel") },
     ],
-    links: [
-      { rel: "canonical", href: absUrl("/reservation-appel") },
-      ...hreflangLinks("/reservation-appel"),
-    ],
+    links: [{ rel: "canonical", href: absUrl("/reservation-appel") }],
   }),
   component: ReservationAppelPage,
 });
