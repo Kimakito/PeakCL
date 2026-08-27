@@ -1,6 +1,7 @@
 import { useRouterState } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/SectionHeading";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { DeviceFrame } from "@/components/ui/device-frame";
 import { localeFromPath, type Locale } from "@/i18n/config";
 
 const VIDEO_SRC = "/peakcl/video-presentation.mp4";
@@ -53,18 +54,25 @@ export function VideoPresentation() {
           title={t.title}
           subtitle={t.subtitle}
         />
-        <div className="mx-auto w-full max-w-[340px]">
-          <div className="card-hover relative rounded-[2rem] border border-border bg-card/50 p-2.5 shadow-card backdrop-blur">
-            <GlowingEffect
-              spread={40}
-              glow
-              disabled={false}
-              proximity={64}
-              inactiveZone={0.01}
-              borderWidth={3}
-            />
+        {/* Cadre d'appareil autour de la vidéo.
+            `phone` et non `laptop` : la vidéo est verticale (1080x1920). Dans
+            un écran d'ordinateur en 16/10, une vidéo 9/16 doit être contenue en
+            hauteur — elle tomberait à 238px de large dans un MacBook de 720px,
+            contre 320px ici. Le cadre portable existe dans `DeviceFrame` et
+            s'active en changeant ce seul mot, mais il rapetisse le sujet de
+            près d'un tiers. */}
+        <div className="relative mx-auto w-full max-w-[340px]">
+          <GlowingEffect
+            spread={40}
+            glow
+            disabled={false}
+            proximity={64}
+            inactiveZone={0.01}
+            borderWidth={3}
+          />
+          <DeviceFrame variant="phone">
             <video
-              className="w-full rounded-3xl bg-white object-cover"
+              className="h-full w-full bg-black object-cover"
               controls
               playsInline
               preload="none"
@@ -75,7 +83,7 @@ export function VideoPresentation() {
               <source src={VIDEO_SRC} type="video/mp4" />
               {t.fallback}
             </video>
-          </div>
+          </DeviceFrame>
         </div>
       </div>
     </section>
