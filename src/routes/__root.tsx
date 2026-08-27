@@ -53,6 +53,9 @@ function NotFoundComponent() {
 export const Route = createRootRoute({
   head: () => ({
     meta: [
+      // Couleur de l'interface du navigateur sur mobile, alignee sur le
+      // violet profond de la charte et sur le manifeste.
+      { name: "theme-color", content: "#360099" },
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "PeakCL · Sites web qui transforment vos visiteurs en clients" },
