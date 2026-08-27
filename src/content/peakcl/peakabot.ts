@@ -69,11 +69,12 @@ export const PEAKABOT_NODES: Record<string, BotNode> = {
     id: "tarifs",
     mood: "think",
     bot: [
-      "La plupart des prestations sont sur devis, adaptées à votre projet.",
-      "Seuls les forfaits réseaux sociaux ont un tarif public. Le plus fiable : un devis clair après un court échange.",
+      "Les tarifs sont affichés : site vitrine à partir de 2 000 € HT, réseaux sociaux de 200 à 900 €/mois.",
+      "Tout est sur la page Services, avec le détail de ce qui est inclus. Le devis précis arrive après un court échange.",
     ],
     choices: [
-      { label: "Demander un devis", href: "/reservation-appel", event: "cta_brief_peakabot" },
+      { label: "Voir les tarifs", href: "/services", event: "cta_tarifs_peakabot" },
+      { label: "Recevoir mon mini-audit", href: "/diagnostic", event: "cta_mini_audit_peakabot" },
       { label: "Voir les services", goto: "services" },
       { label: "↩︎ Retour", goto: "start" },
     ],

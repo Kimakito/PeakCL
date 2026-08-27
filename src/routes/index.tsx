@@ -5,6 +5,7 @@ import { ArrowRight, Check, Sparkles, Phone } from "lucide-react";
 import { peakclTestimonials } from "@/content/peakcl/testimonials";
 import { metierPages } from "@/seo/metiers";
 import { TestimonialWall } from "@/components/ui/testimonial-wall";
+import { PeakaBotDialogue } from "@/components/home/PeakaBotDialogue";
 import { peakclFaqHome } from "@/content/peakcl/faq";
 import { DELIVERED_COUNT, peakclPortfolio } from "@/content/peakcl/portfolio";
 import { CATEGORIES, featuredProjects } from "@/content/peakcl/portfolioDeck";
@@ -1015,6 +1016,7 @@ function Landing() {
       <OffersPanel />
       <PortfolioPanel />
       <ReviewsPanel />
+      <PeakaBotDialogue />
       <MethodPanel />
       <FAQPanel />
       <ContactPanel />
