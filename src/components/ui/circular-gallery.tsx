@@ -75,17 +75,24 @@ export function CircularGallery({
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const anglePerItem = 360 / items.length;
 
-    // Le rayon depend du NOMBRE de cartes, pas seulement de la largeur.
-    // Un rayon proportionnel a l'ecran seul donnait, a vingt cartes, 101px
-    // d'arc pour des cartes de 280px : un empilement illisible. On part donc de
-    // l'arc voulu par carte — environ 62% de sa largeur, assez pour un
-    // chevauchement franc sans bouillie — et on en deduit le rayon.
+    // Rayon calcule par trigonometrie, et non par une regle de trois.
+    //
+    // Une carte de largeur W posee a la distance R occupe 2*atan(W / 2R) degres
+    // sur l'anneau. Pour que N cartes ne se marchent pas dessus, il faut donc
+    // R >= W / (2 * tan(pi / N)). La premiere version repartissait la
+    // circonference en fraction de la largeur de carte, ce qui donnait un rayon
+    // 35% trop court a toutes les valeurs testees : les cartes se recouvraient
+    // et l'anneau devenait une bouillie de tranches verticales.
+    const cardWidthFor = (parentWidth: number) => (parentWidth < 640 ? 180 : 240);
+
     const computeRadius = () => {
-      if (radius) return radius;
       const parentWidth = ring.parentElement?.clientWidth ?? window.innerWidth;
-      const cardWidth = parentWidth < 640 ? 220 : 280;
-      const fromCount = (items.length * cardWidth * 0.62) / (2 * Math.PI);
-      return Math.max(240, Math.min(fromCount, parentWidth * 0.75));
+      if (radius) return radius;
+      const cardWidth = cardWidthFor(parentWidth);
+      // 1.02 : les cartes se frolent sans se chevaucher. En dessous de 1, elles
+      // se recouvrent ; bien au-dessus, l'anneau se disperse et se vide.
+      const needed = (cardWidth * 1.02) / (2 * Math.tan(Math.PI / items.length));
+      return Math.round(needed);
     };
     let currentRadius = computeRadius();
 
@@ -99,7 +106,7 @@ export function CircularGallery({
         // pour que l'oeil sache ou regarder, sans jamais la faire disparaitre.
         const relative = (i * anglePerItem + rotationRef.current) % 360;
         const normalized = Math.abs(relative > 180 ? 360 - relative : relative);
-        card.style.opacity = String(Math.max(0.25, 1 - normalized / 180));
+        card.style.opacity = String(Math.max(0.1, 1 - (normalized / 180) ** 0.8));
         card.style.pointerEvents = normalized > 100 ? "none" : "auto";
       }
     };
@@ -206,7 +213,7 @@ export function CircularGallery({
               ref={(el) => {
                 cardsRef.current[i] = el;
               }}
-              className="absolute left-1/2 top-1/2 -ml-[110px] -mt-[150px] h-[300px] w-[220px] sm:-ml-[140px] sm:-mt-[190px] sm:h-[380px] sm:w-[280px]"
+              className="absolute left-1/2 top-1/2 -ml-[90px] -mt-[120px] h-[240px] w-[180px] sm:-ml-[120px] sm:-mt-[160px] sm:h-[320px] sm:w-[240px]"
             >
               <Card
                 {...(item.href
@@ -215,10 +222,17 @@ export function CircularGallery({
                 data-event={item.href ? "gallery_project_open" : undefined}
                 className="group relative block h-full w-full overflow-hidden rounded-2xl border border-border bg-card/70 shadow-card"
               >
+                {/* Volontairement PAS `loading="lazy"`.
+                    Les cartes vivent dans un conteneur transforme en 3D, et le
+                    calcul d'intersection qui declenche le chargement differe y
+                    est peu fiable : en test, la moitie des cartes restaient
+                    vides tant qu'on ne bougeait pas l'anneau. Une vitrine avec
+                    des cartes vides est pire que quelques dizaines de kilo-
+                    octets de plus, d'autant qu'elle est sous la ligne de
+                    flottaison et plafonnee a huit visuels. */}
                 <img
                   src={item.image}
                   alt=""
-                  loading="lazy"
                   decoding="async"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   style={{ objectPosition: item.imagePosition ?? "top center" }}

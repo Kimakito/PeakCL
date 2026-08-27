@@ -71,11 +71,11 @@ type Filter = { key: string; label: string; accent: string };
  * y figure normalement, mais n'a rien a faire dans l'anneau ou il apparaitrait
  * comme une carte vide.
  *
- * Limite a douze : au-dela, l'arc disponible par carte devient trop court et
- * l'anneau tourne a la bouillie. Les projets suivants restent tous dans la
+ * Limite a huit : le rayon necessaire croit avec le nombre de cartes, et
+ * au-dela l'anneau devient plus large que l'ecran. Les projets suivants restent tous dans la
  * grille.
  */
-const GALLERY_MAX = 12;
+const GALLERY_MAX = 8;
 
 const GALLERY_ITEMS: GalleryItem[] = DECK_PROJECTS.filter((p) => p.shot)
   .slice(0, GALLERY_MAX)
@@ -428,14 +428,24 @@ function PortfolioPage() {
             <SectionAvatarCard slug="portfolio" imgClassName="w-full max-w-[230px]" />
           </div>
         </div>
+      </section>
 
-        {/* Anneau 3D : vitrine, pas inventaire. Il vit dans une boite a hauteur
-            fixe et ne detourne pas le defilement de la page — la grille
-            filtrable juste en dessous reste le contenu indexable et complet. */}
-        <div className="relative mt-14 h-[360px] w-full sm:h-[460px]">
+      {/* Anneau 3D, dans SA PROPRE section.
+          Il vivait dans celle du hero, qui porte `overflow-hidden` et un
+          rembourrage vertical calcule pour du texte : l'anneau debordait par le
+          bas et se faisait rogner. Une section dediee lui donne sa hauteur.
+
+          C'est une vitrine, pas l'inventaire : la grille filtrable juste en
+          dessous reste le contenu complet et indexable, et l'anneau ne
+          detourne pas le defilement de la page. */}
+      <section
+        className="relative border-t border-border py-12"
+        aria-label="Aperçu des réalisations"
+      >
+        <div className="relative h-[420px] w-full sm:h-[520px]">
           <CircularGallery items={GALLERY_ITEMS} />
         </div>
-        <p className="relative mt-4 text-center text-xs text-muted-foreground/70">
+        <p className="mt-6 text-center text-xs text-muted-foreground/70">
           Faites glisser pour tourner · survolez pour mettre en pause
         </p>
       </section>
