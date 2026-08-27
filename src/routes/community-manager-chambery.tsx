@@ -25,7 +25,7 @@ const FAQ = [
 export const Route = createFileRoute("/community-manager-chambery")({
   head: () => ({
     meta: [
-      { title: "Community manager à Chambéry · PeakCL" },
+      { title: "Gestion des réseaux sociaux à Chambéry · Community manager · PeakCL" },
       {
         name: "description",
         content:

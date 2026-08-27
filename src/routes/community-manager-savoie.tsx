@@ -32,7 +32,7 @@ const serviceJsonLd = {
 export const Route = createFileRoute("/community-manager-savoie")({
   head: () => ({
     meta: [
-      { title: "Community manager en Savoie (Albertville) · PeakCL" },
+      { title: "Gestion des réseaux sociaux en Savoie (Albertville) · Community manager · PeakCL" },
       {
         name: "description",
         content:

@@ -25,7 +25,7 @@ const FAQ = [
 export const Route = createFileRoute("/community-manager-albertville")({
   head: () => ({
     meta: [
-      { title: "Community manager à Albertville · PeakCL" },
+      { title: "Gestion des réseaux sociaux à Albertville · Community manager · PeakCL" },
       {
         name: "description",
         content:

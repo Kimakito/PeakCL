@@ -28,7 +28,7 @@ export const Route = createFileRoute("/agence-web-aix-les-bains")({
       // « agence wordpress aix-les-bains » remonte en impressions sans aucun
       // clic : le mot WordPress n'apparaissait nulle part sur la page. Il est
       // légitime ici — une partie du portfolio est livrée sous WordPress.
-      { title: "Agence web & WordPress à Aix-les-Bains (Savoie) · PeakCL" },
+      { title: "Création de site internet à Aix-les-Bains · WordPress & sur mesure" },
       {
         name: "description",
         content:
@@ -79,7 +79,8 @@ function Page() {
       region="Savoie"
       headline={
         <>
-          Agence web & WordPress à <span className="text-gradient">Aix-les-Bains</span>
+          Création de site internet à <span className="text-gradient">Aix-les-Bains</span> ·
+          WordPress
         </>
       }
       intro="Un site WordPress ou codé sur mesure, rapide et structuré pour convertir les visiteurs locaux en prises de contact."

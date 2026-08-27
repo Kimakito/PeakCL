@@ -25,7 +25,7 @@ const FAQ = [
 export const Route = createFileRoute("/community-manager-aix-les-bains")({
   head: () => ({
     meta: [
-      { title: "Community manager à Aix-les-Bains · PeakCL" },
+      { title: "Gestion des réseaux sociaux à Aix-les-Bains · Community manager · PeakCL" },
       {
         name: "description",
         content:

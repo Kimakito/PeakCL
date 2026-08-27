@@ -47,9 +47,17 @@ export type GeoLandingProps = {
   /** "site web" (default) or "site internet" */
   serviceLabel?: string;
   /**
-   * Remplace le H1 par défaut (« Agence web à {city} : création de {serviceLabel} »).
+   * Remplace le H1 par défaut (« Création de {serviceLabel} à {city} · Agence web »).
    * À n'utiliser que si la requête ciblée ne rentre pas dans ce gabarit
    * (ex. « agence wordpress aix-les-bains »). Le H1 reste unique par page.
+   *
+   * L'ordre a été inversé : le H1 menait avec « Agence web à {city} ». Or on ne
+   * cherche « agence web » que si l'on a déjà décidé de passer par une agence,
+   * alors qu'on cherche « création de site internet » dès qu'on a le besoin —
+   * en amont, donc, et sur un volume plus large. « Agence web » reste dans le
+   * H1 : Search Console montre des impressions réelles sur cette requête (voir
+   * le commentaire de la route Albertville), il n'y a aucune raison de s'en
+   * priver, seulement de ne plus la mettre en premier.
    */
   headline?: ReactNode;
   /** Hero subtitle, ideally city-specific */
@@ -156,8 +164,8 @@ export function GeoLanding({
           <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-tight md:text-6xl">
             {headline ?? (
               <>
-                Agence web à <span className="text-gradient">{city}</span> : création de{" "}
-                {serviceLabel}
+                Création de {serviceLabel} à <span className="text-gradient">{city}</span> · Agence
+                web
               </>
             )}
           </h1>

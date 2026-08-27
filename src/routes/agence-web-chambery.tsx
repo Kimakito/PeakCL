@@ -29,7 +29,7 @@ export const Route = createFileRoute("/agence-web-chambery")({
       // « création site internet chambéry ») étaient absentes du title, qui
       // parlait de « site web » : 0 clic pour ~33e position. Le title les
       // reprend maintenant mot pour mot.
-      { title: "Agence web à Chambéry · Création de site internet (Savoie)" },
+      { title: "Création de site internet à Chambéry (Savoie) · Agence web" },
       {
         name: "description",
         content:

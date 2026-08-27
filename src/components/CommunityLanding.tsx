@@ -89,8 +89,13 @@ export function CommunityLanding({
             <MapPin className="h-3.5 w-3.5" />
             {city} · {region}
           </div>
+          {/* « Community manager » est le nom du metier, pas celui du besoin.
+              Un artisan ne cherche pas un community manager : il cherche
+              quelqu'un pour « gerer ses reseaux sociaux ». Le H1 porte les deux
+              formulations, la plus parlante en premier. */}
           <h1 className="mx-auto mt-6 max-w-3xl text-balance text-4xl font-bold leading-tight md:text-6xl">
-            Community manager à <span className="text-gradient">{city}</span>
+            Gestion des réseaux sociaux à <span className="text-gradient">{city}</span> · Community
+            manager
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{intro}</p>
           <a

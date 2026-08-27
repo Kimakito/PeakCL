@@ -33,7 +33,7 @@ export const Route = createFileRoute("/agence-web-albertville")({
       // albertville » et « agence seo albertville ». Elles partagent la même
       // intention (prestataire local), donc la même URL — les séparer sur deux
       // pages créerait une cannibalisation.
-      { title: "Agence web & SEO à Albertville · Création de site internet" },
+      { title: "Création de site internet à Albertville · Agence web & SEO" },
       {
         name: "description",
         content:
