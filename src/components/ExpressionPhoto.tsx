@@ -22,6 +22,22 @@ type ExpressionPhotoProps = {
   /** Classe(s) sur l'image (largeur/hauteur). Défaut : carré souple. */
   imgClassName?: string;
   loading?: "lazy" | "eager";
+  /**
+   * Image purement decorative : `alt` vide.
+   *
+   * Une image en `loading="lazy"` pas encore chargee affiche son texte
+   * alternatif en clair, deborde de son cadre et donne l'impression que le
+   * site est casse. C'etait le cas de la rangee d'expressions de l'accueil :
+   * huit libelles « Charlotte, grand sourire », « Charlotte, air sceptique »
+   * empiles a la place des photos.
+   *
+   * Un `alt` vide regle les deux problemes a la fois. Ces vignettes n'apportent
+   * aucune information qu'un lecteur d'ecran doive entendre — la section
+   * annonce deja « Derriere PeakCL, une vraie personne », et huit descriptions
+   * d'humeur quasi identiques ne seraient que du bruit. Une image decorative
+   * doit porter un `alt` vide, c'est la regle.
+   */
+  decorative?: boolean;
 };
 
 /** Photo d'expression encadrée, avec inclinaison et survol vivant. */
@@ -32,6 +48,7 @@ export function ExpressionPhoto({
   className = "",
   imgClassName = "aspect-[3/4] w-40",
   loading = "lazy",
+  decorative = false,
 }: ExpressionPhotoProps) {
   const e = EXPRESSIONS[slug];
   return (
@@ -39,7 +56,7 @@ export function ExpressionPhoto({
       <div className="overflow-hidden rounded-2xl border border-[color-mix(in_oklab,var(--brand-turquoise)_28%,transparent)] bg-card shadow-card transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:rotate-[-2deg] motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 motion-reduce:group-hover:rotate-0">
         <img
           src={e.src}
-          alt={e.alt}
+          alt={decorative ? "" : e.alt}
           loading={loading}
           decoding="async"
           className={`block object-cover ${imgClassName}`}
@@ -88,6 +105,7 @@ export function ExpressionGallery({
           slug={slug}
           tilt={tilts[i % tilts.length]}
           caption={showCaptions ? EXPRESSIONS[slug].mood : undefined}
+          decorative
           imgClassName="aspect-[3/4] w-24 sm:w-28 md:w-32"
         />
       ))}
