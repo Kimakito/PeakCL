@@ -173,6 +173,9 @@ export type ServicePageProps = {
   facts?: ServiceFacts;
   /** Bloc optionnel affiché sous le tagline dans le hero. */
   intro?: ReactNode;
+  /** Bloc pleine largeur inséré juste après le hero, avant la fiche « en bref ».
+   *  Pensé pour une preuve visuelle : on montre le travail avant de le décrire. */
+  showcase?: ReactNode;
   /** Section optionnelle « expertises » (grille de cartes) entre le hero et le catalogue. */
   highlights?: ServiceHighlight[];
   highlightsTitle?: string;
@@ -273,6 +276,7 @@ export function ServicePage({
   tagline,
   facts,
   intro,
+  showcase,
   highlights,
   highlightsTitle,
   highlightsSubtitle,
@@ -413,6 +417,12 @@ export function ServicePage({
               </div>
             )}
           </SnapSection>
+
+          {showcase ? (
+            <SnapSection id="showcase" className="flex items-center border-t border-border py-16">
+              <div className="mx-auto w-full max-w-5xl px-6">{showcase}</div>
+            </SnapSection>
+          ) : null}
 
           {facts ? (
             <SnapSection id="fiche-section" className="flex items-center">

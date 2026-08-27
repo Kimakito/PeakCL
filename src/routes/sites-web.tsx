@@ -1,9 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { absUrl } from "@/seo/site";
+import { SiteShowcase, type ShowcaseSite } from "@/components/ui/site-showcase";
+import { DECK_PROJECTS } from "@/content/peakcl/portfolioDeck";
 import { hreflangLinks } from "@/seo/hreflang";
 import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
 import { sitesWeb, sitesWebHighlights } from "@/content/peakcl/services";
+
+/**
+ * Vitrine de la page : cinq sites livres, un par famille de metier ciblee.
+ *
+ * Derive de `DECK_PROJECTS` et jamais retape a la main. En saisissant les URL
+ * moi-meme, j'avais deja ecrit « adelante-voyages.fr » au lieu de
+ * « adelantevoyages.fr » : un lien mort sur une vitrine dont le seul role est
+ * de prouver que les sites existent. Les captures sont celles du portfolio,
+ * environ 55 Ko chacune, et seule la premiere se charge en `eager`.
+ */
+const SHOWCASE_SLUGS = [
+  "cime-strategie",
+  "sp-renovation",
+  "sanchez-randon",
+  "adelante",
+  "le-juste-plan",
+] as const;
+
+const SHOWCASE: ShowcaseSite[] = SHOWCASE_SLUGS.map((slug) => {
+  const project = DECK_PROJECTS.find((p) => p.slug === slug);
+  if (!project?.shot || !project.siteUrl) {
+    throw new Error(`sites-web : projet « ${slug} » introuvable, sans capture ou sans URL`);
+  }
+  return {
+    id: project.slug,
+    name: project.title,
+    metier: project.subtitle ?? "",
+    url: project.siteUrl,
+    image: project.shot,
+  };
+});
 
 export const Route = createFileRoute("/sites-web")({
   head: () => ({
@@ -47,6 +80,7 @@ export const Route = createFileRoute("/sites-web")({
         src: "/peakcl/assets/images/bureau-peakcl.webp",
         alt: "Bureau PeakCL avec un site web affiché à l’écran",
       }}
+      showcase={<SiteShowcase sites={SHOWCASE} />}
       eyebrow="Développement web"
       title="Sites web sur mesure"
       tagline="Sites vitrines, e-commerce et refontes pour thérapeutes, artisans et indépendants de Savoie : rapides, bien référencés et pensés pour transformer un visiteur en rendez-vous ou en devis."
