@@ -27,11 +27,15 @@ const SCRIPT: Turn[] = [
 
 /** Les mêmes pistes que l'aiguillage du bloc « problème », dérivées du registre. */
 const PISTES = [
+  // TPE et PME en tete : cible prioritaire. Voir le commentaire d'AUDIENCES
+  // dans src/routes/index.tsx, les deux listes doivent rester dans le meme
+  // ordre — un visiteur qui voit deux classements differents sur la meme page
+  // n'y lit plus aucune intention.
+  { label: "TPE & PME", href: "/refonte-site-pme" },
   ...metierPages.map((m) => ({
     label: m.label.replace(/^Site internet /, ""),
     href: `/${m.slug}`,
   })),
-  { label: "TPE & PME", href: "/refonte-site-pme" },
 ];
 
 /** Millisecondes par caractère. Assez lent pour se lire, assez vif pour ne pas lasser. */

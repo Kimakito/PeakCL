@@ -3,6 +3,7 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { conseils, type Conseil } from "@/content/peakcl/conseils";
 import { BOOKING_URL } from "@/lib/links";
+import { GooglePreferredSource } from "@/components/GooglePreferredSource";
 
 const DATE_FMT = new Intl.DateTimeFormat("fr-FR", {
   day: "numeric",
@@ -95,6 +96,10 @@ export function ArticleLayout({ conseil }: { conseil: Conseil }) {
                 Réserver un appel
               </a>
             </div>
+            {/* Sous le CTA, jamais au-dessus : le mini-audit produit des
+                demandes, ce bouton produit un signal de fidelite. L'ordre
+                traduit cette difference de valeur. */}
+            <GooglePreferredSource className="mt-8 border-t border-border pt-6" />
           </div>
 
           {/* Related */}

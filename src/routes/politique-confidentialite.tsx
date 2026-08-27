@@ -208,6 +208,11 @@ const SECTIONS: Section[] = [
             <strong>Netlify</strong> — hébergement du site et traitement des formulaires.
           </li>
           <li>
+            <strong>Google</strong> — mesure d’audience (Analytics) et bouton «&nbsp;sources
+            préférées&nbsp;» affiché au bas des articles de conseils. Ce dernier n’est chargé
+            qu’après acceptation des cookies de mesure, et uniquement sur ces pages.
+          </li>
+          <li>
             <strong>HubSpot</strong> — outil de gestion de la relation client&nbsp;: réception des
             demandes envoyées via les formulaires, prise de rendez-vous (module HubSpot Meetings) et
             suivi des échanges. Portail hébergé dans l’Union européenne.

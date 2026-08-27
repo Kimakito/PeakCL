@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Site, image de marque et réseaux pour indépendants, artisans, professions libérales, TPE et PME. Un seul interlocuteur, de la stratégie au lancement. Savoie et toute la France.",
+          "Site, image de marque et réseaux pour TPE, PME, indépendants et artisans. Un seul interlocuteur, de la stratégie au lancement. Savoie et toute la France.",
       },
       {
         property: "og:title",
@@ -154,12 +154,22 @@ function SectionMascot(_props: {
  * l'accueil, la page la plus exploree du site, est le meilleur signal
  * disponible pour les faire visiter.
  */
+/**
+ * TPE et PME EN TETE, volontairement.
+ *
+ * L'ordre d'une liste se lit comme un ordre de priorite : le premier element
+ * dit a qui l'on s'adresse d'abord. La cible prioritaire de PeakCL est la TPE
+ * et la PME, les metiers independants venant ensuite. La liste etait
+ * construite dans l'ordre inverse, par simple commodite de code — elle
+ * derivait du registre des pages metier et la piste PME etait ajoutee a la
+ * fin.
+ */
 const AUDIENCES: { label: string; href: string }[] = [
+  { label: "TPE & PME", href: "/refonte-site-pme" },
   ...metierPages.map((m) => ({
     label: m.label.replace(/^Site internet /, ""),
     href: `/${m.slug}`,
   })),
-  { label: "TPE & PME", href: "/refonte-site-pme" },
 ];
 
 function AudienceRow() {
@@ -184,7 +194,7 @@ function AudienceRow() {
 
 function ProblemPanel() {
   const points = [
-    "Indépendant, artisan, cabinet ou PME : vos clients vous cherchent en ligne et décident en cinq secondes si vous êtes crédible.",
+    "TPE, PME, cabinet ou indépendant : vos clients vous cherchent en ligne et décident en cinq secondes si vous êtes crédible.",
     "Entre votre métier et le reste, personne chez vous n’a le temps de gérer site, design, réseaux et demandes entrantes à la main.",
     "Vous voulez un seul interlocuteur qui comprend votre activité, des décisions rapides et rien à rattraper vous-même.",
   ];

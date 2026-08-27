@@ -45,7 +45,7 @@ const PARAGRAPHS_FR: Para[] = [
     rest: "Ma formation en community management complète mes compétences techniques et graphiques : je ne me contente pas de « faire de jolis posts », je construis une communication cohérente, pensée pour la conversion, du site web jusqu'aux réseaux sociaux.",
   },
   {
-    rest: `Concrètement, j'accompagne des indépendants, artisans, thérapeutes, commerçants, TPE et PME qui veulent une présence en ligne professionnelle sans y passer leurs soirées. J'ai livré ${DELIVERED_COUNT} projets clients, agence de voyage, cabinet d'avocate, artisan automobile, prothésiste dentaire, coachs, e-commerce équestre, notés 5/5 sur Google. Basée à Gilly-sur-Isère, juste à côté d'Albertville, je travaille avec des clients dans toute la Savoie (Chambéry, Aix-les-Bains, Annecy) et partout en France, en visio.`,
+    rest: `Concrètement, j'accompagne des TPE, des PME, des indépendants, artisans, thérapeutes et commerçants qui veulent une présence en ligne professionnelle sans y passer leurs soirées. J'ai livré ${DELIVERED_COUNT} projets clients, agence de voyage, cabinet d'avocate, artisan automobile, prothésiste dentaire, coachs, e-commerce équestre, notés 5/5 sur Google. Basée à Gilly-sur-Isère, juste à côté d'Albertville, je travaille avec des clients dans toute la Savoie (Chambéry, Aix-les-Bains, Annecy) et partout en France, en visio.`,
   },
 ];
 
@@ -58,7 +58,7 @@ const PARAGRAPHS_EN: Para[] = [
     rest: "My training in social media management rounds out my technical and design skills: I don't just make pretty posts, I build consistent communication, designed to convert, from your website all the way to your social channels.",
   },
   {
-    rest: `In practice, I help freelancers, makers, therapists, shop owners, small businesses and growing teams who want a professional online presence without spending their evenings on it. I've delivered ${DELIVERED_COUNT} client projects, a travel agency, a law firm, an auto craftsman, a dental technician, coaches, an equestrian store, all rated 5/5 on Google. I work remotely, with clients across France and worldwide, over video calls.`,
+    rest: `In practice, I help small businesses, growing teams, freelancers, makers, therapists and shop owners who want a professional online presence without spending their evenings on it. I've delivered ${DELIVERED_COUNT} client projects, a travel agency, a law firm, an auto craftsman, a dental technician, coaches, an equestrian store, all rated 5/5 on Google. I work remotely, with clients across France and worldwide, over video calls.`,
   },
 ];
 

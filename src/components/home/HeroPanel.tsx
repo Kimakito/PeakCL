@@ -329,7 +329,7 @@ function heroText(locale: Locale) {
     badge: "5/5 Google · diagnostic gratuit · un seul interlocuteur",
     titleLead: "Vous voulez une présence en ligne claire, crédible et sans complication ?",
     titleAccent: "Je vous accompagne de A à Z.",
-    sub: "Indépendants, artisans, professions libérales, TPE et PME : une image nette sans y passer vos soirées, de la stratégie au lancement, avec un plan clair, des livrables concrets et un seul interlocuteur. En Savoie et partout en France.",
+    sub: "TPE, PME, indépendants, artisans et professions libérales : une image nette sans y passer vos soirées, de la stratégie au lancement, avec un plan clair, des livrables concrets et un seul interlocuteur. En Savoie et partout en France.",
     ctaPrimary: "Réserver un appel gratuit",
     ctaSecondary: "Voir les services",
     servicesHref: "/services",

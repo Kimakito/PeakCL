@@ -65,7 +65,7 @@ function copyFor(locale: Locale): Copy {
       "Je construis une communication cohérente, pensée pour la conversion, du site web jusqu'aux réseaux.",
     clientsTitle: "Pour qui",
     clients:
-      "Indépendants, artisans, thérapeutes, commerçants, PME et petites structures. Agence de voyage, cabinet d'avocate, prothésiste dentaire, coachs, e-commerce équestre…",
+      "TPE, PME, indépendants, artisans, thérapeutes et commerçants. Agence de voyage, cabinet d'avocate, prothésiste dentaire, coachs, e-commerce équestre…",
     locationTitle: "D'où je travaille",
     location:
       "Basée à Gilly-sur-Isère, près d'Albertville. Toute la Savoie et partout en France, en visio.",

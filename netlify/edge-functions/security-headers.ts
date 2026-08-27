@@ -62,6 +62,9 @@ const SECURITY_HEADERS: Record<string, string> = {
       "https://*.hsleadflows.net",
       "https://*.usemessages.com",
       "https://static.hsappstatic.net",
+      // Bouton « Sources préférées » de Google Search, chargé sous
+      // consentement sur les articles de conseils (GooglePreferredSource).
+      "https://news.google.com",
     ].join(" "),
     [
       "style-src 'self' 'unsafe-inline'",
@@ -83,7 +86,7 @@ const SECURITY_HEADERS: Record<string, string> = {
       "https://*.hs-analytics.net",
       "https://*.hs-banner.com",
     ].join(" "),
-    "frame-src https://*.hubspot.com https://meetings-eu1.hubspot.com",
+    "frame-src https://*.hubspot.com https://meetings-eu1.hubspot.com https://news.google.com",
     "form-action 'self'",
   ].join("; "),
 };
