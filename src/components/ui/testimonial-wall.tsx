@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
 import type { PeakclTestimonial } from "@/content/peakcl/testimonials";
 import { cn } from "@/lib/utils";
+import { optimizedLogoUrl } from "@/lib/optimizedLogo";
 
 /** Initiales de repli quand le client n'a pas de logo rattaché avec certitude. */
 function initials(name: string) {
@@ -71,10 +72,16 @@ export function TestimonialWall({ testimonials, className }: TestimonialWallProp
                 </blockquote>
 
                 <div className="mt-auto flex items-center gap-3 border-t border-border pt-4">
+                  {/* `optimizedLogoUrl` sert la miniature 96px et non le logo
+                      pleine taille : ces vignettes font 40px de cote, et les six
+                      fichiers d'origine pesaient 570 Ko a eux seuls — dont
+                      357 Ko pour un seul PNG. Les versions `-sm.webp` generees
+                      par `scripts/optimize-client-logos.mjs` tombent a 18 Ko au
+                      total, sans difference visible a cette taille. */}
                   <Avatar className="size-10 shrink-0 border border-border bg-white">
                     {t.logoUrl ? (
                       <AvatarImage
-                        src={t.logoUrl}
+                        src={optimizedLogoUrl(t.logoUrl)}
                         alt=""
                         loading="lazy"
                         className="object-contain p-1"

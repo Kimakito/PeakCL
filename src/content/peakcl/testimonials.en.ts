@@ -38,7 +38,8 @@ export const peakclTestimonialsEn: PeakclTestimonial[] = [
   },
   {
     name: "Mathilde T.",
-    sourceLabel: "Google review ✓",
+    sourceLabel: "Peak Training · Google review ✓",
+    logoUrl: "/peakcl/assets/logo/Peak-training.png",
     dateLabel: "May 2026",
     rating: 5,
     quote:
@@ -46,7 +47,8 @@ export const peakclTestimonialsEn: PeakclTestimonial[] = [
   },
   {
     name: "Céline G.",
-    sourceLabel: "Google review ✓",
+    sourceLabel: "C'mieux comme ça · Google review ✓",
+    logoUrl: "/peakcl/assets/logo/cmieuxcommeca.webp",
     dateLabel: "March 2026",
     rating: 5,
     quote:

@@ -7,9 +7,13 @@ export type PeakclTestimonial = {
   /**
    * Logo du client qui a laissé l'avis, affiché en vignette.
    *
-   * Renseigné UNIQUEMENT quand le rattachement est certain — c'est-à-dire
-   * quand la réponse publique de PeakCL sur la fiche Google renvoie vers le
-   * site livré. Sans cette confirmation, on laisse vide et le mur affiche les
+   * Renseigné UNIQUEMENT quand le rattachement est certain. Deux sources le
+   * rendent certain : la réponse publique de PeakCL sur la fiche Google, qui
+   * renvoie vers le site livré, ou la confirmation directe de Charlotte —
+   * c'est le cas de Mathilde Treille pour Peak Training et de Céline Gaillard
+   * pour C'mieux comme ça, dont les avis sont signés d'une initiale.
+   *
+   * Sans l'une de ces deux confirmations, on laisse vide et le mur affiche les
    * initiales : mieux vaut pas de logo qu'un avis attribué au mauvais client.
    */
   logoUrl?: string;
@@ -66,7 +70,8 @@ export const peakclTestimonials: PeakclTestimonial[] = [
   },
   {
     name: "Mathilde T.",
-    sourceLabel: "Avis Google ✓",
+    sourceLabel: "Peak Training · Avis Google ✓",
+    logoUrl: "/peakcl/assets/logo/Peak-training.png",
     dateLabel: "mai 2026",
     rating: 5,
     quote:
@@ -74,7 +79,8 @@ export const peakclTestimonials: PeakclTestimonial[] = [
   },
   {
     name: "Céline G.",
-    sourceLabel: "Avis Google ✓",
+    sourceLabel: "C'mieux comme ça · Avis Google ✓",
+    logoUrl: "/peakcl/assets/logo/cmieuxcommeca.webp",
     dateLabel: "mars 2026",
     rating: 5,
     quote:
