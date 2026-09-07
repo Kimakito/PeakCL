@@ -161,8 +161,9 @@ les URL existantes, il n'en ajoute pas).
   visiteur comparer les prix sur des places de marché low-cost au moment précis
   où il évaluait une prestation à 2 000 €. Les URL sont conservées en
   commentaire dans `src/lib/links.ts` pour que la décision reste lisible.
-- E-mail public basculé de `peakcl73@gmail.com` vers `charlotte@peakcl.com`
-  partout (site, JSON-LD, `llms.txt`).
+- E-mail public : `peakcl73@gmail.com` partout (site, JSON-LD, `llms.txt`).
+  La bascule vers `charlotte@peakcl.com` a été annulée le 07/09/2026, c'est
+  l'adresse Gmail qui reste l'adresse de contact définitive.
 
 ---
 

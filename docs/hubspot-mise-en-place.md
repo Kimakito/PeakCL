@@ -45,7 +45,7 @@ Toutes les reponses de qualification (chiffre d'affaires, problematique, engagem
 ### Etape B, creer le lien de rendez-vous
 
 1. HubSpot > **Bibliotheque** > **Reunions** > **Creer un lien de reunion**.
-2. Connecte ton agenda (Google, celui de charlotte@peakcl.com).
+2. Connecte ton agenda (Google, celui de peakcl73@gmail.com).
 3. Regle la duree, les plages de disponibilite et le fuseau (Europe/Paris).
 4. Copie le lien. Il ressemble a `https://meetings-eu1.hubspot.com/charlotte-lacroix`.
 
@@ -131,5 +131,5 @@ Tu as **0 transaction** dans le CRM aujourd'hui pour 60 contacts. C'est le vrai 
 - **Je n'ai pas pu lancer `npm run build`.** Ton `node_modules` contient les binaires macOS d'esbuild, et l'environnement ou je travaille est sous Linux : le build echoue sur `scripts/generate-llms-txt.mjs` avant meme d'atteindre mon code. La verification de types (`npx tsc --noEmit`) et le lint passent tous les deux sans erreur, mais **lance un `npm run build` en local avant de deployer**, je ne peux pas te garantir le build a ta place.
 - **La CSP reste en Report-Only.** Les nouveaux domaines HubSpot et Google y sont ajoutes, mais rien ne bloquera si j'en ai oublie un : tu verras seulement un avertissement en console. Regarde la console apres deploiement, c'est le moment ou jamais de completer la liste.
 - **`src/content/peakcl/trame-prospection-markdown.ts`** mentionne encore « Calendly direct » dans le texte de ta trame de prospection. C'est de la prose, pas un lien : a mettre a jour quand tu auras bascule.
-- **`CONTACT.email` vaut toujours `peakcl73@gmail.com`** dans `src/lib/links.ts`, alors que ta boite pro `charlotte@peakcl.com` est operationnelle depuis le 10/08. Sans rapport avec HubSpot, mais c'est l'adresse affichee publiquement sur tout le site.
+- **`CONTACT.email` vaut `peakcl73@gmail.com`** dans `src/lib/links.ts`, et c'est voulu : cette adresse est l'adresse de contact definitive, affichee publiquement sur tout le site.
 - **Deux tunnels concurrents subsistent.** `/reservation-appel` et `/diagnostic` posent les memes questions et aboutissent tous deux a `/merci-brief`. Brancher HubSpot ne resout pas ca, et tant qu'ils coexistent tu ne pourras attribuer aucun resultat a l'un ou a l'autre.

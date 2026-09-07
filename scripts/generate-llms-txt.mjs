@@ -121,7 +121,7 @@ function render(c) {
   push("");
   push(
     "Interlocutrice unique : la meme personne code le site, dessine l'identite et",
-    "gere les reseaux. Contact : charlotte@peakcl.com, 07 43 51 76 27.",
+    "gere les reseaux. Contact : peakcl73@gmail.com, 07 43 51 76 27.",
   );
   push("");
 

@@ -41,7 +41,7 @@ export function professionalServiceJsonLd(): JsonLd {
     url: absUrl("/"),
     logo: absUrl("/peakcl/PeakCL.svg"),
     image: absUrl("/peakcl/PeakCL.svg"),
-    email: "charlotte@peakcl.com",
+    email: "peakcl73@gmail.com",
     telephone: "+33743517627",
     priceRange: "€€",
     // Entreprise individuelle : la fondatrice EST l'unique intervenante. Le
@@ -372,7 +372,7 @@ export function localBusinessJsonLd(opts: {
     description: opts.description,
     url: absUrl(opts.path),
     image: absUrl("/peakcl/PeakCL.svg"),
-    email: "charlotte@peakcl.com",
+    email: "peakcl73@gmail.com",
     telephone: "+33743517627",
     priceRange: "€€",
     parentOrganization: { "@id": absUrl("/#business") },
