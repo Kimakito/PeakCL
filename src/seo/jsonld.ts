@@ -1,4 +1,5 @@
 import { absUrl } from "@/seo/site";
+import { GOOGLE_BUSINESS, SOCIAL } from "@/lib/links";
 
 export type JsonLd = Record<string, unknown>;
 
@@ -21,12 +22,21 @@ export const ENTITY_ID = {
   person: absUrl("/qui-suis-je#charlotte"),
 } as const;
 
-/** Profils officiels — memes URLs partout, c'est ce qui permet de corroborer l'entite. */
+/**
+ * Profils officiels — memes URLs partout, c'est ce qui permet de corroborer
+ * l'entite. Les reseaux sont repris depuis `SOCIAL` (src/lib/links.ts) pour
+ * qu'une URL corrigee la-bas ne laisse pas une variante divergente ici : une
+ * page Facebook listee avec et sans slash final se lit comme deux profils.
+ */
 const SAME_AS = [
-  "https://www.instagram.com/peakcl73/",
-  "https://www.facebook.com/PeakCL73/",
-  "https://www.linkedin.com/in/charlotte-lacroix-peakcl/",
+  SOCIAL.instagram,
+  SOCIAL.facebook,
+  SOCIAL.linkedin,
   "https://github.com/PeakCL",
+  // La fiche Google Business porte le meme couple marque + personne que
+  // le graphe ci-dessous ("PeakCL : Charlotte Lacroix") : la declarer ici
+  // rattache explicitement la fiche, ses avis et le site a une seule entite.
+  GOOGLE_BUSINESS.profile,
 ];
 
 export function professionalServiceJsonLd(): JsonLd {
@@ -166,7 +176,7 @@ export function personJsonLd(): JsonLd {
     "@id": ENTITY_ID.person,
     name: "Charlotte Lacroix",
     url: absUrl("/qui-suis-je"),
-    jobTitle: "Développeuse web & graphiste",
+    jobTitle: ["Développeuse web", "Community manager", "Graphiste"],
     image: absUrl("/peakcl/photo/charlotte-round-800.webp"),
     worksFor: { "@id": ENTITY_ID.business },
     founderOf: { "@id": ENTITY_ID.business },

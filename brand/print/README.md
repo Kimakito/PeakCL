@@ -182,7 +182,7 @@ cd assets
 npx qrcode -t svg -e M -m 1 -d '#13004D' -l '#0000' -o qr-rdv.svg "https://…"
 ```
 
-Réseaux : Instagram **@peakcl73**, Facebook **PeakCL73** (`https://www.facebook.com/PeakCL73/`), LinkedIn **charlotte-lacroix-peakcl**. Même compte Facebook que le site (`src/lib/links.ts`).
+Réseaux : Instagram **@peakcl73**, Facebook **PeakCL73** (`https://www.facebook.com/PeakCL73`), LinkedIn **charlotte-lacroix-peakcl**. Même compte Facebook que le site (`src/lib/links.ts`).
 
 ## Assets (`assets/`)
 

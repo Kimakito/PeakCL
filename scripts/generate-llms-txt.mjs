@@ -111,12 +111,12 @@ function render(c) {
   push("# PeakCL");
   push("");
   push(
-    "> Agence web et communication digitale de Charlotte Lacroix, developpeuse web et",
-    "> graphiste independante basee a Gilly-sur-Isere (73200), pres d'Albertville en",
-    "> Savoie. Creation et refonte de sites internet (sur mesure ou WordPress),",
-    "> identite visuelle et logo, community management et automatisation, pour des",
-    "> independants, artisans, therapeutes, PME et petites structures de Savoie,",
-    "> Haute-Savoie et partout en France a distance.",
+    "> Agence web et communication digitale de Charlotte Lacroix, developpeuse web,",
+    "> graphiste et community manager independante basee a Gilly-sur-Isere (73200),",
+    "> pres d'Albertville en Savoie. Creation et refonte de sites internet (sur",
+    "> mesure ou WordPress), identite visuelle et logo, community management et",
+    "> automatisation, pour des independants, artisans, therapeutes, PME et petites",
+    "> structures de Savoie, Haute-Savoie et partout en France a distance.",
   );
   push("");
   push(

@@ -7,6 +7,21 @@ export const SOCIAL = {
   whatsapp: "https://wa.me/33743517627",
 } as const;
 
+/**
+ * Fiche Google Business Profile. `profile` est la forme canonique par CID :
+ * c'est l'URL que Google lui-meme emet, elle ne bouge pas si le nom de la
+ * fiche change, contrairement a une URL /maps/place/<nom>. `review` est le
+ * lien court de demande d'avis fourni par la fiche.
+ *
+ * Nom de la fiche : "PeakCL : Charlotte Lacroix" (format praticien recommande
+ * par Google), pour que la fiche ressorte aussi sur une recherche au nom de
+ * Charlotte et pas seulement sur la marque.
+ */
+export const GOOGLE_BUSINESS = {
+  profile: "https://maps.google.com/?cid=7966730877774683497",
+  review: "https://g.page/r/CWld5RaGg49uEBM/review",
+} as const;
+
 /** Plateformes freelance — à n'afficher QUE dans le footer. */
 export const FREELANCE = {
   malt: "https://www.malt.fr/profile/peakcldev",

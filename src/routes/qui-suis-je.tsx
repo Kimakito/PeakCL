@@ -18,21 +18,21 @@ export const Route = createFileRoute("/qui-suis-je")({
   head: () => ({
     meta: [
       {
-        title: "Charlotte Lacroix · Développeuse web & graphiste en Savoie | PeakCL",
+        title: "Charlotte Lacroix · Développeuse web & community manager · Savoie",
       },
       {
         name: "description",
         content:
-          "Charlotte Lacroix (PeakCL), développeuse web & graphiste près d'Albertville (Savoie). 7 ans dans le digital : sites, refontes et SEO local pour indépendants, TPE et PME.",
+          "Charlotte Lacroix (PeakCL), développeuse web & community manager près d'Albertville (Savoie). 7 ans dans le digital : sites, réseaux et SEO local pour indépendants, TPE et PME.",
       },
       {
         property: "og:title",
-        content: "Charlotte Lacroix · Développeuse web & graphiste en Savoie | PeakCL",
+        content: "Charlotte Lacroix · Développeuse web & community manager · Savoie",
       },
       {
         property: "og:description",
         content:
-          "Le parcours, la méthode et la philosophie PeakCL · code + design réunis, pour une présence en ligne qui génère des demandes.",
+          "Le parcours, la méthode et la philosophie PeakCL · code, design et réseaux réunis, pour une présence en ligne qui génère des demandes.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/qui-suis-je") },
@@ -67,10 +67,10 @@ function Page() {
               Charlotte Lacroix, <span className="text-gradient">PeakCL</span>.
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-              Développeuse web et graphiste à Gilly-sur-Isère, près d'Albertville (Savoie). 7 ans
-              dans le digital, des plateformes à fort trafic aux sites d'indépendants. Mon objectif
-              : transformer votre présence en ligne en un outil qui génère des demandes, pas juste
-              des visites.
+              Développeuse web, graphiste et community manager à Gilly-sur-Isère, près d'Albertville
+              (Savoie). 7 ans dans le digital, des plateformes à fort trafic aux sites
+              d'indépendants. Mon objectif : transformer votre présence en ligne en un outil qui
+              génère des demandes, pas juste des visites.
             </p>
           </div>
         </SnapSection>

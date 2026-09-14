@@ -53,7 +53,7 @@ function copyFor(locale: Locale): Copy {
     kicker: "Qui je suis",
     leadTitle: "Une seule interlocutrice",
     lead: "Je code, je dessine, et je suis formée au community management. Site, logo et réseaux alignés sur le même message, sans double brief ni sous-traitance cachée.",
-    role: "Charlotte Lacroix · développeuse web & graphiste · Gilly-sur-Isère, Savoie",
+    role: "Charlotte Lacroix · développeuse web & community manager · Gilly-sur-Isère, Savoie",
     metiersTitle: "Trois métiers, une personne",
     metiers: ["Code", "Design", "Community"],
     statValue: String(DELIVERED_COUNT),

@@ -25,7 +25,7 @@ const LINES_FR: Line[] = [
   { kind: "out", text: "charlotte lacroix", tone: "strong" },
   {
     kind: "out",
-    text: "développeuse web & graphiste, Gilly-sur-Isère (Savoie)",
+    text: "développeuse web & community manager, Gilly-sur-Isère (Savoie)",
   },
   { kind: "gap" },
 
