@@ -500,10 +500,10 @@ export const SITUATIONS: Situation[] = [
 export const AUTRES_UNIVERS: { titre: string; statut: string; src: string; texte: string }[] = [
   {
     titre: "Avatar v1 (salopette noire)",
-    statut: "À trancher",
+    statut: "Retiré",
     src: "/peakcl/avatar-montre.webp",
     texte:
-      "C'est encore lui sur le site (héros, PeakaBot, cartes de section). Mais le favicon, le print et la signature utilisent la mascotte v2. Deux personnages pour une même personne, ça brouille. Recommandation : migrer le site vers la v2.",
+      "Remplacé le 30/09/2026 : le site utilise désormais la mascotte kawaii, comme le favicon, le print et la signature. Ne plus l'utiliser nulle part, pour qu'il n'y ait qu'un seul personnage.",
   },
   {
     titre: "Pépita (La com des pépites)",
@@ -512,10 +512,11 @@ export const AUTRES_UNIVERS: { titre: string; statut: string; src: string; texte
     texte: "Elle vit sur sa page. Jamais sur un post PeakCL, jamais à côté de la mascotte.",
   },
   {
-    titre: "Personnage écran jaune",
-    statut: "Portfolio",
+    titre: "PeakaBot, le robot écran jaune",
+    statut: "Assistant du site",
     src: "/peakcl/assets/images/mascot-happy.webp",
-    texte: "Démo de character design pour la page /design. C'est un travail, pas ta marque.",
+    texte:
+      "C'est l'assistant du site (la bulle en bas à droite) et la démo de character design de /design. Il reste un robot, distinct de toi : on sait qu'on parle à un assistant, pas à Charlotte. Ne pas le mettre sur tes réseaux à la place de la mascotte.",
   },
   {
     titre: "Tes photos « expressions »",
@@ -572,7 +573,8 @@ export const INCOHERENCES: { titre: string; constat: string; decision: string }[
     titre: "Deux mascottes",
     constat:
       "La mascotte kawaii en jean sur le print et le favicon, l'avatar en salopette noire sur le site.",
-    decision: "Une seule sur les réseaux dès maintenant : la kawaii. Le site suivra.",
+    decision:
+      "Réglé le 30/09/2026 : la kawaii partout, réseaux comme site (accueil, pied de page). L'avatar v1 est retiré.",
   },
   {
     titre: "Le lien en bio",

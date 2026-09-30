@@ -551,7 +551,7 @@ export function ServicePage({
                           className="w-full transition-transform duration-500 group-hover:scale-[1.03]"
                         />
                         <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center gap-2 bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-8 text-sm font-semibold text-white">
-                          <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-turquoise)]" />
+                          <span className="h-1.5 w-1.5 rounded-[2px] bg-[var(--brand-turquoise)]" />
                           {m.mood}
                         </figcaption>
                       </figure>

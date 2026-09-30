@@ -6,6 +6,7 @@ import { localeFromPath, type Locale } from "@/i18n/config";
 import { geoPagesFor } from "@/seo/geo";
 import { metierPages } from "@/seo/metiers";
 import { ui } from "@/i18n/ui";
+import { MascotCameo } from "@/components/MascotCameo";
 
 const SOCIALS = [
   { href: SOCIAL.instagram, label: "Instagram", icon: Instagram },
@@ -83,6 +84,15 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-border bg-card/30">
+      {/* Signature de fin de page : la mascotte « salut » debout sur le trait du
+          footer, sur toutes les pages. Assez petite pour ne rien masquer de la
+          section précédente, assez constante pour qu'on la reconnaisse. */}
+      <div className="relative z-10 mx-auto max-w-5xl px-6">
+        <MascotCameo
+          pose="salut"
+          className="absolute bottom-0 right-6 hidden h-28 translate-y-px md:block"
+        />
+      </div>
       <div className="mx-auto grid max-w-5xl gap-8 px-6 py-14 sm:grid-cols-2 md:grid-cols-4">
         <nav aria-label={t.services}>
           <h2 className="text-sm font-semibold text-foreground">{t.services}</h2>

@@ -134,9 +134,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
+        {/* Thème clair par défaut : le fond crème est l'identité de la charte.
+            Suivre le réglage système montrait un site violet générique à tous
+            les visiteurs en mode sombre. Le sombre reste un choix explicite
+            (bouton du menu), mémorisé dans localStorage. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var k='peakcl-theme';var t=localStorage.getItem(k);if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}var e=document.documentElement;e.classList.toggle('dark',t==='dark');e.style.colorScheme=t;}catch(e){}})();`,
+            __html: `(function(){try{var k='peakcl-theme';var t=localStorage.getItem(k);if(t!=='dark'){t='light';}var e=document.documentElement;e.classList.toggle('dark',t==='dark');e.style.colorScheme=t;}catch(e){}})();`,
           }}
         />
         <HeadContent />

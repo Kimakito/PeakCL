@@ -314,7 +314,7 @@ function SiteCard({ p, onOpen }: { p: DeckProject; onOpen: (project: DeckProject
             className="mt-2 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-semibold"
             style={{ borderColor: `${p.accent}66`, color: p.accent }}
           >
-            <span className="h-1.5 w-1.5 rounded-full" style={{ background: p.accent }} />
+            <span className="h-1.5 w-1.5 rounded-[2px]" style={{ background: p.accent }} />
             {scopeBadge(p)}
           </span>
         ) : null}
@@ -468,7 +468,7 @@ function PortfolioPage() {
                 style={on ? { borderColor: f.accent } : undefined}
               >
                 <span
-                  className="h-1.5 w-1.5 rounded-full"
+                  className="h-1.5 w-1.5 rounded-[2px]"
                   style={{
                     background: f.accent,
                     boxShadow: on ? `0 0 8px ${f.accent}` : undefined,

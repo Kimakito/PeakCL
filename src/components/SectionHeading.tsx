@@ -10,8 +10,8 @@ const ACCENT: Record<Accent, { text: string; dot: string }> = {
 };
 
 /**
- * Titre de section homogène : eyebrow avec pastille lumineuse + titre.
- * La pastille reprend la couleur d'accent (cohérence visuelle inter-sections).
+ * Titre de section homogène : eyebrow avec puce carrée lumineuse + titre.
+ * La puce reprend la couleur d'accent (cohérence visuelle inter-sections).
  * Le tout se révèle au scroll.
  */
 export function SectionHeading({
@@ -36,8 +36,10 @@ export function SectionHeading({
         className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em]"
         style={{ color: a.text }}
       >
+        {/* Puce en carré arrondi : la forme des tuiles du logo, que la charte
+            impose comme puce maison. */}
         <span
-          className="h-1.5 w-1.5 rounded-full"
+          className="h-2 w-2 rounded-[3px]"
           style={{ background: a.dot, boxShadow: `0 0 8px ${a.dot}` }}
         />
         {eyebrow}

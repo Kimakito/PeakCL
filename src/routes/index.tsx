@@ -23,7 +23,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { ExpressionGallery } from "@/components/ExpressionPhoto";
 import { Reveal } from "@/components/ui/Reveal";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { type MascotPose } from "@/lib/mascot";
+import { MascotCameo } from "@/components/MascotCameo";
 import { BOOKING_URL } from "@/lib/links";
 
 const LOGO_NAV = "/peakcl/logo-nav.webp";
@@ -122,18 +122,6 @@ function ContactInline({ className = "" }: { className?: string }) {
 
 /* ── Hero panel ─────────────────────────────────────────────── */
 
-/** Ancien emplacement de la mascotte 3D des gouttières : retiré pour tenir une
- *  seule direction (photo réelle + mockups + doodle de fond). Conservé en
- *  no-op pour ne pas toucher tous les appels de section. */
-function SectionMascot(_props: {
-  pose: MascotPose;
-  side?: "left" | "right";
-  flip?: boolean;
-  heightClass?: string;
-}) {
-  return null;
-}
-
 /* ── Problem panel ───────────────────────────────────────────── */
 
 /**
@@ -204,7 +192,6 @@ function ProblemPanel() {
       id="probleme"
       className="relative flex w-full items-center overflow-hidden py-16 md:py-20"
     >
-      <SectionMascot pose="idee" side="left" />
       <div className="mx-auto max-w-6xl px-8 md:px-16 w-full">
         <div className="grid items-start gap-10 md:grid-cols-[1.1fr_0.9fr]">
           <div>
@@ -223,11 +210,18 @@ function ProblemPanel() {
               Pas besoin d’un projet énorme pour paraître professionnel. Il faut surtout une
               direction claire, un bon rythme et quelqu’un qui vous aide à avancer.
             </p>
-            <AudienceRow />
-            <div className="mt-8">
+            {/* Marge à droite en grand écran : c'est la place de la mascotte
+                « idée », posée à côté du bouton juste en dessous. */}
+            <div className="lg:pr-28">
+              <AudienceRow />
+            </div>
+            {/* La mascotte « idée » accompagne l'offre de mini-audit : la pose
+                suit le message (une solution), comme sur /ma-marque. */}
+            <div className="relative mt-8">
               <CTAButton href="/diagnostic" dataEvent="cta_mini_audit_problem">
                 Recevoir mon mini-audit
               </CTAButton>
+              <MascotCameo pose="idee" className="absolute bottom-0 right-0 hidden h-40 lg:block" />
             </div>
           </div>
           <ul className="space-y-3">
@@ -397,7 +391,6 @@ function OffersPanel() {
       id="offres"
       className="relative flex w-full items-center overflow-hidden py-16 md:py-20"
     >
-      <SectionMascot pose="arc" side="left" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
         <SectionHeading
           className="mb-8"
@@ -460,7 +453,6 @@ function PortfolioPanel() {
       id="portfolio"
       className="relative flex w-full items-center overflow-hidden py-16 md:py-20"
     >
-      <SectionMascot pose="tablette" side="right" heightClass="h-[40vh]" />
       <div className="mx-auto max-w-7xl px-8 md:px-16 w-full">
         <SectionHeading
           className="mb-8"
@@ -482,7 +474,7 @@ function PortfolioPanel() {
               data-event="home_cat_filter"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-3.5 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-border hover:text-foreground"
             >
-              <span className="h-1.5 w-1.5 rounded-full" style={{ background: c.accent }} />
+              <span className="h-1.5 w-1.5 rounded-[2px]" style={{ background: c.accent }} />
               {c.short}
             </a>
           ))}
@@ -555,7 +547,8 @@ function PortfolioPanel() {
             </motion.a>
           ))}
         </div>
-        <div className="mt-6 text-center">
+        <div className="mt-10 flex items-end justify-center gap-4">
+          <MascotCameo pose="dab" className="hidden h-36 lg:block" />
           <CTAButton href="/portfolio" variant="ghost">
             Voir le portfolio
           </CTAButton>
@@ -570,7 +563,6 @@ function PortfolioPanel() {
 function ReviewsPanel() {
   return (
     <section id="avis" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
-      <SectionMascot pose="graphique" side="left" heightClass="h-[40vh]" />
       <div className="mx-auto w-full max-w-7xl px-8 md:px-16">
         <SectionHeading
           className="mb-8"
@@ -596,8 +588,11 @@ function ReviewsPanel() {
 function FAQPanel() {
   return (
     <section id="faq" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
-      <SectionMascot pose="assise" side="right" />
-      <div className="mx-auto max-w-3xl px-8 md:px-16 w-full">
+      <div className="relative mx-auto max-w-3xl px-8 md:px-16 w-full">
+        <MascotCameo
+          pose="reflechit"
+          className="absolute bottom-0 right-full hidden h-72 xl:block"
+        />
         <SectionHeading
           className="mb-8"
           accent="turquoise"
@@ -656,7 +651,6 @@ function ContactPanel() {
       <div className="absolute inset-0 -z-10 bg-hero" />
       <div className="bg-aurora" aria-hidden />
       <div className="grid-bg absolute inset-0 -z-10" />
-      <SectionMascot pose="reseaux" side="right" heightClass="h-[42vh]" />
       <div className="mx-auto max-w-4xl px-8 md:px-16 w-full text-center">
         <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--brand-yellow)_35%,transparent)] bg-muted px-4 py-1.5 text-xs font-semibold text-[var(--brand-yellow)]">
           <Sparkles className="h-3.5 w-3.5" />
@@ -702,6 +696,10 @@ function ContactPanel() {
           data-event="audit_submit"
           onSubmit={handleSubmit}
         >
+          <MascotCameo
+            pose="salut"
+            className="absolute bottom-0 left-full ml-8 hidden h-80 xl:block"
+          />
           <GlowingEffect
             spread={40}
             glow

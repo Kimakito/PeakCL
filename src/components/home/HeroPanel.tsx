@@ -31,7 +31,7 @@ function orbitItems(locale: Locale): OrbitItem[] {
         href: "/en/book-a-call",
         desc: "Free 45-min audit. Leave with a clear plan.",
         icon: CalendarCheck,
-        pose: "victoire",
+        pose: "idee",
         variant: "primary",
       },
       {
@@ -39,7 +39,7 @@ function orbitItems(locale: Locale): OrbitItem[] {
         href: "/en/portfolio",
         desc: "Delivered projects that convert.",
         icon: LayoutGrid,
-        pose: "tablette",
+        pose: "dab",
         variant: "ghost",
       },
       {
@@ -47,7 +47,7 @@ function orbitItems(locale: Locale): OrbitItem[] {
         href: "/en/services",
         desc: "Websites, social, design, automation. One point of contact.",
         icon: Package,
-        pose: "bas",
+        pose: "salut",
         variant: "ghost",
       },
       {
@@ -55,7 +55,7 @@ function orbitItems(locale: Locale): OrbitItem[] {
         href: "#avis",
         desc: "Rated 5/5 on Google by my clients.",
         icon: Star,
-        pose: "graphique",
+        pose: "joie",
         variant: "ghost",
       },
       {
@@ -75,7 +75,7 @@ function orbitItems(locale: Locale): OrbitItem[] {
       href: "/diagnostic",
       desc: "Mini-audit offert, 2 minutes. Vos 3 priorités par e-mail.",
       icon: CalendarCheck,
-      pose: "victoire",
+      pose: "idee",
       variant: "primary",
     },
     {
@@ -83,7 +83,7 @@ function orbitItems(locale: Locale): OrbitItem[] {
       href: "/portfolio",
       desc: "Des projets livrés qui convertissent.",
       icon: LayoutGrid,
-      pose: "tablette",
+      pose: "dab",
       variant: "ghost",
     },
     {
@@ -91,7 +91,7 @@ function orbitItems(locale: Locale): OrbitItem[] {
       href: "/services",
       desc: "Sites web, réseaux, design, automatisation. Un seul interlocuteur.",
       icon: Package,
-      pose: "bas",
+      pose: "salut",
       variant: "ghost",
     },
     {
@@ -99,7 +99,7 @@ function orbitItems(locale: Locale): OrbitItem[] {
       href: "#avis",
       desc: "Noté 5/5 sur Google par mes clients.",
       icon: Star,
-      pose: "graphique",
+      pose: "joie",
       variant: "ghost",
     },
     {

@@ -802,6 +802,40 @@ function MaMarquePage() {
               </article>
             ))}
           </div>
+          <div className="mt-8 rounded-[2rem] border border-border bg-card p-6 md:p-8">
+            <h3 className="text-xl font-bold">Ta signature sur les sites clients</h3>
+            <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
+              Hébergée une seule fois sur ton site. Dans chaque projet, tu colles le lien au lieu de
+              copier le fichier : si tu modifies public/signature.svg, tous les sites affichent la
+              nouvelle version à leur prochaine visite.
+            </p>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl bg-white p-5">
+                <img src="/signature.svg" alt="PeakCL" className="h-7 w-auto" />
+                <p className="mt-3 break-all font-mono text-xs text-[#13004D]">
+                  https://peakcl.com/signature.svg
+                </p>
+                <p className="mt-1 text-xs text-[#6C6493]">Pieds de page clairs</p>
+              </div>
+              <div className="rounded-2xl bg-[#13004D] p-5">
+                <img src="/signature-blanc.svg" alt="PeakCL" className="h-7 w-auto" />
+                <p className="mt-3 break-all font-mono text-xs text-white">
+                  https://peakcl.com/signature-blanc.svg
+                </p>
+                <p className="mt-1 text-xs text-white/70">Pieds de page foncés</p>
+              </div>
+            </div>
+            <pre className="mt-5 overflow-x-auto rounded-2xl bg-muted p-4 text-xs leading-relaxed">
+              {`<a href="https://peakcl.com/?utm_source=NOM-DU-CLIENT&utm_medium=signature">
+  Site réalisé par
+  <img src="https://peakcl.com/signature.svg" alt="PeakCL" height="20" style="vertical-align:middle">
+</a>`}
+            </pre>
+            <p className="mt-3 text-xs text-muted-foreground">
+              Remplace NOM-DU-CLIENT : Google Analytics te dira combien de visiteurs arrivent par
+              chaque site.
+            </p>
+          </div>
         </section>
 
         {/* ── Couleurs ──────────────────────────────────────────── */}
