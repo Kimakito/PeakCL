@@ -1,56 +1,112 @@
 #!/usr/bin/env node
 /**
- * Génère la carte de partage social (Open Graph / Twitter) 1200x630 :
- * fond dégradé de marque + halos + portrait rond + titre.
- * Usage: node scripts/generate-og.mjs
+ * Génère les cartes de partage (Open Graph / Twitter, 1200×630), une par page.
+ *
+ * Source des textes : src/seo/og-pages.json (chemin → sur-titre + titre). Le
+ * même fichier dit au site quelles pages ont leur carte (voir src/seo/og.ts) :
+ * ajouter une page ici et relancer le script suffit.
+ *
+ * Sortie : public/og/<slug>.jpg (l'accueil : public/og/accueil.jpg), plus
+ * public/peakcl/og-cover.jpg, copie de la carte d'accueil gardée à son ancienne
+ * URL pour les partages déjà publiés.
+ *
+ * Rendu : une page HTML aux couleurs et polices de la charte (Baloo 2, Nunito,
+ * fond crème, encre indigo, tuiles du logo, photo du hero), capturée par Chrome
+ * en mode headless puis convertie en JPEG par sharp. Chrome plutôt que le
+ * rendu SVG de sharp : librsvg ne sait pas charger les polices WOFF2 de la
+ * charte et retombait sur Arial.
+ *
+ * Usage : node scripts/generate-og.mjs   (macOS, Google Chrome installé)
+ * Variable CHROME pour un autre chemin de Chrome.
  */
 import sharp from "sharp";
+import fs from "fs";
+import os from "os";
 import path from "path";
-import { fileURLToPath } from "url";
+import { execFileSync } from "child_process";
+import { fileURLToPath, pathToFileURL } from "url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const out = path.join(root, "public", "peakcl", "og-cover.jpg");
-const photo = path.join(root, "public", "peakcl", "photo", "charlotte-round-800.webp");
+const pages = JSON.parse(fs.readFileSync(path.join(root, "src/seo/og-pages.json"), "utf8"));
+const outDir = path.join(root, "public", "og");
+fs.mkdirSync(outDir, { recursive: true });
 
+const CHROME = process.env.CHROME ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const W = 1200;
 const H = 630;
 
-// Fond + halos + texte + anneau du portrait
-const svg = `
-<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#160b30"/>
-      <stop offset="0.55" stop-color="#0d0f1e"/>
-      <stop offset="1" stop-color="#08131d"/>
-    </linearGradient>
-    <filter id="blur"><feGaussianBlur stdDeviation="60"/></filter>
-  </defs>
-  <rect width="${W}" height="${H}" fill="url(#bg)"/>
-  <circle cx="1010" cy="120" r="260" fill="#7B3FF2" opacity="0.35" filter="url(#blur)"/>
-  <circle cx="990" cy="520" r="220" fill="#00E5D4" opacity="0.22" filter="url(#blur)"/>
-  <circle cx="120" cy="560" r="200" fill="#FFD500" opacity="0.10" filter="url(#blur)"/>
+const f = (p) => pathToFileURL(path.join(root, p)).href;
+const FONTS = `
+  @font-face { font-family: "Baloo 2"; font-weight: 800; src: url(${f("brand/print/assets/fonts/baloo2-800-latin.woff2")}) format("woff2"); }
+  @font-face { font-family: "Baloo 2"; font-weight: 800; src: url(${f("brand/print/assets/fonts/baloo2-800-latin-ext.woff2")}) format("woff2"); unicode-range: U+0100-024F; }
+  @font-face { font-family: "Nunito"; font-weight: 700; src: url(${f("brand/print/assets/fonts/nunito-700-latin.woff2")}) format("woff2"); }
+  @font-face { font-family: "Nunito"; font-weight: 400; src: url(${f("brand/print/assets/fonts/nunito-400-latin.woff2")}) format("woff2"); }
+`;
 
-  <text x="90" y="118" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#ffffff">Peak<tspan fill="#00E5D4">CL</tspan></text>
+/** Nom de fichier d'une page : « /sites-web » → « sites-web », « / » → « accueil ». */
+const slugOf = (p) => (p === "/" ? "accueil" : p.slice(1));
 
-  <text x="88" y="285" font-family="Arial, sans-serif" font-size="62" font-weight="800" fill="#ffffff">Déléguez votre</text>
-  <text x="88" y="355" font-family="Arial, sans-serif" font-size="62" font-weight="800" fill="#00E5D4">communication en ligne.</text>
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-  <text x="90" y="430" font-family="Arial, sans-serif" font-size="30" fill="#c8cede">Site · Identité · Réseaux · Google. Un seul interlocuteur.</text>
+function html({ kicker, title }) {
+  // Titre long : on descend d'un cran pour tenir sur trois lignes maximum.
+  const size = title.length > 58 ? 58 : title.length > 44 ? 64 : 72;
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+${FONTS}
+* { margin: 0; box-sizing: border-box; }
+body { width: ${W}px; height: ${H}px; background: #FFEAA9; overflow: hidden; position: relative;
+  font-family: "Nunito", sans-serif; color: #13004D; }
+.left { position: absolute; left: 72px; top: 64px; width: 610px; height: 502px;
+  display: flex; flex-direction: column; }
+.logo { height: 38px; width: auto; align-self: flex-start; }
+.kicker { margin-top: auto; font-weight: 700; font-size: 22px; letter-spacing: .14em;
+  text-transform: uppercase; color: #360099; }
+h1 { margin-top: 14px; font-family: "Baloo 2", sans-serif; font-weight: 800;
+  font-size: ${size}px; line-height: 1.02; letter-spacing: -.01em; text-wrap: balance; }
+.nw { white-space: nowrap; }
+.foot { margin-top: auto; padding-top: 28px; font-size: 24px; color: #574F82; }
+.foot b { color: #13004D; }
+.star { color: #E0B400; letter-spacing: 2px; }
+.photo { position: absolute; right: 64px; top: 64px; width: 420px; height: 502px;
+  border-radius: 40px; object-fit: cover; object-position: 30% 40%;
+  box-shadow: 0 20px 60px -20px rgba(54,0,153,.45); }
+.tile { position: absolute; border-radius: 22%; }
+</style></head><body>
+<div class="tile" style="right:448px;top:40px;width:78px;height:78px;transform:rotate(-6deg);background:linear-gradient(135deg,#F2EB96,#F2D966 50%,#F2D04B)"></div>
+<img class="photo" src="${f("public/peakcl/hero/hero-960.webp")}">
+<div class="tile" style="right:36px;bottom:34px;width:110px;height:110px;transform:rotate(3deg);background:linear-gradient(135deg,#97F0F7,#4DAFC9)"></div>
+<div class="tile" style="right:176px;bottom:22px;width:46px;height:46px;transform:rotate(-3deg);background:linear-gradient(135deg,#BABAFF,#875FD5)"></div>
+<div class="left">
+  <img class="logo" src="${f("public/signature.svg")}">
+  <p class="kicker">${esc(kicker)}</p>
+  <h1>${esc(title).replace(/(\S+-\S+)/g, '<span class="nw">$1</span>')}</h1>
+  <p class="foot"><span class="star">★★★★★</span> <b>5/5 sur Google</b> · peakcl.com</p>
+</div>
+</body></html>`;
+}
 
-  <text x="90" y="512" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#FFD500">★★★★★ 5/5 Google<tspan fill="#9aa2b5" font-weight="400"> · 18 projets clients · Savoie &amp; France</tspan></text>
-
-  <circle cx="1000" cy="315" r="150" fill="none" stroke="#00E5D4" stroke-width="4" opacity="0.85"/>
-</svg>`;
-
-const ring = 150;
-const photoBuf = await sharp(photo)
-  .resize(ring * 2, ring * 2)
-  .toBuffer();
-
-await sharp(Buffer.from(svg))
-  .composite([{ input: photoBuf, left: 1000 - ring, top: 315 - ring }])
-  .jpeg({ quality: 88 })
-  .toFile(out);
-
-console.log("OG:", path.relative(root, out), `${W}x${H}`);
+const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "peakcl-og-"));
+for (const [route, text] of Object.entries(pages)) {
+  const htmlPath = path.join(tmp, "card.html");
+  const pngPath = path.join(tmp, "card.png");
+  fs.writeFileSync(htmlPath, html(text));
+  execFileSync(
+    CHROME,
+    [
+      "--headless=new",
+      "--disable-gpu",
+      "--hide-scrollbars",
+      "--allow-file-access-from-files",
+      `--window-size=${W},${H}`,
+      "--virtual-time-budget=4000",
+      `--screenshot=${pngPath}`,
+      pathToFileURL(htmlPath).href,
+    ],
+    { stdio: "ignore" },
+  );
+  const out = path.join(outDir, `${slugOf(route)}.jpg`);
+  await sharp(pngPath).resize(W, H).jpeg({ quality: 84, mozjpeg: true }).toFile(out);
+  console.log(`✓ ${route} → ${path.relative(root, out)}`);
+}
+fs.copyFileSync(path.join(outDir, "accueil.jpg"), path.join(root, "public/peakcl/og-cover.jpg"));
+fs.rmSync(tmp, { recursive: true, force: true });
