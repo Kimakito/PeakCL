@@ -8,20 +8,24 @@ import { MASCOT_GALLERY } from "@/content/peakcl/mascots";
 export const Route = createFileRoute("/design")({
   head: () => ({
     meta: [
-      { title: "Design graphique & identité visuelle en Savoie · PeakCL" },
+      { title: "Graphiste en Savoie : design graphique & identité visuelle · PeakCL" },
       {
         name: "description",
         content:
-          "Logo, charte graphique, supports print et visuels réseaux sociaux : une marque cohérente et mémorable. Identité complète à partir de 500 € HT.",
+          "Graphiste en Savoie : logo, charte graphique, supports print et visuels réseaux sociaux. Une marque cohérente et mémorable. Identité complète à partir de 500 € HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/design") },
       {
+        property: "og:title",
+        content: "Graphiste en Savoie · Design graphique & identité visuelle",
+      },
+      {
         "script:ld+json": serviceJsonLd({
-          name: "Design graphique & identité visuelle",
+          name: "Graphisme, design graphique & identité visuelle",
           description:
-            "Logo, charte graphique, supports print et visuels réseaux sociaux pour une marque cohérente et mémorable, en Savoie et Haute-Savoie.",
-          serviceType: "Identité visuelle et création de logo",
+            "Graphisme et identité visuelle : logo, charte graphique, supports print et visuels réseaux sociaux pour une marque cohérente et mémorable, en Savoie et Haute-Savoie.",
+          serviceType: "Graphisme, identité visuelle et création de logo",
           path: "/design",
           audience:
             "Indépendants, thérapeutes, artisans et petites structures qui créent leur marque ou modernisent une image datée.",
@@ -44,9 +48,9 @@ export const Route = createFileRoute("/design")({
     <ServicePage
       showPrices
       avatarCard="logos"
-      eyebrow="Design graphique"
+      eyebrow="Graphisme"
       title="Design graphique"
-      tagline="Une identité visuelle et des supports qui rendent votre activité (cabinet, atelier ou marque indépendante) cohérente et reconnaissable partout, du site à la fiche Google."
+      tagline="Graphiste indépendante en Savoie, je crée une identité visuelle et des supports qui rendent votre activité (cabinet, atelier ou marque indépendante) cohérente et reconnaissable partout, du site à la fiche Google."
       facts={{
         audience:
           "Indépendants, thérapeutes, artisans et petites structures qui créent leur marque ou modernisent une image devenue datée.",
@@ -83,7 +87,7 @@ export const Route = createFileRoute("/design")({
       highlightsTitle="Ce que je crée pour votre marque"
       highlightsSubtitle="De l’identité visuelle aux illustrations sur mesure, des supports cohérents sur tous vos points de contact."
       sectionTitle="🎨 Prestations design"
-      sectionSubtitle="Identité visuelle et supports pour une marque cohérente sur tous vos points de contact."
+      sectionSubtitle="Graphisme, identité visuelle et supports pour une marque cohérente sur tous vos points de contact."
       items={design}
       gallery={MASCOT_GALLERY}
       galleryTitle="🎭 Illustration & character design"
