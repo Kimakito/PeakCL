@@ -34,7 +34,7 @@ export const Route = createFileRoute("/site-internet-tourisme")({
       {
         name: "description",
         content:
-          "Site internet pour hébergeurs, activités de loisirs et agences de voyage : réservation, saisonnalité, photos et référencement local. À partir de 2 000 € HT.",
+          "Site internet pour hébergeurs, activités de loisirs et agences de voyage : réservation, saisonnalité, photos et référencement local. À partir de 1 400 € HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-tourisme") },
@@ -58,7 +58,7 @@ export const Route = createFileRoute("/site-internet-tourisme")({
             {
               title: "Site vitrine tourisme",
               desc: "Offre, tarifs saisonniers, galerie, accès et prise de contact ou de réservation.",
-              price: "2 000 €",
+              price: "2 400 €",
             },
             {
               title: "Version anglaise du site",
@@ -129,7 +129,7 @@ function Page() {
           siteUrl: "https://paragliding.rocktheoutdoor.com/",
         },
       ]}
-      pricing="Site vitrine sur mesure : 2 000 € HT. Version WordPress, que vous alimentez au fil des saisons : à partir de 2 500 € HT. Boutique ou réservation en ligne : à partir de 3 800 € HT. Refonte d'un site existant : à partir de 1 200 € HT."
+      pricing="Site vitrine sur mesure : 2 400 € HT, jusqu'à 6 pages. Site essentiel de 1 à 3 pages : 1 400 € HT. Version WordPress, que vous alimentez au fil des saisons : même tarif. Boutique ou réservation en ligne : à partir de 3 800 € HT. Refonte d'un site existant : à partir de 1 800 € HT."
       faq={FAQ}
       related={[
         { label: "Agence web Moûtiers", href: "/agence-web-moutiers" },

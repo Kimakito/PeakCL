@@ -69,7 +69,7 @@ export const PEAKABOT_NODES: Record<string, BotNode> = {
     id: "tarifs",
     mood: "think",
     bot: [
-      "Les tarifs sont affichés : site vitrine à partir de 2 000 € HT, réseaux sociaux de 200 à 900 €/mois.",
+      "Les tarifs sont affichés : sites à partir de 1 400 € HT, réseaux sociaux de 250 à 950 €/mois.",
       "Tout est sur la page Services, avec le détail de ce qui est inclus. Le devis précis arrive après un court échange.",
     ],
     choices: [

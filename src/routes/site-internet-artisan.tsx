@@ -38,7 +38,7 @@ export const Route = createFileRoute("/site-internet-artisan")({
       {
         name: "description",
         content:
-          "Site internet pour artisans et entreprises du bâtiment : galerie de chantiers, fiche Google Business Profile et formulaire de devis. À partir de 2 000 € HT. Mini-audit gratuit.",
+          "Site internet pour artisans et entreprises du bâtiment : galerie de chantiers, fiche Google Business Profile et formulaire de devis. À partir de 1 400 € HT. Mini-audit gratuit.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-artisan") },
@@ -62,12 +62,12 @@ export const Route = createFileRoute("/site-internet-artisan")({
             {
               title: "Site vitrine artisan sur mesure",
               desc: "Galerie de chantiers, pages métier, formulaire de devis et fiche Google Business Profile.",
-              price: "2 000 €",
+              price: "2 400 €",
             },
             {
               title: "Refonte de site artisan",
               desc: "Modernisation d'un site existant sans perdre le référencement acquis.",
-              price: "À partir de 1 200 €",
+              price: "À partir de 1 800 €",
             },
           ],
         }),
@@ -134,7 +134,7 @@ function Page() {
           siteUrl: "https://setic-fluides.netlify.app/",
         },
       ]}
-      pricing="Site vitrine sur mesure : 2 000 € HT. Version WordPress, si vous voulez gérer vos chantiers vous-même : à partir de 2 500 € HT. Refonte d'un site existant : à partir de 1 200 € HT. Devis précis sous 48h ouvrées après l'appel, acompte de 30 à 50 % à la signature."
+      pricing="Site vitrine sur mesure : 2 400 € HT, jusqu'à 6 pages. Site essentiel de 1 à 3 pages : 1 400 € HT. Version WordPress, si vous voulez gérer vos chantiers vous-même : même tarif. Refonte d'un site existant : à partir de 1 800 € HT. Devis précis sous 48h ouvrées après l'appel, acompte de 30 à 50 % à la signature."
       faq={FAQ}
       related={[
         { label: "Agence web Albertville", href: "/agence-web-albertville" },

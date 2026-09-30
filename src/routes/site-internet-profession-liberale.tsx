@@ -34,7 +34,7 @@ export const Route = createFileRoute("/site-internet-profession-liberale")({
       {
         name: "description",
         content:
-          "Site internet pour avocats, cabinets de conseil et professions libérales : domaines d'intervention, réassurance et prise de rendez-vous, dans le respect de votre déontologie. À partir de 2 000 € HT.",
+          "Site internet pour avocats, cabinets de conseil et professions libérales : domaines d'intervention, réassurance et prise de rendez-vous, dans le respect de votre déontologie. À partir de 1 400 € HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-profession-liberale") },
@@ -61,12 +61,12 @@ export const Route = createFileRoute("/site-internet-profession-liberale")({
             {
               title: "Site de cabinet sur mesure",
               desc: "Domaines d'intervention, parcours, honoraires et prise de rendez-vous, rédigés dans le respect de la déontologie.",
-              price: "2 000 €",
+              price: "2 400 €",
             },
             {
               title: "Refonte d'un site de cabinet",
               desc: "Modernisation d'un site daté sans perdre le référencement acquis.",
-              price: "À partir de 1 200 €",
+              price: "À partir de 1 800 €",
             },
           ],
         }),
@@ -133,7 +133,7 @@ function Page() {
           siteUrl: "https://cime-strategie.fr/",
         },
       ]}
-      pricing="Site de cabinet sur mesure : 2 000 € HT. Version WordPress, que vous mettez à jour vous-même : à partir de 2 500 € HT. Refonte d'un site existant : à partir de 1 200 € HT. Maintenance optionnelle : 99 €/mois."
+      pricing="Site de cabinet sur mesure : 2 400 € HT, jusqu'à 6 pages. Site essentiel de 1 à 3 pages : 1 400 € HT. Version WordPress, que vous mettez à jour vous-même : même tarif. Refonte d'un site existant : à partir de 1 800 € HT. Maintenance optionnelle : 49 €/mois (sur mesure) ou 99 €/mois (WordPress)."
       faq={FAQ}
       related={[
         { label: "Agence web Chambéry", href: "/agence-web-chambery" },

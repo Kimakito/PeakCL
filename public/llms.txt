@@ -23,6 +23,21 @@ gere les reseaux. Contact : peakcl73@gmail.com, 07 43 51 76 27.
 
 ### Sites web sur mesure — https://peakcl.com/sites-web
 
+#### Site essentiel (1 à 3 pages)
+
+Pour démarrer ou pour une activité simple à présenter : l'essentiel, bien fait, au lieu d'un site de 6 pages à moitié rempli.
+
+**Délai : 2 à 3 semaines**
+
+Inclus :
+- Analyse des besoins & maquette de la page d'accueil
+- 1 à 3 pages (par exemple Accueil, Services, Contact)
+- Sur mesure ou WordPress, selon votre besoin d'autonomie
+- Responsive design (mobile-first)
+- Formulaire de contact & fiche Google reliée
+- Optimisation SEO on-page
+- Mise en ligne & 1 mois de support inclus
+
 #### Site vitrine sur mesure (code)
 
 Site 100% codé, sans CMS ni dépendance à des plugins. Performances optimales, architecture maîtrisée de bout en bout, résultat unique et pérenne.
@@ -41,7 +56,7 @@ Inclus :
 
 #### Site vitrine WordPress
 
-Site professionnel sous WordPress avec back-office pour gérer votre contenu en autonomie. Idéal pour modifier vos pages sans faire appel à un développeur.
+Site professionnel sous WordPress avec back-office pour gérer votre contenu en autonomie. Idéal pour modifier vos pages sans faire appel à un développeur. Même prix que le sur mesure : vous choisissez selon l'autonomie voulue, pas selon le budget.
 
 **Délai : 3 à 5 semaines**
 
@@ -98,9 +113,9 @@ Inclus :
 - Optimisation Core Web Vitals
 - Tests multi-navigateurs & cross-device
 
-#### Maintenance & support technique
+#### Maintenance WordPress
 
-Contrat mensuel pour assurer la sécurité, la stabilité et les mises à jour de votre site.
+Contrat mensuel pour assurer la sécurité, la stabilité et les mises à jour de votre site WordPress.
 
 **Engagement 3 mois minimum**
 
@@ -111,6 +126,19 @@ Inclus :
 - Corrections de bugs & ajustements mineurs
 - Rapport mensuel de performance
 - Support par email prioritaire
+
+#### Suivi site sur mesure
+
+Un site codé n'a ni plugins ni CMS à mettre à jour : le suivi est plus léger, donc moins cher.
+
+**Engagement 3 mois minimum**
+
+Inclus :
+- Hébergement surveillé & certificat SSL
+- Sauvegardes du code et des contenus
+- Monitoring de disponibilité (uptime)
+- Petites retouches de texte ou d'image (30 min/mois)
+- Support par email
 
 #### Optimisation SEO technique
 
@@ -146,13 +174,13 @@ Inclus :
 Création de contenus ponctuels sans engagement mensuel. Idéal pour un besoin précis ou pour tester la collaboration — le forfait mensuel revient moins cher dès que le rythme devient régulier.
 
 Inclus :
-- Post (texte + visuel) : 60 à 80 €/unité
+- Post (texte + visuel) : 75 à 90 €/unité
 - Story animée : 50 à 70 €/unité
 - Reel / vidéo courte : 110 à 180 €/unité
 - Article de blog SEO (800-1200 mots) : 150 à 220 €
 - Newsletter rédigée et designée : 180 à 280 €
 - Calendrier éditorial 1 mois : 180 €
-- En forfait mensuel, la publication revient à 45–50 € : voir les forfaits
+- En forfait mensuel, la publication revient à 48–63 € : voir les forfaits
 
 #### Formation réseaux sociaux
 
@@ -167,11 +195,24 @@ Inclus :
 
 ### Design graphique — https://peakcl.com/design
 
+#### Logo essentiel
+
+Un logo professionnel pour démarrer, sans la charte complète. Il pourra évoluer en identité complète plus tard.
+
+**Délai : 1 semaine**
+
+Inclus :
+- Questionnaire de positionnement
+- 1 piste de logo, affinée avec vous
+- Déclinaisons (couleur, fond sombre, noir & blanc)
+- Fichiers AI, SVG, PNG, PDF
+- 2 révisions incluses
+
 #### Identité visuelle complète
 
 Logo, couleurs, typographies et charte graphique pour une marque cohérente et mémorable.
 
-**Délai : 1 à 2 semaines**
+**Délai : 2 à 3 semaines**
 
 Inclus :
 - Questionnaire de positionnement & brief
@@ -188,10 +229,10 @@ Flyers, plaquettes, cartes de visite et affiches prêts à l’impression.
 **Tarif dégressif dès 3 supports**
 
 Inclus :
-- Carte de visite (recto/verso) : à partir de 80 €
-- Flyer A5 ou A4 (recto/verso) : à partir de 120 €
-- Plaquette commerciale (4 à 8 pages) : à partir de 280 €
-- Affiche (A3/A2) : à partir de 150 €
+- Carte de visite (recto/verso) : à partir de 90 €
+- Flyer A5 ou A4 (recto/verso) : à partir de 150 €
+- Plaquette commerciale (4 à 8 pages) : à partir de 450 €
+- Affiche (A3/A2) : à partir de 180 €
 - Fichiers HD prêts à l’impression (CMJN + fonds perdus)
 
 #### Visuels réseaux sociaux
@@ -357,7 +398,7 @@ Inclus :
 
 ### Forfaits community management (tarifs publics)
 
-#### Essentiel — 200 €/mois
+#### Essentiel — 250 €/mois
 
 4 publications/mois (1/semaine)
 
@@ -366,7 +407,7 @@ Inclus :
 - 4 textes + hashtags
 - Rapport mensuel
 
-#### Standard — 400 €/mois
+#### Standard — 450 €/mois
 
 8 publications/mois (2/semaine)
 
@@ -385,7 +426,7 @@ Inclus :
 - 1 story/semaine
 - Rapport mensuel
 
-#### Intensif — 900 €/mois
+#### Intensif — 950 €/mois
 
 20 publications/mois (5/semaine, hors LinkedIn)
 
@@ -423,7 +464,7 @@ Comprend :
 Vous partez de zéro : site, image et réseaux mis en place ensemble, pas les uns après les autres.
 
 Comprend :
-- Site vitrine sur mesure (2 700 €) ou WordPress (3 150 €), jusqu’à 5 pages
+- Site vitrine sur mesure ou WordPress, au choix, jusqu’à 5 pages
 - Identité visuelle : logo + charte graphique
 - 10 visuels réseaux sociaux réutilisables
 - Création et optimisation de vos profils réseaux
@@ -459,7 +500,7 @@ Comprend :
 Vous ne voulez plus vous en occuper du tout. Je prends la main sur l’ensemble, pendant six mois.
 
 Comprend :
-- Site vitrine (4 200 €) ou e-commerce (5 650 €), sur mesure
+- Site vitrine (5 400 €) ou e-commerce (6 500 €), sur mesure
 - Identité visuelle complète
 - Supports print : carte de visite + flyer
 - Community management 3 mois (2 publications/semaine, 2 plateformes)

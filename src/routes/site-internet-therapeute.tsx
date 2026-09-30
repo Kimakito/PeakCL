@@ -34,7 +34,7 @@ export const Route = createFileRoute("/site-internet-therapeute")({
       {
         name: "description",
         content:
-          "Site internet pour thérapeutes, ostéopathes et praticiens du bien-être : expliquer votre pratique, rassurer, faire prendre rendez-vous. À partir de 2 000 € HT. Mini-audit gratuit.",
+          "Site internet pour thérapeutes, ostéopathes et praticiens du bien-être : expliquer votre pratique, rassurer, faire prendre rendez-vous. À partir de 1 400 € HT. Mini-audit gratuit.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-therapeute") },
@@ -58,12 +58,12 @@ export const Route = createFileRoute("/site-internet-therapeute")({
             {
               title: "Site vitrine praticien sur mesure",
               desc: "Présentation de la pratique, déroulé d'une séance, informations pratiques et prise de rendez-vous en ligne.",
-              price: "2 000 €",
+              price: "2 400 €",
             },
             {
               title: "Site praticien WordPress autonome",
               desc: "Site que vous mettez à jour vous-même, avec formation à la prise en main.",
-              price: "À partir de 2 500 €",
+              price: "2 400 €",
             },
           ],
         }),
@@ -130,7 +130,7 @@ function Page() {
           siteUrl: "https://mordant-equin.fr/",
         },
       ]}
-      pricing="Site vitrine sur mesure : 2 000 € HT. Version WordPress, que vous mettez à jour vous-même, formation comprise : à partir de 2 500 € HT. Refonte d'un site existant : à partir de 1 200 € HT. Maintenance optionnelle : 99 €/mois. Devis précis sous 48h ouvrées après l'appel."
+      pricing="Site vitrine sur mesure : 2 400 € HT, jusqu'à 6 pages. Site essentiel de 1 à 3 pages : 1 400 € HT. Version WordPress, que vous mettez à jour vous-même, formation comprise : même tarif. Refonte d'un site existant : à partir de 1 800 € HT. Maintenance optionnelle : 49 €/mois (sur mesure) ou 99 €/mois (WordPress). Devis précis sous 48h ouvrées après l'appel."
       faq={FAQ}
       related={[
         { label: "Agence web Chambéry", href: "/agence-web-chambery" },

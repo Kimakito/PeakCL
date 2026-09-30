@@ -11,7 +11,7 @@ export const Route = createFileRoute("/community-management")({
       {
         name: "description",
         content:
-          "Stratégie et contenus réseaux sociaux : forfaits mensuels de 200 à 900 €/mois, audit à partir de 250 €, contenu à la carte et formation. Rester visible sans y passer vos soirées.",
+          "Stratégie et contenus réseaux sociaux : forfaits mensuels de 250 à 950 €/mois, audit à partir de 350 €, contenu à la carte et formation. Rester visible sans y passer vos soirées.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/community-management") },
@@ -55,7 +55,7 @@ export const Route = createFileRoute("/community-management")({
         delay:
           "Premières publications sous 5 jours ouvrés après validation de la ligne éditoriale. Engagement 3 mois minimum.",
         pricing:
-          "Forfaits mensuels affichés publiquement, de 200 € à 900 €/mois selon la fréquence de publication. Pack de lancement sur devis.",
+          "Forfaits mensuels affichés publiquement, de 250 € à 950 €/mois selon la fréquence de publication. Pack de lancement sur devis.",
         process: [
           "Audit gratuit de vos réseaux actuels",
           "Définition de la ligne éditoriale et des piliers de contenu",

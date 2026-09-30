@@ -32,9 +32,24 @@ export type CatalogItem = {
 
 export const sitesWeb: CatalogItem[] = [
   {
+    title: "Site essentiel (1 à 3 pages)",
+    desc: "Pour démarrer ou pour une activité simple à présenter : l'essentiel, bien fait, au lieu d'un site de 6 pages à moitié rempli.",
+    price: "1 400 €",
+    delay: "Délai : 2 à 3 semaines",
+    included: [
+      "Analyse des besoins & maquette de la page d'accueil",
+      "1 à 3 pages (par exemple Accueil, Services, Contact)",
+      "Sur mesure ou WordPress, selon votre besoin d'autonomie",
+      "Responsive design (mobile-first)",
+      "Formulaire de contact & fiche Google reliée",
+      "Optimisation SEO on-page",
+      "Mise en ligne & 1 mois de support inclus",
+    ],
+  },
+  {
     title: "Site vitrine sur mesure (code)",
     desc: "Site 100% codé, sans CMS ni dépendance à des plugins. Performances optimales, architecture maîtrisée de bout en bout, résultat unique et pérenne.",
-    price: "2 000 €",
+    price: "2 400 €",
     delay: "Délai : 3 à 5 semaines",
     included: [
       "Analyse des besoins & maquettage (wireframes)",
@@ -49,8 +64,8 @@ export const sitesWeb: CatalogItem[] = [
   },
   {
     title: "Site vitrine WordPress",
-    desc: "Site professionnel sous WordPress avec back-office pour gérer votre contenu en autonomie. Idéal pour modifier vos pages sans faire appel à un développeur.",
-    price: "À partir de 2 500 €",
+    desc: "Site professionnel sous WordPress avec back-office pour gérer votre contenu en autonomie. Idéal pour modifier vos pages sans faire appel à un développeur. Même prix que le sur mesure : vous choisissez selon l'autonomie voulue, pas selon le budget.",
+    price: "2 400 €",
     delay: "Délai : 3 à 5 semaines",
     included: [
       "Analyse des besoins & maquettage",
@@ -82,7 +97,7 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Landing page / Page de vente",
     desc: "Une page unique à fort taux de conversion pour promouvoir une offre, un événement ou un produit.",
-    price: "À partir de 800 €",
+    price: "À partir de 900 €",
     delay: "Délai : 1 à 2 semaines",
     included: [
       "Copywriting orienté conversion (structure AIDA)",
@@ -95,7 +110,7 @@ export const sitesWeb: CatalogItem[] = [
   {
     title: "Refonte de site existant",
     desc: "Modernisation d’un site obsolète : nouveau design, meilleure expérience utilisateur, meilleures performances.",
-    price: "À partir de 1 200 €",
+    price: "À partir de 1 800 €",
     delay: "Selon complexité du site actuel",
     included: [
       "Audit UX/UI et analyse des performances actuelles",
@@ -107,8 +122,8 @@ export const sitesWeb: CatalogItem[] = [
     ],
   },
   {
-    title: "Maintenance & support technique",
-    desc: "Contrat mensuel pour assurer la sécurité, la stabilité et les mises à jour de votre site.",
+    title: "Maintenance WordPress",
+    desc: "Contrat mensuel pour assurer la sécurité, la stabilité et les mises à jour de votre site WordPress.",
     price: "99 €/mois",
     delay: "Engagement 3 mois minimum",
     included: [
@@ -121,9 +136,22 @@ export const sitesWeb: CatalogItem[] = [
     ],
   },
   {
+    title: "Suivi site sur mesure",
+    desc: "Un site codé n'a ni plugins ni CMS à mettre à jour : le suivi est plus léger, donc moins cher.",
+    price: "49 €/mois",
+    delay: "Engagement 3 mois minimum",
+    included: [
+      "Hébergement surveillé & certificat SSL",
+      "Sauvegardes du code et des contenus",
+      "Monitoring de disponibilité (uptime)",
+      "Petites retouches de texte ou d'image (30 min/mois)",
+      "Support par email",
+    ],
+  },
+  {
     title: "Optimisation SEO technique",
     desc: "Audit et optimisation pour améliorer votre positionnement sur Google et augmenter votre trafic organique.",
-    price: "500 €",
+    price: "650 €",
     delay: "Rapport livré en 1 semaine",
     included: [
       "Audit SEO complet (technique, contenu, backlinks)",
@@ -226,10 +254,23 @@ export const refontePmeHighlights: ServiceHighlight[] = [
 
 export const design: CatalogItem[] = [
   {
+    title: "Logo essentiel",
+    desc: "Un logo professionnel pour démarrer, sans la charte complète. Il pourra évoluer en identité complète plus tard.",
+    price: "500 €",
+    delay: "Délai : 1 semaine",
+    included: [
+      "Questionnaire de positionnement",
+      "1 piste de logo, affinée avec vous",
+      "Déclinaisons (couleur, fond sombre, noir & blanc)",
+      "Fichiers AI, SVG, PNG, PDF",
+      "2 révisions incluses",
+    ],
+  },
+  {
     title: "Identité visuelle complète",
     desc: "Logo, couleurs, typographies et charte graphique pour une marque cohérente et mémorable.",
-    price: "À partir de 500 €",
-    delay: "Délai : 1 à 2 semaines",
+    price: "À partir de 1 200 €",
+    delay: "Délai : 2 à 3 semaines",
     included: [
       "Questionnaire de positionnement & brief",
       "3 propositions de logo (AI, SVG, PNG, PDF)",
@@ -242,20 +283,20 @@ export const design: CatalogItem[] = [
   {
     title: "Supports print",
     desc: "Flyers, plaquettes, cartes de visite et affiches prêts à l’impression.",
-    price: "À partir de 80 €/support",
+    price: "À partir de 90 €/support",
     delay: "Tarif dégressif dès 3 supports",
     included: [
-      "Carte de visite (recto/verso) : à partir de 80 €",
-      "Flyer A5 ou A4 (recto/verso) : à partir de 120 €",
-      "Plaquette commerciale (4 à 8 pages) : à partir de 280 €",
-      "Affiche (A3/A2) : à partir de 150 €",
+      "Carte de visite (recto/verso) : à partir de 90 €",
+      "Flyer A5 ou A4 (recto/verso) : à partir de 150 €",
+      "Plaquette commerciale (4 à 8 pages) : à partir de 450 €",
+      "Affiche (A3/A2) : à partir de 180 €",
       "Fichiers HD prêts à l’impression (CMJN + fonds perdus)",
     ],
   },
   {
     title: "Visuels réseaux sociaux",
     desc: "Pack de 10 templates brandés et réutilisables pour animer vos réseaux avec professionnalisme.",
-    price: "À partir de 200 €",
+    price: "À partir de 350 €",
     delay: "Délai : 3 à 5 jours",
     included: [
       "10 templates (posts, stories, couvertures)",
@@ -268,7 +309,7 @@ export const design: CatalogItem[] = [
   {
     title: "Template email & newsletter",
     desc: "Design responsive à votre image, compatible tous clients mail et plateformes d’emailing.",
-    price: "À partir de 180 €",
+    price: "À partir de 250 €",
     delay: "Délai : 3 à 5 jours",
     included: [
       "Design responsive (mobile & desktop)",
@@ -317,14 +358,14 @@ export const cmForfaits: Forfait[] = [
     name: "Essentiel",
     freq: "4 publications/mois (1/semaine)",
     inclus: ["4 visuels brandés", "4 textes + hashtags", "Rapport mensuel"],
-    price: "200 €/mois",
+    price: "250 €/mois",
   },
   {
     emoji: "⭐",
     name: "Standard",
     freq: "8 publications/mois (2/semaine)",
     inclus: ["8 visuels brandés", "8 textes + hashtags", "Rapport mensuel"],
-    price: "400 €/mois",
+    price: "450 €/mois",
     highlight: true,
   },
   {
@@ -339,7 +380,7 @@ export const cmForfaits: Forfait[] = [
     name: "Intensif",
     freq: "20 publications/mois (5/semaine, hors LinkedIn)",
     inclus: ["20 visuels", "20 textes + hashtags", "Stories + Reels (2/mois)", "Rapport mensuel"],
-    price: "900 €/mois",
+    price: "950 €/mois",
   },
   {
     emoji: "🎯",
@@ -370,7 +411,7 @@ export const cmForfaits: Forfait[] = [
  * qui veut déléguer sa présence en ligne n'avait donc rien à acheter.
  *
  * Trois règles pour que ça ne se retourne pas contre toi :
- * 1. Le périmètre est chiffré, ligne par ligne. Au-delà, c'est 60 €/h — le
+ * 1. Le périmètre est chiffré, ligne par ligne. Au-delà, c'est 65 €/h — le
  *    tarif horaire déjà annoncé dans le catalogue.
  * 2. Engagement de 3 mois minimum. En dessous, tu absorbes le coût de
  *    démarrage et le client part avant que le travail produise quoi que ce soit.
@@ -414,7 +455,7 @@ export const community: CatalogItem[] = [
   {
     title: "Audit réseaux sociaux",
     desc: "Analyse complète de votre présence sociale pour identifier forces, lacunes et opportunités.",
-    price: "À partir de 250 €",
+    price: "À partir de 350 €",
     delay: "Livré en 5 jours ouvrés",
     included: [
       "Analyse de vos comptes existants (engagement, fréquence, ton…)",
@@ -434,21 +475,21 @@ export const community: CatalogItem[] = [
     // qu'il doit etre : depanner un besoin ponctuel, au prix du ponctuel.
     title: "Contenu à la carte",
     desc: "Création de contenus ponctuels sans engagement mensuel. Idéal pour un besoin précis ou pour tester la collaboration — le forfait mensuel revient moins cher dès que le rythme devient régulier.",
-    price: "À partir de 60 €/contenu",
+    price: "À partir de 75 €/contenu",
     included: [
-      "Post (texte + visuel) : 60 à 80 €/unité",
+      "Post (texte + visuel) : 75 à 90 €/unité",
       "Story animée : 50 à 70 €/unité",
       "Reel / vidéo courte : 110 à 180 €/unité",
       "Article de blog SEO (800-1200 mots) : 150 à 220 €",
       "Newsletter rédigée et designée : 180 à 280 €",
       "Calendrier éditorial 1 mois : 180 €",
-      "En forfait mensuel, la publication revient à 45–50 € : voir les forfaits",
+      "En forfait mensuel, la publication revient à 48–63 € : voir les forfaits",
     ],
   },
   {
     title: "Formation réseaux sociaux",
     desc: "Formation individuelle ou en groupe pour prendre en main vos réseaux en autonomie.",
-    price: "200 €/demi-journée · 350 €/journée",
+    price: "300 €/demi-journée · 500 €/journée",
     included: [
       "Modules au choix : création de contenu, algorithmes, Canva, analytics",
       "Format présentiel ou visioconférence",
@@ -660,10 +701,26 @@ export type Pack = {
  * descendre sous le prix de sa prestation la plus chère. Si le calcul y mène,
  * c'est que le contenu du pack est mal composé, pas que le prix est bon.
  *
- * Les configurations qui changent la base de calcul (site sur mesure OU
- * WordPress, vitrine OU e-commerce) portent DEUX prix. Un prix unique pour
- * deux options séparées par 1 800 € pousse mécaniquement tout le monde vers la
- * plus chère.
+ * Les configurations qui changent la base de calcul (vitrine OU e-commerce)
+ * portent DEUX prix. Un prix unique pour deux options séparées par 1 400 €
+ * pousse mécaniquement tout le monde vers la plus chère. Sur mesure et
+ * WordPress, eux, ont le même prix depuis le 30/09/2026 : un seul prix suffit.
+ *
+ * Recalcul du 30/09/2026 (grille tarifaire harmonisée, TJM 450 €) :
+ * - Identité & réseaux : identité 1 200 + 10 visuels 350 + calendrier 180
+ *   + audit réseaux 350 + formation Canva 2 h 130 = 2 210 × 0,85 → 1 900 €
+ * - Lancement : site 2 400 (code ou WordPress, même prix) + identité 1 200
+ *   + 10 visuels 350 + profils 100 + calendrier 180 + 1 mois Essentiel 250
+ *   = 4 480 × 0,85 → 3 800 €
+ * - Lancement e-commerce : boutique 3 800 + identité 1 200 + bannières 150
+ *   + template e-mail 250 + Analytics 190 = 5 590 × 0,85 → 4 750 €
+ * - Relance : refonte 1 800 + rafraîchissement d'identité 500 (niveau logo
+ *   essentiel, pas une création) + 10 visuels 350 + SEO 650 + audit 350
+ *   = 3 650 × 0,85 → 3 100 €
+ * - Délégation (× 0,80) : site 2 400 / boutique 3 800 + identité 1 200
+ *   + carte et flyer 240 + 3 mois Standard 1 350 + template e-mail 250
+ *   + 3 newsletters 690 + support prioritaire 6 × 99 = 594
+ *   → 6 724 × 0,80 → 5 400 € (vitrine) · 8 124 × 0,80 → 6 500 € (e-commerce)
  */
 
 export const packages: Pack[] = [
@@ -671,7 +728,7 @@ export const packages: Pack[] = [
     emoji: "🎨",
     name: "Identité & réseaux",
     tagline: "Vous avez une activité, pas encore d’image. On pose la marque avant le site.",
-    price: "1 050 €",
+    price: "1 900 €",
     points: [
       "Identité visuelle complète (logo + charte)",
       "10 visuels réseaux sociaux à vos couleurs",
@@ -686,9 +743,9 @@ export const packages: Pack[] = [
     name: "Lancement",
     tagline:
       "Vous partez de zéro : site, image et réseaux mis en place ensemble, pas les uns après les autres.",
-    price: "2 700 € (sur mesure) · 3 150 € (WordPress)",
+    price: "3 800 €",
     points: [
-      "Site vitrine sur mesure (2 700 €) ou WordPress (3 150 €), jusqu’à 5 pages",
+      "Site vitrine sur mesure ou WordPress, au choix, jusqu’à 5 pages",
       "Identité visuelle : logo + charte graphique",
       "10 visuels réseaux sociaux réutilisables",
       "Création et optimisation de vos profils réseaux",
@@ -703,7 +760,7 @@ export const packages: Pack[] = [
     emoji: "🛒",
     name: "Lancement e-commerce",
     tagline: "Vous vendez en ligne : la boutique, la marque et les supports de vente d’un bloc.",
-    price: "4 100 €",
+    price: "4 750 €",
     points: [
       "Boutique en ligne (Shopify ou WooCommerce), jusqu’à 30 produits",
       "Identité visuelle adaptée à la vente",
@@ -719,7 +776,7 @@ export const packages: Pack[] = [
     name: "Relance",
     tagline:
       "Vous avez déjà tout ça, mais ça ne travaille plus pour vous. On remet à niveau sans repartir de zéro.",
-    price: "2 250 €",
+    price: "3 100 €",
     points: [
       "Refonte du site existant, référencement acquis préservé",
       "Rafraîchissement de l’identité visuelle (logo + charte)",
@@ -734,9 +791,9 @@ export const packages: Pack[] = [
     name: "Délégation",
     tagline:
       "Vous ne voulez plus vous en occuper du tout. Je prends la main sur l’ensemble, pendant six mois.",
-    price: "4 200 € (vitrine) · 5 650 € (e-commerce)",
+    price: "5 400 € (vitrine) · 6 500 € (e-commerce)",
     points: [
-      "Site vitrine (4 200 €) ou e-commerce (5 650 €), sur mesure",
+      "Site vitrine (5 400 €) ou e-commerce (6 500 €), sur mesure",
       "Identité visuelle complète",
       "Supports print : carte de visite + flyer",
       "Community management 3 mois (2 publications/semaine, 2 plateformes)",

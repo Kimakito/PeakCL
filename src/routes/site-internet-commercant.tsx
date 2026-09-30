@@ -34,7 +34,7 @@ export const Route = createFileRoute("/site-internet-commercant")({
       {
         name: "description",
         content:
-          "Site internet pour commerces et boutiques : vitrine, horaires, fiche Google et vente en ligne quand elle se justifie. À partir de 2 000 € HT. Mini-audit gratuit.",
+          "Site internet pour commerces et boutiques : vitrine, horaires, fiche Google et vente en ligne quand elle se justifie. À partir de 1 400 € HT. Mini-audit gratuit.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-commercant") },
@@ -58,7 +58,7 @@ export const Route = createFileRoute("/site-internet-commercant")({
             {
               title: "Vitrine de commerce",
               desc: "Horaires, adresse, produits phares, fiche Google Business Profile et parcours vers la boutique.",
-              price: "2 000 €",
+              price: "2 400 €",
             },
             {
               title: "Boutique en ligne",
@@ -124,7 +124,7 @@ function Page() {
           siteUrl: "https://www.naturalriders.fr/",
         },
       ]}
-      pricing="Vitrine de commerce sur mesure : 2 000 € HT. Version WordPress, que vous mettez à jour vous-même : à partir de 2 500 € HT. Boutique en ligne ou migration : à partir de 3 800 € HT. Refonte d'un site existant : à partir de 1 200 € HT."
+      pricing="Vitrine de commerce sur mesure : 2 400 € HT, jusqu'à 6 pages. Site essentiel de 1 à 3 pages : 1 400 € HT. Version WordPress, que vous mettez à jour vous-même : même tarif. Boutique en ligne ou migration : à partir de 3 800 € HT. Refonte d'un site existant : à partir de 1 800 € HT."
       faq={FAQ}
       related={[
         { label: "Agence web Albertville", href: "/agence-web-albertville" },

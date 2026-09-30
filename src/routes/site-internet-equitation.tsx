@@ -34,7 +34,7 @@ export const Route = createFileRoute("/site-internet-equitation")({
       {
         name: "description",
         content:
-          "Site internet pour moniteurs, centres équestres, dentistes équins et professionnels du cheval : référencement géolocalisé, présentation des cours, galerie. À partir de 2 000 € HT.",
+          "Site internet pour moniteurs, centres équestres, dentistes équins et professionnels du cheval : référencement géolocalisé, présentation des cours, galerie. À partir de 1 400 € HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-equitation") },
@@ -58,7 +58,7 @@ export const Route = createFileRoute("/site-internet-equitation")({
             {
               title: "Site vitrine équestre sur mesure",
               desc: "Présentation des cours et prestations, galerie, référencement géolocalisé sur votre zone d'intervention réelle.",
-              price: "2 000 €",
+              price: "2 400 €",
             },
             {
               title: "Boutique équestre en ligne",
@@ -130,7 +130,7 @@ function Page() {
           siteUrl: "https://www.naturalriders.fr/",
         },
       ]}
-      pricing="Site vitrine sur mesure : 2 000 € HT. Version WordPress si vous voulez publier vos stages vous-même : à partir de 2 500 € HT. Boutique en ligne ou migration : à partir de 3 800 € HT. Refonte d'un site existant : à partir de 1 200 € HT."
+      pricing="Site vitrine sur mesure : 2 400 € HT, jusqu'à 6 pages. Site essentiel de 1 à 3 pages : 1 400 € HT. Version WordPress si vous voulez publier vos stages vous-même : même tarif. Boutique en ligne ou migration : à partir de 3 800 € HT. Refonte d'un site existant : à partir de 1 800 € HT."
       faq={FAQ}
       related={[
         { label: "Site internet thérapeute", href: "/site-internet-therapeute" },

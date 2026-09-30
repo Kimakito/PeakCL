@@ -34,7 +34,7 @@ export const Route = createFileRoute("/site-internet-architecte-interieur")({
       {
         name: "description",
         content:
-          "Site internet pour architectes d'intérieur et décorateurs : portfolio de réalisations en pleine page, approche mise en avant et demandes d'étude qualifiées. À partir de 2 000 € HT.",
+          "Site internet pour architectes d'intérieur et décorateurs : portfolio de réalisations en pleine page, approche mise en avant et demandes d'étude qualifiées. À partir de 1 400 € HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-architecte-interieur") },
@@ -61,12 +61,12 @@ export const Route = createFileRoute("/site-internet-architecte-interieur")({
             {
               title: "Portfolio sur mesure",
               desc: "Réalisations en pleine page, chargement optimisé pour les images lourdes, formulaire de demande d'étude.",
-              price: "2 000 €",
+              price: "2 400 €",
             },
             {
               title: "Portfolio WordPress autonome",
               desc: "Vous ajoutez vos projets vous-même, avec formation à la prise en main.",
-              price: "À partir de 2 500 €",
+              price: "2 400 €",
             },
           ],
         }),
@@ -133,7 +133,7 @@ function Page() {
           siteUrl: "https://setic-fluides.netlify.app/",
         },
       ]}
-      pricing="Portfolio sur mesure : 2 000 € HT. Version WordPress, que vous alimentez vous-même : à partir de 2 500 € HT. Refonte d'un site existant : à partir de 1 200 € HT. Identité visuelle complète en complément : à partir de 500 € HT."
+      pricing="Portfolio sur mesure : 2 400 € HT, jusqu'à 6 pages. Site essentiel de 1 à 3 pages : 1 400 € HT. Version WordPress, que vous alimentez vous-même : même tarif. Refonte d'un site existant : à partir de 1 800 € HT. Identité visuelle complète en complément : à partir de 1 200 € HT."
       faq={FAQ}
       related={[
         { label: "Agence web Albertville", href: "/agence-web-albertville" },

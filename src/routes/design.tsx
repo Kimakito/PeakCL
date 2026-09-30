@@ -12,7 +12,7 @@ export const Route = createFileRoute("/design")({
       {
         name: "description",
         content:
-          "Graphiste en Savoie : logo, charte graphique, supports print et visuels réseaux sociaux. Une marque cohérente et mémorable. Identité complète à partir de 500 € HT.",
+          "Graphiste en Savoie : logo, charte graphique, supports print et visuels réseaux sociaux. Une marque cohérente et mémorable. Logo à partir de 500 € HT, identité complète à partir de 1 200 € HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/design") },
@@ -56,9 +56,9 @@ export const Route = createFileRoute("/design")({
           "Indépendants, thérapeutes, artisans et petites structures qui créent leur marque ou modernisent une image devenue datée.",
         area: "Savoie et Haute-Savoie sur place, partout en France à distance.",
         delay:
-          "1 à 2 semaines pour un logo et sa charte, 3 à 5 jours pour des supports print ou des visuels réseaux, 48h pour une bannière seule.",
+          "1 semaine pour un logo, 2 à 3 semaines pour une identité complète, 3 à 5 jours pour des supports print ou des visuels réseaux, 48h pour une bannière seule.",
         pricing:
-          "Identité visuelle complète à partir de 500 €, supports print à partir de 80 € l'unité (dégressif dès 3 supports), pack de 10 visuels réseaux à partir de 200 €. Tarifs HT. Mini-audit gratuit avant devis.",
+          "Logo essentiel 500 €, identité visuelle complète à partir de 1 200 €, supports print à partir de 90 € l'unité (dégressif dès 3 supports), pack de 10 visuels réseaux à partir de 350 €. Tarifs HT. Mini-audit gratuit avant devis.",
         process: [
           "Échange sur l'activité, les valeurs et les préférences visuelles",
           "Moodboard et pistes de direction artistique",

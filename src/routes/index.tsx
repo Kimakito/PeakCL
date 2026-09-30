@@ -358,7 +358,7 @@ const offers = [
   {
     eyebrow: "Le plus simple",
     title: "Lancement",
-    price: "À partir de 2 700 € HT",
+    price: "À partir de 3 800 € HT",
     highlight: true,
     points: [
       "Site clair + identité visuelle complète",
@@ -370,7 +370,7 @@ const offers = [
   {
     eyebrow: "Pour un site rapide",
     title: "Site vitrine",
-    price: "À partir de 2 000 € HT",
+    price: "À partir de 1 400 € HT",
     points: [
       "Structure pensée pour convertir",
       "Design sobre et mobile-friendly",
@@ -381,7 +381,7 @@ const offers = [
   {
     eyebrow: "Si vous avez déjà un socle",
     title: "Refonte / amélioration",
-    price: "À partir de 1 200 € HT",
+    price: "À partir de 1 800 € HT",
     points: [
       "Clarification du message et du parcours",
       "Visuels et textes repensés",

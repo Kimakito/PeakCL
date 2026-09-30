@@ -44,7 +44,7 @@ export const Route = createFileRoute("/sites-web")({
       {
         name: "description",
         content:
-          "Sites vitrines, e-commerce et refontes : des sites web sur mesure, rapides et optimisés SEO, à partir de 2 000 € HT. Mini-audit gratuit avant devis.",
+          "Sites vitrines, e-commerce et refontes : des sites web sur mesure, rapides et optimisés SEO, à partir de 1 400 € HT. Mini-audit gratuit avant devis.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/sites-web") },
@@ -55,8 +55,7 @@ export const Route = createFileRoute("/sites-web")({
             "Sites vitrines, e-commerce et refontes : des sites web custom, rapides et optimisés pour le référencement local en Savoie et Haute-Savoie.",
           serviceType: "Création de site internet",
           path: "/sites-web",
-          audience:
-            "Indépendants, thérapeutes, artisans, commerces et TPE, en création comme en refonte.",
+          audience: "TPE, PME, artisans, commerces et indépendants, en création comme en refonte.",
           // Reprend le catalogue reellement affiche sur la page : les donnees
           // structurees decrivent ce que le visiteur voit, pas une offre ideale.
           offers: sitesWeb.map((o) => ({ title: o.title, desc: o.desc, price: o.price })),
@@ -84,13 +83,12 @@ export const Route = createFileRoute("/sites-web")({
       title="Sites web sur mesure"
       tagline="Sites vitrines, e-commerce et refontes pour thérapeutes, artisans et indépendants de Savoie : rapides, bien référencés et pensés pour transformer un visiteur en rendez-vous ou en devis."
       facts={{
-        audience:
-          "Indépendants, thérapeutes, artisans, commerces et TPE, en création comme en refonte.",
+        audience: "TPE, PME, artisans, commerces et indépendants, en création comme en refonte.",
         area: "Savoie et Haute-Savoie sur place, partout en France à distance (visio).",
         delay:
           "3 à 5 semaines pour un site vitrine, 4 à 7 semaines pour une boutique en ligne, 1 à 2 semaines pour une landing page.",
         pricing:
-          "Site vitrine sur mesure 2 000 €, WordPress à partir de 2 500 €, e-commerce à partir de 3 800 €, refonte à partir de 1 200 €, landing page à partir de 800 €. Tarifs HT, devis précis sous 48h ouvrées après l'appel de cadrage. Le mini-audit préalable est gratuit.",
+          "Site essentiel (1 à 3 pages) 1 400 €, site vitrine sur mesure ou WordPress 2 400 € (même prix), e-commerce à partir de 3 800 €, refonte à partir de 1 800 €, landing page à partir de 900 €. Tarifs HT, devis précis sous 48h ouvrées après l'appel de cadrage. Le mini-audit préalable est gratuit.",
         process: [
           "Appel de diagnostic gratuit pour comprendre l'activité et l'objectif",
           "Devis précis et planning sous 48h ouvrées",

@@ -17,7 +17,7 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Un seul interlocuteur pour votre communication : sites web (à partir de 2 000 €), community management (à partir de 200 €/mois), design graphique et automatisation. Tarifs affichés.",
+          "Un seul interlocuteur pour votre communication : sites web (à partir de 1 400 €), community management (à partir de 250 €/mois), design graphique et automatisation. Tarifs affichés.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/services") },
@@ -157,7 +157,7 @@ function ServicesHub() {
             <p className="mx-auto mt-8 max-w-3xl text-center text-xs text-muted-foreground">
               Tous les tarifs sont indiqués HT et servent de base : un devis personnalisé est établi
               selon votre cahier des charges. Acompte de 30 à 50 % à la signature, révisions
-              incluses selon l’offre (au-delà : 60 €/h), droits d’utilisation cédés à la livraison
+              incluses selon l’offre (au-delà : 65 €/h), droits d’utilisation cédés à la livraison
               du solde.
             </p>
           </div>

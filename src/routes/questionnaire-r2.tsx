@@ -298,14 +298,14 @@ function QuestionnaireR2Page() {
   );
 
   const budgetSuggestionsByFocus: Record<string, string[]> = {
-    landing: ["800 à 1200€", "1200 à 2000€", "2000€ et plus"],
-    site: ["2000 à 3000€", "3000 à 4000€", "4000€ et plus"],
+    landing: ["900 à 1400€", "1400 à 2400€", "2400€ et plus"],
+    site: ["1400 à 2400€", "2400 à 4000€", "4000€ et plus"],
     ecommerce: ["3800 à 5000€", "5000 à 7000€", "7000€ et plus"],
-    refonte: ["1200 à 2000€", "2000 à 3000€", "3000€ et plus"],
-    debug: ["60€/h (ponctuel)", "99€/mois (maintenance)", "300€ et plus"],
-    identite: ["500 à 800€", "800 à 1500€", "1500€ et plus"],
-    reseaux: ["150 à 300€/mois", "300 à 450€/mois", "450 à 600€/mois et plus"],
-    global: ["2200 à 3200€", "3200 à 4500€", "4500€ et plus"],
+    refonte: ["1800 à 2500€", "2500 à 3500€", "3500€ et plus"],
+    debug: ["65€/h (ponctuel)", "49 à 99€/mois (maintenance)", "300€ et plus"],
+    identite: ["500€ (logo)", "1200 à 2000€", "2000€ et plus"],
+    reseaux: ["250 à 450€/mois", "450 à 650€/mois", "650€/mois et plus"],
+    global: ["3100 à 3800€", "3800 à 5400€", "5400€ et plus"],
   };
   const budgetSuggestions =
     budgetSuggestionsByFocus[values.serviceFocus] ?? budgetSuggestionsByFocus.global;
