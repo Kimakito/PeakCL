@@ -1,8 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
-import logo from "@/assets/peakcl-logo.png";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { absUrl } from "@/seo/site";
+
+// Logo carré actuel (le même que la signature mail), servi depuis public/ :
+// l'ancien badge hexagone src/assets/peakcl-logo.png a été retiré.
+const logo = "/peakcl/logo-mark.png";
 
 const STORAGE_KEY = "peakcl-bac-a-sable-video-text";
 const DEFAULT_TEXT = `Let's go pour la démo

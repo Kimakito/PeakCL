@@ -10,10 +10,13 @@ import {
   Target,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import logo from "@/assets/peakcl-logo.png";
 import { TRAME_PROSPECTION_MARKDOWN } from "@/content/peakcl/trame-prospection-markdown";
 import { absUrl } from "@/seo/site";
 import { BOOKING_URL } from "@/lib/links";
+
+// Logo carré actuel (le même que la signature mail), servi depuis public/ :
+// l'ancien badge hexagone src/assets/peakcl-logo.png a été retiré.
+const logo = "/peakcl/logo-mark.png";
 
 const MARKMAP_LOADER = "https://cdn.jsdelivr.net/npm/markmap-autoloader@0.18";
 
