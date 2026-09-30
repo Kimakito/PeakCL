@@ -106,13 +106,25 @@ const SECURITY_HEADERS: Record<string, string> = {
 const NOINDEX_PREFIX = "/cadrage/";
 
 export default async (request: Request, context: Context): Promise<Response> => {
+  // Slash final : redirection PERMANENTE vers l'URL canonique sans slash.
+  // L'application le faisait déjà, mais en 307 (temporaire) : Google garde
+  // alors les deux variantes en mémoire au lieu de transférer le signal. La
+  // racine « / » n'est pas concernée, la requête (?utm=…) est conservée.
+  // Si un dossier de public/ reçoit un jour un index.html (deck statique),
+  // l'exclure ici : Netlify y rajoute le slash, ce qui bouclerait.
+  const url = new URL(request.url);
+  if (url.pathname.length > 1 && url.pathname.endsWith("/")) {
+    url.pathname = url.pathname.replace(/\/+$/, "");
+    return new Response(null, { status: 301, headers: { Location: url.pathname + url.search } });
+  }
+
   const response = await context.next();
 
   for (const [name, value] of Object.entries(SECURITY_HEADERS)) {
     response.headers.set(name, value);
   }
 
-  if (new URL(request.url).pathname.startsWith(NOINDEX_PREFIX)) {
+  if (url.pathname.startsWith(NOINDEX_PREFIX)) {
     response.headers.set("X-Robots-Tag", "noindex, nofollow");
   }
 

@@ -1,6 +1,4 @@
-import { useRouterState } from "@tanstack/react-router";
 import { DELIVERED_COUNT } from "@/content/peakcl/portfolio";
-import { localeFromPath, type Locale } from "@/i18n/config";
 
 const MASCOTTE = "/design-system/mascotte-ligne.svg";
 
@@ -24,61 +22,35 @@ type Copy = {
   location: string;
 };
 
-function copyFor(locale: Locale): Copy {
-  if (locale === "en") {
-    return {
-      aria: "About Charlotte Lacroix, PeakCL",
-      kicker: "Who I am",
-      leadTitle: "A single point of contact",
-      lead: "I code, I design, and I'm trained in social media management. Site, logo and social aligned on the same message, with no double brief and no hidden subcontracting.",
-      role: "Charlotte Lacroix · web developer & graphic designer · working remotely",
-      metiersTitle: "Three crafts, one person",
-      metiers: ["Code", "Design", "Social media"],
-      statValue: String(DELIVERED_COUNT),
-      statLabel: "client projects delivered, rated 5/5 on Google",
-      techTitle: "Solid under the hood",
-      tech: "Hand-coded sites, no CMS, no plugins. 7 years of code, including high-traffic platforms and a full corporate-site redesign. Core Web Vitals in the green, clean SEO.",
-      socialTitle: "More than pretty posts",
-      social:
-        "I build consistent communication, designed to convert, from your website to your social channels.",
-      clientsTitle: "Who I work with",
-      clients:
-        "Freelancers, makers, therapists, shop owners, SMBs and small teams. A travel agency, a law firm, a dental technician, coaches, an equestrian store, and more.",
-      locationTitle: "Where I work from",
-      location: "Remotely, with clients across France and worldwide, over video calls.",
-    };
-  }
-  return {
-    aria: "Présentation de Charlotte Lacroix, PeakCL",
-    kicker: "Qui je suis",
-    leadTitle: "Une seule interlocutrice",
-    lead: "Je code, je dessine, et je suis formée au community management. Site, logo et réseaux alignés sur le même message, sans double brief ni sous-traitance cachée.",
-    role: "Charlotte Lacroix · développeuse web & community manager · Gilly-sur-Isère, Savoie",
-    metiersTitle: "Trois métiers, une personne",
-    metiers: ["Code", "Design", "Community"],
-    statValue: String(DELIVERED_COUNT),
-    statLabel: "projets clients livrés, notés 5/5 sur Google",
-    techTitle: "Du solide sous le capot",
-    tech: "Sites codés à la main, sans CMS ni plugins. 7 ans de code, dont des plateformes à fort trafic et la refonte d'un site corporate international. Core Web Vitals au vert, SEO local propre.",
-    socialTitle: "Plus que de jolis posts",
-    social:
-      "Je construis une communication cohérente, pensée pour la conversion, du site web jusqu'aux réseaux.",
-    clientsTitle: "Pour qui",
-    clients:
-      "TPE, PME, indépendants, artisans, thérapeutes et commerçants. Agence de voyage, cabinet d'avocate, prothésiste dentaire, coachs, e-commerce équestre…",
-    locationTitle: "D'où je travaille",
-    location:
-      "Basée à Gilly-sur-Isère, près d'Albertville. Toute la Savoie et partout en France, en visio.",
-  };
-}
+const COPY: Copy = {
+  aria: "Présentation de Charlotte Lacroix, PeakCL",
+  kicker: "Qui je suis",
+  leadTitle: "Une seule interlocutrice",
+  lead: "Je code, je dessine, et je suis formée au community management. Site, logo et réseaux alignés sur le même message, sans double brief ni sous-traitance cachée.",
+  role: "Charlotte Lacroix · développeuse web & community manager · Gilly-sur-Isère, Savoie",
+  metiersTitle: "Trois métiers, une personne",
+  metiers: ["Code", "Design", "Community"],
+  statValue: String(DELIVERED_COUNT),
+  statLabel: "projets clients livrés, notés 5/5 sur Google",
+  techTitle: "Du solide sous le capot",
+  tech: "Sites codés à la main, sans CMS ni plugins. 7 ans de code, dont des plateformes à fort trafic et la refonte d'un site corporate international. Core Web Vitals au vert, SEO local propre.",
+  socialTitle: "Plus que de jolis posts",
+  social:
+    "Je construis une communication cohérente, pensée pour la conversion, du site web jusqu'aux réseaux.",
+  clientsTitle: "Pour qui",
+  clients:
+    "TPE, PME, indépendants, artisans, thérapeutes et commerçants. Agence de voyage, cabinet d'avocate, prothésiste dentaire, coachs, e-commerce équestre…",
+  locationTitle: "D'où je travaille",
+  location:
+    "Basée à Gilly-sur-Isère, près d'Albertville. Toute la Savoie et partout en France, en visio.",
+};
 
 const CARD =
   "group relative overflow-hidden rounded-[28px] p-6 shadow-md transition-transform duration-300 hover:rotate-0";
 
 /** Présentation bio en mosaïque de carrés arrondis colorés (motif signature PeakCL). */
 export function MosaicBio({ className = "" }: { className?: string }) {
-  const path = useRouterState({ select: (s) => s.location.pathname });
-  const c = copyFor(localeFromPath(path));
+  const c = COPY;
   return (
     <section aria-label={c.aria} className={`grid grid-cols-1 gap-4 sm:grid-cols-6 ${className}`}>
       {/* Lead — violet, texte blanc */}

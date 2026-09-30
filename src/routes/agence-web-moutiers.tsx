@@ -13,7 +13,7 @@ const FAQ = [
   {
     question: "Une partie de ma clientèle est étrangère. Vous faites des sites en anglais ?",
     answerHtml:
-      "Oui, et le site que vous lisez en est la démonstration : il existe en français et en anglais, avec les balises hreflang qui indiquent à Google quelle version servir à qui. À Moûtiers, ça se justifie vite — la gare déverse chaque samedi d'hiver une clientèle qui ne lit pas le français. On traduit ce qui sert à décider (prestations, tarifs, accès, réservation), pas les 40 pages du site.",
+      "Oui : une version anglaise propre, avec les balises hreflang qui indiquent à Google quelle version servir à qui. À Moûtiers, ça se justifie vite — la gare déverse chaque samedi d'hiver une clientèle qui ne lit pas le français. On traduit ce qui sert à décider (prestations, tarifs, accès, réservation), pas les 40 pages du site.",
   },
   {
     question: "Je veux que les gens réservent directement. C'est possible ?",

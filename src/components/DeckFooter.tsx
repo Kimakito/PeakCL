@@ -1,7 +1,5 @@
 import { Instagram, Facebook, Linkedin, MessageCircle, Mail, Phone } from "lucide-react";
-import { useRouterState } from "@tanstack/react-router";
 import { SOCIAL, CONTACT } from "@/lib/links";
-import { localeFromPath, type Locale } from "@/i18n/config";
 import { geoPagesFor } from "@/seo/geo";
 import { metierPages } from "@/seo/metiers";
 
@@ -21,8 +19,7 @@ type FooterText = {
   subtitle: string;
   primaryNav: NavLink[];
   serviceLinks: NavLink[];
-  /** Villes : SEO local français uniquement, retiré en anglais (angle international). */
-  cityGroups: CityGroup[] | null;
+  cityGroups: CityGroup[];
 };
 
 /**
@@ -54,56 +51,32 @@ const CITY_GROUPS: CityGroup[] = [
   },
 ];
 
-/** Contenu du footer selon la langue. En anglais : angle international
- *  (freelance à distance), on retire l'ancrage géographique Savoie / villes. */
-function footerText(locale: Locale): FooterText {
-  if (locale === "en") {
-    return {
-      headline: "Let's build your online presence.",
-      subtitle: "Website, brand, social, Google: one person, from start to finish.",
-      primaryNav: [
-        { href: "/en", label: "Home" },
-        { href: "/en/portfolio", label: "Portfolio" },
-        { href: "/en/services", label: "Services" },
-        { href: "/en/about", label: "About" },
-        { href: "/conseils", label: "Tips" },
-        { href: "/en/book-a-call", label: "Book a call" },
-      ],
-      serviceLinks: [
-        { href: "/en/web-development", label: "Web development" },
-        { href: "/creation-logo-albertville", label: "Logo & brand identity" },
-        { href: "/community-manager-savoie", label: "Social media management" },
-        { href: "/en/design", label: "Graphic design" },
-      ],
-      cityGroups: null,
-    };
-  }
-  return {
-    headline: "Construisons votre image en ligne.",
-    subtitle: "Site, identité, réseaux, Google : un seul interlocuteur, de A à Z.",
-    primaryNav: [
-      { href: "/", label: "Accueil" },
-      { href: "/portfolio", label: "Portfolio" },
-      { href: "/services", label: "Services" },
-      { href: "/qui-suis-je", label: "Qui suis-je" },
-      { href: "/conseils", label: "Conseils" },
-      { href: "/reservation-appel", label: "Réservation d’appel" },
-    ],
-    serviceLinks: [
-      { href: "/sites-web", label: "Création de sites web" },
-      { href: "/creation-logo-albertville", label: "Logo & identité" },
-      { href: "/community-manager-savoie", label: "Community management" },
-      { href: "/design", label: "Design graphique" },
-    ],
-    cityGroups: CITY_GROUPS,
-  };
-}
+/** Contenu du footer (FR uniquement : la version anglaise a été supprimée le 27/08/2026). */
+const TEXT: FooterText = {
+  headline: "Construisons votre image en ligne.",
+  subtitle: "Site, identité, réseaux, Google : un seul interlocuteur, de A à Z.",
+  primaryNav: [
+    { href: "/", label: "Accueil" },
+    { href: "/portfolio", label: "Portfolio" },
+    { href: "/services", label: "Services" },
+    { href: "/qui-suis-je", label: "Qui suis-je" },
+    { href: "/conseils", label: "Conseils" },
+    { href: "/reservation-appel", label: "Réservation d’appel" },
+  ],
+  serviceLinks: [
+    { href: "/sites-web", label: "Création de sites web" },
+    { href: "/refonte-site-pme", label: "Refonte de site" },
+    { href: "/creation-logo-albertville", label: "Logo & identité" },
+    { href: "/community-management", label: "Community management : forfaits" },
+    { href: "/design", label: "Design graphique" },
+    { href: "/accompagnement-automatisation", label: "Automatisation" },
+  ],
+  cityGroups: CITY_GROUPS,
+};
 
 /** Footer plein écran — pensé pour terminer un deck horizontal. */
 export function DeckFooter() {
-  const path = useRouterState({ select: (s) => s.location.pathname });
-  const locale = localeFromPath(path);
-  const t = footerText(locale);
+  const t = TEXT;
   const year = new Date().getFullYear();
   return (
     <section className="flex h-full w-full items-center justify-center overflow-y-auto">
@@ -125,7 +98,7 @@ export function DeckFooter() {
               rel="noopener noreferrer"
               title={label}
               aria-label={label}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-muted text-muted-foreground transition-colors hover:border-[var(--brand-turquoise)] hover:text-[var(--brand-turquoise)]"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-muted text-muted-foreground transition-colors hover:border-[var(--brand-turquoise)] hover:text-[var(--accent-turquoise-ink)]"
             >
               <Icon className="h-[18px] w-[18px]" />
             </a>
@@ -163,21 +136,19 @@ export function DeckFooter() {
           ))}
         </div>
 
-        {t.cityGroups
-          ? t.cityGroups.map((group) => (
-              <div
-                key={group.label}
-                className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/60"
-              >
-                <span className="text-muted-foreground/50">{group.label} :</span>
-                {group.links.map(({ href, label }) => (
-                  <a key={href} href={href} className="hover:text-foreground">
-                    {label}
-                  </a>
-                ))}
-              </div>
-            ))
-          : null}
+        {t.cityGroups.map((group) => (
+          <div
+            key={group.label}
+            className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground/60"
+          >
+            <span className="text-muted-foreground/50">{group.label} :</span>
+            {group.links.map(({ href, label }) => (
+              <a key={href} href={href} className="hover:text-foreground">
+                {label}
+              </a>
+            ))}
+          </div>
+        ))}
 
         <p className="mt-6 text-xs text-muted-foreground/60">© {year} PeakCL · Charlotte Lacroix</p>
       </div>

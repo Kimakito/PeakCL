@@ -84,7 +84,7 @@ function MerciR2Page() {
       <section className="relative overflow-hidden bg-hero py-24">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto max-w-2xl px-6 text-center">
-          <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
+          <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--accent-turquoise-ink)]">
             <Check className="h-6 w-6" />
           </div>
           <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">C’est noté. Merci !</h1>
@@ -103,7 +103,7 @@ function MerciR2Page() {
               borderWidth={3}
             />
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-muted text-[var(--brand-turquoise)]">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-muted text-[var(--accent-turquoise-ink)]">
                 <TrendingUp className="h-5 w-5" />
               </span>
               <h2 className="text-lg font-bold text-foreground">
@@ -143,7 +143,7 @@ function MerciR2Page() {
       <section className="border-t border-border py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
               La méthode
             </span>
             <h2 className="mt-4 text-3xl font-bold md:text-4xl">
@@ -180,7 +180,7 @@ function MerciR2Page() {
       <section className="border-t border-border py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
               Ils en parlent mieux que moi
             </span>
             <h2 className="mt-4 text-3xl font-bold md:text-4xl">
@@ -222,7 +222,7 @@ function MerciR2Page() {
       <section className="border-t border-border py-20">
         <div className="mx-auto max-w-3xl px-6">
           <div className="text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
               Questions fréquentes
             </span>
             <h2 className="mt-4 text-3xl font-bold md:text-4xl">On lève les derniers doutes.</h2>
@@ -235,7 +235,7 @@ function MerciR2Page() {
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-sm font-semibold">
                   {f.question}
-                  <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border text-[var(--brand-turquoise)] transition-transform group-open:rotate-45 text-base">
+                  <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border text-[var(--accent-turquoise-ink)] transition-transform group-open:rotate-45 text-base">
                     +
                   </span>
                 </summary>
@@ -251,7 +251,7 @@ function MerciR2Page() {
 
       <section className="border-t border-border py-20 text-center">
         <div className="mx-auto max-w-2xl px-6">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
             Mon engagement
           </span>
           <h2 className="mt-4 text-3xl font-bold md:text-4xl">Pas de chiffre magique promis.</h2>

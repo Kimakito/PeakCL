@@ -1,56 +1,61 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Instagram, ArrowRight } from "lucide-react";
-import { useRouterState } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SOCIAL } from "@/lib/links";
-import { localeFromPath, type Locale } from "@/i18n/config";
 
 const ELFSIGHT_SRC = "https://elfsightcdn.com/platform.js";
 
-/** Textes de la section selon la langue. En anglais : angle international. */
-function instagramText(locale: Locale) {
-  if (locale === "en") {
-    return {
-      title: (
-        <>
-          The studio, <span className="text-gradient">day to day</span>.
-        </>
-      ),
-      subtitle: "Behind the scenes and delivered projects: follow PeakCL on Instagram.",
-      follow: "Follow @peakcl73",
-    };
-  }
-  return {
-    title: (
-      <>
-        Le studio <span className="text-gradient">au quotidien</span>.
-      </>
-    ),
-    subtitle: "Coulisses et projets livrés : suivez PeakCL sur Instagram.",
-    follow: "Suivre @peakcl73",
-  };
-}
+/** Textes de la section. */
+const TEXT = {
+  title: (
+    <>
+      Le studio <span className="text-gradient">au quotidien</span>.
+    </>
+  ),
+  subtitle: "Coulisses et projets livrés : suivez PeakCL sur Instagram.",
+  follow: "Suivre @peakcl73",
+};
 
 /**
  * Feed Instagram via widget Elfsight.
  * platform.js scanne le DOM et hydrate le div `.elfsight-app-<id>`.
  * Le script n'est injecté qu'une fois (idempotent), côté client.
+ *
+ * Et seulement quand la section approche de l'écran : injecté au montage, il
+ * pesait sur le chargement de l'accueil (≈ 180 ms de JS, 94 Ko inutilisés,
+ * cookies tiers relevés par Lighthouse) pour une section tout en bas de page
+ * que beaucoup de visiteurs n'atteignent jamais.
  */
 export function InstagramFeed() {
-  const path = useRouterState({ select: (s) => s.location.pathname });
-  const locale = localeFromPath(path);
-  const t = instagramText(locale);
+  const t = TEXT;
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (document.querySelector(`script[src="${ELFSIGHT_SRC}"]`)) return;
-    const s = document.createElement("script");
-    s.src = ELFSIGHT_SRC;
-    s.async = true;
-    document.body.appendChild(s);
+    const el = sectionRef.current;
+    if (!el) return;
+    const inject = () => {
+      if (document.querySelector(`script[src="${ELFSIGHT_SRC}"]`)) return;
+      const s = document.createElement("script");
+      s.src = ELFSIGHT_SRC;
+      s.async = true;
+      document.body.appendChild(s);
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          inject();
+          io.disconnect();
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="instagram"
       className="relative w-full overflow-hidden border-t border-border py-12 md:py-16"
     >

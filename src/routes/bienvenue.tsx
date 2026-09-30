@@ -41,7 +41,7 @@ function BienvenuePage() {
           <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
             Étape 3 · Après avoir réservé votre créneau
           </div>
-          <div className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-5 py-2 text-sm text-[var(--brand-turquoise)]">
+          <div className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-5 py-2 text-sm text-[var(--accent-turquoise-ink)]">
             <TriangleAlert className="h-4 w-4" />
             <span>Regarde cette page jusqu&apos;au bout.</span>
             <TriangleAlert className="h-4 w-4" />

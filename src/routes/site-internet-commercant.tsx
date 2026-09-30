@@ -34,7 +34,7 @@ export const Route = createFileRoute("/site-internet-commercant")({
       {
         name: "description",
         content:
-          "Site internet pour commerces et boutiques : vitrine, horaires, fiche Google et vente en ligne quand elle se justifie. À partir de 1 400 € HT. Mini-audit gratuit.",
+          "Site internet pour commerces et boutiques : vitrine, horaires, fiche Google et vente en ligne si elle se justifie. Dès 1 400 € HT, mini-audit gratuit.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-commercant") },

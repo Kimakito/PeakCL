@@ -1,57 +1,37 @@
 import { useMemo } from "react";
 import { ArrowRight } from "lucide-react";
-import { useRouterState } from "@tanstack/react-router";
 import { DELIVERED_COUNT, peakclPortfolio } from "@/content/peakcl/portfolio";
 import { ClientLogo } from "@/components/ClientLogo";
-import { localeFromPath, type Locale } from "@/i18n/config";
 
-/** Textes de la section selon la langue. En anglais : angle international,
- *  on retire l'ancrage Savoie / France.
+/** Textes de la section.
  *
  *  Le nombre vient de `DELIVERED_COUNT` et non plus du nombre de logos
  *  affiches : le mur de logos ne montre que les clients qui en ont un, ce qui
  *  n'a aucune raison d'etre le nombre de projets livres. */
-function trustedText(locale: Locale) {
-  if (locale === "en") {
-    return {
-      eyebrow: "Trusted by",
-      heading: (
-        <>
-          Professionals who chose <span className="text-gradient">PeakCL</span>.
-        </>
-      ),
-      subtitle: `${DELIVERED_COUNT} client projects delivered for craftspeople, coaches, health, travel and e-commerce.`,
-      cta: "See all projects",
-      portfolioHref: "/en/portfolio",
-    };
-  }
-  return {
-    eyebrow: "Ils nous ont fait confiance",
-    heading: (
-      <>
-        Des pros qui ont choisi <span className="text-gradient">PeakCL</span>.
-      </>
-    ),
-    subtitle: `${DELIVERED_COUNT} projets clients livrés, artisans, coachs, santé, voyage, e-commerce… en Savoie et en France.`,
-    cta: "Voir tous les projets",
-    portfolioHref: "/portfolio",
-  };
-}
+const TEXT = {
+  eyebrow: "Ils nous ont fait confiance",
+  heading: (
+    <>
+      Des pros qui ont choisi <span className="text-gradient">PeakCL</span>.
+    </>
+  ),
+  subtitle: `${DELIVERED_COUNT} projets clients livrés, artisans, coachs, santé, voyage, e-commerce… en Savoie et en France.`,
+  cta: "Voir tous les projets",
+  portfolioHref: "/portfolio",
+};
 
 function ClientLogoCard({
   title,
   subtitle,
   logoUrl,
   siteUrl,
-  locale,
 }: {
   title: string;
   subtitle?: string;
   logoUrl: string;
   siteUrl: string;
-  locale: Locale;
 }) {
-  const titleAttr = locale === "en" ? `${title}: view the site` : `${title} : voir le site`;
+  const titleAttr = `${title} : voir le site`;
   return (
     <a
       href={siteUrl}
@@ -77,11 +57,9 @@ function ClientLogoCard({
 }
 
 export function TrustedBySection() {
-  const path = useRouterState({ select: (s) => s.location.pathname });
-  const locale = localeFromPath(path);
   const clients = useMemo(() => peakclPortfolio.filter((p) => p.logoUrl), []);
   const marqueeTrack = useMemo(() => [...clients, ...clients], [clients]);
-  const t = trustedText(locale);
+  const t = TEXT;
 
   return (
     <section
@@ -90,7 +68,7 @@ export function TrustedBySection() {
     >
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
             {t.eyebrow}
           </span>
           <h2 id="trusted-by-heading" className="mt-4 text-balance text-3xl font-bold md:text-4xl">
@@ -118,7 +96,6 @@ export function TrustedBySection() {
                   subtitle={p.subtitle}
                   logoUrl={p.logoUrl!}
                   siteUrl={p.siteUrl}
-                  locale={locale}
                 />
               ))}
             </div>
@@ -133,7 +110,6 @@ export function TrustedBySection() {
                 subtitle={p.subtitle}
                 logoUrl={p.logoUrl!}
                 siteUrl={p.siteUrl}
-                locale={locale}
               />
             </li>
           ))}
@@ -142,7 +118,7 @@ export function TrustedBySection() {
         <p className="mt-8 text-center">
           <a
             href={t.portfolioHref}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
             data-event="cta_portfolio_trusted"
           >
             {t.cta}

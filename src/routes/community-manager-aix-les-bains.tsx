@@ -25,11 +25,11 @@ const FAQ = [
 export const Route = createFileRoute("/community-manager-aix-les-bains")({
   head: () => ({
     meta: [
-      { title: "Gestion des réseaux sociaux à Aix-les-Bains · Community manager · PeakCL" },
+      { title: "Community manager à Aix-les-Bains · PeakCL" },
       {
         name: "description",
         content:
-          "Community manager à Aix-les-Bains : déléguez vos réseaux sociaux à Charlotte (PeakCL). Visuels brandés, rédaction et stratégie, formules mensuelles sans engagement.",
+          "Community manager à Aix-les-Bains : déléguez vos réseaux sociaux à Charlotte (PeakCL). Visuels, rédaction et stratégie, forfaits sans engagement.",
       },
       { property: "og:title", content: "Community manager à Aix-les-Bains · PeakCL" },
       {

@@ -577,10 +577,10 @@ Chacune precise les pages qui comptent, les tarifs et les limites annoncees.
 ## Conseils et guides
 
 - [Tous les conseils](https://peakcl.com/conseils)
-- [Combien coûte un site internet en 2026 ?](https://peakcl.com/conseils-prix-site-internet) : Prix d'un site internet pour un indépendant ou une petite structure : ce qui fait varier le tarif, les fourchettes réalistes, et comment éviter de payer pour rien.
+- [Combien coûte un site internet en 2026 ?](https://peakcl.com/conseils-prix-site-internet) : Prix d'un site internet pour une TPE ou un indépendant : ce qui fait varier le tarif, mes prix réels (dès 1 400 € HT) et comment ne pas payer pour rien.
 - [Site web ou Instagram : faut-il vraiment un site quand on a déjà les réseaux ?](https://peakcl.com/conseils-site-web-ou-instagram) : Vous avez déjà Instagram ou Facebook : un site internet est-il encore utile ? La réponse, et pourquoi les deux ne jouent pas le même rôle.
 - [Site WordPress ou site codé sur mesure : comment choisir ?](https://peakcl.com/conseils-wordpress-ou-sur-mesure) : WordPress ou site sur mesure : avantages, limites et critères de choix selon votre besoin d'autonomie, de performance et d'évolution.
-- [Faut-il un community manager quand on est thérapeute ou indépendant ?](https://peakcl.com/conseils-community-manager-utile) : Thérapeute, praticien ou artisan en Savoie : déléguer ses réseaux, est-ce vraiment utile ? Ce que je fais concrètement, quand ça vaut le coup, et quand je vous dis de garder la main.
+- [Faut-il un community manager quand on est une TPE ou un indépendant ?](https://peakcl.com/conseils-community-manager-utile) : TPE, artisan ou indépendant en Savoie : déléguer ses réseaux, est-ce utile ? Ce que je fais concrètement, quand ça vaut le coup, quand garder la main.
 - [Comment être bien référencé sur Google quand on est une petite structure ?](https://peakcl.com/conseils-referencer-site-google) : Référencement local pour indépendants : les fondations SEO, l'importance de la fiche Google Business Profile, et ce qui fait vraiment venir des clients.
 
 ## L'entreprise

@@ -5,6 +5,7 @@ import { breadcrumbJsonLd } from "@/seo/jsonld";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 import { BOOKING_URL } from "@/lib/links";
+import { design } from "@/content/peakcl/services";
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
@@ -61,10 +62,43 @@ export const Route = createFileRoute("/creation-logo-albertville")({
 
 const INCLUDED = [
   "Brief créatif & moodboard (on clarifie votre positionnement)",
-  "Propositions de logo (nombre selon devis)",
+  "Une à trois pistes de logo selon la formule",
   "Palette de couleurs & typographies",
   "Déclinaisons : fond clair/sombre, favicon, avatar réseaux",
   "Fichiers livrables (SVG, PNG, PDF) + mini guide d'usage",
+];
+
+/**
+ * Les deux formules d'identité, lues dans le catalogue (services.ts) : un prix
+ * changé là-bas se met à jour ici. Ajouté le 30/09/2026 : la page faisait
+ * 411 mots et ne donnait aucun prix, pour une prestation désormais vendue
+ * 500 € (logo) ou dès 1 200 € (identité complète).
+ */
+const FORMULES = design.filter((d) =>
+  ["Logo essentiel", "Identité visuelle complète"].includes(d.title),
+);
+
+const ETAPES = [
+  {
+    titre: "On se parle",
+    texte:
+      "Un questionnaire sur votre activité, vos clients et ce que vous voulez qu'on ressente en voyant votre marque. Puis un appel pour lever les zones de flou.",
+  },
+  {
+    titre: "Les pistes",
+    texte:
+      "Une piste pour le logo essentiel, trois pour l'identité complète. Chacune expliquée : pourquoi cette forme, ces couleurs, cette typo pour votre métier.",
+  },
+  {
+    titre: "On affine",
+    texte:
+      "Deux révisions comprises. On ajuste ensemble la piste retenue jusqu'à ce qu'elle vous ressemble, pas jusqu'à ce qu'elle plaise à tout le monde.",
+  },
+  {
+    titre: "Vous repartez équipé",
+    texte:
+      "Les fichiers dans tous les formats (web, print, réseaux), les déclinaisons fond clair et fond sombre, et un guide pour savoir quoi utiliser où.",
+  },
 ];
 
 const ZONES = [
@@ -156,18 +190,70 @@ function Page() {
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               {INCLUDED.map((i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-turquoise-ink)]" />
                   {i}
                 </li>
               ))}
             </ul>
             <a
               href="/services"
-              className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+              className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
             >
               Voir les offres graphisme <ArrowRight className="h-4 w-4" />
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Formules et prix */}
+      <section className="border-t border-border py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="text-2xl font-bold">Deux formules, prix affichés</h2>
+          <p className="mt-3 max-w-2xl text-muted-foreground">
+            Un logo pour démarrer, ou une identité complète quand votre marque doit tenir sur un
+            site, des réseaux, une carte de visite et une vitrine.
+          </p>
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            {FORMULES.map((f) => (
+              <article
+                key={f.title}
+                className="rounded-2xl border border-border bg-card/50 p-6 shadow-card"
+              >
+                <h3 className="text-lg font-bold">{f.title}</h3>
+                <p className="mt-1 font-display text-xl font-bold">{f.price} HT</p>
+                <p className="mt-2 text-sm text-muted-foreground">{f.desc}</p>
+                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                  {f.included.map((i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-turquoise-ink)]" />
+                      {i}
+                    </li>
+                  ))}
+                </ul>
+                {f.delay ? <p className="mt-4 text-xs text-muted-foreground">{f.delay}</p> : null}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Déroulé */}
+      <section className="border-t border-border py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="text-2xl font-bold">Comment ça se passe</h2>
+          <ol className="mt-8 grid gap-5 md:grid-cols-2">
+            {ETAPES.map((e, i) => (
+              <li key={e.titre} className="flex gap-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-[var(--brand-yellow)] font-display font-bold text-[#13004D]">
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="font-semibold">{e.titre}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{e.texte}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

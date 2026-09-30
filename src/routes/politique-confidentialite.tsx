@@ -44,14 +44,17 @@ const SECTIONS: Section[] = [
             E-mail :{" "}
             <a
               href={`mailto:${CONTACT.email}`}
-              className="text-[var(--brand-turquoise)] hover:underline"
+              className="text-[var(--accent-turquoise-ink)] hover:underline"
             >
               {CONTACT.email}
             </a>
           </li>
           <li>
             Téléphone :{" "}
-            <a href={CONTACT.phoneTel} className="text-[var(--brand-turquoise)] hover:underline">
+            <a
+              href={CONTACT.phoneTel}
+              className="text-[var(--accent-turquoise-ink)] hover:underline"
+            >
               {CONTACT.phoneDisplay}
             </a>
           </li>
@@ -252,7 +255,7 @@ const SECTIONS: Section[] = [
           Pour exercer ces droits, écrivez à{" "}
           <a
             href={`mailto:${CONTACT.email}`}
-            className="text-[var(--brand-turquoise)] hover:underline"
+            className="text-[var(--accent-turquoise-ink)] hover:underline"
           >
             {CONTACT.email}
           </a>
@@ -266,7 +269,7 @@ const SECTIONS: Section[] = [
             href="https://www.cnil.fr/fr/plaintes"
             target="_blank"
             rel="noreferrer"
-            className="text-[var(--brand-turquoise)] hover:underline"
+            className="text-[var(--accent-turquoise-ink)] hover:underline"
           >
             cnil.fr/fr/plaintes
           </a>
@@ -304,7 +307,7 @@ const SECTIONS: Section[] = [
           href="https://www.netlify.com"
           target="_blank"
           rel="noreferrer"
-          className="text-[var(--brand-turquoise)] hover:underline"
+          className="text-[var(--accent-turquoise-ink)] hover:underline"
         >
           netlify.com
         </a>
@@ -332,7 +335,7 @@ export const Route = createFileRoute("/politique-confidentialite")({
       {
         name: "description",
         content:
-          "Politique de confidentialité de peakcl.com : données collectées via les formulaires, cookies, destinataires, durées de conservation et exercice de vos droits RGPD.",
+          "Politique de confidentialité de peakcl.com : données des formulaires, cookies, destinataires, durées de conservation et exercice de vos droits RGPD.",
       },
       {
         property: "og:title",

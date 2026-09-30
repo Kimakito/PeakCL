@@ -53,7 +53,7 @@ function Block({ block }: { block: AssetBlock }) {
       <div className="grid gap-3 sm:grid-cols-3">
         {block.cards.map((c, i) => (
           <div key={i} className="rounded-2xl border border-border bg-muted p-4">
-            <div className="text-xs font-bold text-[var(--brand-turquoise)]">{c.k}</div>
+            <div className="text-xs font-bold text-[var(--accent-turquoise-ink)]">{c.k}</div>
             <div className="mt-1 text-base font-bold text-foreground">{c.t}</div>
             <div className="mt-2 text-sm text-muted-foreground">{c.d}</div>
           </div>
@@ -139,7 +139,7 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
           {/* Paper */}
           <div className="mt-5 rounded-3xl border border-border bg-card/20 p-6 shadow-card print-paper sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
                 {asset.eyebrow}
               </span>
               <span className="text-xs text-muted-foreground">{asset.readTime}</span>
@@ -267,14 +267,14 @@ export function ValueAsset({ asset }: { asset: ValueAssetData }) {
                   borderWidth={3}
                 />
                 <div>
-                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-turquoise)]">
+                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent-turquoise-ink)]">
                     Ressource suivante
                   </div>
                   <div className="mt-1 text-sm font-semibold text-foreground">
                     {asset.next.title}
                   </div>
                 </div>
-                <ArrowRight className="h-5 w-5 shrink-0 text-[var(--brand-turquoise)] transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight className="h-5 w-5 shrink-0 text-[var(--accent-turquoise-ink)] transition-transform group-hover:translate-x-0.5" />
               </a>
             )}
 

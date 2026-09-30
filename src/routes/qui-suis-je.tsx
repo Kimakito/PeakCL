@@ -18,12 +18,12 @@ export const Route = createFileRoute("/qui-suis-je")({
   head: () => ({
     meta: [
       {
-        title: "Charlotte Lacroix · Développeuse web & community manager · Savoie",
+        title: "Charlotte Lacroix · Développeuse web & community manager",
       },
       {
         name: "description",
         content:
-          "Charlotte Lacroix (PeakCL), développeuse web & community manager près d'Albertville (Savoie). 7 ans dans le digital : sites, réseaux et SEO local pour indépendants, TPE et PME.",
+          "Charlotte Lacroix (PeakCL), développeuse web et community manager près d'Albertville. 7 ans dans le digital : sites, réseaux et SEO local pour TPE et PME.",
       },
       {
         property: "og:title",

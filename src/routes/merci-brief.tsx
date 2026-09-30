@@ -45,7 +45,7 @@ function MerciBriefPage() {
       <section className="relative overflow-hidden bg-hero py-20">
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
+          <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--accent-turquoise-ink)]">
             <Check className="h-6 w-6" />
           </div>
           <h1 className="mt-6 text-balance text-4xl font-bold md:text-5xl">C’est reçu.</h1>
@@ -119,7 +119,7 @@ function MerciBriefPage() {
             Après confirmation du créneau, vous serez redirigé·e vers la page{" "}
             <a
               href={BIENVENUE_PATH}
-              className="font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+              className="font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
             >
               bienvenue
             </a>{" "}

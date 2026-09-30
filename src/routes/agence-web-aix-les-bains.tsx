@@ -28,7 +28,7 @@ export const Route = createFileRoute("/agence-web-aix-les-bains")({
       // « agence wordpress aix-les-bains » remonte en impressions sans aucun
       // clic : le mot WordPress n'apparaissait nulle part sur la page. Il est
       // légitime ici — une partie du portfolio est livrée sous WordPress.
-      { title: "Création de site internet à Aix-les-Bains · WordPress & sur mesure" },
+      { title: "Création de site internet à Aix-les-Bains · PeakCL" },
       {
         name: "description",
         content:

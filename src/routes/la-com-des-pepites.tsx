@@ -21,6 +21,11 @@ export const Route = createFileRoute("/la-com-des-pepites")({
       {
         title: "La com' des pépites · Formez-vous à l'IA et à la com, ou déléguez",
       },
+      // Landing de sous-marque, atteinte par campagne et non par la recherche :
+      // aucune page du site n'y mène et elle n'est pas au sitemap. Indexée, elle
+      // exposait à Google un second positionnement (formation IA, tutoiement)
+      // sans rapport avec PeakCL.
+      { name: "robots", content: "noindex, follow" },
       {
         name: "description",
         content:

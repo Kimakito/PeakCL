@@ -71,7 +71,7 @@ export function TextInput({
     <label className="block">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <span className="text-sm font-semibold text-foreground">
-          {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
+          {label} {required ? <span className="text-[var(--accent-turquoise-ink)]">⭐</span> : null}
         </span>
       </div>
       {helper ? <div className="mt-1 text-xs text-muted-foreground">{helper}</div> : null}
@@ -113,7 +113,7 @@ export function TextArea({
     <label className="block">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <span className="text-sm font-semibold text-foreground">
-          {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
+          {label} {required ? <span className="text-[var(--accent-turquoise-ink)]">⭐</span> : null}
         </span>
         {maxLength ? (
           <span className="text-xs text-muted-foreground">
@@ -156,7 +156,7 @@ export function ChoiceSingle({
   return (
     <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
-        {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
+        {label} {required ? <span className="text-[var(--accent-turquoise-ink)]">⭐</span> : null}
       </legend>
       {helper ? <div className="mt-2 px-2 text-xs text-muted-foreground">{helper}</div> : null}
       <div className="mt-4 grid gap-2">
@@ -204,7 +204,7 @@ export function ChoiceMulti({
   return (
     <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
-        {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
+        {label} {required ? <span className="text-[var(--accent-turquoise-ink)]">⭐</span> : null}
       </legend>
       {helper ? <div className="mt-2 px-2 text-xs text-muted-foreground">{helper}</div> : null}
       {required && !hasValue ? (
@@ -256,7 +256,7 @@ export function ChoiceScale({
   return (
     <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
-        {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
+        {label} {required ? <span className="text-[var(--accent-turquoise-ink)]">⭐</span> : null}
       </legend>
       <div className="mt-4 grid grid-cols-11 gap-1">
         {Array.from({ length: 11 }, (_, i) => String(i)).map((n) => (

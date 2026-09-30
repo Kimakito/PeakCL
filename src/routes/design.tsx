@@ -8,11 +8,11 @@ import { MASCOT_GALLERY } from "@/content/peakcl/mascots";
 export const Route = createFileRoute("/design")({
   head: () => ({
     meta: [
-      { title: "Graphiste en Savoie : design graphique & identité visuelle · PeakCL" },
+      { title: "Graphiste en Savoie : logo et identité visuelle · PeakCL" },
       {
         name: "description",
         content:
-          "Graphiste en Savoie : logo, charte graphique, supports print et visuels réseaux sociaux. Une marque cohérente et mémorable. Logo à partir de 500 € HT, identité complète à partir de 1 200 € HT.",
+          "Graphiste en Savoie : logo dès 500 € HT, identité visuelle complète dès 1 200 € HT, supports print et visuels réseaux sociaux pour une marque cohérente.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/design") },

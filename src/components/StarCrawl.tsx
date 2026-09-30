@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useRouterState } from "@tanstack/react-router";
-import { localeFromPath, type Locale } from "@/i18n/config";
 import { DELIVERED_COUNT } from "@/content/peakcl/portfolio";
 
 /**
@@ -21,9 +19,8 @@ import { DELIVERED_COUNT } from "@/content/peakcl/portfolio";
 
 type Para = { lead?: string; rest: string };
 
-/** Textes du générique selon la langue : paragraphes, titres, libellés de
- *  boutons et CTA de sortie. L'anglais adopte un angle international/remote et
- *  retire l'ancrage Savoie. */
+/** Textes du générique : paragraphes, titres, libellés de boutons et CTA de
+ *  sortie. */
 type CrawlCopy = {
   paragraphs: Para[];
   episode: string;
@@ -49,43 +46,16 @@ const PARAGRAPHS_FR: Para[] = [
   },
 ];
 
-const PARAGRAPHS_EN: Para[] = [
-  {
-    lead: "I code, I design, and I'm trained in social media management.",
-    rest: "I'm Charlotte Lacroix and I'm the founder of PeakCL. Most business owners have to juggle a developer who doesn't think about design, a designer who can't code and a social media manager who doesn't know their brand. With me, it's a single point of contact for your site, your visual identity and your social: site, logo and posts aligned on the same message, with no double brief and no hidden subcontracting.",
-  },
-  {
-    rest: "My training in social media management rounds out my technical and design skills: I don't just make pretty posts, I build consistent communication, designed to convert, from your website all the way to your social channels.",
-  },
-  {
-    rest: `In practice, I help small businesses, growing teams, freelancers, makers, therapists and shop owners who want a professional online presence without spending their evenings on it. I've delivered ${DELIVERED_COUNT} client projects, a travel agency, a law firm, an auto craftsman, a dental technician, coaches, an equestrian store, all rated 5/5 on Google. I work remotely, with clients across France and worldwide, over video calls.`,
-  },
-];
-
-function crawlCopy(locale: Locale): CrawlCopy {
-  if (locale === "en") {
-    return {
-      paragraphs: PARAGRAPHS_EN,
-      episode: "Episode I",
-      title: "A single point of contact",
-      endText: "One point of contact for your site, your logo and your social.",
-      ctaLabel: "Get your diagnosis",
-      ctaHref: "/en/book-a-call",
-      readAsText: "Read as text",
-      replay: "Replay the intro",
-    };
-  }
-  return {
-    paragraphs: PARAGRAPHS_FR,
-    episode: "Épisode I",
-    title: "Une seule interlocutrice",
-    endText: "Une seule interlocutrice pour votre site, votre logo et vos réseaux.",
-    ctaLabel: "Recevoir mon mini-audit",
-    ctaHref: "/diagnostic",
-    readAsText: "Lire en texte",
-    replay: "Revoir le générique",
-  };
-}
+const COPY: CrawlCopy = {
+  paragraphs: PARAGRAPHS_FR,
+  episode: "Épisode I",
+  title: "Une seule interlocutrice",
+  endText: "Une seule interlocutrice pour votre site, votre logo et vos réseaux.",
+  ctaLabel: "Recevoir mon mini-audit",
+  ctaHref: "/diagnostic",
+  readAsText: "Lire en texte",
+  replay: "Revoir le générique",
+};
 
 /**
  * Étoiles tirées avec un xorshift à graine fixe : le serveur et le client
@@ -120,9 +90,7 @@ const CRAWL_MEDIA = "(min-width: 768px) and (prefers-reduced-motion: no-preferen
 const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
 
 export function StarCrawl({ className = "" }: { className?: string }) {
-  const path = useRouterState({ select: (s) => s.location.pathname });
-  const locale = localeFromPath(path);
-  const copy = crawlCopy(locale);
+  const copy = COPY;
   const PARAGRAPHS = copy.paragraphs;
   const runwayRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
@@ -209,7 +177,7 @@ export function StarCrawl({ className = "" }: { className?: string }) {
           <div className="mt-6 text-center">
             <button
               onClick={() => setForced("crawl")}
-              className="text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+              className="text-sm font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
             >
               {copy.replay}
             </button>

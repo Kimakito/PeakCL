@@ -25,11 +25,11 @@ const FAQ = [
 export const Route = createFileRoute("/community-manager-albertville")({
   head: () => ({
     meta: [
-      { title: "Gestion des réseaux sociaux à Albertville · Community manager · PeakCL" },
+      { title: "Community manager à Albertville · Réseaux sociaux · PeakCL" },
       {
         name: "description",
         content:
-          "Community manager à Albertville : déléguez vos réseaux sociaux à Charlotte (PeakCL). Visuels brandés, rédaction et stratégie, formules mensuelles sans engagement.",
+          "Community manager à Albertville : déléguez vos réseaux sociaux à Charlotte (PeakCL). Visuels, rédaction et stratégie, forfaits sans engagement.",
       },
       { property: "og:title", content: "Community manager à Albertville · PeakCL" },
       {

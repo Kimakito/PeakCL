@@ -65,7 +65,7 @@ function setField(
 function FieldLabel({ label, required }: { label: string; required?: boolean }) {
   return (
     <span className="text-sm font-semibold text-foreground">
-      {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
+      {label} {required ? <span className="text-[var(--accent-turquoise-ink)]">⭐</span> : null}
     </span>
   );
 }
@@ -202,7 +202,7 @@ function ChoiceSingle({
   return (
     <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
-        {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
+        {label} {required ? <span className="text-[var(--accent-turquoise-ink)]">⭐</span> : null}
       </legend>
       <div className="mt-4 grid gap-2">
         {options.map((o) => (
@@ -243,7 +243,7 @@ function ChoiceScale({
   return (
     <fieldset className="rounded-2xl border border-border bg-card/40 p-5 shadow-card backdrop-blur">
       <legend className="px-2 text-sm font-semibold text-foreground">
-        {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
+        {label} {required ? <span className="text-[var(--accent-turquoise-ink)]">⭐</span> : null}
       </legend>
       <div className="mt-4 grid grid-cols-11 gap-1">
         {Array.from({ length: 11 }, (_, i) => String(i)).map((n) => (
@@ -370,7 +370,7 @@ function QuestionnaireR2Page() {
             borderWidth={3}
           />
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
-            <ShieldCheck className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />2 minutes ·
+            <ShieldCheck className="h-3.5 w-3.5 text-[var(--accent-turquoise-ink)]" />2 minutes ·
             Confidentiel
           </div>
           <h1 className="mx-auto mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl">
@@ -404,7 +404,7 @@ function QuestionnaireR2Page() {
               </div>
               <a
                 href="#submit"
-                className="inline-flex items-center gap-2 font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+                className="inline-flex items-center gap-2 font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
               >
                 Aller à l’envoi <ArrowRight className="h-4 w-4" />
               </a>
@@ -572,7 +572,7 @@ function QuestionnaireR2Page() {
                 notre prochain appel.
               </p>
               {values.readyToDecide === "oui" ? (
-                <p className="mt-2 px-2 text-xs font-medium text-[var(--brand-turquoise)]">
+                <p className="mt-2 px-2 text-xs font-medium text-[var(--accent-turquoise-ink)]">
                   Parfait, on prépare tout pour notre appel afin que ce soit un oui aussi de votre
                   côté.
                 </p>
@@ -605,7 +605,7 @@ function QuestionnaireR2Page() {
                 inactiveZone={0.01}
                 borderWidth={3}
               />
-              <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
+              <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--accent-turquoise-ink)]">
                 <Check className="h-6 w-6" />
               </div>
               <h3 className="mt-4 text-2xl font-bold">Prêt·e à envoyer ?</h3>

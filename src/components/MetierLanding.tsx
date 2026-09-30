@@ -2,6 +2,7 @@ import { ArrowRight, Check, Gift, Quote } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { BOOKING_URL } from "@/lib/links";
+import { RelatedArticles } from "@/components/RelatedArticles";
 
 export type MetierFaqItem = { question: string; answerHtml: string };
 
@@ -111,7 +112,7 @@ export function MetierLanding({
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               {benefits.map((b) => (
                 <li key={b} className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-turquoise-ink)]" />
                   {b}
                 </li>
               ))}
@@ -180,7 +181,7 @@ export function MetierLanding({
                     target="_blank"
                     rel="noopener noreferrer"
                     data-event="metier_proof_open"
-                    className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+                    className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
                   >
                     Voir le site <ArrowRight className="h-3.5 w-3.5" />
                   </a>
@@ -190,7 +191,7 @@ export function MetierLanding({
           </div>
           <a
             href="/portfolio"
-            className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+            className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
           >
             Voir tout le portfolio <ArrowRight className="h-4 w-4" />
           </a>
@@ -232,6 +233,14 @@ export function MetierLanding({
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border py-16">
+        <div className="mx-auto max-w-5xl px-6">
+          <RelatedArticles
+            slugs={["conseils-prix-site-internet", "conseils-wordpress-ou-sur-mesure"]}
+          />
         </div>
       </section>
 

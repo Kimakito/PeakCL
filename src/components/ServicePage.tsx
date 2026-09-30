@@ -1,8 +1,5 @@
 import type { ReactNode } from "react";
 import { ArrowRight, ArrowUpRight, Check, Facebook, Instagram } from "lucide-react";
-import { useRouterState } from "@tanstack/react-router";
-import { localeFromPath } from "@/i18n/config";
-import { ui } from "@/i18n/ui";
 import { SnapPage, SnapSection, SectionDots } from "@/components/SnapPage";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Card } from "@/components/ui/card";
@@ -14,8 +11,49 @@ import type { SectionCardSlug } from "@/lib/expressions";
 import type { CatalogItem, Forfait, ServiceHighlight } from "@/content/peakcl/services";
 import type { MascotShot } from "@/content/peakcl/mascots";
 import { BOOKING_URL } from "@/lib/links";
+import { RelatedArticles } from "@/components/RelatedArticles";
 
-type ServicePageStrings = ReturnType<typeof ui>["servicePage"];
+/** Libellés du gabarit (FR uniquement depuis la suppression de l'anglais, 27/08/2026). */
+const STRINGS = {
+  onQuote: "Sur devis",
+  priceHint: "Selon votre profil et le périmètre",
+  deliverables: "Livrables",
+  outOfScope: "Hors périmètre (souvent)",
+  howWeWork: "Comment on avance",
+  howWeWorkBody:
+    "Vous réservez votre appel, je vous fais un retour rapide, puis on valide un devis clair (livrables, délais, budget) selon votre besoin.",
+  requestQuote: "Demander un devis pour cette prestation",
+  popular: "Populaire",
+  /** CTA « Demander un devis » du hero et du bloc contact final. */
+  requestQuoteHero: "Demander un devis",
+  /** CTA secondaire « Réserver un appel ». */
+  bookCall: "Réserver un appel",
+  /** Titres par défaut des sections (fallbacks des props ?? "..."). */
+  highlightsTitleDefault: "Ce que je peux faire pour vous",
+  forfaitsTitleDefault: "Forfaits mensuels",
+  galleryTitleDefault: "Illustration & character design",
+  socialsTitleDefault: "Comptes que j’anime",
+  /** Bloc contact final. */
+  contactTitle: "On commence quand ?",
+  contactBody:
+    "Le plus simple : vous réservez votre appel. C’est quelques minutes, et je reviens vers vous avec un devis clair.",
+  photoCaption: "On y va ?",
+  sections: [
+    "Intro",
+    "Expertises",
+    "Forfaits",
+    "Prestations",
+    "Illustration",
+    "Réseaux",
+    "Contact",
+    // Index 7 : ajouté en fin de tableau parce que les libellés sont
+    // référencés par position plus bas. Insérer au milieu décalerait tous
+    // les suivants.
+    "En bref",
+  ],
+};
+
+type ServicePageStrings = typeof STRINGS;
 
 function CatalogCard({
   p,
@@ -50,7 +88,7 @@ function CatalogCard({
         <h3 className="text-xl font-semibold">{p.title}</h3>
         <div className="text-right">
           <div
-            className={`text-sm font-semibold ${isOnQuote ? "text-muted-foreground" : "text-[var(--brand-turquoise)]"}`}
+            className={`text-sm font-semibold ${isOnQuote ? "text-muted-foreground" : "text-[var(--accent-turquoise-ink)]"}`}
           >
             {priceText}
           </div>
@@ -67,7 +105,7 @@ function CatalogCard({
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             {p.included.map((x) => (
               <li key={x} className="flex items-start gap-3">
-                <Check className="mt-0.5 h-4 w-4 text-[var(--brand-turquoise)]" />
+                <Check className="mt-0.5 h-4 w-4 text-[var(--accent-turquoise-ink)]" />
                 <span>{x}</span>
               </li>
             ))}
@@ -94,7 +132,7 @@ function CatalogCard({
         <a
           href={bookHref}
           data-event="cta_brief_service"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
         >
           {t.requestQuote} <ArrowRight className="h-4 w-4" />
         </a>
@@ -121,12 +159,12 @@ function ForfaitCard({ f, t }: { f: Forfait; t: ServicePageStrings }) {
         <span className="text-xl">{f.emoji}</span>
         <span className="text-sm font-bold uppercase tracking-[0.14em]">{f.name}</span>
       </div>
-      <div className="mt-3 text-2xl font-bold text-[var(--brand-turquoise)]">{f.price}</div>
+      <div className="mt-3 text-2xl font-bold text-[var(--accent-turquoise-ink)]">{f.price}</div>
       <p className="mt-1 text-xs text-muted-foreground">{f.freq}</p>
       <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
         {f.inclus.map((x) => (
           <li key={x} className="flex items-start gap-2">
-            <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
+            <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-turquoise-ink)]" />
             <span>{x}</span>
           </li>
         ))}
@@ -191,6 +229,8 @@ export type ServicePageProps = {
   showPrices?: boolean;
   /** Vignette avatar labellisée affichée dans le hero (ex. "logos"). */
   avatarCard?: SectionCardSlug;
+  /** Slugs d'articles « Conseils » liés, affichés sous le bloc contact final. */
+  articles?: string[];
   /** Scène Spline (robot 3D) affichée dans un hero split. URL .splinecode. */
   heroSpline?: string;
   /** Image affichée dans le hero split (à la place du robot 3D). */
@@ -251,7 +291,7 @@ function ServiceFactSheet({ facts, title }: { facts: ServiceFacts; title: string
           <ol className="mt-3 grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
             {facts.process.map((step, i) => (
               <li key={step} className="flex gap-2">
-                <span className="font-semibold text-[var(--brand-turquoise)]">
+                <span className="font-semibold text-[var(--accent-turquoise-ink)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span>{step}</span>
@@ -288,6 +328,7 @@ export function ServicePage({
   items,
   showPrices,
   avatarCard,
+  articles,
   heroSpline,
   heroImage,
   gallery,
@@ -298,10 +339,8 @@ export function ServicePage({
   socialsTitle,
   socialsSubtitle,
 }: ServicePageProps) {
-  const path = useRouterState({ select: (s) => s.location.pathname });
-  const locale = localeFromPath(path);
-  const t = ui(locale).servicePage;
-  const bookHref = locale === "en" ? "/en/book-a-call" : "/reservation-appel";
+  const t = STRINGS;
+  const bookHref = "/reservation-appel";
   const SECTIONS = [
     { id: "intro", label: t.sections[0] },
     ...(facts ? [{ id: "fiche-section", label: t.sections[7] }] : []),
@@ -333,7 +372,7 @@ export function ServicePage({
                   <div className="grid gap-2 md:grid-cols-2">
                     {/* Colonne texte */}
                     <div className="relative z-10 flex flex-col justify-center p-8 md:p-12">
-                      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+                      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
                         {eyebrow}
                       </span>
                       <h1 className="mt-4 text-balance bg-gradient-to-b from-white to-white/60 bg-clip-text text-4xl font-bold leading-tight text-transparent md:text-5xl">
@@ -379,7 +418,7 @@ export function ServicePage({
               </div>
             ) : (
               <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
                   {eyebrow}
                 </span>
                 <h1 className="mt-4 text-balance text-4xl font-bold leading-tight md:text-6xl">
@@ -605,7 +644,7 @@ export function ServicePage({
                           <h3 className="truncate text-base font-semibold">{s.name}</h3>
                           <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground" />
                         </div>
-                        <div className="text-xs text-[var(--brand-turquoise)]">
+                        <div className="text-xs text-[var(--accent-turquoise-ink)]">
                           {s.platform === "facebook" ? "Facebook" : `@${s.handle}`}
                         </div>
                         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -651,6 +690,7 @@ export function ServicePage({
                   </a>
                 </div>
               </div>
+              {articles?.length ? <RelatedArticles slugs={articles} className="mt-10" /> : null}
             </div>
           </SnapSection>
         </SnapPage>

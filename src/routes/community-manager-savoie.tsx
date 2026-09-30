@@ -32,7 +32,7 @@ const serviceJsonLd = {
 export const Route = createFileRoute("/community-manager-savoie")({
   head: () => ({
     meta: [
-      { title: "Gestion des réseaux sociaux en Savoie (Albertville) · Community manager · PeakCL" },
+      { title: "Community manager en Savoie · Réseaux sociaux · PeakCL" },
       {
         name: "description",
         content:
@@ -179,7 +179,7 @@ function Page() {
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               {INCLUDED.map((i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-turquoise-ink)]" />
                   {i}
                 </li>
               ))}
@@ -202,7 +202,7 @@ function Page() {
             <ul className="mt-4 space-y-3">
               {FORMULES.map((f) => (
                 <li key={f.name} className="rounded-xl border border-border bg-background/40 p-3">
-                  <div className="text-sm font-semibold text-[var(--brand-turquoise)]">
+                  <div className="text-sm font-semibold text-[var(--accent-turquoise-ink)]">
                     {f.name}
                   </div>
                   <div className="mt-0.5 text-xs text-muted-foreground">{f.detail}</div>
@@ -211,7 +211,7 @@ function Page() {
             </ul>
             <a
               href="/services"
-              className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+              className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
             >
               Voir toutes les formules <ArrowRight className="h-4 w-4" />
             </a>
@@ -222,7 +222,7 @@ function Page() {
       {/* Pourquoi moi (E-E-A-T) */}
       <section className="border-t border-border py-20">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-[var(--brand-turquoise)]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-[var(--accent-turquoise-ink)]">
             <Sparkles className="h-3.5 w-3.5" />
             Une CM qui maîtrise aussi le site et le design
           </div>

@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
-import { useRouterState } from "@tanstack/react-router";
-import { localeFromPath, type Locale } from "@/i18n/config";
 import { scopeBadge, type DeckProject } from "@/content/peakcl/portfolioDeck";
 
 /**
@@ -29,23 +27,13 @@ type Strings = {
   hint: string;
 };
 
-const STRINGS: Record<Locale, Strings> = {
-  fr: {
-    reelLabel: "Pellicule des projets",
-    prev: "Projet précédent",
-    next: "Projet suivant",
-    progress: (n, total) => `${n} / ${total}`,
-    inProgress: "en cours",
-    hint: "Molette, glissez ou flèches ← →",
-  },
-  en: {
-    reelLabel: "Project film reel",
-    prev: "Previous project",
-    next: "Next project",
-    progress: (n, total) => `${n} / ${total}`,
-    inProgress: "in progress",
-    hint: "Scroll, swipe or use ← → keys",
-  },
+const STRINGS: Strings = {
+  reelLabel: "Pellicule des projets",
+  prev: "Projet précédent",
+  next: "Projet suivant",
+  progress: (n, total) => `${n} / ${total}`,
+  inProgress: "en cours",
+  hint: "Molette, glissez ou flèches ← →",
 };
 
 export function PortfolioReel({
@@ -61,9 +49,7 @@ export function PortfolioReel({
   /** Change quand le filtre change : réinitialise la bobine au début. */
   resetKey?: string;
 }) {
-  const path = useRouterState({ select: (s) => s.location.pathname });
-  const lang = localeFromPath(path);
-  const t = STRINGS[lang];
+  const t = STRINGS;
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const frameRefs = useRef<(HTMLElement | null)[]>([]);
@@ -222,12 +208,12 @@ export function PortfolioReel({
                   </span>
                 ) : null}
                 {/* Étendue de la mission : lisible sans ouvrir l'étude de cas. */}
-                {scopeBadge(p, lang) ? (
+                {scopeBadge(p) ? (
                   <span
                     className="absolute bottom-2 left-2 max-w-[calc(100%-1rem)] truncate rounded-full bg-black/65 px-2.5 py-1 text-[11px] font-semibold backdrop-blur"
                     style={{ color: p.accent }}
                   >
-                    {scopeBadge(p, lang)}
+                    {scopeBadge(p)}
                   </span>
                 ) : null}
               </div>

@@ -37,7 +37,7 @@ export const Route = createFileRoute("/agence-web-albertville")({
       {
         name: "description",
         content:
-          "Agence web à Albertville : création de site internet et référencement SEO local pour être trouvé sur les recherches du bassin albertvillois. Audit gratuit sous 24h.",
+          "Agence web à Albertville : création de site internet et référencement local pour être trouvé dans le bassin albertvillois. Mini-audit gratuit.",
       },
       { property: "og:title", content: "Agence web à Albertville · PeakCL" },
       {

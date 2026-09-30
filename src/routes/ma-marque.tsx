@@ -791,7 +791,7 @@ function MaMarquePage() {
                 </div>
                 <h3 className="mt-4 text-xl font-bold">{l.label}</h3>
                 <p className="mt-2 flex gap-2 text-sm">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-turquoise-ink)]" />
                   {l.quand}
                 </p>
                 <p className="mt-2 flex gap-2 text-sm text-muted-foreground">

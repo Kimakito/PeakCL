@@ -26,7 +26,7 @@ export const Route = createFileRoute("/diagnostic")({
 function FieldLabel({ label, required }: { label: string; required?: boolean }) {
   return (
     <span className="text-sm font-semibold text-foreground">
-      {label} {required ? <span className="text-[var(--brand-turquoise)]">⭐</span> : null}
+      {label} {required ? <span className="text-[var(--accent-turquoise-ink)]">⭐</span> : null}
     </span>
   );
 }
@@ -343,7 +343,7 @@ function DiagnosticPage() {
         <div className="grid-bg absolute inset-0 -z-10 opacity-30" />
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
-            <CheckCircle2 className="h-4 w-4 text-[var(--brand-turquoise)]" />
+            <CheckCircle2 className="h-4 w-4 text-[var(--accent-turquoise-ink)]" />
             Mini-audit gratuit · 2 minutes
           </div>
           <div className="mt-6 flex justify-center">
@@ -462,7 +462,7 @@ function DiagnosticPage() {
                 quand meme un lead. */}
             <details className="group rounded-3xl border border-border bg-card/20 p-6 shadow-card">
               <summary className="cursor-pointer list-none text-sm font-semibold text-foreground">
-                <span className="text-[var(--brand-turquoise)]">+</span> Aller plus loin
+                <span className="text-[var(--accent-turquoise-ink)]">+</span> Aller plus loin
                 (facultatif) — plus vous m'en dites, plus l'audit est précis
               </summary>
               <div className="mt-6 space-y-6">
@@ -591,7 +591,7 @@ function DiagnosticPage() {
               />
               <div className="text-sm text-muted-foreground">
                 Champs obligatoires marqués d’une{" "}
-                <span className="text-[var(--brand-turquoise)]">⭐</span> — les autres sont
+                <span className="text-[var(--accent-turquoise-ink)]">⭐</span> — les autres sont
                 facultatifs.
               </div>
               <button

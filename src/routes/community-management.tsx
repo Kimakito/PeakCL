@@ -4,14 +4,22 @@ import { serviceJsonLd, breadcrumbJsonLd } from "@/seo/jsonld";
 import { ServicePage } from "@/components/ServicePage";
 import { community, cmForfaits, communityHighlights } from "@/content/peakcl/services";
 
+/**
+ * Page TARIFS du community management (forfaits, à la carte, formation).
+ *
+ * Repositionnée le 30/09/2026 : elle visait la même requête que
+ * /community-manager-savoie (« community management en Savoie »), et les deux
+ * pages se concurrençaient dans Google. La page Savoie porte désormais la
+ * requête locale ; celle-ci répond à « tarif / prix community management ».
+ */
 export const Route = createFileRoute("/community-management")({
   head: () => ({
     meta: [
-      { title: "Community management en Savoie · PeakCL" },
+      { title: "Tarifs community management : forfaits mensuels · PeakCL" },
       {
         name: "description",
         content:
-          "Stratégie et contenus réseaux sociaux : forfaits mensuels de 250 à 950 €/mois, audit à partir de 350 €, contenu à la carte et formation. Rester visible sans y passer vos soirées.",
+          "Tarifs community management : forfaits de 250 à 950 €/mois selon le rythme de publication, audit dès 350 €, contenu à la carte et formation. HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/community-management") },
@@ -23,7 +31,7 @@ export const Route = createFileRoute("/community-management")({
           serviceType: "Community management",
           path: "/community-management",
           audience:
-            "Thérapeutes, praticiens et indépendants qui doivent rester visibles sans avoir le temps de publier eux-mêmes.",
+            "TPE, PME et indépendants qui doivent rester visibles sans avoir le temps de publier eux-mêmes.",
           // Reprend le catalogue reellement affiche sur la page : les donnees
           // structurees decrivent ce que le visiteur voit, pas une offre ideale.
           offers: community.map((o) => ({ title: o.title, desc: o.desc, price: o.price })),
@@ -41,13 +49,14 @@ export const Route = createFileRoute("/community-management")({
   }),
   component: () => (
     <ServicePage
+      articles={["conseils-community-manager-utile", "conseils-site-web-ou-instagram"]}
       heroImage={{
         src: "/peakcl/assets/images/iphone.webp",
         alt: "Contenus réseaux sociaux affichés sur un iPhone",
       }}
       eyebrow="Réseaux sociaux"
-      title="Community management"
-      tagline="Thérapeutes, praticiens, indépendants de Savoie : rester visible et inspirer confiance sur vos réseaux, sans y passer vos soirées. Des forfaits clairs, sans engagement long."
+      title="Tarifs et forfaits de community management"
+      tagline="TPE, PME, artisans et commerces : tous mes forfaits réseaux sociaux, prix affichés, pour rester visibles et inspirer confiance sans y passer vos soirées."
       facts={{
         audience:
           "Thérapeutes, praticiens et indépendants qui doivent rester visibles sans avoir le temps de publier eux-mêmes.",

@@ -73,6 +73,7 @@ export const Route = createFileRoute("/sites-web")({
   }),
   component: () => (
     <ServicePage
+      articles={["conseils-prix-site-internet", "conseils-wordpress-ou-sur-mesure"]}
       showPrices
       heroImage={{
         src: "/peakcl/assets/images/bureau-peakcl.webp",

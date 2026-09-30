@@ -2,6 +2,7 @@ import { ArrowRight, Check, Gift, Instagram, MapPin, Sparkles } from "lucide-rea
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto, SectionAvatarCard } from "@/components/ExpressionPhoto";
 import { BOOKING_URL } from "@/lib/links";
+import { RelatedArticles } from "@/components/RelatedArticles";
 
 export type CmNearbyLink = { name: string; href: string };
 
@@ -140,7 +141,7 @@ export function CommunityLanding({
               {localProof.linkHref && localProof.linkLabel ? (
                 <a
                   href={localProof.linkHref}
-                  className="font-medium text-[var(--brand-turquoise)] hover:underline"
+                  className="font-medium text-[var(--accent-turquoise-ink)] hover:underline"
                 >
                   {localProof.linkLabel}
                 </a>
@@ -185,7 +186,7 @@ export function CommunityLanding({
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               {INCLUDED.map((i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-turquoise-ink)]" />
                   {i}
                 </li>
               ))}
@@ -208,7 +209,7 @@ export function CommunityLanding({
             <ul className="mt-4 space-y-3">
               {FORMULES.map((f) => (
                 <li key={f.name} className="rounded-xl border border-border bg-background/40 p-3">
-                  <div className="text-sm font-semibold text-[var(--brand-turquoise)]">
+                  <div className="text-sm font-semibold text-[var(--accent-turquoise-ink)]">
                     {f.name}
                   </div>
                   <div className="mt-0.5 text-xs text-muted-foreground">{f.detail}</div>
@@ -217,7 +218,7 @@ export function CommunityLanding({
             </ul>
             <a
               href="/community-management"
-              className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+              className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
             >
               Voir toutes les formules <ArrowRight className="h-4 w-4" />
             </a>
@@ -228,7 +229,7 @@ export function CommunityLanding({
       {/* Pourquoi moi (E-E-A-T) */}
       <section className="border-t border-border py-20">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-[var(--brand-turquoise)]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-[var(--accent-turquoise-ink)]">
             <Sparkles className="h-3.5 w-3.5" />
             Une CM qui maîtrise aussi le site et le design
           </div>
@@ -288,6 +289,14 @@ export function CommunityLanding({
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border py-16">
+        <div className="mx-auto max-w-5xl px-6">
+          <RelatedArticles
+            slugs={["conseils-community-manager-utile", "conseils-site-web-ou-instagram"]}
+          />
         </div>
       </section>
 

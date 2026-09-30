@@ -17,6 +17,8 @@ import { faqPageJsonLd } from "@/seo/jsonld";
 import { submitNetlifyForm } from "@/lib/funnel";
 import { CTAButton } from "@/components/CTAButton";
 import { HeroPanel } from "@/components/home/HeroPanel";
+import { BrandHero } from "@/components/home/BrandHero";
+import { HERO_SIZES, heroSrcSet } from "@/lib/hero";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { VideoPresentation } from "@/components/home/VideoPresentation";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -51,12 +53,16 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: absUrl("/") },
-      { rel: "preload", href: LOGO_NAV, as: "image", type: "image/webp" },
+      // Seule image préchargée : la photo du premier écran (élément LCP). Le
+      // logo du menu et la photo ronde du second écran ne sont plus visibles
+      // au chargement, les précharger ralentissait la photo.
       {
         rel: "preload",
-        href: "/peakcl/photo/charlotte-round-800.webp",
         as: "image",
-        type: "image/webp",
+        type: "image/avif",
+        imageSrcSet: heroSrcSet("avif"),
+        imageSizes: HERO_SIZES,
+        fetchPriority: "high",
       },
     ],
   }),
@@ -93,7 +99,7 @@ function ContactInline({ className = "" }: { className?: string }) {
       <a
         href={PHONE_TEL}
         data-event="cta_phone"
-        className="inline-flex items-center gap-1 font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+        className="inline-flex items-center gap-1 font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
       >
         <Phone className="h-3.5 w-3.5 shrink-0" aria-hidden />
         {PHONE_DISPLAY}
@@ -104,7 +110,7 @@ function ContactInline({ className = "" }: { className?: string }) {
         target="_blank"
         rel="noopener noreferrer"
         data-event="cta_whatsapp"
-        className="font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+        className="font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
       >
         WhatsApp
       </a>
@@ -112,7 +118,7 @@ function ContactInline({ className = "" }: { className?: string }) {
       <a
         href={`mailto:${EMAIL}`}
         data-event="cta_email"
-        className="font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+        className="font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
       >
         {EMAIL}
       </a>
@@ -221,7 +227,7 @@ function ProblemPanel() {
               <CTAButton href="/diagnostic" dataEvent="cta_mini_audit_problem">
                 Recevoir mon mini-audit
               </CTAButton>
-              <MascotCameo pose="idee" className="absolute bottom-0 right-0 hidden h-40 lg:block" />
+              <MascotCameo pose="idee" className="absolute bottom-0 right-0 h-40" />
             </div>
           </div>
           <ul className="space-y-3">
@@ -328,7 +334,7 @@ function MethodPanel() {
                 inactiveZone={0.01}
                 borderWidth={3}
               />
-              <div className="text-xs font-semibold tracking-[0.2em] text-[var(--brand-turquoise)]">
+              <div className="text-xs font-semibold tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
                 {s.n}
               </div>
               <h3 className="mt-4 text-base font-semibold">{s.title}</h3>
@@ -416,13 +422,13 @@ function OffersPanel() {
                   {o.eyebrow}
                 </div>
                 <h3 className="mt-2 text-base font-semibold">{o.title}</h3>
-                <div className="mt-2 text-sm font-semibold text-[var(--brand-turquoise)]">
+                <div className="mt-2 text-sm font-semibold text-[var(--accent-turquoise-ink)]">
                   {o.price}
                 </div>
                 <ul className="mt-4 space-y-2 text-xs text-muted-foreground">
                   {o.points.map((x) => (
                     <li key={x} className="flex items-start gap-2">
-                      <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--brand-turquoise)]" />
+                      <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--accent-turquoise-ink)]" />
                       <span>{x}</span>
                     </li>
                   ))}
@@ -535,20 +541,20 @@ function PortfolioPanel() {
                     </span>
                   ))}
                   {p.scope && p.scope.length > 3 ? (
-                    <span className="rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs font-semibold text-[var(--brand-turquoise)]">
+                    <span className="rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs font-semibold text-[var(--accent-turquoise-ink)]">
                       +{p.scope.length - 3}
                     </span>
                   ) : null}
                 </div>
               )}
-              <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--brand-turquoise)]">
+              <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent-turquoise-ink)]">
                 Voir le projet <ArrowRight className="h-3.5 w-3.5" />
               </div>
             </motion.a>
           ))}
         </div>
         <div className="mt-10 flex items-end justify-center gap-4">
-          <MascotCameo pose="dab" className="hidden h-36 lg:block" />
+          <MascotCameo pose="dab" className="h-36" />
           <CTAButton href="/portfolio" variant="ghost">
             Voir le portfolio
           </CTAButton>
@@ -589,10 +595,7 @@ function FAQPanel() {
   return (
     <section id="faq" className="relative flex w-full items-center overflow-hidden py-16 md:py-20">
       <div className="relative mx-auto max-w-3xl px-8 md:px-16 w-full">
-        <MascotCameo
-          pose="reflechit"
-          className="absolute bottom-0 right-full hidden h-72 xl:block"
-        />
+        <MascotCameo pose="reflechit" from="xl" className="absolute bottom-0 right-full h-72" />
         <SectionHeading
           className="mb-8"
           accent="turquoise"
@@ -607,7 +610,7 @@ function FAQPanel() {
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-sm font-semibold">
                 {f.question}
-                <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border text-[var(--brand-turquoise)] transition-transform group-open:rotate-45 text-base">
+                <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border text-[var(--accent-turquoise-ink)] transition-transform group-open:rotate-45 text-base">
                   +
                 </span>
               </summary>
@@ -696,10 +699,7 @@ function ContactPanel() {
           data-event="audit_submit"
           onSubmit={handleSubmit}
         >
-          <MascotCameo
-            pose="salut"
-            className="absolute bottom-0 left-full ml-8 hidden h-80 xl:block"
-          />
+          <MascotCameo pose="salut" from="xl" className="absolute bottom-0 left-full ml-8 h-80" />
           <GlowingEffect
             spread={40}
             glow
@@ -801,7 +801,7 @@ function MobileStickyContact() {
           data-event="cta_phone_sticky"
           className="flex flex-1 items-center justify-center gap-2 rounded-full border border-border bg-card/60 py-3 text-sm font-semibold text-foreground backdrop-blur hover:bg-card/80"
         >
-          <Phone className="h-4 w-4 text-[var(--brand-turquoise)]" aria-hidden />
+          <Phone className="h-4 w-4 text-[var(--accent-turquoise-ink)]" aria-hidden />
           Appeler
         </a>
         <a
@@ -989,7 +989,7 @@ function Stat({
   const { value, ref } = useCountUp(target ?? 0);
   return (
     <span className="inline-flex items-center gap-1.5">
-      <span ref={ref} className="font-bold text-[var(--brand-turquoise)]">
+      <span ref={ref} className="font-bold text-[var(--accent-turquoise-ink)]">
         {literal ?? `${prefix}${value}${suffix}`}
       </span>
       <span className="text-muted-foreground">{label}</span>
@@ -1016,6 +1016,7 @@ function Landing() {
   return (
     <div className="relative bg-background text-foreground">
       {/* Scroll vertical : sections pleine hauteur empilées (desktop + mobile) */}
+      <BrandHero />
       <HeroPanel />
       <ReassuranceBar />
       <VideoPresentation />

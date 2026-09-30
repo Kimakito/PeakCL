@@ -216,7 +216,7 @@ export function PeakaBot() {
                 type="button"
                 onClick={() => onChoice(c)}
                 data-event={c.event}
-                className="inline-flex items-center rounded-full border border-border bg-muted px-3.5 py-1.5 text-xs font-semibold text-foreground transition-colors hover:border-[var(--brand-turquoise)] hover:text-[var(--brand-turquoise)]"
+                className="inline-flex items-center rounded-full border border-border bg-muted px-3.5 py-1.5 text-xs font-semibold text-foreground transition-colors hover:border-[var(--brand-turquoise)] hover:text-[var(--accent-turquoise-ink)]"
               >
                 {c.label}
               </button>
@@ -263,7 +263,7 @@ export function PeakaBot() {
             target="_blank"
             rel="noopener noreferrer"
             data-event="peakabot_whatsapp"
-            className="flex items-center justify-center gap-2 border-t border-border bg-background/60 px-4 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:text-[var(--brand-turquoise)]"
+            className="flex items-center justify-center gap-2 border-t border-border bg-background/60 px-4 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:text-[var(--accent-turquoise-ink)]"
           >
             <MessageCircle className="h-3.5 w-3.5" />
             Une autre question ? Écrivez à Charlotte sur WhatsApp

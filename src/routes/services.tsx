@@ -12,12 +12,12 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       {
-        title: "Services · Sites web, design, réseaux, automatisation · PeakCL",
+        title: "Services web, logo et réseaux sociaux en Savoie · PeakCL",
       },
       {
         name: "description",
         content:
-          "Un seul interlocuteur pour votre communication : sites web (à partir de 1 400 €), community management (à partir de 250 €/mois), design graphique et automatisation. Tarifs affichés.",
+          "Sites web dès 1 400 €, réseaux sociaux dès 250 €/mois, logo et identité visuelle, automatisation : un seul interlocuteur en Savoie. Tarifs affichés, HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/services") },
@@ -41,7 +41,7 @@ function ServicesHub() {
         <div className="hero-aurora" aria-hidden style={{ bottom: "auto", height: "680px" }} />
         <div className="relative z-10 mx-auto max-w-5xl px-6 py-20">
           <div className="text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
               Services
             </span>
             <h1 className="mt-4 text-balance text-4xl font-bold leading-tight md:text-6xl">
@@ -78,7 +78,7 @@ function ServicesHub() {
                 </div>
                 <h2 className="mt-1 text-xl font-semibold">{s.title}</h2>
                 <p className="mt-3 text-sm text-muted-foreground">{s.tagline}</p>
-                <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-turquoise)]">
+                <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent-turquoise-ink)]">
                   Découvrir{" "}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -121,7 +121,7 @@ function ServicesHub() {
                     <div className="text-2xl">{pk.emoji}</div>
                     <h3 className="mt-3 text-lg font-semibold">{pk.name}</h3>
                     {pk.price ? (
-                      <p className="mt-1 text-sm font-bold text-[var(--brand-turquoise)]">
+                      <p className="mt-1 text-sm font-bold text-[var(--accent-turquoise-ink)]">
                         {pk.price}
                       </p>
                     ) : null}
@@ -129,7 +129,7 @@ function ServicesHub() {
                     <ul className="mt-4 flex-1 space-y-2 text-sm text-muted-foreground">
                       {pk.points.map((x) => (
                         <li key={x} className="flex items-start gap-2">
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-turquoise-ink)]" />
                           <span>{x}</span>
                         </li>
                       ))}
@@ -142,7 +142,7 @@ function ServicesHub() {
                     <a
                       href="/diagnostic"
                       data-event="cta_mini_audit_pack"
-                      className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+                      className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
                     >
                       Demander un devis <ArrowRight className="h-4 w-4" />
                     </a>

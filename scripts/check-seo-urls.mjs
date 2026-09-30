@@ -73,6 +73,7 @@ const NOINDEX = [
   "/merci-diagnostic",
   "/questionnaire-r2",
   "/ma-marque",
+  "/la-com-des-pepites",
 ];
 
 const sitemapUrls = [...readFileSync(SITEMAP, "utf8").matchAll(/<loc>(.*?)<\/loc>/g)].map(

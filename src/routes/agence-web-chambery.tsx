@@ -33,7 +33,7 @@ export const Route = createFileRoute("/agence-web-chambery")({
       {
         name: "description",
         content:
-          "Agence web à Chambéry : création de site internet premium, rapide et optimisé pour le référencement local. Pensé pour générer des prises de contact. Audit gratuit sous 24h.",
+          "Agence web à Chambéry : création de site internet rapide, optimisé pour le référencement local et pensé pour générer des demandes. Mini-audit gratuit.",
       },
       { property: "og:title", content: "Agence web à Chambéry · Création de site internet" },
       {

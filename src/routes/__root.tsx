@@ -16,8 +16,8 @@ import { CookieConsent } from "@/components/CookieConsent";
 import { Analytics } from "@/components/Analytics";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { absUrl } from "@/seo/site";
+import { ogImageMeta } from "@/seo/og";
 import { professionalServiceJsonLd } from "@/seo/jsonld";
-import { localeFromPath, HTML_LANG } from "@/i18n/config";
 
 function NotFoundComponent() {
   return (
@@ -51,38 +51,36 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  head: () => ({
+  // La dernière correspondance est la page affichée : c'est elle qui fixe la
+  // carte de partage (og:image). Rendu serveur à chaque requête, donc ce que
+  // lisent LinkedIn, Facebook ou WhatsApp est toujours la bonne carte.
+  head: ({ matches }) => ({
     meta: [
       // Couleur de l'interface du navigateur sur mobile, alignee sur le
       // violet profond de la charte et sur le manifeste.
       { name: "theme-color", content: "#360099" },
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "PeakCL · Sites web qui transforment vos visiteurs en clients" },
+      // Valeurs par défaut, remplacées par chaque page : elles ne servent qu'aux
+      // pages qui n'en déclarent pas.
+      { title: "PeakCL · Site internet, logo et réseaux sociaux en Savoie" },
       {
         name: "description",
         content:
-          "PeakCL conçoit des sites web premium, logos et identités visuelles pensés pour la conversion. Pour entrepreneurs, coachs et consultants.",
+          "Site internet, identité visuelle et réseaux sociaux pour les TPE et PME de Savoie, par une seule personne. Tarifs affichés, mini-audit gratuit.",
       },
       { name: "author", content: "PeakCL · Charlotte Lacroix" },
-      { property: "og:title", content: "PeakCL · Sites web qui convertissent" },
+      { property: "og:title", content: "PeakCL · Site internet, logo et réseaux sociaux" },
       {
         property: "og:description",
         content:
-          "Création & refonte de sites, logos, identité visuelle et contenus pour entrepreneurs ambitieux.",
+          "Votre site, votre image et vos réseaux par une seule personne, pour les TPE et PME de Savoie.",
       },
       { property: "og:locale", content: "fr_FR" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/") },
-      { property: "og:image", content: absUrl("/peakcl/og-cover.jpg") },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
-      {
-        property: "og:image:alt",
-        content: "PeakCL · Déléguez votre communication en ligne",
-      },
+      ...ogImageMeta(matches[matches.length - 1]?.pathname ?? "/"),
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: absUrl("/peakcl/og-cover.jpg") },
       // Un seul nœud d'entreprise. Le site émettait en plus un `Organization`
       // sans @id décrivant la même société : deux entités concurrentes pour
       // une seule réalité, ce qui brouille le lien PeakCL -> Charlotte Lacroix
@@ -128,11 +126,9 @@ export const Route = createRootRoute({
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
-  // <html lang> suit la langue de l'URL, côté SSR comme au montage.
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const lang = HTML_LANG[localeFromPath(pathname)];
+  // Site en français uniquement (version anglaise supprimée le 27/08/2026).
   return (
-    <html lang={lang} suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <head>
         {/* Thème clair par défaut : le fond crème est l'identité de la charte.
             Suivre le réglage système montrait un site violet générique à tous
@@ -181,13 +177,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   // Le deck home (/) et /portfolio embarquent déjà DeckFooter : on évite le
-  // doublon. Idem pour leurs équivalents anglais.
+  // doublon.
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const hasDeckFooter =
-    pathname === "/" ||
-    pathname === "/portfolio" ||
-    pathname === "/en" ||
-    pathname === "/en/portfolio";
+  const hasDeckFooter = pathname === "/" || pathname === "/portfolio";
   return (
     <>
       <SiteChrome />
@@ -197,7 +189,7 @@ function RootComponent() {
       <PeakaBot />
       {/* Banniere de consentement + chargement conditionnel de GA4/HubSpot.
           Monte au niveau racine pour couvrir toutes les routes, y compris les
-          landings et les pages anglaises. */}
+          landings. */}
       <CookieConsent />
       <Analytics />
     </>

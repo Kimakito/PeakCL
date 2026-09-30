@@ -29,7 +29,7 @@ export const Route = createFileRoute("/agence-web-beaufort")({
       {
         name: "description",
         content:
-          "Création de site internet à Beaufort et dans le Beaufortain : sites premium optimisés SEO local pour producteurs, artisans et hébergeurs. Audit gratuit sous 24h.",
+          "Création de site internet à Beaufort et dans le Beaufortain : sites optimisés SEO local pour producteurs, artisans et hébergeurs. Mini-audit gratuit.",
       },
       { property: "og:title", content: "Création de site internet à Beaufort · PeakCL" },
       {

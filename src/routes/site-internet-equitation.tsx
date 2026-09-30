@@ -30,11 +30,11 @@ const FAQ = [
 export const Route = createFileRoute("/site-internet-equitation")({
   head: () => ({
     meta: [
-      { title: "Création de site internet pour l'équitation et le monde du cheval · PeakCL" },
+      { title: "Création de site internet pour l'équitation · PeakCL" },
       {
         name: "description",
         content:
-          "Site internet pour moniteurs, centres équestres, dentistes équins et professionnels du cheval : référencement géolocalisé, présentation des cours, galerie. À partir de 1 400 € HT.",
+          "Site internet pour moniteurs, centres équestres et pros du cheval : cours, zone d'intervention, galerie, référencement local. Dès 1 400 € HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-equitation") },

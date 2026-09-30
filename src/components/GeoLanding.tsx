@@ -13,6 +13,7 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { ExpressionPhoto } from "@/components/ExpressionPhoto";
 import { BOOKING_URL } from "@/lib/links";
 import { metierPages } from "@/seo/metiers";
+import { RelatedArticles } from "@/components/RelatedArticles";
 
 export type NearbyLink = { name: string; href: string };
 
@@ -192,7 +193,7 @@ export function GeoLanding({
           <div>
             <p className="text-sm font-semibold text-foreground">
               Audit gratuit de votre site web{" "}
-              <span className="text-[var(--brand-turquoise)]">et</span> de vos réseaux sociaux
+              <span className="text-[var(--accent-turquoise-ink)]">et</span> de vos réseaux sociaux
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
               Je passe en revue votre présence en ligne à {city} et je vous renvoie des
@@ -222,7 +223,7 @@ export function GeoLanding({
                 {localExample.linkHref && localExample.linkLabel ? (
                   <a
                     href={localExample.linkHref}
-                    className="font-medium text-[var(--brand-turquoise)] hover:underline"
+                    className="font-medium text-[var(--accent-turquoise-ink)] hover:underline"
                   >
                     {localExample.linkLabel}
                   </a>
@@ -243,7 +244,7 @@ export function GeoLanding({
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               {benefitItems.map((b) => (
                 <li key={b} className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-turquoise-ink)]" />
                   {b}
                 </li>
               ))}
@@ -282,7 +283,7 @@ export function GeoLanding({
                 </div>
                 <h3 className="mt-4 text-base font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[var(--brand-turquoise)]">
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[var(--accent-turquoise-ink)]">
                   En savoir plus{" "}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </span>
@@ -320,7 +321,7 @@ export function GeoLanding({
                   inactiveZone={0.01}
                   borderWidth={3}
                 />
-                <div className="text-sm font-bold text-[var(--brand-turquoise)]">{step.n}</div>
+                <div className="text-sm font-bold text-[var(--accent-turquoise-ink)]">{step.n}</div>
                 <h3 className="mt-2 text-base font-semibold">{step.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{step.desc}</p>
               </div>
@@ -352,6 +353,14 @@ export function GeoLanding({
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border py-16">
+        <div className="mx-auto max-w-5xl px-6">
+          <RelatedArticles
+            slugs={["conseils-referencer-site-google", "conseils-prix-site-internet"]}
+          />
         </div>
       </section>
 

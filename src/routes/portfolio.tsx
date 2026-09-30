@@ -23,11 +23,11 @@ import { BOOKING_URL } from "@/lib/links";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio · PeakCL" },
+      { title: "Réalisations : sites internet et logos en Savoie · PeakCL" },
       {
         name: "description",
         content:
-          "Réalisations PeakCL par métier : sites vitrines, e-commerce, branding. Filtrez les projets par secteur.",
+          "Réalisations PeakCL : sites vitrines, e-commerce, logos et réseaux sociaux pour artisans, commerces et PME de Savoie. Filtrez les projets par métier.",
       },
       { property: "og:title", content: "Portfolio · PeakCL" },
       {
@@ -180,7 +180,7 @@ function CaseStudyModal({ p, onClose }: { p: DeckProject; onClose: () => void })
         ) : null}
 
         <div className="p-6 sm:p-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
             Étude de cas
           </span>
           <h3 className="mt-2 text-2xl font-bold">{p.title}</h3>
@@ -191,13 +191,13 @@ function CaseStudyModal({ p, onClose }: { p: DeckProject; onClose: () => void })
 
           {p.scope?.length ? (
             <div className="mt-6 rounded-2xl border border-border bg-muted/60 p-5">
-              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--brand-turquoise)]">
+              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-turquoise-ink)]">
                 Ce que j'ai pris en charge
               </div>
               <ul className="mt-3 grid gap-2 sm:grid-cols-2">
                 {p.scope.map((s) => (
                   <li key={s} className="flex items-start gap-2 text-sm text-foreground/90">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-turquoise)]" />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-turquoise-ink)]" />
                     {s}
                   </li>
                 ))}
@@ -222,7 +222,7 @@ function CaseStudyModal({ p, onClose }: { p: DeckProject; onClose: () => void })
                     className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1 text-xs text-foreground/90"
                   >
                     {p.scope?.length ? null : (
-                      <Check className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
+                      <Check className="h-3.5 w-3.5 text-[var(--accent-turquoise-ink)]" />
                     )}
                     {t}
                   </li>
@@ -400,7 +400,7 @@ function PortfolioPage() {
       <section className="relative isolate overflow-hidden bg-hero py-14 text-center md:py-20">
         <div className="hero-aurora" aria-hidden style={{ zIndex: -10 }} />
         <div className="relative mx-auto max-w-3xl px-6">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-turquoise)]">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-turquoise-ink)]">
             Portfolio
           </span>
           <h1 className="mt-4 text-balance text-4xl font-bold leading-tight md:text-6xl">

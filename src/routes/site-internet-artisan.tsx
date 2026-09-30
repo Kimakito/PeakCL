@@ -38,7 +38,7 @@ export const Route = createFileRoute("/site-internet-artisan")({
       {
         name: "description",
         content:
-          "Site internet pour artisans et entreprises du bâtiment : galerie de chantiers, fiche Google Business Profile et formulaire de devis. À partir de 1 400 € HT. Mini-audit gratuit.",
+          "Site internet pour artisans et entreprises du bâtiment : galerie de chantiers, fiche Google et formulaire de devis. Dès 1 400 € HT, mini-audit gratuit.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-artisan") },

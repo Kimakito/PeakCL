@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type React from "react";
 import { ArrowRight, CalendarCheck, LayoutGrid, MessageCircle, Package, Star } from "lucide-react";
-import { useRouterState } from "@tanstack/react-router";
 import { CTAButton } from "@/components/CTAButton";
-import { localeFromPath, type Locale } from "@/i18n/config";
 import type { MascotPose } from "@/lib/mascot";
 import { BOOKING_URL } from "@/lib/links";
 
@@ -22,97 +20,50 @@ type OrbitItem = {
   flip?: boolean;
 };
 
-/** Nœuds de l'orbite selon la langue (libellés + descriptions + cibles). */
-function orbitItems(locale: Locale): OrbitItem[] {
-  if (locale === "en") {
-    return [
-      {
-        label: "Book a call",
-        href: "/en/book-a-call",
-        desc: "Free 45-min audit. Leave with a clear plan.",
-        icon: CalendarCheck,
-        pose: "idee",
-        variant: "primary",
-      },
-      {
-        label: "Portfolio",
-        href: "/en/portfolio",
-        desc: "Delivered projects that convert.",
-        icon: LayoutGrid,
-        pose: "dab",
-        variant: "ghost",
-      },
-      {
-        label: "Services",
-        href: "/en/services",
-        desc: "Websites, social, design, automation. One point of contact.",
-        icon: Package,
-        pose: "salut",
-        variant: "ghost",
-      },
-      {
-        label: "Reviews",
-        href: "#avis",
-        desc: "Rated 5/5 on Google by my clients.",
-        icon: Star,
-        pose: "joie",
-        variant: "ghost",
-      },
-      {
-        label: "WhatsApp",
-        href: WHATSAPP_URL,
-        desc: "Quick question? Get a direct reply.",
-        icon: MessageCircle,
-        pose: "dab",
-        variant: "ghost",
-        flip: true,
-      },
-    ];
-  }
-  return [
-    {
-      label: "Mini-audit gratuit",
-      href: "/diagnostic",
-      desc: "Mini-audit offert, 2 minutes. Vos 3 priorités par e-mail.",
-      icon: CalendarCheck,
-      pose: "idee",
-      variant: "primary",
-    },
-    {
-      label: "Portfolio",
-      href: "/portfolio",
-      desc: "Des projets livrés qui convertissent.",
-      icon: LayoutGrid,
-      pose: "dab",
-      variant: "ghost",
-    },
-    {
-      label: "Services",
-      href: "/services",
-      desc: "Sites web, réseaux, design, automatisation. Un seul interlocuteur.",
-      icon: Package,
-      pose: "salut",
-      variant: "ghost",
-    },
-    {
-      label: "Avis clients",
-      href: "#avis",
-      desc: "Noté 5/5 sur Google par mes clients.",
-      icon: Star,
-      pose: "joie",
-      variant: "ghost",
-    },
-    {
-      label: "WhatsApp",
-      href: WHATSAPP_URL,
-      desc: "Une question rapide ? Réponse en direct.",
-      icon: MessageCircle,
-      pose: "dab",
-      variant: "ghost",
-      flip: true,
-    },
-  ];
-}
+/** Nœuds de l'orbite (libellés + descriptions + cibles). */
+const ORBIT_ITEMS: OrbitItem[] = [
+  {
+    label: "Mini-audit gratuit",
+    href: "/diagnostic",
+    desc: "Mini-audit offert, 2 minutes. Vos 3 priorités par e-mail.",
+    icon: CalendarCheck,
+    pose: "idee",
+    variant: "primary",
+  },
+  {
+    label: "Portfolio",
+    href: "/portfolio",
+    desc: "Des projets livrés qui convertissent.",
+    icon: LayoutGrid,
+    pose: "dab",
+    variant: "ghost",
+  },
+  {
+    label: "Services",
+    href: "/services",
+    desc: "Sites web, réseaux, design, automatisation. Un seul interlocuteur.",
+    icon: Package,
+    pose: "salut",
+    variant: "ghost",
+  },
+  {
+    label: "Avis clients",
+    href: "#avis",
+    desc: "Noté 5/5 sur Google par mes clients.",
+    icon: Star,
+    pose: "joie",
+    variant: "ghost",
+  },
+  {
+    label: "WhatsApp",
+    href: WHATSAPP_URL,
+    desc: "Une question rapide ? Réponse en direct.",
+    icon: MessageCircle,
+    pose: "dab",
+    variant: "ghost",
+    flip: true,
+  },
+];
 
 /** Radius of the orbit as a fraction of the container's --hero size. */
 const ORBIT_R = 0.46;
@@ -210,7 +161,9 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
           sizes="(min-width: 768px) 340px, 220px"
           width={800}
           height={800}
-          fetchPriority="high"
+          // Second écran depuis l'arrivée de BrandHero : plus d'urgence. En
+          // « high », React la préchargeait avant la photo LCP du premier écran.
+          fetchPriority="low"
           decoding="async"
           alt="Charlotte Lacroix, fondatrice de PeakCL"
           className="relative h-full w-full rounded-full object-cover shadow-[0_0_44px_rgba(12,198,193,0.35)] ring-2 ring-border"
@@ -286,7 +239,7 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
               onMouseLeave={scheduleClose}
             >
               <div className="flex items-center gap-2">
-                <Icon size={15} className="text-[var(--brand-turquoise)]" />
+                <Icon size={15} className="text-[var(--accent-turquoise-ink)]" />
                 <span className="text-sm font-semibold text-foreground">{item.label}</span>
               </div>
               <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{item.desc}</p>
@@ -305,58 +258,33 @@ function HeroAvatar({ items }: { items: OrbitItem[] }) {
   );
 }
 
-/** Textes du hero selon la langue. En anglais : angle international, on retire
- *  l'ancrage Savoie et « un seul interlocuteur » devient « one person ». */
-function heroText(locale: Locale) {
-  if (locale === "en") {
-    return {
-      badge: "5/5 Google · free audit · one point of contact",
-      titleLead: "Want an online presence that's clear, credible and simple to run?",
-      titleAccent: "One person for your site, design and social, end to end.",
-      sub: "Freelancers, makers, professional practices and small businesses: a sharp online image without spending your evenings on it — from strategy to launch, with a clear plan, concrete deliverables and a human on the other end.",
-      ctaPrimary: "Book a free call",
-      ctaSecondary: "See services",
-      servicesHref: "/en/services",
-      chips: [
-        { value: "5/5", label: "Google reviews" },
-        { value: "1", label: "point of contact" },
-        { value: "45 min", label: "free audit" },
-      ],
-      scrollHint: "scroll ↓",
-    };
-  }
-  return {
-    badge: "5/5 Google · diagnostic gratuit · un seul interlocuteur",
-    titleLead: "Vous voulez une présence en ligne claire, crédible et sans complication ?",
-    titleAccent: "Je vous accompagne de A à Z.",
-    sub: "TPE, PME, indépendants, artisans et professions libérales : une image nette sans y passer vos soirées, de la stratégie au lancement, avec un plan clair, des livrables concrets et un seul interlocuteur. En Savoie et partout en France.",
-    ctaPrimary: "Réserver un appel gratuit",
-    ctaSecondary: "Voir les services",
-    servicesHref: "/services",
-    chips: [
-      { value: "5/5", label: "avis Google" },
-      { value: "1", label: "interlocuteur" },
-      { value: "45 min", label: "diagnostic gratuit" },
-    ],
-    scrollHint: "scroll ↓",
-  };
-}
+/** Textes du hero. */
+const HERO_TEXT = {
+  badge: "5/5 Google · diagnostic gratuit · un seul interlocuteur",
+  titleLead: "Vous voulez une présence en ligne claire, crédible et sans complication ?",
+  titleAccent: "Je vous accompagne de A à Z.",
+  sub: "TPE, PME, indépendants, artisans et professions libérales : une image nette sans y passer vos soirées, de la stratégie au lancement, avec un plan clair, des livrables concrets et un seul interlocuteur. En Savoie et partout en France.",
+  ctaPrimary: "Réserver un appel gratuit",
+  ctaSecondary: "Voir les services",
+  servicesHref: "/services",
+  chips: [
+    { value: "5/5", label: "avis Google" },
+    { value: "1", label: "interlocuteur" },
+    { value: "45 min", label: "diagnostic gratuit" },
+  ],
+};
 
 export function HeroPanel() {
-  const path = useRouterState({ select: (s) => s.location.pathname });
-  const locale = localeFromPath(path);
-  const t = heroText(locale);
-  const items = orbitItems(locale);
+  const t = HERO_TEXT;
+  const items = ORBIT_ITEMS;
 
   return (
     <section
       id="accueil"
-      data-hero
-      // min-h plutôt que h-screen : sur un écran court (paysage tablette/mobile)
-      // le contenu déborderait et l'orbite chevaucherait le titre. Ici le hero
-      // grandit et la page scrolle au lieu de superposer. py-* garde la
-      // respiration quand il tient dans l'écran.
-      className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden py-8"
+      // Deuxième écran de l'accueil depuis l'arrivée de BrandHero (premier
+      // écran, porteur du H1 et du marqueur [data-hero] du menu). Hauteur
+      // naturelle : deux écrans pleine hauteur empilés faisaient doublon.
+      className="relative flex w-full flex-col items-center justify-center overflow-hidden py-20 md:py-24"
     >
       {/* Atmosphère hero : aurora premium + halo lumineux central + étoiles + grain */}
       <div className="hero-aurora" aria-hidden />
@@ -375,11 +303,11 @@ export function HeroPanel() {
       {/* headline under avatar : mt généreux pour dégager le label d'orbite
           du bas (Portfolio), qui déborde sous la boîte avatar. */}
       <div className="hero-fade hero-fade-d1 relative z-10 mt-8 text-center">
-        <h1 className="mx-auto max-w-4xl text-balance text-3xl font-bold leading-[1.1] tracking-tight md:text-5xl xl:text-6xl">
+        <h2 className="mx-auto max-w-4xl text-balance text-3xl font-bold leading-[1.1] tracking-tight md:text-5xl xl:text-6xl">
           {t.titleLead}
           <br />
           <span className="text-gradient-anim">{t.titleAccent}</span>
-        </h1>
+        </h2>
         <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground md:text-lg">{t.sub}</p>
 
         {/* CTA principaux visibles sans scroll */}
@@ -398,16 +326,11 @@ export function HeroPanel() {
               key={item.label}
               className="rounded-full border border-border bg-muted px-3 py-1.5 text-foreground/80 backdrop-blur"
             >
-              <span className="font-semibold text-[var(--brand-turquoise)]">{item.value}</span>{" "}
+              <span className="font-semibold text-[var(--accent-turquoise-ink)]">{item.value}</span>{" "}
               <span>{item.label}</span>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* scroll hint */}
-      <div className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 animate-bounce text-muted-foreground text-xs hidden md:block">
-        {t.scrollHint}
       </div>
     </section>
   );

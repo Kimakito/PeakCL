@@ -30,11 +30,11 @@ const FAQ = [
 export const Route = createFileRoute("/site-internet-architecte-interieur")({
   head: () => ({
     meta: [
-      { title: "Création de site internet pour architecte d'intérieur · PeakCL" },
+      { title: "Site internet pour architecte d'intérieur · PeakCL" },
       {
         name: "description",
         content:
-          "Site internet pour architectes d'intérieur et décorateurs : portfolio de réalisations en pleine page, approche mise en avant et demandes d'étude qualifiées. À partir de 1 400 € HT.",
+          "Site internet pour architectes d'intérieur et décorateurs : portfolio pleine page, méthode mise en avant, demandes d'étude qualifiées. Dès 1 400 € HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-architecte-interieur") },

@@ -36,7 +36,7 @@ function BienvenueStrategiePage() {
         <div className="grid-bg absolute inset-0 -z-10" />
         <div className="mx-auto max-w-4xl px-6 text-center">
           <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs text-muted-foreground">
-            <CheckCircle2 className="h-4 w-4 text-[var(--brand-turquoise)]" />
+            <CheckCircle2 className="h-4 w-4 text-[var(--accent-turquoise-ink)]" />
             Redirection…
           </div>
           <Redirect />

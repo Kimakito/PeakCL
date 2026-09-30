@@ -30,11 +30,11 @@ const FAQ = [
 export const Route = createFileRoute("/site-internet-therapeute")({
   head: () => ({
     meta: [
-      { title: "Création de site internet pour thérapeute et praticien · PeakCL" },
+      { title: "Création de site internet pour thérapeute · PeakCL" },
       {
         name: "description",
         content:
-          "Site internet pour thérapeutes, ostéopathes et praticiens du bien-être : expliquer votre pratique, rassurer, faire prendre rendez-vous. À partir de 1 400 € HT. Mini-audit gratuit.",
+          "Site internet pour thérapeutes et praticiens du bien-être : expliquer votre pratique, rassurer, faire prendre rendez-vous. Dès 1 400 € HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-therapeute") },

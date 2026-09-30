@@ -25,7 +25,7 @@ const FAQ = [
 export const Route = createFileRoute("/community-manager-annecy")({
   head: () => ({
     meta: [
-      { title: "Gestion des réseaux sociaux à Annecy (Haute-Savoie) · Community manager · PeakCL" },
+      { title: "Community manager à Annecy · Réseaux sociaux · PeakCL" },
       {
         name: "description",
         content:

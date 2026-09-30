@@ -11,7 +11,7 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
       {
         name: "description",
         content:
-          "Consultante en automatisation des processus métier : audit, automatisations no-code (Make, Zapier), IA appliquée et formation. Gagnez du temps sur vos tâches répétitives. Sur devis.",
+          "Automatisation des tâches répétitives pour TPE et PME : audit, scénarios no-code (Make, Zapier), IA appliquée et formation. Sur devis, en Savoie ou en visio.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/accompagnement-automatisation") },
@@ -68,7 +68,7 @@ export const Route = createFileRoute("/accompagnement-automatisation")({
       intro={
         <div className="space-y-4">
           <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-card backdrop-blur">
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-turquoise)]">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent-turquoise-ink)]">
               Je pratique ce que je propose
             </div>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

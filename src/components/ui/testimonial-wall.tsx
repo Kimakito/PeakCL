@@ -60,6 +60,8 @@ export function TestimonialWall({ testimonials, className }: TestimonialWallProp
               <CardContent className="flex flex-col gap-4 pt-6">
                 <div
                   className="flex items-center gap-0.5 text-[var(--brand-yellow)]"
+                  // role="img" : un aria-label n'est pas autorisé sur un simple div.
+                  role="img"
                   aria-label={`${t.rating} étoiles sur 5`}
                 >
                   {Array.from({ length: t.rating }).map((_, i) => (

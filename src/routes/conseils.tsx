@@ -81,7 +81,7 @@ function Page() {
                   />
                   <h2 className="text-lg font-bold leading-snug">{c.h1}</h2>
                   <p className="mt-3 flex-1 text-sm text-muted-foreground">{c.excerpt}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[var(--brand-turquoise)]">
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[var(--accent-turquoise-ink)]">
                     Lire l&apos;article{" "}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </span>

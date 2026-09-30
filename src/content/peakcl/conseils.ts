@@ -9,6 +9,8 @@ export type Conseil = {
   h1: string;
   description: string;
   datePublished: string;
+  /** Dernière mise à jour de fond (prix, chiffres). Absent : jamais modifié. */
+  dateModified?: string;
   excerpt: string;
   intro: string;
   sections: ConseilSection[];
@@ -20,24 +22,34 @@ export const conseils: Conseil[] = [
     title: "Combien coûte un site internet ? (guide clair) · PeakCL",
     h1: "Combien coûte un site internet en 2026 ?",
     description:
-      "Prix d'un site internet pour un indépendant ou une petite structure : ce qui fait varier le tarif, les fourchettes réalistes, et comment éviter de payer pour rien.",
+      "Prix d'un site internet pour une TPE ou un indépendant : ce qui fait varier le tarif, mes prix réels (dès 1 400 € HT) et comment ne pas payer pour rien.",
     datePublished: "2026-06-14",
+    dateModified: "2026-09-30",
     excerpt:
-      "« Ça dépend » n'est pas une esquive, c'est la vérité. Je vous montre de quoi ça dépend, avec des fourchettes concrètes pour un thérapeute ou un indépendant.",
+      "« Ça dépend » n'est pas une esquive, c'est la vérité. Je vous montre de quoi ça dépend, avec mes vrais prix et ceux du marché, pour une TPE ou un indépendant.",
     intro:
-      "« Combien coûte un site internet ? » C'est la première question que me posent les thérapeutes et les artisans de Savoie qui me contactent, et c'est souvent celle à laquelle on leur répond le plus mal. Un prix sans contexte ne veut rien dire : votre site n'est pas un produit sur étagère, c'est un outil taillé pour un objectif précis. Je vous explique ce qui fait bouger l'aiguille, sans jargon.",
+      "« Combien coûte un site internet ? » C'est la première question que me posent les artisans, commerçants et petites entreprises de Savoie qui me contactent, et c'est souvent celle à laquelle on leur répond le plus mal. Un prix sans contexte ne veut rien dire : votre site n'est pas un produit sur étagère, c'est un outil taillé pour un objectif précis. Je vous explique ce qui fait bouger l'aiguille, puis je vous donne mes prix, tels qu'ils sont affichés sur le site.",
     sections: [
       {
         h2: "Ce qui fait vraiment varier le prix",
         paragraphs: [
-          "Le premier facteur, c'est le périmètre. Un site vitrine d'une page pour une praticienne qui veut surtout être trouvée et prise de rendez-vous n'a rien à voir avec un site de cinq pages, une boutique en ligne ou un système de réservation connecté à votre agenda. Plus il y a de fonctionnalités et de contenu à structurer, plus le travail grimpe.",
+          "Le premier facteur, c'est le périmètre. Un site de trois pages pour un artisan qui veut surtout être trouvé et recevoir des demandes de devis n'a rien à voir avec un site de cinq pages, une boutique en ligne ou un système de réservation connecté à votre agenda. Plus il y a de fonctionnalités et de contenu à structurer, plus le travail grimpe.",
           "Vient ensuite le sur-mesure : un site codé spécifiquement pour vous est rapide, unique et ne vous enferme pas dans une usine à plugins, mais il demande plus de travail qu'un thème habillé. Et le contenu : si les textes, les photos et la logique du parcours sont à créer de zéro, c'est autant de temps en plus. Une bonne partie de mon travail, c'est justement de vous éviter la page blanche.",
         ],
       },
       {
-        h2: "Des fourchettes pour se repérer",
+        h2: "Les prix du marché en 2026",
         paragraphs: [
-          "Pour un indépendant, un site vitrine professionnel va généralement de quelques centaines à quelques milliers d'euros, selon le périmètre et le niveau de personnalisation. Un pack complet (site + logo + réseaux + fiche Google) représente un budget plus élevé d'un coup, mais vous évite de courir après trois prestataires qui ne se parlent pas.",
+          "Chez un freelance, un site vitrine de cinq à dix pages se situe en général entre 800 et 3 000 € HT. En agence, les devis démarrent plutôt autour de 3 000 € et montent vite dès qu'il y a du sur-mesure, plusieurs langues ou une boutique. Sous 800 €, on est presque toujours sur un thème installé tel quel, sans travail sur vos textes ni sur votre référencement.",
+          "La vraie différence ne se voit pas sur le devis : c'est ce qui est inclus. Maquette avant développement, textes retravaillés, référencement de base, mise en ligne, formation, support après livraison. Deux devis au même prix peuvent cacher deux sites qui n'ont rien à voir.",
+        ],
+      },
+      {
+        h2: "Mes prix, affichés",
+        paragraphs: [
+          "Je calcule tous mes prix de la même façon : le nombre de jours que le projet demande, multiplié par un tarif journalier fixe. Pas de prix « à la tête du client ». Voici ce que ça donne (HT) : site essentiel d'une à trois pages, 1 400 € ; site vitrine jusqu'à six pages, 2 400 €, en code sur mesure comme sous WordPress ; boutique en ligne à partir de 3 800 € ; page de vente à partir de 900 € ; refonte d'un site existant à partir de 1 800 €.",
+          "Le choix entre code sur mesure et WordPress ne change pas le prix : il dépend de si vous voulez modifier vos pages vous-même (WordPress) ou avoir un site plus rapide et sans maintenance de plugins (sur mesure). Après la mise en ligne, le suivi coûte 49 €/mois pour un site sur mesure et 99 €/mois pour WordPress. Tout le détail est sur la page Sites web.",
+          "Un pack complet (site, logo, réseaux) représente un budget plus élevé d'un coup, mais il coûte environ 15 % de moins que les mêmes prestations achetées séparément, et vous évite de courir après trois prestataires qui ne se parlent pas.",
           "Fuyez les deux extrêmes. Le site « gratuit » monté un dimanche vous coûtera dix soirées et une image amateur qui fait fuir vos prospects. Le devis opaque sans périmètre écrit, lui, cache toujours une mauvaise surprise. Je remets un devis chiffré ligne par ligne une fois que j'ai compris votre besoin, pas une fourchette élastique lâchée au téléphone.",
         ],
       },
@@ -86,7 +98,7 @@ export const conseils: Conseil[] = [
   },
   {
     slug: "conseils-wordpress-ou-sur-mesure",
-    title: "Site WordPress ou codé sur mesure : comment choisir ? · PeakCL",
+    title: "Site WordPress ou codé sur mesure : comment choisir ?",
     h1: "Site WordPress ou site codé sur mesure : comment choisir ?",
     description:
       "WordPress ou site sur mesure : avantages, limites et critères de choix selon votre besoin d'autonomie, de performance et d'évolution.",
@@ -121,10 +133,10 @@ export const conseils: Conseil[] = [
   },
   {
     slug: "conseils-community-manager-utile",
-    title: "Faut-il un community manager quand on est indépendant ? · PeakCL",
-    h1: "Faut-il un community manager quand on est thérapeute ou indépendant ?",
+    title: "Faut-il un community manager quand on est indépendant ?",
+    h1: "Faut-il un community manager quand on est une TPE ou un indépendant ?",
     description:
-      "Thérapeute, praticien ou artisan en Savoie : déléguer ses réseaux, est-ce vraiment utile ? Ce que je fais concrètement, quand ça vaut le coup, et quand je vous dis de garder la main.",
+      "TPE, artisan ou indépendant en Savoie : déléguer ses réseaux, est-ce utile ? Ce que je fais concrètement, quand ça vaut le coup, quand garder la main.",
     datePublished: "2026-06-14",
     excerpt:
       "Le dimanche soir sur Canva pendant que la lessive tourne : je connais. Voici quand déléguer ses réseaux devient vraiment rentable, et quand ça ne l'est pas.",
@@ -156,7 +168,7 @@ export const conseils: Conseil[] = [
   },
   {
     slug: "conseils-referencer-site-google",
-    title: "Comment être bien référencé sur Google (petite structure) · PeakCL",
+    title: "Comment être bien référencé sur Google (petite structure)",
     h1: "Comment être bien référencé sur Google quand on est une petite structure ?",
     description:
       "Référencement local pour indépendants : les fondations SEO, l'importance de la fiche Google Business Profile, et ce qui fait vraiment venir des clients.",
@@ -202,7 +214,7 @@ function articleJsonLd(c: Conseil) {
     headline: c.h1,
     description: c.description,
     datePublished: c.datePublished,
-    dateModified: c.datePublished,
+    dateModified: c.dateModified ?? c.datePublished,
     author: {
       "@type": "Person",
       name: "Charlotte Lacroix",

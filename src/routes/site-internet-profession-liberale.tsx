@@ -30,11 +30,11 @@ const FAQ = [
 export const Route = createFileRoute("/site-internet-profession-liberale")({
   head: () => ({
     meta: [
-      { title: "Création de site internet pour profession libérale et cabinet · PeakCL" },
+      { title: "Création de site internet pour profession libérale · PeakCL" },
       {
         name: "description",
         content:
-          "Site internet pour avocats, cabinets de conseil et professions libérales : domaines d'intervention, réassurance et prise de rendez-vous, dans le respect de votre déontologie. À partir de 1 400 € HT.",
+          "Site internet pour avocats, cabinets et professions libérales : domaines d'intervention, réassurance et prise de rendez-vous. Dès 1 400 € HT.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/site-internet-profession-liberale") },

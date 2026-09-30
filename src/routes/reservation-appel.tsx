@@ -22,11 +22,11 @@ const BUREAU_IMAGE = "/peakcl/assets/images/bureau-peakcl.webp";
 export const Route = createFileRoute("/reservation-appel")({
   head: () => ({
     meta: [
-      { title: "Réservation d’appel · PeakCL" },
+      { title: "Réserver un appel gratuit de 45 minutes · PeakCL" },
       {
         name: "description",
         content:
-          "Diagnostic approfondi PeakCL avant votre appel, ou réservez directement votre créneau.",
+          "Réservez un appel gratuit de 45 minutes avec Charlotte : votre projet de site, d'identité ou de réseaux, et un plan clair à la sortie de l'appel.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: absUrl("/reservation-appel") },
@@ -122,7 +122,7 @@ function ReservationAppelPage() {
             <span className="opacity-40">·</span>
             Diagnostic 45 min
             <span className="opacity-40">·</span>
-            <ShieldCheck className="h-3.5 w-3.5 text-[var(--brand-turquoise)]" />
+            <ShieldCheck className="h-3.5 w-3.5 text-[var(--accent-turquoise-ink)]" />
             Confidentiel
           </div>
 
@@ -185,7 +185,7 @@ function ReservationAppelPage() {
               </div>
               <a
                 href="#submit"
-                className="inline-flex items-center gap-2 font-semibold text-[var(--brand-turquoise)] hover:text-foreground"
+                className="inline-flex items-center gap-2 font-semibold text-[var(--accent-turquoise-ink)] hover:text-foreground"
               >
                 Aller à l’envoi <ArrowRight className="h-4 w-4" />
               </a>
@@ -373,7 +373,7 @@ function ReservationAppelPage() {
                 inactiveZone={0.01}
                 borderWidth={3}
               />
-              <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--brand-turquoise)]">
+              <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-muted text-[var(--accent-turquoise-ink)]">
                 <Check className="h-6 w-6" />
               </div>
               <h3 className="mt-4 text-2xl font-bold">Prêt·e à envoyer ?</h3>

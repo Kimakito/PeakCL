@@ -44,6 +44,7 @@ export const Route = createFileRoute("/refonte-site-pme")({
   }),
   component: () => (
     <ServicePage
+      articles={["conseils-referencer-site-google", "conseils-wordpress-ou-sur-mesure"]}
       heroImage={{
         src: "/peakcl/assets/images/bureau-peakcl.webp",
         alt: "Bureau PeakCL avec un site web affiché à l'écran",
@@ -71,7 +72,7 @@ export const Route = createFileRoute("/refonte-site-pme")({
       }}
       intro={
         <div className="rounded-2xl border border-border bg-card/40 p-6 shadow-card backdrop-blur">
-          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-turquoise)]">
+          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent-turquoise-ink)]">
             Pourquoi me confier une refonte
           </div>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

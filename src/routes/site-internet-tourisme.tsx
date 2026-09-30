@@ -30,7 +30,7 @@ const FAQ = [
 export const Route = createFileRoute("/site-internet-tourisme")({
   head: () => ({
     meta: [
-      { title: "Création de site internet pour le tourisme et les loisirs · PeakCL" },
+      { title: "Création de site internet tourisme et loisirs · PeakCL" },
       {
         name: "description",
         content:
