@@ -14,3 +14,8 @@ dist/
 
 # Genere par le bundler d edge functions quand on lance `netlify dev`.
 deno.lock
+
+# Cache local de graphify (index du code, ~260 JSON regeneres a chaque
+# `graphify update .`). Outil de travail, pas du code du site.
+.graphify/
+graphify-out/
