@@ -66,7 +66,14 @@ const LEGACY = {
  * `/diagnostic` n'en fait PAS partie : c'est une page d'entree publique,
  * declaree au sitemap a dessein.
  */
-const NOINDEX = ["/bienvenue", "/merci", "/merci-brief", "/merci-diagnostic", "/questionnaire-r2"];
+const NOINDEX = [
+  "/bienvenue",
+  "/merci",
+  "/merci-brief",
+  "/merci-diagnostic",
+  "/questionnaire-r2",
+  "/ma-marque",
+];
 
 const sitemapUrls = [...readFileSync(SITEMAP, "utf8").matchAll(/<loc>(.*?)<\/loc>/g)].map(
   (m) => m[1],
